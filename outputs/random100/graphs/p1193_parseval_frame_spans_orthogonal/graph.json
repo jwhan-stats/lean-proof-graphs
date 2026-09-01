@@ -1,0 +1,1446 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1193_parseval_frame_spans_orthogonal",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1193,
+    "source": "1701.08014",
+    "theorem_name": "parseval_frame_spans_orthogonal",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1193",
+    "reconstructed_proof": "../../candidates/p1193_parseval_frame_spans_orthogonal/proof.lean",
+    "raw_elaboration": "../../candidates/p1193_parseval_frame_spans_orthogonal/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+    "verification_call_id": "verify_submission:80",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "186c22b947cae8b637db1e4cb4152e1e644df8cfea430cf772137e20a4e64fdf",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "b8b9e82b5643740bc52a5eed9550e5740c0b9bcf40ef457e002a5b7778a452b7",
+    "concrete_semantic_topology_sha256": "186c22b947cae8b637db1e4cb4152e1e644df8cfea430cf772137e20a4e64fdf"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hdisjoint_c5318ccd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hdisjoint",
+      "lean_fvar_id": "7",
+      "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥"
+    },
+    {
+      "id": "m_hm_65629b1a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hM",
+      "lean_fvar_id": "2",
+      "statement": "0 < M"
+    },
+    {
+      "id": "m_hn_c4d5b37f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hN",
+      "lean_fvar_id": "3",
+      "statement": "0 < N"
+    },
+    {
+      "id": "m_hparseval_bcb00b38",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hParseval",
+      "lean_fvar_id": "5",
+      "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2"
+    },
+    {
+      "id": "m_hu_45e64782",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hu",
+      "lean_fvar_id": "17",
+      "statement": "u ∈ Submodule.span ℝ (φ '' I)"
+    },
+    {
+      "id": "m_hv_1a14fcdd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hv",
+      "lean_fvar_id": "19",
+      "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "inner ℝ u v = 0"
+    },
+    {
+      "id": "n_hdecomp_1bdf256d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hdecomp",
+      "lean_fvar_id": "14",
+      "statement": "∀ (x : E), SI x + SC x = x"
+    },
+    {
+      "id": "n_hframe_00fc80d6",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hframe",
+      "lean_fvar_id": "13",
+      "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id"
+    },
+    {
+      "id": "n_hscu_a_4de507bb",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSCu_A",
+      "lean_fvar_id": "22",
+      "statement": "SC u ∈ A"
+    },
+    {
+      "id": "n_hscu_b_cabcf1c1",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSCu_B",
+      "lean_fvar_id": "21",
+      "statement": "SC u ∈ B"
+    },
+    {
+      "id": "n_hscu_zero_ec699b89",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSCu_zero",
+      "lean_fvar_id": "23",
+      "statement": "SC u = 0"
+    },
+    {
+      "id": "n_hsi_zero_on_b_88bdff80",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSI_zero_on_B",
+      "lean_fvar_id": "15",
+      "statement": "∀ v ∈ B, SI v = 0"
+    },
+    {
+      "id": "n_hsiu_4bfffbaa",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSIu",
+      "lean_fvar_id": "24",
+      "statement": "SI u = u"
+    },
+    {
+      "id": "n_hsiu_a_7c5005b3",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSIu_A",
+      "lean_fvar_id": "20",
+      "statement": "SI u ∈ A"
+    },
+    {
+      "id": "n_hsiv_adb7ee1a",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hSIv",
+      "lean_fvar_id": "25",
+      "statement": "SI v = 0"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hframe",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hparseval_bcb00b38"
+      ],
+      "conclusion": "n_hframe_00fc80d6",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "partialFrame_univ_eq_id_of_parseval",
+        "items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_univ_eq_id_of_parseval"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_univ_eq_id_of_parseval"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hframe : partialFrame φ Set.univ = LinearMap.id :=\n    partialFrame_univ_eq_id_of_parseval φ hParseval",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hParseval",
+              "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "hframe",
+            "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id"
+          }
+        },
+        "lean_dependency_sha256": "14cfd03d56a9ee954241be2e416e6446ecfe0bf374bb88d6468bb7e2fe013921",
+        "kernel_witness_check": {
+          "proof_type": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hdecomp",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hframe_00fc80d6"
+      ],
+      "conclusion": "n_hdecomp_1bdf256d",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "partialFrame_add_compl + congrArg",
+        "items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+          "congrArg"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl"
+        ],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_14",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hdecomp : ∀ x : E, SI x + SC x = x := by\n    intro x\n    have happ := congrArg (fun T : E →ₗ[ℝ] E => T x)\n      (partialFrame_add_compl φ I)\n    rw [hframe] at happ\n    simpa [SI, SC] using happ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hframe",
+              "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "14",
+            "name": "hdecomp",
+            "statement": "∀ (x : E), SI x + SC x = x"
+          }
+        },
+        "lean_dependency_sha256": "38509d93b5428d75d275e01966b66c0e0567bdd1f8acb808a3e44d8f5e83cd61",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : E), SI x + SC x = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hsi_zero_on_b",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hdisjoint_c5318ccd",
+        "n_hdecomp_1bdf256d"
+      ],
+      "conclusion": "n_hsi_zero_on_b_88bdff80",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "partialFrame_mem_span + Submodule.mem_bot + eq_sub_of_add_eq",
+        "items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+          "Submodule.mem_bot",
+          "eq_sub_of_add_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span"
+        ],
+        "mathlib_items": [
+          "Submodule.mem_bot",
+          "eq_sub_of_add_eq"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_15",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSI_zero_on_B : ∀ v ∈ B, SI v = 0 := by\n    intro v hv\n    have hSIv_A : SI v ∈ A := by\n      simpa [SI, A, E] using partialFrame_mem_span φ I v\n    have hSCv_B : SC v ∈ B := by\n      simpa [SC, B, E] using partialFrame_mem_span φ Iᶜ v\n    have hSIv_B : SI v ∈ B := by\n      have hEq : SI v = v - SC v := eq_sub_of_add_eq (hdecomp v)\n      rw [hEq]\n      exact B.sub_mem hv hSCv_B\n    have hbot : SI v ∈ (⊥ : Submodule ℝ E) := by\n      rw [← hdisjoint]\n      change SI v ∈ A ⊓ B\n      exact ⟨hSIv_A, hSIv_B⟩\n    exact (Submodule.mem_bot ℝ).mp hbot\n  intro u hu v hv",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hdisjoint",
+              "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hdecomp",
+              "statement": "∀ (x : E), SI x + SC x = x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "15",
+            "name": "hSI_zero_on_B",
+            "statement": "∀ v ∈ B, SI v = 0"
+          }
+        },
+        "lean_dependency_sha256": "20dfad7212e65bf4e0a8a62fb0c9fc39c010d9e150c6f273fcdd69bf687abbee",
+        "kernel_witness_check": {
+          "proof_type": "∀ v ∈ B, SI v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Submodule.mem_bot",
+          "eq_sub_of_add_eq"
+        ],
+        "observed_search_event_ids": [
+          "loogle:78",
+          "loogle:75",
+          "loogle:76"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hsiu_a",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hsiu_a_7c5005b3",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "partialFrame_mem_span",
+        "items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSIu_A : SI u ∈ A := by\n    simpa [SI, A, E] using partialFrame_mem_span φ I u",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hSIu_A",
+            "statement": "SI u ∈ A"
+          }
+        },
+        "lean_dependency_sha256": "4a777a85eaa7cc361d7d0cb2480962e2ca22ef10ad314a8c3edc03f0b7c381dd",
+        "kernel_witness_check": {
+          "proof_type": "SI u ∈ A",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hscu_b",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hscu_b_cabcf1c1",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "partialFrame_mem_span",
+        "items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSCu_B : SC u ∈ B := by\n    simpa [SC, B, E] using partialFrame_mem_span φ Iᶜ u",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "hSCu_B",
+            "statement": "SC u ∈ B"
+          }
+        },
+        "lean_dependency_sha256": "cf0a9272b3e52966c36023c3eb82309d7a6aaf7f5667e7ff1a7ae83f584ffd85",
+        "kernel_witness_check": {
+          "proof_type": "SC u ∈ B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hscu_a",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hdecomp_1bdf256d",
+        "m_hu_45e64782",
+        "n_hsiu_a_7c5005b3"
+      ],
+      "conclusion": "n_hscu_a_4de507bb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "eq_sub_of_add_eq'",
+        "items": [
+          "eq_sub_of_add_eq'"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "eq_sub_of_add_eq'"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSCu_A : SC u ∈ A := by\n    have hEq : SC u = u - SI u := eq_sub_of_add_eq' (hdecomp u)\n    rw [hEq]\n    exact A.sub_mem hu hSIu_A",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "14",
+              "name": "hdecomp",
+              "statement": "∀ (x : E), SI x + SC x = x"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hu",
+              "statement": "u ∈ Submodule.span ℝ (φ '' I)"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hSIu_A",
+              "statement": "SI u ∈ A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hSCu_A",
+            "statement": "SC u ∈ A"
+          }
+        },
+        "lean_dependency_sha256": "406320e23184181becfd5641bbf5dadf2747ef4022c1db5ff20da6bbc9836b90",
+        "kernel_witness_check": {
+          "proof_type": "SC u ∈ A",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "eq_sub_of_add_eq'"
+        ],
+        "observed_search_event_ids": [
+          "loogle:75"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hscu_zero",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hdisjoint_c5318ccd",
+        "n_hscu_b_cabcf1c1",
+        "n_hscu_a_4de507bb"
+      ],
+      "conclusion": "n_hscu_zero_ec699b89",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Submodule.mem_bot",
+        "items": [
+          "Submodule.mem_bot"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Submodule.mem_bot"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_23",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSCu_zero : SC u = 0 := by\n    have hbot : SC u ∈ (⊥ : Submodule ℝ E) := by\n      rw [← hdisjoint]\n      change SC u ∈ A ⊓ B\n      exact ⟨hSCu_A, hSCu_B⟩\n    exact (Submodule.mem_bot ℝ).mp hbot",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hdisjoint",
+              "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hSCu_B",
+              "statement": "SC u ∈ B"
+            },
+            {
+              "fvar_id": "22",
+              "name": "hSCu_A",
+              "statement": "SC u ∈ A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "23",
+            "name": "hSCu_zero",
+            "statement": "SC u = 0"
+          }
+        },
+        "lean_dependency_sha256": "9e8fed7d4845c6ccf4333a87eaac03f4c7ef253b60ee8b0e2217bc0533319b59",
+        "kernel_witness_check": {
+          "proof_type": "SC u = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Submodule.mem_bot"
+        ],
+        "observed_search_event_ids": [
+          "loogle:78"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hsiu",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hdecomp_1bdf256d",
+        "n_hscu_zero_ec699b89"
+      ],
+      "conclusion": "n_hsiu_4bfffbaa",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_zero",
+        "items": [
+          "add_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_24",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSIu : SI u = u := by\n    have h := hdecomp u\n    rw [hSCu_zero, add_zero] at h\n    exact h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "14",
+              "name": "hdecomp",
+              "statement": "∀ (x : E), SI x + SC x = x"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hSCu_zero",
+              "statement": "SC u = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "24",
+            "name": "hSIu",
+            "statement": "SI u = u"
+          }
+        },
+        "lean_dependency_sha256": "77f85fbbf75ca30ffeeb5f0203a11820fe9aebb487af7450f364385cbb365a03",
+        "kernel_witness_check": {
+          "proof_type": "SI u = u",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hsiv",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hsi_zero_on_b_88bdff80",
+        "m_hv_1a14fcdd"
+      ],
+      "conclusion": "n_hsiv_adb7ee1a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_25",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hSIv : SI v = 0 := hSI_zero_on_B v hv\n  calc\n    inner ℝ u v = inner ℝ (SI u) v := by rw [hSIu]\n    _ = inner ℝ u (SI v) := partialFrame_isSymmetric φ I u v\n    _ = inner ℝ u 0 := by rw [hSIv]\n    _ = 0 := by rw [inner_zero_right]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "15",
+              "name": "hSI_zero_on_B",
+              "statement": "∀ v ∈ B, SI v = 0"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hv",
+              "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "25",
+            "name": "hSIv",
+            "statement": "SI v = 0"
+          }
+        },
+        "lean_dependency_sha256": "469462fc6a46167fe98cc1183206bc1ae6303ed158921ab4253b78238063612c",
+        "kernel_witness_check": {
+          "proof_type": "SI v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hsiu_4bfffbaa",
+        "n_hsiv_adb7ee1a"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "partialFrame_isSymmetric + inner_zero_right",
+        "items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_isSymmetric",
+          "inner_zero_right"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_isSymmetric"
+        ],
+        "mathlib_items": [
+          "inner_zero_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  have hSCu_A : SC u ∈ A := by\n    have hEq : SC u = u - SI u := eq_sub_of_add_eq' (hdecomp u)\n    rw [hEq]\n    exact A.sub_mem hu hSIu_A\n  have hSCu_zero : SC u = 0 := by\n    have hbot : SC u ∈ (⊥ : Submodule ℝ E) := by\n      rw [← hdisjoint]\n      change SC u ∈ A ⊓ B\n      exact ⟨hSCu_A, hSCu_B⟩\n    exact (Submodule.mem_bot ℝ).mp hbot\n  have hSIu : SI u = u := by\n    have h := hdecomp u\n    rw [hSCu_zero, add_zero] at h\n    exact h\n  have hSIv : SI v = 0 := hSI_zero_on_B v hv\n  calc\n    inner ℝ u v = inner ℝ (SI u) v := by rw [hSIu]\n    _ = inner ℝ u (SI v) := partialFrame_isSymmetric φ I u v\n    _ = inner ℝ u 0 := by rw [hSIv]\n    _ = 0 := by rw [inner_zero_right]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "24",
+              "name": "hSIu",
+              "statement": "SI u = u"
+            },
+            {
+              "fvar_id": "25",
+              "name": "hSIv",
+              "statement": "SI v = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "inner ℝ u v = 0"
+          }
+        },
+        "lean_dependency_sha256": "4dcd841064e67b18f8d6e24aadb7ac36d17523a425b32bb400354ad66ae4b7ad",
+        "kernel_witness_check": {
+          "proof_type": "inner ℝ u v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "inner_zero_right"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:7"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "∀ x, inner _ x (_ x) = inner _ x x -> _ = _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "self-adjoint linear map determined by quadratic form inner product polarization",
+      "declarations": [
+        "inner_map_polarization",
+        "inner_map_polarization'",
+        "LinearMap.adjoint",
+        "LinearMap.BilinMap.toQuadraticMap",
+        "LinearMap.BilinMap.polarBilin_toQuadraticMap",
+        "LinearMap.adjoint_inner_right",
+        "ContinuousLinearMap.reApplyInnerSelf",
+        "LinearMap.IsSymmetric.inner_map_polarization",
+        "LinearMap.adjoint_inner_left",
+        "LinearMap.BilinForm.IsSymm.polarization"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "inner _ (_ + _) _",
+      "declarations": [
+        "InnerProductSpace.add_left",
+        "InnerProductSpace.Core.inner_add_left",
+        "PreInnerProductSpace.Core.add_left",
+        "InnerProductSpace.Core.inner_add_add_self",
+        "PreInnerProductSpace.Core.mk",
+        "InnerProductSpace.mk",
+        "real_inner_add_sub_eq_zero_iff",
+        "inner_add_left",
+        "real_inner_add_add_self",
+        "inner_add_add_self"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "inner _ _ (_ • _)",
+      "declarations": [
+        "InnerProductSpace.Core.inner_smul_right",
+        "InnerProductSpace.Core.inner_smul_ofReal_right",
+        "InnerProductSpace.Core.re_inner_smul_ofReal_smul_self",
+        "real_inner_smul_right",
+        "real_inner_smul_self_right",
+        "real_inner_I_smul_self",
+        "inner_smul_right",
+        "inner_smul_real_right",
+        "real_inner_div_norm_mul_norm_eq_one_of_ne_zero_of_pos_mul",
+        "inner_smul_right_eq_smul"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "LinearMap.IsSymmetric.inner_map_polarization",
+      "declarations": [
+        "LinearMap.IsSymmetric.inner_map_polarization"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "LinearMap.IsSymmetric",
+      "declarations": [
+        "LinearMap.IsSymmetric.id",
+        "LinearMap.IsSymmetric",
+        "LinearMap.IsSymmetricProjection.isSymmetric",
+        "LinearMap.IsSymmetricProjection.mk",
+        "LinearMap.isSymmetricProjection_iff",
+        "LinearMap.IsSymmetric.zero",
+        "LinearMap.isSymmetric_iff_inner_map_self_real",
+        "LinearMap.isSymmetric_sum",
+        "LinearMap.IsSymmetric.intCast",
+        "LinearMap.IsSymmetric.natCast"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "LinearMap.ext_inner",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "if inner x y equals zero for all x then y zero inner product ext",
+      "declarations": [
+        "inner_eq_zero_of_right",
+        "InnerProductSpace.Core.inner_zero_right",
+        "InnerProductGeometry.angle",
+        "inner_re_zero_left",
+        "InnerProductSpace.Core.inner_self_eq_zero",
+        "inner_self_eq_zero",
+        "Pell.Solution",
+        "Pell.IsFundamental.x_mul_y_le_y_mul_x",
+        "Polynomial.Bivariate.",
+        "Pell.x_sub_y_dvd_pow"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "IsSymmetric ∀ x inner _ (_ x) x",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "symmetric linear map zero if quadratic form zero",
+      "declarations": [
+        "LinearMap.isSymm_zero",
+        "LinearMap.IsSymmetric",
+        "LinearMap.IsSymmetric.zero",
+        "QuadraticMap.map_zero",
+        "QuadraticMap.Isometry.instZeroOfNat",
+        "LinearMap.BilinMap.toQuadraticMap_zero",
+        "LinearMap.BilinForm.toQuadraticMap_isOrtho",
+        "QuadraticMap.instZero",
+        "LinearMap.BilinMap.toQuadraticMap",
+        "LinearMap.isPosSemidef_zero"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "inner_self_eq_zero",
+      "declarations": [
+        "inner_self_eq_zero"
+      ],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "inner _ _ _ = 0 ↔ _ = 0",
+      "declarations": [
+        "InnerProductSpace.Core.inner_self_eq_zero",
+        "inner_self_eq_zero",
+        "inner_eq_zero_symm",
+        "CStarModule.inner_self",
+        "CStarModule.mk",
+        "inner_vsub_left_eq_zero_symm",
+        "inner_vsub_right_eq_zero_symm"
+      ],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "innerSL",
+      "declarations": [
+        "innerSL",
+        "flip_innerSL_real",
+        "innerSL_real_flip",
+        "norm_innerSL_le",
+        "innerSL_apply_norm",
+        "coe_innerSL_apply",
+        "innerSL_apply",
+        "innerSL_apply_apply",
+        "innerSL_apply_coe",
+        "ContinuousLinearMap.toLinearMap_innerSL_apply"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "LinearMap.smulRight",
+      "declarations": [
+        "LinearMap.smulRight",
+        "LinearMap.smulRight_zero",
+        "LinearMap.zero_smulRight",
+        "LinearMap.coe_smulRight",
+        "LinearMap.smulRight_apply",
+        "LinearMap.smulRight_apply_eq_zero_iff",
+        "LinearMap.ringLmapEquivSelf_symm_apply",
+        "LinearMap.smulRight_id",
+        "Fintype.linearIndependent_iff'"
+      ],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "innerₗ",
+      "declarations": [
+        "isSymm_inner",
+        "isPosSemidef_inner",
+        "isNonneg_inner",
+        "inner",
+        "flip_inner",
+        "bilinFormOfRealInner_orthogonal",
+        "orthogonalBilin_inner",
+        "InnerProductSpace.instIsContPerfPairRealInner"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "inner product as linear map in first argument innerSL",
+      "declarations": [
+        "toMatrix_innerSL_apply",
+        "InnerProductSpace.innerSL_norm",
+        "innerSL",
+        "innerSL_apply_apply",
+        "innerSL_inj",
+        "inner_smul_left_eq_star_smul",
+        "ContinuousLinearMap.adjoint_innerSL_apply",
+        "InnerProductSpace.Core.inner_smul_right",
+        "inner_smul_right_eq_smul",
+        "InnerProductSpace"
+      ],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "real_inner_comm",
+      "declarations": [
+        "real_inner_comm"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "LinearMap.IsSymmetric.add",
+      "declarations": [
+        "LinearMap.IsSymmetric.add"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "LinearMap.IsSymmetric.sum",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "LinearMap.IsSymmetric.sub",
+      "declarations": [
+        "LinearMap.IsSymmetric.sub"
+      ],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "inner ℝ _ _ = ‖_‖ ^ 2",
+      "declarations": [
+        "real_inner_self_eq_norm_sq",
+        "inner_eq_norm_sq_left_iff",
+        "inner_eq_norm_sq_right_iff"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "‖_‖ ^ 2 = inner ℝ _ _",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "real_inner_self_eq_norm_sq",
+      "declarations": [
+        "real_inner_self_eq_norm_sq"
+      ],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "norm_sq_eq_inner",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "inner_smul_left",
+      "declarations": [
+        "inner_smul_left"
+      ],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "real_inner_smul_left",
+      "declarations": [
+        "real_inner_smul_left"
+      ],
+      "call_turn": 40,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "inner ℝ (_ • _) _",
+      "declarations": [
+        "real_inner_smul_left",
+        "real_inner_smul_self_left",
+        "Orientation.inner_rotation_pi_div_two_right_smul",
+        "Orientation.inner_smul_rotation_pi_div_two_left",
+        "Orientation.inner_smul_rotation_pi_div_two_smul_left",
+        "Orientation.inner_smul_rotation_pi_div_two_smul_right"
+      ],
+      "call_turn": 40,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "inner ℝ _ (_ • _)",
+      "declarations": [
+        "real_inner_smul_right",
+        "real_inner_smul_self_right",
+        "real_inner_I_smul_self",
+        "real_inner_div_norm_mul_norm_eq_one_of_ne_zero_of_pos_mul",
+        "abs_real_inner_div_norm_mul_norm_eq_one_of_ne_zero_of_ne_zero_mul",
+        "real_inner_div_norm_mul_norm_eq_neg_one_of_ne_zero_of_neg_mul",
+        "Orientation.inner_rotation_pi_div_two_left_smul",
+        "Orientation.inner_smul_rotation_pi_div_two_right",
+        "Orientation.inner_smul_rotation_pi_div_two_smul_left",
+        "Orientation.inner_smul_rotation_pi_div_two_smul_right"
+      ],
+      "call_turn": 40,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "inner_sub_left",
+      "declarations": [
+        "inner_sub_left"
+      ],
+      "call_turn": 67,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "inner (_ - _) _",
+      "declarations": [],
+      "call_turn": 67,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "inner ℝ (_ - _) _",
+      "declarations": [
+        "inner_eq_norm_sq_right_iff",
+        "real_inner_sub_sub_self",
+        "norm_eq_iInf_iff_real_inner_le_zero",
+        "Submodule.norm_eq_iInf_iff_real_inner_eq_zero"
+      ],
+      "call_turn": 67,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "LinearMap.sub_apply",
+      "declarations": [
+        "LinearMap.sub_apply"
+      ],
+      "call_turn": 67,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "inner_sum_right",
+      "declarations": [],
+      "call_turn": 86,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "inner _ _ (∑ _, _)",
+      "declarations": [
+        "Orthonormal.inner_right_fintype",
+        "OrthogonalFamily.inner_right_fintype",
+        "Matrix.star_dotProduct_gram_mulVec"
+      ],
+      "call_turn": 86,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "inner (∑ _, _) _",
+      "declarations": [],
+      "call_turn": 86,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Finset.sum inner",
+      "declarations": [
+        "Finset.sum_val",
+        "Finset.sum_multiset_singleton",
+        "Finset.sum_eq_multiset_sum",
+        "Finset.sum_map_val",
+        "Finset.sum_mk",
+        "Finset.sum_empty'",
+        "Finset.op_sum",
+        "Finset.sum_empty",
+        "Finset.sum_of_isEmpty",
+        "Finset.sum_range_zero"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "leanfinder:58",
+      "tool": "leanfinder",
+      "query": "inner product finite sum right argument distributes",
+      "declarations": [
+        "sum_inner",
+        "Finset.sum_finset_product_right'",
+        "DFinsupp.sum_inner",
+        "inner_sum",
+        "Finset.sum_finset_product_right",
+        "Finset.sum_product_right'",
+        "CStarModule.inner_sum_right",
+        "Finite.sum_right",
+        "Orthonormal.inner_right_sum",
+        "InnerProductSpace"
+      ],
+      "call_turn": 90,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "inner _ _ (Finset.sum _ _)",
+      "declarations": [
+        "inner_sum",
+        "inner_sum_smul_sum_smul_of_sum_eq_zero",
+        "Orthonormal.inner_right_fintype",
+        "Orthonormal.inner_right_sum",
+        "Orthonormal.inner_sum",
+        "OrthogonalFamily.inner_right_fintype",
+        "OrthogonalFamily.inner_sum",
+        "CStarModule.inner_sum_right",
+        "Matrix.star_dotProduct_gram_mulVec"
+      ],
+      "call_turn": 90,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "inner (Finset.sum _ _) _",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "Finset.sum_filter_add_sum_filter_not",
+      "declarations": [
+        "Finset.sum_filter_add_sum_filter_not"
+      ],
+      "call_turn": 99,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "sum_filter_add_sum_filter_not",
+      "declarations": [],
+      "call_turn": 99,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "Finset.filter_union_filter_not_eq",
+      "declarations": [
+        "Finset.filter_union_filter_not_eq"
+      ],
+      "call_turn": 99,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Finset.sum_filter_not",
+      "declarations": [],
+      "call_turn": 99,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Finset.filter _ᶜ",
+      "declarations": [],
+      "call_turn": 106,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "Finset.filter_compl",
+      "declarations": [],
+      "call_turn": 106,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "filter_not",
+      "declarations": [],
+      "call_turn": 106,
+      "result_turn": 109
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Finset.filter_congr_decidable",
+      "declarations": [
+        "Finset.filter_congr_decidable"
+      ],
+      "call_turn": 106,
+      "result_turn": 110
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "_ + _ = _ -> _ = _ - _",
+      "declarations": [
+        "Nat.eq_sub_of_add_eq",
+        "Nat.eq_sub_of_add_eq'",
+        "eq_sub_of_add_eq",
+        "eq_sub_of_add_eq'",
+        "eq_zero_sub_of_add_eq_zero_left",
+        "eq_zero_sub_of_add_eq_zero_right",
+        "IsAddUnit.eq_sub_of_add_eq",
+        "eq_tsub_of_add_eq",
+        "AddLECancellable.eq_tsub_of_add_eq",
+        "AddLECancellable.eq_tsub_of_add_eq'"
+      ],
+      "call_turn": 117,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "eq_sub_of_add_eq",
+      "declarations": [
+        "eq_sub_of_add_eq"
+      ],
+      "call_turn": 117,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "add_sub_cancel_right",
+      "declarations": [
+        "add_sub_cancel_right"
+      ],
+      "call_turn": 117,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "Submodule.mem_bot",
+      "declarations": [
+        "Submodule.mem_bot"
+      ],
+      "call_turn": 117,
+      "result_turn": 121
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 14,
+    "selected_hyperedge_count": 10,
+    "main_hyperedge_count": 10,
+    "side_hyperedge_count": 0,
+    "selected_depth": 6,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 4,
+    "retrieval_query_count": 51,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 47,
+    "accepted_helper_count": 6,
+    "rollout_tool_call_count": 81,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0770_two_bilinear_products_associative_iff",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 770,
+    "source": "1302.0399",
+    "theorem_name": "two_bilinear_products_associative_iff",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/770",
+    "reconstructed_proof": "../../candidates/p0770_two_bilinear_products_associative_iff/proof.lean",
+    "raw_elaboration": "../../candidates/p0770_two_bilinear_products_associative_iff/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0770_two_bilinear_products_associative_iff.two_bilinear_products_associative_iff",
+    "verification_call_id": "verify_submission:9",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "03737d53c077ded934bac5dc575473f2664b4ae966ca594aa2a3036fff53279b",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "11571534cd8e2d8deb7a8ea42dda39b09a4822ef51a266bb8847a817525144b8",
+    "concrete_semantic_topology_sha256": "03737d53c077ded934bac5dc575473f2664b4ae966ca594aa2a3036fff53279b"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let dot := fun x x_1 => match x with | (a, b) => match x_1 with | (c, d) => ((mul₁ a) c + (mul₂ a) d, (mul₂ b) d + (mul₁ b) c); let diamond := fun x x_1 => match x with | (a, b) => match x_1 with | (c, d) => ((mul₁ a) c + (mul₂ b) c, (mul₂ b) d + (mul₁ a) d); let compatibility := (Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z); (compatibility ↔ Std.Associative dot) ∧ (Std.Associative dot ↔ Std.Associative diamond)"
+    },
+    {
+      "id": "n_hdiamond_72a3e195",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdiamond",
+      "lean_fvar_id": "_uniq.972316",
+      "statement": "((Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z)) ↔ Std.Associative fun u v => ((mul₁ u.1) v.1 + (mul₂ u.2) v.1, (mul₂ u.2) v.2 + (mul₁ u.1) v.2)"
+    },
+    {
+      "id": "n_hdot_1325a849",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdot",
+      "lean_fvar_id": "_uniq.972305",
+      "statement": "((Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z)) ↔ Std.Associative fun u v => ((mul₁ u.1) v.1 + (mul₂ u.1) v.2, (mul₂ u.2) v.2 + (mul₁ u.2) v.1)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hdot",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hdot_1325a849",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "bilinear_dot_assoc_iff",
+        "items": [
+          "Rollout_p0770_two_bilinear_products_associative_iff.bilinear_dot_assoc_iff"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0770_two_bilinear_products_associative_iff.bilinear_dot_assoc_iff"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_151",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hdot := bilinear_dot_assoc_iff k A mul₁ mul₂",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.972305",
+            "name": "hdot",
+            "statement": "((Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z)) ↔ Std.Associative fun u v => ((mul₁ u.1) v.1 + (mul₂ u.1) v.2, (mul₂ u.2) v.2 + (mul₁ u.2) v.1)"
+          }
+        },
+        "lean_dependency_sha256": "8397c629b7ac1376e57aa4e41198907c5bfe078e6951a2201a839fce6c10e75e",
+        "kernel_witness_check": {
+          "proof_type": "((Std.Associative fun x y => (mul₁ x) y) ∧\n    (Std.Associative fun x y => (mul₂ x) y) ∧\n      (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧\n        ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z)) ↔\n  Std.Associative fun u v => ((mul₁ u.1) v.1 + (mul₂ u.1) v.2, (mul₂ u.2) v.2 + (mul₁ u.2) v.1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hdiamond",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hdiamond_72a3e195",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "bilinear_diamond_assoc_iff",
+        "items": [
+          "Rollout_p0770_two_bilinear_products_associative_iff.bilinear_diamond_assoc_iff"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0770_two_bilinear_products_associative_iff.bilinear_diamond_assoc_iff"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_152",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hdiamond := bilinear_diamond_assoc_iff k A mul₁ mul₂",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.972316",
+            "name": "hdiamond",
+            "statement": "((Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z)) ↔ Std.Associative fun u v => ((mul₁ u.1) v.1 + (mul₂ u.2) v.1, (mul₂ u.2) v.2 + (mul₁ u.1) v.2)"
+          }
+        },
+        "lean_dependency_sha256": "599fca08c2a92264576eb5c2203ba2e44dcefef78991839b5c42eb51356614a2",
+        "kernel_witness_check": {
+          "proof_type": "((Std.Associative fun x y => (mul₁ x) y) ∧\n    (Std.Associative fun x y => (mul₂ x) y) ∧\n      (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧\n        ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z)) ↔\n  Std.Associative fun u v => ((mul₁ u.1) v.1 + (mul₂ u.2) v.1, (mul₂ u.2) v.2 + (mul₁ u.1) v.2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "constructor + exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · exact hdot\n  · exact hdot.symm.trans hdiamond",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let dot := fun x x_1 => match x with | (a, b) => match x_1 with | (c, d) => ((mul₁ a) c + (mul₂ a) d, (mul₂ b) d + (mul₁ b) c); let diamond := fun x x_1 => match x with | (a, b) => match x_1 with | (c, d) => ((mul₁ a) c + (mul₂ b) c, (mul₂ b) d + (mul₁ a) d); let compatibility := (Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z); (compatibility ↔ Std.Associative dot) ∧ (Std.Associative dot ↔ Std.Associative diamond)"
+          }
+        },
+        "lean_dependency_sha256": "6bcee17e963213cc020b69f7439261408626cddcc40c35bacbac46b0f5753d67",
+        "kernel_witness_check": {
+          "proof_type": "let dot := fun x x_1 =>\n  match x with\n  | (a, b) =>\n    match x_1 with\n    | (c, d) => ((mul₁ a) c + (mul₂ a) d, (mul₂ b) d + (mul₁ b) c);\nlet diamond := fun x x_1 =>\n  match x with\n  | (a, b) =>\n    match x_1 with\n    | (c, d) => ((mul₁ a) c + (mul₂ b) c, (mul₂ b) d + (mul₁ a) d);\nlet compatibility :=\n  (Std.Associative fun x y => (mul₁ x) y) ∧\n    (Std.Associative fun x y => (mul₂ x) y) ∧\n      (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧\n        ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z);\n(compatibility ↔ Std.Associative dot) ∧ (Std.Associative dot ↔ Std.Associative diamond)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Std.Associative",
+      "declarations": [
+        "Std.Associative",
+        "Std.Associative.assoc",
+        "Std.Associative.mk",
+        "instAssociativeAnd",
+        "instAssociativeOr",
+        "instAssociativeBoolAnd",
+        "instAssociativeBoolOr",
+        "Nat.instAssociativeHAdd",
+        "Nat.instAssociativeHMul",
+        "List.instAssociativeHAppend"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 1,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 1,
+    "accepted_helper_count": 2,
+    "rollout_tool_call_count": 10,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

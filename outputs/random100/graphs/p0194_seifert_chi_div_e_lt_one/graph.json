@@ -1,0 +1,1584 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0194_seifert_chi_div_e_lt_one",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 194,
+    "source": "1110.2979",
+    "theorem_name": "seifert_chi_div_e_lt_one",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/194",
+    "reconstructed_proof": "../../candidates/p0194_seifert_chi_div_e_lt_one/proof.lean",
+    "raw_elaboration": "../../candidates/p0194_seifert_chi_div_e_lt_one/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_chi_div_e_lt_one",
+    "verification_call_id": "verify_submission:17",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "470b34ed7bca3de6884d3a0c03c78e97958a03ba5b950199a12ad928a6fa2baf",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "b76e480049e25edd858be7627b1a6d75bd4c173443d6284f6e89b590796c67c1",
+    "concrete_semantic_topology_sha256": "470b34ed7bca3de6884d3a0c03c78e97958a03ba5b950199a12ad928a6fa2baf"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hcases_b7eda7d2",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcases",
+      "lean_fvar_id": "9",
+      "statement": "t = 3 ∧ (4 ≤ d ∨ d = 3 ∧ q 1 = 1 ∨ d = 2 ∧ q 1 = 1 ∧ q 2 = 1) ∨ t = 4 ∧ 3 ≤ d ∧ q 1 = 1 ∧ q 2 = 1 ∧ q 3 = 1"
+    },
+    {
+      "id": "m_hcoprime_78b2abfe",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcoprime",
+      "lean_fvar_id": "7",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → (n i).Coprime (q i)"
+    },
+    {
+      "id": "m_he_a36e69b0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "he",
+      "lean_fvar_id": "8",
+      "statement": "0 < ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i)"
+    },
+    {
+      "id": "m_hn_828b1919",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "4",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → 2 ≤ n i"
+    },
+    {
+      "id": "m_hq_lt_14df4a98",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hq_lt",
+      "lean_fvar_id": "6",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → q i < n i"
+    },
+    {
+      "id": "m_hq_pos_aad19b8f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hq_pos",
+      "lean_fvar_id": "5",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → 1 ≤ q i"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let e := ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i); let χ := -2 + ∑ i ∈ Finset.Icc 1 t, (1 - 1 / ↑(n i)); χ / e < 1"
+    },
+    {
+      "id": "n_hchi_8b811e1d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hchi",
+      "lean_fvar_id": "_uniq.8734522",
+      "statement": "-2 + ∑ i ∈ Finset.Icc 1 3, (1 - 1 / ↑(n i)) < 1"
+    },
+    {
+      "id": "n_hd_a7194cec",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hd",
+      "lean_fvar_id": "_uniq.8793186",
+      "statement": "3 ≤ d"
+    },
+    {
+      "id": "n_hd_e14c7f87",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hd",
+      "lean_fvar_id": "_uniq.8716504",
+      "statement": "4 ≤ d"
+    },
+    {
+      "id": "n_hdq_a8869859",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdQ",
+      "lean_fvar_id": "_uniq.8793356",
+      "statement": "3 ≤ ↑d"
+    },
+    {
+      "id": "n_hdq_c37d43a7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdQ",
+      "lean_fvar_id": "_uniq.8716608",
+      "statement": "4 ≤ ↑d"
+    },
+    {
+      "id": "n_he1_9487ab87",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "he1",
+      "lean_fvar_id": "_uniq.8747718",
+      "statement": "1 < ↑d - ∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i)"
+    },
+    {
+      "id": "n_hn1_5b80d062",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn1",
+      "lean_fvar_id": "_uniq.8717608",
+      "statement": "0 < (↑(n 1))⁻¹"
+    },
+    {
+      "id": "n_hn2_9cfc8d43",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn2",
+      "lean_fvar_id": "_uniq.8758948",
+      "statement": "0 < (↑(n 2))⁻¹"
+    },
+    {
+      "id": "n_hn2_af10c2c1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn2",
+      "lean_fvar_id": "_uniq.8717813",
+      "statement": "0 < (↑(n 2))⁻¹"
+    },
+    {
+      "id": "n_hn3_52ae65c0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn3",
+      "lean_fvar_id": "_uniq.8776585",
+      "statement": "0 < (↑(n 3))⁻¹"
+    },
+    {
+      "id": "n_hn3_7e4c6265",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn3",
+      "lean_fvar_id": "_uniq.8759153",
+      "statement": "0 < (↑(n 3))⁻¹"
+    },
+    {
+      "id": "n_hn3_c4d5eee6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn3",
+      "lean_fvar_id": "_uniq.8718018",
+      "statement": "0 < (↑(n 3))⁻¹"
+    },
+    {
+      "id": "n_hn4_4066cca1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn4",
+      "lean_fvar_id": "_uniq.8793844",
+      "statement": "0 < (↑(n 4))⁻¹"
+    },
+    {
+      "id": "n_hn_33f1cfa1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.8716467",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+    },
+    {
+      "id": "n_hn_56913b11",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.8793264",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 4 → 2 ≤ n i"
+    },
+    {
+      "id": "n_hq1_a16f31d7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq1",
+      "lean_fvar_id": "_uniq.8716894",
+      "statement": "↑(q 1) / ↑(n 1) < 1"
+    },
+    {
+      "id": "n_hq2_52d46e68",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq2",
+      "lean_fvar_id": "_uniq.8717148",
+      "statement": "↑(q 2) / ↑(n 2) < 1"
+    },
+    {
+      "id": "n_hq2_a6e990d4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq2",
+      "lean_fvar_id": "_uniq.8758489",
+      "statement": "↑(q 2) / ↑(n 2) < 1"
+    },
+    {
+      "id": "n_hq3_379276cf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq3",
+      "lean_fvar_id": "_uniq.8758743",
+      "statement": "↑(q 3) / ↑(n 3) < 1"
+    },
+    {
+      "id": "n_hq3_c57a3770",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq3",
+      "lean_fvar_id": "_uniq.8776380",
+      "statement": "↑(q 3) / ↑(n 3) < 1"
+    },
+    {
+      "id": "n_hq3_e3150fd9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq3",
+      "lean_fvar_id": "_uniq.8717402",
+      "statement": "↑(q 3) / ↑(n 3) < 1"
+    },
+    {
+      "id": "n_hq4_3b00a234",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq4",
+      "lean_fvar_id": "_uniq.8793639",
+      "statement": "↑(q 4) / ↑(n 4) < 1"
+    },
+    {
+      "id": "n_hq_lt_c3604818",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hq_lt",
+      "lean_fvar_id": "_uniq.8716469",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+    },
+    {
+      "id": "n_hq_lt_dfbf35a1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hq_lt",
+      "lean_fvar_id": "_uniq.8793266",
+      "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 4 → q i < n i"
+    },
+    {
+      "id": "n_hsuminv_exp_eda98a32",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsuminv_exp",
+      "lean_fvar_id": "_uniq.8733754",
+      "statement": "0 < (↑(n 1))⁻¹ + (↑(n 2))⁻¹ + (↑(n 3))⁻¹"
+    },
+    {
+      "id": "n_hsumq_2cc87d52",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsumq",
+      "lean_fvar_id": "_uniq.8718686",
+      "statement": "∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i) < 3"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hdq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hd_e14c7f87"
+      ],
+      "conclusion": "n_hdq_c37d43a7",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_2071",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hdQ : (3 : ℚ) ≤ d := by exact_mod_cast hd",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716504",
+              "name": "hd",
+              "statement": "4 ≤ d"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8716608",
+            "name": "hdQ",
+            "statement": "4 ≤ ↑d"
+          }
+        },
+        "lean_dependency_sha256": "367695e8e6628c184f7d7df55b5a4d67f668b6c2518e99c1a3cbd3be40fe53cf",
+        "kernel_witness_check": {
+          "proof_type": "↑4 ≤ ↑d",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hq1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_c3604818"
+      ],
+      "conclusion": "n_hq1_a16f31d7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2072",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq1 : (q 1 : ℚ) / (n 1 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 1 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716469",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8716894",
+            "name": "hq1",
+            "statement": "↑(q 1) / ↑(n 1) < 1"
+          }
+        },
+        "lean_dependency_sha256": "3af3457d590fad362d56c8248ea5e077ebe8fbb62b3af8666e203444c6376f0d",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 1) / ↑(n 1) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hq2",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_c3604818"
+      ],
+      "conclusion": "n_hq2_52d46e68",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2073",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq2 : (q 2 : ℚ) / (n 2 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 2 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716469",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8717148",
+            "name": "hq2",
+            "statement": "↑(q 2) / ↑(n 2) < 1"
+          }
+        },
+        "lean_dependency_sha256": "de49326d31f1c4c4f8a31adfd93848f338189d29c275a3d0e65bba5d04592c5d",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 2) / ↑(n 2) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hq3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_c3604818"
+      ],
+      "conclusion": "n_hq3_e3150fd9",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2074",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq3 : (q 3 : ℚ) / (n 3 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 3 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716469",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8717402",
+            "name": "hq3",
+            "statement": "↑(q 3) / ↑(n 3) < 1"
+          }
+        },
+        "lean_dependency_sha256": "1fb5abb966f92ec034140af65584b878cf13dec03ce6d809883271c1c8522f80",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 3) / ↑(n 3) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hn1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_33f1cfa1"
+      ],
+      "conclusion": "n_hn1_5b80d062",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2075",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn1 : 0 < (n 1 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 1 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716467",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8717608",
+            "name": "hn1",
+            "statement": "0 < (↑(n 1))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "dee5134de14919a14b8b366afde7314c02f7294140d1c12b3b61ad321904d4a7",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 1))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hn2",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_33f1cfa1"
+      ],
+      "conclusion": "n_hn2_af10c2c1",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2076",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn2 : 0 < (n 2 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 2 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716467",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8717813",
+            "name": "hn2",
+            "statement": "0 < (↑(n 2))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "32cf906182a48fdf85234676f71e4737ebc169ce1813a2e0d18e9812706e0256",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 2))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hn3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_33f1cfa1"
+      ],
+      "conclusion": "n_hn3_c4d5eee6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2077",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn3 : 0 < (n 3 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 3 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716467",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8718018",
+            "name": "hn3",
+            "statement": "0 < (↑(n 3))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "ce89b3c0e4b944e8a9b790732153b0f92b74437bad3b183fb519d7d449af6711",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 3))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hsumq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq1_a16f31d7",
+        "n_hq2_52d46e68",
+        "n_hq3_e3150fd9"
+      ],
+      "conclusion": "n_hsumq_2cc87d52",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_Icc_succ_top",
+        "items": [
+          "Finset.sum_Icc_succ_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_Icc_succ_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2078",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hsumq : ∑ i ∈ Finset.Icc 1 3, (q i : ℚ) / (n i : ℚ) < 3 := by\n        norm_num [Finset.sum_Icc_succ_top]\n        nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716894",
+              "name": "hq1",
+              "statement": "↑(q 1) / ↑(n 1) < 1"
+            },
+            {
+              "fvar_id": "_uniq.8717148",
+              "name": "hq2",
+              "statement": "↑(q 2) / ↑(n 2) < 1"
+            },
+            {
+              "fvar_id": "_uniq.8717402",
+              "name": "hq3",
+              "statement": "↑(q 3) / ↑(n 3) < 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8718686",
+            "name": "hsumq",
+            "statement": "∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i) < 3"
+          }
+        },
+        "lean_dependency_sha256": "aa2c80834b1335662b223e029506162b1be7d9a0b567182bd8bbe7cf8e2efa83",
+        "kernel_witness_check": {
+          "proof_type": "∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i) < 3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hsuminv_exp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn1_5b80d062",
+        "n_hn2_af10c2c1",
+        "n_hn3_c4d5eee6"
+      ],
+      "conclusion": "n_hsuminv_exp_eda98a32",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_pos",
+        "items": [
+          "add_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2079",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hsuminv_exp :\n          0 < (n 1 : ℚ)⁻¹ + (n 2 : ℚ)⁻¹ + (n 3 : ℚ)⁻¹ :=\n        add_pos (add_pos hn1 hn2) hn3",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8717608",
+              "name": "hn1",
+              "statement": "0 < (↑(n 1))⁻¹"
+            },
+            {
+              "fvar_id": "_uniq.8717813",
+              "name": "hn2",
+              "statement": "0 < (↑(n 2))⁻¹"
+            },
+            {
+              "fvar_id": "_uniq.8718018",
+              "name": "hn3",
+              "statement": "0 < (↑(n 3))⁻¹"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8733754",
+            "name": "hsuminv_exp",
+            "statement": "0 < (↑(n 1))⁻¹ + (↑(n 2))⁻¹ + (↑(n 3))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "a11a1a9468b9fb01904b736ce64fbea3b14d5cb8f3a7e029b781c2a049c718b9",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 1))⁻¹ + (↑(n 2))⁻¹ + (↑(n 3))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hchi",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn1_5b80d062",
+        "n_hn2_af10c2c1",
+        "n_hn3_c4d5eee6"
+      ],
+      "conclusion": "n_hchi_8b811e1d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_Icc_succ_top",
+        "items": [
+          "Finset.sum_Icc_succ_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_Icc_succ_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2080",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hchi : -2 + ∑ i ∈ Finset.Icc 1 3, (1 - 1 / (n i : ℚ)) < 1 := by\n        norm_num [Finset.sum_Icc_succ_top]\n        linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8717608",
+              "name": "hn1",
+              "statement": "0 < (↑(n 1))⁻¹"
+            },
+            {
+              "fvar_id": "_uniq.8717813",
+              "name": "hn2",
+              "statement": "0 < (↑(n 2))⁻¹"
+            },
+            {
+              "fvar_id": "_uniq.8718018",
+              "name": "hn3",
+              "statement": "0 < (↑(n 3))⁻¹"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8734522",
+            "name": "hchi",
+            "statement": "-2 + ∑ i ∈ Finset.Icc 1 3, (1 - 1 / ↑(n i)) < 1"
+          }
+        },
+        "lean_dependency_sha256": "1188dfc0cc8498d7fa7aa076ca2bc993c94c622ab83c13a6c6aec5631d9b4ad1",
+        "kernel_witness_check": {
+          "proof_type": "-2 + ∑ i ∈ Finset.Icc 1 3, (1 - 1 / ↑(n i)) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_he1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdq_c37d43a7",
+        "n_hsumq_2cc87d52"
+      ],
+      "conclusion": "n_he1_9487ab87",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "nlinarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_2081",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have he1 : 1 < (d : ℚ) - ∑ i ∈ Finset.Icc 1 3, (q i : ℚ) / (n i : ℚ) := by\n        nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716608",
+              "name": "hdQ",
+              "statement": "4 ≤ ↑d"
+            },
+            {
+              "fvar_id": "_uniq.8718686",
+              "name": "hsumq",
+              "statement": "∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i) < 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8747718",
+            "name": "he1",
+            "statement": "1 < ↑d - ∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i)"
+          }
+        },
+        "lean_dependency_sha256": "eadfdfcce605d00c51b1c00642a627bc9a4e3f33105121809638871a6d14f1bc",
+        "kernel_witness_check": {
+          "proof_type": "1 < ↑d - ∑ i ∈ Finset.Icc 1 3, ↑(q i) / ↑(n i)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hq2",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_c3604818"
+      ],
+      "conclusion": "n_hq2_a6e990d4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2082",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq2 : (q 2 : ℚ) / (n 2 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 2 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716469",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8758489",
+            "name": "hq2",
+            "statement": "↑(q 2) / ↑(n 2) < 1"
+          }
+        },
+        "lean_dependency_sha256": "c103306ca9b5ada8fe94abaf6888eb79b8cad49f20e0516faffce2a747a5f919",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 2) / ↑(n 2) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hq3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_c3604818"
+      ],
+      "conclusion": "n_hq3_379276cf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2083",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq3 : (q 3 : ℚ) / (n 3 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 3 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716469",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8758743",
+            "name": "hq3",
+            "statement": "↑(q 3) / ↑(n 3) < 1"
+          }
+        },
+        "lean_dependency_sha256": "a63ba3bdafbc1dd597aa1e5964a5a8a8789bd473819b08377599a99fd8664cfd",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 3) / ↑(n 3) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hn2",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_33f1cfa1"
+      ],
+      "conclusion": "n_hn2_9cfc8d43",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2084",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn2 : 0 < (n 2 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 2 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716467",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8758948",
+            "name": "hn2",
+            "statement": "0 < (↑(n 2))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "69ccdaa441a60e82dba29ea2ab152f5204ba341fa4f14e69d798244af972832f",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 2))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hn3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_33f1cfa1"
+      ],
+      "conclusion": "n_hn3_7e4c6265",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2085",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn3 : 0 < (n 3 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 3 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716467",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8759153",
+            "name": "hn3",
+            "statement": "0 < (↑(n 3))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "ded6e407c1f84b18cefb882bc3453759ff2ff0fcf802754459787c5210fff22a",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 3))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hq3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_c3604818"
+      ],
+      "conclusion": "n_hq3_c57a3770",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2086",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq3 : (q 3 : ℚ) / (n 3 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 3 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716469",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8776380",
+            "name": "hq3",
+            "statement": "↑(q 3) / ↑(n 3) < 1"
+          }
+        },
+        "lean_dependency_sha256": "87929d8818974965c1685670e046cfb8e5f2ab49b6571a99ea40370207beb8e2",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 3) / ↑(n 3) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hn3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_33f1cfa1"
+      ],
+      "conclusion": "n_hn3_52ae65c0",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2087",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn3 : 0 < (n 3 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 3 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8716467",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 3 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8776585",
+            "name": "hn3",
+            "statement": "0 < (↑(n 3))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "5cd294ceb4973903581df6d7bda7214feec33176de9b6e149c33576ba9a38435",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 3))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_hdq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hd_a7194cec"
+      ],
+      "conclusion": "n_hdq_a8869859",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_2088",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hdQ : (3 : ℚ) ≤ d := by exact_mod_cast hd",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8793186",
+              "name": "hd",
+              "statement": "3 ≤ d"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8793356",
+            "name": "hdQ",
+            "statement": "3 ≤ ↑d"
+          }
+        },
+        "lean_dependency_sha256": "7c636d83b944137bccf22b63c54d7996135ac15c9a13c160c9297ef84b1989a2",
+        "kernel_witness_check": {
+          "proof_type": "↑3 ≤ ↑d",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_hq4",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_lt_dfbf35a1"
+      ],
+      "conclusion": "n_hq4_3b00a234",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2089",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hq4 : (q 4 : ℚ) / (n 4 : ℚ) < 1 :=\n      seifert_nat_div_lt_one_rat (hq_lt 4 (by norm_num) (by norm_num))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8793266",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 4 → q i < n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8793639",
+            "name": "hq4",
+            "statement": "↑(q 4) / ↑(n 4) < 1"
+          }
+        },
+        "lean_dependency_sha256": "b993bde15158eee9c128e98d624589a3bebb5b894522615a978acd0f6de656d9",
+        "kernel_witness_check": {
+          "proof_type": "↑(q 4) / ↑(n 4) < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_hn4",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_56913b11"
+      ],
+      "conclusion": "n_hn4_4066cca1",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_2090",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hn4 : 0 < (n 4 : ℚ)⁻¹ :=\n      seifert_nat_inv_pos_rat (hn 4 (by norm_num) (by norm_num))\n    norm_num [Finset.sum_Icc_succ_top, hq1nat, hq2nat, hq3nat]\n    nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8793264",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ 4 → 2 ≤ n i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8793844",
+            "name": "hn4",
+            "statement": "0 < (↑(n 4))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "074dcc53c5e47d31b2ba9cc6793a5f5bd40279a68bae4729cc145301f14bf70e",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑(n 4))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_828b1919",
+        "m_hq_pos_aad19b8f",
+        "m_hq_lt_14df4a98",
+        "m_hcoprime_78b2abfe",
+        "m_he_a36e69b0",
+        "m_hcases_b7eda7d2"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat + Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat + div_lt_one",
+        "items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+          "div_lt_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat",
+          "Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat",
+          "div_lt_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact inv_pos.mpr hb0\n\ntheorem seifert_chi_div_e_lt_one\n    (t d : ℕ) (n q : ℕ → ℕ)\n    (hn : ∀ i, 1 ≤ i → i ≤ t → 2 ≤ n i)\n    (hq_pos : ∀ i, 1 ≤ i → i ≤ t → 1 ≤ q i)\n    (hq_lt : ∀ i, 1 ≤ i → i ≤ t → q i < n i)\n    (hcoprime : ∀ i, 1 ≤ i → i ≤ t → Nat.Coprime (n i) (q i))\n    (he : 0 < (d : ℚ) - ∑ i ∈ Finset.Icc 1 t, (q i : ℚ) / (n i : ℚ))\n    (hcases :\n      (t = 3 ∧\n        (4 ≤ d ∨\n          (d = 3 ∧ q 1 = 1) ∨\n          (d = 2 ∧ q 1 = 1 ∧ q 2 = 1))) ∨\n      (t = 4 ∧ 3 ≤ d ∧ q 1 = 1 ∧ q 2 = 1 ∧ q 3 = 1)) :\n    let e : ℚ := (d : ℚ) - ∑ i ∈ Finset.Icc 1 t, (q i : ℚ) / (n i : ℚ)\n    let χ : ℚ := -2 + ∑ i ∈ Finset.Icc 1 t, (1 - 1 / (n i : ℚ))\n    χ / e < 1 := by\n  rw [div_lt_one he]\n  rcases hcases with h3 | h4\n  · rcases h3 with ⟨ht, hc⟩\n    subst t\n    rcases hc with hd | hd | hd\n    · have hdQ : (4 : ℚ) ≤ d := by exact_mod_cast hd\n      have hq1 : (q 1 : ℚ) / (n 1 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 1 (by norm_num) (by norm_num))\n      have hq2 : (q 2 : ℚ) / (n 2 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 2 (by norm_num) (by norm_num))\n      have hq3 : (q 3 : ℚ) / (n 3 : ℚ) < 1 :=\n        seifert_nat_div_lt_one_rat (hq_lt 3 (by norm_num) (by norm_num))\n      have hn1 : 0 < (n 1 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 1 (by norm_num) (by norm_num))\n      have hn2 : 0 < (n 2 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 2 (by norm_num) (by norm_num))\n      have hn3 : 0 < (n 3 : ℚ)⁻¹ :=\n        seifert_nat_inv_pos_rat (hn 3 (by norm_num) (by norm_num))\n      have hsumq : ∑ i ∈ Finset.Icc 1 3, (q i : ℚ) / (n i : ℚ) < 3 := by\n        norm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hn",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → 2 ≤ n i"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hq_pos",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → 1 ≤ q i"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hq_lt",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → q i < n i"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hcoprime",
+              "statement": "∀ (i : ℕ), 1 ≤ i → i ≤ t → (n i).Coprime (q i)"
+            },
+            {
+              "fvar_id": "8",
+              "name": "he",
+              "statement": "0 < ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i)"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hcases",
+              "statement": "t = 3 ∧ (4 ≤ d ∨ d = 3 ∧ q 1 = 1 ∨ d = 2 ∧ q 1 = 1 ∧ q 2 = 1) ∨ t = 4 ∧ 3 ≤ d ∧ q 1 = 1 ∧ q 2 = 1 ∧ q 3 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let e := ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i); let χ := -2 + ∑ i ∈ Finset.Icc 1 t, (1 - 1 / ↑(n i)); χ / e < 1"
+          }
+        },
+        "lean_dependency_sha256": "566c4a9961b84ad1516d9d1db66cbe1c3efe97cd5e283c4dd3bef5548670f2ad",
+        "kernel_witness_check": {
+          "proof_type": "let e := ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i);\nlet χ := -2 + ∑ i ∈ Finset.Icc 1 t, (1 - 1 / ↑(n i));\nχ / e < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "div_lt_one"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "(_ / _ < 1 ↔ _ < _)",
+      "declarations": [
+        "Nat.div_lt_one_iff",
+        "div_lt_one'",
+        "div_lt_one",
+        "div_lt_one_of_neg"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "div_lt_one",
+      "declarations": [
+        "div_lt_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "rational division less than one positive denominator iff numerator less denominator",
+      "declarations": [
+        "Dyadic.blt",
+        "compareOfLessAndBEq",
+        "Rat.den_mk",
+        "compareOfLessAndEq",
+        "Rat.lt_one_iff_num_lt_denom",
+        "Rat.div_lt_div_iff_mul_lt_mul",
+        "GenContFract.IntFractPair.of_inv_fr_num_lt_num_of_pos",
+        "Rat.num_le_denom_iff",
+        "Tactic.NormNum.evalRatDen",
+        "compareOfLessAndEq_eq_eq"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 7,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 6,
+    "manifest_fact_count": 6,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 3,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 1,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 18,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

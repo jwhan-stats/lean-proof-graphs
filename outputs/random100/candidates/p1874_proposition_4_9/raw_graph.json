@@ -1,0 +1,408 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1874_proposition_4_9.proposition_4_9",
+      "manifest": [
+        {
+          "statement": "0 ≤ α",
+          "origin": "manifest",
+          "name": "hα",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "Summable fun n => Real.rpow 2 (-↑(f n))",
+          "origin": "manifest",
+          "name": "hf",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)),\n  A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))",
+          "origin": "manifest",
+          "name": "hμ",
+          "fvar_id": "5"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "μ Set.univ < ⊤",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1874_proposition_4_9.proposition_4_9_measure_univ_finite"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)),\n  A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))",
+              "origin": "local_assumption",
+              "name": "hμ",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+          "id": "telescope_6",
+          "conclusion": {
+            "statement": "μ Set.univ < ⊤",
+            "origin": "derived",
+            "name": "hμu",
+            "fvar_id": "6"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ENNReal.ofReal_lt_top",
+            "ENNReal.ofReal_tsum_of_nonneg",
+            "Eq.symm",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isNat_le_true",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Nat.cast_zero",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Real.instIsOrderedRing",
+            "Real.rpow_nonneg",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "Summable fun n => Real.rpow 2 (-↑(f n))",
+              "origin": "local_assumption",
+              "name": "hf",
+              "fvar_id": "3"
+            }
+          ],
+          "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+          "id": "telescope_7",
+          "conclusion": {
+            "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+            "origin": "derived",
+            "name": "htsum",
+            "fvar_id": "7"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "ENNReal.ofReal (2 ^ α) * μ Set.univ +\n    ENNReal.ofReal (2 ^ (2 * α)) * ∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) <\n  ⊤",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ENNReal.add_lt_top",
+            "ENNReal.mul_lt_top",
+            "ENNReal.ofReal_lt_top",
+            "Iff.mpr",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc"
+          ],
+          "premises": [
+            {
+              "statement": "μ Set.univ < ⊤",
+              "origin": "derived",
+              "name": "hμu",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+              "origin": "derived",
+              "name": "htsum",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+          "id": "telescope_9",
+          "conclusion": {
+            "statement": "K < ⊤",
+            "origin": "derived",
+            "name": "hK",
+            "fvar_id": "9"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "ENNReal.mul_lt_top",
+          "MeasureTheory.lintegral_const",
+          "MeasureTheory.lintegral_mono",
+          "Rollout_p1874_proposition_4_9.proposition_4_9_inner_energy_le"
+        ],
+        "premises": [
+          {
+            "statement": "0 ≤ α",
+            "origin": "local_assumption",
+            "name": "hα",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "Summable fun n => Real.rpow 2 (-↑(f n))",
+            "origin": "local_assumption",
+            "name": "hf",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)),\n  A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))",
+            "origin": "local_assumption",
+            "name": "hμ",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "μ Set.univ < ⊤",
+            "origin": "derived",
+            "name": "hμu",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "K < ⊤",
+            "origin": "derived",
+            "name": "hK",
+            "fvar_id": "9"
+          }
+        ],
+        "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "ENNReal.ofReal (∑' (n : ℕ), Real.rpow 2 (-↑(f n))) = ∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.ofReal_tsum_of_nonneg",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_le_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedRing",
+        "Real.rpow_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "Summable fun n => Real.rpow 2 (-↑(f n))",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.3558548"
+        }
+      ],
+      "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+      "id": "local_788",
+      "conclusion": {
+        "statement": "ENNReal.ofReal (∑' (n : ℕ), (fun n => Real.rpow 2 (-↑(f n))) n) =\n  ∑' (n : ℕ), ENNReal.ofReal ((fun n => Real.rpow 2 (-↑(f n))) n)",
+        "origin": "derived",
+        "name": "htsumEq",
+        "fvar_id": "_uniq.3559319"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "μ Set.univ < ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1874_proposition_4_9.proposition_4_9_measure_univ_finite"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)),\n  A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))",
+          "origin": "local_assumption",
+          "name": "hμ",
+          "fvar_id": "_uniq.3558550"
+        }
+      ],
+      "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+      "id": "local_789",
+      "conclusion": {
+        "statement": "μ Set.univ < ⊤",
+        "origin": "derived",
+        "name": "hμu",
+        "fvar_id": "_uniq.3558888"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.ofReal_lt_top",
+        "ENNReal.ofReal_tsum_of_nonneg",
+        "Eq.symm",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_le_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedRing",
+        "Real.rpow_nonneg",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "Summable fun n => Real.rpow 2 (-↑(f n))",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.3558548"
+        }
+      ],
+      "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+      "id": "local_790",
+      "conclusion": {
+        "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+        "origin": "derived",
+        "name": "htsum",
+        "fvar_id": "_uniq.3559209"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ENNReal.ofReal (2 ^ α) * μ Set.univ +\n    ENNReal.ofReal (2 ^ (2 * α)) * ∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) <\n  ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.add_lt_top",
+        "ENNReal.mul_lt_top",
+        "ENNReal.ofReal_lt_top",
+        "Iff.mpr",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [
+        {
+          "statement": "μ Set.univ < ⊤",
+          "origin": "derived",
+          "name": "hμu",
+          "fvar_id": "_uniq.3558888"
+        },
+        {
+          "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+          "origin": "derived",
+          "name": "htsum",
+          "fvar_id": "_uniq.3559209"
+        }
+      ],
+      "parent": "Rollout_p1874_proposition_4_9.proposition_4_9",
+      "id": "local_792",
+      "conclusion": {
+        "statement": "K < ⊤",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3561065"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p1874_proposition_4_9",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1874_proposition_4_9.proposition_4_9",
+    "proof_sha256": "70ea3923053fc75d4d7037c8dd77fad511e7cdf193bc054056681aa2d1cc5cfd"
+  }
+}

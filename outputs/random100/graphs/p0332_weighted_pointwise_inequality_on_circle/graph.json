@@ -1,0 +1,2688 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0332_weighted_pointwise_inequality_on_circle",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 332,
+    "source": "2010.12700",
+    "theorem_name": "weighted_pointwise_inequality_on_circle",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/332",
+    "reconstructed_proof": "../../candidates/p0332_weighted_pointwise_inequality_on_circle/proof.lean",
+    "raw_elaboration": "../../candidates/p0332_weighted_pointwise_inequality_on_circle/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+    "verification_call_id": "verify_submission:206",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "6f4bae9a03feda456d41ac3f456a5cbcdd29e3ad1446d5e45fe53e4ab70acc24",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "ea61b657164067b1e3bc0a5f2cc470621ffa40cb3649b96c0594eb2ecf4f316e",
+    "concrete_semantic_topology_sha256": "6f4bae9a03feda456d41ac3f456a5cbcdd29e3ad1446d5e45fe53e4ab70acc24"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ C, 0 < C ∧ ∀ (f : ℝ → ℝ), Function.Periodic f (2 * Real.pi) → AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi → f 0 = 0 → MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi) MeasureTheory.volume → essSup (fun x => |f x| / |Real.sin (x / 2)|) (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤ C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)"
+    },
+    {
+      "id": "n_h_a3761101",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hμ",
+      "lean_fvar_id": "_uniq.6605664",
+      "statement": "MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi) = 0"
+    },
+    {
+      "id": "n_habs0_3b8e61f5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "habs0",
+      "lean_fvar_id": "_uniq.6603260",
+      "statement": "|f x| = 0"
+    },
+    {
+      "id": "n_hac_55c18a37",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAC",
+      "lean_fvar_id": "_uniq.6497812",
+      "statement": "AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi"
+    },
+    {
+      "id": "n_hb_nonneg_7b53bbea",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hB_nonneg",
+      "lean_fvar_id": "_uniq.6516907",
+      "statement": "0 ≤ B"
+    },
+    {
+      "id": "n_hbelow_7bbde222",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbelow",
+      "lean_fvar_id": "_uniq.6614222",
+      "statement": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|"
+    },
+    {
+      "id": "n_hbound_36874462",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbound",
+      "lean_fvar_id": "_uniq.6538297",
+      "statement": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I"
+    },
+    {
+      "id": "n_hbound_ae_eeb6d7d2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbound_ae",
+      "lean_fvar_id": "_uniq.6636064",
+      "statement": "(fun x => |f x| / |Real.sin (x / 2)|) ≤ᵐ[μ] fun x => B"
+    },
+    {
+      "id": "n_hcob_174ddb99",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcob",
+      "lean_fvar_id": "_uniq.6630571",
+      "statement": "Filter.IsCoboundedUnder (fun x y => x ≤ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|"
+    },
+    {
+      "id": "n_hden_e150a27c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hden",
+      "lean_fvar_id": "_uniq.6604778",
+      "statement": "0 < |Real.sin (x / 2)|"
+    },
+    {
+      "id": "n_hf0_4d06dff3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hf0",
+      "lean_fvar_id": "_uniq.6497815",
+      "statement": "f 0 = 0"
+    },
+    {
+      "id": "n_hfx0_d465e221",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfx0",
+      "lean_fvar_id": "_uniq.6602362",
+      "statement": "f x = 0"
+    },
+    {
+      "id": "n_hi_nonneg_c2c23fc2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hI_nonneg",
+      "lean_fvar_id": "_uniq.6500911",
+      "statement": "0 ≤ I"
+    },
+    {
+      "id": "n_hle0_b31bbbcf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hle0",
+      "lean_fvar_id": "_uniq.6598695",
+      "statement": "|f x| ≤ 0"
+    },
+    {
+      "id": "n_hle_072b8b5d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hle",
+      "lean_fvar_id": "_uniq.6605935",
+      "statement": "Real.pi - -Real.pi ≤ 0"
+    },
+    {
+      "id": "n_hpoint_e8bd078d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpoint",
+      "lean_fvar_id": "_uniq.6538203",
+      "statement": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B"
+    },
+    {
+      "id": "n_hs_1cd87ac1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hs",
+      "lean_fvar_id": "_uniq.6605922",
+      "statement": "ENNReal.ofReal (Real.pi - -Real.pi) = 0"
+    },
+    {
+      "id": "n_hs_6de4b6d7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hs",
+      "lean_fvar_id": "_uniq.6605907",
+      "statement": "MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0"
+    },
+    {
+      "id": "n_hs_aed04485",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hs",
+      "lean_fvar_id": "_uniq.6598616",
+      "statement": "Real.sin (x / 2) = 0"
+    },
+    {
+      "id": "n_hs_f7e49bb6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hs",
+      "lean_fvar_id": "_uniq.6598623",
+      "statement": "¬Real.sin (x / 2) = 0"
+    },
+    {
+      "id": "n_hw_939de627",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hW",
+      "lean_fvar_id": "_uniq.6497818",
+      "statement": "MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi) MeasureTheory.volume"
+    },
+    {
+      "id": "n_hx_d172e713",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.6538214",
+      "statement": "x ∈ Set.Icc (-Real.pi) Real.pi"
+    },
+    {
+      "id": "n_hzero_0e671882",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzero",
+      "lean_fvar_id": "_uniq.6603773",
+      "statement": "|f x| / |Real.sin (x / 2)| = 0"
+    },
+    {
+      "id": "n_this_18d3c772",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.6605442",
+      "statement": "(MeasureTheory.ae μ).NeBot"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_habs0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hle0_b31bbbcf"
+      ],
+      "conclusion": "n_habs0_3b8e61f5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "abs_nonneg + le_antisymm",
+        "items": [
+          "abs_nonneg",
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "abs_nonneg",
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1305",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have habs0 : |f x| = 0 := le_antisymm hle0 (abs_nonneg _)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6598695",
+              "name": "hle0",
+              "statement": "|f x| ≤ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6603260",
+            "name": "habs0",
+            "statement": "|f x| = 0"
+          }
+        },
+        "lean_dependency_sha256": "bb5967642a2216b158100fa262d03c3f065c3e65181ea568349873df66700c6b",
+        "kernel_witness_check": {
+          "proof_type": "|f x| = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hle0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbound_36874462",
+        "n_hs_aed04485"
+      ],
+      "conclusion": "n_hle0_b31bbbcf",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1306",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6538297",
+              "name": "hbound",
+              "statement": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I"
+            },
+            {
+              "fvar_id": "_uniq.6598616",
+              "name": "hs",
+              "statement": "Real.sin (x / 2) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6598695",
+            "name": "hle0",
+            "statement": "|f x| ≤ 0"
+          }
+        },
+        "lean_dependency_sha256": "b3a60adf9f6a682e5144eaf2cdf89652aa3d18250d3b6c11a8f6c623ad4a5a86",
+        "kernel_witness_check": {
+          "proof_type": "|f x| ≤ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hfx0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hle0_b31bbbcf"
+      ],
+      "conclusion": "n_hfx0_d465e221",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "abs_eq_zero + abs_nonneg + le_antisymm",
+        "items": [
+          "abs_eq_zero",
+          "abs_nonneg",
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "abs_eq_zero",
+          "abs_nonneg",
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1307",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hfx0 : f x = 0 := by\n        have habs0 : |f x| = 0 := le_antisymm hle0 (abs_nonneg _)\n        exact abs_eq_zero.mp habs0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6598695",
+              "name": "hle0",
+              "statement": "|f x| ≤ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6602362",
+            "name": "hfx0",
+            "statement": "f x = 0"
+          }
+        },
+        "lean_dependency_sha256": "c4cd406350aa4b73a7fc5a71fb559c59940af89f5a5bc33150e8d2b9cda0b851",
+        "kernel_witness_check": {
+          "proof_type": "f x = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hs_aed04485",
+        "n_hfx0_d465e221"
+      ],
+      "conclusion": "n_hzero_0e671882",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1308",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hzero : |f x| / |Real.sin (x / 2)| = 0 := by\n        simp [hfx0, hs]\n      rw [hzero]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6598616",
+              "name": "hs",
+              "statement": "Real.sin (x / 2) = 0"
+            },
+            {
+              "fvar_id": "_uniq.6602362",
+              "name": "hfx0",
+              "statement": "f x = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6603773",
+            "name": "hzero",
+            "statement": "|f x| / |Real.sin (x / 2)| = 0"
+          }
+        },
+        "lean_dependency_sha256": "58b4a850955297209c34d856ef3f5e4c9e1551f234439e3af3de645f212b3809",
+        "kernel_witness_check": {
+          "proof_type": "|f x| / |Real.sin (x / 2)| = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hbound",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hac_55c18a37",
+        "n_hf0_4d06dff3",
+        "n_hw_939de627",
+        "n_hx_d172e713"
+      ],
+      "conclusion": "n_hbound_36874462",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "pointwise_weighted_bound_on_circle",
+        "items": [
+          "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1309",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hbound : |f x| ≤ Real.pi * |Real.sin (x / 2)| * Real.sqrt I := by\n      simpa [I] using pointwise_weighted_bound_on_circle hAC hf0 hW hx.1 hx.2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6497812",
+              "name": "hAC",
+              "statement": "AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi"
+            },
+            {
+              "fvar_id": "_uniq.6497815",
+              "name": "hf0",
+              "statement": "f 0 = 0"
+            },
+            {
+              "fvar_id": "_uniq.6497818",
+              "name": "hW",
+              "statement": "MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi) MeasureTheory.volume"
+            },
+            {
+              "fvar_id": "_uniq.6538214",
+              "name": "hx",
+              "statement": "x ∈ Set.Icc (-Real.pi) Real.pi"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6538297",
+            "name": "hbound",
+            "statement": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I"
+          }
+        },
+        "lean_dependency_sha256": "b94b6032f03a20131fe36da4624979ba297450e9b1e5fee2c652bab94868b453",
+        "kernel_witness_check": {
+          "proof_type": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hden",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hs_f7e49bb6"
+      ],
+      "conclusion": "n_hden_e150a27c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1310",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6598623",
+              "name": "hs",
+              "statement": "¬Real.sin (x / 2) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6604778",
+            "name": "hden",
+            "statement": "0 < |Real.sin (x / 2)|"
+          }
+        },
+        "lean_dependency_sha256": "e54a11d6870e0993393ed25428c10e784a49ff52e1a2e83eb5fd38eb5f765935",
+        "kernel_witness_check": {
+          "proof_type": "0 < |Real.sin (x / 2)|",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hs",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_a3761101"
+      ],
+      "conclusion": "n_hs_6de4b6d7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.Measure.restrict_eq_zero",
+        "items": [
+          "MeasureTheory.Measure.restrict_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.Measure.restrict_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1311",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hs : MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0 :=\n      MeasureTheory.Measure.restrict_eq_zero.mp hμ\n    rw [Real.volume_Icc] at hs",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6605664",
+              "name": "hμ",
+              "statement": "MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6605907",
+            "name": "hs",
+            "statement": "MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0"
+          }
+        },
+        "lean_dependency_sha256": "53d2a0d861e719f52f80496d9228c3a97eec5b59762c925db19757fc8e7664e5",
+        "kernel_witness_check": {
+          "proof_type": "MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hle",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hs_1cd87ac1"
+      ],
+      "conclusion": "n_hle_072b8b5d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.ofReal_eq_zero",
+        "items": [
+          "ENNReal.ofReal_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.ofReal_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1312",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hle := ENNReal.ofReal_eq_zero.mp hs\n    nlinarith [Real.pi_pos]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6605922",
+              "name": "hs",
+              "statement": "ENNReal.ofReal (Real.pi - -Real.pi) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6605935",
+            "name": "hle",
+            "statement": "Real.pi - -Real.pi ≤ 0"
+          }
+        },
+        "lean_dependency_sha256": "afc524e440a35bdec4aa11963cd1d31b4f011785dfd9c07f02f2b5b9e0337446",
+        "kernel_witness_check": {
+          "proof_type": "Real.pi - -Real.pi ≤ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.ofReal_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:200"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_009_hi_nonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hi_nonneg_c2c23fc2",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.integral_nonneg",
+        "items": [
+          "MeasureTheory.integral_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.integral_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1316",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hI_nonneg : 0 ≤ I := by\n    dsimp [I]\n    apply MeasureTheory.integral_nonneg\n    intro x\n    positivity",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.6500911",
+            "name": "hI_nonneg",
+            "statement": "0 ≤ I"
+          }
+        },
+        "lean_dependency_sha256": "b565589ba03948547127e60a68fdc3ede3e02f4fa97d8bebd1953640f74e84f7",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ I",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hb_nonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hb_nonneg_7b53bbea",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "positivity",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1317",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hB_nonneg : 0 ≤ B := by\n    dsimp [B]\n    positivity",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.6516907",
+            "name": "hB_nonneg",
+            "statement": "0 ≤ B"
+          }
+        },
+        "lean_dependency_sha256": "4e9520c1d872f2c28d760ec702060e711149d4722d274c885763443ecf935c24",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hpoint",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hac_55c18a37",
+        "n_hf0_4d06dff3",
+        "n_hw_939de627",
+        "n_hb_nonneg_7b53bbea"
+      ],
+      "conclusion": "n_hpoint_e8bd078d",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "pointwise_weighted_bound_on_circle + abs_eq_zero + abs_nonneg",
+        "items": [
+          "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle",
+          "abs_eq_zero",
+          "abs_nonneg",
+          "abs_pos",
+          "div_le_iff₀",
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle"
+        ],
+        "mathlib_items": [
+          "abs_eq_zero",
+          "abs_nonneg",
+          "abs_pos",
+          "div_le_iff₀",
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1318",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hpoint : ∀ x ∈ Set.Icc (-Real.pi) Real.pi,\n      |f x| / |Real.sin (x / 2)| ≤ B := by\n    intro x hx\n    have hbound : |f x| ≤ Real.pi * |Real.sin (x / 2)| * Real.sqrt I := by\n      simpa [I] using pointwise_weighted_bound_on_circle hAC hf0 hW hx.1 hx.2\n    by_cases hs : Real.sin (x / 2) = 0\n    · have hle0 : |f x| ≤ 0 := by\n        simpa [hs] using hbound\n      have hfx0 : f x = 0 := by\n        have habs0 : |f x| = 0 := le_antisymm hle0 (abs_nonneg _)\n        exact abs_eq_zero.mp habs0\n      have hzero : |f x| / |Real.sin (x / 2)| = 0 := by\n        simp [hfx0, hs]\n      rw [hzero]\n      exact hB_nonneg\n    · have hden : 0 < |Real.sin (x / 2)| := abs_pos.mpr hs\n      rw [div_le_iff₀ hden]\n      calc\n        |f x| ≤ Real.pi * |Real.sin (x / 2)| * Real.sqrt I := hbound\n        _ = (Real.pi * Real.sqrt I) * |Real.sin (x / 2)| := by ring\n        _ = B * |Real.sin (x / 2)| := by rfl\n  haveI : (MeasureTheory.ae μ).NeBot := by\n    rw [MeasureTheory.ae_neBot]\n    intro hμ\n    change MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi) = 0 at hμ\n    have hs : MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0 :=\n      MeasureTheory.Measure.restrict_eq_zero.mp hμ\n    rw [Real",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6497812",
+              "name": "hAC",
+              "statement": "AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi"
+            },
+            {
+              "fvar_id": "_uniq.6497815",
+              "name": "hf0",
+              "statement": "f 0 = 0"
+            },
+            {
+              "fvar_id": "_uniq.6497818",
+              "name": "hW",
+              "statement": "MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi) MeasureTheory.volume"
+            },
+            {
+              "fvar_id": "_uniq.6516907",
+              "name": "hB_nonneg",
+              "statement": "0 ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6538203",
+            "name": "hpoint",
+            "statement": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B"
+          }
+        },
+        "lean_dependency_sha256": "e46312b52e98202f8dd457748d008af6dbfd14e55cd0216ed313f1eb87ee45ce",
+        "kernel_witness_check": {
+          "proof_type": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_this",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_this_18d3c772",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.ofReal_eq_zero + MeasureTheory.ae_neBot",
+        "items": [
+          "ENNReal.ofReal_eq_zero",
+          "MeasureTheory.ae_neBot"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.ofReal_eq_zero",
+          "MeasureTheory.ae_neBot"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1319",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.6605442",
+            "name": "this",
+            "statement": "(MeasureTheory.ae μ).NeBot"
+          }
+        },
+        "lean_dependency_sha256": "40227e6d88130453dfac4b11d12a4a1ae8f2ca67696f1ec73a063740a1952fce",
+        "kernel_witness_check": {
+          "proof_type": "(MeasureTheory.ae μ).NeBot",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.ofReal_eq_zero",
+          "MeasureTheory.ae_neBot"
+        ],
+        "observed_search_event_ids": [
+          "loogle:200",
+          "leanfinder:192"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_013_hbelow",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hbelow_7bbde222",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Filter.isBoundedUnder_of",
+        "items": [
+          "Filter.isBoundedUnder_of"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Filter.isBoundedUnder_of"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1320",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbelow : Filter.IsBoundedUnder (fun x y : ℝ => x ≥ y) (MeasureTheory.ae μ)\n      (fun x : ℝ => |f x| / |Real.sin (x / 2)|) := by\n    apply Filter.isBoundedUnder_of\n    exact ⟨0, fun x => by positivity⟩",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.6614222",
+            "name": "hbelow",
+            "statement": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|"
+          }
+        },
+        "lean_dependency_sha256": "9711c524c59703ab402bcafd444c89968a92824f618b447ac6d58d77b92a5bf0",
+        "kernel_witness_check": {
+          "proof_type": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hcob",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_this_18d3c772",
+        "n_hbelow_7bbde222"
+      ],
+      "conclusion": "n_hcob_174ddb99",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1321",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcob : Filter.IsCoboundedUnder (fun x y : ℝ => x ≤ y) (MeasureTheory.ae μ)\n      (fun x : ℝ => |f x| / |Real.sin (x / 2)|) := by\n    simpa using hbelow.isCoboundedUnder_flip",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6605442",
+              "name": "this",
+              "statement": "(MeasureTheory.ae μ).NeBot"
+            },
+            {
+              "fvar_id": "_uniq.6614222",
+              "name": "hbelow",
+              "statement": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6630571",
+            "name": "hcob",
+            "statement": "Filter.IsCoboundedUnder (fun x y => x ≤ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|"
+          }
+        },
+        "lean_dependency_sha256": "87998c6022ce6cfdf55ad8b5f3d1d349308030e3212567bc51040b5ec2b66acc",
+        "kernel_witness_check": {
+          "proof_type": "Filter.IsCoboundedUnder (flip fun x y => y ≤ x) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hbound_ae",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpoint_e8bd078d"
+      ],
+      "conclusion": "n_hbound_ae_eeb6d7d2",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.ae_restrict_mem + measurableSet_Icc",
+        "items": [
+          "MeasureTheory.ae_restrict_mem",
+          "measurableSet_Icc"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.ae_restrict_mem",
+          "measurableSet_Icc"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1322",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbound_ae : (fun x : ℝ => |f x| / |Real.sin (x / 2)|) ≤ᵐ[μ] fun _ => B := by\n    filter_upwards [MeasureTheory.ae_restrict_mem measurableSet_Icc] with x hx\n    exact hpoint x hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.6538203",
+              "name": "hpoint",
+              "statement": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.6636064",
+            "name": "hbound_ae",
+            "statement": "(fun x => |f x| / |Real.sin (x / 2)|) ≤ᵐ[μ] fun x => B"
+          }
+        },
+        "lean_dependency_sha256": "e93f7cd1cacb54369e9feee1e67aa9bc8ec275c4fbef3619ed022de9c2d317d6",
+        "kernel_witness_check": {
+          "proof_type": "{x | (fun x => (fun x => |f x| / |Real.sin (x / 2)|) x ≤ (fun x => B) x) x} ∈ MeasureTheory.ae μ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.ofReal_eq_zero + Filter.limsup_le_of_le + MeasureTheory.ae_neBot",
+        "items": [
+          "ENNReal.ofReal_eq_zero",
+          "Filter.limsup_le_of_le",
+          "MeasureTheory.ae_neBot"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.ofReal_eq_zero",
+          "Filter.limsup_le_of_le",
+          "MeasureTheory.ae_neBot"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact Filter.limsup_le_of_le (hf := hcob) hbound_ae",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ C, 0 < C ∧ ∀ (f : ℝ → ℝ), Function.Periodic f (2 * Real.pi) → AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi → f 0 = 0 → MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi) MeasureTheory.volume → essSup (fun x => |f x| / |Real.sin (x / 2)|) (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤ C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)"
+          }
+        },
+        "lean_dependency_sha256": "68f799d8d794ece5dd5cf5cc6c7c1b65b9d65412cc9b34fc6e96b0456bd3d3a6",
+        "kernel_witness_check": {
+          "proof_type": "∃ C,\n  0 < C ∧\n    ∀ (f : ℝ → ℝ),\n      Function.Periodic f (2 * Real.pi) →\n        AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi →\n          f 0 = 0 →\n            MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi)\n                MeasureTheory.volume →\n              essSup (fun x => |f x| / |Real.sin (x / 2)|)\n                  (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤\n                C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.ofReal_eq_zero",
+          "MeasureTheory.ae_neBot"
+        ],
+        "observed_search_event_ids": [
+          "loogle:200",
+          "leanfinder:192"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "AbsolutelyContinuousOnInterval",
+      "declarations": [
+        "AbsolutelyContinuousOnInterval",
+        "AbsolutelyContinuousOnInterval.symm",
+        "AbsolutelyContinuousOnInterval.const_mul",
+        "AbsolutelyContinuousOnInterval.boundedVariationOn",
+        "AbsolutelyContinuousOnInterval.uniformContinuousOn",
+        "AbsolutelyContinuousOnInterval.uniformlyContinuousOn",
+        "LipschitzOnWith.absolutelyContinuousOnInterval",
+        "AbsolutelyContinuousOnInterval.fun_mul",
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "AbsolutelyContinuousOnInterval.mono"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "essSup",
+      "declarations": [
+        "essSup",
+        "essSup_const'",
+        "essSup_const",
+        "essSup_count",
+        "ENNReal.ae_le_essSup",
+        "essSup_congr_ae",
+        "essSup_mono_measure",
+        "ENNReal.essSup_indicator_eq_essSup_restrict",
+        "ENNReal.essSup_restrict_eq_of_support_subset",
+        "MeasurableEmbedding.essSup_map_measure"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "fundamental theorem calculus absolutely continuous on interval deriv integral",
+      "declarations": [
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+        "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+        "AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub",
+        "intervalIntegral.integral_deriv_eq_sub",
+        "intervalIntegral.integral_deriv_eq_sub'",
+        "intervalIntegral.integral_deriv_eq_sub_uIoo",
+        "AbsolutelyContinuousOnInterval.intervalIntegrable_deriv",
+        "intervalIntegral",
+        "AbsolutelyContinuousOnInterval.integral_mul_deriv_eq_deriv_mul",
+        "IntervalIntegrable.absolutelyContinuousOnInterval_intervalIntegral"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "essential supremum real function measurable finite interval",
+      "declarations": [
+        "Finset.measurable_sup'",
+        "ENNReal.essSup_restrict_eq_of_support_subset",
+        "Measurable",
+        "Set.finite_interval",
+        "ENNReal.toReal_essSup",
+        "Finset.measurable_range_sup'",
+        "essSup_uniformOn_eq_ciSup",
+        "Real.volume_real_interval",
+        "Real.volume_interval",
+        "IntervalIntegrable.aestronglyMeasurable'"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "essSup_le",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "le_essSup",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "_ ≤ essSup _ _",
+      "declarations": [
+        "ENNReal.ae_le_essSup",
+        "essSup_mono_measure",
+        "essSup_mono_measure'",
+        "essSup_comp_le_essSup_map_measure",
+        "essSup_mono_ae",
+        "ae_le_essSup"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "essSup _ _ ≤ _",
+      "declarations": [
+        "essSup_mono_measure",
+        "essSup_le_of_ae_le",
+        "essSup_mono_measure'",
+        "essSup_comp_le_essSup_map_measure",
+        "essSup_mono_ae",
+        "ENNReal.essSup_liminf_le",
+        "ENNReal.essSup_add_le",
+        "ENNReal.essSup_mul_le"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "essSup real-valued function bounded by constant almost everywhere",
+      "declarations": [
+        "ENNReal.ofReal_essSup",
+        "essSup_le_of_ae_le",
+        "MeasureTheory.all_ae_ofReal_F_le_bound",
+        "ENNReal.toReal_essSup",
+        "essSup",
+        "MeasureTheory.all_ae_ofReal_f_le_bound",
+        "MeasureTheory.all_ae_norm_ofReal_F_le_bound",
+        "Stirling.log_stirlingSeq_bounded_by_constant",
+        "BoundedContinuousFunction",
+        "Stirling.stirlingSeq'_bounded_by_pos_constant"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Filter.limsup_le",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "limsup_le_of_le",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "limsup _ _ ≤ _",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "real limsup along filter bounded above by constant if eventually bounded",
+      "declarations": [
+        "Filter.isBoundedUnder_iff_eventually_bddAbove",
+        "Real.limsSup_of_not_isBounded",
+        "Filter.limsup",
+        "eventually_le_limsup",
+        "NNReal.limsSup_of_not_isBounded",
+        "Real.limsup_of_not_isBoundedUnder",
+        "Filter.IsBoundedUnder.eventually_le",
+        "Stirling.log_stirlingSeq_bounded_by_constant",
+        "Stirling.stirlingSeq'_bounded_by_pos_constant",
+        "Filter.limsup_const"
+      ],
+      "call_turn": 15,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "Cauchy Schwarz integral product real functions interval integral norm L2",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "integral_mul_le",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "integral_norm_le",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Real.sq_sqrt",
+      "declarations": [
+        "Real.sq_sqrt"
+      ],
+      "call_turn": 21,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Real.sq_sqrt _",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Real.sqrt_mul_self",
+      "declarations": [
+        "Real.sqrt_mul_self"
+      ],
+      "call_turn": 21,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "Cauchy Schwarz inequality integral product functions L2",
+      "declarations": [
+        "real_inner_mul_inner_self_le",
+        "Real.sum_sqrt_mul_sqrt_le",
+        "Finset.sum_sq_le_sum_mul_sum_of_sq_eq_mul",
+        "Real.sum_mul_le_sqrt_mul_sqrt",
+        "Finset.sum_mul_sq_le_sq_mul_sq",
+        "Cauchy",
+        "inner_mul_inner_self_le",
+        "cauchy_product",
+        "InnerProductSpace.Core.cauchy_schwarz_aux'",
+        "InnerProductSpace.Core.cauchy_schwarz_aux"
+      ],
+      "call_turn": 29,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "_ * _ ≤ sqrt _ * sqrt _",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "integral (_ * _) ≤ sqrt _ * sqrt _",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "L2.norm_mul_le",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "inner_mul_le_norm_mul_norm",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 34
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "Holder inequality integral Lp Lq product norm",
+      "declarations": [
+        "ENNReal.lintegral_mul_le_one_of_lintegral_rpow_eq_one",
+        "ENNReal.lintegral_mul_le_Lp_mul_Lq_of_ne_zero_of_eq_top",
+        "ENNReal.lintegral_mul_le_Lp_mul_Lq",
+        "lp.holder_coe",
+        "lp.holder",
+        "MeasureTheory.integral_mul_norm_le_Lp_mul_Lq",
+        "MeasureTheory.integral_mul_le_Lp_mul_Lq_of_nonneg",
+        "lp.norm_holderL_le",
+        "NNReal.lintegral_mul_le_Lp_mul_Lq",
+        "MeasureTheory.eLpNorm"
+      ],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:30",
+      "tool": "leanfinder",
+      "query": "MeasureTheory eLpNorm multiplication Holder inequality 2 2",
+      "declarations": [
+        "MeasureTheory.eLpNorm_norm",
+        "Real.Lr_le_Lp_mul_Lq_tsum_of_nonneg",
+        "MeasureTheory.eLpNorm'_norm",
+        "MeasureTheory.eLpNorm_smul_le_eLpNorm_mul_eLpNorm_top",
+        "ENNReal.lintegral_mul_le_one_of_lintegral_rpow_eq_one",
+        "NNReal.Lr_le_Lp_mul_Lq",
+        "MeasureTheory.eLpNorm",
+        "eHolderNorm",
+        "MeasureTheory.eLpNorm_smul_le_eLpNorm_top_mul_eLpNorm",
+        "MeasureTheory.eLpNorm'"
+      ],
+      "call_turn": 36,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "eLpNorm _ 2 _ * eLpNorm _ 2 _",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "integral _ ≤ eLpNorm _ _ _ * eLpNorm _ _ _",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Holder",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "holder",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "integral_mul",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "integral_mul_norm_le_Lp_mul_Lq",
+      "declarations": [],
+      "call_turn": 45,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "integral_mul_le_Lp_mul_Lq_of_nonneg",
+      "declarations": [],
+      "call_turn": 45,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "ENNReal.lintegral_mul_le_Lp_mul_Lq",
+      "declarations": [
+        "ENNReal.lintegral_mul_le_Lp_mul_Lq"
+      ],
+      "call_turn": 45,
+      "result_turn": 49
+    },
+    {
+      "event_id": "leanfinder:41",
+      "tool": "leanfinder",
+      "query": "Hardy inequality integral derivative sin half x circle",
+      "declarations": [
+        "circleIntegral",
+        "integral_sin",
+        "Real.sin",
+        "Real.abs_sin_half",
+        "Real.mul_abs_le_abs_sin",
+        "Real.mul_lt_sin",
+        "Real.abs_iteratedDeriv_sin_le_one",
+        "Polynomial.derivative_X",
+        "Real.sin_le_mul",
+        "Real.iteratedDerivWithin_sinh_Icc"
+      ],
+      "call_turn": 50,
+      "result_turn": 51
+    },
+    {
+      "event_id": "leanfinder:42",
+      "tool": "leanfinder",
+      "query": "weighted Sobolev inequality one dimensional absolutely continuous essential supremum",
+      "declarations": [
+        "LE.le.absolutelyContinuous",
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "MeasureTheory.Measure.AbsolutelyContinuous",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv",
+        "Eq.absolutelyContinuous",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_one",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq",
+        "MeasureTheory.lintegral_pow_le_pow_lintegral_fderiv",
+        "MeasureTheory.lintegral_pow_le_pow_lintegral_fderiv_aux",
+        "AbsolutelyContinuousOnInterval"
+      ],
+      "call_turn": 50,
+      "result_turn": 52
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "Sobolev embedding one dimension essential sup derivative L2 interval",
+      "declarations": [
+        "Polynomial.derivative_one",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv",
+        "Polynomial.derivative",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_one",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner",
+        "MeasureTheory.lintegral_pow_le_pow_lintegral_fderiv_aux",
+        "MeasureTheory.lintegral_pow_le_pow_lintegral_fderiv",
+        "Interval.semilatticeSup",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_le",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq"
+      ],
+      "call_turn": 50,
+      "result_turn": 53
+    },
+    {
+      "event_id": "leanfinder:44",
+      "tool": "leanfinder",
+      "query": "Cauchy Schwarz Bochner integral real functions product square roots",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 54
+    },
+    {
+      "event_id": "leanfinder:45",
+      "tool": "leanfinder",
+      "query": "integral nonnegative product less than sqrt integral squares",
+      "declarations": [
+        "integral_sqrt_one_sub_sq",
+        "Int.abs_le_sqrt",
+        "Int.mul_le_mul_of_natAbs_le",
+        "intervalIntegral",
+        "Algebra.IsIntegral.tensorProduct",
+        "MeasureTheory.integral",
+        "NNReal.sqrt_mul_le_max",
+        "int_prod_range_pos",
+        "Int.mul_le_mul_of_le_of_le_of_nonpos_of_nonneg",
+        "Real.rpowIntegrand"
+      ],
+      "call_turn": 50,
+      "result_turn": 55
+    },
+    {
+      "event_id": "leanfinder:46",
+      "tool": "leanfinder",
+      "query": "absolutely continuous pointwise bound square root interval length L2 derivative",
+      "declarations": [
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "MeasureTheory.Measure.AbsolutelyContinuous",
+        "AbsolutelyContinuousOnInterval.exists_bound",
+        "AbsolutelyContinuousOnInterval.intervalIntegrable_deriv",
+        "AbsolutelyContinuousOnInterval.add",
+        "AbsolutelyContinuousOnInterval",
+        "BoundedVariationOn.intervalIntegrable_deriv",
+        "uniqueDiffWithinAt_Iio",
+        "AbsolutelyContinuousOnInterval.totalLengthFilter",
+        "uniqueDiffWithinAt_Iic"
+      ],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "leanfinder:47",
+      "tool": "leanfinder",
+      "query": "fundamental theorem calculus Cauchy Schwarz absolutely continuous L2 derivative sup norm interval",
+      "declarations": [
+        "MeasureTheory.integral_eq_of_hasDerivAt_off_countable",
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+        "MeasureTheory.integral_eq_of_hasDerivAt_off_countable_of_le",
+        "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+        "intervalIntegral.integral_deriv_eq_sub",
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "AbsolutelyContinuousOnInterval",
+        "MeasureTheory.Measure.AbsolutelyContinuous",
+        "AbsolutelyContinuousOnInterval.uniformlyContinuousOn",
+        "absolutelyContinuousOnInterval_iff"
+      ],
+      "call_turn": 56,
+      "result_turn": 58
+    },
+    {
+      "event_id": "leanfinder:48",
+      "tool": "leanfinder",
+      "query": "Agmon inequality one dimension mathlib",
+      "declarations": [
+        "Lean.Meta.matchNe",
+        "Dyadic.blt",
+        "ModularForm.dimension_level_one",
+        "Lean.Expr.ne",
+        "Mathlib.Tactic.IntervalCases.parseBound",
+        "Lean.Expr.le",
+        "Lean.Meta.Grind.Arith.Linear.RingIneqCnstr",
+        "tsirelson_inequality",
+        "Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.core"
+      ],
+      "call_turn": 56,
+      "result_turn": 59
+    },
+    {
+      "event_id": "leanfinder:49",
+      "tool": "leanfinder",
+      "query": "Morrey inequality dimension one derivative L2 Holder",
+      "declarations": [
+        "Polynomial.derivative_one",
+        "holderWith_one",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_one",
+        "Polynomial.derivative",
+        "HolderOnWith.nndist_le",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv",
+        "MeasureTheory.lintegral_pow_le_pow_lintegral_fderiv_aux",
+        "HolderWith.dist_le",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_le",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq"
+      ],
+      "call_turn": 56,
+      "result_turn": 60
+    },
+    {
+      "event_id": "leanfinder:50",
+      "tool": "leanfinder",
+      "query": "H1 embeds continuous one dimensional interval",
+      "declarations": [
+        "Interval.pure_one",
+        "Interval.coe_one",
+        "Lean.Grind.ToInt",
+        "Continuous.intervalIntegrable",
+        "Interval.one_mem_one",
+        "FiniteDimensional",
+        "HahnEmbedding.Partial.lt_extend",
+        "Fin.attachFin_uIcc",
+        "Mathlib.Tactic.Widget.ExprEmbeds",
+        "Fin.map_castSuccEmb_Ioc"
+      ],
+      "call_turn": 56,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_pow",
+      "declarations": [],
+      "call_turn": 62,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "integral_pow",
+      "declarations": [
+        "integral_pow"
+      ],
+      "call_turn": 62,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "∫ _ in _.._, _ ^ _ = _",
+      "declarations": [
+        "integral_cos_sq",
+        "integral_sin_sq",
+        "integral_pow",
+        "integral_cos_pow_three",
+        "integral_sin_pow_three",
+        "integral_rpow",
+        "integral_cpow",
+        "integral_zpow",
+        "integral_sin_pow_even",
+        "integral_sin_pow_odd"
+      ],
+      "call_turn": 62,
+      "result_turn": 66
+    },
+    {
+      "event_id": "leanfinder:55",
+      "tool": "leanfinder",
+      "query": "interval integral power function x^n",
+      "declarations": [
+        "integral_pow",
+        "integral_zpow",
+        "integral_rpow",
+        "intervalIntegral",
+        "intervalIntegral.intervalIntegrable_zpow",
+        "Function.Periodic.intervalIntegral_add_zsmul_eq",
+        "Function.Periodic.intervalIntegral_add_eq_add",
+        "Function.Periodic.intervalIntegral_add_eq",
+        "PowerSeries.X",
+        "Lean.mkIntPowNat"
+      ],
+      "call_turn": 62,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "abs_sin_half",
+      "declarations": [],
+      "call_turn": 62,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "MeasureTheory.MemLp",
+      "declarations": [
+        "MeasureTheory.MemLp",
+        "MeasureTheory.MemLp.aestronglyMeasurable",
+        "MeasureTheory.MemLp.aemeasurable",
+        "MeasureTheory.memLp_measure_zero",
+        "MeasureTheory.memLp_zero_iff_aestronglyMeasurable",
+        "MeasureTheory.MemLp.eLpNorm_ne_top",
+        "MeasureTheory.memLp_top_const_enorm",
+        "MeasureTheory.MemLp.eLpNorm_lt_top",
+        "MeasureTheory.memLp_const_enorm",
+        "MeasureTheory.MemLp.zero'"
+      ],
+      "call_turn": 70,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "MeasureTheory.eLpNorm",
+      "declarations": [
+        "MeasureTheory.eLpNorm",
+        "MeasureTheory.eLpNorm_exponent_top",
+        "MeasureTheory.eLpNorm_one_eq_lintegral_enorm",
+        "MeasureTheory.eLpNorm_nnreal_eq_eLpNorm'",
+        "MeasureTheory.eLpNorm_eq_eLpNorm'",
+        "MeasureTheory.eLpNorm_nnreal_pow_eq_lintegral",
+        "MeasureTheory.eLpNorm_nnreal_eq_lintegral",
+        "MeasureTheory.eLpNorm_eq_lintegral_rpow_enorm",
+        "MeasureTheory.eLpNorm_eq_lintegral_rpow_enorm_toReal",
+        "MeasureTheory.eLpNorm_exponent_zero"
+      ],
+      "call_turn": 70,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "eLpNorm'",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 73
+    },
+    {
+      "event_id": "leanfinder:61",
+      "tool": "leanfinder",
+      "query": "Bochner integral Cauchy Schwarz MemLp two real functions",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 74
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "MemLp integral product inequality L2 norm",
+      "declarations": [
+        "WithLp.prod_norm_eq_of_L2",
+        "ENNReal.lintegral_mul_le_Lp_mul_Lq_of_ne_zero_of_eq_top",
+        "MeasureTheory.integral_mul_le_Lp_mul_Lq_of_nonneg",
+        "ENNReal.lintegral_mul_le_one_of_lintegral_rpow_eq_one",
+        "MeasureTheory.integral_mul_norm_le_Lp_mul_Lq",
+        "PiLp.norm_eq_of_L2",
+        "intervalIntegral.norm_integral_le_abs_integral_norm",
+        "PiLp.norm_sq_eq_of_L2",
+        "MeasureTheory.L2.integral_inner_eq_sq_eLpNorm",
+        "MeasureTheory.eLpNorm"
+      ],
+      "call_turn": 70,
+      "result_turn": 75
+    },
+    {
+      "event_id": "leanfinder:63",
+      "tool": "leanfinder",
+      "query": "Lp toReal eLpNorm integral pow two real",
+      "declarations": [
+        "MeasureTheory.lpNorm_eq_integral_norm_rpow_toReal",
+        "Mathlib.Meta.NormNum.Result.toRat'",
+        "MeasureTheory.eLpNorm_ofReal",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "MeasureTheory.toReal_eLpNorm",
+        "MeasureTheory.eLpNorm",
+        "MeasureTheory.eLpNorm_mono_real",
+        "Lean.Grind.Linarith.Expr.norm",
+        "MeasureTheory.eLpNorm_mono_ae_real",
+        "Mathlib.Meta.NormNum.tryNormNum"
+      ],
+      "call_turn": 70,
+      "result_turn": 76
+    },
+    {
+      "event_id": "leanfinder:66",
+      "tool": "leanfinder",
+      "query": "MemLp two if square integrable real function",
+      "declarations": [
+        "MeasureTheory.MemLp.integrable_sq",
+        "MeasureTheory.MemLp.integrable",
+        "MeasureTheory.memLp_two_iff_integrable_sq",
+        "MeasureTheory.memLp_two_iff_integrable_sq_norm",
+        "MeasureTheory.MemLp",
+        "ProbabilityTheory.integrable_rpow_mul_cexp_of_re_mem_interior_integrableExpSet",
+        "TestFunction.memLp_top",
+        "VectorFourier.integrable_fourierPowSMulRight",
+        "MeasureTheory.UniformIntegrable.memLp",
+        "BoundedContinuousFunction.mem_Lp"
+      ],
+      "call_turn": 80,
+      "result_turn": 81
+    },
+    {
+      "event_id": "leanfinder:67",
+      "tool": "leanfinder",
+      "query": "integrable square implies MemLp 2",
+      "declarations": [
+        "MeasureTheory.MemLp.integrable_sq",
+        "MeasureTheory.MemLp.integrable",
+        "ProbabilityTheory.IsGaussian.memLp_two_id",
+        "MeasureTheory.Integrable",
+        "MeasureTheory.MemLp.locallyIntegrable",
+        "MeasureTheory.MemLp.integrable_mul",
+        "MeasureTheory.MemLp",
+        "VectorFourier.integrable_fourierPowSMulRight",
+        "MeasureTheory.UniformIntegrable.memLp",
+        "ProbabilityTheory.integrable_pow_of_integrable_exp_mul"
+      ],
+      "call_turn": 80,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "MemLp _ 2 _ ↔ Integrable _",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "MemLp _ (ENNReal.ofReal 2) _",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "memLp_two",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "MemLp.of",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "IntervalIntegrable.aestronglyMeasurable",
+      "declarations": [
+        "IntervalIntegrable.aestronglyMeasurable"
+      ],
+      "call_turn": 88,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "AEStronglyMeasurable.div",
+      "declarations": [],
+      "call_turn": 88,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "Integrable.congr",
+      "declarations": [],
+      "call_turn": 88,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "IntegrableOn.congr",
+      "declarations": [],
+      "call_turn": 88,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "IntervalIntegrable.integrableOn",
+      "declarations": [],
+      "call_turn": 94,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "IntervalIntegrable _ _ _ _ -> IntegrableOn",
+      "declarations": [],
+      "call_turn": 94,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "IntegrableOn _ (Set.Icc _ _)",
+      "declarations": [],
+      "call_turn": 94,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "IntervalIntegrable.integrable",
+      "declarations": [],
+      "call_turn": 99,
+      "result_turn": 100
+    },
+    {
+      "event_id": "leanfinder:83",
+      "tool": "leanfinder",
+      "query": "IntervalIntegrable derivative implies IntegrableOn closed interval",
+      "declarations": [
+        "AntitoneOn.intervalIntegrable",
+        "intervalIntegral.integrable_comp_mul_deriv_iff_of_deriv_nonpos",
+        "MonotoneOn.intervalIntegrable",
+        "intervalIntegral.integrable_comp_mul_deriv_iff_of_deriv_nonneg",
+        "AbsolutelyContinuousOnInterval.intervalIntegrable_deriv",
+        "ContinuousOn.intervalIntegrable",
+        "intervalIntegral.integrable_deriv_smul_comp_iff_of_deriv_nonneg",
+        "IntervalIntegrable",
+        "IntervalIntegrable.zero",
+        "intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_deriv_le"
+      ],
+      "call_turn": 99,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "Measure.restrict_mono",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "IntegrableOn.mono_set",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Integrable.mono_measure",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 107
+    },
+    {
+      "event_id": "leanfinder:90",
+      "tool": "leanfinder",
+      "query": "continuous function MemLp finite measure",
+      "declarations": [
+        "MeasureTheory.Lp.boundedContinuousFunction",
+        "MeasureTheory.MemLp",
+        "BoundedContinuousFunction.lintegral_lt_top_of_nnreal",
+        "BoundedContinuousFunction.memLp_top",
+        "BoundedContinuousFunction.mem_Lp",
+        "MeasureTheory.FiniteMeasure.continuous_lintegral_boundedContinuousFunction",
+        "MeasureTheory.L1.setToL1",
+        "MeasureTheory.FiniteMeasure.toWeakDualBCNN",
+        "MeasureTheory.Lp.boundedContinuousFunction_dense",
+        "MeasureTheory.Lp.mem_boundedContinuousFunction_iff"
+      ],
+      "call_turn": 108,
+      "result_turn": 110
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "memLp_const",
+      "declarations": [],
+      "call_turn": 108,
+      "result_turn": 111
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Continuous.memLp",
+      "declarations": [],
+      "call_turn": 108,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "setIntegral_mono_set",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 114
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "integral_mono_set",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "∫ _ in _, _ ≤ ∫ _ in _, _",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "integral_comp_neg",
+      "declarations": [],
+      "call_turn": 118,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "integral_comp_abs",
+      "declarations": [
+        "integral_comp_abs"
+      ],
+      "call_turn": 118,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "integral_neg_eq",
+      "declarations": [],
+      "call_turn": 118,
+      "result_turn": 121
+    },
+    {
+      "event_id": "leanfinder:100",
+      "tool": "leanfinder",
+      "query": "interval integral change variable negation x to -x",
+      "declarations": [
+        "intervalIntegral.integral_neg",
+        "WeierstrassCurve.VariableChange",
+        "intervalIntegral.integral_comp_neg",
+        "intervalIntegral",
+        "Polynomial.toMvPolynomial_X",
+        "intervalIntegral.mul_integral_comp_mul_left",
+        "Polynomial.toLaurent_X",
+        "Polynomial.X",
+        "Polynomial.toFinsupp_X",
+        "intervalIntegral.integral_comp_mul_deriv'"
+      ],
+      "call_turn": 118,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:105",
+      "tool": "loogle",
+      "query": "_ ^ 2 ≤ _ ^ 2",
+      "declarations": [
+        "sq_le_sq",
+        "le_of_sq_le_sq",
+        "sq_le_sq'",
+        "abs_le_of_sq_le_sq",
+        "abs_le_of_sq_le_sq'",
+        "Real.sin_sq_le_sq",
+        "SzemerediRegularity.mul_sq_le_sum_sq",
+        "Int.natAbs_le_iff_sq_le"
+      ],
+      "call_turn": 128,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "sq_le_sq",
+      "declarations": [
+        "sq_le_sq"
+      ],
+      "call_turn": 128,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "Integrable.congr_ae",
+      "declarations": [],
+      "call_turn": 144,
+      "result_turn": 145
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "Integrable.congr",
+      "declarations": [],
+      "call_turn": 144,
+      "result_turn": 146
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "IntegrableOn.congr_ae",
+      "declarations": [],
+      "call_turn": 144,
+      "result_turn": 147
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "∀ᵐ _, _ ≠ _",
+      "declarations": [],
+      "call_turn": 159,
+      "result_turn": 160
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "ae_ne",
+      "declarations": [],
+      "call_turn": 159,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "MeasureTheory.ae_ne",
+      "declarations": [],
+      "call_turn": 159,
+      "result_turn": 162
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "volume {x} = 0",
+      "declarations": [],
+      "call_turn": 159,
+      "result_turn": 163
+    },
+    {
+      "event_id": "leanfinder:127",
+      "tool": "leanfinder",
+      "query": "almost everywhere not equal point measure no atoms singleton",
+      "declarations": [
+        "MeasureTheory.Measure.ae_ne",
+        "MeasureTheory.NoAtoms",
+        "MeasureTheory.Measure.restrict_singleton'",
+        "Set.Countable.ae_notMem",
+        "MeasureTheory.Measure.noAtoms_hausdorff",
+        "MeasureTheory.Measure.pi_noAtoms",
+        "MeasureTheory.Measure.pi_noAtoms'",
+        "MeasureTheory.exists_accPt_of_noAtoms",
+        "MeasurableSpace.MeasurableSingletonClass.of_separatesPoints",
+        "MeasurableSingletonClass"
+      ],
+      "call_turn": 165,
+      "result_turn": 166
+    },
+    {
+      "event_id": "leanfinder:128",
+      "tool": "leanfinder",
+      "query": "eventually different from constant ae measure singleton zero",
+      "declarations": [
+        "MeasureTheory.ae_zero",
+        "MeasureTheory.Measure.bind_zero_right",
+        "MeasureTheory.Measure.restrict_singleton'",
+        "Real.volume_singleton",
+        "CategoryTheory.Functor.IsEventuallyConstantFrom",
+        "VitaliFamily.ae_eventually_measure_zero_of_singular",
+        "MeasureTheory.ae",
+        "Lean.Meta.Grind.Arith.Linear.isZeroInst",
+        "VitaliFamily.ae_eventually_measure_pos",
+        "MeasureTheory.ae_eventually_notMem"
+      ],
+      "call_turn": 165,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "Eventually (_ ≠ _) (MeasureTheory.ae _)",
+      "declarations": [],
+      "call_turn": 165,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "∀ᵐ (x : _) ∂_, x ≠ _",
+      "declarations": [
+        "MeasureTheory.Measure.ae_ne"
+      ],
+      "call_turn": 165,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "measure_singleton",
+      "declarations": [],
+      "call_turn": 165,
+      "result_turn": 170
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "ae_restrict_mem",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "∀ᵐ _ ∂_.restrict _, _ ∈ _",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 178
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "integral_of_le",
+      "declarations": [],
+      "call_turn": 182,
+      "result_turn": 183
+    },
+    {
+      "event_id": "loogle:140",
+      "tool": "loogle",
+      "query": "integral_Icc_eq_integral_Ioc",
+      "declarations": [],
+      "call_turn": 182,
+      "result_turn": 184
+    },
+    {
+      "event_id": "loogle:144",
+      "tool": "loogle",
+      "query": "Real.rpow_natCast",
+      "declarations": [
+        "Real.rpow_natCast"
+      ],
+      "call_turn": 190,
+      "result_turn": 191
+    },
+    {
+      "event_id": "loogle:145",
+      "tool": "loogle",
+      "query": "Real.rpow_two",
+      "declarations": [
+        "Real.rpow_two"
+      ],
+      "call_turn": 190,
+      "result_turn": 192
+    },
+    {
+      "event_id": "loogle:146",
+      "tool": "loogle",
+      "query": "_ ^ (1 / 2 : ℝ) = sqrt _",
+      "declarations": [],
+      "call_turn": 190,
+      "result_turn": 193
+    },
+    {
+      "event_id": "loogle:149",
+      "tool": "loogle",
+      "query": "AEStronglyMeasurable.inv",
+      "declarations": [],
+      "call_turn": 197,
+      "result_turn": 198
+    },
+    {
+      "event_id": "loogle:150",
+      "tool": "loogle",
+      "query": "AEStronglyMeasurable.mul",
+      "declarations": [],
+      "call_turn": 197,
+      "result_turn": 199
+    },
+    {
+      "event_id": "loogle:151",
+      "tool": "loogle",
+      "query": "AEStronglyMeasurable.div_const",
+      "declarations": [],
+      "call_turn": 197,
+      "result_turn": 200
+    },
+    {
+      "event_id": "leanfinder:152",
+      "tool": "leanfinder",
+      "query": "AEStronglyMeasurable quotient division real normed field",
+      "declarations": [
+        "Mathlib.Meta.NormNum.Result.toRat'",
+        "Real.normedField",
+        "Mathlib.Meta.NormNum.evalNNRatDivNat",
+        "NormedField.toNormedDivisionRing",
+        "Quaternion.instNormedDivisionRingReal",
+        "MeasureTheory.AEStronglyMeasurable",
+        "Mathlib.Meta.NormNum.evalOrdinalDiv",
+        "Mathlib.Meta.NormNum.evalNNRatCast",
+        "Real.aestronglyMeasurable_rpowIntegrand",
+        "Measurable.aestronglyMeasurable"
+      ],
+      "call_turn": 197,
+      "result_turn": 201
+    },
+    {
+      "event_id": "loogle:161",
+      "tool": "loogle",
+      "query": "AbsolutelyContinuousOnInterval.comp",
+      "declarations": [],
+      "call_turn": 217,
+      "result_turn": 218
+    },
+    {
+      "event_id": "leanfinder:162",
+      "tool": "leanfinder",
+      "query": "AbsolutelyContinuousOnInterval composition negation linear map",
+      "declarations": [
+        "AbsolutelyContinuousOnInterval.neg",
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "AbsolutelyContinuousOnInterval.fun_neg",
+        "ContinuousLinearMap.comp_neg",
+        "ContinuousLinearMap.neg_comp",
+        "ContinuousLinearMap.compContinuousAlternatingMap_coe",
+        "MeasureTheory.Measure.AbsolutelyContinuous",
+        "AbsolutelyContinuousOnInterval",
+        "AbsolutelyContinuousOnInterval.smul",
+        "AbsolutelyContinuousOnInterval.symm"
+      ],
+      "call_turn": 217,
+      "result_turn": 219
+    },
+    {
+      "event_id": "loogle:163",
+      "tool": "loogle",
+      "query": "AbsolutelyContinuousOnInterval.neg",
+      "declarations": [
+        "AbsolutelyContinuousOnInterval.neg"
+      ],
+      "call_turn": 217,
+      "result_turn": 220
+    },
+    {
+      "event_id": "loogle:165",
+      "tool": "loogle",
+      "query": "deriv_comp_neg",
+      "declarations": [
+        "deriv_comp_neg"
+      ],
+      "call_turn": 222,
+      "result_turn": 223
+    },
+    {
+      "event_id": "loogle:166",
+      "tool": "loogle",
+      "query": "deriv (_ ∘ -_) =",
+      "declarations": [],
+      "call_turn": 222,
+      "result_turn": 224
+    },
+    {
+      "event_id": "leanfinder:167",
+      "tool": "leanfinder",
+      "query": "derivative function composition negation deriv comp_neg",
+      "declarations": [
+        "Derivative.normalizedDerivOfComplex_neg",
+        "iteratedDeriv_comp_neg",
+        "derivWithin_comp_neg",
+        "Function.comp",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith",
+        "Polynomial.derivative_comp",
+        "deriv_comp_neg",
+        "Polynomial.derivative_comp_one_sub_X",
+        "fderivWithin_comp_neg",
+        "Lean.Meta.Simp.simpConst"
+      ],
+      "call_turn": 222,
+      "result_turn": 225
+    },
+    {
+      "event_id": "leanfinder:169",
+      "tool": "leanfinder",
+      "query": "composition of absolutely continuous real function with Lipschitz map absolutely continuous interval",
+      "declarations": [
+        "LipschitzOnWith.absolutelyContinuousOnInterval",
+        "AbsolutelyContinuousOnInterval.fun_mul",
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "AbsolutelyContinuousOnInterval.intervalIntegrable_deriv",
+        "AbsolutelyContinuousOnInterval",
+        "AbsolutelyContinuousOnInterval.uniformContinuousOn",
+        "MeasureTheory.Measure.AbsolutelyContinuous",
+        "AbsolutelyContinuousOnInterval.mul",
+        "MeasureTheory.LipschitzWith.integrable_comp_iff_of_antilipschitz",
+        "AbsolutelyContinuousOnInterval.sub"
+      ],
+      "call_turn": 227,
+      "result_turn": 228
+    },
+    {
+      "event_id": "leanfinder:170",
+      "tool": "leanfinder",
+      "query": "AbsolutelyContinuousOnInterval map under affine transformation",
+      "declarations": [
+        "AbsolutelyContinuousOnInterval.continuousOn",
+        "AbsolutelyContinuousOnInterval.uniformContinuousOn",
+        "ContinuousLinearMap.coe_toContinuousAffineMap",
+        "AffineMap.image_uIcc",
+        "Set.image_affine_Ico",
+        "ContinuousAffineMap.continuous",
+        "AffineMap.lineMap_continuous_uncurry",
+        "MeasureTheory.Measure.AbsolutelyContinuous",
+        "AbsolutelyContinuousOnInterval",
+        "absolutelyContinuousOnInterval_iff"
+      ],
+      "call_turn": 227,
+      "result_turn": 229
+    },
+    {
+      "event_id": "loogle:171",
+      "tool": "loogle",
+      "query": "LipschitzWith _ _ -> AbsolutelyContinuousOnInterval _ _ _",
+      "declarations": [],
+      "call_turn": 227,
+      "result_turn": 230
+    },
+    {
+      "event_id": "loogle:172",
+      "tool": "loogle",
+      "query": "AbsolutelyContinuousOnInterval (_ ∘ _)",
+      "declarations": [],
+      "call_turn": 227,
+      "result_turn": 231
+    },
+    {
+      "event_id": "loogle:173",
+      "tool": "loogle",
+      "query": "AbsolutelyContinuousOnInterval _ _ _ -> AbsolutelyContinuousOnInterval _ _ _",
+      "declarations": [
+        "AbsolutelyContinuousOnInterval.symm",
+        "AbsolutelyContinuousOnInterval.const_mul",
+        "AbsolutelyContinuousOnInterval.fun_mul",
+        "AbsolutelyContinuousOnInterval.mono",
+        "AbsolutelyContinuousOnInterval.fun_neg",
+        "AbsolutelyContinuousOnInterval.mul",
+        "AbsolutelyContinuousOnInterval.neg",
+        "AbsolutelyContinuousOnInterval.fun_sub",
+        "AbsolutelyContinuousOnInterval.fun_add",
+        "AbsolutelyContinuousOnInterval.sub"
+      ],
+      "call_turn": 227,
+      "result_turn": 232
+    },
+    {
+      "event_id": "loogle:174",
+      "tool": "loogle",
+      "query": "lipschitz absolutelyContinuousOnInterval",
+      "declarations": [],
+      "call_turn": 227,
+      "result_turn": 233
+    },
+    {
+      "event_id": "loogle:183",
+      "tool": "loogle",
+      "query": "IsCoboundedUnder",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 251
+    },
+    {
+      "event_id": "loogle:184",
+      "tool": "loogle",
+      "query": "isCoboundedUnder_le",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 252
+    },
+    {
+      "event_id": "loogle:185",
+      "tool": "loogle",
+      "query": "IsCoboundedUnder (_ ≤ _) _ _",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 253
+    },
+    {
+      "event_id": "loogle:189",
+      "tool": "loogle",
+      "query": "NeBot (MeasureTheory.ae _)",
+      "declarations": [],
+      "call_turn": 259,
+      "result_turn": 260
+    },
+    {
+      "event_id": "loogle:190",
+      "tool": "loogle",
+      "query": "ae_neBot",
+      "declarations": [],
+      "call_turn": 259,
+      "result_turn": 261
+    },
+    {
+      "event_id": "loogle:191",
+      "tool": "loogle",
+      "query": "MeasureTheory.ae.neBot",
+      "declarations": [],
+      "call_turn": 259,
+      "result_turn": 262
+    },
+    {
+      "event_id": "leanfinder:192",
+      "tool": "leanfinder",
+      "query": "almost everywhere filter neBot nonzero measure",
+      "declarations": [
+        "Filter.NeBot.ne",
+        "Filter.NeBot",
+        "MeasureTheory.ae_zero",
+        "MeasureTheory.ae_neBot",
+        "MeasureTheory.Measure.ae.neBot",
+        "MeasureTheory.instCountableInterFilterAe",
+        "MeasureTheory.IsProbabilityMeasure.ae_neBot",
+        "Filter.NeBot.vsub",
+        "Filter.pi_neBot",
+        "Ideal.exists_nonzero_mem_of_ne_bot"
+      ],
+      "call_turn": 259,
+      "result_turn": 263
+    },
+    {
+      "event_id": "loogle:194",
+      "tool": "loogle",
+      "query": "restrict _ ≠ 0",
+      "declarations": [],
+      "call_turn": 265,
+      "result_turn": 266
+    },
+    {
+      "event_id": "loogle:195",
+      "tool": "loogle",
+      "query": "Measure.restrict_ne_zero",
+      "declarations": [],
+      "call_turn": 265,
+      "result_turn": 267
+    },
+    {
+      "event_id": "loogle:196",
+      "tool": "loogle",
+      "query": "volume (Set.Icc _ _) ≠ 0",
+      "declarations": [],
+      "call_turn": 265,
+      "result_turn": 268
+    },
+    {
+      "event_id": "loogle:200",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_eq_zero",
+      "declarations": [
+        "ENNReal.ofReal_eq_zero"
+      ],
+      "call_turn": 274,
+      "result_turn": 275
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 131,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 129,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 207,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

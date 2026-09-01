@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hc_0fa2f463" [shape=box, color="#178F82", label="hc₁\nc < 1"];
+  "m_hcontractive_d6d09758" [shape=box, color="#178F82", label="hcontractive\n∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}; (∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x"];
+  "r_h_goal" [shape=diamond, label="csInf_le + dist_comm + dist_eq_zero", color="#D97706"];
+  "m_hc_0fa2f463" -> "r_h_goal";
+  "m_hcontractive_d6d09758" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

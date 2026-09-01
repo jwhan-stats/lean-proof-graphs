@@ -1,0 +1,1732 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2937_coinvariants_addmonoidalgebra_eq_range",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2937,
+    "source": "1307.3066",
+    "theorem_name": "coinvariants_addMonoidAlgebra_eq_range",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2937",
+    "reconstructed_proof": "../../candidates/p2937_coinvariants_addmonoidalgebra_eq_range/proof.lean",
+    "raw_elaboration": "../../candidates/p2937_coinvariants_addmonoidalgebra_eq_range/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2937_coinvariants_addmonoidalgebra_eq_range.coinvariants_addMonoidAlgebra_eq_range",
+    "verification_call_id": "verify_submission:77",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "efb7339bd7ad37f7add4d6ffea20ff5f7f3340ddaf8769ccd6fecd3d777912c5",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "7a246e293d86ca7ab671d015bda67aa3d85fd1647ced07defb0018bcd6bc90f4",
+    "concrete_semantic_topology_sha256": "efb7339bd7ad37f7add4d6ffea20ff5f7f3340ddaf8769ccd6fecd3d777912c5"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_9e7b0a87",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hφ",
+      "lean_fvar_id": "10",
+      "statement": "Function.Injective ⇑φ"
+    },
+    {
+      "id": "m_hc_4f37ddb9",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc",
+      "lean_fvar_id": "14",
+      "statement": "∀ (m : ↥S), c (AddMonoidAlgebra.single m 1) = AddMonoidAlgebra.single (ψ ↑m) 1 ⊗ₜ[R] AddMonoidAlgebra.single m 1"
+    },
+    {
+      "id": "m_hexact_20a57c25",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hexact",
+      "lean_fvar_id": "11",
+      "statement": "Function.Exact ⇑φ ⇑ψ"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "AlgHom.equalizer c Algebra.TensorProduct.includeRight = (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)).range"
+    },
+    {
+      "id": "n_h1_70288beb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h1",
+      "lean_fvar_id": "_uniq.450294",
+      "statement": "(fun z => z (ψ ↑m)) (E (c x)) = (fun z => z (ψ ↑m)) (E (Algebra.TensorProduct.includeRight x))"
+    },
+    {
+      "id": "n_h_70082367",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hφ",
+      "lean_fvar_id": "_uniq.430754",
+      "statement": "Function.Injective ⇑φ"
+    },
+    {
+      "id": "n_h_c9326287",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.450636",
+      "statement": "((E (c x)) (ψ ↑m)) m = ((E (Algebra.TensorProduct.includeRight x)) (ψ ↑m)) m"
+    },
+    {
+      "id": "n_h_inj_ea567b6b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hιinj",
+      "lean_fvar_id": "_uniq.457451",
+      "statement": "Function.Injective ⇑ι"
+    },
+    {
+      "id": "n_h_m_a6b2217c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hψm",
+      "lean_fvar_id": "_uniq.460902",
+      "statement": "ψ ↑m = 0"
+    },
+    {
+      "id": "n_h_z_f892ee79",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hψz",
+      "lean_fvar_id": "_uniq.482645",
+      "statement": "ψ (φ ↑z) = 0"
+    },
+    {
+      "id": "n_hab_b6b3354e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hab",
+      "lean_fvar_id": "_uniq.457461",
+      "statement": "ι a = ι b"
+    },
+    {
+      "id": "n_hc_300119d7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hc",
+      "lean_fvar_id": "_uniq.430758",
+      "statement": "∀ (m : ↥S), c (AddMonoidAlgebra.single m 1) = AddMonoidAlgebra.single (ψ ↑m) 1 ⊗ₜ[R] AddMonoidAlgebra.single m 1"
+    },
+    {
+      "id": "n_hcoeff_cbd40110",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcoeff",
+      "lean_fvar_id": "_uniq.449543",
+      "statement": "∀ (m : ↥S), ψ ↑m ≠ 0 → x m = 0"
+    },
+    {
+      "id": "n_hcomp_632ebdcf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcomp",
+      "lean_fvar_id": "_uniq.481504",
+      "statement": "c.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)) = Algebra.TensorProduct.includeRight.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S))"
+    },
+    {
+      "id": "n_heq_68c7ec3d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "heq",
+      "lean_fvar_id": "_uniq.443540",
+      "statement": "c x = Algebra.TensorProduct.includeRight x"
+    },
+    {
+      "id": "n_hexact_f83429bf",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hexact",
+      "lean_fvar_id": "_uniq.430755",
+      "statement": "Function.Exact ⇑φ ⇑ψ"
+    },
+    {
+      "id": "n_hm_80db694b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hm",
+      "lean_fvar_id": "_uniq.459674",
+      "statement": "m ∈ ↑x.support"
+    },
+    {
+      "id": "n_hrange_62a743a8",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrange",
+      "lean_fvar_id": "_uniq.462276",
+      "statement": "↑m ∈ Set.range ⇑φ"
+    },
+    {
+      "id": "n_hsupport_dd61c495",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsupport",
+      "lean_fvar_id": "_uniq.459667",
+      "statement": "↑x.support ⊆ Set.range ⇑ι"
+    },
+    {
+      "id": "n_hval_d0c7d67f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hval",
+      "lean_fvar_id": "_uniq.457511",
+      "statement": "↑(ι a) = ↑(ι b)"
+    },
+    {
+      "id": "n_hx_ac32a33e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.435620",
+      "statement": "x ∈ AlgHom.equalizer c Algebra.TensorProduct.includeRight"
+    },
+    {
+      "id": "n_hxm_ne_2fd16944",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxm_ne",
+      "lean_fvar_id": "_uniq.460279",
+      "statement": "x m ≠ 0"
+    },
+    {
+      "id": "n_this_4bb3aa90",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.471255",
+      "statement": "G = AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)"
+    },
+    {
+      "id": "n_this_7ddb0969",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.453560",
+      "statement": "E = TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h1_70288beb"
+      ],
+      "conclusion": "n_h_c9326287",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg",
+        "items": [
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_52",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h := congrArg (fun z : AddMonoidAlgebra R S => z m) h1\n      dsimp only at h\n      rw [show E = TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R) from rfl] at h\n      rw [coinvariants_coaction_coeff ψ S c hc x m,\n        coinvariants_includeRight_coeff_eq_zero ψ S x m hm] at h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.450294",
+              "name": "h1",
+              "statement": "(fun z => z (ψ ↑m)) (E (c x)) = (fun z => z (ψ ↑m)) (E (Algebra.TensorProduct.includeRight x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.450636",
+            "name": "h",
+            "statement": "((E (c x)) (ψ ↑m)) m = ((E (Algebra.TensorProduct.includeRight x)) (ψ ↑m)) m"
+          }
+        },
+        "lean_dependency_sha256": "28a3ddcd7876f74e63cdd86340b64b8c798ea9d94eff106d300b1b1a57d2e670",
+        "kernel_witness_check": {
+          "proof_type": "((fun z => z (ψ ↑m)) (E (c x))) m = ((fun z => z (ψ ↑m)) (E (Algebra.TensorProduct.includeRight x))) m",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_this",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_this_7ddb0969",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_53",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.453560",
+            "name": "this",
+            "statement": "E = TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R)"
+          }
+        },
+        "lean_dependency_sha256": "6d0f001169895a8f8d93ed688ddc8b180200ffea5292b4397ff5f07ef4732a51",
+        "kernel_witness_check": {
+          "proof_type": "E = E",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_h1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_heq_68c7ec3d"
+      ],
+      "conclusion": "n_h1_70288beb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg",
+        "items": [
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_54",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h1 := congrArg (fun z : N →₀ AddMonoidAlgebra R S => z (ψ m))\n        (congrArg E heq)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.443540",
+              "name": "heq",
+              "statement": "c x = Algebra.TensorProduct.includeRight x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.450294",
+            "name": "h1",
+            "statement": "(fun z => z (ψ ↑m)) (E (c x)) = (fun z => z (ψ ↑m)) (E (Algebra.TensorProduct.includeRight x))"
+          }
+        },
+        "lean_dependency_sha256": "a02b2e5d6af764a8f7ccf1aa93f960cda3daca08616b56500e98f2eb58c5bcdd",
+        "kernel_witness_check": {
+          "proof_type": "(E (c x)) (ψ ↑m) = (E (Algebra.TensorProduct.includeRight x)) (ψ ↑m)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hval",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hab_b6b3354e"
+      ],
+      "conclusion": "n_hval_d0c7d67f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg",
+        "items": [
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_55",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hval := congrArg Subtype.val hab",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.457461",
+              "name": "hab",
+              "statement": "ι a = ι b"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.457511",
+            "name": "hval",
+            "statement": "↑(ι a) = ↑(ι b)"
+          }
+        },
+        "lean_dependency_sha256": "ba329eb612446899826ff4ac12ee1cc46716f48550285422f529776a8967a5c8",
+        "kernel_witness_check": {
+          "proof_type": "↑(ι a) = ↑(ι b)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hrange",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hexact_f83429bf",
+        "n_h_m_a6b2217c"
+      ],
+      "conclusion": "n_hrange_62a743a8",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_56",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hrange : (m : M) ∈ Set.range φ := (hexact m).mp hψm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.430755",
+              "name": "hexact",
+              "statement": "Function.Exact ⇑φ ⇑ψ"
+            },
+            {
+              "fvar_id": "_uniq.460902",
+              "name": "hψm",
+              "statement": "ψ ↑m = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.462276",
+            "name": "hrange",
+            "statement": "↑m ∈ Set.range ⇑φ"
+          }
+        },
+        "lean_dependency_sha256": "d222cf398ef845106c47db8a9ee3e4b48f17fa197a40a64dbd491a4d4d8551bd",
+        "kernel_witness_check": {
+          "proof_type": "↑m ∈ Set.range ⇑φ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hxm_ne",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hm_80db694b"
+      ],
+      "conclusion": "n_hxm_ne_2fd16944",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finsupp.mem_support_iff",
+        "items": [
+          "Finsupp.mem_support_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finsupp.mem_support_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_57",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hxm_ne : x m ≠ 0 := Finsupp.mem_support_iff.mp hm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.459674",
+              "name": "hm",
+              "statement": "m ∈ ↑x.support"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.460279",
+            "name": "hxm_ne",
+            "statement": "x m ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "f014560a2136575741d9c5634fd1a5227dc134c626bc4d9511043a369b1b7ba1",
+        "kernel_witness_check": {
+          "proof_type": "x m ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_h_m",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcoeff_cbd40110",
+        "n_hxm_ne_2fd16944"
+      ],
+      "conclusion": "n_h_m_a6b2217c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_58",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hψm : ψ m = 0 := by\n        by_contra hne\n        exact hxm_ne (hcoeff m hne)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.449543",
+              "name": "hcoeff",
+              "statement": "∀ (m : ↥S), ψ ↑m ≠ 0 → x m = 0"
+            },
+            {
+              "fvar_id": "_uniq.460279",
+              "name": "hxm_ne",
+              "statement": "x m ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.460902",
+            "name": "hψm",
+            "statement": "ψ ↑m = 0"
+          }
+        },
+        "lean_dependency_sha256": "aa789dacd1d1c083650390bebd51a767cc214b8b9acf72f97b99e4111d913220",
+        "kernel_witness_check": {
+          "proof_type": "ψ ↑m = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_this",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_this_4bb3aa90",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_59",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.471255",
+            "name": "this",
+            "statement": "G = AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)"
+          }
+        },
+        "lean_dependency_sha256": "f02de9cd82355897521542829465c3c6c2d9388baa28ec8da0695a042db79a1a",
+        "kernel_witness_check": {
+          "proof_type": "G = G",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_heq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_ac32a33e"
+      ],
+      "conclusion": "n_heq_68c7ec3d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "AlgHom.mem_equalizer",
+        "items": [
+          "AlgHom.mem_equalizer"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "AlgHom.mem_equalizer"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_60",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have heq : c x = Algebra.TensorProduct.includeRight x :=\n      (AlgHom.mem_equalizer c Algebra.TensorProduct.includeRight x).mp hx\n    let E : TensorProduct R (AddMonoidAlgebra R N) (AddMonoidAlgebra R S) ≃ₗ[R]\n        N →₀ AddMonoidAlgebra R S :=\n      TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.435620",
+              "name": "hx",
+              "statement": "x ∈ AlgHom.equalizer c Algebra.TensorProduct.includeRight"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.443540",
+            "name": "heq",
+            "statement": "c x = Algebra.TensorProduct.includeRight x"
+          }
+        },
+        "lean_dependency_sha256": "19f250c2db29afb1cfb4adacf301817ddefafe4dcd2b8208133449046bb455fc",
+        "kernel_witness_check": {
+          "proof_type": "c x = Algebra.TensorProduct.includeRight x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "AlgHom.mem_equalizer"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_010_hcoeff",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hc_300119d7",
+        "n_heq_68c7ec3d"
+      ],
+      "conclusion": "n_hcoeff_cbd40110",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "coinvariants_coaction_coeff + coinvariants_includeRight_coeff_eq_zero + congrArg",
+        "items": [
+          "Rollout_p2937_coinvariants_addmonoidalgebra_eq_range.coinvariants_coaction_coeff",
+          "Rollout_p2937_coinvariants_addmonoidalgebra_eq_range.coinvariants_includeRight_coeff_eq_zero",
+          "congrArg"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2937_coinvariants_addmonoidalgebra_eq_range.coinvariants_coaction_coeff",
+          "Rollout_p2937_coinvariants_addmonoidalgebra_eq_range.coinvariants_includeRight_coeff_eq_zero"
+        ],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_62",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcoeff : ∀ m : S, ψ m ≠ 0 → x m = 0 := by\n      intro m hm\n      have h1 := congrArg (fun z : N →₀ AddMonoidAlgebra R S => z (ψ m))\n        (congrArg E heq)\n      have h := congrArg (fun z : AddMonoidAlgebra R S => z m) h1\n      dsimp only at h\n      rw [show E = TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R) from rfl] at h\n      rw [coinvariants_coaction_coeff ψ S c hc x m,\n        coinvariants_includeRight_coeff_eq_zero ψ S x m hm] at h\n      exact h\n    let ι : ↥(AddSubmonoid.comap φ S) →+ S := φ.addSubmonoidComap S",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.430758",
+              "name": "hc",
+              "statement": "∀ (m : ↥S), c (AddMonoidAlgebra.single m 1) = AddMonoidAlgebra.single (ψ ↑m) 1 ⊗ₜ[R] AddMonoidAlgebra.single m 1"
+            },
+            {
+              "fvar_id": "_uniq.443540",
+              "name": "heq",
+              "statement": "c x = Algebra.TensorProduct.includeRight x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.449543",
+            "name": "hcoeff",
+            "statement": "∀ (m : ↥S), ψ ↑m ≠ 0 → x m = 0"
+          }
+        },
+        "lean_dependency_sha256": "58ca364d3c331c077ac7ebd3faea38b5e499ab5beb9168a3ab2659291fbcc9f0",
+        "kernel_witness_check": {
+          "proof_type": "∀ (m : ↥S), ψ ↑m ≠ 0 → x m = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_h_inj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_70082367"
+      ],
+      "conclusion": "n_h_inj_ea567b6b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Subtype.ext + congrArg",
+        "items": [
+          "Subtype.ext",
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Subtype.ext",
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_64",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hιinj : Function.Injective ι := by\n      intro a b hab\n      apply Subtype.ext\n      apply hφ\n      have hval := congrArg Subtype.val hab\n      simpa [ι, AddMonoidHom.addSubmonoidComap_apply_coe] using hval",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.430754",
+              "name": "hφ",
+              "statement": "Function.Injective ⇑φ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.457451",
+            "name": "hιinj",
+            "statement": "Function.Injective ⇑ι"
+          }
+        },
+        "lean_dependency_sha256": "e68858e014a01cad7bedf230846e60c06f3f94385d7db68d2082463a8bf2ccda",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃a b : ↥(AddSubmonoid.comap φ S)⦄, ι a = ι b → a = b",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Subtype.ext"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:16",
+          "loogle:20",
+          "loogle:61"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_012_hsupport",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hexact_f83429bf",
+        "n_hcoeff_cbd40110"
+      ],
+      "conclusion": "n_hsupport_dd61c495",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finsupp.mem_support_iff + Subtype.ext",
+        "items": [
+          "Finsupp.mem_support_iff",
+          "Subtype.ext"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finsupp.mem_support_iff",
+          "Subtype.ext"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_65",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsupport : (x.support : Set S) ⊆ Set.range ι := by\n      intro m hm\n      have hxm_ne : x m ≠ 0 := Finsupp.mem_support_iff.mp hm\n      have hψm : ψ m = 0 := by\n        by_contra hne\n        exact hxm_ne (hcoeff m hne)\n      have hrange : (m : M) ∈ Set.range φ := (hexact m).mp hψm\n      rcases hrange with ⟨a, ha⟩\n      refine ⟨⟨a, ?_⟩, ?_⟩\n      · change φ a ∈ S\n        simpa [ha] using m.property\n      · apply Subtype.ext\n        simpa [ι, AddMonoidHom.addSubmonoidComap_apply_coe] using ha\n    let y : AddMonoidAlgebra R ↥(AddSubmonoid.comap φ S) :=\n      AddMonoidAlgebra.comapDomain ι hιinj x\n    rw [AlgHom.mem_range]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.430755",
+              "name": "hexact",
+              "statement": "Function.Exact ⇑φ ⇑ψ"
+            },
+            {
+              "fvar_id": "_uniq.449543",
+              "name": "hcoeff",
+              "statement": "∀ (m : ↥S), ψ ↑m ≠ 0 → x m = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.459667",
+            "name": "hsupport",
+            "statement": "↑x.support ⊆ Set.range ⇑ι"
+          }
+        },
+        "lean_dependency_sha256": "5b618bfc0ae693c8cd416c7a529e44f02d5411ebac2e63c936e5d34e239a9733",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃m : ↥S⦄, m ∈ ↑x.support → m ∈ Set.range ⇑ι",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Subtype.ext"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:16",
+          "loogle:20",
+          "loogle:61"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_013_h_z",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hexact_f83429bf"
+      ],
+      "conclusion": "n_h_z_f892ee79",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Function.Exact.apply_apply_eq_zero",
+        "items": [
+          "Function.Exact.apply_apply_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Function.Exact.apply_apply_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_67",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hψz : ψ (φ z.1) = 0 := hexact.apply_apply_eq_zero z.1\n      simp [AlgHom.comp_apply, AddMonoidAlgebra.mapDomainAlgHom_apply, hc,\n        AddMonoidHom.addSubmonoidComap_apply_coe, hψz, AddMonoidAlgebra.one_def]\n    rw [AlgHom.mem_equalizer]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.430755",
+              "name": "hexact",
+              "statement": "Function.Exact ⇑φ ⇑ψ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.482645",
+            "name": "hψz",
+            "statement": "ψ (φ ↑z) = 0"
+          }
+        },
+        "lean_dependency_sha256": "cbc226d3d715bb903e00c1786830cb9e10702bed778781159e599d23e7c78fe8",
+        "kernel_witness_check": {
+          "proof_type": "ψ (φ ↑z) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Function.Exact.apply_apply_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_014_hcomp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hexact_f83429bf",
+        "n_hc_300119d7"
+      ],
+      "conclusion": "n_hcomp_632ebdcf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "AddMonoidAlgebra.algHom_ext + Finsupp.mapDomain_single + Function.Exact.apply_apply_eq_zero",
+        "items": [
+          "AddMonoidAlgebra.algHom_ext",
+          "Finsupp.mapDomain_single",
+          "Function.Exact.apply_apply_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "AddMonoidAlgebra.algHom_ext",
+          "Finsupp.mapDomain_single",
+          "Function.Exact.apply_apply_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_69",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcomp :\n        c.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)) =\n          Algebra.TensorProduct.includeRight.comp\n            (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)) := by\n      apply AddMonoidAlgebra.algHom_ext\n      intro z\n      have hψz : ψ (φ z.1) = 0 := hexact.apply_apply_eq_zero z.1\n      simp [AlgHom.comp_apply, AddMonoidAlgebra.mapDomainAlgHom_apply, hc,\n        AddMonoidHom.addSubmonoidComap_apply_coe, hψz, AddMonoidAlgebra.one_def]\n    rw [AlgHom.mem_equalizer]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.430755",
+              "name": "hexact",
+              "statement": "Function.Exact ⇑φ ⇑ψ"
+            },
+            {
+              "fvar_id": "_uniq.430758",
+              "name": "hc",
+              "statement": "∀ (m : ↥S), c (AddMonoidAlgebra.single m 1) = AddMonoidAlgebra.single (ψ ↑m) 1 ⊗ₜ[R] AddMonoidAlgebra.single m 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.481504",
+            "name": "hcomp",
+            "statement": "c.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)) = Algebra.TensorProduct.includeRight.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S))"
+          }
+        },
+        "lean_dependency_sha256": "40cca959f8aa57f39682c6686dd194f4f8ff767d5b1820c3837966c8a5ec22dc",
+        "kernel_witness_check": {
+          "proof_type": "c.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)) =\n  Algebra.TensorProduct.includeRight.comp (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "AddMonoidAlgebra.algHom_ext",
+          "Finsupp.mapDomain_single",
+          "Function.Exact.apply_apply_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:16",
+          "loogle:17",
+          "loogle:64",
+          "loogle:63",
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_9e7b0a87",
+        "m_hexact_20a57c25",
+        "m_hc_4f37ddb9"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "AddMonoidAlgebra.algHom_ext + AddMonoidAlgebra.mapDomainAlgHom_apply + AddMonoidAlgebra.mapDomain_comapDomain",
+        "items": [
+          "AddMonoidAlgebra.algHom_ext",
+          "AddMonoidAlgebra.mapDomainAlgHom_apply",
+          "AddMonoidAlgebra.mapDomain_comapDomain",
+          "AlgHom.ext_iff",
+          "AlgHom.mem_equalizer",
+          "AlgHom.mem_range",
+          "Finsupp.mapDomain_single",
+          "Finsupp.mem_support_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "AddMonoidAlgebra.algHom_ext",
+          "AddMonoidAlgebra.mapDomainAlgHom_apply",
+          "AddMonoidAlgebra.mapDomain_comapDomain",
+          "AlgHom.ext_iff",
+          "AlgHom.mem_equalizer",
+          "AlgHom.mem_range",
+          "Finsupp.mapDomain_single",
+          "Finsupp.mem_support_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro hx\n    have heq : c x = Algebra.TensorProduct.includeRight x :=\n      (AlgHom.mem_equalizer c Algebra.TensorProduct.includeRight x).mp hx\n    let E : TensorProduct R (AddMonoidAlgebra R N) (AddMonoidAlgebra R S) ≃ₗ[R]\n        N →₀ AddMonoidAlgebra R S :=\n      TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R)\n    have hcoeff : ∀ m : S, ψ m ≠ 0 → x m = 0 := by\n      intro m hm\n      have h1 := congrArg (fun z : N →₀ AddMonoidAlgebra R S => z (ψ m))\n        (congrArg E heq)\n      have h := congrArg (fun z : AddMonoidAlgebra R S => z m) h1\n      dsimp only at h\n      rw [show E = TensorProduct.equivFinsuppOfBasisLeft (AddMonoidAlgebra.basis N R) from rfl] at h\n      rw [coinvariants_coaction_coeff ψ S c hc x m,\n        coinvariants_includeRight_coeff_eq_zero ψ S x m hm] at h\n      exact h\n    let ι : ↥(AddSubmonoid.comap φ S) →+ S := φ.addSubmonoidComap S\n    have hιinj : Function.Injective ι := by\n      intro a b hab\n      apply Subtype.ext\n      apply hφ\n      have hval := congrArg Subtype.val hab\n      simpa [ι, AddMonoidHom.addSubmonoidComap_apply_coe] using hval\n    have hsupport : (x.support : Set S) ⊆ Set.range ι := by\n      intro m hm\n      have hxm_ne : x m ≠ 0 := Finsupp.mem_support_iff.mp hm\n      have hψm : ψ m = 0 := by\n        by_contra hne\n        exact hxm_ne (hcoeff m hne)\n      have hrange : (m : M) ∈ Set.range φ := (hexact m).mp hψm\n      rcases hrange with ⟨a, ha⟩\n      refine ⟨⟨a, ?_⟩, ?_⟩\n      · change φ a ∈ S\n        simpa [ha] using m.property\n      · apply Subtype.ext\n        simpa [ι, AddMonoidHom.addSubmonoid",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hφ",
+              "statement": "Function.Injective ⇑φ"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hexact",
+              "statement": "Function.Exact ⇑φ ⇑ψ"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hc",
+              "statement": "∀ (m : ↥S), c (AddMonoidAlgebra.single m 1) = AddMonoidAlgebra.single (ψ ↑m) 1 ⊗ₜ[R] AddMonoidAlgebra.single m 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "AlgHom.equalizer c Algebra.TensorProduct.includeRight = (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)).range"
+          }
+        },
+        "lean_dependency_sha256": "b6f7106b11e000a3596f470d97e1def2ff3e98fc3cea84cc608f11d37faf1d1a",
+        "kernel_witness_check": {
+          "proof_type": "AlgHom.equalizer c Algebra.TensorProduct.includeRight =\n  (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)).range",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "AddMonoidAlgebra.algHom_ext",
+          "AddMonoidAlgebra.mapDomainAlgHom_apply",
+          "AddMonoidAlgebra.mapDomain_comapDomain",
+          "AlgHom.ext_iff",
+          "AlgHom.mem_equalizer",
+          "AlgHom.mem_range",
+          "Finsupp.mapDomain_single"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:16",
+          "loogle:17",
+          "leanfinder:1",
+          "loogle:2",
+          "loogle:7",
+          "loogle:75",
+          "loogle:3",
+          "loogle:58",
+          "loogle:59",
+          "loogle:64",
+          "loogle:63"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "coinvariants monoid algebra exact sequence equalizer coaction TensorProduct includeRight",
+      "declarations": [
+        "Bimod.TensorBimod.actRight_one'",
+        "Algebra.TensorProduct.includeRight_apply",
+        "Algebra.TensorProduct.includeRight",
+        "TensorProduct",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Bimod.TensorBimod.right_assoc'",
+        "Algebra.TensorProduct.includeRight_surjective",
+        "Algebra.TensorProduct.includeRight_bijective",
+        "Algebra.TensorProduct.includeRight_injective",
+        "Coalgebra.TensorProduct.rid_toLinearEquiv"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "AddMonoidAlgebra mapDomainAlgHom range comap support",
+      "declarations": [
+        "MonoidAlgebra.mapDomainAlgHom",
+        "AddMonoidAlgebra.mapDomain_comapDomain",
+        "AddMonoidAlgebra.mapDomainAlgHom",
+        "AddMonoidAlgebra.mapDomainAlgHom_apply",
+        "AddMonoidAlgebra.comapDomainAddMonoidHom",
+        "AddMonoidAlgebra",
+        "MonoidAlgebra.comapDomainAddMonoidHom",
+        "MonoidAlgebra.ofCoeff_mapDomain",
+        "AddMonoidAlgebra.ofCoeff_mapDomain",
+        "MonoidAlgebra.mapDomain_add"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.mapDomainAlgHom",
+      "declarations": [
+        "AddMonoidAlgebra.mapDomainAlgHom",
+        "AddMonoidAlgebra.mapDomainAlgHom_id",
+        "AddMonoidAlgebra.mapDomainAlgHom_apply",
+        "AddMonoidAlgebra.mapDomainAlgHom_comp",
+        "AddMonoidAlgebra.domCongr_toAlgHom"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "AlgHom.equalizer",
+      "declarations": [
+        "AlgHom.equalizer",
+        "AlgHom.coe_equalizer",
+        "AlgHom.mem_equalizer",
+        "AlgHom.le_equalizer",
+        "AlgHom.equalizer_toSubsemiring",
+        "AlgHom.equalizer_toSubmodule",
+        "AlgHom.adjoin_le_equalizer",
+        "AlgHom.equalizer_same",
+        "AlgHom.equalizer_eq_top",
+        "AlgHom.tensorEqualizer"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Function.Exact",
+      "declarations": [
+        "Function.Exact",
+        "Function.Exact.apply_apply_eq_zero",
+        "Function.Exact.comp_eq_zero",
+        "Function.Exact.comp_injective",
+        "Function.Exact.of_comp_eq_zero_of_ker_in_range",
+        "Function.Exact.of_comp_of_mem_range",
+        "Function.Exact.rangeFactorization",
+        "Function.Exact.iff_rangeFactorization",
+        "Function.Exact.addMonoidHom_ker_eq",
+        "AddMonoidHom.exact_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "AddSubmonoid.comap",
+      "declarations": [
+        "AddSubmonoid.comap",
+        "AddSubmonoid.comap_id",
+        "AddSubmonoid.comap_injective_of_surjective",
+        "AddSubmonoid.comap_surjective_of_injective",
+        "AddSubmonoid.comap_top",
+        "AddMonoidHom.comap_bot'",
+        "AddSubmonoid.monotone_comap",
+        "AddSubmonoid.comap_map_eq_of_injective",
+        "AddSubmonoid.map_comap_eq_of_surjective",
+        "AddSubmonoid.map_comap_eq_self_of_surjective"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.mem_range_mapDomainAlgHom",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.mapDomain_comapDomain",
+      "declarations": [
+        "AddMonoidAlgebra.mapDomain_comapDomain"
+      ],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Finsupp.mem_range_mapDomain",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "mem range mapDomain iff support subset range injective monoid algebra",
+      "declarations": [
+        "MonoidAlgebra.range_map",
+        "Finsupp.mem_range_mapDomain_iff",
+        "MonoidAlgebra.mapDomain_injective",
+        "MonoidAlgebra.ofCoeff_mapDomain",
+        "DFinsupp.support_rangeIcc_subset",
+        "AddMonoidAlgebra.range_map",
+        "MonoidAlgebra",
+        "Finsupp.support_mapRange_of_injective",
+        "AlgHom.fintypeRange",
+        "Algebra.adjoin_range_eq_range_aeval",
+        "AddMonoidAlgebra.mapDomain_injective",
+        "MonoidHom.rangeRestrict_injective_iff",
+        "AddMonoidAlgebra",
+        "MonoidAlgebra.domCongr_support",
+        "MonoidAlgebra.mapDomain_add",
+        "Algebra.adjoin_range_eq_range_freeAlgebra_lift",
+        "AddMonoidAlgebra.mapDomain_add",
+        "MonoidAlgebra.comapDomain_single_of_not_mem_range",
+        "AddMonoidAlgebra.ofCoeff_mapDomain",
+        "MonoidAlgebra.mapRangeRingHom_comp_mapDomainRingHom"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "tensor product equality coefficient linear map Finsupp basis projection",
+      "declarations": [
+        "TensorProduct.tmul",
+        "TensorProduct.finsuppLeft'_apply",
+        "PiTensorProduct.ofFinsuppEquiv_symm_single_tprod",
+        "TensorProduct",
+        "TensorProduct.equivFinsuppOfBasisLeft_apply",
+        "Finsupp.sumFinsuppLEquivProdFinsupp_symm_inl",
+        "finsuppTensorFinsuppLid_symm_single_smul",
+        "TensorProduct.equivFinsuppOfBasisRight_apply_tmul",
+        "TensorProduct.finsuppLeft",
+        "Representation.finsuppTensorRight_symm_apply_single",
+        "LinearMap.tensorProduct",
+        "TensorProduct.equivFinsuppOfBasisRight",
+        "Algebra.TensorProduct.equivFinsuppOfBasis",
+        "TensorProduct.equivFinsuppOfBasisLeft_symm",
+        "TensorProduct.equivFinsuppOfBasisLeft",
+        "Algebra.TensorProduct.equivFinsuppOfBasis_apply",
+        "PiTensorProduct.ofFinsuppEquiv'_tprod_single",
+        "TensorProduct.finsuppRight",
+        "Representation.finsuppTensorLeft_symm_apply_single",
+        "TensorProduct.finsuppLeft'"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "AddMonoidAlgebra basis single module free basis",
+      "declarations": [
+        "MonoidAlgebra.basis_apply",
+        "Module.Basis.repr_symm_single",
+        "Module.Free.of_basis",
+        "Module.Free.chooseBasis",
+        "AddMonoidAlgebra.basis_apply",
+        "FreeAlgebra.basisFreeMonoid",
+        "AddMonoidAlgebra.basis",
+        "SkewMonoidAlgebra.instFree",
+        "Module.Basis",
+        "Representation.freeAsModuleBasis",
+        "Module.Basis.tensorAlgebra",
+        "MonoidAlgebra.basis",
+        "Module.Basis.orientation_neg_single",
+        "Module.Basis.smulTower",
+        "Module.Basis.ExteriorAlgebra",
+        "Module.Basis.algebraMapCoeffs_repr_apply_apply",
+        "Module.Basis.symmetricAlgebra",
+        "Subalgebra.LinearDisjoint.algebraMap_basisOfBasisRight_apply",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "SkewMonoidAlgebra.basisSingleOne"
+      ],
+      "call_turn": 15,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Basis _ _ (AddMonoidAlgebra _ _)",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.basis",
+      "declarations": [
+        "AddMonoidAlgebra.basis",
+        "AddMonoidAlgebra.basis_apply"
+      ],
+      "call_turn": 15,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Finsupp.basisSingleOne",
+      "declarations": [
+        "Finsupp.basisSingleOne",
+        "Finsupp.coe_basisSingleOne",
+        "Finsupp.basisSingleOne_repr"
+      ],
+      "call_turn": 15,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "TensorProduct.equivFinsuppOfBasisLeft",
+      "declarations": [
+        "TensorProduct.equivFinsuppOfBasisLeft",
+        "TensorProduct.equivFinsuppOfBasisLeft_symm_apply",
+        "TensorProduct.equivFinsuppOfBasisLeft_apply_tmul_apply",
+        "TensorProduct.equivFinsuppOfBasisLeft_apply_tmul",
+        "TensorProduct.equivFinsuppOfBasisLeft_apply",
+        "TensorProduct.equivFinsuppOfBasisLeft_symm"
+      ],
+      "call_turn": 15,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "AddMonoidAlgebra AlgHom ext single generators algebra homomorphism equality",
+      "declarations": [
+        "AddMonoidAlgebra.single",
+        "Mathlib.Tactic.tacticAlgebraize__",
+        "MonoidAlgebra.single",
+        "AddMonoidAlgebra.algHom_ext_iff",
+        "AddMonoidAlgebra.mapAlgHom_single",
+        "AddMonoidAlgebra.algHom_ext",
+        "AddMonoidAlgebra.lift_of'",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Algebra.Generators.Hom.ext",
+        "AddMonoidAlgebra.singleZeroAlgHom",
+        "MonoidAlgebra.algHom_ext",
+        "Algebra.Generators.Hom",
+        "MonoidAlgebra.singleOneAlgHom",
+        "AddMonoidAlgebra.addHom_ext'",
+        "AlgHom.ext_of_adjoin_eq_top",
+        "MonoidAlgebra.addHom_ext'",
+        "AddMonoidAlgebra.algHom_ext'",
+        "MonoidAlgebra.algHom_ext'",
+        "AddMonoidAlgebra.addHom_ext'_iff",
+        "MonoidAlgebra.addHom_ext'_iff"
+      ],
+      "call_turn": 21,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.algHom_ext",
+      "declarations": [
+        "AddMonoidAlgebra.algHom_ext"
+      ],
+      "call_turn": 21,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.lift",
+      "declarations": [
+        "AddMonoidAlgebra.lift",
+        "AddMonoidAlgebra.lift_of'",
+        "AddMonoidAlgebra.lift_single",
+        "AddMonoidAlgebra.lift_apply",
+        "AddMonoidAlgebra.lift_apply'",
+        "AddMonoidAlgebra.lift_of",
+        "AddMonoidAlgebra.lift_symm_apply",
+        "AddMonoidAlgebra.lift_def",
+        "AddMonoidAlgebra.lift_unique'",
+        "AddMonoidAlgebra.lift_mapRangeRingHom_algebraMap"
+      ],
+      "call_turn": 21,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.single",
+      "declarations": [
+        "AddMonoidAlgebra.single",
+        "AddMonoidAlgebra.of'_apply",
+        "AddMonoidAlgebra.sum_single",
+        "AddMonoidAlgebra.single_commute",
+        "AddMonoidAlgebra.single_commute_single",
+        "AddMonoidAlgebra.one_def",
+        "AddMonoidAlgebra.erase_single",
+        "AddMonoidAlgebra.natCast_def",
+        "AddMonoidAlgebra.single_zero",
+        "AddMonoidAlgebra.single_eq_zero"
+      ],
+      "call_turn": 21,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.ext",
+      "declarations": [
+        "AddMonoidAlgebra.ext"
+      ],
+      "call_turn": 21,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.induction_on",
+      "declarations": [
+        "AddMonoidAlgebra.induction_on"
+      ],
+      "call_turn": 21,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Finsupp.mem_range_mapDomain_iff",
+      "declarations": [
+        "Finsupp.mem_range_mapDomain_iff"
+      ],
+      "call_turn": 28,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "map_finsupp_sum",
+      "declarations": [],
+      "call_turn": 42,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "(_ (Finsupp.sum _ _) = _)",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.of_apply",
+      "declarations": [
+        "AddMonoidAlgebra.of_apply"
+      ],
+      "call_turn": 48,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.basis_repr",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.coeff_single",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.single_apply",
+      "declarations": [
+        "AddMonoidAlgebra.single_apply"
+      ],
+      "call_turn": 54,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "Finsupp.single_apply",
+      "declarations": [
+        "Finsupp.single_apply"
+      ],
+      "call_turn": 54,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Finsupp.single_eq_same",
+      "declarations": [
+        "Finsupp.single_eq_same"
+      ],
+      "call_turn": 69,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "AddMonoidHom.addSubmonoidComap",
+      "declarations": [
+        "AddMonoidHom.addSubmonoidComap",
+        "AddMonoidHom.addSubmonoidComap_surjective_of_surjective",
+        "AddMonoidHom.addSubmonoidComap_apply_coe"
+      ],
+      "call_turn": 95,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "AlgHom.mem_range",
+      "declarations": [
+        "AlgHom.mem_range"
+      ],
+      "call_turn": 97,
+      "result_turn": 98
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "AlgHom.range",
+      "declarations": [
+        "AlgHom.range",
+        "AlgHom.fintypeRange",
+        "Subalgebra.range_val",
+        "AlgHom.coe_range",
+        "AlgHom.mem_range_self",
+        "AlgHom.mem_range",
+        "AlgHom.range_comp",
+        "AlgHom.rangeRestrict",
+        "AlgHom.range_comp_le_range",
+        "AlgHom.range_toSubsemiring"
+      ],
+      "call_turn": 97,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "AlgHom.mem_range_self",
+      "declarations": [
+        "AlgHom.mem_range_self",
+        "RingCon.quotientKerEquivRange",
+        "RingCon.comapQuotientEquivRange",
+        "RingCon.coe_comapQuotientEquivRange"
+      ],
+      "call_turn": 97,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "Subalgebra.ext",
+      "declarations": [
+        "Subalgebra.ext"
+      ],
+      "call_turn": 97,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.mapDomainAlgHom_single",
+      "declarations": [],
+      "call_turn": 102,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "AddMonoidAlgebra.mapDomain_single",
+      "declarations": [
+        "AddMonoidAlgebra.mapDomain_single"
+      ],
+      "call_turn": 102,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "Finsupp.mapDomain_single",
+      "declarations": [
+        "Finsupp.mapDomain_single"
+      ],
+      "call_turn": 102,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "AddMonoidHom.addSubmonoidComap_apply_coe",
+      "declarations": [
+        "AddMonoidHom.addSubmonoidComap_apply_coe"
+      ],
+      "call_turn": 102,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "AlgHom.ext_iff",
+      "declarations": [
+        "AlgHom.ext_iff"
+      ],
+      "call_turn": 125,
+      "result_turn": 126
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 7,
+    "retrieval_query_count": 41,
+    "useful_retrieval_event_count": 11,
+    "unused_retrieval_event_count": 30,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 78,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

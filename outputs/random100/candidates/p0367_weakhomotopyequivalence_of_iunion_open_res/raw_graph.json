@@ -1,0 +1,698 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "manifest": [
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }), IsOpen (U n)",
+          "origin": "manifest",
+          "name": "hU_open",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "Monotone U",
+          "origin": "manifest",
+          "name": "hU_mono",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "⋃ n, U n = Set.univ",
+          "origin": "manifest",
+          "name": "hU_cover",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "manifest",
+          "name": "hf",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "ConditionallyCompleteLinearOrder.toCompactIccSpace",
+          "Continuous.comp",
+          "ContinuousMap.comp_apply",
+          "ContinuousMap.continuous",
+          "Eq.trans",
+          "Function.compactSpace",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsCompact.union",
+          "Nonempty.map",
+          "Quotient.eq",
+          "Quotient.exists_rep",
+          "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.exists_cover_stage_of_isCompact",
+          "SemilatticeSup.instIsDirectedOrder",
+          "Set.Finite.isCompact._simp_1",
+          "Set.finite_insert._simp_1",
+          "Set.finite_singleton._simp_1",
+          "Set.mem_insert_iff._simp_1",
+          "Set.mem_range._simp_1",
+          "Set.mem_singleton_iff._simp_1",
+          "Set.mem_union._simp_1",
+          "Set.mem_union_left",
+          "Set.mem_union_right",
+          "Set.union_singleton",
+          "Subtype.property",
+          "compactSpace_Icc",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "continuous_subtype_val",
+          "eq_self",
+          "instNonemptyOfInhabited",
+          "instOrderTopologyReal",
+          "isCompact_range",
+          "isCompact_singleton",
+          "le_rfl",
+          "of_eq_true",
+          "or_true",
+          "true_or"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (n : { n // 1 ≤ n }), IsOpen (U n)",
+            "origin": "local_assumption",
+            "name": "hU_open",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "Monotone U",
+            "origin": "local_assumption",
+            "name": "hU_mono",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "⋃ n, U n = Set.univ",
+            "origin": "local_assumption",
+            "name": "hU_cover",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+            "origin": "local_assumption",
+            "name": "hf",
+            "fvar_id": "9"
+          }
+        ],
+        "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "IsCompact {x, y}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.Finite.isCompact._simp_1",
+        "Set.finite_insert._simp_1",
+        "Set.finite_singleton._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_816",
+      "conclusion": {
+        "statement": "IsCompact K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3569644"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_insert_iff._simp_1",
+        "Set.mem_singleton_iff._simp_1",
+        "congr",
+        "congrArg",
+        "eq_self",
+        "of_eq_true",
+        "true_or"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3571468"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_817",
+      "conclusion": {
+        "statement": "x ∈ U n",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3571601"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_insert_iff._simp_1",
+        "Set.mem_singleton_iff._simp_1",
+        "congrArg",
+        "eq_self",
+        "of_eq_true",
+        "or_true"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3571468"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_818",
+      "conclusion": {
+        "statement": "y ∈ U n",
+        "origin": "derived",
+        "name": "hy",
+        "fvar_id": "_uniq.3571965"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3569270"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_822",
+      "conclusion": {
+        "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧",
+        "origin": "derived",
+        "name": "hlocal",
+        "fvar_id": "_uniq.3647232"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⟦x'⟧ = ⟦y'⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Continuous.comp",
+        "ContinuousMap.comp_apply",
+        "ContinuousMap.continuous",
+        "Nonempty.map",
+        "Subtype.property",
+        "congrArg",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.3569155"
+        },
+        {
+          "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧",
+          "origin": "derived",
+          "name": "hlocal",
+          "fvar_id": "_uniq.3647232"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_823",
+      "conclusion": {
+        "statement": "⟦x'⟧ = ⟦y'⟧",
+        "origin": "derived",
+        "name": "hxy_local",
+        "fvar_id": "_uniq.3647253"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty (Path x y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Nonempty.map",
+        "Quotient.eq",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "⟦x'⟧ = ⟦y'⟧",
+          "origin": "derived",
+          "name": "hxy_local",
+          "fvar_id": "_uniq.3647253"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_824",
+      "conclusion": {
+        "statement": "Joined x y",
+        "origin": "derived",
+        "name": "hxy",
+        "fvar_id": "_uniq.3647491"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact (Set.range ⇑↑p)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ConditionallyCompleteLinearOrder.toCompactIccSpace",
+        "ContinuousMap.continuous",
+        "Function.compactSpace",
+        "compactSpace_Icc",
+        "instOrderTopologyReal",
+        "isCompact_range"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_827",
+      "conclusion": {
+        "statement": "IsCompact (Set.range ⇑↑p)",
+        "origin": "derived",
+        "name": "hpK",
+        "fvar_id": "_uniq.3649826"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact (Set.range ⇑↑q)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ConditionallyCompleteLinearOrder.toCompactIccSpace",
+        "ContinuousMap.continuous",
+        "Function.compactSpace",
+        "compactSpace_Icc",
+        "instOrderTopologyReal",
+        "isCompact_range"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_828",
+      "conclusion": {
+        "statement": "IsCompact (Set.range ⇑↑q)",
+        "origin": "derived",
+        "name": "hqK",
+        "fvar_id": "_uniq.3650670"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact K",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsCompact.union",
+        "isCompact_singleton"
+      ],
+      "premises": [
+        {
+          "statement": "IsCompact (Set.range ⇑↑p)",
+          "origin": "derived",
+          "name": "hpK",
+          "fvar_id": "_uniq.3649826"
+        },
+        {
+          "statement": "IsCompact (Set.range ⇑↑q)",
+          "origin": "derived",
+          "name": "hqK",
+          "fvar_id": "_uniq.3650670"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_829",
+      "conclusion": {
+        "statement": "IsCompact K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3650906"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_insert_iff._simp_1",
+        "Set.mem_range._simp_1",
+        "Set.mem_union._simp_1",
+        "Set.union_singleton",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true",
+        "true_or"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3652593"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_830",
+      "conclusion": {
+        "statement": "x ∈ U n",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3652726"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃z : X⦄, z ∈ Set.range ⇑↑p → z ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.mem_union_left"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3652593"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_831",
+      "conclusion": {
+        "statement": "Set.range ⇑↑p ⊆ U n",
+        "origin": "derived",
+        "name": "hp",
+        "fvar_id": "_uniq.3668264"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃z : X⦄, z ∈ Set.range ⇑↑q → z ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.mem_union_left",
+        "Set.mem_union_right"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3652593"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_832",
+      "conclusion": {
+        "statement": "Set.range ⇑↑q ⊆ U n",
+        "origin": "derived",
+        "name": "hq",
+        "fvar_id": "_uniq.3668427"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3648552"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_837",
+      "conclusion": {
+        "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧",
+        "origin": "derived",
+        "name": "hlocal",
+        "fvar_id": "_uniq.3838488"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⟦pU⟧ = ⟦qU⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Continuous.comp",
+        "ContinuousMap.comp_apply",
+        "ContinuousMap.continuous",
+        "Nonempty.map",
+        "Subtype.property",
+        "congrArg",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.3569155"
+        },
+        {
+          "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧",
+          "origin": "derived",
+          "name": "hlocal",
+          "fvar_id": "_uniq.3838488"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_838",
+      "conclusion": {
+        "statement": "⟦pU⟧ = ⟦qU⟧",
+        "origin": "derived",
+        "name": "hpq_local",
+        "fvar_id": "_uniq.3838564"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty ((↑p).HomotopyRel (↑q) (Cube.boundary (Fin (k + 1))))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Nonempty.map",
+        "Quotient.eq",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "⟦pU⟧ = ⟦qU⟧",
+          "origin": "derived",
+          "name": "hpq_local",
+          "fvar_id": "_uniq.3838564"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_839",
+      "conclusion": {
+        "statement": "GenLoop.Homotopic p q",
+        "origin": "derived",
+        "name": "hpqX",
+        "fvar_id": "_uniq.3838812"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact {x}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.Finite.isCompact._simp_1",
+        "Set.finite_singleton._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_841",
+      "conclusion": {
+        "statement": "IsCompact K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3840410"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_singleton_iff._simp_1",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3841944"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_842",
+      "conclusion": {
+        "statement": "x ∈ U n",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3842077"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_19390104429fa091/proofs.lean",
+    "namespace": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+    "proof_sha256": "021b5d859c09bf217def9d432e626804cba028c718e90a5d7d260509c806db5b"
+  }
+}

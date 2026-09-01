@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet dot := fun x x_1 => match x with | (a, b) => match x_1 with | (c, d) => ((mul₁ a) c + (mul₂ a) d, (mul₂ b) d + (mul₁ b) c); let diamond := fun x x_1 => match x with | (a, b) => match x_1 with | (c, d) => ((mul₁ a) c + (mul₂ b) c, (mul₂ b) d + (mul₁ a) d); let compatibility := (Std.Associative fun x y => (mul₁ x) y) ∧ (Std.Associative fun x y => (mul₂ x) y) ∧ (∀ (x y z : A), (mul₂ ((mul₁ x) y)) z = (mul₁ x) ((mul₂ y) z)) ∧ ∀ (x y z : A), (mul₁ ((mul₂ x) y)) z = (mul₂ x) ((mul₁ y) z); (compatibility ↔ Std.Associative dot) ∧ (Std.Associative dot ↔ Std.Associative diamond)"];
+  "r_h_goal" [shape=diamond, label="constructor + exact", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

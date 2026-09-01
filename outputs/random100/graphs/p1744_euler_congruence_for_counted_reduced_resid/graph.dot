@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hcoprime_f6e0631b" [shape=box, color="#178F82", label="hcoprime\nx.Coprime N"];
+  "m_hn_7b58ef1d" [shape=box, color="#178F82", label="hn\nn = {a ∈ Finset.Ico 1 N | a.Coprime N}.card"];
+  "m_hn_c4d5b37f" [shape=box, color="#178F82", label="hN\n0 < N"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nx ^ n ≡ 1 [MOD N]"];
+  "r_h_goal" [shape=diamond, label="Finset.ext + Nat.ModEq.pow_totient + Nat.coprime_self", color="#D97706"];
+  "m_hn_c4d5b37f" -> "r_h_goal";
+  "m_hcoprime_f6e0631b" -> "r_h_goal";
+  "m_hn_7b58ef1d" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

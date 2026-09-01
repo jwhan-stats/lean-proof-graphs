@@ -1,0 +1,22 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hc_aaf6ef10" [shape=box, color="#178F82", label="hc₂\n∀ (g : Γ) (i : Fin n), c g 1 i = 1"];
+  "m_hc_bcd96f9b" [shape=box, color="#178F82", label="hc'₁\n∀ (g : Γ) (i' : Fin n'), c' 1 g i' = 1"];
+  "m_hc_cfc6d9ab" [shape=box, color="#178F82", label="hc'₂\n∀ (g : Γ) (i' : Fin n'), c' g 1 i' = 1"];
+  "m_hc_d3c3b135" [shape=box, color="#178F82", label="hc₁\n∀ (g : Γ) (i : Fin n), c 1 g i = 1"];
+  "m_hcob_1a014649" [shape=box, color="#178F82", label="hcob'\n∀ (g h k : Γ) (i' : Fin n'), c' h k ((ρ' g)⁻¹ i') * (c' (g * h) k i')⁻¹ * c' g (h * k) i' * (c' g h i')⁻¹ = Additive.toMul (β' (α g h k) i')"];
+  "m_hcob_651e18f5" [shape=box, color="#178F82", label="hcob\n∀ (g h k : Γ) (i : Fin n), c h k ((ρ g)⁻¹ i) * (c (g * h) k i)⁻¹ * c g (h * k) i * (c g h i)⁻¹ = Additive.toMul (β (α g h k) i)"];
+  "m_hintertwine_d4bfa7e6" [shape=box, color="#178F82", label="hintertwine\n∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹; (∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧ (∀ (g h k : Γ) (p : ↑O), c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧ ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ), (∀ (i : Fin n), x 1 i = 1) → (∀ (i' : Fin n'), x' 1 i' = 1) → let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i; let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i'; let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹; ∀ (g h : Γ) (p : ↑O), c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ = z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)"];
+  "r_h_goal" [shape=diamond, label="coboundary_factor_identity + orbit_factor_identity + congrArg", color="#D97706"];
+  "m_hc_d3c3b135" -> "r_h_goal";
+  "m_hc_aaf6ef10" -> "r_h_goal";
+  "m_hc_bcd96f9b" -> "r_h_goal";
+  "m_hc_cfc6d9ab" -> "r_h_goal";
+  "m_hcob_651e18f5" -> "r_h_goal";
+  "m_hcob_1a014649" -> "r_h_goal";
+  "m_hintertwine_d4bfa7e6" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

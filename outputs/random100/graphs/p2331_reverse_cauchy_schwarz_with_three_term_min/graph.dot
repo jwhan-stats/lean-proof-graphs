@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_8b06309f" [shape=box, color="#178F82", label="ha\n0 < a"];
+  "m_haa_f314d9e3" [shape=box, color="#178F82", label="haA\na ≤ A"];
+  "m_hb_013f2694" [shape=box, color="#178F82", label="hb\n0 < b"];
+  "m_hbb_5be0c6bd" [shape=box, color="#178F82", label="hbB\nb ≤ B"];
+  "m_hx_1b53bc06" [shape=box, color="#178F82", label="hx\n∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"];
+  "m_hy_c918c96b" [shape=box, color="#178F82", label="hy\n∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * min ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2)) (min ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2)) ((∑ i, x i * y i) ^ 2 / (a * b * A * B))) ∧ ∀ (k : Fin 3), ∃ m a' A' b' B' x' y', 1 ≤ m ∧ 0 < a' ∧ a' ≤ A' ∧ 0 < b' ∧ b' ≤ B' ∧ (∀ (i : Fin m), a' ≤ x' i ∧ x' i ≤ A') ∧ (∀ (i : Fin m), b' ≤ y' i ∧ y' i ≤ B') ∧ let t := ![(∑ i, x' i ^ 2) ^ 2 / (A' ^ 2 * a' ^ 2), (∑ i, y' i ^ 2) ^ 2 / (B' ^ 2 * b' ^ 2), (∑ i, x' i * y' i) ^ 2 / (a' * b' * A' * B')]; ∀ (j : Fin 3), j ≠ k → t k < t j"];
+  "r_h_goal" [shape=diamond, label="interval_cross_bound + interval_variance_bound + three_term_strict_examples", color="#D97706"];
+  "m_ha_8b06309f" -> "r_h_goal";
+  "m_haa_f314d9e3" -> "r_h_goal";
+  "m_hb_013f2694" -> "r_h_goal";
+  "m_hbb_5be0c6bd" -> "r_h_goal";
+  "m_hx_1b53bc06" -> "r_h_goal";
+  "m_hy_c918c96b" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

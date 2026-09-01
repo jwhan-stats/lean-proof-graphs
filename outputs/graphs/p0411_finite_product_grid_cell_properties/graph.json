@@ -1,0 +1,458 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0411_finite_product_grid_cell_properties",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 411,
+    "source": "2308.01790",
+    "theorem_name": "finite_product_grid_cell_properties",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/411",
+    "reconstructed_proof": "../../candidates/p0411_finite_product_grid_cell_properties/proof.lean",
+    "raw_elaboration": "../../candidates/p0411_finite_product_grid_cell_properties/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0411_finite_product_grid_cell_properties.finite_product_grid_cell_properties",
+    "verification_call_id": "verify_submission:16",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "0432853c1183bcd36cea3e1bb024047f35166319b34df2e909ba2c44786a23f2",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "e1e44460b201c002026fbe36e90a7197898c7ad63cefe6b00ccbea0e515e46d8",
+    "concrete_semantic_topology_sha256": "0432853c1183bcd36cea3e1bb024047f35166319b34df2e909ba2c44786a23f2"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_inst___proofs_3313596076_e84ca1ae",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.3313596076._hygCtx._hyg.18",
+      "lean_fvar_id": "3",
+      "statement": "∀ (i : Fin n), Nontrivial (T i)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let P := (i : Fin n) → T i; let grid := {q | ∀ (i : Fin n), q i ∈ Q i}; let upper := {x | ∃ q ∈ grid, q ≤ x}; let cell := fun y => {x | x ∈ upper ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y i)}; (∀ ⦃x y y' : P⦄, x ∈ cell y → y' ∈ grid → y ≤ y' → y' ⊔ x ∈ cell y' ∧ ∃ x' ∈ cell y', x ≤ x') ∧ ∀ y ∈ grid, IsSublattice (cell y)"
+    },
+    {
+      "id": "n_hjoin_53763964",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hjoin",
+      "lean_fvar_id": "_uniq.1240779",
+      "statement": "y' ⊔ x ∈ {x | (∃ q ∈ {q | ∀ (i : Fin n), q i ∈ Q i}, q ≤ x) ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y' i)}"
+    },
+    {
+      "id": "n_hx_ea5569c0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.1239008",
+      "statement": "x ∈ {x | x ∈ {x | ∃ q ∈ {q | ∀ (i : Fin n), q i ∈ Q i}, q ≤ x} ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y i)}"
+    },
+    {
+      "id": "n_hy_6583dcd7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy'",
+      "lean_fvar_id": "_uniq.1239011",
+      "statement": "y' ∈ {q | ∀ (i : Fin n), q i ∈ Q i}"
+    },
+    {
+      "id": "n_hyy_79729169",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyy'",
+      "lean_fvar_id": "_uniq.1239014",
+      "statement": "y ≤ y'"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hjoin",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_ea5569c0",
+        "n_hy_6583dcd7",
+        "n_hyy_79729169"
+      ],
+      "conclusion": "n_hjoin_53763964",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "isGreatest_grid_lower_sup_right + le_sup_right",
+        "items": [
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_sup_right",
+          "le_sup_right"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_sup_right"
+        ],
+        "mathlib_items": [
+          "le_sup_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_206",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hjoin : y' ⊔ x ∈\n        {x | (∃ q ∈ ({q | ∀ i, q i ∈ Q i} : Set (∀ i, T i)), q ≤ x) ∧\n          ∀ i, IsGreatest {a : T i | a ∈ Q i ∧ a ≤ x i} (y' i)} := by\n      constructor\n      · rcases hx.1 with ⟨q, hq, hqx⟩\n        exact ⟨q, hq, hqx.trans le_sup_right⟩\n      · intro i\n        exact isGreatest_grid_lower_sup_right (hx.2 i) (hy' i) (hyy' i)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1239008",
+              "name": "hx",
+              "statement": "x ∈ {x | x ∈ {x | ∃ q ∈ {q | ∀ (i : Fin n), q i ∈ Q i}, q ≤ x} ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y i)}"
+            },
+            {
+              "fvar_id": "_uniq.1239011",
+              "name": "hy'",
+              "statement": "y' ∈ {q | ∀ (i : Fin n), q i ∈ Q i}"
+            },
+            {
+              "fvar_id": "_uniq.1239014",
+              "name": "hyy'",
+              "statement": "y ≤ y'"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1240779",
+            "name": "hjoin",
+            "statement": "y' ⊔ x ∈ {x | (∃ q ∈ {q | ∀ (i : Fin n), q i ∈ Q i}, q ≤ x) ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y' i)}"
+          }
+        },
+        "lean_dependency_sha256": "1b4f57a9ba56c13c841da12c2d9bba27fd8cf9228ffc76cacd39d791e74ad8fc",
+        "kernel_witness_check": {
+          "proof_type": "(∃ q ∈ {q | ∀ (i : Fin n), q i ∈ Q i}, q ≤ y' ⊔ x) ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ (y' ⊔ x) i} (y' i)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Pi.inf_apply + Pi.sup_apply + isGreatest_grid_lower_inf",
+        "items": [
+          "Pi.inf_apply",
+          "Pi.sup_apply",
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_inf",
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_sup",
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_sup_right",
+          "inf_le_left",
+          "inf_le_right",
+          "le_inf"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_inf",
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_sup",
+          "Rollout_p0411_finite_product_grid_cell_properties.isGreatest_grid_lower_sup_right"
+        ],
+        "mathlib_items": [
+          "Pi.inf_apply",
+          "Pi.sup_apply",
+          "inf_le_left",
+          "inf_le_right",
+          "le_inf"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro x y y' hx hy' hyy'\n    have hjoin : y' ⊔ x ∈\n        {x | (∃ q ∈ ({q | ∀ i, q i ∈ Q i} : Set (∀ i, T i)), q ≤ x) ∧\n          ∀ i, IsGreatest {a : T i | a ∈ Q i ∧ a ≤ x i} (y' i)} := by\n      constructor\n      · rcases hx.1 with ⟨q, hq, hqx⟩\n        exact ⟨q, hq, hqx.trans le_sup_right⟩\n      · intro i\n        exact isGreatest_grid_lower_sup_right (hx.2 i) (hy' i) (hyy' i)\n    exact ⟨hjoin, y' ⊔ x, hjoin, le_sup_right⟩\n  · intro y hy\n    refine IsSublattice.mk ?_ ?_\n    · intro x hx z hz\n      constructor\n      · rcases hx.1 with ⟨q, hq, hqx⟩\n        rcases hz.1 with ⟨r, hr, hrz⟩\n        refine ⟨q ⊔ r, ?_, ?_⟩\n        · intro i\n          rcases max_choice (q i) (r i) with hmax | hmax\n          · rw [Pi.sup_apply, hmax]\n            exact hq i\n          · rw [Pi.sup_apply, hmax]\n            exact hr i\n        · exact sup_le (hqx.trans le_sup_left) (hrz.trans le_sup_right)\n      · intro i\n        exact isGreatest_grid_lower_sup (hx.2 i) (hz.2 i)\n    · intro x hx z hz\n      constructor\n      · rcases hx.1 with ⟨q, hq, hqx⟩\n        rcases hz.1 with ⟨r, hr, hrz⟩\n        refine ⟨q ⊓ r, ?_, ?_⟩\n        · intro i\n          rcases min_choice (q i) (r i) with hmin | hmin\n          · rw [Pi.inf_apply, hmin]\n            exact hq i\n          · rw [Pi.inf_apply, hmin]\n            exact hr i\n        · exact le_inf (inf_le_left.trans hqx) (inf_le_right.trans hrz)\n      · intro i\n        exact isGreatest_grid_lower_inf (hx.2 i) (hz.2 i)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let P := (i : Fin n) → T i; let grid := {q | ∀ (i : Fin n), q i ∈ Q i}; let upper := {x | ∃ q ∈ grid, q ≤ x}; let cell := fun y => {x | x ∈ upper ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y i)}; (∀ ⦃x y y' : P⦄, x ∈ cell y → y' ∈ grid → y ≤ y' → y' ⊔ x ∈ cell y' ∧ ∃ x' ∈ cell y', x ≤ x') ∧ ∀ y ∈ grid, IsSublattice (cell y)"
+          }
+        },
+        "lean_dependency_sha256": "ce0c1acba2ff86fca5bda7cced95c2f1dc2ff253b18863c4d7d4c3da9397e64b",
+        "kernel_witness_check": {
+          "proof_type": "let P := (i : Fin n) → T i;\nlet grid := {q | ∀ (i : Fin n), q i ∈ Q i};\nlet upper := {x | ∃ q ∈ grid, q ≤ x};\nlet cell := fun y => {x | x ∈ upper ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y i)};\n(∀ ⦃x y y' : P⦄, x ∈ cell y → y' ∈ grid → y ≤ y' → y' ⊔ x ∈ cell y' ∧ ∃ x' ∈ cell y', x ≤ x') ∧\n  ∀ y ∈ grid, IsSublattice (cell y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "IsSublattice",
+      "declarations": [
+        "IsSublattice",
+        "isSublattice_univ",
+        "isSublattice_empty",
+        "LinearOrder.isSublattice",
+        "isSublattice_singleton",
+        "IsSublattice.infClosed",
+        "IsSublattice.supClosed",
+        "IsSublattice.mk",
+        "isSublattice_iInter",
+        "IsSublattice.inter"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "IsSublattice definition set closed under supremum infimum",
+      "declarations": [
+        "CompleteSublattice.sSupClosed",
+        "IsClosed.stableUnderSpecialization",
+        "IsClosed",
+        "IsSublattice",
+        "Sublattice.isSublattice",
+        "CategoryTheory.ObjectProperty.IsClosedUnderIsomorphisms",
+        "Sublattice.ofIsSublattice",
+        "CompleteSublattice",
+        "Sublattice.supClosed",
+        "Sublattice.infClosed"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "(_ ≤ min _ _ ↔ _)",
+      "declarations": [
+        "Nat.le_min",
+        "Std.LawfulOrderInf.le_min_iff",
+        "Std.LawfulOrderInf.mk",
+        "Std.LawfulOrderInf.of_le",
+        "Std.LawfulOrderMin.of_le_min_iff",
+        "Std.le_min_iff",
+        "Int.le_min",
+        "Option.le_min",
+        "sup_le_inf",
+        "le_inf_iff"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "(min _ _ ≤ _ ↔ _)",
+      "declarations": [
+        "Std.min_le",
+        "inf_le_iff",
+        "CoheytingAlgebra.ofHNot",
+        "min_le_iff",
+        "WithZero.min_le_iff",
+        "Ideal.IsPrime.inf_le",
+        "InfPrime.inf_le"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "IsGreatest (_ ⊓ _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "IsGreatest max",
+      "declarations": [
+        "Int.isGreatest_coe_greatestOfBdd",
+        "isGreatest_Iic",
+        "IsGreatest.nonempty",
+        "isGreatest_singleton",
+        "isGreatest_univ_iff",
+        "IsGreatest.bddAbove",
+        "IsGreatest.isLUB",
+        "isGreatest_Icc",
+        "isGreatest_Ioc",
+        "isGreatest_univ"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "(max _ _ = _ ∨ max _ _ = _)",
+      "declarations": [
+        "Std.MaxEqOr.max_eq_or",
+        "Std.MaxEqOr.mk",
+        "Std.LawfulOrderMax.of_lt",
+        "Std.LawfulOrderMax.of_max_le_iff",
+        "Std.LawfulOrderMax.of_le_max",
+        "Std.max_eq_or",
+        "Option.max_eq_or",
+        "List.max",
+        "Std.LawfulOrderMax.of_ord",
+        "max_choice"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "(_ ⊔ _ = _ ∨ _ ⊔ _ = _)",
+      "declarations": [
+        "Std.MaxEqOr.max_eq_or",
+        "Std.MaxEqOr.mk",
+        "Std.LawfulOrderMax.of_lt",
+        "Std.LawfulOrderMax.of_max_le_iff",
+        "Std.LawfulOrderMax.of_le_max",
+        "Std.max_eq_or",
+        "Option.max_eq_or",
+        "List.max",
+        "Std.LawfulOrderMax.of_ord",
+        "max_choice"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "(max _ _ = _)",
+      "declarations": [
+        "Option.max_none_left",
+        "Option.max_none_right",
+        "Option.max_some_some",
+        "Nat.max_def",
+        "Nat.max_eq_max",
+        "Nat.max_zero",
+        "Nat.zero_max",
+        "Nat.max_comm",
+        "Nat.max_eq_left",
+        "Nat.max_eq_right"
+      ],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "(min _ _ = _ ∨ min _ _ = _)",
+      "declarations": [
+        "Std.MinEqOr.min_eq_or",
+        "Std.MinEqOr.mk",
+        "Std.LawfulOrderMin.of_lt",
+        "Std.LawfulOrderMin.of_le_min_iff",
+        "Std.LawfulOrderMin.of_min_le",
+        "Std.min_eq_or",
+        "Option.min_eq_or",
+        "Std.LawfulOrderMin.of_ord",
+        "min_choice"
+      ],
+      "call_turn": 12,
+      "result_turn": 16
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 10,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 10,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 17,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

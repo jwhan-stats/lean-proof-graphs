@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hproj_7e0df0d1" [shape=box, color="#178F82", label="hproj\n∀ (P : C), CategoryTheory.Projective P → S P"];
+  "m_hq_fe3b25fd" [shape=box, color="#178F82", label="hQ\nS Q"];
+  "m_hs_15f06698" [shape=box, color="#178F82", label="hS\n∀ (T : CategoryTheory.ShortComplex C), T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)"];
+  "m_inst___proofs_968698635__11a17f39" [shape=box, color="#178F82", label="inst._@.proofs.968698635._hygCtx._hyg.9\nCategoryTheory.EnoughProjectives C"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nCategoryTheory.Projective Q ↔ ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g"];
+  "r_h_goal" [shape=diamond, label="CategoryTheory.IsSplitEpi.id + CategoryTheory.IsSplitEpi.mk' + CategoryTheory.Projective.factorThru_comp", color="#D97706"];
+  "m_inst___proofs_968698635__11a17f39" -> "r_h_goal";
+  "m_hs_15f06698" -> "r_h_goal";
+  "m_hproj_7e0df0d1" -> "r_h_goal";
+  "m_hq_fe3b25fd" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

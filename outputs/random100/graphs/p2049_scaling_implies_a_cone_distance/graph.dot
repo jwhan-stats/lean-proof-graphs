@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hbound_5dfbc4ea" [shape=box, color="#178F82", label="hbound\n∀ (x₀ x₁ : X), x₀ ≠ x₁ → 0 < dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ∧ dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ≤ 4"];
+  "m_hscale_26e16b31" [shape=box, color="#178F82", label="hscale\n∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ * ↑r₁ * dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 + (↑r₀ - ↑r₁) ^ 2"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet d_X := fun p => Real.arccos (1 - dist (q (p.1, 1)) (q (p.2, 1)) ^ 2 / 2); (∀ (x₀ x₁ : X), d_X (x₀, x₁) ∈ Set.Icc 0 Real.pi) ∧ (∃ m, ∀ (x₀ x₁ : X), dist x₀ x₁ = d_X (x₀, x₁)) ∧ ∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ ^ 2 + ↑r₁ ^ 2 - 2 * ↑r₀ * ↑r₁ * Real.cos (d_X (x₀, x₁))"];
+  "r_h_goal" [shape=diamond, label="cone_angle_mem_Icc + cone_dist_sq", color="#D97706"];
+  "m_hscale_26e16b31" -> "r_h_goal";
+  "m_hbound_5dfbc4ea" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

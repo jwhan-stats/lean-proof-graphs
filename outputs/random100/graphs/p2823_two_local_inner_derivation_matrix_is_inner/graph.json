@@ -1,0 +1,2470 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2823_two_local_inner_derivation_matrix_is_inner",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2823,
+    "source": "1705.09910",
+    "theorem_name": "two_local_inner_derivation_matrix_is_inner",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2823",
+    "reconstructed_proof": "../../candidates/p2823_two_local_inner_derivation_matrix_is_inner/proof.lean",
+    "raw_elaboration": "../../candidates/p2823_two_local_inner_derivation_matrix_is_inner/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.two_local_inner_derivation_matrix_is_inner",
+    "verification_call_id": "verify_submission:85",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "1b9699c61657e610aa8a7c31dc7526a9ba513097385778c64a2cc219bdef2544",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "42cd1e06d0b739bf5779598a9bc1374744f92f13e95b15858b426cf512ff4351",
+    "concrete_semantic_topology_sha256": "1b9699c61657e610aa8a7c31dc7526a9ba513097385778c64a2cc219bdef2544"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h2_c1bcf0cc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "h2",
+      "lean_fvar_id": "4",
+      "statement": "IsUnit 2"
+    },
+    {
+      "id": "m_h_fd396eb1",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hΔ",
+      "lean_fvar_id": "6",
+      "statement": "∀ (X Y : Matrix (Fin n) (Fin n) R), ∃ A, Δ X = A * X - X * A ∧ Δ Y = A * Y - Y * A"
+    },
+    {
+      "id": "m_hn_12f8c144",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "3",
+      "statement": "1 < n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ B, ∀ (X : Matrix (Fin n) (Fin n) R), Δ X = B * X - X * B"
+    },
+    {
+      "id": "n_h_ebbd820a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hΔ",
+      "lean_fvar_id": "_uniq.2966415",
+      "statement": "∀ (X Y : Matrix (Fin n) (Fin n) R), ∃ A, Δ X = A * X - X * A ∧ Δ Y = A * Y - Y * A"
+    },
+    {
+      "id": "n_hadd_8ce13247",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hADD",
+      "lean_fvar_id": "_uniq.2967679",
+      "statement": "Δ (Down n) = AD * Down n - Down n * AD"
+    },
+    {
+      "id": "n_hadp_a42613c7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hADP",
+      "lean_fvar_id": "_uniq.2967678",
+      "statement": "Δ (E p p) = AD * E p p - E p p * AD"
+    },
+    {
+      "id": "n_hae_257ceb7c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAE",
+      "lean_fvar_id": "_uniq.2983061",
+      "statement": "Δ (E b a) = A * E b a - E b a * A"
+    },
+    {
+      "id": "n_hae_cb4c423f",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAE",
+      "lean_fvar_id": "_uniq.2979239",
+      "statement": "Δ (E a a) = A * E a a - E a a * A"
+    },
+    {
+      "id": "n_happ_672bccf2",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAPP",
+      "lean_fvar_id": "_uniq.2972281",
+      "statement": "Δ (E p p) = AP * E p p - E p p * AP"
+    },
+    {
+      "id": "n_hapq_152d9b6c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAPQ",
+      "lean_fvar_id": "_uniq.2972280",
+      "statement": "Δ (E p q) = AP * E p q - E p q * AP"
+    },
+    {
+      "id": "n_haqp_2cbd2c5e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAQP",
+      "lean_fvar_id": "_uniq.2972338",
+      "statement": "Δ (E q q) = AQ * E q q - E q q * AQ"
+    },
+    {
+      "id": "n_haqq_d7a1bfe0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAQQ",
+      "lean_fvar_id": "_uniq.2972337",
+      "statement": "Δ (E p q) = AQ * E p q - E p q * AQ"
+    },
+    {
+      "id": "n_hatq_f8cece0b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hATQ",
+      "lean_fvar_id": "_uniq.2972391",
+      "statement": "Δ (E p q) = AT * E p q - E p q * AT"
+    },
+    {
+      "id": "n_hatu_19657807",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hATU",
+      "lean_fvar_id": "_uniq.2972392",
+      "statement": "Δ (Up n) = AT * Up n - Up n * AT"
+    },
+    {
+      "id": "n_haup_93ad3e0a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAUP",
+      "lean_fvar_id": "_uniq.2967624",
+      "statement": "Δ (E p p) = AU * E p p - E p p * AU"
+    },
+    {
+      "id": "n_hauu_6dc0fccf",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAUU",
+      "lean_fvar_id": "_uniq.2967625",
+      "statement": "Δ (Up n) = AU * Up n - Up n * AU"
+    },
+    {
+      "id": "n_hax_4328499b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAX",
+      "lean_fvar_id": "_uniq.2979238",
+      "statement": "Δ X = A * X - X * A"
+    },
+    {
+      "id": "n_hax_857ca606",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAX",
+      "lean_fvar_id": "_uniq.2983060",
+      "statement": "Δ X = A * X - X * A"
+    },
+    {
+      "id": "n_hbd_67eaf304",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hBD",
+      "lean_fvar_id": "_uniq.2966478",
+      "statement": "Δ (Down n) = B * Down n - Down n * B"
+    },
+    {
+      "id": "n_hbdiag_45dd94cb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hBdiag",
+      "lean_fvar_id": "_uniq.2967567",
+      "statement": "∀ (p : Fin n), Δ (E p p) = B * E p p - E p p * B"
+    },
+    {
+      "id": "n_hbu_cafd2f82",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hBU",
+      "lean_fvar_id": "_uniq.2966477",
+      "statement": "Δ (Up n) = B * Up n - Up n * B"
+    },
+    {
+      "id": "n_hbunit_36fd5361",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hBunit",
+      "lean_fvar_id": "_uniq.2972165",
+      "statement": "∀ (p q : Fin n), Δ (E p q) = B * E p q - E p q * B"
+    },
+    {
+      "id": "n_hsub_0b00a1a3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsub",
+      "lean_fvar_id": "_uniq.2971548",
+      "statement": "Δ (E p p) - (B * E p p - E p p * B) = 0"
+    },
+    {
+      "id": "n_hsub_8ed56bd7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsub",
+      "lean_fvar_id": "_uniq.2983997",
+      "statement": "Δ X - (B * X - X * B) = 0"
+    },
+    {
+      "id": "n_hsub_9f2c09f2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsub",
+      "lean_fvar_id": "_uniq.2978142",
+      "statement": "Δ (E p q) - (B * E p q - E p q * B) = 0"
+    },
+    {
+      "id": "n_ht_c02db088",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hT",
+      "lean_fvar_id": "_uniq.2973819",
+      "statement": "T * Up n = Up n * T"
+    },
+    {
+      "id": "n_hu_4edd4cc6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hU",
+      "lean_fvar_id": "_uniq.2967774",
+      "statement": "U * Up n = Up n * U"
+    },
+    {
+      "id": "n_hu_6c7db16f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hU",
+      "lean_fvar_id": "_uniq.2980328",
+      "statement": "U * E a a = E a a * U"
+    },
+    {
+      "id": "n_hu_9fef074e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hU",
+      "lean_fvar_id": "_uniq.2983133",
+      "statement": "U * E b a = E b a * U"
+    },
+    {
+      "id": "n_hu_d7879a60",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hU",
+      "lean_fvar_id": "_uniq.2973531",
+      "statement": "U * E p p = E p p * U"
+    },
+    {
+      "id": "n_hv_06de64fc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hV",
+      "lean_fvar_id": "_uniq.2967928",
+      "statement": "V * Down n = Down n * V"
+    },
+    {
+      "id": "n_hv_1c15e872",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hV",
+      "lean_fvar_id": "_uniq.2973679",
+      "statement": "V * E q q = E q q * V"
+    },
+    {
+      "id": "n_hw_1b6fc961",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hW",
+      "lean_fvar_id": "_uniq.2983284",
+      "statement": "W = U * X - X * U"
+    },
+    {
+      "id": "n_hw_e5b5d113",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hW",
+      "lean_fvar_id": "_uniq.2980485",
+      "statement": "W = U * X - X * U"
+    },
+    {
+      "id": "n_hwt_bbb8a597",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWT",
+      "lean_fvar_id": "_uniq.2977351",
+      "statement": "W = T * E p q - E p q * T"
+    },
+    {
+      "id": "n_hwu_5059b8cf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWU",
+      "lean_fvar_id": "_uniq.2968164",
+      "statement": "W = U * E p p - E p p * U"
+    },
+    {
+      "id": "n_hwu_551137b6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWU",
+      "lean_fvar_id": "_uniq.2974067",
+      "statement": "W = U * E p q - E p q * U"
+    },
+    {
+      "id": "n_hwv_6a008e26",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWV",
+      "lean_fvar_id": "_uniq.2976662",
+      "statement": "W = V * E p q - E p q * V"
+    },
+    {
+      "id": "n_hwv_895e93c4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWV",
+      "lean_fvar_id": "_uniq.2970759",
+      "statement": "W = V * E p p - E p p * V"
+    },
+    {
+      "id": "n_hwzero_6ca2b7d8",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWzero",
+      "lean_fvar_id": "_uniq.2978814",
+      "statement": "W = 0"
+    },
+    {
+      "id": "n_hzero_87d45cff",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzero",
+      "lean_fvar_id": "_uniq.2978027",
+      "statement": "W = 0"
+    },
+    {
+      "id": "n_hzero_96ee2a2d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzero",
+      "lean_fvar_id": "_uniq.2971433",
+      "statement": "W = 0"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbu_cafd2f82",
+        "n_hauu_6dc0fccf"
+      ],
+      "conclusion": "n_hu_4edd4cc6",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_595",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hU : U * Up (R := R) n = Up (R := R) n * U := by\n      dsimp [U]\n      apply comm_sub_of_comm_eq\n      rw [← hAUU, ← hBU]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2966477",
+              "name": "hBU",
+              "statement": "Δ (Up n) = B * Up n - Up n * B"
+            },
+            {
+              "fvar_id": "_uniq.2967625",
+              "name": "hAUU",
+              "statement": "Δ (Up n) = AU * Up n - Up n * AU"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2967774",
+            "name": "hU",
+            "statement": "U * Up n = Up n * U"
+          }
+        },
+        "lean_dependency_sha256": "4e7d3c6a1414871484ded7083816878d41368558f58199fecb78ee8dba41baca",
+        "kernel_witness_check": {
+          "proof_type": "U * Up n = Up n * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbd_67eaf304",
+        "n_hadd_8ce13247"
+      ],
+      "conclusion": "n_hv_06de64fc",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_596",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hV : V * Down (R := R) n = Down (R := R) n * V := by\n      dsimp [V]\n      apply comm_sub_of_comm_eq\n      rw [← hADD, ← hBD]\n    let W : Matrix (Fin n) (Fin n) R :=\n      Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2966478",
+              "name": "hBD",
+              "statement": "Δ (Down n) = B * Down n - Down n * B"
+            },
+            {
+              "fvar_id": "_uniq.2967679",
+              "name": "hADD",
+              "statement": "Δ (Down n) = AD * Down n - Down n * AD"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2967928",
+            "name": "hV",
+            "statement": "V * Down n = Down n * V"
+          }
+        },
+        "lean_dependency_sha256": "e9366d157ca7f157a2139d7a26d0a25fae7b31d3af92d29e17c541528f6d0cc7",
+        "kernel_witness_check": {
+          "proof_type": "V * Down n = Down n * V",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hwu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_haup_93ad3e0a"
+      ],
+      "conclusion": "n_hwu_5059b8cf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_598",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hWU : W = U * E (R := R) p p - E (R := R) p p * U := by\n      dsimp [W, U]\n      rw [hAUP, sub_mul, mul_sub]\n      abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2967624",
+              "name": "hAUP",
+              "statement": "Δ (E p p) = AU * E p p - E p p * AU"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2968164",
+            "name": "hWU",
+            "statement": "W = U * E p p - E p p * U"
+          }
+        },
+        "lean_dependency_sha256": "df42c9ff90528496fa24472def705ab257817c21191bedf484d089300700ee04",
+        "kernel_witness_check": {
+          "proof_type": "W = U * E p p - E p p * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hwv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hadp_a42613c7"
+      ],
+      "conclusion": "n_hwv_895e93c4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_599",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hWV : W = V * E (R := R) p p - E (R := R) p p * V := by\n      dsimp [W, V]\n      rw [hADP, sub_mul, mul_sub]\n      abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2967678",
+              "name": "hADP",
+              "statement": "Δ (E p p) = AD * E p p - E p p * AD"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2970759",
+            "name": "hWV",
+            "statement": "W = V * E p p - E p p * V"
+          }
+        },
+        "lean_dependency_sha256": "1d24c4c911ca2ef6428c4349db02cef59fd28cd6110eea65481da5973ab3c53e",
+        "kernel_witness_check": {
+          "proof_type": "W = V * E p p - E p p * V",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hu_4edd4cc6",
+        "n_hv_06de64fc",
+        "n_hwu_5059b8cf",
+        "n_hwv_895e93c4"
+      ],
+      "conclusion": "n_hzero_96ee2a2d",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "projector_extension",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.projector_extension"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.projector_extension"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_600",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hzero : W = 0 := projector_extension (R := R) hWU hWV hU hV",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2967774",
+              "name": "hU",
+              "statement": "U * Up n = Up n * U"
+            },
+            {
+              "fvar_id": "_uniq.2967928",
+              "name": "hV",
+              "statement": "V * Down n = Down n * V"
+            },
+            {
+              "fvar_id": "_uniq.2968164",
+              "name": "hWU",
+              "statement": "W = U * E p p - E p p * U"
+            },
+            {
+              "fvar_id": "_uniq.2970759",
+              "name": "hWV",
+              "statement": "W = V * E p p - E p p * V"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2971433",
+            "name": "hzero",
+            "statement": "W = 0"
+          }
+        },
+        "lean_dependency_sha256": "829463b1b3fef804c4a87c5fab4d41cf1b5bcf17f621f741ea9aafa37a3a3fdb",
+        "kernel_witness_check": {
+          "proof_type": "W = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hsub",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_96ee2a2d"
+      ],
+      "conclusion": "n_hsub_0b00a1a3",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_601",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsub : Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B) = 0 := by\n      dsimp [W] at hzero\n      exact hzero",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2971433",
+              "name": "hzero",
+              "statement": "W = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2971548",
+            "name": "hsub",
+            "statement": "Δ (E p p) - (B * E p p - E p p * B) = 0"
+          }
+        },
+        "lean_dependency_sha256": "ef7d6061bdd69a6d9ab69b13551c9e4708c66f4490320734af808666f7aa9865",
+        "kernel_witness_check": {
+          "proof_type": "W = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbdiag_45dd94cb",
+        "n_happ_672bccf2"
+      ],
+      "conclusion": "n_hu_d7879a60",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_605",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hU : U * Up (R := R) n = Up (R := R) n * U := by\n      dsimp [U]\n      apply comm_sub_of_comm_eq\n      rw [← hAUU, ← hBU]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2967567",
+              "name": "hBdiag",
+              "statement": "∀ (p : Fin n), Δ (E p p) = B * E p p - E p p * B"
+            },
+            {
+              "fvar_id": "_uniq.2972281",
+              "name": "hAPP",
+              "statement": "Δ (E p p) = AP * E p p - E p p * AP"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2973531",
+            "name": "hU",
+            "statement": "U * E p p = E p p * U"
+          }
+        },
+        "lean_dependency_sha256": "eb8c59d344e7a84d7a7f4a1be93d58cbe45cec22f8cd6e8e0615416ddcb7dc1d",
+        "kernel_witness_check": {
+          "proof_type": "U * E p p = E p p * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbdiag_45dd94cb",
+        "n_haqp_2cbd2c5e"
+      ],
+      "conclusion": "n_hv_1c15e872",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_606",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hV : V * Down (R := R) n = Down (R := R) n * V := by\n      dsimp [V]\n      apply comm_sub_of_comm_eq\n      rw [← hADD, ← hBD]\n    let W : Matrix (Fin n) (Fin n) R :=\n      Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2967567",
+              "name": "hBdiag",
+              "statement": "∀ (p : Fin n), Δ (E p p) = B * E p p - E p p * B"
+            },
+            {
+              "fvar_id": "_uniq.2972338",
+              "name": "hAQP",
+              "statement": "Δ (E q q) = AQ * E q q - E q q * AQ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2973679",
+            "name": "hV",
+            "statement": "V * E q q = E q q * V"
+          }
+        },
+        "lean_dependency_sha256": "4da09679757592fabd5705de4d2c39ddc919c6850ffd7ccbabd7ab6514952e5b",
+        "kernel_witness_check": {
+          "proof_type": "V * E q q = E q q * V",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbu_cafd2f82",
+        "n_hatu_19657807"
+      ],
+      "conclusion": "n_ht_c02db088",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_607",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hT : T * Up (R := R) n = Up (R := R) n * T := by\n        dsimp [T]\n        apply comm_sub_of_comm_eq\n        rw [← hATU, ← hBU]\n      let W : Matrix (Fin n) (Fin n) R :=\n        Δ (E (R := R) p q) - (B * E (R := R) p q - E (R := R) p q * B)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2966477",
+              "name": "hBU",
+              "statement": "Δ (Up n) = B * Up n - Up n * B"
+            },
+            {
+              "fvar_id": "_uniq.2972392",
+              "name": "hATU",
+              "statement": "Δ (Up n) = AT * Up n - Up n * AT"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2973819",
+            "name": "hT",
+            "statement": "T * Up n = Up n * T"
+          }
+        },
+        "lean_dependency_sha256": "064bbeabd09ee1d574922c8b923568e8a0f257ddf30f2e2dfb22961939fc88d9",
+        "kernel_witness_check": {
+          "proof_type": "T * Up n = Up n * T",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hwu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hapq_152d9b6c"
+      ],
+      "conclusion": "n_hwu_551137b6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_609",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hWU : W = U * E (R := R) p p - E (R := R) p p * U := by\n      dsimp [W, U]\n      rw [hAUP, sub_mul, mul_sub]\n      abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2972280",
+              "name": "hAPQ",
+              "statement": "Δ (E p q) = AP * E p q - E p q * AP"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2974067",
+            "name": "hWU",
+            "statement": "W = U * E p q - E p q * U"
+          }
+        },
+        "lean_dependency_sha256": "aef557f0709bfff225963428ae89521db818430d42d50c36c4e0eaf012a1c09b",
+        "kernel_witness_check": {
+          "proof_type": "W = U * E p q - E p q * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hwv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_haqq_d7a1bfe0"
+      ],
+      "conclusion": "n_hwv_6a008e26",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_610",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hWV : W = V * E (R := R) p p - E (R := R) p p * V := by\n      dsimp [W, V]\n      rw [hADP, sub_mul, mul_sub]\n      abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2972337",
+              "name": "hAQQ",
+              "statement": "Δ (E p q) = AQ * E p q - E p q * AQ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2976662",
+            "name": "hWV",
+            "statement": "W = V * E p q - E p q * V"
+          }
+        },
+        "lean_dependency_sha256": "119ad3298389e2e3d02435298a2f62b1847d1b1f65474299db91f7a3e135b4ca",
+        "kernel_witness_check": {
+          "proof_type": "W = V * E p q - E p q * V",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hwt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hatq_f8cece0b"
+      ],
+      "conclusion": "n_hwt_bbb8a597",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_611",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hWT : W = T * E (R := R) p q - E (R := R) p q * T := by\n        dsimp [W, T]\n        rw [hATQ, sub_mul, mul_sub]\n        abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2972391",
+              "name": "hATQ",
+              "statement": "Δ (E p q) = AT * E p q - E p q * AT"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2977351",
+            "name": "hWT",
+            "statement": "W = T * E p q - E p q * T"
+          }
+        },
+        "lean_dependency_sha256": "1038c0b363ba4d4f94f194dff57bc7307b038fe393217ac4affb3134ded68155",
+        "kernel_witness_check": {
+          "proof_type": "W = T * E p q - E p q * T",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hu_d7879a60",
+        "n_hv_1c15e872",
+        "n_ht_c02db088",
+        "n_hwu_551137b6",
+        "n_hwv_6a008e26",
+        "n_hwt_bbb8a597"
+      ],
+      "conclusion": "n_hzero_87d45cff",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_612",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hzero : W = 0 := projector_extension (R := R) hWU hWV hU hV",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2973531",
+              "name": "hU",
+              "statement": "U * E p p = E p p * U"
+            },
+            {
+              "fvar_id": "_uniq.2973679",
+              "name": "hV",
+              "statement": "V * E q q = E q q * V"
+            },
+            {
+              "fvar_id": "_uniq.2973819",
+              "name": "hT",
+              "statement": "T * Up n = Up n * T"
+            },
+            {
+              "fvar_id": "_uniq.2974067",
+              "name": "hWU",
+              "statement": "W = U * E p q - E p q * U"
+            },
+            {
+              "fvar_id": "_uniq.2976662",
+              "name": "hWV",
+              "statement": "W = V * E p q - E p q * V"
+            },
+            {
+              "fvar_id": "_uniq.2977351",
+              "name": "hWT",
+              "statement": "W = T * E p q - E p q * T"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2978027",
+            "name": "hzero",
+            "statement": "W = 0"
+          }
+        },
+        "lean_dependency_sha256": "ab6d9dfb8ff4b13f0b8e472d17c73f8ab8eb86bf25c77e1b315294992df0d526",
+        "kernel_witness_check": {
+          "proof_type": "W = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hsub",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_87d45cff"
+      ],
+      "conclusion": "n_hsub_9f2c09f2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_613",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsub : Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B) = 0 := by\n      dsimp [W] at hzero\n      exact hzero",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2978027",
+              "name": "hzero",
+              "statement": "W = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2978142",
+            "name": "hsub",
+            "statement": "Δ (E p q) - (B * E p q - E p q * B) = 0"
+          }
+        },
+        "lean_dependency_sha256": "ab26c49800e8066df8b68239f11698d9789338b5961416fac19eb70aaf1f9daa",
+        "kernel_witness_check": {
+          "proof_type": "W = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbunit_36fd5361",
+        "n_hae_cb4c423f"
+      ],
+      "conclusion": "n_hu_6c7db16f",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_615",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hU : U * Up (R := R) n = Up (R := R) n * U := by\n      dsimp [U]\n      apply comm_sub_of_comm_eq\n      rw [← hAUU, ← hBU]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2972165",
+              "name": "hBunit",
+              "statement": "∀ (p q : Fin n), Δ (E p q) = B * E p q - E p q * B"
+            },
+            {
+              "fvar_id": "_uniq.2979239",
+              "name": "hAE",
+              "statement": "Δ (E a a) = A * E a a - E a a * A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2980328",
+            "name": "hU",
+            "statement": "U * E a a = E a a * U"
+          }
+        },
+        "lean_dependency_sha256": "727c17368b45862546d06f1c48a567cb829a303bf80aac98cf637c088b2bc212",
+        "kernel_witness_check": {
+          "proof_type": "U * E a a = E a a * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hw",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hax_4328499b"
+      ],
+      "conclusion": "n_hw_e5b5d113",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_616",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hW : W = U * X - X * U := by\n        dsimp [W, U]\n        rw [hAX, sub_mul, mul_sub]\n        abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2979238",
+              "name": "hAX",
+              "statement": "Δ X = A * X - X * A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2980485",
+            "name": "hW",
+            "statement": "W = U * X - X * U"
+          }
+        },
+        "lean_dependency_sha256": "16c976fd826965df429452f8a6bb0ecb551e1ec031bec0d0a425d422dda16eb8",
+        "kernel_witness_check": {
+          "proof_type": "W = U * X - X * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbunit_36fd5361",
+        "n_hae_257ceb7c"
+      ],
+      "conclusion": "n_hu_9fef074e",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "comm_sub_of_comm_eq",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_618",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hU : U * Up (R := R) n = Up (R := R) n * U := by\n      dsimp [U]\n      apply comm_sub_of_comm_eq\n      rw [← hAUU, ← hBU]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2972165",
+              "name": "hBunit",
+              "statement": "∀ (p q : Fin n), Δ (E p q) = B * E p q - E p q * B"
+            },
+            {
+              "fvar_id": "_uniq.2983061",
+              "name": "hAE",
+              "statement": "Δ (E b a) = A * E b a - E b a * A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2983133",
+            "name": "hU",
+            "statement": "U * E b a = E b a * U"
+          }
+        },
+        "lean_dependency_sha256": "9e62f12a52533ec70a0a6a369ee35f9e42ad5a02b24f29d88c4581c76ddeafe9",
+        "kernel_witness_check": {
+          "proof_type": "U * E b a = E b a * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_hw",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hax_857ca606"
+      ],
+      "conclusion": "n_hw_1b6fc961",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_sub + sub_mul",
+        "items": [
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_619",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hW : W = U * X - X * U := by\n        dsimp [W, U]\n        rw [hAX, sub_mul, mul_sub]\n        abel",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2983060",
+              "name": "hAX",
+              "statement": "Δ X = A * X - X * A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2983284",
+            "name": "hW",
+            "statement": "W = U * X - X * U"
+          }
+        },
+        "lean_dependency_sha256": "044560c7d195dca120c33305733c82ebcc19259c4f765a9d394f0afc6ccd030a",
+        "kernel_witness_check": {
+          "proof_type": "W = U * X - X * U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_hbdiag",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_ebbd820a",
+        "n_hbu_cafd2f82",
+        "n_hbd_67eaf304"
+      ],
+      "conclusion": "n_hbdiag_45dd94cb",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "comm_sub_of_comm_eq + projector_extension + mul_sub",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.projector_extension",
+          "mul_sub",
+          "sub_eq_zero",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.projector_extension"
+        ],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_eq_zero",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_620",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hBdiag : ∀ p : Fin n,\n      Δ (E (R := R) p p) = B * E (R := R) p p - E (R := R) p p * B := by\n    intro p\n    obtain ⟨AU, hAUP, hAUU⟩ := hΔ (E (R := R) p p) (Up (R := R) n)\n    obtain ⟨AD, hADP, hADD⟩ := hΔ (E (R := R) p p) (Down (R := R) n)\n    let U : Matrix (Fin n) (Fin n) R := AU - B\n    let V : Matrix (Fin n) (Fin n) R := AD - B\n    have hU : U * Up (R := R) n = Up (R := R) n * U := by\n      dsimp [U]\n      apply comm_sub_of_comm_eq\n      rw [← hAUU, ← hBU]\n    have hV : V * Down (R := R) n = Down (R := R) n * V := by\n      dsimp [V]\n      apply comm_sub_of_comm_eq\n      rw [← hADD, ← hBD]\n    let W : Matrix (Fin n) (Fin n) R :=\n      Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B)\n    have hWU : W = U * E (R := R) p p - E (R := R) p p * U := by\n      dsimp [W, U]\n      rw [hAUP, sub_mul, mul_sub]\n      abel\n    have hWV : W = V * E (R := R) p p - E (R := R) p p * V := by\n      dsimp [W, V]\n      rw [hADP, sub_mul, mul_sub]\n      abel\n    have hzero : W = 0 := projector_extension (R := R) hWU hWV hU hV\n    have hsub : Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B) = 0 := by\n      dsimp [W] at hzero\n      exact hzero\n    exact sub_eq_zero.",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2966415",
+              "name": "hΔ",
+              "statement": "∀ (X Y : Matrix (Fin n) (Fin n) R), ∃ A, Δ X = A * X - X * A ∧ Δ Y = A * Y - Y * A"
+            },
+            {
+              "fvar_id": "_uniq.2966477",
+              "name": "hBU",
+              "statement": "Δ (Up n) = B * Up n - Up n * B"
+            },
+            {
+              "fvar_id": "_uniq.2966478",
+              "name": "hBD",
+              "statement": "Δ (Down n) = B * Down n - Down n * B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2967567",
+            "name": "hBdiag",
+            "statement": "∀ (p : Fin n), Δ (E p p) = B * E p p - E p p * B"
+          }
+        },
+        "lean_dependency_sha256": "88826b2c42a76c74e3d3fb17e7dff7f645d94de838ee20f185ded0e100ad6fa9",
+        "kernel_witness_check": {
+          "proof_type": "∀ (p : Fin n), Δ (E p p) = B * E p p - E p p * B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_hbunit",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_ebbd820a",
+        "n_hbu_cafd2f82",
+        "n_hbdiag_45dd94cb"
+      ],
+      "conclusion": "n_hbunit_36fd5361",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "comm_sub_of_comm_eq + mul_sub + sub_mul",
+        "items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq",
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq"
+        ],
+        "mathlib_items": [
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_621",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hBunit : ∀ p q : Fin n,\n      Δ (E (R := R) p q) = B * E (R := R) p q - E (R := R) p q * B := by\n    intro p q\n    by_cases hpq : p = q\n    · subst q\n      exact hBdiag p\n    · obtain ⟨AP, hAPQ, hAPP⟩ := hΔ (E (R := R) p q) (E (R := R) p p)\n      obtain ⟨AQ, hAQQ, hAQP⟩ := hΔ (E (R := R) p q) (E (R := R) q q)\n      obtain ⟨AT, hATQ, hATU⟩ := hΔ (E (R := R) p q) (Up (R := R) n)\n      let U : Matrix (Fin n) (Fin n) R := AP - B\n      let V : Matrix (Fin n) (Fin n) R := AQ - B\n      let T : Matrix (Fin n) (Fin n) R := AT - B\n      have hU : U * E (R := R) p p = E (R := R) p p * U := by\n        dsimp [U]\n        apply comm_sub_of_comm_eq\n        rw [← hAPP, ← hBdiag p]\n      have hV : V * E (R := R) q q = E (R := R) q q * V := by\n        dsimp [V]\n        apply comm_sub_of_comm_eq\n        rw [← hAQP, ← hBdiag q]\n      have hT : T * Up (R := R) n = Up (R := R) n * T := by\n        dsimp [T]\n        apply comm_sub_of_comm_eq\n        rw [← hATU, ← hBU]\n      let W : Matrix (Fin n) (Fin n) R :=\n        Δ (E (R := R) p q) - (B * E (R := R) p q - E (R := R) p q * B)\n      have hWU : W = U * E (R := R) p q - E (R := R) p q * U := by\n        dsimp [W, U]\n        rw [hAPQ, sub_mul, mul_sub",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2966415",
+              "name": "hΔ",
+              "statement": "∀ (X Y : Matrix (Fin n) (Fin n) R), ∃ A, Δ X = A * X - X * A ∧ Δ Y = A * Y - Y * A"
+            },
+            {
+              "fvar_id": "_uniq.2966477",
+              "name": "hBU",
+              "statement": "Δ (Up n) = B * Up n - Up n * B"
+            },
+            {
+              "fvar_id": "_uniq.2967567",
+              "name": "hBdiag",
+              "statement": "∀ (p : Fin n), Δ (E p p) = B * E p p - E p p * B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2972165",
+            "name": "hBunit",
+            "statement": "∀ (p q : Fin n), Δ (E p q) = B * E p q - E p q * B"
+          }
+        },
+        "lean_dependency_sha256": "88b9b458cffce6be94272eda8ee3294724bf2631a00385af4b60c463612c415c",
+        "kernel_witness_check": {
+          "proof_type": "∀ (p q : Fin n), Δ (E p q) = B * E p q - E p q * B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_021_hwzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_ebbd820a",
+        "n_hbunit_36fd5361"
+      ],
+      "conclusion": "n_hwzero_6ca2b7d8",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Matrix.ext + comm_sub_of_comm_eq + final_diag_entry",
+        "items": [
+          "Matrix.ext",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.final_diag_entry",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.final_offdiag_entry",
+          "mul_sub",
+          "sub_mul"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.comm_sub_of_comm_eq",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.final_diag_entry",
+          "Rollout_p2823_two_local_inner_derivation_matrix_is_inner.TwoLocalInnerDerivation.final_offdiag_entry"
+        ],
+        "mathlib_items": [
+          "Matrix.ext",
+          "mul_sub",
+          "sub_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_623",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hWzero : W = 0 := by\n    ext a b\n    by_cases hab : a = b\n    · subst b\n      obtain ⟨A, hAX, hAE⟩ := hΔ X (E (R := R) a a)\n      let U : Matrix (Fin n) (Fin n) R := A - B\n      have hU : U * E (R := R) a a = E (R := R) a a * U := by\n        dsimp [U]\n        apply comm_sub_of_comm_eq\n        rw [← hAE, ← hBunit a a]\n      have hW : W = U * X - X * U := by\n        dsimp [W, U]\n        rw [hAX, sub_mul, mul_sub]\n        abel\n      exact final_diag_entry (R := R) hW hU\n    · obtain ⟨A, hAX, hAE⟩ := hΔ X (E (R := R) b a)\n      let U : Matrix (Fin n) (Fin n) R := A - B\n      have hU : U * E (R := R) b a = E (R := R) b a * U := by\n        dsimp [U]\n        apply comm_sub_of_comm_eq\n        rw [← hAE, ← hBunit b a]\n      have hW : W = U * X - X * U := by\n        dsimp [W, U]\n        rw [hAX, sub_mul, mul_sub]\n        abel\n      exact final_offdiag_entry (R := R) hW hU",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2966415",
+              "name": "hΔ",
+              "statement": "∀ (X Y : Matrix (Fin n) (Fin n) R), ∃ A, Δ X = A * X - X * A ∧ Δ Y = A * Y - Y * A"
+            },
+            {
+              "fvar_id": "_uniq.2972165",
+              "name": "hBunit",
+              "statement": "∀ (p q : Fin n), Δ (E p q) = B * E p q - E p q * B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2978814",
+            "name": "hWzero",
+            "statement": "W = 0"
+          }
+        },
+        "lean_dependency_sha256": "f12a72d4d2268b354ba681ad359a20131dd9180c1948ef7e8dff53d37dd67339",
+        "kernel_witness_check": {
+          "proof_type": "W = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_022_hsub",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hwzero_6ca2b7d8"
+      ],
+      "conclusion": "n_hsub_8ed56bd7",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_624",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsub : Δ (E (R := R) p p) - (B * E (R := R) p p - E (R := R) p p * B) = 0 := by\n      dsimp [W] at hzero\n      exact hzero",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2978814",
+              "name": "hWzero",
+              "statement": "W = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2983997",
+            "name": "hsub",
+            "statement": "Δ X - (B * X - X * B) = 0"
+          }
+        },
+        "lean_dependency_sha256": "449463ed4cf712e493b44eeca573250fbb60b66a3e774ca40bff9759c5f86140",
+        "kernel_witness_check": {
+          "proof_type": "W = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_fd396eb1"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "sub_eq_zero",
+        "items": [
+          "sub_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "sub_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact sub_eq_zero.mp hsub",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hΔ",
+              "statement": "∀ (X Y : Matrix (Fin n) (Fin n) R), ∃ A, Δ X = A * X - X * A ∧ Δ Y = A * Y - Y * A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ B, ∀ (X : Matrix (Fin n) (Fin n) R), Δ X = B * X - X * B"
+          }
+        },
+        "lean_dependency_sha256": "36426eba3bc3ea067982460f7fadd2dc1d64b7ef1d2de718c1b5060cee59f691",
+        "kernel_witness_check": {
+          "proof_type": "∃ B, ∀ (X : Matrix (Fin n) (Fin n) R), Δ X = B * X - X * B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "two-local inner derivation matrix algebra is inner derivation",
+      "declarations": [
+        "LieDerivation.mem_ad_idealRange_iff",
+        "LieDerivation.IsKilling.exists_eq_ad",
+        "Derivation",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Derivation.map_algebraMap",
+        "LieDerivation.inner",
+        "LieDerivation.inner_apply_apply",
+        "Derivation.instLieRing",
+        "LieDerivation.instLieAlgebra",
+        "JacobsonNoether.exist_pow_eq_zero_of_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "2-local derivation matrices inner",
+      "declarations": [
+        "FixedDetMatrices.reduce",
+        "FixedDetMatrices.ext'",
+        "LieDerivation.inner_apply_apply",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith",
+        "LieDerivation.inner",
+        "Derivation",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Polynomial.sylvesterDeriv",
+        "Differential.implicitDeriv",
+        "CategoryTheory.LocalizerMorphism.isLeftDerivabilityStructure_of_isLocalizedEquivalence"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Matrix (_ : Fin _) (_ : Fin _) _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "IsUnit (2 : _)",
+      "declarations": [
+        "Odd.of_isUnit_two",
+        "Even.of_isUnit_two",
+        "isUnit_two_iff_forall_even",
+        "QuadraticMap.polarBilin_injective",
+        "CliffordAlgebra.forall_mul_self_eq_iff",
+        "RingPreordering.hasIdealSupport_of_isUnit_two",
+        "RingPreordering.instHasIdealSupportOfFactIsUnitOfNat",
+        "WeierstrassCurve.twoTorsionPolynomial_disc_ne_zero_of_isElliptic",
+        "WeierstrassCurve.twoTorsionPolynomial_discr_ne_zero_of_isElliptic",
+        "WeierstrassCurve.twoTorsionPolynomial_disc_isUnit"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "local inner derivations matrix units idempotent commutator theorem proof",
+      "declarations": [
+        "Matrix.commutator_diag2_transvection",
+        "ModuleCat.Derivation.d_mul",
+        "Std.IdempotentOp",
+        "nnnorm_commutator_units_sub_one_le",
+        "IsIdempotentElem",
+        "LieDerivation.leibniz_lie",
+        "commutator",
+        "IsLocalHomeomorph.monodromy_theorem",
+        "Matrix.transvection_mem_commutator",
+        "Derivation.tensorProductTo_mul"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "TwoLocal",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "local derivation algebra",
+      "declarations": [
+        "Derivation.compAlgebraMap",
+        "Derivation.instLieAlgebra",
+        "Derivation.map_algebraMap",
+        "Derivation",
+        "LieDerivation.instLieAlgebra",
+        "algebraMap.coe_deriv",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Polynomial.mkDerivationEquiv",
+        "Derivation.compAlgebraMap_apply",
+        "derivationQuotKerSq"
+      ],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "two local automorphism",
+      "declarations": [
+        "Algebra.IsLocalIso.of_algEquiv",
+        "LinearEquiv.automorphismGroup",
+        "ContinuousLinearEquiv.automorphismGroup",
+        "IsLocalHom",
+        "LinearEquiv.automorphismGroup.toLinearMapMonoidHom",
+        "IsLocalMin",
+        "Lean.LocalDecl",
+        "AlgebraicGeometry.IsLocalIso.le_of_isZariskiLocalAtSource",
+        "RingHom.Locally",
+        "IsLocalMax"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "derivation matrix algebra inner",
+      "declarations": [
+        "Derivation.map_algebraMap",
+        "inner_matrix_col_col",
+        "LieDerivation.inner_apply_apply",
+        "LieDerivation.inner",
+        "Derivation",
+        "inner_matrix_row_row",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "LieDerivation.instLieAlgebra",
+        "Lean.Omega.Coeffs.get",
+        "Polynomial.sylvesterDeriv"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Matrix.single",
+      "declarations": [
+        "Matrix.single",
+        "Matrix.single_apply_same",
+        "Matrix.diag_single_same",
+        "Matrix.diagonal_single",
+        "Matrix.single_apply_of_col_ne",
+        "Matrix.single_apply_of_row_ne",
+        "Matrix.transpose_single",
+        "Matrix.diag_single_of_ne",
+        "Matrix.single_apply_of_ne",
+        "Matrix.single_zero"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Matrix.stdBasisMatrix",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "matrix with one entry one and all other entries zero",
+      "declarations": [
+        "Matrix.diagonal",
+        "WithZero.coe_one",
+        "Matrix.single",
+        "WithZero.log_one",
+        "WithZero.one",
+        "Matrix.diag_single_of_ne",
+        "Matrix.single_zero",
+        "Matrix.single_apply_of_ne",
+        "Matrix.single_apply_of_row_ne",
+        "instOneWithConvMatrix"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Matrix.of (fun _ _ => if _ = _ then 1 else 0)",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "ample set 2-local derivations centralizers matrix units",
+      "declarations": [
+        "ampleSet_empty",
+        "LieDerivation.maxTrivSubmodule_eq_bot_of_center_eq_bot",
+        "ampleSet_univ",
+        "AmpleSet.union",
+        "Derivation.instIsCentralScalar",
+        "AmpleSet",
+        "AmpleSet.vadd",
+        "Units",
+        "val_unitsCentralizerEquiv_apply_coe",
+        "AmpleSet.image"
+      ],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Matrix.single _ _ _ * Matrix.single _ _ _ = _",
+      "declarations": [
+        "Matrix.single_mul_single_of_ne",
+        "Matrix.single_mul_single_same"
+      ],
+      "call_turn": 21,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Matrix.single_apply",
+      "declarations": [
+        "Matrix.single_apply"
+      ],
+      "call_turn": 23,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "finRotate",
+      "declarations": [
+        "finRotate",
+        "finRotate_one",
+        "finRotate_zero",
+        "lt_finRotate_iff_ne_neg_one",
+        "finRotate_apply_zero",
+        "finRotate_symm_lt_iff_ne_zero",
+        "finCycle_eq_finRotate_iterate",
+        "finRotate_succ_symm_apply",
+        "coe_finRotate_symm_of_ne_zero",
+        "coe_finRotate"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "cyclic permutation Fin n successor equiv",
+      "declarations": [
+        "finCycle",
+        "Int.addLeft_one_isCycle",
+        "Fin.cycleRange_succAbove",
+        "Equiv.Perm.toCycle_next",
+        "triple_product_permutation",
+        "Matrix.det_permutation",
+        "List.formPerm",
+        "IsCyclic",
+        "Matrix.trace_permutation",
+        "Mathlib.Tactic.Translate.Permutation"
+      ],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Fin.succAbove",
+      "declarations": [
+        "Fin.predAbove_succAbove",
+        "Fin.succAbove_last",
+        "Fin.succAbove_last_apply",
+        "Fin.succAbove_castSucc_self",
+        "Fin.succAbove_succ_self",
+        "Fin.predAbove_predAbove_succAbove",
+        "Fin.succAbove",
+        "Fin.succAbove_left_injective",
+        "Fin.succAbove_right_injective",
+        "Fin.succAbove_castSucc_of_le"
+      ],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Equiv.Perm Fin",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Matrix.perm",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Matrix.permutation",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 34
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "permutation matrix from equivalence Matrix",
+      "declarations": [
+        "PEquiv.toMatrix_toPEquiv_eq",
+        "Matrix.det_permutation",
+        "PEquiv.transpose_toMatrix_toPEquiv_apply",
+        "PEquiv.mul_toMatrix_toPEquiv",
+        "Matrix",
+        "PEquiv.toMatrix_toPEquiv_mul",
+        "moritaEquivalenceMatrix",
+        "Matrix.trace_permutation",
+        "Matrix.reindex_refl_refl",
+        "Matrix.fromBlocks"
+      ],
+      "call_turn": 32,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Matrix.reindex",
+      "declarations": [
+        "Matrix.reindex",
+        "Matrix.reindex_symm",
+        "Matrix.reindex_refl_refl",
+        "Matrix.reindex_trans",
+        "Matrix.reindex_apply",
+        "Matrix.transpose_reindex",
+        "Matrix.conjTranspose_reindex",
+        "Matrix.comp_diagonal",
+        "Matrix.comp_toSquareBlock",
+        "Matrix.reindex_updateCol"
+      ],
+      "call_turn": 32,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "finRotate_iterate",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "finRotate ^ _",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "finCycle_apply",
+      "declarations": [
+        "finCycle_apply"
+      ],
+      "call_turn": 39,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "Fin.sub_add_cancel",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 43
+    },
+    {
+      "event_id": "leanfinder:31",
+      "tool": "leanfinder",
+      "query": "2-local inner derivation matrix ring commutative ring two invertible proof idempotent separating family",
+      "declarations": [
+        "Polynomial.mkDerivationEquiv_symm_apply",
+        "invertibleTwo",
+        "Ring.inverse_invertible",
+        "Lean.Meta.Grind.Arith.Linear.isCommRing",
+        "Polynomial.mkDerivationEquiv",
+        "IsLocalRing",
+        "Lean.Meta.Grind.Arith.Linear.getCommRingInst",
+        "Pi.normedCommutativeRing",
+        "Derivation.instLieRing",
+        "LieDerivation.instLieRing"
+      ],
+      "call_turn": 46,
+      "result_turn": 47
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "2-reflexive submodule local maps linear algebra",
+      "declarations": [
+        "Set.MapsTo.submoduleSpan",
+        "Submodule.mapsTo_span",
+        "Submodule.eq_top_of_localization",
+        "Submodule.compatibleMaps",
+        "Set.MapsTo",
+        "IsLocalizedModule.liftOfLE_apply",
+        "Reflexive",
+        "Submodule.mapsTo_smul_closure",
+        "instIsLocalizedModuleLinearMapIdLocalizationLocalizedModuleMapOfFinitePresentation",
+        "IsLocalizedModule.map_apply"
+      ],
+      "call_turn": 50,
+      "result_turn": 51
+    },
+    {
+      "event_id": "leanfinder:34",
+      "tool": "leanfinder",
+      "query": "reflexive bilinear map local derivation",
+      "declarations": [
+        "IsBilinearMap",
+        "IsBoundedBilinearMap.deriv",
+        "Derivation",
+        "Reflexive",
+        "IsBoundedBilinearMap.linearDeriv",
+        "IsBoundedBilinearMap.fderiv",
+        "Matrix.kroneckerMapBilinear",
+        "Relation.map_reflexive",
+        "ContinuousLinearMap.derivWithin_of_bilinear",
+        "CategoryTheory.LocalizerMorphism.instIsRightDerivabilityStructureOppositeOpOpOfIsLeftDerivabilityStructure"
+      ],
+      "call_turn": 50,
+      "result_turn": 52
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "pairwise intersecting affine subspaces common intersection Lie centralizer",
+      "declarations": [
+        "Set.centralizer",
+        "Set.intersecting_iff_pairwise_not_disjoint",
+        "AffineSubspace.direction_iInf_of_mem",
+        "AffineSubspace.direction_iInf_of_mem_iInf",
+        "Set.Subsingleton.intersecting",
+        "affineSpan",
+        "AffineSubspace.comap_supr",
+        "AffineIndependent.inf_affineSpan_eq_affineSpan_inter",
+        "Set.Intersecting",
+        "Set.Intersecting.mono"
+      ],
+      "call_turn": 50,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "IsReflexive",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "Finset.sum_ite_eq",
+      "declarations": [
+        "Finset.sum_ite_eq"
+      ],
+      "call_turn": 57,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "∑ _, if _ = _ then _ else 0 = _",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Finset.sum_eq_single",
+      "declarations": [
+        "Finset.sum_eq_single"
+      ],
+      "call_turn": 57,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "eq_sub_iff_add_eq",
+      "declarations": [
+        "eq_sub_iff_add_eq"
+      ],
+      "call_turn": 65,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "sub_eq_iff_eq_add",
+      "declarations": [
+        "sub_eq_iff_eq_add"
+      ],
+      "call_turn": 65,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "add_eq_of_eq_sub",
+      "declarations": [
+        "add_eq_of_eq_sub"
+      ],
+      "call_turn": 65,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "sub_add_cancel",
+      "declarations": [
+        "sub_add_cancel"
+      ],
+      "call_turn": 65,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Fin.natCast_val",
+      "declarations": [],
+      "call_turn": 72,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Fin.cast_val_eq_self",
+      "declarations": [
+        "Fin.cast_val_eq_self"
+      ],
+      "call_turn": 72,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "((_ : Fin _).val : Fin _) = _",
+      "declarations": [
+        "Fin.eq_of_val_eq",
+        "Fin.val_eq_of_eq",
+        "Fin.val_congr",
+        "Fin.val_inj",
+        "Fin.neg_def",
+        "Fin.Internal.ofNat_eq_ofNat",
+        "Fin.zero_eta",
+        "Fin.rev_rev",
+        "Fin.mk_val",
+        "Fin.castLE_refl"
+      ],
+      "call_turn": 72,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Fin.val_natCast",
+      "declarations": [
+        "Fin.val_natCast"
+      ],
+      "call_turn": 72,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Fin.induction",
+      "declarations": [
+        "Fin.induction",
+        "Fin.induction_succ",
+        "Fin.induction_zero"
+      ],
+      "call_turn": 87,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Fin.cases",
+      "declarations": [
+        "Fin.cases",
+        "Fin.cases_succ",
+        "Fin.cases_succ'",
+        "Fin.cases_zero",
+        "MvPolynomial.finSuccEquiv_apply",
+        "MvPolynomial.finSuccEquiv_eq",
+        "CategoryTheory.extendCofan_",
+        "CategoryTheory.extendFan_",
+        "MvPolynomial.eval_polynomial_eval_finSuccEquiv",
+        "Fin.orderPred_apply"
+      ],
+      "call_turn": 87,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Fin.reverseInduction",
+      "declarations": [
+        "Fin.reverseInduction",
+        "Fin.reverseInduction_last",
+        "Fin.reverseInduction_castSucc"
+      ],
+      "call_turn": 87,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Fin.lastCases",
+      "declarations": [
+        "Fin.lastCases",
+        "Fin.lastCases_last",
+        "Fin.lastCases_castSucc",
+        "Fin.orderSucc_apply",
+        "Fin.orderSucc_eq"
+      ],
+      "call_turn": 87,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Matrix.sub_apply",
+      "declarations": [
+        "Matrix.sub_apply"
+      ],
+      "call_turn": 112,
+      "result_turn": 113
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 49,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 49,
+    "accepted_helper_count": 10,
+    "rollout_tool_call_count": 86,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

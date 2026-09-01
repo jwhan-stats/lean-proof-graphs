@@ -1,0 +1,29 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hextreme_e037c3a0" [shape=box, color="#178F82", label="hextreme\n∀ (x : L), Set.extremePoints F (φ x) ⊆ Ω"];
+  "m_hinj_5d359dec" [shape=box, color="#178F82", label="hinj\nFunction.Injective φ"];
+  "m_hjoin_a7dcd640" [shape=box, color="#178F82", label="hjoin\n∀ (x y : L), φ (x ⊔ y) = (convexHull F) (φ x ∪ φ y)"];
+  "m_hmeet_2ddbb872" [shape=box, color="#178F82", label="hmeet\n∀ (x y : L), φ (x ⊓ y) = φ x ∩ φ y"];
+  "m_hpoly_a309e807" [shape=box, color="#178F82", label="hpoly\n∀ (x : L), ∃ A, A.Finite ∧ (convexHull F) A = φ x"];
+  "m_inst___proofs_3608069470_9ed6ceaa" [shape=box, color="#178F82", label="inst._@.proofs.3608069470._hygCtx._hyg.11\nIsStrictOrderedRing F"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(Function.Injective fun x => φ x ∩ Ω) ∧ (∀ (x : L), Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x) = (fun x => φ x ∩ Ω) x) ∧ (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊓ y) = (fun x => φ x ∩ Ω) x ∩ (fun x => φ x ∩ Ω) y) ∧ (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊔ y) = Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x ∪ (fun x => φ x ∩ Ω) y)) ∧ ∀ (x : L), (convexHull F) ((fun x => φ x ∩ Ω) x) = φ x"];
+  "n_h_inj_69b1a577" [shape=box, color="#D97706", label="hψinj\nFunction.Injective ψ"];
+  "n_hconv_2ba99e6a" [shape=box, color="#D97706", label="hconv\n∀ (x : L), (convexHull F) (ψ x) = φ x"];
+  "r_h_001_hconv" [shape=diamond, label="convexHull_subset_convexHull_of_extremePoints_subset_divisionRing + Set.Subset.antisymm + convexHull_min", color="#D97706"];
+  "m_inst___proofs_3608069470_9ed6ceaa" -> "r_h_001_hconv";
+  "m_hpoly_a309e807" -> "r_h_001_hconv";
+  "m_hextreme_e037c3a0" -> "r_h_001_hconv";
+  "r_h_001_hconv" -> "n_hconv_2ba99e6a";
+  "r_h_002_h_inj" [shape=diamond, label="apply + rw", color="#D97706"];
+  "m_hinj_5d359dec" -> "r_h_002_h_inj";
+  "n_hconv_2ba99e6a" -> "r_h_002_h_inj";
+  "r_h_002_h_inj" -> "n_h_inj_69b1a577";
+  "r_h_goal" [shape=diamond, label="Set.Subset.antisymm + Set.ext + Set.subset_union_left", color="#D97706"];
+  "m_hmeet_2ddbb872" -> "r_h_goal";
+  "m_hjoin_a7dcd640" -> "r_h_goal";
+  "n_hconv_2ba99e6a" -> "r_h_goal";
+  "n_h_inj_69b1a577" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

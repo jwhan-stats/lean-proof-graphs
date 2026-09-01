@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hgen_0cb9aaad" [shape=box, color="#178F82", label="hgen\nAddSubgroup.closure (Set.range a) = ⊤"];
+  "m_hprod_fea1b2d0" [shape=box, color="#178F82", label="hprod\n∀ (x y : A), ↑(W x) ⊆ Set.image2 (fun g h => g * h) ↑(W y) ↑(W (2 • y - x))"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n⨆ x, W x = ⨆ s, W (∑ i ∈ s, a i)"];
+  "r_h_goal" [shape=diamond, label="AddSubgroup.mem_closure_range_iff + Finsupp.sum_zsmul + subgroup_le_boolean_iSup_of_int_coeffs", color="#D97706"];
+  "m_hgen_0cb9aaad" -> "r_h_goal";
+  "m_hprod_fea1b2d0" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

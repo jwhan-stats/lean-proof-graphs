@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hadd_525ce465" [shape=box, color="#178F82", label="hadd\n∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))"];
+  "m_hcont_a03afd8f" [shape=box, color="#178F82", label="hcont\nContinuous φ"];
+  "m_hzero_c2708664" [shape=box, color="#178F82", label="hzero\n∀ (x : Λ), φ (0, x) = x"];
+  "m_inst___proofs_3640889310_673a1dd1" [shape=box, color="#178F82", label="inst._@.proofs.3640889310._hygCtx._hyg.6\nCompactSpace Λ"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∃ δ, 0 < δ ∧ ∀ (x y : Λ) (s : ℝ → ℝ), Continuous s → s 0 = 0 → ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) → y ∈ Set.range fun t => φ (t, x)) ↔ (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧ IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}"];
+  "r_h_goal" [shape=diamond, label="Metric.isOpen_ball + Metric.mem_ball_self + exists_pos_fixed_nonfixed_dist", color="#D97706"];
+  "m_inst___proofs_3640889310_673a1dd1" -> "r_h_goal";
+  "m_hcont_a03afd8f" -> "r_h_goal";
+  "m_hzero_c2708664" -> "r_h_goal";
+  "m_hadd_525ce465" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

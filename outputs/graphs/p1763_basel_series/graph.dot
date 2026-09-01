@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nHasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"];
+  "n_h_7d33d1e8" [shape=box, color="#D97706", label="h\nHasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"];
+  "r_h_001_h" [shape=diamond, label="hasSum_nat_add_iff + hasSum_zeta_two", color="#D97706"];
+  "r_h_001_h" -> "n_h_7d33d1e8";
+  "r_h_goal" [shape=diamond, label="simpa", color="#D97706"];
+  "n_h_7d33d1e8" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

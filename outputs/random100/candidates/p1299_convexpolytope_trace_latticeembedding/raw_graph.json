@@ -1,0 +1,614 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "manifest": [
+        {
+          "statement": "IsStrictOrderedRing F",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3608069470._hygCtx._hyg.11",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ (x : L), ∃ A, A.Finite ∧ (convexHull F) A = φ x",
+          "origin": "manifest",
+          "name": "hpoly",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "Function.Injective φ",
+          "origin": "manifest",
+          "name": "hinj",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ (x y : L), φ (x ⊓ y) = φ x ∩ φ y",
+          "origin": "manifest",
+          "name": "hmeet",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (x y : L), φ (x ⊔ y) = (convexHull F) (φ x ∪ φ y)",
+          "origin": "manifest",
+          "name": "hjoin",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (x : L), Set.extremePoints F (φ x) ⊆ Ω",
+          "origin": "manifest",
+          "name": "hextreme",
+          "fvar_id": "15"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left",
+            "Eq.symm",
+            "Rollout_p1299_convexpolytope_trace_latticeembedding.convexHull_subset_convexHull_of_extremePoints_subset_divisionRing",
+            "Set.Finite.coe_toFinset",
+            "Set.Subset.antisymm",
+            "congrArg",
+            "congrFun'",
+            "convexHull_min",
+            "convex_convexHull",
+            "extremePoints_subset"
+          ],
+          "premises": [
+            {
+              "statement": "IsStrictOrderedRing F",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3608069470._hygCtx._hyg.11",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "∀ (x : L), ∃ A, A.Finite ∧ (convexHull F) A = φ x",
+              "origin": "local_assumption",
+              "name": "hpoly",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "∀ (x : L), Set.extremePoints F (φ x) ⊆ Ω",
+              "origin": "local_assumption",
+              "name": "hextreme",
+              "fvar_id": "15"
+            }
+          ],
+          "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+            "origin": "derived",
+            "name": "hconv",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ ⦃x y : L⦄, ψ x = ψ y → x = y",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "Function.Injective φ",
+              "origin": "local_assumption",
+              "name": "hinj",
+              "fvar_id": "12"
+            },
+            {
+              "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+              "origin": "derived",
+              "name": "hconv",
+              "fvar_id": "17"
+            }
+          ],
+          "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "Function.Injective ψ",
+            "origin": "derived",
+            "name": "hψinj",
+            "fvar_id": "18"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "(Function.Injective fun x => φ x ∩ Ω) ∧\n  (∀ (x : L), Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x) = (fun x => φ x ∩ Ω) x) ∧\n    (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊓ y) = (fun x => φ x ∩ Ω) x ∩ (fun x => φ x ∩ Ω) y) ∧\n      (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊔ y) = Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x ∪ (fun x => φ x ∩ Ω) y)) ∧\n        ∀ (x : L), (convexHull F) ((fun x => φ x ∩ Ω) x) = φ x",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(Function.Injective fun x => φ x ∩ Ω) ∧\n  (∀ (x : L), Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x) = (fun x => φ x ∩ Ω) x) ∧\n    (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊓ y) = (fun x => φ x ∩ Ω) x ∩ (fun x => φ x ∩ Ω) y) ∧\n      (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊔ y) = Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x ∪ (fun x => φ x ∩ Ω) y)) ∧\n        ∀ (x : L), (convexHull F) ((fun x => φ x ∩ Ω) x) = φ x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "Eq.trans",
+          "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding._simp_1",
+          "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding._simp_2",
+          "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding._simp_3",
+          "Set.Subset.antisymm",
+          "Set.ext",
+          "Set.mem_inter_iff._simp_1",
+          "Set.subset_union_left",
+          "Set.subset_union_right",
+          "and_self_left._simp_1",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "convexHull_min",
+          "convexHull_mono",
+          "convex_convexHull",
+          "iff_self",
+          "of_eq_true",
+          "subset_convexHull"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (x y : L), φ (x ⊓ y) = φ x ∩ φ y",
+            "origin": "local_assumption",
+            "name": "hmeet",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "∀ (x y : L), φ (x ⊔ y) = (convexHull F) (φ x ∪ φ y)",
+            "origin": "local_assumption",
+            "name": "hjoin",
+            "fvar_id": "14"
+          },
+          {
+            "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+            "origin": "derived",
+            "name": "hconv",
+            "fvar_id": "17"
+          },
+          {
+            "statement": "Function.Injective ψ",
+            "origin": "derived",
+            "name": "hψinj",
+            "fvar_id": "18"
+          }
+        ],
+        "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(Function.Injective fun x => φ x ∩ Ω) ∧\n  (∀ (x : L), Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x) = (fun x => φ x ∩ Ω) x) ∧\n    (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊓ y) = (fun x => φ x ∩ Ω) x ∩ (fun x => φ x ∩ Ω) y) ∧\n      (∀ (x y : L), (fun x => φ x ∩ Ω) (x ⊔ y) = Ω ∩ (convexHull F) ((fun x => φ x ∩ Ω) x ∪ (fun x => φ x ∩ Ω) y)) ∧\n        ∀ (x : L), (convexHull F) ((fun x => φ x ∩ Ω) x) = φ x",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "↑hAfin.toFinset = A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.Finite.coe_toFinset"
+      ],
+      "premises": [
+        {
+          "statement": "A.Finite",
+          "origin": "local_assumption",
+          "name": "hAfin",
+          "fvar_id": "_uniq.4027108"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_294",
+      "conclusion": {
+        "statement": "↑s = A",
+        "origin": "derived",
+        "name": "hsA",
+        "fvar_id": "_uniq.4027219"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "φ x = (convexHull F) ↑s",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "(convexHull F) A = φ x",
+          "origin": "local_assumption",
+          "name": "hA",
+          "fvar_id": "_uniq.4027109"
+        },
+        {
+          "statement": "↑s = A",
+          "origin": "derived",
+          "name": "hsA",
+          "fvar_id": "_uniq.4027219"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_295",
+      "conclusion": {
+        "statement": "φ x = (convexHull F) ↑s",
+        "origin": "derived",
+        "name": "hφ",
+        "fvar_id": "_uniq.4028161"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃p : V⦄, p ∈ ψ x → p ∈ (convexHull F) ↑s",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "φ x = (convexHull F) ↑s",
+          "origin": "derived",
+          "name": "hφ",
+          "fvar_id": "_uniq.4028161"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_296",
+      "conclusion": {
+        "statement": "ψ x ⊆ (convexHull F) ↑s",
+        "origin": "derived",
+        "name": "hψ_sub",
+        "fvar_id": "_uniq.4029977"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃p : V⦄, p ∈ Set.extremePoints F ((convexHull F) ↑s) → p ∈ φ x ∧ p ∈ Ω",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg",
+        "congrFun'",
+        "extremePoints_subset"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : L), Set.extremePoints F (φ x) ⊆ Ω",
+          "origin": "local_assumption",
+          "name": "hextreme",
+          "fvar_id": "_uniq.4025085"
+        },
+        {
+          "statement": "φ x = (convexHull F) ↑s",
+          "origin": "derived",
+          "name": "hφ",
+          "fvar_id": "_uniq.4028161"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_297",
+      "conclusion": {
+        "statement": "Set.extremePoints F ((convexHull F) ↑s) ⊆ ψ x",
+        "origin": "derived",
+        "name": "hext_sub",
+        "fvar_id": "_uniq.4035220"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(convexHull F) ↑s ⊆ (convexHull F) (ψ x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1299_convexpolytope_trace_latticeembedding.convexHull_subset_convexHull_of_extremePoints_subset_divisionRing"
+      ],
+      "premises": [
+        {
+          "statement": "IsStrictOrderedRing F",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3608069470._hygCtx._hyg.11",
+          "fvar_id": "_uniq.4025075"
+        },
+        {
+          "statement": "ψ x ⊆ (convexHull F) ↑s",
+          "origin": "derived",
+          "name": "hψ_sub",
+          "fvar_id": "_uniq.4029977"
+        },
+        {
+          "statement": "Set.extremePoints F ((convexHull F) ↑s) ⊆ ψ x",
+          "origin": "derived",
+          "name": "hext_sub",
+          "fvar_id": "_uniq.4035220"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_298",
+      "conclusion": {
+        "statement": "(convexHull F) ↑s ⊆ (convexHull F) (ψ x)",
+        "origin": "derived",
+        "name": "hsub",
+        "fvar_id": "_uniq.4042246"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(convexHull F) (ψ x) ⊆ (convexHull F) ↑s",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "convexHull_min",
+        "convex_convexHull"
+      ],
+      "premises": [
+        {
+          "statement": "ψ x ⊆ (convexHull F) ↑s",
+          "origin": "derived",
+          "name": "hψ_sub",
+          "fvar_id": "_uniq.4029977"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_299",
+      "conclusion": {
+        "statement": "(convexHull F) (ψ x) ⊆ (convexHull F) ↑s",
+        "origin": "derived",
+        "name": "hrev",
+        "fvar_id": "_uniq.4045823"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "p ∈ (convexHull F) (ψ x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+          "origin": "derived",
+          "name": "hconv",
+          "fvar_id": "_uniq.4027060"
+        },
+        {
+          "statement": "p ∈ φ x",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.4061361"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_300",
+      "conclusion": {
+        "statement": "p ∈ (convexHull F) (ψ x)",
+        "origin": "derived",
+        "name": "hp'",
+        "fvar_id": "_uniq.4063274"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "p ∈ (convexHull F) (ψ y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+          "origin": "derived",
+          "name": "hconv",
+          "fvar_id": "_uniq.4027060"
+        },
+        {
+          "statement": "p ∈ φ y",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.4061366"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_301",
+      "conclusion": {
+        "statement": "p ∈ (convexHull F) (ψ y)",
+        "origin": "derived",
+        "name": "hp'",
+        "fvar_id": "_uniq.4066753"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Eq.symm",
+        "Rollout_p1299_convexpolytope_trace_latticeembedding.convexHull_subset_convexHull_of_extremePoints_subset_divisionRing",
+        "Set.Finite.coe_toFinset",
+        "Set.Subset.antisymm",
+        "congrArg",
+        "congrFun'",
+        "convexHull_min",
+        "convex_convexHull",
+        "extremePoints_subset"
+      ],
+      "premises": [
+        {
+          "statement": "IsStrictOrderedRing F",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3608069470._hygCtx._hyg.11",
+          "fvar_id": "_uniq.4025075"
+        },
+        {
+          "statement": "∀ (x : L), ∃ A, A.Finite ∧ (convexHull F) A = φ x",
+          "origin": "local_assumption",
+          "name": "hpoly",
+          "fvar_id": "_uniq.4025081"
+        },
+        {
+          "statement": "∀ (x : L), Set.extremePoints F (φ x) ⊆ Ω",
+          "origin": "local_assumption",
+          "name": "hextreme",
+          "fvar_id": "_uniq.4025085"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_303",
+      "conclusion": {
+        "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+        "origin": "derived",
+        "name": "hconv",
+        "fvar_id": "_uniq.4027060"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃x y : L⦄, ψ x = ψ y → x = y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Injective φ",
+          "origin": "local_assumption",
+          "name": "hinj",
+          "fvar_id": "_uniq.4025082"
+        },
+        {
+          "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+          "origin": "derived",
+          "name": "hconv",
+          "fvar_id": "_uniq.4027060"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_304",
+      "conclusion": {
+        "statement": "Function.Injective ψ",
+        "origin": "derived",
+        "name": "hψinj",
+        "fvar_id": "_uniq.4048997"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(convexHull F) (ψ x ∪ ψ y) = (convexHull F) (φ x ∪ φ y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Set.Subset.antisymm",
+        "Set.subset_union_left",
+        "Set.subset_union_right",
+        "congrArg",
+        "convexHull_min",
+        "convexHull_mono",
+        "convex_convexHull",
+        "subset_convexHull"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : L), (convexHull F) (ψ x) = φ x",
+          "origin": "derived",
+          "name": "hconv",
+          "fvar_id": "_uniq.4027060"
+        }
+      ],
+      "parent": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+      "id": "local_305",
+      "conclusion": {
+        "statement": "(convexHull F) (ψ x ∪ ψ y) = (convexHull F) (φ x ∪ φ y)",
+        "origin": "derived",
+        "name": "hunion",
+        "fvar_id": "_uniq.4060939"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p1299_convexpolytope_trace_latticeembedding",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1299_convexpolytope_trace_latticeembedding.convexPolytope_trace_latticeEmbedding",
+    "proof_sha256": "d2e8da6d1a6e2bda5ee7fdc2b245db64d06e568a7aea01be31cda195b9818b8c"
+  }
+}

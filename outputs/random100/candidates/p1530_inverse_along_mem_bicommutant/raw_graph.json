@@ -1,0 +1,330 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "manifest": [
+        {
+          "statement": "b * a * d = d",
+          "origin": "manifest",
+          "name": "hbad",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "d * a * b = d",
+          "origin": "manifest",
+          "name": "hdab",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∃ x y, b = d * x ∧ b = y * d",
+          "origin": "manifest",
+          "name": "hbd",
+          "fvar_id": "7"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "Eq.trans",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "mul_assoc"
+        ],
+        "premises": [
+          {
+            "statement": "b * a * d = d",
+            "origin": "local_assumption",
+            "name": "hbad",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "d * a * b = d",
+            "origin": "local_assumption",
+            "name": "hdab",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∃ x y, b = d * x ∧ b = y * d",
+            "origin": "local_assumption",
+            "name": "hbd",
+            "fvar_id": "7"
+          }
+        ],
+        "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": []
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "y * d * a * (d * c) * x = y * d * a * (c * d) * x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "c * d = d * c",
+          "origin": "local_assumption",
+          "name": "hcd",
+          "fvar_id": "_uniq.4278401"
+        }
+      ],
+      "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "id": "local_1242",
+      "conclusion": {
+        "statement": "y * d * a * (d * c) * x = y * d * a * (c * d) * x",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4290336"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y * d * (a * c) * d * x = y * d * (c * a) * d * x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "c * a = a * c",
+          "origin": "local_assumption",
+          "name": "hca",
+          "fvar_id": "_uniq.4278398"
+        }
+      ],
+      "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "id": "local_1243",
+      "conclusion": {
+        "statement": "y * d * (a * c) * d * x = y * d * (c * a) * d * x",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4296058"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y * (d * c) * a * d * x = y * (c * d) * a * d * x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "c * d = d * c",
+          "origin": "local_assumption",
+          "name": "hcd",
+          "fvar_id": "_uniq.4278401"
+        }
+      ],
+      "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "id": "local_1244",
+      "conclusion": {
+        "statement": "y * (d * c) * a * d * x = y * (c * d) * a * d * x",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4301828"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y * c * (d * a * d * x) = y * c * d",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "d * a * d * x = d",
+          "origin": "derived",
+          "name": "hdadx",
+          "fvar_id": "_uniq.4282952"
+        }
+      ],
+      "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "id": "local_1245",
+      "conclusion": {
+        "statement": "y * c * (d * a * d * x) = y * c * d",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4307559"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y * d * a * d = d",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "b * a * d = d",
+          "origin": "local_assumption",
+          "name": "hbad",
+          "fvar_id": "_uniq.4278330"
+        },
+        {
+          "statement": "b = y * d",
+          "origin": "local_assumption",
+          "name": "hby",
+          "fvar_id": "_uniq.4278392"
+        }
+      ],
+      "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "id": "local_1246",
+      "conclusion": {
+        "statement": "y * d * a * d = d",
+        "origin": "derived",
+        "name": "hyad",
+        "fvar_id": "_uniq.4280098"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d * a * d * x = d",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "mul_assoc"
+      ],
+      "premises": [
+        {
+          "statement": "d * a * b = d",
+          "origin": "local_assumption",
+          "name": "hdab",
+          "fvar_id": "_uniq.4278331"
+        },
+        {
+          "statement": "b = d * x",
+          "origin": "local_assumption",
+          "name": "hbx",
+          "fvar_id": "_uniq.4278391"
+        }
+      ],
+      "parent": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+      "id": "local_1247",
+      "conclusion": {
+        "statement": "d * a * d * x = d",
+        "origin": "derived",
+        "name": "hdadx",
+        "fvar_id": "_uniq.4282952"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p1530_inverse_along_mem_bicommutant",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+    "proof_sha256": "d0b7ac0bd21f6d7f9cc1eab953c262573b5c36f6ca7507ec968bf8b07254cd45"
+  }
+}

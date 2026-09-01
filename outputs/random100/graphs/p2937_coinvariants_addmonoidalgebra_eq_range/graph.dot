@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_9e7b0a87" [shape=box, color="#178F82", label="hφ\nFunction.Injective ⇑φ"];
+  "m_hc_4f37ddb9" [shape=box, color="#178F82", label="hc\n∀ (m : ↥S), c (AddMonoidAlgebra.single m 1) = AddMonoidAlgebra.single (ψ ↑m) 1 ⊗ₜ[R] AddMonoidAlgebra.single m 1"];
+  "m_hexact_20a57c25" [shape=box, color="#178F82", label="hexact\nFunction.Exact ⇑φ ⇑ψ"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nAlgHom.equalizer c Algebra.TensorProduct.includeRight = (AddMonoidAlgebra.mapDomainAlgHom R R (φ.addSubmonoidComap S)).range"];
+  "r_h_goal" [shape=diamond, label="AddMonoidAlgebra.algHom_ext + AddMonoidAlgebra.mapDomainAlgHom_apply + AddMonoidAlgebra.mapDomain_comapDomain", color="#D97706"];
+  "m_h_9e7b0a87" -> "r_h_goal";
+  "m_hexact_20a57c25" -> "r_h_goal";
+  "m_hc_4f37ddb9" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

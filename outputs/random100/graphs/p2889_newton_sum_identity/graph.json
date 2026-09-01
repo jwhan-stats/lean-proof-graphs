@@ -1,0 +1,487 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2889_newton_sum_identity",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2889,
+    "source": "math_0602416",
+    "theorem_name": "newton_sum_identity",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2889",
+    "reconstructed_proof": "../../candidates/p2889_newton_sum_identity/proof.lean",
+    "raw_elaboration": "../../candidates/p2889_newton_sum_identity/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+    "verification_call_id": "verify_submission:20",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "86a1e5f723ab4767e2f23767e35423d77febdd24a773f42fe5a06af671650480",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "b6eb9cdf5a5fe883af05a9b523498dc504a4ab4c67fc87dbe1b9d68bb6a7887c",
+    "concrete_semantic_topology_sha256": "86a1e5f723ab4767e2f23767e35423d77febdd24a773f42fe5a06af671650480"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_887a8a92",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hξ",
+      "lean_fvar_id": "4",
+      "statement": "Set.InjOn ξ (Set.Icc 0 d)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∑ i ∈ Finset.range (d + 1), (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ = (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹"
+    },
+    {
+      "id": "n_h_a2de2fbb",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hξ",
+      "lean_fvar_id": "_uniq.1201615",
+      "statement": "Set.InjOn ξ (Set.Icc 0 (d + 1))"
+    },
+    {
+      "id": "n_hne_9fb52280",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hne",
+      "lean_fvar_id": "_uniq.1205858",
+      "statement": "ξ 0 ≠ ξ (d + 1)"
+    },
+    {
+      "id": "n_hsubset_1c5f43dc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsubset",
+      "lean_fvar_id": "_uniq.1202868",
+      "statement": "Set.Icc 0 d ⊆ Set.Icc 0 (d + 1)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hsubset",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsubset_1c5f43dc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.le_succ + Nat.le_trans",
+        "items": [
+          "Nat.le_succ",
+          "Nat.le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.le_succ",
+          "Nat.le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_351",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hsubset : Set.Icc 0 d ⊆ Set.Icc 0 (d + 1) := by\n        intro x hx\n        exact ⟨hx.1, Nat.le_trans hx.2 (Nat.le_succ d)⟩\n      rw [ih (Set.InjOn.mono hsubset hξ)]\n      rw [newton_nodal_prod_range_succ ξ d]\n      rw [Finset.prod_Icc_succ_top (a := 1) (b := d)\n        (f := fun j => ξ 0 - ξ j) (by omega : 1 ≤ d + 1)]\n      rw [Finset.prod_Icc_succ_top (a := 1) (b := d)\n        (f := fun j => Polynomial.X - Polynomial.C (ξ j)) (by omega : 1 ≤ d + 1)]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1202868",
+            "name": "hsubset",
+            "statement": "Set.Icc 0 d ⊆ Set.Icc 0 (d + 1)"
+          }
+        },
+        "lean_dependency_sha256": "31b27d4b84cba0613d13a76dddb491ffa506829bdd89089c28a6be19929e4210",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃x : ℕ⦄, x ∈ Set.Icc 0 d → 0 ≤ x ∧ x ≤ d + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hne",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_a2de2fbb"
+      ],
+      "conclusion": "n_hne_9fb52280",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.succ_ne_zero + Set.InjOn.ne",
+        "items": [
+          "Nat.succ_ne_zero",
+          "Set.InjOn.ne"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.succ_ne_zero",
+          "Set.InjOn.ne"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_352",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hne : ξ 0 ≠ ξ (d + 1) := by\n        exact hξ.ne (by simp) (by simp) (Nat.succ_ne_zero d).symm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1201615",
+              "name": "hξ",
+              "statement": "Set.InjOn ξ (Set.Icc 0 (d + 1))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1205858",
+            "name": "hne",
+            "statement": "ξ 0 ≠ ξ (d + 1)"
+          }
+        },
+        "lean_dependency_sha256": "4e8d7055362dc3738a685d0a93b3defee21aa9fe627a9498b473ddea9570c2e2",
+        "kernel_witness_check": {
+          "proof_type": "ξ 0 ≠ ξ (d + 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.InjOn.ne"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_887a8a92"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.prod_Icc_succ_top + Finset.sum_range_succ + Nat.le_succ",
+        "items": [
+          "Finset.prod_Icc_succ_top",
+          "Finset.sum_range_succ",
+          "Nat.le_succ",
+          "Nat.le_trans",
+          "Nat.succ_ne_zero",
+          "Rollout_p2889_newton_sum_identity.newton_nodal_prod_range_succ",
+          "Rollout_p2889_newton_sum_identity.newton_step_core",
+          "Set.InjOn.mono"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.prod_Icc_succ_top",
+          "Finset.sum_range_succ",
+          "Nat.le_succ",
+          "Nat.le_trans",
+          "Nat.succ_ne_zero",
+          "Rollout_p2889_newton_sum_identity.newton_nodal_prod_range_succ",
+          "Rollout_p2889_newton_sum_identity.newton_step_core",
+          "Set.InjOn.mono"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  induction d with\n  | zero => simp\n  | succ d ih =>\n      rw [Finset.sum_range_succ]\n      have hsubset : Set.Icc 0 d ⊆ Set.Icc 0 (d + 1) := by\n        intro x hx\n        exact ⟨hx.1, Nat.le_trans hx.2 (Nat.le_succ d)⟩\n      rw [ih (Set.InjOn.mono hsubset hξ)]\n      rw [newton_nodal_prod_range_succ ξ d]\n      rw [Finset.prod_Icc_succ_top (a := 1) (b := d)\n        (f := fun j => ξ 0 - ξ j) (by omega : 1 ≤ d + 1)]\n      rw [Finset.prod_Icc_succ_top (a := 1) (b := d)\n        (f := fun j => Polynomial.X - Polynomial.C (ξ j)) (by omega : 1 ≤ d + 1)]\n      have hne : ξ 0 ≠ ξ (d + 1) := by\n        exact hξ.ne (by simp) (by simp) (Nat.succ_ne_zero d).symm\n      exact newton_step_core\n        (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j)))\n        (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))\n        (ξ 0 - ξ (d + 1)) (ξ 0) (ξ (d + 1))\n        (sub_ne_zero_of_ne hne) rfl",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hξ",
+              "statement": "Set.InjOn ξ (Set.Icc 0 d)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∑ i ∈ Finset.range (d + 1), (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ = (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹"
+          }
+        },
+        "lean_dependency_sha256": "fd5a68650738356fbf3567c9e89171c5b92ccd9ac1d5c9cf1c78fccfe591b10b",
+        "kernel_witness_check": {
+          "proof_type": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.prod_Icc_succ_top",
+          "Finset.sum_range_succ",
+          "Set.InjOn.mono"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:3",
+          "loogle:18"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Set.InjOn.ne",
+      "declarations": [
+        "Set.InjOn.ne"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "(_ ≠ _ -> _ - _ ≠ 0)",
+      "declarations": [
+        "sub_ne_zero_of_ne",
+        "FiniteField.X_pow_card_pow_sub_X_ne_zero",
+        "LucasLehmer.mersenne_int_ne_zero"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "prod_Icc_succ_top",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Finset.sum_range_succ",
+      "declarations": [
+        "Finset.sum_range_succ"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Polynomial.C_inv",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Finset.prod_Icc_succ_top",
+      "declarations": [
+        "Finset.prod_Icc_succ_top"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Finset.prod_range_succ",
+      "declarations": [
+        "Finset.prod_range_succ"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Polynomial.C_mul",
+      "declarations": [
+        "Polynomial.C_mul"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "map_inv₀ Polynomial.C",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "inv_mul_cancel₀",
+      "declarations": [
+        "inv_mul_cancel"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "mul_inv :",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "((_ * _)⁻¹ = _⁻¹ * _⁻¹)",
+      "declarations": [
+        "Rat.inv_mul_rev",
+        "Lean.Grind.Field.inv_mul",
+        "DivisionMonoid.mul_inv_rev",
+        "mul_inv_rev",
+        "DivisionMonoid.mk",
+        "Commute.inv",
+        "Commute.mul_inv",
+        "mul_inv",
+        "ENNReal.mul_inv",
+        "EReal.mul_inv"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Polynomial.C_sub",
+      "declarations": [
+        "Polynomial.C_sub"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Polynomial.C_add",
+      "declarations": [
+        "Polynomial.C_add"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "map_sub Polynomial.C",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Set.InjOn.mono",
+      "declarations": [
+        "Set.InjOn.mono",
+        "Finsupp.comapDomain_smul"
+      ],
+      "call_turn": 26,
+      "result_turn": 27
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 16,
+    "useful_retrieval_event_count": 3,
+    "unused_retrieval_event_count": 13,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 21,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "manifest": [
+        {
+          "statement": "T2Space X",
+          "origin": "manifest",
+          "name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "∀ (n : ℕ) (a : X), IsOpen (g n a)",
+          "origin": "manifest",
+          "name": "hg_open",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ",
+          "origin": "manifest",
+          "name": "hg_cover",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)",
+          "origin": "manifest",
+          "name": "hg_converges",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧\n  ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧\n  ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Classical.choose_spec",
+          "Eq.trans",
+          "Filter.atTop_neBot",
+          "Iff.mp",
+          "IsOpen.prod",
+          "Nat.instStarOrderedRing",
+          "Set.ext",
+          "Set.mem_diagonal_iff",
+          "Set.mem_iInter",
+          "Set.mem_iUnion",
+          "Set.mem_prod",
+          "Set.mem_singleton_iff._simp_1",
+          "StarOrderedRing.toIsOrderedRing",
+          "congrArg",
+          "eq_self",
+          "instArchimedeanNat",
+          "instIsDirectedOrder",
+          "instNonemptyOfInhabited",
+          "isOpen_iUnion",
+          "of_eq_true",
+          "tendsto_nhds_unique"
+        ],
+        "premises": [
+          {
+            "statement": "T2Space X",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "∀ (n : ℕ) (a : X), IsOpen (g n a)",
+            "origin": "local_assumption",
+            "name": "hg_open",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ",
+            "origin": "local_assumption",
+            "name": "hg_cover",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)",
+            "origin": "local_assumption",
+            "name": "hg_converges",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧\n  ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "p.1 ∈ ⋃ a, g n a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ",
+          "origin": "local_assumption",
+          "name": "hg_cover",
+          "fvar_id": "_uniq.599660"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_21",
+      "conclusion": {
+        "statement": "p.1 ∈ ⋃ a, g n a",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.600465"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "p ∈ ⋃ a, g n a ×ˢ g n a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Set.mem_iInter"
+      ],
+      "premises": [
+        {
+          "statement": "p ∈ ⋂ n, (fun n => ⋃ a, g n a ×ˢ g n a) n",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.600717"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_22",
+      "conclusion": {
+        "statement": "p ∈ ⋃ a, g n a ×ˢ g n a",
+        "origin": "derived",
+        "name": "hpn",
+        "fvar_id": "_uniq.600972"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Set.mem_iInter",
+        "Set.mem_iUnion",
+        "Set.mem_prod",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "p ∈ ⋂ n, (fun n => ⋃ a, g n a ×ˢ g n a) n",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.600717"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_23",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a",
+        "origin": "derived",
+        "name": "hchoice",
+        "fvar_id": "_uniq.600774"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto a Filter.atTop (nhds p.1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)",
+          "origin": "local_assumption",
+          "name": "hg_converges",
+          "fvar_id": "_uniq.599661"
+        },
+        {
+          "statement": "∀ (n : ℕ), p.1 ∈ g n (a n) ∧ p.2 ∈ g n (a n)",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.601048"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_24",
+      "conclusion": {
+        "statement": "Filter.Tendsto a Filter.atTop (nhds p.1)",
+        "origin": "derived",
+        "name": "hlim₁",
+        "fvar_id": "_uniq.601067"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto a Filter.atTop (nhds p.2)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)",
+          "origin": "local_assumption",
+          "name": "hg_converges",
+          "fvar_id": "_uniq.599661"
+        },
+        {
+          "statement": "∀ (n : ℕ), p.1 ∈ g n (a n) ∧ p.2 ∈ g n (a n)",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.601048"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_25",
+      "conclusion": {
+        "statement": "Filter.Tendsto a Filter.atTop (nhds p.2)",
+        "origin": "derived",
+        "name": "hlim₂",
+        "fvar_id": "_uniq.601087"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ ⋃ a, g n a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ",
+          "origin": "local_assumption",
+          "name": "hg_cover",
+          "fvar_id": "_uniq.599660"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_26",
+      "conclusion": {
+        "statement": "x ∈ ⋃ a, g n a",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.601782"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), ∃ i, x ∈ g n i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.mem_iUnion",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ",
+          "origin": "local_assumption",
+          "name": "hg_cover",
+          "fvar_id": "_uniq.599660"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_27",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), ∃ a, x ∈ g n a",
+        "origin": "derived",
+        "name": "hchoice",
+        "fvar_id": "_uniq.601643"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i : ℕ), y ∈ g i (a i)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Set.mem_iInter"
+      ],
+      "premises": [
+        {
+          "statement": "y ∈ ⋂ n, (fun n => g n (a n)) n",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.601907"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_28",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), y ∈ g n (a n)",
+        "origin": "derived",
+        "name": "hy'",
+        "fvar_id": "_uniq.602052"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto a Filter.atTop (nhds y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)",
+          "origin": "local_assumption",
+          "name": "hg_converges",
+          "fvar_id": "_uniq.599661"
+        },
+        {
+          "statement": "∀ (n : ℕ), y ∈ g n (a n)",
+          "origin": "derived",
+          "name": "hy'",
+          "fvar_id": "_uniq.602052"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_29",
+      "conclusion": {
+        "statement": "Filter.Tendsto a Filter.atTop (nhds y)",
+        "origin": "derived",
+        "name": "hlimy",
+        "fvar_id": "_uniq.602066"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto a Filter.atTop (nhds x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)",
+          "origin": "local_assumption",
+          "name": "hg_converges",
+          "fvar_id": "_uniq.599661"
+        },
+        {
+          "statement": "∀ (n : ℕ), x ∈ g n (a n)",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.601837"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_30",
+      "conclusion": {
+        "statement": "Filter.Tendsto a Filter.atTop (nhds x)",
+        "origin": "derived",
+        "name": "hlimx",
+        "fvar_id": "_uniq.602078"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.atTop_neBot",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "tendsto_nhds_unique"
+      ],
+      "premises": [
+        {
+          "statement": "T2Space X",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+          "fvar_id": "_uniq.599657"
+        },
+        {
+          "statement": "Filter.Tendsto a Filter.atTop (nhds y)",
+          "origin": "derived",
+          "name": "hlimy",
+          "fvar_id": "_uniq.602066"
+        },
+        {
+          "statement": "Filter.Tendsto a Filter.atTop (nhds x)",
+          "origin": "derived",
+          "name": "hlimx",
+          "fvar_id": "_uniq.602078"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_31",
+      "conclusion": {
+        "statement": "y = x",
+        "origin": "derived",
+        "name": "hyx",
+        "fvar_id": "_uniq.602510"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.mem_singleton_iff._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "y ∈ {x}",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.602555"
+        }
+      ],
+      "parent": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+      "id": "local_32",
+      "conclusion": {
+        "statement": "y = x",
+        "origin": "derived",
+        "name": "hyx",
+        "fvar_id": "_uniq.602562"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+    "proof_sha256": "f30b800ea441ff0858d2c732e8184e5df22da3d512019b72e53f35ae716c25a0"
+  }
+}

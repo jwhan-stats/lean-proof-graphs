@@ -1,0 +1,892 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1318_sequence_triangular_formula",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1318,
+    "source": "math_0611410",
+    "theorem_name": "sequence_triangular_formula",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1318",
+    "reconstructed_proof": "../../candidates/p1318_sequence_triangular_formula/proof.lean",
+    "raw_elaboration": "../../candidates/p1318_sequence_triangular_formula/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+    "verification_call_id": "verify_submission:22",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "e12f68c590d052a3252704376bcc8420bd334abba0895d8d9e6f14d69b56ebc6",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "4e8b2ae1b982db3b1083f70f09088a4af3e80ee1e42d38e915ac4d2f211f7aab",
+    "concrete_semantic_topology_sha256": "e12f68c590d052a3252704376bcc8420bd334abba0895d8d9e6f14d69b56ebc6"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hc_2d68e52f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc₁",
+      "lean_fvar_id": "1",
+      "statement": "c 1 = 2"
+    },
+    {
+      "id": "m_hc_dce79cfb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc",
+      "lean_fvar_id": "2",
+      "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+    },
+    {
+      "id": "m_hn_8ab5a2fb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "4",
+      "statement": "0 < n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let m := (n + 2) / 2; let t := fun r => r * (r + 1) / 2; c n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)"
+    },
+    {
+      "id": "n_h1_454da4f1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h1",
+      "lean_fvar_id": "_uniq.647000",
+      "statement": "¬n = 1"
+    },
+    {
+      "id": "n_hc_7a01cef6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hc",
+      "lean_fvar_id": "_uniq.646924",
+      "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+    },
+    {
+      "id": "n_hcn_a25789f1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcn",
+      "lean_fvar_id": "_uniq.657451",
+      "statement": "c n = 2 * (k + 1) ^ 2"
+    },
+    {
+      "id": "n_hcn_e8cf5171",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcn",
+      "lean_fvar_id": "_uniq.654044",
+      "statement": "c n = 2 * (k + 1) ^ 2"
+    },
+    {
+      "id": "n_heven_b33197a0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "heven",
+      "lean_fvar_id": "_uniq.650842",
+      "statement": "n % 2 = 0"
+    },
+    {
+      "id": "n_hk_467b075c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hk",
+      "lean_fvar_id": "_uniq.649962",
+      "statement": "0 < k"
+    },
+    {
+      "id": "n_hm_345c1d11",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hm",
+      "lean_fvar_id": "_uniq.651989",
+      "statement": "(n + 2) / 2 = k + 1"
+    },
+    {
+      "id": "n_hm_ac12c569",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hm",
+      "lean_fvar_id": "_uniq.655396",
+      "statement": "(n + 2) / 2 = k + 1"
+    },
+    {
+      "id": "n_hmod_31f30d61",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmod",
+      "lean_fvar_id": "_uniq.650814",
+      "statement": "n % 2 = 0 ∨ n % 2 = 1"
+    },
+    {
+      "id": "n_hn_861eba3b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.646929",
+      "statement": "0 < n"
+    },
+    {
+      "id": "n_hn_eq_2f5512bd",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn_eq",
+      "lean_fvar_id": "_uniq.654332",
+      "statement": "n = 2 * k + 1"
+    },
+    {
+      "id": "n_hn_eq_f3afc7e1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn_eq",
+      "lean_fvar_id": "_uniq.650933",
+      "statement": "n = 2 * k"
+    },
+    {
+      "id": "n_hodd_e3ec0e82",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hodd",
+      "lean_fvar_id": "_uniq.650847",
+      "statement": "n % 2 = 1"
+    },
+    {
+      "id": "n_hrec_9ced0be9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrec",
+      "lean_fvar_id": "_uniq.650808",
+      "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hmod",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hmod_31f30d61",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.mod_two_eq_zero_or_one",
+        "items": [
+          "Nat.mod_two_eq_zero_or_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.mod_two_eq_zero_or_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_55",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hmod := Nat.mod_two_eq_zero_or_one n",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.650814",
+            "name": "hmod",
+            "statement": "n % 2 = 0 ∨ n % 2 = 1"
+          }
+        },
+        "lean_dependency_sha256": "81375dbbbd728ba818aae239d0e86063ddb9b212be6392c4deaffc85224e5bb7",
+        "kernel_witness_check": {
+          "proof_type": "n % 2 = 0 ∨ n % 2 = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hn_eq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_heven_b33197a0"
+      ],
+      "conclusion": "n_hn_eq_f3afc7e1",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_56",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.650842",
+              "name": "heven",
+              "statement": "n % 2 = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.650933",
+            "name": "hn_eq",
+            "statement": "n = 2 * k"
+          }
+        },
+        "lean_dependency_sha256": "8484f2f8570feaf1c5655e2a37835ae51c11eae991d4860e33640d6b66586535",
+        "kernel_witness_check": {
+          "proof_type": "n = 2 * k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hm",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_heven_b33197a0"
+      ],
+      "conclusion": "n_hm_345c1d11",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_57",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hm : (n + 2) / 2 = k + 1 := by\n        omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.650842",
+              "name": "heven",
+              "statement": "n % 2 = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.651989",
+            "name": "hm",
+            "statement": "(n + 2) / 2 = k + 1"
+          }
+        },
+        "lean_dependency_sha256": "b7f3e61c32023a5e816dcefb50449d5f987c01725055f6d2350c83aa317e1363",
+        "kernel_witness_check": {
+          "proof_type": "(n + 2) / 2 = k + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hcn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrec_9ced0be9",
+        "n_hn_eq_f3afc7e1"
+      ],
+      "conclusion": "n_hcn_e8cf5171",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_58",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hcn : c n = 2 * (k + 1) ^ 2 := by\n        rw [hn_eq]\n        exact hrec.1\n      dsimp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.650808",
+              "name": "hrec",
+              "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+            },
+            {
+              "fvar_id": "_uniq.650933",
+              "name": "hn_eq",
+              "statement": "n = 2 * k"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.654044",
+            "name": "hcn",
+            "statement": "c n = 2 * (k + 1) ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "4764a057dfd88ff49c7adec5a5c53153af0c97c4c333a384ddd1f50f1a58e6c3",
+        "kernel_witness_check": {
+          "proof_type": "c n = 2 * (k + 1) ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hk",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_861eba3b",
+        "n_h1_454da4f1"
+      ],
+      "conclusion": "n_hk_467b075c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_60",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hk : 0 < k := by\n      omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.646929",
+              "name": "hn",
+              "statement": "0 < n"
+            },
+            {
+              "fvar_id": "_uniq.647000",
+              "name": "h1",
+              "statement": "¬n = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.649962",
+            "name": "hk",
+            "statement": "0 < k"
+          }
+        },
+        "lean_dependency_sha256": "fba19b2b36c6c22590d985dc79d9bfe2a1101569f2635af72f6f0945d7c9fa05",
+        "kernel_witness_check": {
+          "proof_type": "0 < k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hrec",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hc_7a01cef6",
+        "n_hk_467b075c"
+      ],
+      "conclusion": "n_hrec_9ced0be9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_61",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hrec := hc k hk",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.646924",
+              "name": "hc",
+              "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+            },
+            {
+              "fvar_id": "_uniq.649962",
+              "name": "hk",
+              "statement": "0 < k"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.650808",
+            "name": "hrec",
+            "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "d12027b795140c63b87d7c5ff3ada11186eb1bcfdd675994440987f644bd08ee",
+        "kernel_witness_check": {
+          "proof_type": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hn_eq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hodd_e3ec0e82"
+      ],
+      "conclusion": "n_hn_eq_2f5512bd",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_62",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.650847",
+              "name": "hodd",
+              "statement": "n % 2 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.654332",
+            "name": "hn_eq",
+            "statement": "n = 2 * k + 1"
+          }
+        },
+        "lean_dependency_sha256": "404121eed5747ddd06709f6c48385d04565b9f94d3562a2f075337efae06c374",
+        "kernel_witness_check": {
+          "proof_type": "n = 2 * k + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hm",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hodd_e3ec0e82"
+      ],
+      "conclusion": "n_hm_ac12c569",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_63",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hm : (n + 2) / 2 = k + 1 := by\n        omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.650847",
+              "name": "hodd",
+              "statement": "n % 2 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.655396",
+            "name": "hm",
+            "statement": "(n + 2) / 2 = k + 1"
+          }
+        },
+        "lean_dependency_sha256": "9645196db02bd1b47a0dd3e4f95a54d312e4f89c4c3eeefc0e7ead0ecffa79bf",
+        "kernel_witness_check": {
+          "proof_type": "(n + 2) / 2 = k + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hcn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrec_9ced0be9",
+        "n_hn_eq_2f5512bd"
+      ],
+      "conclusion": "n_hcn_a25789f1",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_64",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hcn : c n = 2 * (k + 1) ^ 2 := by\n        rw [hn_eq]\n        exact hrec.1\n      dsimp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.650808",
+              "name": "hrec",
+              "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+            },
+            {
+              "fvar_id": "_uniq.654332",
+              "name": "hn_eq",
+              "statement": "n = 2 * k + 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.657451",
+            "name": "hcn",
+            "statement": "c n = 2 * (k + 1) ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "a53497c2af529a97ec6671615595d33f7de2a607fff058869aae75a152dc249d",
+        "kernel_witness_check": {
+          "proof_type": "c n = 2 * (k + 1) ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hc_2d68e52f",
+        "m_hc_dce79cfb",
+        "m_hn_8ab5a2fb"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "triangular_pair",
+        "items": [
+          "Rollout_p1318_sequence_triangular_formula.triangular_pair"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1318_sequence_triangular_formula.triangular_pair"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "        exact hrec.1\n      dsimp\n      constructor\n      · rw [hm]\n        exact hcn\n      · rw [hm]\n        exact triangular_pair (k + 1)\n    · have hn_eq : n = 2 * k + 1 := by\n        omega\n      have hm : (n + 2) / 2 = k + 1 := by\n        omega\n      have hcn : c n = 2 * (k + 1) ^ 2 := by\n        rw [hn_eq]\n        exact hrec.2\n      dsimp\n      constructor\n      · rw [hm]\n        exact hcn\n      · rw [hm]\n        exact triangular_pair (k + 1)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hc₁",
+              "statement": "c 1 = 2"
+            },
+            {
+              "fvar_id": "2",
+              "name": "hc",
+              "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hn",
+              "statement": "0 < n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let m := (n + 2) / 2; let t := fun r => r * (r + 1) / 2; c n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)"
+          }
+        },
+        "lean_dependency_sha256": "1ab3611bb87f761a4dbaf593ee6e58419c093216b195bbea256037f65213b983",
+        "kernel_witness_check": {
+          "proof_type": "let m := (n + 2) / 2;\nlet t := fun r => r * (r + 1) / 2;\nc n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Nat.even_mul_succ_self",
+      "declarations": [
+        "Nat.even_mul_succ_self"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "2 ∣ _ * (_ + 1)",
+      "declarations": [
+        "Nat.two_dvd_mul_add_one",
+        "Int.two_dvd_mul_add_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "natural number product n times n plus one divisible by two exact half identity",
+      "declarations": [
+        "Computation.thinkN",
+        "ModN",
+        "Int.even_mul_succ_self",
+        "Nat.even_mul_succ_self",
+        "Nat.two_dvd_mul_sub_one",
+        "Nat.two_dvd_mul_add_one",
+        "DivisibleBy",
+        "Int.two_dvd_mul_add_one",
+        "Lean.Grind.Linarith.Poly.denoteN",
+        "SSet.N"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "_ * (_ + 1) / 2 + _ * (_ + 1) / 2",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "_ / _ * _ = _",
+      "declarations": [
+        "Nat.div_mul_cancel",
+        "Int.ediv_mul_cancel",
+        "Int.ediv_mul_cancel_of_emod_eq_zero",
+        "Int.ediv_mul_self",
+        "Nat.dvd_iff_div_mul_eq",
+        "Nat.div_mul_right_comm",
+        "Nat.div_mul_div_comm",
+        "Nat.div_mul_self_eq_mod_sub_self",
+        "Int.ediv_mul_cancel_of_dvd",
+        "Rat.div_mul_cancel"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Nat.div_mul_cancel",
+      "declarations": [
+        "Nat.div_mul_cancel"
+      ],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Nat.mul_div_cancel",
+      "declarations": [
+        "Nat.mul_div_cancel"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "2 * (_ / 2) = _",
+      "declarations": [
+        "Nat.two_mul_odd_div_two",
+        "Nat.two_mul_div_two_of_even",
+        "Int.two_mul_ediv_two_of_even",
+        "Int.two_mul_ediv_two_of_odd"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "nat division multiply back when divisible",
+      "declarations": [
+        "Lean.Meta.Structural.isInstDivNat",
+        "Mathlib.Meta.NormNum.evalNNRatDivNat",
+        "Nat.mul_div_mul_left",
+        "DivisibleHull",
+        "DivisibleBy",
+        "Mathlib.Meta.NormNum.evalNatDiv",
+        "Vector.back",
+        "Lean.Linter.whenLinterOption",
+        "Array.back",
+        "Lean.commitWhen"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 9,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 9,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 23,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

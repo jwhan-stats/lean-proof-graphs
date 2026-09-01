@@ -1,0 +1,35 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hz_95d7ba94" [shape=box, color="#178F82", label="hz\n-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n1 / 2 * Real.exp (-z.re) ≤ ‖f z‖ ∧ ‖f z‖ ≤ 2 * Real.exp (-z.re)"];
+  "n_hexp_df0429ae" [shape=box, color="#D97706", label="hexp\n4 * -z.re + 2 ≤ Real.exp (-z.re)"];
+  "n_hlower_core_60540621" [shape=box, color="#D97706", label="hlower_core\n1 / 2 * Real.exp (-z.re) ≤ ‖z + 1 + Complex.exp (-z)‖"];
+  "n_hnormexp_3b826983" [shape=box, color="#D97706", label="hnormexp\n‖Complex.exp (-z)‖ = Real.exp (-z.re)"];
+  "n_hupper_core_60e652f3" [shape=box, color="#D97706", label="hupper_core\n‖z + 1 + Complex.exp (-z)‖ ≤ 2 * Real.exp (-z.re)"];
+  "n_hz1_2b8b7f67" [shape=box, color="#D97706", label="hz1\n‖z + 1‖ ≤ 1 / 2 * Real.exp (-z.re)"];
+  "r_h_003_hexp" [shape=diamond, label="Finset.sum_range_succ + Real.sum_le_exp_of_nonneg + sq_nonneg", color="#D97706"];
+  "m_hz_95d7ba94" -> "r_h_003_hexp";
+  "r_h_003_hexp" -> "n_hexp_df0429ae";
+  "r_h_004_hz1" [shape=diamond, label="norm_add_le", color="#D97706"];
+  "m_hz_95d7ba94" -> "r_h_004_hz1";
+  "n_hexp_df0429ae" -> "r_h_004_hz1";
+  "r_h_004_hz1" -> "n_hz1_2b8b7f67";
+  "r_h_005_hnormexp" [shape=diamond, label="Complex.norm_exp", color="#D97706"];
+  "r_h_005_hnormexp" -> "n_hnormexp_3b826983";
+  "r_h_006_hlower_core" [shape=diamond, label="add_comm + add_left_comm + norm_sub_le_norm_add", color="#D97706"];
+  "n_hz1_2b8b7f67" -> "r_h_006_hlower_core";
+  "n_hnormexp_3b826983" -> "r_h_006_hlower_core";
+  "r_h_006_hlower_core" -> "n_hlower_core_60540621";
+  "r_h_007_hupper_core" [shape=diamond, label="norm_add_le", color="#D97706"];
+  "m_hz_95d7ba94" -> "r_h_007_hupper_core";
+  "n_hexp_df0429ae" -> "r_h_007_hupper_core";
+  "n_hz1_2b8b7f67" -> "r_h_007_hupper_core";
+  "n_hnormexp_3b826983" -> "r_h_007_hupper_core";
+  "r_h_007_hupper_core" -> "n_hupper_core_60e652f3";
+  "r_h_goal" [shape=diamond, label="exact", color="#D97706"];
+  "n_hlower_core_60540621" -> "r_h_goal";
+  "n_hupper_core_60e652f3" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

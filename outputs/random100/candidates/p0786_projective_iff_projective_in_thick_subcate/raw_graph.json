@@ -1,0 +1,504 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "manifest": [
+        {
+          "statement": "CategoryTheory.EnoughProjectives C",
+          "origin": "manifest",
+          "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "S.IsStableUnderRetracts",
+          "origin": "manifest",
+          "name": "inst._@.proofs.968698635._hygCtx._hyg.14",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ (T : CategoryTheory.ShortComplex C),\n  T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)",
+          "origin": "manifest",
+          "name": "hS",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (P : C), CategoryTheory.Projective P → S P",
+          "origin": "manifest",
+          "name": "hproj",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "S Q",
+          "origin": "manifest",
+          "name": "hQ",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "CategoryTheory.Projective Q ↔\n  ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "CategoryTheory.Projective Q ↔\n  ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.right",
+          "CategoryTheory.IsSplitEpi.id",
+          "CategoryTheory.IsSplitEpi.mk'",
+          "CategoryTheory.Limits.equalizer.ι_mono",
+          "CategoryTheory.Projective.factorThru_comp",
+          "CategoryTheory.Projective.projective_over",
+          "CategoryTheory.Projective.π_epi",
+          "CategoryTheory.Retract.projective",
+          "CategoryTheory.ShortComplex.ShortExact.epi_g",
+          "CategoryTheory.ShortComplex.kernelSequence._proof_1",
+          "CategoryTheory.ShortComplex.kernelSequence_exact",
+          "eq_self",
+          "of_eq_true"
+        ],
+        "premises": [
+          {
+            "statement": "CategoryTheory.EnoughProjectives C",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "∀ (T : CategoryTheory.ShortComplex C),\n  T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)",
+            "origin": "local_assumption",
+            "name": "hS",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∀ (P : C), CategoryTheory.Projective P → S P",
+            "origin": "local_assumption",
+            "name": "hproj",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "S Q",
+            "origin": "local_assumption",
+            "name": "hQ",
+            "fvar_id": "9"
+          }
+        ],
+        "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "CategoryTheory.Projective Q ↔\n  ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "Epi T.g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CategoryTheory.ShortComplex.ShortExact.epi_g"
+      ],
+      "premises": [
+        {
+          "statement": "T.ShortExact",
+          "origin": "local_assumption",
+          "name": "hTexact",
+          "fvar_id": "_uniq.1967954"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_363",
+      "conclusion": {
+        "statement": "Epi T.g",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.1968686"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Mono T.f",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CategoryTheory.Limits.equalizer.ι_mono",
+        "CategoryTheory.ShortComplex.kernelSequence._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "EnoughProjectives C",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+          "fvar_id": "_uniq.1967913"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_365",
+      "conclusion": {
+        "statement": "Mono T.f",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.1972508"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Epi T.g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CategoryTheory.Projective.π_epi"
+      ],
+      "premises": [
+        {
+          "statement": "EnoughProjectives C",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+          "fvar_id": "_uniq.1967913"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_366",
+      "conclusion": {
+        "statement": "Epi T.g",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.1973337"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "T.ShortExact",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CategoryTheory.ShortComplex.kernelSequence_exact"
+      ],
+      "premises": [
+        {
+          "statement": "EnoughProjectives C",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+          "fvar_id": "_uniq.1967913"
+        },
+        {
+          "statement": "Mono T.f",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.1972508"
+        },
+        {
+          "statement": "Epi T.g",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.1973337"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_367",
+      "conclusion": {
+        "statement": "T.ShortExact",
+        "origin": "derived",
+        "name": "hTexact",
+        "fvar_id": "_uniq.1973442"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "S T.X₂",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CategoryTheory.Projective.projective_over"
+      ],
+      "premises": [
+        {
+          "statement": "EnoughProjectives C",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+          "fvar_id": "_uniq.1967913"
+        },
+        {
+          "statement": "∀ (P : C), Projective P → S P",
+          "origin": "local_assumption",
+          "name": "hproj",
+          "fvar_id": "_uniq.1967917"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_368",
+      "conclusion": {
+        "statement": "S T.X₂",
+        "origin": "derived",
+        "name": "hS₂",
+        "fvar_id": "_uniq.1974225"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "S T.X₃",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "S Q",
+          "origin": "local_assumption",
+          "name": "hQ",
+          "fvar_id": "_uniq.1967923"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_369",
+      "conclusion": {
+        "statement": "S T.X₃",
+        "origin": "derived",
+        "name": "hS₃",
+        "fvar_id": "_uniq.1974335"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "S T.X₁",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (T : ShortComplex C),\n  T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)",
+          "origin": "local_assumption",
+          "name": "hS",
+          "fvar_id": "_uniq.1967916"
+        },
+        {
+          "statement": "T.ShortExact",
+          "origin": "derived",
+          "name": "hTexact",
+          "fvar_id": "_uniq.1973442"
+        },
+        {
+          "statement": "S T.X₂",
+          "origin": "derived",
+          "name": "hS₂",
+          "fvar_id": "_uniq.1974225"
+        },
+        {
+          "statement": "S T.X₃",
+          "origin": "derived",
+          "name": "hS₃",
+          "fvar_id": "_uniq.1974335"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_370",
+      "conclusion": {
+        "statement": "S T.X₁",
+        "origin": "derived",
+        "name": "hS₁",
+        "fvar_id": "_uniq.1974413"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsSplitEpi T.g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (T : ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → IsSplitEpi T.g",
+          "origin": "local_assumption",
+          "name": "h",
+          "fvar_id": "_uniq.1971044"
+        },
+        {
+          "statement": "T.ShortExact",
+          "origin": "derived",
+          "name": "hTexact",
+          "fvar_id": "_uniq.1973442"
+        },
+        {
+          "statement": "S T.X₂",
+          "origin": "derived",
+          "name": "hS₂",
+          "fvar_id": "_uniq.1974225"
+        },
+        {
+          "statement": "S T.X₁",
+          "origin": "derived",
+          "name": "hS₁",
+          "fvar_id": "_uniq.1974413"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_371",
+      "conclusion": {
+        "statement": "IsSplitEpi T.g",
+        "origin": "derived",
+        "name": "hsplit",
+        "fvar_id": "_uniq.1975099"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsSplitEpi T.g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "IsSplitEpi T.g",
+          "origin": "derived",
+          "name": "hsplit",
+          "fvar_id": "_uniq.1975099"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_372",
+      "conclusion": {
+        "statement": "IsSplitEpi (Projective.π Q)",
+        "origin": "derived",
+        "name": "hsplitπ",
+        "fvar_id": "_uniq.1975830"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsSplitEpi (Projective.π Q)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "IsSplitEpi (Projective.π Q)",
+          "origin": "derived",
+          "name": "hsplitπ",
+          "fvar_id": "_uniq.1975830"
+        }
+      ],
+      "parent": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+      "id": "local_373",
+      "conclusion": {
+        "statement": "IsSplitEpi (Projective.π Q)",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.1976600"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p0786_projective_iff_projective_in_thick_subcate",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+    "proof_sha256": "9af942818e116aad491584bc5ca3299979d17eed29e03ac8b0e131bad4011d16"
+  }
+}

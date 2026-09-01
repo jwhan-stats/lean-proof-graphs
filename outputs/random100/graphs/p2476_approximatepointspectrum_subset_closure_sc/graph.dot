@@ -1,0 +1,10 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hw_cd697c73" [shape=box, color="#178F82", label="hw\nw ∈ {w | ∃ x, (∀ (n : ℕ), ‖x n‖ = 1) ∧ Filter.Tendsto (fun n => ‖T (x n) - w • x n‖) Filter.atTop (nhds 0)}"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nw ∈ closure {z | ∃ x, ‖x‖ = 1 ∧ let a := (inner ℂ (T x) x).re; let b := √(‖T x‖ ^ 2 - a ^ 2); z = ↑a + Complex.I * ↑b ∨ z = ↑a - Complex.I * ↑b}"];
+  "r_h_goal" [shape=diamond, label="Metric.mem_closure_iff + Metric.tendsto_atTop", color="#D97706"];
+  "m_hw_cd697c73" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

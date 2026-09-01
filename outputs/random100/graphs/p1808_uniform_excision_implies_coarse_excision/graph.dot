@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hab_bebe44c6" [shape=box, color="#178F82", label="hAB\nA ∪ B = Set.univ"];
+  "m_hcompat_5f52aa04" [shape=box, color="#178F82", label="hcompat\n∃ E ∈ uniformity X, E ∈ coarse"];
+  "m_hex_74546ecc" [shape=box, color="#178F82", label="hex\n∃ U ∈ uniformity X, ∃ κ, Monotone κ ∧ (∀ V ∈ uniformity X, ∃ W, ↑W ∈ uniformity X ∧ OrderDual.ofDual (κ (OrderDual.toDual W)) ⊆ V) ∧ ∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)"];
+  "m_hv_9953181e" [shape=box, color="#178F82", label="hV\nV ∈ coarse"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)"];
+  "r_h_goal" [shape=diamond, label="ueRelPow_comp_subset + ueRelPow_inv_subset + ueRel_comp_mono", color="#D97706"];
+  "m_hab_bebe44c6" -> "r_h_goal";
+  "m_hcompat_5f52aa04" -> "r_h_goal";
+  "m_hex_74546ecc" -> "r_h_goal";
+  "m_hv_9953181e" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

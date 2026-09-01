@@ -1,0 +1,1784 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2468_average_projection_positive_definite",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2468,
+    "source": "2004.13356",
+    "theorem_name": "average_projection_positive_definite",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2468",
+    "reconstructed_proof": "../../candidates/p2468_average_projection_positive_definite/proof.lean",
+    "raw_elaboration": "../../candidates/p2468_average_projection_positive_definite/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+    "verification_call_id": "verify_submission:83",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "fcffa0d1dce110e47494d5dc1748590683433e407aeda54d2ca9aeab626ab31f",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "5053a0e5b9d5d1c49e5be8dd0187e19891df1d0a184cfaf0a04040d0760cd140",
+    "concrete_semantic_topology_sha256": "fcffa0d1dce110e47494d5dc1748590683433e407aeda54d2ca9aeab626ab31f"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hadm_31ee88c3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hadm",
+      "lean_fvar_id": "11",
+      "statement": "∀ (x : EuclideanSpace ℝ (Fin n)), x ≠ 0 → μ {ω | x ∈ (∑ i ∈ J ω, C i)ᗮ} < 1"
+    },
+    {
+      "id": "m_hc_f99aac6d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hC",
+      "lean_fvar_id": "8",
+      "statement": "⨆ i, C i = ⊤"
+    },
+    {
+      "id": "m_hn_e68719f3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "m_hproj_0f224385",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hproj",
+      "lean_fvar_id": "10",
+      "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection"
+    },
+    {
+      "id": "m_hx_c676dc7f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "13",
+      "statement": "x ≠ 0"
+    },
+    {
+      "id": "m_inst___proofs_1509888941_00e92152",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+      "lean_fvar_id": "6",
+      "statement": "MeasureTheory.IsProbabilityMeasure μ"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "0 < inner ℝ x ((∫ (ω : Ω), (K ω).starProjection ∂μ) x)"
+    },
+    {
+      "id": "n_h_int_9b209499",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hφint",
+      "lean_fvar_id": "16",
+      "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ"
+    },
+    {
+      "id": "n_hbad_meas_864fe864",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hbad_meas",
+      "lean_fvar_id": "22",
+      "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}"
+    },
+    {
+      "id": "n_hfint_0c1decaa",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hfint",
+      "lean_fvar_id": "17",
+      "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ"
+    },
+    {
+      "id": "n_hfmeas_cdd62a74",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hfmeas",
+      "lean_fvar_id": "18",
+      "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)"
+    },
+    {
+      "id": "n_hintpos_181686a1",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hintpos",
+      "lean_fvar_id": "24",
+      "statement": "0 < ∫ (ω : Ω), inner ℝ x ((K ω).starProjection x) ∂μ"
+    },
+    {
+      "id": "n_hnonneg_5ef5327d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnonneg",
+      "lean_fvar_id": "19",
+      "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)"
+    },
+    {
+      "id": "n_hnormsq_84627ca6",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnormsq",
+      "lean_fvar_id": "20",
+      "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2"
+    },
+    {
+      "id": "n_hpint_764e86c1",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hPint",
+      "lean_fvar_id": "15",
+      "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ"
+    },
+    {
+      "id": "n_hsupp_39688552",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsupp",
+      "lean_fvar_id": "21",
+      "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ"
+    },
+    {
+      "id": "n_hsupp_pos_347b3630",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsupp_pos",
+      "lean_fvar_id": "23",
+      "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hpint",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1509888941_00e92152",
+        "m_hproj_0f224385"
+      ],
+      "conclusion": "n_hpint_764e86c1",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousLinearMap.opNorm_le_bound + Measurable.aestronglyMeasurable + MeasureTheory.Integrable.of_bound",
+        "items": [
+          "ContinuousLinearMap.opNorm_le_bound",
+          "Measurable.aestronglyMeasurable",
+          "MeasureTheory.Integrable.of_bound",
+          "Submodule.norm_starProjection_apply_le",
+          "zero_le_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousLinearMap.opNorm_le_bound",
+          "Measurable.aestronglyMeasurable",
+          "MeasureTheory.Integrable.of_bound",
+          "Submodule.norm_starProjection_apply_le",
+          "zero_le_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_15",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hPint : MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ := by\n    refine MeasureTheory.Integrable.of_bound hproj.aestronglyMeasurable 1 ?_\n    filter_upwards with ω\n    refine ContinuousLinearMap.opNorm_le_bound _ zero_le_one ?_\n    intro v\n    simpa using Submodule.norm_starProjection_apply_le (K ω) v",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+              "statement": "MeasureTheory.IsProbabilityMeasure μ"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hproj",
+              "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "15",
+            "name": "hPint",
+            "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ"
+          }
+        },
+        "lean_dependency_sha256": "a4c29923ee1a7e356dfbd2332707f3a95cd7ad21732e2776c3c47214166aa08f",
+        "kernel_witness_check": {
+          "proof_type": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousLinearMap.opNorm_le_bound",
+          "Measurable.aestronglyMeasurable",
+          "Submodule.norm_starProjection_apply_le"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:52",
+          "loogle:18",
+          "leanfinder:51"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_h_int",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hpint_764e86c1"
+      ],
+      "conclusion": "n_h_int_9b209499",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.Integrable.apply_continuousLinearMap",
+        "items": [
+          "MeasureTheory.Integrable.apply_continuousLinearMap"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.Integrable.apply_continuousLinearMap"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_16",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hφint : MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ :=\n    hPint.apply_continuousLinearMap x",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "15",
+              "name": "hPint",
+              "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "16",
+            "name": "hφint",
+            "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ"
+          }
+        },
+        "lean_dependency_sha256": "093e47351978fc54268b74fce1d052de592482be77bfe2d0ee60e58b4857a981",
+        "kernel_witness_check": {
+          "proof_type": "MeasureTheory.Integrable (fun a => (K a).starProjection x) μ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasureTheory.Integrable.apply_continuousLinearMap"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:58",
+          "leanfinder:59"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hfint",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_h_int_9b209499"
+      ],
+      "conclusion": "n_hfint_0c1decaa",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.Integrable.const_inner",
+        "items": [
+          "MeasureTheory.Integrable.const_inner"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.Integrable.const_inner"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_17",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hfint : MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ :=\n    MeasureTheory.Integrable.const_inner x hφint",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "16",
+              "name": "hφint",
+              "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "17",
+            "name": "hfint",
+            "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ"
+          }
+        },
+        "lean_dependency_sha256": "b66738c26159156d771813b23460b354121d296092091a9f2b7dcbe60d370dc4",
+        "kernel_witness_check": {
+          "proof_type": "MeasureTheory.Integrable (fun x_1 => inner ℝ x ((K x_1).starProjection x)) μ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasureTheory.Integrable.const_inner"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:65",
+          "loogle:33"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hfmeas",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hproj_0f224385"
+      ],
+      "conclusion": "n_hfmeas_cdd62a74",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Measurable.apply_continuousLinearMap + Measurable.const_inner",
+        "items": [
+          "Measurable.apply_continuousLinearMap",
+          "Measurable.const_inner"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Measurable.apply_continuousLinearMap",
+          "Measurable.const_inner"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_18",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hfmeas : Measurable (fun ω => inner ℝ x ((K ω).starProjection x)) :=\n    Measurable.const_inner (hproj.apply_continuousLinearMap x)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hproj",
+              "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "18",
+            "name": "hfmeas",
+            "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)"
+          }
+        },
+        "lean_dependency_sha256": "6842234d7eb911cc08ba9136696744dec2b1a6f28bf9eb9bd53a02a6c6da80af",
+        "kernel_witness_check": {
+          "proof_type": "Measurable fun t => inner ℝ x ((K t).starProjection x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Measurable.apply_continuousLinearMap",
+          "Measurable.const_inner"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:59",
+          "leanfinder:58",
+          "loogle:33",
+          "leanfinder:65"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hnonneg",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hnonneg_5ef5327d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Submodule.re_inner_starProjection_nonneg + real_inner_comm",
+        "items": [
+          "Submodule.re_inner_starProjection_nonneg",
+          "real_inner_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Submodule.re_inner_starProjection_nonneg",
+          "real_inner_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_19",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnonneg : 0 ≤ fun ω => inner ℝ x ((K ω).starProjection x) := by\n    intro ω\n    have h := Submodule.re_inner_starProjection_nonneg (K ω) x\n    convert h using 1\n    rw [real_inner_comm]\n    rfl",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "19",
+            "name": "hnonneg",
+            "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)"
+          }
+        },
+        "lean_dependency_sha256": "db6554fbf74c9f2ae45561cdde247645e82cfce1a4dd196b671829750042fa46",
+        "kernel_witness_check": {
+          "proof_type": "∀ (ω : Ω), 0 ω ≤ (fun ω => inner ℝ x ((K ω).starProjection x)) ω",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Submodule.re_inner_starProjection_nonneg",
+          "real_inner_comm"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:22",
+          "loogle:28",
+          "loogle:30"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hnormsq",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hnormsq_84627ca6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Submodule.re_inner_starProjection_eq_normSq + real_inner_comm",
+        "items": [
+          "Submodule.re_inner_starProjection_eq_normSq",
+          "real_inner_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Submodule.re_inner_starProjection_eq_normSq",
+          "real_inner_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnormsq (ω : Ω) :\n      inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2 := by\n    have h := Submodule.re_inner_starProjection_eq_normSq (K ω) x\n    convert h using 1\n    · rw [real_inner_comm]\n      rfl",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hnormsq",
+            "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "18ff842d073d9919c1de67aa72e78e92dbb6d83094b56c0e2f378d27373151ef",
+        "kernel_witness_check": {
+          "proof_type": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Submodule.re_inner_starProjection_eq_normSq",
+          "real_inner_comm"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:23",
+          "loogle:29",
+          "loogle:30"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hsupp",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hnormsq_84627ca6"
+      ],
+      "conclusion": "n_hsupp_39688552",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Function.mem_support + Set.ext + Submodule.orthogonalProjection_eq_zero_iff",
+        "items": [
+          "Function.mem_support",
+          "Set.ext",
+          "Submodule.orthogonalProjection_eq_zero_iff",
+          "Submodule.starProjection_apply_eq_zero_iff",
+          "eq_zero_of_pow_eq_zero",
+          "norm_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Function.mem_support",
+          "Set.ext",
+          "Submodule.orthogonalProjection_eq_zero_iff",
+          "Submodule.starProjection_apply_eq_zero_iff",
+          "eq_zero_of_pow_eq_zero",
+          "norm_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsupp : Function.support (fun ω => inner ℝ x ((K ω).starProjection x)) =\n      {ω | x ∈ (K ω)ᗮ}ᶜ := by\n    ext ω\n    constructor\n    · intro hsupport horth\n      have hsne : inner ℝ x ((K ω).starProjection x) ≠ 0 := Function.mem_support.mp hsupport\n      have hpzero : (K ω).starProjection x = 0 :=\n        (Submodule.starProjection_apply_eq_zero_iff (K ω)).2 horth\n      exact hsne (by simp [hpzero])\n    · intro hnotorth\n      rw [Function.mem_support]\n      by_contra hinner\n      have hsquarezero : ‖(K ω).orthogonalProjection x‖ ^ 2 = 0 := by\n        rw [← hnormsq ω, hinner]\n      have hprojzero : (K ω).orthogonalProjection x = 0 := by\n        have hnormzero : ‖(K ω).orthogonalProjection x‖ = 0 :=\n          eq_zero_of_pow_eq_zero hsquarezero\n        exact norm_eq_zero.mp hnormzero\n      exact hnotorth ((Submodule.orthogonalProjection_eq_zero_iff).1 hprojzero)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "20",
+              "name": "hnormsq",
+              "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "hsupp",
+            "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ"
+          }
+        },
+        "lean_dependency_sha256": "8ea7ad7741cbcf2c465d4cdc3a069f3466a020fb1b13ad6f42c873890d48650f",
+        "kernel_witness_check": {
+          "proof_type": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Submodule.orthogonalProjection_eq_zero_iff"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hbad_meas",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hfmeas_cdd62a74",
+        "n_hsupp_39688552"
+      ],
+      "conclusion": "n_hbad_meas_864fe864",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "compl_compl + measurableSet_support",
+        "items": [
+          "compl_compl",
+          "measurableSet_support"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "compl_compl",
+          "measurableSet_support"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hbad_meas : MeasurableSet {ω | x ∈ (K ω)ᗮ} := by\n    have h := (measurableSet_support hfmeas).compl\n    rwa [hsupp, compl_compl] at h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "18",
+              "name": "hfmeas",
+              "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hsupp",
+              "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hbad_meas",
+            "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}"
+          }
+        },
+        "lean_dependency_sha256": "2c177c40c92c0c34d0d8296f4d87cddfd047020f3bd0a468a5be9aa154c16cbe",
+        "kernel_witness_check": {
+          "proof_type": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "measurableSet_support"
+        ],
+        "observed_search_event_ids": [
+          "loogle:35"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_009_hsupp_pos",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1509888941_00e92152",
+        "m_hadm_31ee88c3",
+        "m_hx_c676dc7f",
+        "n_hsupp_39688552",
+        "n_hbad_meas_864fe864"
+      ],
+      "conclusion": "n_hsupp_pos_347b3630",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.prob_compl_eq_one_sub + tsub_pos_iff_lt",
+        "items": [
+          "MeasureTheory.prob_compl_eq_one_sub",
+          "tsub_pos_iff_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.prob_compl_eq_one_sub",
+          "tsub_pos_iff_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_23",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsupp_pos :\n      0 < μ (Function.support (fun ω => inner ℝ x ((K ω).starProjection x))) := by\n    have hcomp : 0 < μ {ω | x ∈ (K ω)ᗮ}ᶜ := by\n      rw [MeasureTheory.prob_compl_eq_one_sub hbad_meas]\n      exact tsub_pos_iff_lt.2 (hadm x hx)\n    rwa [hsupp]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+              "statement": "MeasureTheory.IsProbabilityMeasure μ"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hadm",
+              "statement": "∀ (x : EuclideanSpace ℝ (Fin n)), x ≠ 0 → μ {ω | x ∈ (∑ i ∈ J ω, C i)ᗮ} < 1"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hx",
+              "statement": "x ≠ 0"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hsupp",
+              "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ"
+            },
+            {
+              "fvar_id": "22",
+              "name": "hbad_meas",
+              "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "23",
+            "name": "hsupp_pos",
+            "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))"
+          }
+        },
+        "lean_dependency_sha256": "bfda8738c57c2fa67184f9f3f878e026199b70744982f2307cef34243a144dc9",
+        "kernel_witness_check": {
+          "proof_type": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "tsub_pos_iff_lt"
+        ],
+        "observed_search_event_ids": [
+          "loogle:78"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_010_hintpos",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hfint_0c1decaa",
+        "n_hnonneg_5ef5327d",
+        "n_hsupp_pos_347b3630"
+      ],
+      "conclusion": "n_hintpos_181686a1",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.integral_pos_iff_support_of_nonneg",
+        "items": [
+          "MeasureTheory.integral_pos_iff_support_of_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.integral_pos_iff_support_of_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_24",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hintpos : 0 < ∫ ω, inner ℝ x ((K ω).starProjection x) ∂μ :=\n    (MeasureTheory.integral_pos_iff_support_of_nonneg hnonneg hfint).2 hsupp_pos\n  calc\n    0 < ∫ ω, inner ℝ x ((K ω).starProjection x) ∂μ := hintpos\n    _ = inner ℝ x (∫ ω, (K ω).starProjection x ∂μ) := integral_inner hφint x\n    _ = inner ℝ x ((∫ ω, (K ω).starProjection ∂μ) x) := by\n      rw [ContinuousLinearMap.integral_apply hPint x]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hfint",
+              "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hnonneg",
+              "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hsupp_pos",
+              "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "24",
+            "name": "hintpos",
+            "statement": "0 < ∫ (ω : Ω), inner ℝ x ((K ω).starProjection x) ∂μ"
+          }
+        },
+        "lean_dependency_sha256": "d185b357fb820249c8a62bb783a385ed0704e9cb8003718fd12b98377f9c6821",
+        "kernel_witness_check": {
+          "proof_type": "0 < ∫ (x_1 : Ω), inner ℝ x ((K x_1).starProjection x) ∂μ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasureTheory.integral_pos_iff_support_of_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:5",
+          "loogle:10"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hpint_764e86c1",
+        "n_h_int_9b209499",
+        "n_hintpos_181686a1"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousLinearMap.integral_apply + integral_inner",
+        "items": [
+          "ContinuousLinearMap.integral_apply",
+          "integral_inner"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousLinearMap.integral_apply",
+          "integral_inner"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "        have hnormzero : ‖(K ω).orthogonalProjection x‖ = 0 :=\n          eq_zero_of_pow_eq_zero hsquarezero\n        exact norm_eq_zero.mp hnormzero\n      exact hnotorth ((Submodule.orthogonalProjection_eq_zero_iff).1 hprojzero)\n  have hbad_meas : MeasurableSet {ω | x ∈ (K ω)ᗮ} := by\n    have h := (measurableSet_support hfmeas).compl\n    rwa [hsupp, compl_compl] at h\n  have hsupp_pos :\n      0 < μ (Function.support (fun ω => inner ℝ x ((K ω).starProjection x))) := by\n    have hcomp : 0 < μ {ω | x ∈ (K ω)ᗮ}ᶜ := by\n      rw [MeasureTheory.prob_compl_eq_one_sub hbad_meas]\n      exact tsub_pos_iff_lt.2 (hadm x hx)\n    rwa [hsupp]\n  have hintpos : 0 < ∫ ω, inner ℝ x ((K ω).starProjection x) ∂μ :=\n    (MeasureTheory.integral_pos_iff_support_of_nonneg hnonneg hfint).2 hsupp_pos\n  calc\n    0 < ∫ ω, inner ℝ x ((K ω).starProjection x) ∂μ := hintpos\n    _ = inner ℝ x (∫ ω, (K ω).starProjection x ∂μ) := integral_inner hφint x\n    _ = inner ℝ x ((∫ ω, (K ω).starProjection ∂μ) x) := by\n      rw [ContinuousLinearMap.integral_apply hPint x]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "15",
+              "name": "hPint",
+              "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hφint",
+              "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ"
+            },
+            {
+              "fvar_id": "24",
+              "name": "hintpos",
+              "statement": "0 < ∫ (ω : Ω), inner ℝ x ((K ω).starProjection x) ∂μ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "0 < inner ℝ x ((∫ (ω : Ω), (K ω).starProjection ∂μ) x)"
+          }
+        },
+        "lean_dependency_sha256": "5ad3aada102a0ec8c3a558ca3e78bc6e644e65b16aa4ff646f9978b38b80a12b",
+        "kernel_witness_check": {
+          "proof_type": "0 < inner ℝ x ((∫ (ω : Ω), (K ω).starProjection ∂μ) x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousLinearMap.integral_apply",
+          "integral_inner"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:4",
+          "leanfinder:26",
+          "leanfinder:65"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "starProjection",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_nonneg",
+      "declarations": [
+        "MeasureTheory.integral_nonneg"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "integral_apply",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "orthogonal projection inner product nonnegative starProjection self-adjoint",
+      "declarations": [
+        "isStarProjection_iff_eq_starProjection",
+        "Submodule.orthogonalProjectionOnto",
+        "LinearMap.isStarProjection_toContinuousLinearMap_iff",
+        "Submodule.starProjection_orthogonal",
+        "Submodule.starProjection",
+        "Submodule.adjoint_orthogonalProjection",
+        "isSelfAdjoint_starProjection",
+        "isStarProjection_starProjection",
+        "Submodule.starProjection_orthogonal'",
+        "LinearMap.isStarProjection_iff_isSymmetricProjection"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "Bochner integral continuous linear map apply integral",
+      "declarations": [
+        "Real.fourierIntegral_continuousLinearMap_apply",
+        "MeasureTheory.L1.integralCLM",
+        "MeasureTheory.L1.integralCLM'",
+        "MeasureTheory.integral",
+        "Real.fourierIntegral_continuousLinearMap_apply'",
+        "ContinuousLinearMap.integral_apply",
+        "MeasureTheory.L1.integral_eq'",
+        "MeasureTheory.L1.SimpleFunc.integralCLM",
+        "ContinuousLinearMap.intervalIntegral_apply",
+        "ContinuousMap.integral_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "integral strictly positive if nonnegative and probability of negative less than one",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "intervalIntegral.integral_nonneg",
+        "compareOfLessAndEq",
+        "IsStrictlyPositive",
+        "MeasureTheory.integral_pos_iff_support_of_nonneg",
+        "MeasureTheory.integral_pos_iff_support_of_nonneg_ae",
+        "MeasureTheory.integral_nonneg_of_ae",
+        "intervalIntegral.integral_pos_iff_support_of_nonneg_ae",
+        "intervalIntegral.integral_pos_iff_support_of_nonneg_ae'",
+        "isStrictlyPositive_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "inner (_ : _) ((starProjection _) _)",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "(starProjection _ _)",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "inner x orthogonal projection x norm squared",
+      "declarations": [
+        "Submodule.orthogonalProjectionFn_norm_sq",
+        "Submodule.orthogonalProjection_norm_le",
+        "Submodule.norm_orthogonalProjection",
+        "Submodule.norm_sq_eq_add_norm_sq_starProjection",
+        "Submodule.norm_sq_eq_add_norm_sq_projection",
+        "Submodule.norm_projection_orthogonal_le",
+        "Submodule.orthogonalProjectionOnto_norm_le",
+        "Submodule.norm_orthogonalProjection_apply",
+        "Submodule.norm_orthogonalProjectionOnto",
+        "Polynomial.X"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "orthogonal projection application x equals zero iff x in orthogonal complement",
+      "declarations": [
+        "Submodule.orthogonalProjection_orthogonalComplement_singleton_eq_zero",
+        "Submodule.orthogonalProjection_eq_zero_iff",
+        "Submodule.orthogonalProjection_orthogonal_apply_eq_zero",
+        "Submodule.orthogonal",
+        "Submodule.orthogonalProjectionOnto_eq_zero_iff",
+        "Submodule.orthogonalProjection_orthogonal",
+        "Submodule.orthogonalProjectionOnto_orthogonalComplement_singleton_eq_zero",
+        "Submodule.orthogonalProjection_apply_of_mem_orthogonal",
+        "Submodule.orthogonalProjection",
+        "Submodule.starProjection_orthogonalComplement_singleton_eq_zero"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_pos_iff_support_of_nonneg",
+      "declarations": [
+        "MeasureTheory.integral_pos_iff_support_of_nonneg"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "MeasureTheory.measure_compl",
+      "declarations": [
+        "MeasureTheory.measure_compl"
+      ],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "support_pos",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Function.support (_ : Ω → ℝ)",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "IsStarProjection _ → _ ≤ 1",
+      "declarations": [
+        "IsStarProjection.le_one",
+        "IsStarProjection.norm_le"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "norm star projection at most one IsStarProjection",
+      "declarations": [
+        "Lean.PrettyPrinter.Delaborator.parentProj",
+        "IsStarProjection.le_one",
+        "Submodule.starProjection",
+        "IsStarProjection",
+        "IsStarProjection.one",
+        "Submodule.norm_starProjection",
+        "Lean.Expr.projExpr",
+        "Lean.Expr.projIdx",
+        "Lean.addProjectionFnInfo",
+        "isStarProjection_starProjection"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Measurable.aestronglyMeasurable",
+      "declarations": [
+        "Measurable.aestronglyMeasurable"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "StronglyMeasurable.aestronglyMeasurable",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "IsStarProjection",
+      "declarations": [
+        "IsStarProjection",
+        "IsStarProjection.isIdempotentElem",
+        "IsStarProjection.isSelfAdjoint",
+        "IsStarProjection.isStarNormal",
+        "IsStarProjection.mk",
+        "isStarProjection_iff",
+        "isStarProjection_iff'",
+        "IsStarProjection.one",
+        "IsStarProjection.zero",
+        "IsStarProjection.pow_eq"
+      ],
+      "call_turn": 22,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "inner _ (_ _) = inner _ _ _",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:22",
+      "tool": "leanfinder",
+      "query": "self-adjoint projection inner x T x nonnegative",
+      "declarations": [
+        "IsSelfAdjoint.conj_starProjection",
+        "LinearMap.IsSymmetricProjection.isPositive",
+        "Submodule.re_inner_starProjection_nonneg",
+        "ContinuousLinearMap.IsPositive.inner_nonneg_left",
+        "isSelfAdjoint_starProjection",
+        "Polynomial.coeff_X_pow_self",
+        "Polynomial.X",
+        "MvPolynomial.pderiv_X_self",
+        "HomologicalComplex.xNextIsoSelf",
+        "CStarModule.isSelfAdjoint_inner_self"
+      ],
+      "call_turn": 22,
+      "result_turn": 29
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "IsStarProjection inner self equal norm squared",
+      "declarations": [
+        "IsStarProjection.norm_le",
+        "InnerProductSpace.isStarProjection_rankOne_self",
+        "Submodule.re_inner_starProjection_eq_normSq",
+        "IsStarProjection.add",
+        "isStarProjection_iff'",
+        "Submodule.starProjection",
+        "isStarProjection_iff",
+        "IsStarProjection.isStarNormal",
+        "LinearMap.IsStarProjection.ext_iff",
+        "isSelfAdjoint_starProjection"
+      ],
+      "call_turn": 22,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "ContinuousLinearMap.integral_comp_comm",
+      "declarations": [
+        "ContinuousLinearMap.integral_comp_comm"
+      ],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "LinearMap.integral",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "integral commute continuous linear map composition",
+      "declarations": [
+        "ContinuousLinearMapWOT.comp_apply",
+        "ContinuousLinearMap.integral_id_map",
+        "ContinuousLinearEquiv.integral_id_map",
+        "ContinuousLinearMap.",
+        "ContinuousLinearMap.integrable_comp",
+        "ContinuousLinearMap.integral_comp_comm'",
+        "ContinuousLinearMap.integral_apply",
+        "ContinuousLinearMap.integral_comp_comm",
+        "ContinuousLinearMap",
+        "ContinuousLinearMap.comp_assoc"
+      ],
+      "call_turn": 31,
+      "result_turn": 34
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "inner product Bochner integral first argument",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Submodule.re_inner_starProjection_nonneg",
+      "declarations": [
+        "Submodule.re_inner_starProjection_nonneg"
+      ],
+      "call_turn": 31,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "Submodule.re_inner_starProjection_eq_normSq",
+      "declarations": [
+        "Submodule.re_inner_starProjection_eq_normSq"
+      ],
+      "call_turn": 31,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "real_inner_comm",
+      "declarations": [
+        "real_inner_comm"
+      ],
+      "call_turn": 31,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "inner_comm",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "RCLike.re_eq_self",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Measurable (fun _ => inner _ _ _)",
+      "declarations": [
+        "Measurable.const_inner",
+        "Measurable.inner_const",
+        "Measurable.inner"
+      ],
+      "call_turn": 41,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "measurable_inner",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "measurableSet_support",
+      "declarations": [
+        "measurableSet_support"
+      ],
+      "call_turn": 41,
+      "result_turn": 44
+    },
+    {
+      "event_id": "leanfinder:36",
+      "tool": "leanfinder",
+      "query": "measurability support function nonzero real",
+      "declarations": [
+        "measurability",
+        "Mathlib.Tactic.measurability",
+        "MeasureTheory.Measure.nonempty_support",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "MeasureTheory.measureReal_ne_zero_iff",
+        "MeasureTheory.Measure.nonempty_support_iff",
+        "Function.support"
+      ],
+      "call_turn": 41,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "Function.support_eq",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "Function.support_compl",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "MeasureTheory.measure_univ",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "measure_univ",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "IsProbabilityMeasure.measure_univ",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "prob_compl_eq_one_sub",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Submodule.starProjection_apply",
+      "declarations": [
+        "Submodule.starProjection_apply"
+      ],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Submodule.coe_starProjection",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "norm_starProjection",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "norm_projection_orthogonal_le",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "ContinuousLinearMap.opNorm_le_of_forall",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "opNorm_le_of_forall",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 62
+    },
+    {
+      "event_id": "leanfinder:51",
+      "tool": "leanfinder",
+      "query": "star projection norm apply at most vector norm",
+      "declarations": [
+        "Submodule.orthogonalProjection_norm_le",
+        "IsStarProjection.norm_le",
+        "Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.norm",
+        "Submodule.starProjection",
+        "Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.norm",
+        "Submodule.norm_starProjection_apply",
+        "Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.norm",
+        "Submodule.norm_starProjection_apply_le",
+        "Submodule.norm_starProjection",
+        "Lean.Grind.Linarith.Expr.norm"
+      ],
+      "call_turn": 56,
+      "result_turn": 63
+    },
+    {
+      "event_id": "leanfinder:52",
+      "tool": "leanfinder",
+      "query": "operator norm bound from pointwise norm bound continuous linear map",
+      "declarations": [
+        "LinearMap.mkContinuous",
+        "ContinuousLinearMap.opNNNorm_le_bound",
+        "ContinuousMap.attachBound",
+        "ContinuousLinearMap.le_of_opNorm_le_of_le",
+        "gronwallBound",
+        "ContinuousLinearMap.opNorm_le_bound",
+        "ContinuousLinearMap.norm_extendTo",
+        "ContinuousLinearMap.opNorm_le_bound'",
+        "ZLattice.normBound",
+        "ContinuousMultilinearMap.le_of_opNNNorm_le"
+      ],
+      "call_turn": 56,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "Measurable.apply",
+      "declarations": [],
+      "call_turn": 67,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "ContinuousLinearMap.measurable_apply",
+      "declarations": [
+        "ContinuousLinearMap.measurable_apply"
+      ],
+      "call_turn": 67,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Integrable.apply",
+      "declarations": [],
+      "call_turn": 67,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "ContinuousLinearMap.integrable_apply",
+      "declarations": [],
+      "call_turn": 67,
+      "result_turn": 71
+    },
+    {
+      "event_id": "leanfinder:58",
+      "tool": "leanfinder",
+      "query": "integrability continuous linear map valued function evaluated pointwise",
+      "declarations": [
+        "ContinuousLinearMap.toPointwiseConvergenceCLM",
+        "ContinuousLinearMap.integrableOn_comp",
+        "ContinuousLinearMap.integrable_comp",
+        "Valued.continuous_extension",
+        "Valued.continuous_valuation",
+        "ContinuousLinearMap",
+        "MeasureTheory.integrable_continuousLinearMap_prod",
+        "MeasureTheory.Integrable.apply_continuousLinearMap",
+        "ContinuousLinearMap.contDiffPointwiseHolderAt",
+        "BoundedContinuousFunction.toContinuousMapLinearMap"
+      ],
+      "call_turn": 67,
+      "result_turn": 72
+    },
+    {
+      "event_id": "leanfinder:59",
+      "tool": "leanfinder",
+      "query": "measurability evaluation continuous linear map function at vector",
+      "declarations": [
+        "measurability",
+        "Measurable.apply_continuousLinearMap",
+        "VectorBundleCore.trivializationAt_continuousLinearMapAt",
+        "StronglyMeasurable.apply_continuousLinearMap",
+        "ContinuousLinearMap",
+        "VectorBundle.continuousLinearEquivAt",
+        "ContinuousLinearMap.measurable_coe",
+        "ContinuousLinearMap.measurable_apply"
+      ],
+      "call_turn": 67,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "innerSL",
+      "declarations": [
+        "innerSL",
+        "flip_innerSL_real",
+        "innerSL_real_flip",
+        "norm_innerSL_le",
+        "innerSL_apply_norm",
+        "coe_innerSL_apply",
+        "innerSL_apply",
+        "innerSL_apply_apply",
+        "innerSL_apply_coe",
+        "ContinuousLinearMap.toLinearMap_innerSL_apply"
+      ],
+      "call_turn": 74,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "innerCLM",
+      "declarations": [],
+      "call_turn": 74,
+      "result_turn": 76
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "inner product as continuous linear map fixed vector",
+      "declarations": [
+        "InnerProductSpace.toContinuousLinearMap_toDualMap",
+        "InnerProductSpace.continuousLinearMapOfBilin",
+        "InnerProductSpace.continuousLinearMapOfBilin_zero",
+        "innerSL_inj",
+        "coe_innerSL_apply",
+        "ContinuousLinearMap.inner_map_map_iff_adjoint_comp_self",
+        "ContinuousLinearMap",
+        "ContinuousLinearMap.finiteDimensional",
+        "InnerProductSpace.continuousLinearMapOfBilin_apply",
+        "ContinuousLinearMap.isUnit_of_forall_le_norm_inner_map"
+      ],
+      "call_turn": 74,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "MeasureTheory.Integrable.inner_const",
+      "declarations": [
+        "MeasureTheory.Integrable.inner_const"
+      ],
+      "call_turn": 74,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "Integrable.inner_const",
+      "declarations": [],
+      "call_turn": 74,
+      "result_turn": 79
+    },
+    {
+      "event_id": "leanfinder:65",
+      "tool": "leanfinder",
+      "query": "integrable function inner fixed vector",
+      "declarations": [
+        "GaussianFourier.integrable_cexp_neg_mul_sq_norm_add",
+        "MeasureTheory.Integrable.inner_const",
+        "TestFunction.integrable",
+        "Function.fixedPoints",
+        "MeasureTheory.Integrable.const_inner",
+        "Function.iterate_fixed",
+        "MeasureTheory.Integrable",
+        "Function.fixedSupport",
+        "integral_inner",
+        "TorusIntegrable.function_integrable"
+      ],
+      "call_turn": 74,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "norm_inner_le_norm",
+      "declarations": [
+        "norm_inner_le_norm"
+      ],
+      "call_turn": 74,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "inner_le_norm",
+      "declarations": [],
+      "call_turn": 74,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_inner",
+      "declarations": [],
+      "call_turn": 83,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_const_inner",
+      "declarations": [],
+      "call_turn": 83,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "ENNReal.sub_pos",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "ENNReal.sub_lt_iff",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "(0 < 1 - _ : ℝ≥0∞)",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 92
+    },
+    {
+      "event_id": "leanfinder:75",
+      "tool": "leanfinder",
+      "query": "ENNReal zero less one minus a iff a less one",
+      "declarations": [
+        "Dyadic.blt",
+        "Lean.Meta.Structural.isInstLTInt",
+        "Lean.Meta.Structural.isInstLTNat",
+        "Lean.Nat.mkInstLT",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "QuaternionGroup.a_one_pow",
+        "Cubic.monic_of_a_eq_one'",
+        "compareOfLessAndEq",
+        "Cubic.monic_of_a_eq_one",
+        "CartanMatrix.A_one"
+      ],
+      "call_turn": 89,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "ENNReal.lt_iff_exists_rat_btwn",
+      "declarations": [
+        "ENNReal.lt_iff_exists_rat_btwn"
+      ],
+      "call_turn": 89,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "ENNReal.sub_eq_zero_iff_le",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "tsub_pos_iff_lt",
+      "declarations": [
+        "tsub_pos_iff_lt"
+      ],
+      "call_turn": 89,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "lt_tsub_iff_right",
+      "declarations": [
+        "lt_tsub_iff_right"
+      ],
+      "call_turn": 89,
+      "result_turn": 97
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 15,
+    "selected_hyperedge_count": 11,
+    "main_hyperedge_count": 11,
+    "side_hyperedge_count": 0,
+    "selected_depth": 6,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 16,
+    "retrieval_query_count": 73,
+    "useful_retrieval_event_count": 19,
+    "unused_retrieval_event_count": 54,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 84,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

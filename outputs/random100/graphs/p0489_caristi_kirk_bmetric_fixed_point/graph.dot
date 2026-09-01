@@ -1,0 +1,31 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_549de3fb" [shape=box, color="#178F82", label="hA\n1 < A"];
+  "m_hcaristi_7b80ca2c" [shape=box, color="#178F82", label="hcaristi\n∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))"];
+  "m_hcomplete_03c8d718" [shape=box, color="#178F82", label="hcomplete\n∀ (x : ℕ → X), Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) → ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)"];
+  "m_hd_symm_c59ca14f" [shape=box, color="#178F82", label="hd_symm\n∀ (x y : X), d (x, y) = d (y, x)"];
+  "m_hd_triangle_ae5e54fe" [shape=box, color="#178F82", label="hd_triangle\n∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))"];
+  "m_hd_zero_1c7e1118" [shape=box, color="#178F82", label="hd_zero\n∀ (x y : X), d (x, y) = 0 ↔ x = y"];
+  "m_hf_continuous_4dff4d41" [shape=box, color="#178F82", label="hf_continuous\n∀ (x : ℕ → X) (u : X), Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) → Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)"];
+  "m_hs_16dd729e" [shape=box, color="#178F82", label="hs\n1 ≤ s"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)"];
+  "n_hcauchy_d70449d0" [shape=box, color="#D97706", label="hcauchy\nFilter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)"];
+  "r_h_001_hcauchy" [shape=diamond, label="caristi_orbit_tendsto_pair", color="#D97706"];
+  "m_hs_16dd729e" -> "r_h_001_hcauchy";
+  "m_hd_zero_1c7e1118" -> "r_h_001_hcauchy";
+  "m_hd_symm_c59ca14f" -> "r_h_001_hcauchy";
+  "m_hd_triangle_ae5e54fe" -> "r_h_001_hcauchy";
+  "m_ha_549de3fb" -> "r_h_001_hcauchy";
+  "m_hcaristi_7b80ca2c" -> "r_h_001_hcauchy";
+  "r_h_001_hcauchy" -> "n_hcauchy_d70449d0";
+  "r_h_goal" [shape=diamond, label="simpa + exact", color="#D97706"];
+  "m_hd_zero_1c7e1118" -> "r_h_goal";
+  "m_hd_symm_c59ca14f" -> "r_h_goal";
+  "m_hd_triangle_ae5e54fe" -> "r_h_goal";
+  "m_hcomplete_03c8d718" -> "r_h_goal";
+  "m_hf_continuous_4dff4d41" -> "r_h_goal";
+  "n_hcauchy_d70449d0" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,222 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+      "manifest": [
+        {
+          "statement": "Set.InjOn ξ (Set.Icc 0 d)",
+          "origin": "manifest",
+          "name": "hξ",
+          "fvar_id": "4"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Decidable.byContradiction",
+          "Eq.trans",
+          "Finset.Icc_eq_empty_of_lt",
+          "Finset.prod_Icc_succ_top",
+          "Finset.prod_congr",
+          "Finset.sum_congr",
+          "Finset.sum_range_succ",
+          "Finset.sum_singleton",
+          "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+          "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+          "MonoidHomClass.toOneHomClass",
+          "MonoidWithZeroHomClass.toMonoidHomClass",
+          "Nat.instCanonicallyOrderedAdd",
+          "Nat.instIsOrderedAddMonoid",
+          "Nat.instIsOrderedCancelAddMonoid",
+          "Nat.instNoMaxOrder",
+          "Nat.le_succ",
+          "Nat.le_trans",
+          "Nat.succ_ne_zero",
+          "Ne.symm",
+          "Order.lt_one_iff._simp_1",
+          "RingHom.instRingHomClass",
+          "RingHomClass.toMonoidWithZeroHomClass",
+          "Rollout_p2889_newton_sum_identity.newton_nodal_prod_range_succ",
+          "Rollout_p2889_newton_sum_identity.newton_nodal_prod_range_succ._proof_1",
+          "Rollout_p2889_newton_sum_identity.newton_step_core",
+          "Set.InjOn.mono",
+          "Set.InjOn.ne",
+          "Set.mem_Icc._simp_1",
+          "Std.le_refl._simp_1",
+          "and_self",
+          "congr",
+          "congrArg",
+          "contravariant_lt_of_covariant_le",
+          "contravariant_swap_add_of_contravariant_add",
+          "covariant_swap_add_of_covariant_add",
+          "eq_self",
+          "instIsLeftCancelAddOfAddLeftReflectLE",
+          "instIsRightCancelAddOfAddRightReflectLE",
+          "instReflLe",
+          "inv_one",
+          "le_add_iff_nonneg_left._simp_1",
+          "map_one",
+          "mul_one",
+          "of_eq_true",
+          "sub_ne_zero_of_ne",
+          "zero_add",
+          "zero_le._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "Set.InjOn ξ (Set.Icc 0 d)",
+            "origin": "local_assumption",
+            "name": "hξ",
+            "fvar_id": "4"
+          }
+        ],
+        "parent": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃x : ℕ⦄, x ∈ Set.Icc 0 d → 0 ≤ x ∧ x ≤ d + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Nat.le_succ",
+        "Nat.le_trans"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+      "id": "local_351",
+      "conclusion": {
+        "statement": "Set.Icc 0 d ⊆ Set.Icc 0 (d + 1)",
+        "origin": "derived",
+        "name": "hsubset",
+        "fvar_id": "_uniq.1202868"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ξ 0 ≠ ξ (d + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+        "Nat.instCanonicallyOrderedAdd",
+        "Nat.instIsOrderedAddMonoid",
+        "Nat.instIsOrderedCancelAddMonoid",
+        "Nat.succ_ne_zero",
+        "Ne.symm",
+        "Set.InjOn.ne",
+        "Set.mem_Icc._simp_1",
+        "Std.le_refl._simp_1",
+        "and_self",
+        "congr",
+        "congrArg",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "instReflLe",
+        "le_add_iff_nonneg_left._simp_1",
+        "of_eq_true",
+        "zero_le._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "Set.InjOn ξ (Set.Icc 0 (d + 1))",
+          "origin": "local_assumption",
+          "name": "hξ",
+          "fvar_id": "_uniq.1201615"
+        }
+      ],
+      "parent": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+      "id": "local_352",
+      "conclusion": {
+        "statement": "ξ 0 ≠ ξ (d + 1)",
+        "origin": "derived",
+        "name": "hne",
+        "fvar_id": "_uniq.1205858"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_19390104429fa091/proofs.lean",
+    "namespace": "Rollout_p2889_newton_sum_identity",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+    "proof_sha256": "0dedc31d2fbe09ed290221a5430e1740962d88440287f7d90c9f87d65121ad6c"
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+      "manifest": [
+        {
+          "statement": "∀ (α : G), 1 ≤ ρ α",
+          "origin": "manifest",
+          "name": "hρ_lower",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "ρ 1 = 1",
+          "origin": "manifest",
+          "name": "hρ_one",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (α : G), ρ α⁻¹ = ρ α",
+          "origin": "manifest",
+          "name": "hρ_inv",
+          "fvar_id": "5"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "((∀ (α : G),\n      1 ≤\n        (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α) ∧\n    (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ 1 =\n        1 ∧\n      (∀ (α : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α⁻¹ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α) ∧\n        ∀ (α β : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ (α * β) ≤\n            max\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ α)\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ β)) ∧\n  (∀ (α : G),\n      (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α ≤\n        (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ\n          α) ∧\n    (∀ (σ : G → ℝ),\n        ((∀ (α : G), 1 ≤ σ α) ∧ σ 1 = 1 ∧ (∀ (α : G), σ α⁻¹ = σ α) ∧ ∀ (α β : G), σ (α * β) ≤ max (σ α) (σ β)) →\n          (∀ (α : G), σ α ≤ ρ α) →\n            ∀ (α : G),\n              σ α ≤\n                (fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ α) ∧\n      (ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ ↔\n          (∀ (α : G), 1 ≤ ρ α) ∧ ρ 1 = 1 ∧ (∀ (α : G), ρ α⁻¹ = ρ α) ∧ ∀ (α β : G), ρ (α * β) ≤ max (ρ α) (ρ β)) ∧\n        (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ((fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ρ) ∧\n          (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) ∧\n            (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "((∀ (α : G),\n      1 ≤\n        (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α) ∧\n    (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ 1 =\n        1 ∧\n      (∀ (α : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α⁻¹ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α) ∧\n        ∀ (α β : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ (α * β) ≤\n            max\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ α)\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ β)) ∧\n  (∀ (α : G),\n      (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α ≤\n        (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ\n          α) ∧\n    (∀ (σ : G → ℝ),\n        ((∀ (α : G), 1 ≤ σ α) ∧ σ 1 = 1 ∧ (∀ (α : G), σ α⁻¹ = σ α) ∧ ∀ (α β : G), σ (α * β) ≤ max (σ α) (σ β)) →\n          (∀ (α : G), σ α ≤ ρ α) →\n            ∀ (α : G),\n              σ α ≤\n                (fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ α) ∧\n      (ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ ↔\n          (∀ (α : G), 1 ≤ ρ α) ∧ ρ 1 = 1 ∧ (∀ (α : G), ρ α⁻¹ = ρ α) ∧ ∀ (α β : G), ρ (α * β) ≤ max (ρ α) (ρ β)) ∧\n        (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ((fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ρ) ∧\n          (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) ∧\n            (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "Eq.trans",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_heightEnvOne_eq_heightEnvInf",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_inv",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_le_heightEnvOne",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf",
+          "Rollout_p2227_strongmetricenvelopeofheight.strong_le_heightEnvInf",
+          "congrArg"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (α : G), 1 ≤ ρ α",
+            "origin": "local_assumption",
+            "name": "hρ_lower",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "ρ 1 = 1",
+            "origin": "local_assumption",
+            "name": "hρ_one",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "∀ (α : G), ρ α⁻¹ = ρ α",
+            "origin": "local_assumption",
+            "name": "hρ_inv",
+            "fvar_id": "5"
+          }
+        ],
+        "parent": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "((∀ (α : G),\n      1 ≤\n        (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α) ∧\n    (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ 1 =\n        1 ∧\n      (∀ (α : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α⁻¹ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α) ∧\n        ∀ (α β : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ (α * β) ≤\n            max\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ α)\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ β)) ∧\n  (∀ (α : G),\n      (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α ≤\n        (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ\n          α) ∧\n    (∀ (σ : G → ℝ),\n        ((∀ (α : G), 1 ≤ σ α) ∧ σ 1 = 1 ∧ (∀ (α : G), σ α⁻¹ = σ α) ∧ ∀ (α β : G), σ (α * β) ≤ max (σ α) (σ β)) →\n          (∀ (α : G), σ α ≤ ρ α) →\n            ∀ (α : G),\n              σ α ≤\n                (fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ α) ∧\n      (ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ ↔\n          (∀ (α : G), 1 ≤ ρ α) ∧ ρ 1 = 1 ∧ (∀ (α : G), ρ α⁻¹ = ρ α) ∧ ∀ (α β : G), ρ (α * β) ≤ max (ρ α) (ρ β)) ∧\n        (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ((fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ρ) ∧\n          (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) ∧\n            (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "heightEnvInf ρ = heightEnvInf (heightEnvOne ρ)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_heightEnvOne_eq_heightEnvInf"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : G), 1 ≤ ρ α",
+          "origin": "local_assumption",
+          "name": "hρ_lower",
+          "fvar_id": "_uniq.1163021"
+        },
+        {
+          "statement": "ρ 1 = 1",
+          "origin": "local_assumption",
+          "name": "hρ_one",
+          "fvar_id": "_uniq.1163022"
+        }
+      ],
+      "parent": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+      "id": "local_307",
+      "conclusion": {
+        "statement": "heightEnvInf ρ = heightEnvInf (heightEnvOne ρ)",
+        "origin": "derived",
+        "name": "h₁",
+        "fvar_id": "_uniq.1164554"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+        "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : G), 1 ≤ ρ α",
+          "origin": "local_assumption",
+          "name": "hρ_lower",
+          "fvar_id": "_uniq.1163021"
+        },
+        {
+          "statement": "ρ 1 = 1",
+          "origin": "local_assumption",
+          "name": "hρ_one",
+          "fvar_id": "_uniq.1163022"
+        }
+      ],
+      "parent": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+      "id": "local_308",
+      "conclusion": {
+        "statement": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ",
+        "origin": "derived",
+        "name": "h₂",
+        "fvar_id": "_uniq.1164737"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+        "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : G), 1 ≤ ρ α",
+          "origin": "local_assumption",
+          "name": "hρ_lower",
+          "fvar_id": "_uniq.1163021"
+        },
+        {
+          "statement": "ρ 1 = 1",
+          "origin": "local_assumption",
+          "name": "hρ_one",
+          "fvar_id": "_uniq.1163022"
+        }
+      ],
+      "parent": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+      "id": "local_309",
+      "conclusion": {
+        "statement": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ",
+        "origin": "derived",
+        "name": "h₁",
+        "fvar_id": "_uniq.1165005"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "heightEnvInf (heightEnvInf ρ) = heightEnvInf ρ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_eq_self_of_strong",
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+        "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+        "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : G), 1 ≤ ρ α",
+          "origin": "local_assumption",
+          "name": "hρ_lower",
+          "fvar_id": "_uniq.1163021"
+        },
+        {
+          "statement": "ρ 1 = 1",
+          "origin": "local_assumption",
+          "name": "hρ_one",
+          "fvar_id": "_uniq.1163022"
+        }
+      ],
+      "parent": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+      "id": "local_310",
+      "conclusion": {
+        "statement": "heightEnvInf (heightEnvInf ρ) = heightEnvInf ρ",
+        "origin": "derived",
+        "name": "h₂",
+        "fvar_id": "_uniq.1165188"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p2227_strongmetricenvelopeofheight",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+    "proof_sha256": "964d5827dbfe76c5223cd0228076320fa62b8063e8b6c94499060e9ec639c56f"
+  }
+}

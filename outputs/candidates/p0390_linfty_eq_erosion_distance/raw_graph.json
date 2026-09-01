@@ -1,0 +1,155 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0390_linfty_eq_erosion_distance.linfty_eq_erosion_distance",
+      "manifest": [],
+      "local_edges": [],
+      "goal": {
+        "statement": "⨆ x, ENNReal.ofReal |f x - g x| =\n  sInf\n    {d |\n      ∃ ε,\n        d = ↑ε ∧\n          ∀ (a b : ℝ),\n            a < b →\n              g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "⨆ x, ENNReal.ofReal |f x - g x| =\n  sInf\n    {d |\n      ∃ ε,\n        d = ↑ε ∧\n          ∀ (a b : ℝ),\n            a < b →\n              g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "ENNReal.coe_toNNReal",
+          "ENNReal.ofReal_coe_nnreal",
+          "ENNReal.ofReal_le_coe",
+          "ENNReal.ofReal_le_ofReal",
+          "Eq.symm",
+          "Iff.mp",
+          "Iff.mpr",
+          "Rollout_p0390_linfty_eq_erosion_distance.erosion_iff_pointwise",
+          "congrArg",
+          "iSup_le",
+          "le_antisymm",
+          "le_iSup",
+          "le_sInf",
+          "le_top",
+          "sInf_le"
+        ],
+        "premises": [],
+        "parent": "Rollout_p0390_linfty_eq_erosion_distance.linfty_eq_erosion_distance",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "⨆ x, ENNReal.ofReal |f x - g x| =\n  sInf\n    {d |\n      ∃ ε,\n        d = ↑ε ∧\n          ∀ (a b : ℝ),\n            a < b →\n              g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "|f x - g x| ≤ ↑ε",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Rollout_p0390_linfty_eq_erosion_distance.erosion_iff_pointwise"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b : ℝ),\n  a < b → g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)",
+          "origin": "local_assumption",
+          "name": "hE",
+          "fvar_id": "_uniq.779611"
+        }
+      ],
+      "parent": "Rollout_p0390_linfty_eq_erosion_distance.linfty_eq_erosion_distance",
+      "id": "local_78",
+      "conclusion": {
+        "statement": "|f x - g x| ≤ ↑ε",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.779800"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ENNReal.ofReal |f x - g x| ≤ ↑L.toNNReal",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.coe_toNNReal",
+        "congrArg",
+        "le_iSup"
+      ],
+      "premises": [
+        {
+          "statement": "¬L = ⊤",
+          "origin": "local_assumption",
+          "name": "hL",
+          "fvar_id": "_uniq.780097"
+        }
+      ],
+      "parent": "Rollout_p0390_linfty_eq_erosion_distance.linfty_eq_erosion_distance",
+      "id": "local_81",
+      "conclusion": {
+        "statement": "ENNReal.ofReal |f x - g x| ≤ ↑L.toNNReal",
+        "origin": "derived",
+        "name": "hxE",
+        "fvar_id": "_uniq.780813"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p0390_linfty_eq_erosion_distance",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0390_linfty_eq_erosion_distance.linfty_eq_erosion_distance",
+    "proof_sha256": "deefde5b92869d0933b3be406052bb581b3cd1d21e4d80c11cfb23781d849cf0"
+  }
+}

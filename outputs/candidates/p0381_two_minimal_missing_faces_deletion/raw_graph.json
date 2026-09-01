@@ -1,0 +1,466 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "manifest": [
+        {
+          "statement": "IsLowerSet K",
+          "origin": "manifest",
+          "name": "hK_downward",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ ⦃S : Set ℕ⦄, S ∈ K → S ⊆ Set.Icc 1 m",
+          "origin": "manifest",
+          "name": "hK_vertices",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "I ≠ J",
+          "origin": "manifest",
+          "name": "hIJ",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (S : Set ℕ), Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) S ↔ S = I ∨ S = J",
+          "origin": "manifest",
+          "name": "hmissing",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "I ∪ J = Set.Icc 1 m",
+          "origin": "manifest",
+          "name": "hunion",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "(I ∩ J).Nonempty",
+          "origin": "manifest",
+          "name": "hinter",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "w ∈ I ∩ J",
+          "origin": "manifest",
+          "name": "hw",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "S ⊆ Set.Icc 1 m \\ {w}",
+          "origin": "manifest",
+          "name": "hS",
+          "fvar_id": "13"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "S ∈ K",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "S ∈ K",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Classical.byContradiction",
+          "HasSubset.Subset.trans",
+          "Iff.mp",
+          "LE.le.trans",
+          "Set.Finite.exists_minimal",
+          "Set.Finite.powerset",
+          "Set.Finite.subset",
+          "Set.diff_subset",
+          "Set.finite_Icc",
+          "Set.instIsTransSubset",
+          "Set.instReflSubset",
+          "congrArg",
+          "instIsTransLe",
+          "subset_rfl"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (S : Set ℕ), Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) S ↔ S = I ∨ S = J",
+            "origin": "local_assumption",
+            "name": "hmissing",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "w ∈ I ∩ J",
+            "origin": "local_assumption",
+            "name": "hw",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "S ⊆ Set.Icc 1 m \\ {w}",
+            "origin": "local_assumption",
+            "name": "hS",
+            "fvar_id": "13"
+          }
+        ],
+        "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "S ∈ K",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "T ⊆ Set.Icc 1 m ∧ T ∉ K ∧ T ⊆ S",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "LE.le.trans"
+      ],
+      "premises": [
+        {
+          "statement": "Minimal (fun x => x ∈ C) L",
+          "origin": "local_assumption",
+          "name": "hLminC",
+          "fvar_id": "_uniq.636964"
+        },
+        {
+          "statement": "T ⊆ Set.Icc 1 m ∧ T ∉ K",
+          "origin": "local_assumption",
+          "name": "hT",
+          "fvar_id": "_uniq.637248"
+        },
+        {
+          "statement": "T ≤ L",
+          "origin": "local_assumption",
+          "name": "hTL",
+          "fvar_id": "_uniq.637251"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_37",
+      "conclusion": {
+        "statement": "T ∈ C",
+        "origin": "derived",
+        "name": "hTC",
+        "fvar_id": "_uniq.637374"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w ∈ L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "w ∈ I ∩ J",
+          "origin": "local_assumption",
+          "name": "hw",
+          "fvar_id": "_uniq.635676"
+        },
+        {
+          "statement": "L = I",
+          "origin": "local_assumption",
+          "name": "hLI",
+          "fvar_id": "_uniq.637482"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_38",
+      "conclusion": {
+        "statement": "w ∈ L",
+        "origin": "derived",
+        "name": "hwL",
+        "fvar_id": "_uniq.637618"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w ∈ S",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "Minimal (fun x => x ∈ C) L",
+          "origin": "local_assumption",
+          "name": "hLminC",
+          "fvar_id": "_uniq.636964"
+        },
+        {
+          "statement": "w ∈ L",
+          "origin": "derived",
+          "name": "hwL",
+          "fvar_id": "_uniq.637618"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_39",
+      "conclusion": {
+        "statement": "w ∈ S",
+        "origin": "derived",
+        "name": "hwS",
+        "fvar_id": "_uniq.637756"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "S ⊆ Set.Icc 1 m",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "HasSubset.Subset.trans",
+        "Set.diff_subset",
+        "Set.instIsTransSubset"
+      ],
+      "premises": [
+        {
+          "statement": "S ⊆ Set.Icc 1 m \\ {w}",
+          "origin": "local_assumption",
+          "name": "hS",
+          "fvar_id": "_uniq.635683"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_41",
+      "conclusion": {
+        "statement": "S ⊆ Set.Icc 1 m",
+        "origin": "derived",
+        "name": "hSV",
+        "fvar_id": "_uniq.636734"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "C.Finite",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Set.Finite.powerset",
+        "Set.Finite.subset",
+        "Set.finite_Icc"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_42",
+      "conclusion": {
+        "statement": "C.Finite",
+        "origin": "derived",
+        "name": "hCfinite",
+        "fvar_id": "_uniq.636744"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ x, x ∈ C",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.instReflSubset",
+        "subset_rfl"
+      ],
+      "premises": [
+        {
+          "statement": "S ∉ K",
+          "origin": "local_assumption",
+          "name": "hSK",
+          "fvar_id": "_uniq.636439"
+        },
+        {
+          "statement": "S ⊆ Set.Icc 1 m",
+          "origin": "derived",
+          "name": "hSV",
+          "fvar_id": "_uniq.636734"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_43",
+      "conclusion": {
+        "statement": "C.Nonempty",
+        "origin": "derived",
+        "name": "hCnonempty",
+        "fvar_id": "_uniq.636801"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) L ∧ ∀ ⦃y : Set ℕ⦄, (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) y → y ≤ L → L ≤ y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "LE.le.trans"
+      ],
+      "premises": [
+        {
+          "statement": "Minimal (fun x => x ∈ C) L",
+          "origin": "local_assumption",
+          "name": "hLminC",
+          "fvar_id": "_uniq.636964"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_44",
+      "conclusion": {
+        "statement": "Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) L",
+        "origin": "derived",
+        "name": "hLmin",
+        "fvar_id": "_uniq.637208"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w ∈ L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "w ∈ I ∩ J",
+          "origin": "local_assumption",
+          "name": "hw",
+          "fvar_id": "_uniq.635676"
+        },
+        {
+          "statement": "L = J",
+          "origin": "local_assumption",
+          "name": "hLJ",
+          "fvar_id": "_uniq.637487"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_45",
+      "conclusion": {
+        "statement": "w ∈ L",
+        "origin": "derived",
+        "name": "hwL",
+        "fvar_id": "_uniq.637885"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w ∈ S",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "Minimal (fun x => x ∈ C) L",
+          "origin": "local_assumption",
+          "name": "hLminC",
+          "fvar_id": "_uniq.636964"
+        },
+        {
+          "statement": "w ∈ L",
+          "origin": "derived",
+          "name": "hwL",
+          "fvar_id": "_uniq.637885"
+        }
+      ],
+      "parent": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+      "id": "local_46",
+      "conclusion": {
+        "statement": "w ∈ S",
+        "origin": "derived",
+        "name": "hwS",
+        "fvar_id": "_uniq.638023"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p0381_two_minimal_missing_faces_deletion",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+    "proof_sha256": "688574ff63a98dba3908ff93b2258bc637f331384487238fbd5f3a16f1a161d8"
+  }
+}

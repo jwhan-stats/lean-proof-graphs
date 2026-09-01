@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hcases_b7eda7d2" [shape=box, color="#178F82", label="hcases\nt = 3 ∧ (4 ≤ d ∨ d = 3 ∧ q 1 = 1 ∨ d = 2 ∧ q 1 = 1 ∧ q 2 = 1) ∨ t = 4 ∧ 3 ≤ d ∧ q 1 = 1 ∧ q 2 = 1 ∧ q 3 = 1"];
+  "m_hcoprime_78b2abfe" [shape=box, color="#178F82", label="hcoprime\n∀ (i : ℕ), 1 ≤ i → i ≤ t → (n i).Coprime (q i)"];
+  "m_he_a36e69b0" [shape=box, color="#178F82", label="he\n0 < ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i)"];
+  "m_hn_828b1919" [shape=box, color="#178F82", label="hn\n∀ (i : ℕ), 1 ≤ i → i ≤ t → 2 ≤ n i"];
+  "m_hq_lt_14df4a98" [shape=box, color="#178F82", label="hq_lt\n∀ (i : ℕ), 1 ≤ i → i ≤ t → q i < n i"];
+  "m_hq_pos_aad19b8f" [shape=box, color="#178F82", label="hq_pos\n∀ (i : ℕ), 1 ≤ i → i ≤ t → 1 ≤ q i"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet e := ↑d - ∑ i ∈ Finset.Icc 1 t, ↑(q i) / ↑(n i); let χ := -2 + ∑ i ∈ Finset.Icc 1 t, (1 - 1 / ↑(n i)); χ / e < 1"];
+  "r_h_goal" [shape=diamond, label="Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_div_lt_one_rat + Rollout_p0194_seifert_chi_div_e_lt_one.seifert_nat_inv_pos_rat + div_lt_one", color="#D97706"];
+  "m_hn_828b1919" -> "r_h_goal";
+  "m_hq_pos_aad19b8f" -> "r_h_goal";
+  "m_hq_lt_14df4a98" -> "r_h_goal";
+  "m_hcoprime_78b2abfe" -> "r_h_goal";
+  "m_he_a36e69b0" -> "r_h_goal";
+  "m_hcases_b7eda7d2" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

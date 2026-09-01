@@ -1,0 +1,1741 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1662_binary_quadratic_form_volume_identity",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1662,
+    "source": "0705.3271",
+    "theorem_name": "binary_quadratic_form_volume_identity",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1662",
+    "reconstructed_proof": "../../candidates/p1662_binary_quadratic_form_volume_identity/proof.lean",
+    "raw_elaboration": "../../candidates/p1662_binary_quadratic_form_volume_identity/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+    "verification_call_id": "verify_submission:21",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "36740eb1859b61cc84e98c0fba8102c8ee8ee7c1504f40a8dff4ff09d88d2761",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "reviewed_edge_theorems",
+    "concrete_semantic_certificate_sha256": "53094e3712b1e6d40889ae7d81ec03e0b180c249efa3a33fa7789a122d26f766",
+    "concrete_semantic_topology_sha256": "36740eb1859b61cc84e98c0fba8102c8ee8ee7c1504f40a8dff4ff09d88d2761"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_af222fd2",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "10",
+      "statement": "0 < a"
+    },
+    {
+      "id": "m_hc_35e6ec75",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc",
+      "lean_fvar_id": "11",
+      "statement": "c < 0"
+    },
+    {
+      "id": "m_hdisc_e6aa245d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hdisc",
+      "lean_fvar_id": "9",
+      "statement": "b ^ 2 - 4 * a * c = D"
+    },
+    {
+      "id": "m_hdmod_c517d28c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hDmod",
+      "lean_fvar_id": "8",
+      "statement": "D % 4 = 0 ∨ D % 4 = 1"
+    },
+    {
+      "id": "m_hdnsq_f23f5ff6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hDnsq",
+      "lean_fvar_id": "7",
+      "statement": "¬IsSquare D"
+    },
+    {
+      "id": "m_hdpos_b27935e5",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hDpos",
+      "lean_fvar_id": "6",
+      "statement": "0 < D"
+    },
+    {
+      "id": "m_hlampos_1957c8ea",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hlampos",
+      "lean_fvar_id": "14",
+      "statement": "0 < lam"
+    },
+    {
+      "id": "m_hlamroot_d22c7a90",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hlamroot",
+      "lean_fvar_id": "13",
+      "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0"
+    },
+    {
+      "id": "m_hlamunique_9597c6bc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hlamunique",
+      "lean_fvar_id": "15",
+      "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑b * x + ↑c = 0 → x = lam"
+    },
+    {
+      "id": "m_hmupos_7d6083b3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hmupos",
+      "lean_fvar_id": "17",
+      "statement": "0 < mu"
+    },
+    {
+      "id": "m_hmuroot_6ad3239c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hmuroot",
+      "lean_fvar_id": "16",
+      "statement": "↑a * mu ^ 2 + ↑(-2 * a - b) * mu + ↑(a + b + c) = 0"
+    },
+    {
+      "id": "m_hmuunique_7ad48811",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hmuunique",
+      "lean_fvar_id": "18",
+      "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑(-2 * a - b) * x + ↑(a + b + c) = 0 → x = mu"
+    },
+    {
+      "id": "m_hsum_5d2bca3f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hsum",
+      "lean_fvar_id": "12",
+      "statement": "a + b + c < 0"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) + ↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) = 4 * ↑a + ↑b + ↑b ^ 2 / ↑a + ↑a * ↑b / ↑c - 2 * ↑c - ↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)"
+    },
+    {
+      "id": "n_ha_172281e0",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hA",
+      "lean_fvar_id": "19",
+      "statement": "0 < ↑a"
+    },
+    {
+      "id": "n_hane_4404e7ad",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hAne",
+      "lean_fvar_id": "28",
+      "statement": "↑a ≠ 0"
+    },
+    {
+      "id": "n_hc_1f29c528",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hC",
+      "lean_fvar_id": "20",
+      "statement": "↑c < 0"
+    },
+    {
+      "id": "n_hcdiv_5e02fb5a",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hcdiv",
+      "lean_fvar_id": "32",
+      "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam"
+    },
+    {
+      "id": "n_hcne_1f36fc01",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hCne",
+      "lean_fvar_id": "30",
+      "statement": "↑c ≠ 0"
+    },
+    {
+      "id": "n_hfmu_3fb6afe1",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hfmu",
+      "lean_fvar_id": "36",
+      "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c"
+    },
+    {
+      "id": "n_hlamgt_3e86b0ea",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hlamgt",
+      "lean_fvar_id": "22",
+      "statement": "1 < lam"
+    },
+    {
+      "id": "n_hlamne_b921cc69",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hlamne",
+      "lean_fvar_id": "29",
+      "statement": "lam ≠ 0"
+    },
+    {
+      "id": "n_hmlin_331e8443",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmlin",
+      "lean_fvar_id": "33",
+      "statement": "mu = lam + 1 + ↑b / ↑a"
+    },
+    {
+      "id": "n_hmu_at_one_006791eb",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmu_at_one",
+      "lean_fvar_id": "24",
+      "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0"
+    },
+    {
+      "id": "n_hmu_gt_342f2376",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmu_gt",
+      "lean_fvar_id": "25",
+      "statement": "1 < mu"
+    },
+    {
+      "id": "n_hmurootr_2d37093e",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmurootR",
+      "lean_fvar_id": "23",
+      "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0"
+    },
+    {
+      "id": "n_hmuunique_585d610d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmuunique'",
+      "lean_fvar_id": "26",
+      "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu"
+    },
+    {
+      "id": "n_hquad_9f3be3cd",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hquad",
+      "lean_fvar_id": "37",
+      "statement": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c"
+    },
+    {
+      "id": "n_hrc_c12a5f2e",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hrC",
+      "lean_fvar_id": "38",
+      "statement": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c"
+    },
+    {
+      "id": "n_hrd_6affc586",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hrD",
+      "lean_fvar_id": "39",
+      "statement": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) = -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)"
+    },
+    {
+      "id": "n_hrel_1df830c5",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hrel",
+      "lean_fvar_id": "27",
+      "statement": "1 - ↑c / (↑a * lam) = mu"
+    },
+    {
+      "id": "n_hsumne_7cebab5e",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsumne",
+      "lean_fvar_id": "31",
+      "statement": "↑a + ↑b + ↑c ≠ 0"
+    },
+    {
+      "id": "n_hsumr_23e7495e",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsumR",
+      "lean_fvar_id": "21",
+      "statement": "↑a + ↑b + ↑c < 0"
+    },
+    {
+      "id": "n_hvlam_b37c3b2d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hVlam",
+      "lean_fvar_id": "34",
+      "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) = ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)"
+    },
+    {
+      "id": "n_hvmu_b59951f6",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hVmu",
+      "lean_fvar_id": "35",
+      "statement": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) = ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) - ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_ha",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_af222fd2"
+      ],
+      "conclusion": "n_ha_172281e0",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_19",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hA : 0 < (a : ℝ) := by exact_mod_cast ha",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "ha",
+              "statement": "0 < a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "19",
+            "name": "hA",
+            "statement": "0 < ↑a"
+          }
+        },
+        "lean_dependency_sha256": "624fc394dacfc8c0082e6424eaf755ae2a46a146fa254770077c745795e46f6d",
+        "kernel_witness_check": {
+          "proof_type": "0 < ↑a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hc",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hc_35e6ec75"
+      ],
+      "conclusion": "n_hc_1f29c528",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hC : (c : ℝ) < 0 := by exact_mod_cast hc",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "11",
+              "name": "hc",
+              "statement": "c < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hC",
+            "statement": "↑c < 0"
+          }
+        },
+        "lean_dependency_sha256": "bc260f9b802bb3f2d233fd931926776f01803b81961d6ed6fe6d6e93066396de",
+        "kernel_witness_check": {
+          "proof_type": "↑c < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hsumr",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hsum_5d2bca3f"
+      ],
+      "conclusion": "n_hsumr_23e7495e",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsumR : (a : ℝ) + (b : ℝ) + (c : ℝ) < 0 := by exact_mod_cast hsum",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "12",
+              "name": "hsum",
+              "statement": "a + b + c < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "hsumR",
+            "statement": "↑a + ↑b + ↑c < 0"
+          }
+        },
+        "lean_dependency_sha256": "6f780eebc3b24b0212f40e0c4f3920cca5817df72f96a8a899a0b20542a01602",
+        "kernel_witness_check": {
+          "proof_type": "↑a + ↑b + ↑c < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hlamgt",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlamroot_d22c7a90",
+        "m_hlampos_1957c8ea",
+        "n_ha_172281e0",
+        "n_hc_1f29c528",
+        "n_hsumr_23e7495e"
+      ],
+      "conclusion": "n_hlamgt_3e86b0ea",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "quadratic_root_gt_one",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hlamgt : 1 < lam :=\n    quadratic_root_gt_one hA hC hsumR hlampos hlamroot",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hlamroot",
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hlampos",
+              "statement": "0 < lam"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hA",
+              "statement": "0 < ↑a"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hC",
+              "statement": "↑c < 0"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hsumR",
+              "statement": "↑a + ↑b + ↑c < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hlamgt",
+            "statement": "1 < lam"
+          }
+        },
+        "lean_dependency_sha256": "15d54053a43a5c4708ed4e07bb14de055a4f288aa33a14c2eee827ba873d939d",
+        "kernel_witness_check": {
+          "proof_type": "1 < lam",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hmurootr",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hmuroot_6ad3239c"
+      ],
+      "conclusion": "n_hmurootr_2d37093e",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring_nf",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_23",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmurootR :\n      (a : ℝ) * mu ^ 2 + (-2 * (a : ℝ) - (b : ℝ)) * mu +\n        ((a : ℝ) + (b : ℝ) + (c : ℝ)) = 0 := by\n    push_cast at hmuroot\n    convert hmuroot using 1 <;> ring_nf",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "16",
+              "name": "hmuroot",
+              "statement": "↑a * mu ^ 2 + ↑(-2 * a - b) * mu + ↑(a + b + c) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "23",
+            "name": "hmurootR",
+            "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0"
+          }
+        },
+        "lean_dependency_sha256": "33458d72a47b98a21009b0f4c469cf35c4657131961fc3aaf5a9dd1470fd67fa",
+        "kernel_witness_check": {
+          "proof_type": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hmu_at_one",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hc_1f29c528"
+      ],
+      "conclusion": "n_hmu_at_one_006791eb",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring + exact + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_24",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmu_at_one :\n      (a : ℝ) + (-2 * (a : ℝ) - (b : ℝ)) +\n        ((a : ℝ) + (b : ℝ) + (c : ℝ)) < 0 := by\n    have : (a : ℝ) + (-2 * (a : ℝ) - (b : ℝ)) +\n        ((a : ℝ) + (b : ℝ) + (c : ℝ)) = (c : ℝ) := by ring\n    rw [this]\n    exact hC",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "20",
+              "name": "hC",
+              "statement": "↑c < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "24",
+            "name": "hmu_at_one",
+            "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0"
+          }
+        },
+        "lean_dependency_sha256": "aaf29c761fe24003de4c256153823a551fd9b2564de7379c0696ce025ef5dd40",
+        "kernel_witness_check": {
+          "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hmu_gt",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hmupos_7d6083b3",
+        "n_ha_172281e0",
+        "n_hsumr_23e7495e",
+        "n_hmurootr_2d37093e",
+        "n_hmu_at_one_006791eb"
+      ],
+      "conclusion": "n_hmu_gt_342f2376",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "quadratic_root_gt_one",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_25",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmu_gt : 1 < mu :=\n    quadratic_root_gt_one hA hsumR hmu_at_one hmupos hmurootR",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hmupos",
+              "statement": "0 < mu"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hA",
+              "statement": "0 < ↑a"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hsumR",
+              "statement": "↑a + ↑b + ↑c < 0"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hmurootR",
+              "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0"
+            },
+            {
+              "fvar_id": "24",
+              "name": "hmu_at_one",
+              "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "25",
+            "name": "hmu_gt",
+            "statement": "1 < mu"
+          }
+        },
+        "lean_dependency_sha256": "041a6c55e283a39dad775f941cb2a1f7385967123b8f263e22ceae09b6f97baa",
+        "kernel_witness_check": {
+          "proof_type": "1 < mu",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hmuunique",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hmuunique_7ad48811"
+      ],
+      "conclusion": "n_hmuunique_585d610d",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_26",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "18",
+              "name": "hmuunique",
+              "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑(-2 * a - b) * x + ↑(a + b + c) = 0 → x = mu"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "26",
+            "name": "hmuunique'",
+            "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu"
+          }
+        },
+        "lean_dependency_sha256": "85953544c9a3711b94e13572dadb715c525a1cdbd9a5cd277035ee9582e55cee",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hrel",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlamroot_d22c7a90",
+        "m_hlampos_1957c8ea",
+        "n_ha_172281e0",
+        "n_hc_1f29c528",
+        "n_hmuunique_585d610d"
+      ],
+      "conclusion": "n_hrel_1df830c5",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "transformed_root_relation",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.transformed_root_relation"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.transformed_root_relation"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_27",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hrel : 1 - (c : ℝ) / ((a : ℝ) * lam) = mu :=\n    transformed_root_relation hA hC hlampos hlamroot hmuunique'",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hlamroot",
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hlampos",
+              "statement": "0 < lam"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hA",
+              "statement": "0 < ↑a"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hC",
+              "statement": "↑c < 0"
+            },
+            {
+              "fvar_id": "26",
+              "name": "hmuunique'",
+              "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "27",
+            "name": "hrel",
+            "statement": "1 - ↑c / (↑a * lam) = mu"
+          }
+        },
+        "lean_dependency_sha256": "9c180a9f563588a60979a7fa4ba963c5c05ba7a9dfdcc92c7f292e884e20afa9",
+        "kernel_witness_check": {
+          "proof_type": "1 - ↑c / (↑a * lam) = mu",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hane",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_ha_172281e0"
+      ],
+      "conclusion": "n_hane_4404e7ad",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ne_of_gt",
+        "items": [
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_28",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hAne : (a : ℝ) ≠ 0 := ne_of_gt hA",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "19",
+              "name": "hA",
+              "statement": "0 < ↑a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "28",
+            "name": "hAne",
+            "statement": "↑a ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "06fb8f4efe70307fbf8876e1c76f09c29cff56ebb37fb2b9c086e328001faf31",
+        "kernel_witness_check": {
+          "proof_type": "↑a ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hlamne",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlampos_1957c8ea"
+      ],
+      "conclusion": "n_hlamne_b921cc69",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ne_of_gt",
+        "items": [
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_29",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hlamne : lam ≠ 0 := ne_of_gt hlampos",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "14",
+              "name": "hlampos",
+              "statement": "0 < lam"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "29",
+            "name": "hlamne",
+            "statement": "lam ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "958af54282bc6c9bca189765cd760a3b86b20d30a5378bc14bb2de294ee48c7b",
+        "kernel_witness_check": {
+          "proof_type": "lam ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hcne",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hc_1f29c528"
+      ],
+      "conclusion": "n_hcne_1f36fc01",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ne_of_lt",
+        "items": [
+          "ne_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ne_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_30",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hCne : (c : ℝ) ≠ 0 := ne_of_lt hC",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "20",
+              "name": "hC",
+              "statement": "↑c < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "30",
+            "name": "hCne",
+            "statement": "↑c ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "bc7b8fa4f329739e48705d28e6d7a3d901456cc63c57fd27b72a2c90daf7b7cd",
+        "kernel_witness_check": {
+          "proof_type": "↑c ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hsumne",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hsumr_23e7495e"
+      ],
+      "conclusion": "n_hsumne_7cebab5e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ne_of_lt",
+        "items": [
+          "ne_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ne_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_31",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsumne : (a : ℝ) + (b : ℝ) + (c : ℝ) ≠ 0 := ne_of_lt hsumR",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "21",
+              "name": "hsumR",
+              "statement": "↑a + ↑b + ↑c < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "31",
+            "name": "hsumne",
+            "statement": "↑a + ↑b + ↑c ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "9625f142dd38900cbdf00a2baaef1cd6e327140ea21d370bedd5634707510dee",
+        "kernel_witness_check": {
+          "proof_type": "↑a + ↑b + ↑c ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hcdiv",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlamroot_d22c7a90",
+        "n_hane_4404e7ad",
+        "n_hlamne_b921cc69"
+      ],
+      "conclusion": "n_hcdiv_5e02fb5a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "nlinarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_32",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hcdiv : (c : ℝ) / ((a : ℝ) * lam) = -((b : ℝ) / (a : ℝ)) - lam := by\n    field_simp [hAne,hlamne]\n    nlinarith [hlamroot]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hlamroot",
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0"
+            },
+            {
+              "fvar_id": "28",
+              "name": "hAne",
+              "statement": "↑a ≠ 0"
+            },
+            {
+              "fvar_id": "29",
+              "name": "hlamne",
+              "statement": "lam ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "32",
+            "name": "hcdiv",
+            "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam"
+          }
+        },
+        "lean_dependency_sha256": "653b036c62c258d7e1182d4f37f825b85714f693288dcde3e58a01956acf7cb1",
+        "kernel_witness_check": {
+          "proof_type": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hmlin",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hrel_1df830c5",
+        "n_hcdiv_5e02fb5a"
+      ],
+      "conclusion": "n_hmlin_331e8443",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "linarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_33",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmlin : mu = lam + 1 + (b : ℝ) / (a : ℝ) := by\n    linarith [hrel,hcdiv]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "27",
+              "name": "hrel",
+              "statement": "1 - ↑c / (↑a * lam) = mu"
+            },
+            {
+              "fvar_id": "32",
+              "name": "hcdiv",
+              "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "33",
+            "name": "hmlin",
+            "statement": "mu = lam + 1 + ↑b / ↑a"
+          }
+        },
+        "lean_dependency_sha256": "689c399ffa3695c53a468fac1cc7dbaaced5ad26c79f04c36e13c09b0210f429",
+        "kernel_witness_check": {
+          "proof_type": "mu = lam + 1 + ↑b / ↑a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hvlam",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlamroot_d22c7a90",
+        "m_hlampos_1957c8ea",
+        "n_ha_172281e0",
+        "n_hc_1f29c528",
+        "n_hsumr_23e7495e",
+        "n_hlamgt_3e86b0ea"
+      ],
+      "conclusion": "n_hvlam_b37c3b2d",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "quadratic_volume_eq",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_34",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hVlam := quadratic_volume_eq hA hC hsumR hlampos hlamgt hlamroot",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hlamroot",
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hlampos",
+              "statement": "0 < lam"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hA",
+              "statement": "0 < ↑a"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hC",
+              "statement": "↑c < 0"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hsumR",
+              "statement": "↑a + ↑b + ↑c < 0"
+            },
+            {
+              "fvar_id": "22",
+              "name": "hlamgt",
+              "statement": "1 < lam"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "34",
+            "name": "hVlam",
+            "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) = ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)"
+          }
+        },
+        "lean_dependency_sha256": "0aa334d5cfca7ad82c1b4054728f7e8df3a5873ba071c4fb40ed861557be3aab",
+        "kernel_witness_check": {
+          "proof_type": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) =\n  ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hvmu",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hmupos_7d6083b3",
+        "n_ha_172281e0",
+        "n_hsumr_23e7495e",
+        "n_hmurootr_2d37093e",
+        "n_hmu_at_one_006791eb",
+        "n_hmu_gt_342f2376"
+      ],
+      "conclusion": "n_hvmu_b59951f6",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "quadratic_volume_eq",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_35",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hVmu := quadratic_volume_eq hA hsumR hmu_at_one hmupos hmu_gt hmurootR",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hmupos",
+              "statement": "0 < mu"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hA",
+              "statement": "0 < ↑a"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hsumR",
+              "statement": "↑a + ↑b + ↑c < 0"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hmurootR",
+              "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0"
+            },
+            {
+              "fvar_id": "24",
+              "name": "hmu_at_one",
+              "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0"
+            },
+            {
+              "fvar_id": "25",
+              "name": "hmu_gt",
+              "statement": "1 < mu"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "35",
+            "name": "hVmu",
+            "statement": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) = ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) - ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))"
+          }
+        },
+        "lean_dependency_sha256": "f12678e2f77daff5fa85aa65c3adfe07df0dcc47d8198a8ed9e3f65a9a6a9b6c",
+        "kernel_witness_check": {
+          "proof_type": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n    ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_hfmu",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hfmu_3fb6afe1",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_36",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hfmu : (a : ℝ) + (-2 * (a : ℝ) - (b : ℝ)) +\n      ((a : ℝ) + (b : ℝ) + (c : ℝ)) = (c : ℝ) := by ring\n  rw [hfmu] at hVmu",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "36",
+            "name": "hfmu",
+            "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c"
+          }
+        },
+        "lean_dependency_sha256": "0aa84d1be74d46c628462540c0030dd0ea54ce170e530ca054f9dcfe6cfff87d",
+        "kernel_witness_check": {
+          "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_hquad",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlamroot_d22c7a90",
+        "n_hane_4404e7ad",
+        "n_hmlin_331e8443"
+      ],
+      "conclusion": "n_hquad_9f3be3cd",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "quadratic_sum_from_relation",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_sum_from_relation"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_sum_from_relation"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_37",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hquad := quadratic_sum_from_relation hAne hlamroot hmlin",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hlamroot",
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0"
+            },
+            {
+              "fvar_id": "28",
+              "name": "hAne",
+              "statement": "↑a ≠ 0"
+            },
+            {
+              "fvar_id": "33",
+              "name": "hmlin",
+              "statement": "mu = lam + 1 + ↑b / ↑a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "37",
+            "name": "hquad",
+            "statement": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c"
+          }
+        },
+        "lean_dependency_sha256": "58ef3f1f017edca070ae724caa89bbff58be3cfd287ff19d02aedb401bb34f5a",
+        "kernel_witness_check": {
+          "proof_type": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_hrc",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hane_4404e7ad",
+        "n_hcne_1f36fc01",
+        "n_hmlin_331e8443"
+      ],
+      "conclusion": "n_hrc_c12a5f2e",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "rational_c_sum_from_relation",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.rational_c_sum_from_relation"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.rational_c_sum_from_relation"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_38",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hrC := rational_c_sum_from_relation hAne hCne hmlin",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "28",
+              "name": "hAne",
+              "statement": "↑a ≠ 0"
+            },
+            {
+              "fvar_id": "30",
+              "name": "hCne",
+              "statement": "↑c ≠ 0"
+            },
+            {
+              "fvar_id": "33",
+              "name": "hmlin",
+              "statement": "mu = lam + 1 + ↑b / ↑a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "38",
+            "name": "hrC",
+            "statement": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c"
+          }
+        },
+        "lean_dependency_sha256": "d6d85b567549bf12f3e89e5248b208296b33a5a040cef0f40c41b4de910e743a",
+        "kernel_witness_check": {
+          "proof_type": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_021_hrd",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hane_4404e7ad",
+        "n_hsumne_7cebab5e",
+        "n_hmlin_331e8443"
+      ],
+      "conclusion": "n_hrd_6affc586",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "rational_d_sum_from_relation",
+        "items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.rational_d_sum_from_relation"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1662_binary_quadratic_form_volume_identity.rational_d_sum_from_relation"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_39",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hrD := rational_d_sum_from_relation hAne hsumne hmlin\n  rw [hVlam, hVmu]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "28",
+              "name": "hAne",
+              "statement": "↑a ≠ 0"
+            },
+            {
+              "fvar_id": "31",
+              "name": "hsumne",
+              "statement": "↑a + ↑b + ↑c ≠ 0"
+            },
+            {
+              "fvar_id": "33",
+              "name": "hmlin",
+              "statement": "mu = lam + 1 + ↑b / ↑a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "39",
+            "name": "hrD",
+            "statement": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) = -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)"
+          }
+        },
+        "lean_dependency_sha256": "d50b923e517d9089b215551588f9f25d11a168ee15e972ff18cf72f8637f3d95",
+        "kernel_witness_check": {
+          "proof_type": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) =\n  -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hvlam_b37c3b2d",
+        "n_hvmu_b59951f6",
+        "n_hfmu_3fb6afe1",
+        "n_hquad_9f3be3cd",
+        "n_hrc_c12a5f2e",
+        "n_hrd_6affc586"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "      ((a : ℝ) * (lam ^ 2 - lam) + 2 * (a : ℝ) +\n          (a : ℝ) * ((a : ℝ) * lam + (b : ℝ)) / (c : ℝ) -\n          (a : ℝ) * ((a : ℝ) * lam + (a : ℝ) + (b : ℝ)) /\n            ((a : ℝ) + (b : ℝ) + (c : ℝ))) +\n        ((a : ℝ) * (mu ^ 2 - mu) + 2 * (a : ℝ) +\n          (a : ℝ) * ((a : ℝ) * mu + (-2 * (a : ℝ) - (b : ℝ))) /\n            ((a : ℝ) + (b : ℝ) + (c : ℝ)) -\n          (a : ℝ) * ((a : ℝ) * mu + (a : ℝ) + (-2 * (a : ℝ) - (b : ℝ))) /\n            (c : ℝ)) =\n      ((a : ℝ) * (lam ^ 2 - lam) + (a : ℝ) * (mu ^ 2 - mu)) +\n        4 * (a : ℝ) +\n        ((a : ℝ) * ((a : ℝ) * lam + (b : ℝ)) / (c : ℝ) -\n          (a : ℝ) * ((a : ℝ) * mu - (a : ℝ) - (b : ℝ)) / (c : ℝ)) +\n        (- (a : ℝ) * ((a : ℝ) * lam + (a : ℝ) + (b : ℝ)) /\n            ((a : ℝ) + (b : ℝ) + (c : ℝ)) +\n          (a : ℝ) * ((a : ℝ) * mu - 2 * (a : ℝ) - (b : ℝ)) /\n            ((a : ℝ) + (b : ℝ) + (c : ℝ))) := by\n    ring\n  rw [harrange, hquad, hrC, hrD]\n  ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "34",
+              "name": "hVlam",
+              "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) = ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)"
+            },
+            {
+              "fvar_id": "35",
+              "name": "hVmu",
+              "statement": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) = ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) - ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))"
+            },
+            {
+              "fvar_id": "36",
+              "name": "hfmu",
+              "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c"
+            },
+            {
+              "fvar_id": "37",
+              "name": "hquad",
+              "statement": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c"
+            },
+            {
+              "fvar_id": "38",
+              "name": "hrC",
+              "statement": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c"
+            },
+            {
+              "fvar_id": "39",
+              "name": "hrD",
+              "statement": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) = -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) + ↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) = 4 * ↑a + ↑b + ↑b ^ 2 / ↑a + ↑a * ↑b / ↑c - 2 * ↑c - ↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)"
+          }
+        },
+        "lean_dependency_sha256": "fa503c701ad9cdfb78719e004c0ca020a494849ce675ec1cec3d7f63240a180c",
+        "kernel_witness_check": {
+          "proof_type": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) +\n    ↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  4 * ↑a + ↑b + ↑b ^ 2 / ↑a + ↑a * ↑b / ↑c - 2 * ↑c - ↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "(_ * _ < 0 -> 0 < _ -> _ < 0)",
+      "declarations": [
+        "Int.neg_of_mul_neg_left",
+        "Int.neg_of_mul_neg_right"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "neg_of_mul_neg_left",
+      "declarations": [
+        "neg_of_mul_neg_left"
+      ],
+      "call_turn": 4,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "neg_of_mul_neg_right",
+      "declarations": [
+        "neg_of_mul_neg_right"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 30,
+    "selected_hyperedge_count": 22,
+    "main_hyperedge_count": 22,
+    "side_hyperedge_count": 0,
+    "selected_depth": 6,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 6,
+    "manifest_fact_count": 8,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 3,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 3,
+    "accepted_helper_count": 3,
+    "rollout_tool_call_count": 22,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

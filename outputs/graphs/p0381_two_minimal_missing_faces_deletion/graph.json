@@ -1,0 +1,940 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0381_two_minimal_missing_faces_deletion",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 381,
+    "source": "1701.07720",
+    "theorem_name": "two_minimal_missing_faces_deletion",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/381",
+    "reconstructed_proof": "../../candidates/p0381_two_minimal_missing_faces_deletion/proof.lean",
+    "raw_elaboration": "../../candidates/p0381_two_minimal_missing_faces_deletion/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0381_two_minimal_missing_faces_deletion.two_minimal_missing_faces_deletion",
+    "verification_call_id": "verify_submission:8",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "05d1d90c7d2ac7843a9bc9fde3759270e612281999887e2da50afe8bd3dbe0bf",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "ceb25a45d0e1914041cce7c901f3db99e83e6f09a706a570b7a94c72e5a6e20d",
+    "concrete_semantic_topology_sha256": "05d1d90c7d2ac7843a9bc9fde3759270e612281999887e2da50afe8bd3dbe0bf"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hij_e4bd0f54",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hIJ",
+      "lean_fvar_id": "6",
+      "statement": "I ≠ J"
+    },
+    {
+      "id": "m_hinter_2da5dd1a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hinter",
+      "lean_fvar_id": "9",
+      "statement": "(I ∩ J).Nonempty"
+    },
+    {
+      "id": "m_hk_downward_959a9c5b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hK_downward",
+      "lean_fvar_id": "4",
+      "statement": "IsLowerSet K"
+    },
+    {
+      "id": "m_hk_vertices_193943d9",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hK_vertices",
+      "lean_fvar_id": "5",
+      "statement": "∀ ⦃S : Set ℕ⦄, S ∈ K → S ⊆ Set.Icc 1 m"
+    },
+    {
+      "id": "m_hmissing_8fb2f908",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hmissing",
+      "lean_fvar_id": "7",
+      "statement": "∀ (S : Set ℕ), Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) S ↔ S = I ∨ S = J"
+    },
+    {
+      "id": "m_hs_69ea3611",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hS",
+      "lean_fvar_id": "13",
+      "statement": "S ⊆ Set.Icc 1 m \\ {w}"
+    },
+    {
+      "id": "m_hunion_3b38fa9d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hunion",
+      "lean_fvar_id": "8",
+      "statement": "I ∪ J = Set.Icc 1 m"
+    },
+    {
+      "id": "m_hw_c56c86df",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hw",
+      "lean_fvar_id": "11",
+      "statement": "w ∈ I ∩ J"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "S ∈ K"
+    },
+    {
+      "id": "n_hcfinite_ae71980a",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hCfinite",
+      "lean_fvar_id": "_uniq.636744",
+      "statement": "C.Finite"
+    },
+    {
+      "id": "n_hcnonempty_eabf7149",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hCnonempty",
+      "lean_fvar_id": "_uniq.636801",
+      "statement": "C.Nonempty"
+    },
+    {
+      "id": "n_hli_d82a26f6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hLI",
+      "lean_fvar_id": "_uniq.637482",
+      "statement": "L = I"
+    },
+    {
+      "id": "n_hlj_7fc1f4ca",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hLJ",
+      "lean_fvar_id": "_uniq.637487",
+      "statement": "L = J"
+    },
+    {
+      "id": "n_hlmin_9dc65a59",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hLmin",
+      "lean_fvar_id": "_uniq.637208",
+      "statement": "Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) L"
+    },
+    {
+      "id": "n_hlminc_4444e390",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hLminC",
+      "lean_fvar_id": "_uniq.636964",
+      "statement": "Minimal (fun x => x ∈ C) L"
+    },
+    {
+      "id": "n_hs_e57b15b7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hS",
+      "lean_fvar_id": "_uniq.635683",
+      "statement": "S ⊆ Set.Icc 1 m \\ {w}"
+    },
+    {
+      "id": "n_hsk_1110ef15",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hSK",
+      "lean_fvar_id": "_uniq.636439",
+      "statement": "S ∉ K"
+    },
+    {
+      "id": "n_hsv_83b62cb7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSV",
+      "lean_fvar_id": "_uniq.636734",
+      "statement": "S ⊆ Set.Icc 1 m"
+    },
+    {
+      "id": "n_ht_a04e5780",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hT",
+      "lean_fvar_id": "_uniq.637248",
+      "statement": "T ⊆ Set.Icc 1 m ∧ T ∉ K"
+    },
+    {
+      "id": "n_htc_47fe719f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hTC",
+      "lean_fvar_id": "_uniq.637374",
+      "statement": "T ∈ C"
+    },
+    {
+      "id": "n_htl_376c6926",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hTL",
+      "lean_fvar_id": "_uniq.637251",
+      "statement": "T ≤ L"
+    },
+    {
+      "id": "n_hw_6fbd2b86",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hw",
+      "lean_fvar_id": "_uniq.635676",
+      "statement": "w ∈ I ∩ J"
+    },
+    {
+      "id": "n_hwl_16938edb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hwL",
+      "lean_fvar_id": "_uniq.637618",
+      "statement": "w ∈ L"
+    },
+    {
+      "id": "n_hwl_9866b049",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hwL",
+      "lean_fvar_id": "_uniq.637885",
+      "statement": "w ∈ L"
+    },
+    {
+      "id": "n_hws_2eda810a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hwS",
+      "lean_fvar_id": "_uniq.637756",
+      "statement": "w ∈ S"
+    },
+    {
+      "id": "n_hws_dc7d5656",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hwS",
+      "lean_fvar_id": "_uniq.638023",
+      "statement": "w ∈ S"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_htc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hlminc_4444e390",
+        "n_ht_a04e5780",
+        "n_htl_376c6926"
+      ],
+      "conclusion": "n_htc_47fe719f",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_37",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hTC : T ∈ C := by\n        exact ⟨hT.1, hT.2, hTL.trans hLminC.1.2.2⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.636964",
+              "name": "hLminC",
+              "statement": "Minimal (fun x => x ∈ C) L"
+            },
+            {
+              "fvar_id": "_uniq.637248",
+              "name": "hT",
+              "statement": "T ⊆ Set.Icc 1 m ∧ T ∉ K"
+            },
+            {
+              "fvar_id": "_uniq.637251",
+              "name": "hTL",
+              "statement": "T ≤ L"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.637374",
+            "name": "hTC",
+            "statement": "T ∈ C"
+          }
+        },
+        "lean_dependency_sha256": "daad3cbe259be161fa19fcf2984453e27b8f1c5ff4cc7b73777e6e3579108c53",
+        "kernel_witness_check": {
+          "proof_type": "T ⊆ Set.Icc 1 m ∧ T ∉ K ∧ T ⊆ S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hwl",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hw_6fbd2b86",
+        "n_hli_d82a26f6"
+      ],
+      "conclusion": "n_hwl_16938edb",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_38",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.635676",
+              "name": "hw",
+              "statement": "w ∈ I ∩ J"
+            },
+            {
+              "fvar_id": "_uniq.637482",
+              "name": "hLI",
+              "statement": "L = I"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.637618",
+            "name": "hwL",
+            "statement": "w ∈ L"
+          }
+        },
+        "lean_dependency_sha256": "aea14a6c6b90b0b8ceae4c24a9ba67433f9afeb1459c25a9d4b2fa8506cb6c3b",
+        "kernel_witness_check": {
+          "proof_type": "w ∈ L",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hws",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hlminc_4444e390",
+        "n_hwl_16938edb"
+      ],
+      "conclusion": "n_hws_2eda810a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_39",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hwS : w ∈ S := hLminC.1.2.2 hwL",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.636964",
+              "name": "hLminC",
+              "statement": "Minimal (fun x => x ∈ C) L"
+            },
+            {
+              "fvar_id": "_uniq.637618",
+              "name": "hwL",
+              "statement": "w ∈ L"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.637756",
+            "name": "hwS",
+            "statement": "w ∈ S"
+          }
+        },
+        "lean_dependency_sha256": "d0b3b45467f153f2b5880d3b5757b5a4e61aaac58701258c7fc3f49aa9434318",
+        "kernel_witness_check": {
+          "proof_type": "w ∈ S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hsv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hs_e57b15b7"
+      ],
+      "conclusion": "n_hsv_83b62cb7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.diff_subset",
+        "items": [
+          "Set.diff_subset"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.diff_subset"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_41",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hSV : S ⊆ Set.Icc 1 m := hS.trans Set.diff_subset",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.635683",
+              "name": "hS",
+              "statement": "S ⊆ Set.Icc 1 m \\ {w}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.636734",
+            "name": "hSV",
+            "statement": "S ⊆ Set.Icc 1 m"
+          }
+        },
+        "lean_dependency_sha256": "5058e107e302f1fbec3d6f6649e8b97670ba801875c60b96e8dbd5866defa2f3",
+        "kernel_witness_check": {
+          "proof_type": "S ⊆ Set.Icc 1 m",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hcfinite",
+      "class": "side",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hcfinite_ae71980a",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.Finite.subset + Set.finite_Icc",
+        "items": [
+          "Set.Finite.subset",
+          "Set.finite_Icc"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.Finite.subset",
+          "Set.finite_Icc"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_42",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hCfinite : C.Finite := by\n    exact (Set.finite_Icc 1 m).powerset.subset (by\n      intro T hT\n      exact hT.1)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.636744",
+            "name": "hCfinite",
+            "statement": "C.Finite"
+          }
+        },
+        "lean_dependency_sha256": "922f4f3fa37be486e383b9430e1c7048ee79c59310cac626085853041c940ef2",
+        "kernel_witness_check": {
+          "proof_type": "C.Finite",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.Finite.subset"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hcnonempty",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hsk_1110ef15",
+        "n_hsv_83b62cb7"
+      ],
+      "conclusion": "n_hcnonempty_eabf7149",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "subset_rfl",
+        "items": [
+          "subset_rfl"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "subset_rfl"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_43",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hCnonempty : C.Nonempty := by\n    exact ⟨S, hSV, hSK, subset_rfl⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.636439",
+              "name": "hSK",
+              "statement": "S ∉ K"
+            },
+            {
+              "fvar_id": "_uniq.636734",
+              "name": "hSV",
+              "statement": "S ⊆ Set.Icc 1 m"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.636801",
+            "name": "hCnonempty",
+            "statement": "C.Nonempty"
+          }
+        },
+        "lean_dependency_sha256": "876ad939202164db8b9a4ed57fc445a2ee9186f80c243df53a15d0beacfa97b6",
+        "kernel_witness_check": {
+          "proof_type": "∃ x, x ∈ C",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hlmin",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hlminc_4444e390"
+      ],
+      "conclusion": "n_hlmin_9dc65a59",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "constructor + exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_44",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hLmin : Minimal (fun T : Set ℕ => T ⊆ Set.Icc 1 m ∧ T ∉ K) L := by\n    constructor\n    · exact ⟨hLminC.1.1, hLminC.1.2.1⟩\n    · intro T hT hTL\n      have hTC : T ∈ C := by\n        exact ⟨hT.1, hT.2, hTL.trans hLminC.1.2.2⟩\n      exact hLminC.2 hTC hTL",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.636964",
+              "name": "hLminC",
+              "statement": "Minimal (fun x => x ∈ C) L"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.637208",
+            "name": "hLmin",
+            "statement": "Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) L"
+          }
+        },
+        "lean_dependency_sha256": "38c40d0de7260742e8bc19898584c666aecdae38ab5c68486a8b1899acf5e4d0",
+        "kernel_witness_check": {
+          "proof_type": "(fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) L ∧ ∀ ⦃y : Set ℕ⦄, (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) y → y ≤ L → L ≤ y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hwl",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hw_6fbd2b86",
+        "n_hlj_7fc1f4ca"
+      ],
+      "conclusion": "n_hwl_9866b049",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_45",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.635676",
+              "name": "hw",
+              "statement": "w ∈ I ∩ J"
+            },
+            {
+              "fvar_id": "_uniq.637487",
+              "name": "hLJ",
+              "statement": "L = J"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.637885",
+            "name": "hwL",
+            "statement": "w ∈ L"
+          }
+        },
+        "lean_dependency_sha256": "ce62e9b188602a5db643322de4c4c61b27002b0599221a37c02d627d5ec76465",
+        "kernel_witness_check": {
+          "proof_type": "w ∈ L",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hws",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hlminc_4444e390",
+        "n_hwl_9866b049"
+      ],
+      "conclusion": "n_hws_dc7d5656",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_46",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hwS : w ∈ S := hLminC.1.2.2 hwL",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.636964",
+              "name": "hLminC",
+              "statement": "Minimal (fun x => x ∈ C) L"
+            },
+            {
+              "fvar_id": "_uniq.637885",
+              "name": "hwL",
+              "statement": "w ∈ L"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.638023",
+            "name": "hwS",
+            "statement": "w ∈ S"
+          }
+        },
+        "lean_dependency_sha256": "cbff7af722566b84525db6d4d2c610fbf2a2e907c243c62052a8e8af95b370ed",
+        "kernel_witness_check": {
+          "proof_type": "w ∈ S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hmissing_8fb2f908",
+        "m_hw_c56c86df",
+        "m_hs_69ea3611"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.Finite.exists_minimal + Set.Finite.subset + subset_rfl",
+        "items": [
+          "Set.Finite.exists_minimal",
+          "Set.Finite.subset",
+          "subset_rfl"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.Finite.exists_minimal",
+          "Set.Finite.subset",
+          "subset_rfl"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "    exact ⟨S, hSV, hSK, subset_rfl⟩\n  obtain ⟨L, hLminC⟩ := hCfinite.exists_minimal hCnonempty\n  have hLmin : Minimal (fun T : Set ℕ => T ⊆ Set.Icc 1 m ∧ T ∉ K) L := by\n    constructor\n    · exact ⟨hLminC.1.1, hLminC.1.2.1⟩\n    · intro T hT hTL\n      have hTC : T ∈ C := by\n        exact ⟨hT.1, hT.2, hTL.trans hLminC.1.2.2⟩\n      exact hLminC.2 hTC hTL\n  rcases (hmissing L).mp hLmin with hLI | hLJ\n  · have hwL : w ∈ L := by\n      rw [hLI]\n      exact hw.1\n    have hwS : w ∈ S := hLminC.1.2.2 hwL\n    exact (hS hwS).2 rfl\n  · have hwL : w ∈ L := by\n      rw [hLJ]\n      exact hw.2\n    have hwS : w ∈ S := hLminC.1.2.2 hwL\n    exact (hS hwS).2 rfl",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hmissing",
+              "statement": "∀ (S : Set ℕ), Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) S ↔ S = I ∨ S = J"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hw",
+              "statement": "w ∈ I ∩ J"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hS",
+              "statement": "S ⊆ Set.Icc 1 m \\ {w}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "S ∈ K"
+          }
+        },
+        "lean_dependency_sha256": "cf8c27ae41e7c31ef131fe6c89ff171f2f6846ef3048c38ce214efe5e21aab19",
+        "kernel_witness_check": {
+          "proof_type": "S ∈ K",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.Finite.exists_minimal",
+          "Set.Finite.subset"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:2",
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Set.exists_minimal",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "exists_minimal",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "finite set has minimal element satisfying predicate under subset order",
+      "declarations": [
+        "Set.Finite.exists_minimal",
+        "setOf_minimal_subset",
+        "Minimal",
+        "WellFounded.not_lt_min",
+        "Finset.induction_on_min",
+        "Set.Finite.exists_minimalFor'",
+        "Finset.exists_minimalFor",
+        "Finite.Set.subset",
+        "Set.Finite.subset",
+        "Set.Finite.exists_minimalFor"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Minimal (fun _ => _ ⊆ _ ∧ _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Set.Finite.exists_minimal",
+      "declarations": [
+        "Set.Finite.exists_minimal"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 5,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 3,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 9,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

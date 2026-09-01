@@ -1,0 +1,1953 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2763_graded_simple_mul_nonzero",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2763,
+    "source": "1112.5492",
+    "theorem_name": "graded_simple_mul_nonzero",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2763",
+    "reconstructed_proof": "../../candidates/p2763_graded_simple_mul_nonzero/proof.lean",
+    "raw_elaboration": "../../candidates/p2763_graded_simple_mul_nonzero/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2763_graded_simple_mul_nonzero.graded_simple_mul_nonzero",
+    "verification_call_id": "verify_submission:53",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "98405581fdf2d54215726224b23b9ab12382ea5a6b9e50d5bcb9beb5d4539aa7",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "7230d49fffe8507734bd73fe987ad89915e2e9b83c0d3469078fd58992c309ae",
+    "concrete_semantic_topology_sha256": "98405581fdf2d54215726224b23b9ab12382ea5a6b9e50d5bcb9beb5d4539aa7"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_direct_92208337",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_direct",
+      "lean_fvar_id": "10",
+      "statement": "iSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"
+    },
+    {
+      "id": "m_h_mul_4db4c0df",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_mul",
+      "lean_fvar_id": "11",
+      "statement": "∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"
+    },
+    {
+      "id": "m_h_nonzero_mul_86638479",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_nonzero_mul",
+      "lean_fvar_id": "12",
+      "statement": "∃ x y, x * y ≠ 0"
+    },
+    {
+      "id": "m_h_simple_ff075256",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_simple",
+      "lean_fvar_id": "13",
+      "statement": "∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"
+    },
+    {
+      "id": "m_ha0_61865008",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha0",
+      "lean_fvar_id": "20",
+      "statement": "a ≠ 0"
+    },
+    {
+      "id": "m_ha_2f77bd98",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "18",
+      "statement": "a ∈ 𝒜 g"
+    },
+    {
+      "id": "m_hb0_68b0856c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hb0",
+      "lean_fvar_id": "21",
+      "statement": "b ≠ 0"
+    },
+    {
+      "id": "m_hb_60ae060f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hb",
+      "lean_fvar_id": "19",
+      "statement": "b ∈ 𝒜 h"
+    },
+    {
+      "id": "m_inst___proofs_1850184048_1a8267ff",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+      "lean_fvar_id": "7",
+      "statement": "IsScalarTower K A A"
+    },
+    {
+      "id": "m_inst___proofs_1850184048_8eee7ee8",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+      "lean_fvar_id": "8",
+      "statement": "SMulCommClass K A A"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ k, ∃ x ∈ 𝒜 k, a * x * b ≠ 0"
+    },
+    {
+      "id": "n_h_direct_149cbbdd",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h_direct",
+      "lean_fvar_id": "_uniq.4011416",
+      "statement": "iSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"
+    },
+    {
+      "id": "n_h_mul_b7abfb97",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h_mul",
+      "lean_fvar_id": "_uniq.4011417",
+      "statement": "∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"
+    },
+    {
+      "id": "n_h_simple_780c72c2",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h_simple",
+      "lean_fvar_id": "_uniq.4011419",
+      "statement": "∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"
+    },
+    {
+      "id": "n_ha0_4d00016b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha0",
+      "lean_fvar_id": "_uniq.4011426",
+      "statement": "a ≠ 0"
+    },
+    {
+      "id": "n_ha_3ff4368c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.4011424",
+      "statement": "a ∈ 𝒜 g"
+    },
+    {
+      "id": "n_hah_aee967e6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "haH'",
+      "lean_fvar_id": "_uniq.4018508",
+      "statement": "a ∈ ⊥"
+    },
+    {
+      "id": "n_hah_bc8eb92f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "haH",
+      "lean_fvar_id": "_uniq.4016286",
+      "statement": "a ∈ H"
+    },
+    {
+      "id": "n_hazero_96e733c9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hazero",
+      "lean_fvar_id": "_uniq.4018256",
+      "statement": "a = 0"
+    },
+    {
+      "id": "n_hb0_1317edf6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb0",
+      "lean_fvar_id": "_uniq.4011427",
+      "statement": "b ≠ 0"
+    },
+    {
+      "id": "n_hbj_7a4c9b9b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbJ'",
+      "lean_fvar_id": "_uniq.4014585",
+      "statement": "b ∈ ⊥"
+    },
+    {
+      "id": "n_hbj_7a86f005",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbJ",
+      "lean_fvar_id": "_uniq.4013692",
+      "statement": "b ∈ J"
+    },
+    {
+      "id": "n_hbzero_00e60d75",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbzero",
+      "lean_fvar_id": "_uniq.4014333",
+      "statement": "b = 0"
+    },
+    {
+      "id": "n_hcon_a4488660",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcon",
+      "lean_fvar_id": "_uniq.4013000",
+      "statement": "∀ (k : G), ∀ x ∈ 𝒜 k, a * x * b = 0"
+    },
+    {
+      "id": "n_hh_156f2cea",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hH",
+      "lean_fvar_id": "_uniq.4017747",
+      "statement": "H = ⊥ ∨ H = ⊤"
+    },
+    {
+      "id": "n_hhbot_d43ebc52",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hHbot",
+      "lean_fvar_id": "_uniq.4018013",
+      "statement": "H = ⊥"
+    },
+    {
+      "id": "n_hhtop_810a9882",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hHtop",
+      "lean_fvar_id": "_uniq.4017993",
+      "statement": "H = ⊤"
+    },
+    {
+      "id": "n_hj_16a6a78d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hJ",
+      "lean_fvar_id": "_uniq.4013824",
+      "statement": "J = ⊥ ∨ J = ⊤"
+    },
+    {
+      "id": "n_hjbot_6cc8a269",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hJbot",
+      "lean_fvar_id": "_uniq.4014090",
+      "statement": "J = ⊥"
+    },
+    {
+      "id": "n_hjtop_d8a5f034",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hJtop",
+      "lean_fvar_id": "_uniq.4014070",
+      "statement": "J = ⊤"
+    },
+    {
+      "id": "n_hp_9657d553",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hP",
+      "lean_fvar_id": "_uniq.4020352",
+      "statement": "P = ⊥ ∨ P = ⊤"
+    },
+    {
+      "id": "n_hpbot_4ddf09f3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hPbot",
+      "lean_fvar_id": "_uniq.4020608",
+      "statement": "P = ⊥"
+    },
+    {
+      "id": "n_hptop_91569105",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hPtop",
+      "lean_fvar_id": "_uniq.4020588",
+      "statement": "P = ⊤"
+    },
+    {
+      "id": "n_huvzero_caea8ee9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "huvzero",
+      "lean_fvar_id": "_uniq.4026387",
+      "statement": "u * v = 0"
+    },
+    {
+      "id": "n_hvp_3dd27c8d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hvP",
+      "lean_fvar_id": "_uniq.4025142",
+      "statement": "v ∈ P"
+    },
+    {
+      "id": "n_hx_aeb33c59",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.4019627",
+      "statement": "x ∈ 𝒜 i"
+    },
+    {
+      "id": "n_hxy_64108f94",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.4019682",
+      "statement": "x * y ≠ 0"
+    },
+    {
+      "id": "n_hxyp_27c3b661",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxyP'",
+      "lean_fvar_id": "_uniq.4020919",
+      "statement": "x * y ∈ ⊥"
+    },
+    {
+      "id": "n_hxyp_2bb74828",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxyP",
+      "lean_fvar_id": "_uniq.4020239",
+      "statement": "x * y ∈ P"
+    },
+    {
+      "id": "n_hxyzero_ea4c585b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxyzero",
+      "lean_fvar_id": "_uniq.4020665",
+      "statement": "x * y = 0"
+    },
+    {
+      "id": "n_hy_86684cb4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.4019681",
+      "statement": "y ∈ 𝒜 j"
+    },
+    {
+      "id": "n_hyj_ec23d22e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyJ",
+      "lean_fvar_id": "_uniq.4016426",
+      "statement": "y ∈ J"
+    },
+    {
+      "id": "n_inst___proofs_1850184048_0e8ff55b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+      "lean_fvar_id": "_uniq.4011413",
+      "statement": "IsScalarTower K A A"
+    },
+    {
+      "id": "n_inst___proofs_1850184048_f6a8ee5b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+      "lean_fvar_id": "_uniq.4011414",
+      "statement": "SMulCommClass K A A"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hbj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbj_7a86f005",
+        "n_hjbot_6cc8a269"
+      ],
+      "conclusion": "n_hbj_7a4c9b9b",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_863",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4013692",
+              "name": "hbJ",
+              "statement": "b ∈ J"
+            },
+            {
+              "fvar_id": "_uniq.4014090",
+              "name": "hJbot",
+              "statement": "J = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4014585",
+            "name": "hbJ'",
+            "statement": "b ∈ ⊥"
+          }
+        },
+        "lean_dependency_sha256": "c4d6b2c9ee57b1f90c61542a87156d1f232c190b778ac537e949d4338ecf2ef4",
+        "kernel_witness_check": {
+          "proof_type": "b ∈ ⊥",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hbzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbj_7a86f005",
+        "n_hjbot_6cc8a269"
+      ],
+      "conclusion": "n_hbzero_00e60d75",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_864",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4013692",
+              "name": "hbJ",
+              "statement": "b ∈ J"
+            },
+            {
+              "fvar_id": "_uniq.4014090",
+              "name": "hJbot",
+              "statement": "J = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4014333",
+            "name": "hbzero",
+            "statement": "b = 0"
+          }
+        },
+        "lean_dependency_sha256": "a940e537be4d9806fbea35e15eb85b4a8cdf54ccd16f398c33aa041a5125d195",
+        "kernel_witness_check": {
+          "proof_type": "b = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hyj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hjtop_d8a5f034"
+      ],
+      "conclusion": "n_hyj_ec23d22e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Submodule.mem_top",
+        "items": [
+          "Submodule.mem_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Submodule.mem_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_865",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hyJ : y ∈ J := by\n      rw [hJtop]\n      exact Submodule.mem_top",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4014070",
+              "name": "hJtop",
+              "statement": "J = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4016426",
+            "name": "hyJ",
+            "statement": "y ∈ J"
+          }
+        },
+        "lean_dependency_sha256": "7db9a6f64c17ad21d53f0d31563067efe66ce7182c6a7054958c1e57eb5359e1",
+        "kernel_witness_check": {
+          "proof_type": "y ∈ J",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hah",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hah_bc8eb92f",
+        "n_hhbot_d43ebc52"
+      ],
+      "conclusion": "n_hah_aee967e6",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_866",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4016286",
+              "name": "haH",
+              "statement": "a ∈ H"
+            },
+            {
+              "fvar_id": "_uniq.4018013",
+              "name": "hHbot",
+              "statement": "H = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4018508",
+            "name": "haH'",
+            "statement": "a ∈ ⊥"
+          }
+        },
+        "lean_dependency_sha256": "ded6e3b3564e9ea836a4af6c3f7682b39e3db08dda60debd7ad18dc00039917b",
+        "kernel_witness_check": {
+          "proof_type": "a ∈ ⊥",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hazero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hah_bc8eb92f",
+        "n_hhbot_d43ebc52"
+      ],
+      "conclusion": "n_hazero_96e733c9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_867",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4016286",
+              "name": "haH",
+              "statement": "a ∈ H"
+            },
+            {
+              "fvar_id": "_uniq.4018013",
+              "name": "hHbot",
+              "statement": "H = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4018256",
+            "name": "hazero",
+            "statement": "a = 0"
+          }
+        },
+        "lean_dependency_sha256": "1b1bc5fdbc75b01c2033cd00501a6daaa55d49793c11e0dcca3386aaf93c7a83",
+        "kernel_witness_check": {
+          "proof_type": "a = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hxyp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxyp_2bb74828",
+        "n_hpbot_4ddf09f3"
+      ],
+      "conclusion": "n_hxyp_27c3b661",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_868",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4020239",
+              "name": "hxyP",
+              "statement": "x * y ∈ P"
+            },
+            {
+              "fvar_id": "_uniq.4020608",
+              "name": "hPbot",
+              "statement": "P = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4020919",
+            "name": "hxyP'",
+            "statement": "x * y ∈ ⊥"
+          }
+        },
+        "lean_dependency_sha256": "4977b58d42f30f4b2740c93d72868bd0587e14f7eaa1c46cd6dc1f47344e9f89",
+        "kernel_witness_check": {
+          "proof_type": "x * y ∈ ⊥",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hxyzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxyp_2bb74828",
+        "n_hpbot_4ddf09f3"
+      ],
+      "conclusion": "n_hxyzero_ea4c585b",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_869",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4020239",
+              "name": "hxyP",
+              "statement": "x * y ∈ P"
+            },
+            {
+              "fvar_id": "_uniq.4020608",
+              "name": "hPbot",
+              "statement": "P = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4020665",
+            "name": "hxyzero",
+            "statement": "x * y = 0"
+          }
+        },
+        "lean_dependency_sha256": "50388da71f9d0c43ec147fa842d88f1ae86aad7e9cbdd1c80a3100cbd2d47f65",
+        "kernel_witness_check": {
+          "proof_type": "x * y = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hbj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcon_a4488660"
+      ],
+      "conclusion": "n_hbj_7a86f005",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_871",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbJ : b ∈ J := hcon",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4013000",
+              "name": "hcon",
+              "statement": "∀ (k : G), ∀ x ∈ 𝒜 k, a * x * b = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4013692",
+            "name": "hbJ",
+            "statement": "b ∈ J"
+          }
+        },
+        "lean_dependency_sha256": "6feadfdf8b3b25f7cb911e98d50f2c2ac2cde749347ce23f44fb703cc10b2921",
+        "kernel_witness_check": {
+          "proof_type": "∀ (k : G), ∀ x ∈ 𝒜 k, a * x * b = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1850184048_0e8ff55b",
+        "n_inst___proofs_1850184048_f6a8ee5b",
+        "n_h_direct_149cbbdd",
+        "n_h_mul_b7abfb97",
+        "n_h_simple_780c72c2",
+        "n_ha_3ff4368c"
+      ],
+      "conclusion": "n_hj_16a6a78d",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_872",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hJ := h_simple J\n    (fun r {x} hx => GradedSimpleProof.sandwichLeftAnn_left_ideal G K A 𝒜 h_direct a r hx)\n    (fun r {x} hx => GradedSimpleProof.sandwichLeftAnn_right_ideal G K A 𝒜 a r hx)\n    (GradedSimpleProof.sandwichLeftAnn_graded G K A 𝒜 h_direct h_mul ha)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4011413",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+              "statement": "IsScalarTower K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011414",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+              "statement": "SMulCommClass K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011416",
+              "name": "h_direct",
+              "statement": "iSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"
+            },
+            {
+              "fvar_id": "_uniq.4011417",
+              "name": "h_mul",
+              "statement": "∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"
+            },
+            {
+              "fvar_id": "_uniq.4011419",
+              "name": "h_simple",
+              "statement": "∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"
+            },
+            {
+              "fvar_id": "_uniq.4011424",
+              "name": "ha",
+              "statement": "a ∈ 𝒜 g"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4013824",
+            "name": "hJ",
+            "statement": "J = ⊥ ∨ J = ⊤"
+          }
+        },
+        "lean_dependency_sha256": "7f950bc2333b8bdf6e194854e1f0da667a12c58df43f2724f204f9fae676a426",
+        "kernel_witness_check": {
+          "proof_type": "J = ⊥ ∨ J = ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hjtop",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb0_1317edf6",
+        "n_hbj_7a86f005",
+        "n_hj_16a6a78d"
+      ],
+      "conclusion": "n_hjtop_d8a5f034",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa + exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_873",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hJtop : J = ⊤ := by\n    rcases hJ with hJbot | hJtop\n    · have hbzero : b = 0 := by\n        have hbJ' : b ∈ (⊥ : Submodule K A) := by\n          rwa [← hJbot]\n        simpa using hbJ'\n      exact (hb0 hbzero).elim\n    · exact hJtop\n  let H : Submodule K A := GradedSimpleProof.tripleLeftAnn G K A 𝒜",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4011427",
+              "name": "hb0",
+              "statement": "b ≠ 0"
+            },
+            {
+              "fvar_id": "_uniq.4013692",
+              "name": "hbJ",
+              "statement": "b ∈ J"
+            },
+            {
+              "fvar_id": "_uniq.4013824",
+              "name": "hJ",
+              "statement": "J = ⊥ ∨ J = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4014070",
+            "name": "hJtop",
+            "statement": "J = ⊤"
+          }
+        },
+        "lean_dependency_sha256": "eb1865db36e9c0a11eb2535e62848c2c43a18ba2e507e8abaf214cd6f72138cb",
+        "kernel_witness_check": {
+          "proof_type": "J = ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hah",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hjtop_d8a5f034"
+      ],
+      "conclusion": "n_hah_bc8eb92f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Submodule.mem_top",
+        "items": [
+          "Submodule.mem_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Submodule.mem_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_875",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have haH : a ∈ H := by\n    intro k x hx l y hy\n    have hyJ : y ∈ J := by\n      rw [hJtop]\n      exact Submodule.mem_top\n    exact hyJ k x hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4014070",
+              "name": "hJtop",
+              "statement": "J = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4016286",
+            "name": "haH",
+            "statement": "a ∈ H"
+          }
+        },
+        "lean_dependency_sha256": "696c60d343d09bf5a9f1c815bece82682acd29649bba9fdfd639ff3fafbd1b32",
+        "kernel_witness_check": {
+          "proof_type": "∀ (k : G), ∀ x ∈ 𝒜 k, ∀ (l : G), ∀ y ∈ 𝒜 l, a * x * y = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hh",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1850184048_0e8ff55b",
+        "n_inst___proofs_1850184048_f6a8ee5b",
+        "n_h_direct_149cbbdd",
+        "n_h_mul_b7abfb97",
+        "n_h_simple_780c72c2"
+      ],
+      "conclusion": "n_hh_156f2cea",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_876",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hH := h_simple H\n    (fun r {x} hx => GradedSimpleProof.tripleLeftAnn_left_ideal G K A 𝒜 r hx)\n    (fun r {x} hx => GradedSimpleProof.tripleLeftAnn_right_ideal G K A 𝒜 h_direct r hx)\n    (GradedSimpleProof.tripleLeftAnn_graded G K A 𝒜 h_direct h_mul)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4011413",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+              "statement": "IsScalarTower K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011414",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+              "statement": "SMulCommClass K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011416",
+              "name": "h_direct",
+              "statement": "iSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"
+            },
+            {
+              "fvar_id": "_uniq.4011417",
+              "name": "h_mul",
+              "statement": "∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"
+            },
+            {
+              "fvar_id": "_uniq.4011419",
+              "name": "h_simple",
+              "statement": "∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4017747",
+            "name": "hH",
+            "statement": "H = ⊥ ∨ H = ⊤"
+          }
+        },
+        "lean_dependency_sha256": "25695a85b28849e173ca60eb49b3c1640fd6de8c57163b83dc5fe8b41fcadb6c",
+        "kernel_witness_check": {
+          "proof_type": "H = ⊥ ∨ H = ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hhtop",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha0_4d00016b",
+        "n_hah_bc8eb92f",
+        "n_hh_156f2cea"
+      ],
+      "conclusion": "n_hhtop_810a9882",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa + exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_877",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hHtop : H = ⊤ := by\n    rcases hH with hHbot | hHtop\n    · have hazero : a = 0 := by\n        have haH' : a ∈ (⊥ : Submodule K A) := by\n          rwa [← hHbot]\n        simpa using haH'\n      exact (ha0 hazero).elim\n    · exact hHtop\n  let P : Submodule K A := GradedSimpleProof.homogeneousProductSubmodule G K A 𝒜",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4011426",
+              "name": "ha0",
+              "statement": "a ≠ 0"
+            },
+            {
+              "fvar_id": "_uniq.4016286",
+              "name": "haH",
+              "statement": "a ∈ H"
+            },
+            {
+              "fvar_id": "_uniq.4017747",
+              "name": "hH",
+              "statement": "H = ⊥ ∨ H = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4017993",
+            "name": "hHtop",
+            "statement": "H = ⊤"
+          }
+        },
+        "lean_dependency_sha256": "3b15386363429aa6fc754805fb97f311b177a268fe3576bd80bbb41c373f71f6",
+        "kernel_witness_check": {
+          "proof_type": "H = ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hxyp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_aeb33c59",
+        "n_hy_86684cb4"
+      ],
+      "conclusion": "n_hxyp_2bb74828",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_879",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hxyP : x * y ∈ P :=\n    GradedSimpleProof.mem_homogeneousProductSubmodule G K A 𝒜 hx hy",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4019627",
+              "name": "hx",
+              "statement": "x ∈ 𝒜 i"
+            },
+            {
+              "fvar_id": "_uniq.4019681",
+              "name": "hy",
+              "statement": "y ∈ 𝒜 j"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4020239",
+            "name": "hxyP",
+            "statement": "x * y ∈ P"
+          }
+        },
+        "lean_dependency_sha256": "ae833d6d75df41aa660db1d3bb83512bbbaa848e87b88450840e4d1341ed7195",
+        "kernel_witness_check": {
+          "proof_type": "x * y ∈ GradedSimpleProof.homogeneousProductSubmodule G K A 𝒜",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1850184048_0e8ff55b",
+        "n_inst___proofs_1850184048_f6a8ee5b",
+        "n_h_direct_149cbbdd",
+        "n_h_mul_b7abfb97",
+        "n_h_simple_780c72c2"
+      ],
+      "conclusion": "n_hp_9657d553",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_880",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hP := h_simple P\n    (fun r {z} hz => GradedSimpleProof.homogeneousProductSubmodule_left_ideal G K A 𝒜 h_direct r hz)\n    (fun r {z} hz => GradedSimpleProof.homogeneousProductSubmodule_right_ideal G K A 𝒜 h_direct r hz)\n    (GradedSimpleProof.homogeneousProductSubmodule_graded G K A 𝒜 h_mul)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4011413",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+              "statement": "IsScalarTower K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011414",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+              "statement": "SMulCommClass K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011416",
+              "name": "h_direct",
+              "statement": "iSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"
+            },
+            {
+              "fvar_id": "_uniq.4011417",
+              "name": "h_mul",
+              "statement": "∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"
+            },
+            {
+              "fvar_id": "_uniq.4011419",
+              "name": "h_simple",
+              "statement": "∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4020352",
+            "name": "hP",
+            "statement": "P = ⊥ ∨ P = ⊤"
+          }
+        },
+        "lean_dependency_sha256": "14a193dff7644e580689c255f85681a451050e581d608d2d125c28908d8f95e2",
+        "kernel_witness_check": {
+          "proof_type": "P = ⊥ ∨ P = ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hptop",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxy_64108f94",
+        "n_hxyp_2bb74828",
+        "n_hp_9657d553"
+      ],
+      "conclusion": "n_hptop_91569105",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa + exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_881",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hPtop : P = ⊤ := by\n    rcases hP with hPbot | hPtop\n    · have hxyzero : x * y = 0 := by\n        have hxyP' : x * y ∈ (⊥ : Submodule K A) := by\n          rwa [← hPbot]\n        simpa using hxyP'\n      exact (hxy hxyzero).elim\n    · exact hPtop",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4019682",
+              "name": "hxy",
+              "statement": "x * y ≠ 0"
+            },
+            {
+              "fvar_id": "_uniq.4020239",
+              "name": "hxyP",
+              "statement": "x * y ∈ P"
+            },
+            {
+              "fvar_id": "_uniq.4020352",
+              "name": "hP",
+              "statement": "P = ⊥ ∨ P = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4020588",
+            "name": "hPtop",
+            "statement": "P = ⊤"
+          }
+        },
+        "lean_dependency_sha256": "aefd54ed144b1b990b3196105da439de3edbededfb2b2f3ce45b55bf1ed5cb57",
+        "kernel_witness_check": {
+          "proof_type": "P = ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hvp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hptop_91569105"
+      ],
+      "conclusion": "n_hvp_3dd27c8d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Submodule.mem_top",
+        "items": [
+          "Submodule.mem_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Submodule.mem_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_882",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hvP : v ∈ P := by\n    rw [hPtop]\n    exact Submodule.mem_top",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4020588",
+              "name": "hPtop",
+              "statement": "P = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4025142",
+            "name": "hvP",
+            "statement": "v ∈ P"
+          }
+        },
+        "lean_dependency_sha256": "089e3ce5a6647cda6916dbeb5196539ee0503643bd4bcb86c0c88eadf0068708",
+        "kernel_witness_check": {
+          "proof_type": "v ∈ P",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_huvzero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1850184048_0e8ff55b",
+        "n_inst___proofs_1850184048_f6a8ee5b",
+        "n_hhtop_810a9882",
+        "n_hvp_3dd27c8d"
+      ],
+      "conclusion": "n_huvzero_caea8ee9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_883",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have huvzero : u * v = 0 :=\n    GradedSimpleProof.mul_eq_zero_of_mem_homogeneousProductSubmodule G K A 𝒜 hHtop u hvP",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4011413",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+              "statement": "IsScalarTower K A A"
+            },
+            {
+              "fvar_id": "_uniq.4011414",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+              "statement": "SMulCommClass K A A"
+            },
+            {
+              "fvar_id": "_uniq.4017993",
+              "name": "hHtop",
+              "statement": "H = ⊤"
+            },
+            {
+              "fvar_id": "_uniq.4025142",
+              "name": "hvP",
+              "statement": "v ∈ P"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4026387",
+            "name": "huvzero",
+            "statement": "u * v = 0"
+          }
+        },
+        "lean_dependency_sha256": "8646147166e7ccecb19d9594f45a48c50659650055124c63dd2dd0f04e1ed1e7",
+        "kernel_witness_check": {
+          "proof_type": "u * v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1850184048_1a8267ff",
+        "m_inst___proofs_1850184048_8eee7ee8",
+        "m_h_direct_92208337",
+        "m_h_mul_4db4c0df",
+        "m_h_nonzero_mul_86638479",
+        "m_h_simple_ff075256",
+        "m_ha_2f77bd98",
+        "m_ha0_61865008",
+        "m_hb0_68b0856c"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact huv huvzero",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.18",
+              "statement": "IsScalarTower K A A"
+            },
+            {
+              "fvar_id": "8",
+              "name": "inst._@.proofs.1850184048._hygCtx._hyg.23",
+              "statement": "SMulCommClass K A A"
+            },
+            {
+              "fvar_id": "10",
+              "name": "h_direct",
+              "statement": "iSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"
+            },
+            {
+              "fvar_id": "11",
+              "name": "h_mul",
+              "statement": "∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"
+            },
+            {
+              "fvar_id": "12",
+              "name": "h_nonzero_mul",
+              "statement": "∃ x y, x * y ≠ 0"
+            },
+            {
+              "fvar_id": "13",
+              "name": "h_simple",
+              "statement": "∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"
+            },
+            {
+              "fvar_id": "18",
+              "name": "ha",
+              "statement": "a ∈ 𝒜 g"
+            },
+            {
+              "fvar_id": "20",
+              "name": "ha0",
+              "statement": "a ≠ 0"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hb0",
+              "statement": "b ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ k, ∃ x ∈ 𝒜 k, a * x * b ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "9c44a22e841c817f5bfb605fbde06257d84f66fe34a9e8d7f40cdc5354269ab3",
+        "kernel_witness_check": {
+          "proof_type": "∃ k, ∃ x ∈ 𝒜 k, a * x * b ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "iSupIndep",
+      "declarations": [
+        "iSupIndep",
+        "iSupIndep_subsingleton",
+        "iSupIndep.sSupIndep_range",
+        "iSupIndep.comp",
+        "iSupIndep.comp'",
+        "sSupIndep_iff",
+        "iSupIndep_iff_pairwiseDisjoint",
+        "iSupIndep.mono",
+        "iSupIndep.supIndep'",
+        "iSupIndep.sup_indep_univ"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "iSupIndep family submodules finite sum zero each term zero",
+      "declarations": [
+        "AddSubgroup.eq_zero_of_noncommSum_eq_zero_of_iSupIndep",
+        "iSupIndep",
+        "Submodule.dfinsuppSum_mem",
+        "iSupIndep_iff_finset_sum_eq_zero_imp_eq_zero",
+        "iSupIndep_iff_finset_sum_eq_imp_eq",
+        "List.sum_map_zero",
+        "iSupIndep_iff_finsetSum_eq_zero_imp_eq_zero",
+        "Submodule.finsuppSum_mem",
+        "iSupIndep.supIndep'",
+        "Lean.Omega.Coeffs.get"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "(_ : iSupIndep _) -> _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Submodule.iSupIndep",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "iSupIndep_iff_finset_sum_eq_zero_imp_eq_zero",
+      "declarations": [
+        "iSupIndep_iff_finset_sum_eq_zero_imp_eq_zero"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "iSup submodules decomposition finite support iSupIndep linear equivalence direct sum",
+      "declarations": [
+        "DirectSum.Decomposition.ofLinearMap",
+        "DirectSum.isInternal_biSup_submodule_of_iSupIndep",
+        "iSupIndep.linearEquiv_symm_apply",
+        "iSupIndep.linearEquiv",
+        "iSupIndep.linearEquiv_apply",
+        "LinearMap.iSupIndep_map",
+        "iSupIndep",
+        "iSupIndep.supIndep",
+        "iSupIndep.supIndep'",
+        "iSup"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "iSupIndep -> _ ≃ₗ _",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "iSupIndep.dfinsupp",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Submodule.mem_iSup",
+      "declarations": [
+        "Submodule.mem_iSup"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "(_ ∈ iSup _)",
+      "declarations": [
+        "AddSubsemigroup.mem_iSup",
+        "Subsemigroup.mem_iSup",
+        "AddSubmonoid.mem_iSup",
+        "Submonoid.mem_iSup",
+        "AddSubgroup.mem_iSup_of_mem",
+        "Subgroup.mem_iSup_of_mem",
+        "AddSubgroup.mem_iSup_prop",
+        "Subgroup.mem_iSup_prop",
+        "AddSubgroup.mem_iSup_of_directed",
+        "Subgroup.mem_iSup_of_directed"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "DFinsupp.sum_eq_sum",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "DFinsupp.sum _ _ = ∑ _ ∈ _.support, _",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "DFinsupp.sum_eq_finset_sum",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "DFinsupp sum equals finset sum over support",
+      "declarations": [
+        "Finsupp.sum",
+        "Finset.support_sum_eq",
+        "DFinsupp.sum_eq_sum_fintype",
+        "List.toFinsupp_sum",
+        "Finset.support_sum",
+        "DFinsupp.support_sum",
+        "DFinsupp.coe_finsetSum",
+        "Finsupp.sum_congr",
+        "DFinsupp.coe_finset_sum",
+        "Finset.support_sum_subset"
+      ],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "DFinsupp.sumAddHom",
+      "declarations": [
+        "DFinsupp.sumAddHom",
+        "DFinsupp.sumAddHom_comp_single",
+        "DFinsupp.sumAddHom_toZeroHom",
+        "DFinsupp.sumAddHom_piSingle",
+        "DFinsupp.comp_sumAddHom",
+        "DFinsupp.sumAddHom_single",
+        "DFinsupp.sumAddHom_zero",
+        "DFinsupp.sumAddHom_apply",
+        "DFinsupp.sumAddHom_singleAddHom",
+        "AddMonoidHom.map_dfinsuppSumAddHom"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "DFinsupp.sumAddHom_apply",
+      "declarations": [
+        "DFinsupp.sumAddHom_apply"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "DFinsupp.sumAddHom apply finset sum",
+      "declarations": [
+        "DFinsupp.sumAddHom_apply",
+        "DFinsupp.sum",
+        "Finset.noncommSum",
+        "finsum",
+        "Finsupp.sum",
+        "Finset.add_sum_eq_sum_insertNone",
+        "Finsupp.prod_attach_index",
+        "DFinsupp.sumAddHom",
+        "DFinsupp.finsetSum_apply",
+        "DFinsupp.finset_sum_apply"
+      ],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Function.Injective (_ * _)",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "mul_left_injective",
+      "declarations": [
+        "mul_left_injective",
+        "Finset.image_mul_right'",
+        "Finset.preimage_mul_right_singleton",
+        "Finset.preimage_mul_right_one",
+        "Finset.image_mul_right",
+        "Finset.preimage_mul_right_one'"
+      ],
+      "call_turn": 30,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Function.Injective fun _ => _ * _",
+      "declarations": [
+        "mul_left_injective",
+        "mul_right_injective",
+        "IsUnit.mul_left_injective",
+        "IsUnit.mul_right_injective",
+        "GroupWithZero.mul_left_injective",
+        "GroupWithZero.mul_right_injective",
+        "MulLECancellable.Injective",
+        "MulLECancellable.injective_left"
+      ],
+      "call_turn": 30,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "mul_right_injective",
+      "declarations": [
+        "mul_right_injective",
+        "Finset.image_mul_left'",
+        "Finset.preimage_mul_left_singleton",
+        "Finset.preimage_mul_left_one",
+        "Finset.image_mul_left",
+        "Finset.preimage_mul_left_one'"
+      ],
+      "call_turn": 30,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Submodule.mem_iSup_of_mem",
+      "declarations": [
+        "Submodule.mem_iSup_of_mem",
+        "Submodule.iSup_induction'",
+        "CliffordAlgebra.evenOdd_induction"
+      ],
+      "call_turn": 67,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Finset.exists_ne_zero_of_sum_ne_zero",
+      "declarations": [
+        "Finset.exists_ne_zero_of_sum_ne_zero"
+      ],
+      "call_turn": 71,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "∑ _ ∈ _, _ ≠ 0 -> ∃ _ ∈ _, _ ≠ 0",
+      "declarations": [
+        "Finset.exists_ne_zero_of_sum_ne_zero"
+      ],
+      "call_turn": 71,
+      "result_turn": 73
+    },
+    {
+      "event_id": "leanfinder:44",
+      "tool": "leanfinder",
+      "query": "finite sum nonzero exists nonzero term Finset",
+      "declarations": [
+        "Set.Finite.toFinset",
+        "IsSumNonzeroSq",
+        "Finset.nonempty_of_sum_ne_zero",
+        "nonempty_of_finsum_mem_ne_zero",
+        "IsSumNonzeroSq.sq",
+        "Finset.exists_pos_of_sum_zero_of_exists_nonzero",
+        "finiteness",
+        "Set.tacticToFinite_tac",
+        "IsSumNonzeroSq.isSumSq",
+        "Lean.Elab.Tactic.Omega.List.nonzeroMinimum"
+      ],
+      "call_turn": 71,
+      "result_turn": 74
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 10,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 9,
+    "max_fan_in_main": 9,
+    "manifest_fact_count": 9,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 25,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 25,
+    "accepted_helper_count": 13,
+    "rollout_tool_call_count": 54,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,972 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2227_strongmetricenvelopeofheight",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2227,
+    "source": "1408.5084",
+    "theorem_name": "strongMetricEnvelopeOfHeight",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2227",
+    "reconstructed_proof": "../../candidates/p2227_strongmetricenvelopeofheight/proof.lean",
+    "raw_elaboration": "../../candidates/p2227_strongmetricenvelopeofheight/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2227_strongmetricenvelopeofheight.strongMetricEnvelopeOfHeight",
+    "verification_call_id": "verify_submission:79",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "0c7a7e1ae1d7e6f1a427f32a3d41f791bd3bd2dbc65bf4ed5fae4de7739626f6",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "3e0e4a6bfaf6478d877afab9bc06815a5e753f97ee901743211490dd851864ea",
+    "concrete_semantic_topology_sha256": "0c7a7e1ae1d7e6f1a427f32a3d41f791bd3bd2dbc65bf4ed5fae4de7739626f6"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h__inv_ccf2f6c9",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hρ_inv",
+      "lean_fvar_id": "5",
+      "statement": "∀ (α : G), ρ α⁻¹ = ρ α"
+    },
+    {
+      "id": "m_h__lower_1d78f071",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hρ_lower",
+      "lean_fvar_id": "3",
+      "statement": "∀ (α : G), 1 ≤ ρ α"
+    },
+    {
+      "id": "m_h__one_2be175cc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hρ_one",
+      "lean_fvar_id": "4",
+      "statement": "ρ 1 = 1"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "((∀ (α : G), 1 ≤ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ 1 = 1 ∧ (∀ (α : G), (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α⁻¹ = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ∧ ∀ (α β : G), (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ (α * β) ≤ max ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ β)) ∧ (∀ (α : G), (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α ≤ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ α) ∧ (∀ (σ : G → ℝ), ((∀ (α : G), 1 ≤ σ α) ∧ σ 1 = 1 ∧ (∀ (α : G), σ α⁻¹ = σ α) ∧ ∀ (α β : G), σ (α * β) ≤ max (σ α) (σ β)) → (∀ (α : G), σ α ≤ ρ α) → ∀ (α : G), σ α ≤ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ∧ (ρ = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ ↔ (∀ (α : G), 1 ≤ ρ α) ∧ ρ 1 = 1 ∧ (∀ (α : G), ρ α⁻¹ = ρ α) ∧ ∀ (α β : G), ρ (α * β) ≤ max (ρ α) (ρ β)) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ) = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ) = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ)"
+    },
+    {
+      "id": "n_h_16b145cb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h₂",
+      "lean_fvar_id": "_uniq.1165188",
+      "statement": "heightEnvInf (heightEnvInf ρ) = heightEnvInf ρ"
+    },
+    {
+      "id": "n_h_16eceda5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h₁",
+      "lean_fvar_id": "_uniq.1165005",
+      "statement": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ"
+    },
+    {
+      "id": "n_h_1d9b2105",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h₂",
+      "lean_fvar_id": "_uniq.1164737",
+      "statement": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ"
+    },
+    {
+      "id": "n_h_6709c4e5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h₁",
+      "lean_fvar_id": "_uniq.1164554",
+      "statement": "heightEnvInf ρ = heightEnvInf (heightEnvOne ρ)"
+    },
+    {
+      "id": "n_h__lower_72349ada",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hρ_lower",
+      "lean_fvar_id": "_uniq.1163021",
+      "statement": "∀ (α : G), 1 ≤ ρ α"
+    },
+    {
+      "id": "n_h__one_b90b5d70",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hρ_one",
+      "lean_fvar_id": "_uniq.1163022",
+      "statement": "ρ 1 = 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__lower_72349ada",
+        "n_h__one_b90b5d70"
+      ],
+      "conclusion": "n_h_6709c4e5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_307",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1163021",
+              "name": "hρ_lower",
+              "statement": "∀ (α : G), 1 ≤ ρ α"
+            },
+            {
+              "fvar_id": "_uniq.1163022",
+              "name": "hρ_one",
+              "statement": "ρ 1 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1164554",
+            "name": "h₁",
+            "statement": "heightEnvInf ρ = heightEnvInf (heightEnvOne ρ)"
+          }
+        },
+        "lean_dependency_sha256": "d4605e973b801b57f9247305100c24c58e5bf5b9d802966a8a3409e71dbe2a8a",
+        "kernel_witness_check": {
+          "proof_type": "heightEnvInf ρ = heightEnvInf (heightEnvOne ρ)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__lower_72349ada",
+        "n_h__one_b90b5d70"
+      ],
+      "conclusion": "n_h_1d9b2105",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "heightEnvInf_mul + heightEnvInf_one + heightEnvOne_eq_self_of_strong",
+        "items": [
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_308",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h₂ := heightEnvOne_eq_self_of_strong (heightEnvInf ρ)\n        (one_le_heightEnvInf ρ hρ_lower hρ_one)\n        (heightEnvInf_one ρ hρ_lower hρ_one)\n        (heightEnvInf_mul ρ hρ_lower hρ_one)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1163021",
+              "name": "hρ_lower",
+              "statement": "∀ (α : G), 1 ≤ ρ α"
+            },
+            {
+              "fvar_id": "_uniq.1163022",
+              "name": "hρ_one",
+              "statement": "ρ 1 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1164737",
+            "name": "h₂",
+            "statement": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ"
+          }
+        },
+        "lean_dependency_sha256": "6b8850b3da62431c6d01a7677110f650841af1b96f6396c314bc8008a253def7",
+        "kernel_witness_check": {
+          "proof_type": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__lower_72349ada",
+        "n_h__one_b90b5d70"
+      ],
+      "conclusion": "n_h_16eceda5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_309",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1163021",
+              "name": "hρ_lower",
+              "statement": "∀ (α : G), 1 ≤ ρ α"
+            },
+            {
+              "fvar_id": "_uniq.1163022",
+              "name": "hρ_one",
+              "statement": "ρ 1 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1165005",
+            "name": "h₁",
+            "statement": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ"
+          }
+        },
+        "lean_dependency_sha256": "53a0e90533095d4d74943a32188a6acc1edd49b02671591ecfb8f0705de5f6f1",
+        "kernel_witness_check": {
+          "proof_type": "heightEnvOne (heightEnvInf ρ) = heightEnvInf ρ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__lower_72349ada",
+        "n_h__one_b90b5d70"
+      ],
+      "conclusion": "n_h_16b145cb",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "heightEnvInf_mul + heightEnvInf_one + one_le_heightEnvInf",
+        "items": [
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_310",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h₂ := heightEnvOne_eq_self_of_strong (heightEnvInf ρ)\n        (one_le_heightEnvInf ρ hρ_lower hρ_one)\n        (heightEnvInf_one ρ hρ_lower hρ_one)\n        (heightEnvInf_mul ρ hρ_lower hρ_one)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1163021",
+              "name": "hρ_lower",
+              "statement": "∀ (α : G), 1 ≤ ρ α"
+            },
+            {
+              "fvar_id": "_uniq.1163022",
+              "name": "hρ_one",
+              "statement": "ρ 1 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1165188",
+            "name": "h₂",
+            "statement": "heightEnvInf (heightEnvInf ρ) = heightEnvInf ρ"
+          }
+        },
+        "lean_dependency_sha256": "5cf4c40a619d0990c6eb02b950a604b1ac7452e6d3a6711390d603ef155a5749",
+        "kernel_witness_check": {
+          "proof_type": "heightEnvInf (heightEnvInf ρ) = heightEnvInf ρ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h__lower_1d78f071",
+        "m_h__one_2be175cc",
+        "m_h__inv_ccf2f6c9"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "heightEnvInf_eq_self_of_strong + heightEnvInf_heightEnvOne_eq_heightEnvInf + heightEnvInf_inv",
+        "items": [
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_heightEnvOne_eq_heightEnvInf",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_inv",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_le_heightEnvOne",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_heightEnvOne_eq_heightEnvInf",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_inv",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_le_heightEnvOne",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_mul",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvInf_one",
+          "Rollout_p2227_strongmetricenvelopeofheight.heightEnvOne_eq_self_of_strong",
+          "Rollout_p2227_strongmetricenvelopeofheight.one_le_heightEnvInf"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨⟨one_le_heightEnvInf ρ hρ_lower hρ_one,\n    heightEnvInf_one ρ hρ_lower hρ_one,\n    heightEnvInf_inv ρ hρ_lower hρ_one hρ_inv,\n    heightEnvInf_mul ρ hρ_lower hρ_one⟩,\n    heightEnvInf_le_heightEnvOne ρ hρ_lower hρ_one,\n    ?_, ?_, ?_⟩\n  · intro σ hσ hσρ α\n    rcases hσ with ⟨hσ_lower, hσ_one, -, hσ_mul⟩\n    exact strong_le_heightEnvInf σ ρ hσ_lower hσ_one hσ_mul hσρ\n      hρ_lower hρ_one α\n  · constructor\n    · intro h\n      refine ⟨hρ_lower, hρ_one, hρ_inv, ?_⟩\n      intro α β\n      rw [h]\n      exact heightEnvInf_mul ρ hρ_lower hρ_one α β\n    · rintro ⟨hρ_lower', hρ_one', -, hρ_mul⟩\n      exact (heightEnvInf_eq_self_of_strong ρ hρ_lower' hρ_one' hρ_mul).symm\n  · refine ⟨heightEnvInf_heightEnvOne_eq_heightEnvInf ρ hρ_lower hρ_one, ?_, ?_⟩\n    · have h₁ := heightEnvInf_heightEnvOne_eq_heightEnvInf ρ hρ_lower hρ_one\n      have h₂ := heightEnvOne_eq_self_of_strong (heightEnvInf ρ)\n        (one_le_heightEnvInf ρ hρ_lower hρ_one)\n        (heightEnvInf_one ρ hρ_lower hρ_one)\n        (heightEnvInf_mul ρ hρ_lower hρ_one)\n      exact h₁.symm.trans h₂.symm\n    · have h₁ := heightEnvOne_eq_self_of_strong (heightEnvInf ρ)\n        (one_le_heightEnvInf ρ hρ_lower hρ_one)\n        (heightEnvInf_one ρ hρ_lower hρ_one)\n        (heightEnvInf_mul ρ hρ_lower hρ_one)\n      have h₂ := heightEnvInf_eq_self_of_strong (heightEnvInf ρ)\n        (one_le_heightEnvInf ρ hρ_lower hρ_one)\n        (heightEnvInf_one ρ hρ_lower hρ_one)\n        (heightEnvInf_mul ρ hρ_lower hρ_one)\n      exact h₁.trans h₂.symm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hρ_lower",
+              "statement": "∀ (α : G), 1 ≤ ρ α"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hρ_one",
+              "statement": "ρ 1 = 1"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hρ_inv",
+              "statement": "∀ (α : G), ρ α⁻¹ = ρ α"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "((∀ (α : G), 1 ≤ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ 1 = 1 ∧ (∀ (α : G), (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α⁻¹ = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ∧ ∀ (α β : G), (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ (α * β) ≤ max ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ β)) ∧ (∀ (α : G), (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α ≤ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ α) ∧ (∀ (σ : G → ℝ), ((∀ (α : G), 1 ≤ σ α) ∧ σ 1 = 1 ∧ (∀ (α : G), σ α⁻¹ = σ α) ∧ ∀ (α β : G), σ (α * β) ≤ max (σ α) (σ β)) → (∀ (α : G), σ α ≤ ρ α) → ∀ (α : G), σ α ≤ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ α) ∧ (ρ = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ ↔ (∀ (α : G), 1 ≤ ρ α) ∧ ρ 1 = 1 ∧ (∀ (α : G), ρ α⁻¹ = ρ α) ∧ ∀ (α β : G), ρ (α * β) ≤ max (ρ α) (ρ β)) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ) = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ) ∧ (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ) = (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ((fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r}) ρ)"
+          }
+        },
+        "lean_dependency_sha256": "efee0eb1b87fbd5946eb9efe4c80b24bc847d4893d2498eb8cac31f7f3283364",
+        "kernel_witness_check": {
+          "proof_type": "((∀ (α : G),\n      1 ≤\n        (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α) ∧\n    (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ 1 =\n        1 ∧\n      (∀ (α : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α⁻¹ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ α) ∧\n        ∀ (α β : G),\n          (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ (α * β) ≤\n            max\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ α)\n              ((fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ρ β)) ∧\n  (∀ (α : G),\n      (fun f α =>\n            sInf\n              {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n          ρ α ≤\n        (fun f α => sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r}) ρ\n          α) ∧\n    (∀ (σ : G → ℝ),\n        ((∀ (α : G), 1 ≤ σ α) ∧ σ 1 = 1 ∧ (∀ (α : G), σ α⁻¹ = σ α) ∧ ∀ (α β : G), σ (α * β) ≤ max (σ α) (σ β)) →\n          (∀ (α : G), σ α ≤ ρ α) →\n            ∀ (α : G),\n              σ α ≤\n                (fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ α) ∧\n      (ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ ↔\n          (∀ (α : G), 1 ≤ ρ α) ∧ ρ 1 = 1 ∧ (∀ (α : G), ρ α⁻¹ = ρ α) ∧ ∀ (α β : G), ρ (α * β) ≤ max (ρ α) (ρ β)) ∧\n        (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ρ =\n            (fun f α =>\n                sInf\n                  {r |\n                    ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n              ((fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ρ) ∧\n          (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) ∧\n            (fun f α =>\n                  sInf {r | ∃ a, Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ ∏ᶠ (n : ℕ+), f (a n) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ) =\n              (fun f α =>\n                  sInf\n                    {r |\n                      ∃ a,\n                        Function.HasFiniteMulSupport a ∧ ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                ((fun f α =>\n                    sInf\n                      {r |\n                        ∃ a,\n                          Function.HasFiniteMulSupport a ∧\n                            ∏ᶠ (n : ℕ+), a n = α ∧ sSup (Set.range fun n => f (a n)) = r})\n                  ρ)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Function.HasFiniteMulSupport",
+      "declarations": [
+        "Function.HasFiniteMulSupport",
+        "Function.hasFiniteMulSupport_one",
+        "Function.mulSupport_along_fiber_finite_of_finite",
+        "Function.hasFiniteMulSupport_fun_one",
+        "Function.HasFiniteMulSupport.fun_comp_of_injective",
+        "Function.HasFiniteMulSupport.comp_of_injective",
+        "Function.HasFiniteMulSupport.pi",
+        "Function.HasFiniteMulSupport.fst",
+        "Function.HasFiniteMulSupport.snd",
+        "Function.HasFiniteMulSupport.inf"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "finprod HasFiniteMulSupport",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "sSup range finite eventual constant",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "finite product support product mul finprod lemma",
+      "declarations": [
+        "finprod",
+        "tsum_eq_finsum",
+        "finsum_nsmul",
+        "finprod_eq_prod_of_mulSupport_subset",
+        "finprod_mem_finset_product'",
+        "finprod_pow",
+        "finprod_mem_mulSupport",
+        "finsum_eq_finsetSum_of_support_subset",
+        "Function.HasFiniteMulSupport.prod",
+        "finprod_mem_finset_product"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "finprod (_ ≃ _)",
+      "declarations": [
+        "finprod_true",
+        "finprod_unique",
+        "finprod_congr",
+        "finprod_eq_prod_of_fintype",
+        "finprod_false",
+        "finprod_cond_eq_left",
+        "finprod_cond_eq_right",
+        "finprod_comp",
+        "finprod_of_isEmpty",
+        "finprod_eq_if"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "finprod _ ⊕ _",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "HasFiniteMulSupport (_ ⊕ _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "finite product under equivalence domain finprod sum type",
+      "declarations": [
+        "finprod",
+        "RingHom.finiteType_stableUnderComposition",
+        "Fintype.sum_equiv",
+        "finprod_emb_domain'",
+        "Finsupp.prod_equivMapDomain",
+        "Fintype.prod_eq_mul_prod_subtype_ne",
+        "finsum_eq_sum_of_support_subset",
+        "finprod_emb_domain",
+        "finprod_mem_finset_product'",
+        "finprod_mem_finset_product"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "multiplicative support equivalence sum disjoint union",
+      "declarations": [
+        "Set.indicator_add_eq_left",
+        "Finsupp.support_sum_eq_biUnion",
+        "Disjoint",
+        "Multiset.support_sum_eq",
+        "Disjoint.union_right",
+        "Finsupp.sumFinsuppAddEquivProdFinsupp_symm_apply",
+        "indicator_iUnion_of_pairwise_disjoint_on_support",
+        "Finsupp.sumFinsuppAddEquivProdFinsupp_symm_inl",
+        "Finset.noncommSum_union_of_disjoint",
+        "Finsupp.sigmaFinsuppAddEquivPiFinsupp_apply"
+      ],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "ℕ+ ≃ ℕ+ ⊕ ℕ+",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "PNat equiv Sum",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "equivalence positive naturals disjoint union parity even odd",
+      "declarations": [
+        "Nat.not_even_iff_odd",
+        "Even.add_odd",
+        "Equiv.natSumNatEquivNat_apply",
+        "Mathlib.Meta.NormNum.evalEven",
+        "Even",
+        "Odd.add_even",
+        "Odd",
+        "Even.sub_odd",
+        "Int.bodd_subNatNat",
+        "Odd.sub_even"
+      ],
+      "call_turn": 13,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Nat.evenOddEquiv",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Equiv.natSumNat",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "ℕ+ ≃ ℕ",
+      "declarations": [
+        "Equiv.pnatEquivNat",
+        "Equiv.pnatEquivNat_apply"
+      ],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "PNat.equivNat",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "equivalence between positive natural numbers and natural numbers predecessor",
+      "declarations": [
+        "Equiv.pnatEquivNat_apply",
+        "OrderIso.pnatIsoNat",
+        "PNat.succPNat_natPred",
+        "Nat.factoredNumbers",
+        "Nat.pred",
+        "Nat.instPredOrder",
+        "Nat.smoothNumbers",
+        "PNat.natPred_inj",
+        "naturalParameterization",
+        "Nat.succ"
+      ],
+      "call_turn": 19,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "natSumNatEquivNat",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "∏ᶠ (_ : _ ⊕ _)",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "finprod_sum_elim",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "finprod over sum type equals product of finprod left right Sum.elim",
+      "declarations": [
+        "Finsupp.sum_sumElim",
+        "finprod",
+        "Finsupp.prod_sumElim",
+        "Finsupp.sumElim_inr",
+        "Sum.elim_single_zero",
+        "finprod_mem_finset_product'",
+        "finprod_mem_finset_product",
+        "Meromorphic.finprod",
+        "sumElim_dotProduct_sumElim",
+        "Sum.elim_mul_mul"
+      ],
+      "call_turn": 26,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Equiv.sumCongr finprod",
+      "declarations": [
+        "Equiv.sumCongr_refl",
+        "Equiv.sumCongr_symm",
+        "Equiv.sumCongr_trans",
+        "Equiv.sumCongr_apply",
+        "MultilinearMap.domCoprod_domDomCongr_sumCongr"
+      ],
+      "call_turn": 26,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "Set.Finite exists_not_mem",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 44
+    },
+    {
+      "event_id": "leanfinder:30",
+      "tool": "leanfinder",
+      "query": "infinite type finite set exists element not in finite set",
+      "declarations": [
+        "Set.Finite.infinite_compl",
+        "Set.Finite.not_infinite",
+        "Finset.exists_not_mem_of_card_lt_enatCard",
+        "Set.not_finite",
+        "Set.Infinite.not_finite",
+        "Set.Infinite.exists_notMem_finite",
+        "Set.Infinite.exists_notMem_finset",
+        "Set.Finite.exists_notMem",
+        "Set.Finite",
+        "Finset.exists_notMem"
+      ],
+      "call_turn": 43,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "_.Finite.exists_not_mem",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Set.Finite.exists",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "sSup {_ , _} = max",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "csSup_pair",
+      "declarations": [
+        "csSup_pair"
+      ],
+      "call_turn": 80,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "sSup pair",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "sSup insert singleton",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "one_le_prod Finset",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "1 ≤ ∏ _ ∈ _, _",
+      "declarations": [
+        "Finset.one_le_prod''",
+        "Finset.one_le_prod'",
+        "Fintype.one_le_prod",
+        "Finset.prod_fiberwise_le_prod_of_one_le_prod_fiber'",
+        "Finset.one_le_prod"
+      ],
+      "call_turn": 87,
+      "result_turn": 89
+    },
+    {
+      "event_id": "leanfinder:56",
+      "tool": "leanfinder",
+      "query": "Finset product greater equal one if all factors greater equal one",
+      "declarations": [
+        "List.one_le_prod",
+        "Lean.Expr.equal",
+        "Fintype.one_le_prod",
+        "Ordering.isGE",
+        "Finset.one_le_prod''",
+        "Multiset.one_le_prod_map",
+        "Lean.Parser.equal",
+        "tprod",
+        "Finset.prod_eq_one_iff_of_one_le'",
+        "InnerProductSpace.rankOne"
+      ],
+      "call_turn": 87,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Finset.one_le_prod",
+      "declarations": [
+        "Finset.one_le_prod"
+      ],
+      "call_turn": 87,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "finprod_inv",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "HasFiniteMulSupport inv",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "mulSupport inv",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "_ ≤ ∏ _ ∈ _, _ Finset",
+      "declarations": [],
+      "call_turn": 111,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "Finset.single_le_prod",
+      "declarations": [],
+      "call_turn": 111,
+      "result_turn": 113
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Finset.le_prod_of_submultiplicative",
+      "declarations": [
+        "Finset.le_prod_of_submultiplicative"
+      ],
+      "call_turn": 111,
+      "result_turn": 114
+    },
+    {
+      "event_id": "leanfinder:72",
+      "tool": "leanfinder",
+      "query": "factor less than or equal to Finset product if all factors at least one",
+      "declarations": [
+        "finprod_mem_dvd",
+        "le_mul_of_forall_lt",
+        "Associates.prod_mono",
+        "IsLeast",
+        "PNat.factorMultiset_mul",
+        "Finset.one_product_one",
+        "Associates.prod_le",
+        "Associates.prod_add",
+        "irreducible_or_factor",
+        "Nat.mul_mem_factoredNumbers"
+      ],
+      "call_turn": 111,
+      "result_turn": 115
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 41,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 41,
+    "accepted_helper_count": 10,
+    "rollout_tool_call_count": 80,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

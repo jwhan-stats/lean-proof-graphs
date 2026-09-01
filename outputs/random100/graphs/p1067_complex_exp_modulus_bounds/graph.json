@@ -1,0 +1,860 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1067_complex_exp_modulus_bounds",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1067,
+    "source": "1510.07449",
+    "theorem_name": "complex_exp_modulus_bounds",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1067",
+    "reconstructed_proof": "../../candidates/p1067_complex_exp_modulus_bounds/proof.lean",
+    "raw_elaboration": "../../candidates/p1067_complex_exp_modulus_bounds/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1067_complex_exp_modulus_bounds.complex_exp_modulus_bounds",
+    "verification_call_id": "verify_submission:19",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "ae0775c9de803f41c6b91d674b58b5dd7eeb7343638294ca094a3b916b2a3aff",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "6d5078c530515de9c47d5f01b116f77773c53c854765eea3d55464d410fbf026",
+    "concrete_semantic_topology_sha256": "ae0775c9de803f41c6b91d674b58b5dd7eeb7343638294ca094a3b916b2a3aff"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hz_95d7ba94",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hz",
+      "lean_fvar_id": "2",
+      "statement": "-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "1 / 2 * Real.exp (-z.re) ≤ ‖f z‖ ∧ ‖f z‖ ≤ 2 * Real.exp (-z.re)"
+    },
+    {
+      "id": "n_hexp_df0429ae",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hexp",
+      "lean_fvar_id": "5",
+      "statement": "4 * -z.re + 2 ≤ Real.exp (-z.re)"
+    },
+    {
+      "id": "n_hlower_core_60540621",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hlower_core",
+      "lean_fvar_id": "8",
+      "statement": "1 / 2 * Real.exp (-z.re) ≤ ‖z + 1 + Complex.exp (-z)‖"
+    },
+    {
+      "id": "n_hnormexp_3b826983",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnormexp",
+      "lean_fvar_id": "7",
+      "statement": "‖Complex.exp (-z)‖ = Real.exp (-z.re)"
+    },
+    {
+      "id": "n_hnormz_be127830",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnormz",
+      "lean_fvar_id": "4",
+      "statement": "‖z‖ ≤ 2 * -z.re"
+    },
+    {
+      "id": "n_hupper_core_60e652f3",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hupper_core",
+      "lean_fvar_id": "9",
+      "statement": "‖z + 1 + Complex.exp (-z)‖ ≤ 2 * Real.exp (-z.re)"
+    },
+    {
+      "id": "n_hx3_26313fa5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx3",
+      "lean_fvar_id": "3",
+      "statement": "3 ≤ -z.re"
+    },
+    {
+      "id": "n_hz1_2b8b7f67",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hz1",
+      "lean_fvar_id": "6",
+      "statement": "‖z + 1‖ ≤ 1 / 2 * Real.exp (-z.re)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hx3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "m_hz_95d7ba94"
+      ],
+      "conclusion": "n_hx3_26313fa5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_3",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hx3 : 3 ≤ -z.re := hz.2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hz",
+              "statement": "-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "3",
+            "name": "hx3",
+            "statement": "3 ≤ -z.re"
+          }
+        },
+        "lean_dependency_sha256": "5c4bc12626cad6243db79b85399df26637e10d3f0afd3f23450d10840b38cb74",
+        "kernel_witness_check": {
+          "proof_type": "-z.re ≥ 3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hnormz",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "m_hz_95d7ba94"
+      ],
+      "conclusion": "n_hnormz_be127830",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "nlinarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_4",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnormz : ‖z‖ ≤ 2 * (-z.re) := by\n    have h := hz.1\n    nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hz",
+              "statement": "-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "4",
+            "name": "hnormz",
+            "statement": "‖z‖ ≤ 2 * -z.re"
+          }
+        },
+        "lean_dependency_sha256": "a09572ed8247c08df9e7794911a84d8791fca8b9028fc1acfc4428a58360a9c0",
+        "kernel_witness_check": {
+          "proof_type": "‖z‖ ≤ 2 * -z.re",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hexp",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hz_95d7ba94"
+      ],
+      "conclusion": "n_hexp_df0429ae",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_range_succ + Real.sum_le_exp_of_nonneg + sq_nonneg",
+        "items": [
+          "Finset.sum_range_succ",
+          "Real.sum_le_exp_of_nonneg",
+          "sq_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_range_succ",
+          "Real.sum_le_exp_of_nonneg",
+          "sq_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_5",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hexp : 4 * (-z.re) + 2 ≤ Real.exp (-z.re) := by\n    have hsum := Real.sum_le_exp_of_nonneg (show 0 ≤ -z.re by linarith) 5\n    norm_num [Finset.sum_range_succ] at hsum\n    nlinarith [sq_nonneg ((-z.re) - 3), sq_nonneg (-z.re)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hz",
+              "statement": "-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "5",
+            "name": "hexp",
+            "statement": "4 * -z.re + 2 ≤ Real.exp (-z.re)"
+          }
+        },
+        "lean_dependency_sha256": "5d5212eb4f4a63168e607e2077ac9911d6d1a78e59c4fe98651ccb5b228a9a4d",
+        "kernel_witness_check": {
+          "proof_type": "4 * -z.re + 2 ≤ Real.exp (-z.re)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.sum_le_exp_of_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hz1",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hz_95d7ba94",
+        "n_hexp_df0429ae"
+      ],
+      "conclusion": "n_hz1_2b8b7f67",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "norm_add_le",
+        "items": [
+          "norm_add_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "norm_add_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_6",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hz1 : ‖z + 1‖ ≤ (1 / 2) * Real.exp (-z.re) := by\n    calc\n      ‖z + 1‖ ≤ ‖z‖ + ‖(1 : ℂ)‖ := norm_add_le z 1\n      _ = ‖z‖ + 1 := by simp\n      _ ≤ (1 / 2) * Real.exp (-z.re) := by\n        nlinarith [Real.exp_nonneg (-z.re)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hz",
+              "statement": "-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hexp",
+              "statement": "4 * -z.re + 2 ≤ Real.exp (-z.re)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "6",
+            "name": "hz1",
+            "statement": "‖z + 1‖ ≤ 1 / 2 * Real.exp (-z.re)"
+          }
+        },
+        "lean_dependency_sha256": "edb914cfb63ba69ca465276407b1a4256881663dd0d1522aac048259c06a98f0",
+        "kernel_witness_check": {
+          "proof_type": "‖z + 1‖ ≤ 1 / 2 * Real.exp (-z.re)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "norm_add_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:10",
+          "loogle:14"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hnormexp",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hnormexp_3b826983",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Complex.norm_exp",
+        "items": [
+          "Complex.norm_exp"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Complex.norm_exp"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_7",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnormexp : ‖Complex.exp (-z)‖ = Real.exp (-z.re) := by\n    simpa using Complex.norm_exp (-z)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "7",
+            "name": "hnormexp",
+            "statement": "‖Complex.exp (-z)‖ = Real.exp (-z.re)"
+          }
+        },
+        "lean_dependency_sha256": "981dc935534b29e1f62d1471fbc7dbd8fdad8c846dfa440881317b99019c6d75",
+        "kernel_witness_check": {
+          "proof_type": "‖Complex.exp (-z)‖ = Real.exp (-z).re",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Complex.norm_exp"
+        ],
+        "observed_search_event_ids": [
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hlower_core",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hz1_2b8b7f67",
+        "n_hnormexp_3b826983"
+      ],
+      "conclusion": "n_hlower_core_60540621",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_comm + add_left_comm + norm_sub_le_norm_add",
+        "items": [
+          "add_comm",
+          "add_left_comm",
+          "norm_sub_le_norm_add"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_comm",
+          "add_left_comm",
+          "norm_sub_le_norm_add"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_8",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hlower_core :\n      (1 / 2) * Real.exp (-z.re) ≤ ‖z + 1 + Complex.exp (-z)‖ := by\n    have hrev := norm_sub_le_norm_add (Complex.exp (-z)) (z + 1)\n    rw [hnormexp] at hrev\n    have hrev' : Real.exp (-z.re) - ‖z + 1‖ ≤ ‖z + 1 + Complex.exp (-z)‖ := by\n      simpa [add_comm, add_left_comm, add_assoc] using hrev\n    nlinarith [Real.exp_nonneg (-z.re)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hz1",
+              "statement": "‖z + 1‖ ≤ 1 / 2 * Real.exp (-z.re)"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hnormexp",
+              "statement": "‖Complex.exp (-z)‖ = Real.exp (-z.re)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "8",
+            "name": "hlower_core",
+            "statement": "1 / 2 * Real.exp (-z.re) ≤ ‖z + 1 + Complex.exp (-z)‖"
+          }
+        },
+        "lean_dependency_sha256": "9a8e2f90208e1dfb69b591b422a2fceec91e775381b8f1307ca65c936543b161",
+        "kernel_witness_check": {
+          "proof_type": "1 / 2 * Real.exp (-z.re) ≤ ‖z + 1 + Complex.exp (-z)‖",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "norm_sub_le_norm_add"
+        ],
+        "observed_search_event_ids": [
+          "loogle:11"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hupper_core",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hz_95d7ba94",
+        "n_hexp_df0429ae",
+        "n_hz1_2b8b7f67",
+        "n_hnormexp_3b826983"
+      ],
+      "conclusion": "n_hupper_core_60e652f3",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "norm_add_le",
+        "items": [
+          "norm_add_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "norm_add_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_9",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hupper_core :\n      ‖z + 1 + Complex.exp (-z)‖ ≤ 2 * Real.exp (-z.re) := by\n    have htri := norm_add_le (z + 1) (Complex.exp (-z))\n    rw [hnormexp] at htri\n    nlinarith [Real.exp_nonneg (-z.re)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hz",
+              "statement": "-z.re ≥ ‖z‖ / 2 ∧ -z.re ≥ 3"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hexp",
+              "statement": "4 * -z.re + 2 ≤ Real.exp (-z.re)"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hz1",
+              "statement": "‖z + 1‖ ≤ 1 / 2 * Real.exp (-z.re)"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hnormexp",
+              "statement": "‖Complex.exp (-z)‖ = Real.exp (-z.re)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "9",
+            "name": "hupper_core",
+            "statement": "‖z + 1 + Complex.exp (-z)‖ ≤ 2 * Real.exp (-z.re)"
+          }
+        },
+        "lean_dependency_sha256": "d6d21aaea54094bb5268124acaf9a2c4bd72e926ddbc5310e8a0371fb9305c00",
+        "kernel_witness_check": {
+          "proof_type": "‖z + 1 + Complex.exp (-z)‖ ≤ 2 * Real.exp (-z.re)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "norm_add_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:10",
+          "loogle:14"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hlower_core_60540621",
+        "n_hupper_core_60e652f3"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact ⟨hlower_core, hupper_core⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "8",
+              "name": "hlower_core",
+              "statement": "1 / 2 * Real.exp (-z.re) ≤ ‖z + 1 + Complex.exp (-z)‖"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hupper_core",
+              "statement": "‖z + 1 + Complex.exp (-z)‖ ≤ 2 * Real.exp (-z.re)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "1 / 2 * Real.exp (-z.re) ≤ ‖f z‖ ∧ ‖f z‖ ≤ 2 * Real.exp (-z.re)"
+          }
+        },
+        "lean_dependency_sha256": "55d51460932dc348a7481f8d23e0dff23a7dfa2ba890e0cee28b3c59cf59fd83",
+        "kernel_witness_check": {
+          "proof_type": "1 / 2 * Real.exp (-z.re) ≤ ‖f z‖ ∧ ‖f z‖ ≤ 2 * Real.exp (-z.re)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Real.exp",
+      "declarations": [
+        "Real.exp",
+        "Real.exp_injective",
+        "Real.exp_monotone",
+        "Real.exp_strictMono",
+        "Complex.exp_ofReal_re",
+        "Complex.ofReal_exp",
+        "Complex.norm_exp_ofReal",
+        "Real.abs_exp",
+        "Real.exp_ne_zero",
+        "Real.exp_nonneg"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "(_ ≤ Real.exp _)",
+      "declarations": [
+        "Real.exp_nonneg",
+        "Complex.norm_exp_le_exp_norm",
+        "Real.exp_le_exp_of_le",
+        "Real.exp_le_exp",
+        "Real.add_one_le_exp",
+        "Real.one_le_exp",
+        "Real.one_le_exp_iff",
+        "Real.one_sub_le_exp_neg",
+        "Real.pow_div_factorial_le_exp",
+        "Real.sum_le_exp_of_nonneg"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "real exponential lower bound polynomial exp x greater than 4 x",
+      "declarations": [
+        "Real.quadratic_le_exp_of_nonneg",
+        "Real.exp_bound'",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "Polynomial.cauchyBound_X_sub_C",
+        "Polynomial.cauchyBound_X_add_C",
+        "Behrend.four_zero_nine_six_lt_exp_sixteen",
+        "Polynomial.X",
+        "Real.exp_bound",
+        "Polynomial.cauchyBound_X",
+        "Lean.mkIntPowNat"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Complex.abs_exp",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "norm (Complex.exp _)",
+      "declarations": [
+        "Complex.norm_exp_ofReal",
+        "Complex.norm_exp_le_exp_norm",
+        "Complex.norm_exp",
+        "Complex.norm_exp_eq_iff_re_eq",
+        "Complex.norm_exp_I_mul_ofReal",
+        "Complex.norm_exp_ofReal_mul_I",
+        "Complex.exp_bound_sq",
+        "Complex.locally_lipschitz_exp",
+        "Complex.norm_exp_mul_exp_add_exp_neg_le_of_abs_im_le",
+        "UpperHalfPlane.norm_exp_two_pi_I_lt_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "exp 3",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Real.exp_one",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "numeric lower bound exponential of one e greater than two",
+      "declarations": [
+        "Real.exp_one_gt_two",
+        "CategoryTheory.ExponentialIdeal",
+        "Behrend.exp_neg_two_mul_le",
+        "Behrend.four_zero_nine_six_lt_exp_sixteen",
+        "Behrend.lower_bound_le_one",
+        "Behrend.lower_bound_le_one'",
+        "Float32.exp2",
+        "Preorder.coneOfLowerBound",
+        "ProbabilityTheory.exponentialPDF",
+        "ProbabilityTheory.exponentialPDFReal"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Real.quadratic_le_exp_of_nonneg",
+      "declarations": [
+        "Real.quadratic_le_exp_of_nonneg"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Real.sum_le_exp_of_nonneg",
+      "declarations": [
+        "Real.sum_le_exp_of_nonneg"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "‖_ + _‖ ≤ ‖_‖ + ‖_‖",
+      "declarations": [
+        "norm_add_le",
+        "SeminormedSpace.Core.norm_triangle",
+        "SeminormedSpace.Core.mk",
+        "Complex.norm_add_le'",
+        "NormedAddGroupHom.opNorm_add_le",
+        "quotient_norm_add_le",
+        "ContinuousLinearMap.opNorm_add_le",
+        "ContinuousMultilinearMap.opNorm_add_le",
+        "CStarModule.norm_triangle",
+        "PiTensorProduct.projectiveSeminorm_add_le"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "‖_‖ - ‖_‖ ≤ ‖_ + _‖",
+      "declarations": [
+        "norm_sub_le_norm_add",
+        "norm_sub_norm_le_norm_neg_add"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "_ ≤ ‖_ + _‖ + _",
+      "declarations": [
+        "norm_le_add_norm_add",
+        "norm_le_add_norm_add'"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "reverse triangle inequality norm addition lower bound norm b minus norm a",
+      "declarations": [
+        "Zsqrtd.norm",
+        "ZLattice.normBound_pos",
+        "lt_norm_sub_of_not_sameRay",
+        "ClassGroup.normBound",
+        "norm_mul_le_of_le'",
+        "spectralNorm",
+        "ZLattice.normBound",
+        "normEDS",
+        "Norm",
+        "ZLattice.normBound_spec"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "norm_add_le",
+      "declarations": [
+        "norm_add_le"
+      ],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "norm_sub_le",
+      "declarations": [
+        "norm_sub_le"
+      ],
+      "call_turn": 14,
+      "result_turn": 20
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 7,
+    "selected_hyperedge_count": 6,
+    "main_hyperedge_count": 6,
+    "side_hyperedge_count": 0,
+    "selected_depth": 4,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 4,
+    "retrieval_query_count": 16,
+    "useful_retrieval_event_count": 6,
+    "unused_retrieval_event_count": 10,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 20,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

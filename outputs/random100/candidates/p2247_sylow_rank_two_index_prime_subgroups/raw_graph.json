@@ -1,0 +1,806 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "manifest": [
+        {
+          "statement": "Finite A",
+          "origin": "manifest",
+          "name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "Nat.Prime p",
+          "origin": "manifest",
+          "name": "hp",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "0 < u",
+          "origin": "manifest",
+          "name": "hu",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "0 < v",
+          "origin": "manifest",
+          "name": "hv",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "v ≤ u",
+          "origin": "manifest",
+          "name": "huv",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "manifest",
+          "name": "hx",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "manifest",
+          "name": "hy",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+          "origin": "manifest",
+          "name": "hspan",
+          "fvar_id": "15"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "manifest",
+          "name": "hind",
+          "fvar_id": "16"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "(powMonoidHom p).ker = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p2247_sylow_rank_two_index_prime_subgroups.pow_ker_eq_zpowers_sup"
+          ],
+          "premises": [
+            {
+              "statement": "Nat.Prime p",
+              "origin": "local_assumption",
+              "name": "hp",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "0 < u",
+              "origin": "local_assumption",
+              "name": "hu",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "0 < v",
+              "origin": "local_assumption",
+              "name": "hv",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "orderOf x = p ^ u",
+              "origin": "local_assumption",
+              "name": "hx",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "orderOf y = p ^ v",
+              "origin": "local_assumption",
+              "name": "hy",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+              "origin": "local_assumption",
+              "name": "hspan",
+              "fvar_id": "15"
+            },
+            {
+              "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+              "origin": "local_assumption",
+              "name": "hind",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))",
+            "origin": "derived",
+            "name": "hE",
+            "fvar_id": "19"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧\n  (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧\n    (v = 1 ∧ 1 < u →\n        N.index = p ∧\n          E ≤ N ∧\n            (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧\n              Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧\n                Nat.card { U // U.index = p ∧ U ≠ N } = p ∧\n                  ∀ (U : Subgroup ↥↑P),\n                    U.index = p →\n                      U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧\n      (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧\n  (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧\n    (v = 1 ∧ 1 < u →\n        N.index = p ∧\n          E ≤ N ∧\n            (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧\n              Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧\n                Nat.card { U // U.index = p ∧ U ≠ N } = p ∧\n                  ∀ (U : Subgroup ↥↑P),\n                    U.index = p →\n                      U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧\n      (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Decidable.byContradiction",
+          "Eq.symm",
+          "Eq.trans",
+          "Iff.mp",
+          "Iff.mpr",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_index_mem_unique_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_mulEquiv_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_of_zpowers_sup_top_inf_bot",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_pow_ker",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.card_nonN_index_prime_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.cyclic_nonN_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.pow_pred_mem_subgroup_of_index_eq",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.subgroup_index_prime_iff_card_prime_of_card_sq",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups._proof_1",
+          "Subgroup.eq_top_of_card_eq",
+          "Subgroup.instFiniteSubtypeMem",
+          "Subgroup.zpowers_le",
+          "SubgroupClass.toSubmonoidClass",
+          "Subtype.finite",
+          "Sylow.instSubgroupClass",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "le_top",
+          "pow_one",
+          "pow_two",
+          "sup_le"
+        ],
+        "premises": [
+          {
+            "statement": "Finite A",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "Nat.Prime p",
+            "origin": "local_assumption",
+            "name": "hp",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "0 < u",
+            "origin": "local_assumption",
+            "name": "hu",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "0 < v",
+            "origin": "local_assumption",
+            "name": "hv",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "v ≤ u",
+            "origin": "local_assumption",
+            "name": "huv",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "orderOf x = p ^ u",
+            "origin": "local_assumption",
+            "name": "hx",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "orderOf y = p ^ v",
+            "origin": "local_assumption",
+            "name": "hy",
+            "fvar_id": "14"
+          },
+          {
+            "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+            "origin": "local_assumption",
+            "name": "hspan",
+            "fvar_id": "15"
+          },
+          {
+            "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+            "origin": "local_assumption",
+            "name": "hind",
+            "fvar_id": "16"
+          },
+          {
+            "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))",
+            "origin": "derived",
+            "name": "hE",
+            "fvar_id": "19"
+          }
+        ],
+        "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧\n  (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧\n    (v = 1 ∧ 1 < u →\n        N.index = p ∧\n          E ≤ N ∧\n            (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧\n              Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧\n                Nat.card { U // U.index = p ∧ U ≠ N } = p ∧\n                  ∀ (U : Subgroup ↥↑P),\n                    U.index = p →\n                      U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧\n      (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "Nat.card ↥↑P = p ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_of_zpowers_sup_top_inf_bot",
+        "Sylow.instSubgroupClass",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "pow_one",
+        "pow_two"
+      ],
+      "premises": [
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.909047"
+        },
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.909048"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+          "origin": "local_assumption",
+          "name": "hspan",
+          "fvar_id": "_uniq.909049"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "local_assumption",
+          "name": "hind",
+          "fvar_id": "_uniq.909050"
+        },
+        {
+          "statement": "u = 1",
+          "origin": "local_assumption",
+          "name": "hu1",
+          "fvar_id": "_uniq.911235"
+        },
+        {
+          "statement": "v = 1",
+          "origin": "local_assumption",
+          "name": "hv1",
+          "fvar_id": "_uniq.911236"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_248",
+      "conclusion": {
+        "statement": "Nat.card ↥↑P = p ^ 2",
+        "origin": "derived",
+        "name": "hPcard",
+        "fvar_id": "_uniq.911847"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nat.card ↥(powMonoidHom p).ker = p ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_pow_ker"
+      ],
+      "premises": [
+        {
+          "statement": "Nat.Prime p",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.909040"
+        },
+        {
+          "statement": "0 < u",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.909041"
+        },
+        {
+          "statement": "0 < v",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.909042"
+        },
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.909047"
+        },
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.909048"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+          "origin": "local_assumption",
+          "name": "hspan",
+          "fvar_id": "_uniq.909049"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "local_assumption",
+          "name": "hind",
+          "fvar_id": "_uniq.909050"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_249",
+      "conclusion": {
+        "statement": "Nat.card ↥E = p ^ 2",
+        "origin": "derived",
+        "name": "hEcard",
+        "fvar_id": "_uniq.924727"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "E = ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Subgroup.eq_top_of_card_eq",
+        "Subgroup.instFiniteSubtypeMem",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "Finite A",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+          "fvar_id": "_uniq.909036"
+        },
+        {
+          "statement": "Nat.card ↥↑P = p ^ 2",
+          "origin": "derived",
+          "name": "hPcard",
+          "fvar_id": "_uniq.911847"
+        },
+        {
+          "statement": "Nat.card ↥E = p ^ 2",
+          "origin": "derived",
+          "name": "hEcard",
+          "fvar_id": "_uniq.924727"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_250",
+      "conclusion": {
+        "statement": "E = ⊤",
+        "origin": "derived",
+        "name": "hEtop",
+        "fvar_id": "_uniq.925016"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have E := (powMonoidHom p).ker;\nhave N := Subgroup.zpowers (x ^ p) ⊔ Subgroup.zpowers y;\nN.index = p ∧ E ≤ N ∧ ∀ (U : Subgroup ↥P), U.index = p → E ≤ U → U = N",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_index_mem_unique_v1",
+        "Subtype.finite",
+        "Sylow.instSubgroupClass"
+      ],
+      "premises": [
+        {
+          "statement": "Finite A",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+          "fvar_id": "_uniq.909036"
+        },
+        {
+          "statement": "Nat.Prime p",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.909040"
+        },
+        {
+          "statement": "0 < u",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.909041"
+        },
+        {
+          "statement": "0 < v",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.909042"
+        },
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.909047"
+        },
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.909048"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+          "origin": "local_assumption",
+          "name": "hspan",
+          "fvar_id": "_uniq.909049"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "local_assumption",
+          "name": "hind",
+          "fvar_id": "_uniq.909050"
+        },
+        {
+          "statement": "v = 1",
+          "origin": "local_assumption",
+          "name": "hv1",
+          "fvar_id": "_uniq.925573"
+        },
+        {
+          "statement": "1 < u",
+          "origin": "local_assumption",
+          "name": "hu1",
+          "fvar_id": "_uniq.925574"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_251",
+      "conclusion": {
+        "statement": "have E := (powMonoidHom p).ker;\nhave N := Subgroup.zpowers (x ^ p) ⊔ Subgroup.zpowers y;\nN.index = p ∧ E ≤ N ∧ ∀ (U : Subgroup ↥P), U.index = p → E ≤ U → U = N",
+        "origin": "derived",
+        "name": "hNstruct",
+        "fvar_id": "_uniq.926327"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "orderOf y = p",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Sylow.instSubgroupClass",
+        "congrArg",
+        "pow_one"
+      ],
+      "premises": [
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.909048"
+        },
+        {
+          "statement": "v = 1",
+          "origin": "local_assumption",
+          "name": "hv1",
+          "fvar_id": "_uniq.925573"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_252",
+      "conclusion": {
+        "statement": "orderOf y = p",
+        "origin": "derived",
+        "name": "hy'",
+        "fvar_id": "_uniq.938071"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have N := Subgroup.zpowers (x ^ p) ⊔ Subgroup.zpowers y;\nNonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_mulEquiv_v1"
+      ],
+      "premises": [
+        {
+          "statement": "Nat.Prime p",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.909040"
+        },
+        {
+          "statement": "0 < u",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.909041"
+        },
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.909047"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "local_assumption",
+          "name": "hind",
+          "fvar_id": "_uniq.909050"
+        },
+        {
+          "statement": "orderOf y = p",
+          "origin": "derived",
+          "name": "hy'",
+          "fvar_id": "_uniq.938071"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_253",
+      "conclusion": {
+        "statement": "Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p))",
+        "origin": "derived",
+        "name": "hNiso",
+        "fvar_id": "_uniq.938848"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nat.card { U // U.index = p ∧ U ≠ Subgroup.zpowers (x ^ p) ⊔ Subgroup.zpowers y } = p",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2247_sylow_rank_two_index_prime_subgroups.card_nonN_index_prime_v1",
+        "Subgroup.instFiniteSubtypeMem"
+      ],
+      "premises": [
+        {
+          "statement": "Finite A",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+          "fvar_id": "_uniq.909036"
+        },
+        {
+          "statement": "Nat.Prime p",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.909040"
+        },
+        {
+          "statement": "0 < u",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.909041"
+        },
+        {
+          "statement": "0 < v",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.909042"
+        },
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.909047"
+        },
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.909048"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+          "origin": "local_assumption",
+          "name": "hspan",
+          "fvar_id": "_uniq.909049"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "local_assumption",
+          "name": "hind",
+          "fvar_id": "_uniq.909050"
+        },
+        {
+          "statement": "v = 1",
+          "origin": "local_assumption",
+          "name": "hv1",
+          "fvar_id": "_uniq.925573"
+        },
+        {
+          "statement": "1 < u",
+          "origin": "local_assumption",
+          "name": "hu1",
+          "fvar_id": "_uniq.925574"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_254",
+      "conclusion": {
+        "statement": "Nat.card { U // U.index = p ∧ U ≠ N } = p",
+        "origin": "derived",
+        "name": "hcount",
+        "fvar_id": "_uniq.939578"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(powMonoidHom p).ker = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2247_sylow_rank_two_index_prime_subgroups.pow_ker_eq_zpowers_sup"
+      ],
+      "premises": [
+        {
+          "statement": "Nat.Prime p",
+          "origin": "local_assumption",
+          "name": "hp",
+          "fvar_id": "_uniq.909040"
+        },
+        {
+          "statement": "0 < u",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.909041"
+        },
+        {
+          "statement": "0 < v",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.909042"
+        },
+        {
+          "statement": "orderOf x = p ^ u",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.909047"
+        },
+        {
+          "statement": "orderOf y = p ^ v",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.909048"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤",
+          "origin": "local_assumption",
+          "name": "hspan",
+          "fvar_id": "_uniq.909049"
+        },
+        {
+          "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥",
+          "origin": "local_assumption",
+          "name": "hind",
+          "fvar_id": "_uniq.909050"
+        }
+      ],
+      "parent": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+      "id": "local_257",
+      "conclusion": {
+        "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))",
+        "origin": "derived",
+        "name": "hE",
+        "fvar_id": "_uniq.911186"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p2247_sylow_rank_two_index_prime_subgroups",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+    "proof_sha256": "95be45d03e9821e2b759a62abd02ffbb2f228a34dc84b4acd36cb28361c24923"
+  }
+}

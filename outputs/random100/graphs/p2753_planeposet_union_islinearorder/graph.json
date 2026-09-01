@@ -1,0 +1,1422 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2753_planeposet_union_islinearorder",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2753,
+    "source": "1101.5231",
+    "theorem_name": "planePoset_union_isLinearOrder",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2753",
+    "reconstructed_proof": "../../candidates/p2753_planeposet_union_islinearorder/proof.lean",
+    "raw_elaboration": "../../candidates/p2753_planeposet_union_islinearorder/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+    "verification_call_id": "verify_submission:3",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "3912a60a684387b05d5689bb47a7924195b241da766a67af7244fb7d2a9fd397",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "1e341f7eac3618ba617b01e19f2a26dae78d63f1adee336a4c23e856962ccef1",
+    "concrete_semantic_topology_sha256": "3912a60a684387b05d5689bb47a7924195b241da766a67af7244fb7d2a9fd397"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hcompat_aa8529f6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcompat",
+      "lean_fvar_id": "6",
+      "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+    },
+    {
+      "id": "m_hh_048a0afc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hH",
+      "lean_fvar_id": "4",
+      "statement": "IsPartialOrder P leH"
+    },
+    {
+      "id": "m_hr_c4b02e18",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hR",
+      "lean_fvar_id": "5",
+      "statement": "IsPartialOrder P leR"
+    },
+    {
+      "id": "m_inst___proofs_71398945___9b132e78",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.71398945._hygCtx._hyg.3",
+      "lean_fvar_id": "1",
+      "statement": "Finite P"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "IsLinearOrder P fun x y => leH x y ∨ leR x y"
+    },
+    {
+      "id": "n_hantisymmu_c30d1588",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hantisymmU",
+      "lean_fvar_id": "_uniq.771990",
+      "statement": "∀ (x y : P), U x y → U y x → x = y"
+    },
+    {
+      "id": "n_hcompat_6044ce83",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcompat",
+      "lean_fvar_id": "_uniq.771580",
+      "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+    },
+    {
+      "id": "n_heq_b6b77d0e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "heq",
+      "lean_fvar_id": "_uniq.772218",
+      "statement": "¬x = y"
+    },
+    {
+      "id": "n_hh_63053bd9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hH",
+      "lean_fvar_id": "_uniq.771578",
+      "statement": "IsPartialOrder P leH"
+    },
+    {
+      "id": "n_hh_8b51ad84",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hh",
+      "lean_fvar_id": "_uniq.771941",
+      "statement": "leH x y ∨ leH y x"
+    },
+    {
+      "id": "n_hnor_10d78404",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnoR",
+      "lean_fvar_id": "_uniq.773652",
+      "statement": "¬(leR y z ∨ leR z y)"
+    },
+    {
+      "id": "n_hnor_199df674",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnoR",
+      "lean_fvar_id": "_uniq.772996",
+      "statement": "¬(leR y z ∨ leR z y)"
+    },
+    {
+      "id": "n_hnor_47ab5d67",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnoR",
+      "lean_fvar_id": "_uniq.772333",
+      "statement": "¬(leR x y ∨ leR y x)"
+    },
+    {
+      "id": "n_hnor_4c4b756a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnoR",
+      "lean_fvar_id": "_uniq.772291",
+      "statement": "¬(leR x y ∨ leR y x)"
+    },
+    {
+      "id": "n_hnor_5f258ab5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnoR",
+      "lean_fvar_id": "_uniq.773034",
+      "statement": "¬(leR x y ∨ leR y x)"
+    },
+    {
+      "id": "n_hnor_8ece727d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnoR",
+      "lean_fvar_id": "_uniq.773614",
+      "statement": "¬(leR x y ∨ leR y x)"
+    },
+    {
+      "id": "n_hr_0a7fb35c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hr",
+      "lean_fvar_id": "_uniq.771897",
+      "statement": "¬(leR x y ∨ leR y x)"
+    },
+    {
+      "id": "n_hr_c8c46951",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hR",
+      "lean_fvar_id": "_uniq.771579",
+      "statement": "IsPartialOrder P leR"
+    },
+    {
+      "id": "n_hreflu_0724d00a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hreflU",
+      "lean_fvar_id": "_uniq.771608",
+      "statement": "∀ (x : P), U x x"
+    },
+    {
+      "id": "n_htotalu_74641876",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htotalU",
+      "lean_fvar_id": "_uniq.771639",
+      "statement": "∀ (x y : P), U x y ∨ U y x"
+    },
+    {
+      "id": "n_htransu_9784c696",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htransU",
+      "lean_fvar_id": "_uniq.772364",
+      "statement": "∀ (x y z : P), U x y → U y z → U x z"
+    },
+    {
+      "id": "n_hxy_1232760b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.771861",
+      "statement": "¬x = y"
+    },
+    {
+      "id": "n_hxyeq_3051a7ba",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxyeq",
+      "lean_fvar_id": "_uniq.772660",
+      "statement": "¬x = y"
+    },
+    {
+      "id": "n_hxyeq_3ec49e85",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxyeq",
+      "lean_fvar_id": "_uniq.773278",
+      "statement": "¬x = y"
+    },
+    {
+      "id": "n_hxyh_0ac0e917",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxyH",
+      "lean_fvar_id": "_uniq.772239",
+      "statement": "leH x y"
+    },
+    {
+      "id": "n_hxyh_740e92f8",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxyH",
+      "lean_fvar_id": "_uniq.772399",
+      "statement": "leH x y"
+    },
+    {
+      "id": "n_hxyr_308c2625",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxyR",
+      "lean_fvar_id": "_uniq.772404",
+      "statement": "leR x y"
+    },
+    {
+      "id": "n_hyxh_c262a22f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyxH",
+      "lean_fvar_id": "_uniq.773600",
+      "statement": "leH y x"
+    },
+    {
+      "id": "n_hyxh_f19cb117",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyxH",
+      "lean_fvar_id": "_uniq.772315",
+      "statement": "leH y x"
+    },
+    {
+      "id": "n_hyxr_eab47c4f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyxR",
+      "lean_fvar_id": "_uniq.773020",
+      "statement": "leR y x"
+    },
+    {
+      "id": "n_hyzeq_b545cfb9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyzeq",
+      "lean_fvar_id": "_uniq.772894",
+      "statement": "¬y = z"
+    },
+    {
+      "id": "n_hyzeq_db368259",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyzeq",
+      "lean_fvar_id": "_uniq.773512",
+      "statement": "¬y = z"
+    },
+    {
+      "id": "n_hyzh_de60ba70",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyzH",
+      "lean_fvar_id": "_uniq.773058",
+      "statement": "leH y z"
+    },
+    {
+      "id": "n_hyzr_c6520906",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyzR",
+      "lean_fvar_id": "_uniq.772428",
+      "statement": "leR y z"
+    },
+    {
+      "id": "n_hzxh_90b82ad2",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hzxH",
+      "lean_fvar_id": "_uniq.772958",
+      "statement": "leH z x"
+    },
+    {
+      "id": "n_hzxh_c2315335",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hzxH",
+      "lean_fvar_id": "_uniq.773576",
+      "statement": "leH z x"
+    },
+    {
+      "id": "n_hzxr_38edd485",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hzxR",
+      "lean_fvar_id": "_uniq.772963",
+      "statement": "leR z x"
+    },
+    {
+      "id": "n_hzxr_f183553b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hzxR",
+      "lean_fvar_id": "_uniq.773581",
+      "statement": "leR z x"
+    },
+    {
+      "id": "n_hzyh_6e9681c2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzyH",
+      "lean_fvar_id": "_uniq.772982",
+      "statement": "leH z y"
+    },
+    {
+      "id": "n_hzyr_30293034",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzyR",
+      "lean_fvar_id": "_uniq.773638",
+      "statement": "leR z y"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hh",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_hxy_1232760b",
+        "n_hr_0a7fb35c"
+      ],
+      "conclusion": "n_hh_8b51ad84",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_154",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.771861",
+              "name": "hxy",
+              "statement": "¬x = y"
+            },
+            {
+              "fvar_id": "_uniq.771897",
+              "name": "hr",
+              "statement": "¬(leR x y ∨ leR y x)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.771941",
+            "name": "hh",
+            "statement": "leH x y ∨ leH y x"
+          }
+        },
+        "lean_dependency_sha256": "171e61813afc5fb9473f760db759cf98f4a1e4e44283dc358e1574a54aaf8023",
+        "kernel_witness_check": {
+          "proof_type": "leH x y ∨ leH y x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hnor",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_heq_b6b77d0e",
+        "n_hxyh_0ac0e917"
+      ],
+      "conclusion": "n_hnor_4c4b756a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_155",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.772218",
+              "name": "heq",
+              "statement": "¬x = y"
+            },
+            {
+              "fvar_id": "_uniq.772239",
+              "name": "hxyH",
+              "statement": "leH x y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.772291",
+            "name": "hnoR",
+            "statement": "¬(leR x y ∨ leR y x)"
+          }
+        },
+        "lean_dependency_sha256": "9aa81c2a044f42676f5fbf58edc9e5c8675c4e3a1670e30993088c129835359b",
+        "kernel_witness_check": {
+          "proof_type": "¬(leR x y ∨ leR y x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hnor",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_heq_b6b77d0e",
+        "n_hyxh_f19cb117"
+      ],
+      "conclusion": "n_hnor_47ab5d67",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_156",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.772218",
+              "name": "heq",
+              "statement": "¬x = y"
+            },
+            {
+              "fvar_id": "_uniq.772315",
+              "name": "hyxH",
+              "statement": "leH y x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.772333",
+            "name": "hnoR",
+            "statement": "¬(leR x y ∨ leR y x)"
+          }
+        },
+        "lean_dependency_sha256": "847d41fddeb3005b78b0bef949347c2cdabd213e528754a1a966092afb0b3171",
+        "kernel_witness_check": {
+          "proof_type": "¬(leR x y ∨ leR y x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hzyh",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hh_63053bd9",
+        "n_hxyh_740e92f8",
+        "n_hzxh_90b82ad2"
+      ],
+      "conclusion": "n_hzyh_6e9681c2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_157",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771578",
+              "name": "hH",
+              "statement": "IsPartialOrder P leH"
+            },
+            {
+              "fvar_id": "_uniq.772399",
+              "name": "hxyH",
+              "statement": "leH x y"
+            },
+            {
+              "fvar_id": "_uniq.772958",
+              "name": "hzxH",
+              "statement": "leH z x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.772982",
+            "name": "hzyH",
+            "statement": "leH z y"
+          }
+        },
+        "lean_dependency_sha256": "0fd2d0b2dfdb86ad2f6702cc326398d74134dc484c2f2d324cb9558eab947ccb",
+        "kernel_witness_check": {
+          "proof_type": "leH z y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hnor",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_hyzeq_b545cfb9",
+        "n_hzyh_6e9681c2"
+      ],
+      "conclusion": "n_hnor_199df674",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_158",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.772894",
+              "name": "hyzeq",
+              "statement": "¬y = z"
+            },
+            {
+              "fvar_id": "_uniq.772982",
+              "name": "hzyH",
+              "statement": "leH z y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.772996",
+            "name": "hnoR",
+            "statement": "¬(leR y z ∨ leR z y)"
+          }
+        },
+        "lean_dependency_sha256": "9e04062e339d8e3cda29b083e0fe119a436669e329f140641d92cfb2dad81ef6",
+        "kernel_witness_check": {
+          "proof_type": "¬(leR y z ∨ leR z y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hyxr",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_c8c46951",
+        "n_hyzr_c6520906",
+        "n_hzxr_38edd485"
+      ],
+      "conclusion": "n_hyxr_eab47c4f",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_159",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771579",
+              "name": "hR",
+              "statement": "IsPartialOrder P leR"
+            },
+            {
+              "fvar_id": "_uniq.772428",
+              "name": "hyzR",
+              "statement": "leR y z"
+            },
+            {
+              "fvar_id": "_uniq.772963",
+              "name": "hzxR",
+              "statement": "leR z x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.773020",
+            "name": "hyxR",
+            "statement": "leR y x"
+          }
+        },
+        "lean_dependency_sha256": "310f2bdf0764af57a297b67b0362140e4dc3a16914369b85073c6d0d6ad49836",
+        "kernel_witness_check": {
+          "proof_type": "leR y x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hnor",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_hxyh_740e92f8",
+        "n_hxyeq_3051a7ba"
+      ],
+      "conclusion": "n_hnor_5f258ab5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_160",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.772399",
+              "name": "hxyH",
+              "statement": "leH x y"
+            },
+            {
+              "fvar_id": "_uniq.772660",
+              "name": "hxyeq",
+              "statement": "¬x = y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.773034",
+            "name": "hnoR",
+            "statement": "¬(leR x y ∨ leR y x)"
+          }
+        },
+        "lean_dependency_sha256": "23e496ae80ff69c95a7ee51bb6a3d8982ee7d8d95b65cb17212ce6f334a971e8",
+        "kernel_witness_check": {
+          "proof_type": "¬(leR x y ∨ leR y x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hyxh",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hh_63053bd9",
+        "n_hyzh_de60ba70",
+        "n_hzxh_c2315335"
+      ],
+      "conclusion": "n_hyxh_c262a22f",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_161",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771578",
+              "name": "hH",
+              "statement": "IsPartialOrder P leH"
+            },
+            {
+              "fvar_id": "_uniq.773058",
+              "name": "hyzH",
+              "statement": "leH y z"
+            },
+            {
+              "fvar_id": "_uniq.773576",
+              "name": "hzxH",
+              "statement": "leH z x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.773600",
+            "name": "hyxH",
+            "statement": "leH y x"
+          }
+        },
+        "lean_dependency_sha256": "81567ee69d3805e8d4263b17e71e150ef1df5d17a5d178f4806cfef053e83735",
+        "kernel_witness_check": {
+          "proof_type": "leH y x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hnor",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_hxyeq_3ec49e85",
+        "n_hyxh_c262a22f"
+      ],
+      "conclusion": "n_hnor_8ece727d",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_162",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.773278",
+              "name": "hxyeq",
+              "statement": "¬x = y"
+            },
+            {
+              "fvar_id": "_uniq.773600",
+              "name": "hyxH",
+              "statement": "leH y x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.773614",
+            "name": "hnoR",
+            "statement": "¬(leR x y ∨ leR y x)"
+          }
+        },
+        "lean_dependency_sha256": "aaefa9003bf4adb6f69068f0b929c0bb255d3e26b729f22183ec4d9e15cdcbb8",
+        "kernel_witness_check": {
+          "proof_type": "¬(leR x y ∨ leR y x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hzyr",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_c8c46951",
+        "n_hxyr_308c2625",
+        "n_hzxr_f183553b"
+      ],
+      "conclusion": "n_hzyr_30293034",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_163",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771579",
+              "name": "hR",
+              "statement": "IsPartialOrder P leR"
+            },
+            {
+              "fvar_id": "_uniq.772404",
+              "name": "hxyR",
+              "statement": "leR x y"
+            },
+            {
+              "fvar_id": "_uniq.773581",
+              "name": "hzxR",
+              "statement": "leR z x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.773638",
+            "name": "hzyR",
+            "statement": "leR z y"
+          }
+        },
+        "lean_dependency_sha256": "5bd2e49f95a3fe18bed9ad06b597d643adfdc80e1e75a24bfbc4dcdda40a43b8",
+        "kernel_witness_check": {
+          "proof_type": "leR z y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hnor",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_hyzh_de60ba70",
+        "n_hyzeq_db368259"
+      ],
+      "conclusion": "n_hnor_10d78404",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_164",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.773058",
+              "name": "hyzH",
+              "statement": "leH y z"
+            },
+            {
+              "fvar_id": "_uniq.773512",
+              "name": "hyzeq",
+              "statement": "¬y = z"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.773652",
+            "name": "hnoR",
+            "statement": "¬(leR y z ∨ leR z y)"
+          }
+        },
+        "lean_dependency_sha256": "1d7609a4984f304b27e9b07bf2411266433df0b39759945da555945ad32a24f1",
+        "kernel_witness_check": {
+          "proof_type": "¬(leR y z ∨ leR z y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hreflu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hh_63053bd9"
+      ],
+      "conclusion": "n_hreflu_0724d00a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_166",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hreflU : ∀ x : P, U x x := by\n    intro x\n    exact Or.inl (hH.refl x)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771578",
+              "name": "hH",
+              "statement": "IsPartialOrder P leH"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.771608",
+            "name": "hreflU",
+            "statement": "∀ (x : P), U x x"
+          }
+        },
+        "lean_dependency_sha256": "c585282d501fa5f75db35d83293b3ab28cdebdd55ae55d393adbe8264f0dd2ed",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : P), leH x x ∨ leR x x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_htotalu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcompat_6044ce83",
+        "n_hreflu_0724d00a"
+      ],
+      "conclusion": "n_htotalu_74641876",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_167",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htotalU : ∀ x y : P, U x y ∨ U y x := by\n    intro x y\n    by_cases hxy : x = y\n    · subst y\n      exact Or.inl (hreflU x)\n    · by_cases hr : leR x y ∨ leR y x\n      · rcases hr with hrxy | hryx\n        · exact Or.inl (Or.inr hrxy)\n        · exact Or.inr (Or.inr hryx)\n      · have hh : leH x y ∨ leH y x := (hcompat hxy).mpr hr\n        rcases hh with hhxy | hhyx\n        · exact Or.inl (Or.inl hhxy)\n        · exact Or.inr (Or.inl hhyx)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.771608",
+              "name": "hreflU",
+              "statement": "∀ (x : P), U x x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.771639",
+            "name": "htotalU",
+            "statement": "∀ (x y : P), U x y ∨ U y x"
+          }
+        },
+        "lean_dependency_sha256": "919b0fb1b2b8acf95796c25cf4635242472efe3277272ddb4af51c8c69fdeb63",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x y : P), U x y ∨ U y x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hantisymmu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hh_63053bd9",
+        "n_hr_c8c46951",
+        "n_hcompat_6044ce83"
+      ],
+      "conclusion": "n_hantisymmu_c30d1588",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_168",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hantisymmU : ∀ x y : P, U x y → U y x → x = y := by\n    intro x y hxy hyx\n    by_cases heq : x = y\n    · exact heq\n    · rcases hxy with hxyH | hxyR\n      · rcases hyx with hyxH | hyxR\n        · exact hH.antisymm x y hxyH hyxH\n        · have hnoR : ¬ (leR x y ∨ leR y x) :=\n            (hcompat heq).mp (Or.inl hxyH)\n          exact False.elim (hnoR (Or.inr hyxR))\n      · rcases hyx with hyxH | hyxR\n        · have hnoR : ¬ (leR x y ∨ leR y x) :=\n            (hcompat heq).mp (Or.inr hyxH)\n          exact False.elim (hnoR (Or.inl hxyR))\n        · exact hR.antisymm x y hxyR hyxR",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771578",
+              "name": "hH",
+              "statement": "IsPartialOrder P leH"
+            },
+            {
+              "fvar_id": "_uniq.771579",
+              "name": "hR",
+              "statement": "IsPartialOrder P leR"
+            },
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.771990",
+            "name": "hantisymmU",
+            "statement": "∀ (x y : P), U x y → U y x → x = y"
+          }
+        },
+        "lean_dependency_sha256": "b5541caa00e48e0d65d58f9636979b6a848de29afa65be5a9c94e8173db6d998",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x y : P), U x y → U y x → x = y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_htransu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hh_63053bd9",
+        "n_hr_c8c46951",
+        "n_hcompat_6044ce83",
+        "n_htotalu_74641876"
+      ],
+      "conclusion": "n_htransu_9784c696",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_169",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htransU : ∀ x y z : P, U x y → U y z → U x z := by\n    intro x y z hxy hyz\n    rcases hxy with hxyH | hxyR\n    · rcases hyz with hyzH | hyzR\n      · exact Or.inl (hH.trans x y z hxyH hyzH)\n      · by_cases hxyeq : x = y\n        · subst y\n          exact Or.inr hyzR\n        · by_cases hyzeq : y = z\n          · subst z\n            exact Or.inl hxyH\n          · rcases htotalU x z with hxzU | hzxU\n            · exact hxzU\n            · rcases hzxU with hzxH | hzxR\n              · have hzyH : leH z y := hH.trans z x y hzxH hxyH\n                have hnoR : ¬ (leR y z ∨ leR z y) :=\n                  (hcompat hyzeq).mp (Or.inr hzyH)\n                exact False.elim (hnoR (Or.inl hyzR))\n              · have hyxR : leR y x := hR.trans y z x hyzR hzxR\n                have hnoR : ¬ (leR x y ∨ leR y x) :=\n                  (hcompat hxyeq).mp (Or.inl hxyH)\n                exact False.elim (hnoR (Or.inr hyxR))\n    · rcases hyz with hyzH | hyzR\n      · by_cases hxyeq : x = y\n        · subst y\n          exact Or.inl hyzH\n        · by_cases hyzeq : y = z\n          · subst z\n            exact Or.inr hxyR\n          · rcases htotalU x z with hxzU | hzxU\n            · exact hxzU\n            · rca",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.771578",
+              "name": "hH",
+              "statement": "IsPartialOrder P leH"
+            },
+            {
+              "fvar_id": "_uniq.771579",
+              "name": "hR",
+              "statement": "IsPartialOrder P leR"
+            },
+            {
+              "fvar_id": "_uniq.771580",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            },
+            {
+              "fvar_id": "_uniq.771639",
+              "name": "htotalU",
+              "statement": "∀ (x y : P), U x y ∨ U y x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.772364",
+            "name": "htransU",
+            "statement": "∀ (x y z : P), U x y → U y z → U x z"
+          }
+        },
+        "lean_dependency_sha256": "dd164cc02982a6587fc5b1b8b75f662d7761cc054e5c46a9d44065e0f1644162",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x y z : P), U x y → U y z → U x z",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hh_048a0afc",
+        "m_hr_c4b02e18",
+        "m_hcompat_aa8529f6"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "IsTrans.trans + Std.Antisymm.antisymm + Std.Refl.refl",
+        "items": [
+          "IsTrans.trans",
+          "Std.Antisymm.antisymm",
+          "Std.Refl.refl"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "IsTrans.trans",
+          "Std.Antisymm.antisymm",
+          "Std.Refl.refl"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact {\n    refl := hreflU\n    trans := htransU\n    antisymm := hantisymmU\n    total := htotalU\n  }",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hH",
+              "statement": "IsPartialOrder P leH"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hR",
+              "statement": "IsPartialOrder P leR"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hcompat",
+              "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "IsLinearOrder P fun x y => leH x y ∨ leR x y"
+          }
+        },
+        "lean_dependency_sha256": "a83eea9e7ed3dfb482ca05c60057d5f3234c1205ae67e8cbbd49784ac890f430",
+        "kernel_witness_check": {
+          "proof_type": "IsLinearOrder P fun x y => leH x y ∨ leR x y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "IsLinearOrder",
+      "declarations": [
+        "IsLinearOrder",
+        "IsLinearOrder.toIsPartialOrder",
+        "IsLinearOrder.toTotal",
+        "IsLinearOrder.mk",
+        "instIsLinearOrderGe",
+        "instIsLinearOrderLe",
+        "RelEmbedding.isLinearOrder",
+        "extend_partialOrder"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 1,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 1,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 4,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

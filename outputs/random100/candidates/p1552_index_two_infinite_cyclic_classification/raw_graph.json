@@ -1,0 +1,739 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "manifest": [
+        {
+          "statement": "Subgroup.closure {v, t} = ⊤",
+          "origin": "manifest",
+          "name": "hgen",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "Infinite ↥(Subgroup.zpowers t)",
+          "origin": "manifest",
+          "name": "htinf",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "(Subgroup.zpowers t).index = 2",
+          "origin": "manifest",
+          "name": "hindex",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∃ x, x ≠ 1 ∧ IsOfFinOrder x",
+          "origin": "manifest",
+          "name": "htors",
+          "fvar_id": "7"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "Function.Injective fun k => t ^ k",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1552_index_two_infinite_cyclic_classification.zpow_injective_of_infinite_zpowers"
+          ],
+          "premises": [
+            {
+              "statement": "Infinite ↥(Subgroup.zpowers t)",
+              "origin": "local_assumption",
+              "name": "htinf",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+          "id": "telescope_8",
+          "conclusion": {
+            "statement": "Function.Injective fun k => t ^ k",
+            "origin": "derived",
+            "name": "htinj",
+            "fvar_id": "8"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "v ∉ Subgroup.zpowers t",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1552_index_two_infinite_cyclic_classification.not_mem_zpowers_of_closure_eq_top_index_two"
+          ],
+          "premises": [
+            {
+              "statement": "Subgroup.closure {v, t} = ⊤",
+              "origin": "local_assumption",
+              "name": "hgen",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "(Subgroup.zpowers t).index = 2",
+              "origin": "local_assumption",
+              "name": "hindex",
+              "fvar_id": "6"
+            }
+          ],
+          "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+          "id": "telescope_9",
+          "conclusion": {
+            "statement": "v ∉ Subgroup.zpowers t",
+            "origin": "derived",
+            "name": "hvH",
+            "fvar_id": "9"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "v * v ∈ Subgroup.zpowers t",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1552_index_two_infinite_cyclic_classification.sq_mem_zpowers_of_index_two"
+          ],
+          "premises": [
+            {
+              "statement": "(Subgroup.zpowers t).index = 2",
+              "origin": "local_assumption",
+              "name": "hindex",
+              "fvar_id": "6"
+            }
+          ],
+          "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+          "id": "telescope_10",
+          "conclusion": {
+            "statement": "v * v ∈ Subgroup.zpowers t",
+            "origin": "derived",
+            "name": "hv2mem",
+            "fvar_id": "10"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "(∃ n e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨\n  ∃ e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∃ n e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨\n  ∃ e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Decidable.byContradiction",
+          "Eq.symm",
+          "Eq.trans",
+          "Iff.mp",
+          "Mathlib.Tactic.Group.zpow_trick_one",
+          "Nat.fact_prime_two",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.conjugation_cases_of_index_two",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification._proof_1",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedCommEquiv_apply_of_one",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedCommEquiv_apply_of_zero",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedInvEquiv_apply_of_one",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedInvEquiv_apply_of_zero",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.square_exponent_even_of_torsion",
+          "Rollout_p2272_proposition_4_2.proposition_4_2._simp_2",
+          "Rollout_p2272_proposition_4_2.proposition_4_2._simp_5",
+          "Subgroup.mem_zpowers_iff",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "conj_zpow",
+          "eq_self",
+          "even_iff_exists_two_mul",
+          "inv_zpow'",
+          "mul_one",
+          "neg_add_cancel",
+          "of_eq_true",
+          "zpow_zero"
+        ],
+        "premises": [
+          {
+            "statement": "Subgroup.closure {v, t} = ⊤",
+            "origin": "local_assumption",
+            "name": "hgen",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "(Subgroup.zpowers t).index = 2",
+            "origin": "local_assumption",
+            "name": "hindex",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∃ x, x ≠ 1 ∧ IsOfFinOrder x",
+            "origin": "local_assumption",
+            "name": "htors",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "Function.Injective fun k => t ^ k",
+            "origin": "derived",
+            "name": "htinj",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "v ∉ Subgroup.zpowers t",
+            "origin": "derived",
+            "name": "hvH",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "v * v ∈ Subgroup.zpowers t",
+            "origin": "derived",
+            "name": "hv2mem",
+            "fvar_id": "10"
+          }
+        ],
+        "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∃ n e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨\n  ∃ e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "v * v ∈ zpowers t",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1552_index_two_infinite_cyclic_classification.sq_mem_zpowers_of_index_two"
+      ],
+      "premises": [
+        {
+          "statement": "(zpowers t).index = 2",
+          "origin": "local_assumption",
+          "name": "hindex",
+          "fvar_id": "_uniq.8688384"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2053",
+      "conclusion": {
+        "statement": "v * v ∈ zpowers t",
+        "origin": "derived",
+        "name": "hv2mem",
+        "fvar_id": "_uniq.8690734"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v * t = t * v ∨ v * t * v⁻¹ = t⁻¹",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1552_index_two_infinite_cyclic_classification.conjugation_cases_of_index_two"
+      ],
+      "premises": [
+        {
+          "statement": "(zpowers t).index = 2",
+          "origin": "local_assumption",
+          "name": "hindex",
+          "fvar_id": "_uniq.8688384"
+        },
+        {
+          "statement": "Function.Injective fun k => t ^ k",
+          "origin": "derived",
+          "name": "htinj",
+          "fvar_id": "_uniq.8688671"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2054",
+      "conclusion": {
+        "statement": "v * t = t * v ∨ v * t * v⁻¹ = t⁻¹",
+        "origin": "derived",
+        "name": "hcases",
+        "fvar_id": "_uniq.8691166"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Even r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1552_index_two_infinite_cyclic_classification.square_exponent_even_of_torsion"
+      ],
+      "premises": [
+        {
+          "statement": "Subgroup.closure {v, t} = ⊤",
+          "origin": "local_assumption",
+          "name": "hgen",
+          "fvar_id": "_uniq.8688382"
+        },
+        {
+          "statement": "∃ x, x ≠ 1 ∧ IsOfFinOrder x",
+          "origin": "local_assumption",
+          "name": "htors",
+          "fvar_id": "_uniq.8688385"
+        },
+        {
+          "statement": "Function.Injective fun k => t ^ k",
+          "origin": "derived",
+          "name": "htinj",
+          "fvar_id": "_uniq.8688671"
+        },
+        {
+          "statement": "v * v = t ^ r",
+          "origin": "derived",
+          "name": "hv2",
+          "fvar_id": "_uniq.8691157"
+        },
+        {
+          "statement": "v * t = t * v",
+          "origin": "local_assumption",
+          "name": "hcomm",
+          "fvar_id": "_uniq.8691193"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2055",
+      "conclusion": {
+        "statement": "Even r",
+        "origin": "derived",
+        "name": "heven",
+        "fvar_id": "_uniq.8691722"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v * v = t ^ (2 * n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "v * v = t ^ r",
+          "origin": "derived",
+          "name": "hv2",
+          "fvar_id": "_uniq.8691157"
+        },
+        {
+          "statement": "r = 2 * n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.8691986"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2056",
+      "conclusion": {
+        "statement": "v * v = t ^ (2 * n)",
+        "origin": "derived",
+        "name": "hv2n",
+        "fvar_id": "_uniq.8692095"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "t ^ r = t ^ (-r)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "v * v = t ^ r",
+          "origin": "derived",
+          "name": "hv2",
+          "fvar_id": "_uniq.8691157"
+        },
+        {
+          "statement": "v * v = t ^ (-r)",
+          "origin": "derived",
+          "name": "hvr",
+          "fvar_id": "_uniq.8695849"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2058",
+      "conclusion": {
+        "statement": "t ^ r = t ^ (-r)",
+        "origin": "derived",
+        "name": "htr",
+        "fvar_id": "_uniq.8699104"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Function.Injective fun k => t ^ k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1552_index_two_infinite_cyclic_classification.zpow_injective_of_infinite_zpowers"
+      ],
+      "premises": [
+        {
+          "statement": "Infinite ↥(zpowers t)",
+          "origin": "local_assumption",
+          "name": "htinf",
+          "fvar_id": "_uniq.8688383"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2059",
+      "conclusion": {
+        "statement": "Function.Injective fun k => t ^ k",
+        "origin": "derived",
+        "name": "htinj",
+        "fvar_id": "_uniq.8688671"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v ∉ zpowers t",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1552_index_two_infinite_cyclic_classification.not_mem_zpowers_of_closure_eq_top_index_two"
+      ],
+      "premises": [
+        {
+          "statement": "Subgroup.closure {v, t} = ⊤",
+          "origin": "local_assumption",
+          "name": "hgen",
+          "fvar_id": "_uniq.8688382"
+        },
+        {
+          "statement": "(zpowers t).index = 2",
+          "origin": "local_assumption",
+          "name": "hindex",
+          "fvar_id": "_uniq.8688384"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2060",
+      "conclusion": {
+        "statement": "v ∉ zpowers t",
+        "origin": "derived",
+        "name": "hvH",
+        "fvar_id": "_uniq.8689044"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v * v = t ^ r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm"
+      ],
+      "premises": [
+        {
+          "statement": "t ^ r = v * v",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.8691120"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2061",
+      "conclusion": {
+        "statement": "v * v = t ^ r",
+        "origin": "derived",
+        "name": "hv2",
+        "fvar_id": "_uniq.8691157"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v * v = t ^ (-r)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Mathlib.Tactic.Group.zpow_trick_one",
+        "Rollout_p2272_proposition_4_2.proposition_4_2._simp_2",
+        "Rollout_p2272_proposition_4_2.proposition_4_2._simp_5",
+        "congr",
+        "congrArg",
+        "conj_zpow",
+        "eq_self",
+        "inv_zpow'",
+        "mul_one",
+        "neg_add_cancel",
+        "of_eq_true",
+        "zpow_zero"
+      ],
+      "premises": [
+        {
+          "statement": "v * v = t ^ r",
+          "origin": "derived",
+          "name": "hv2",
+          "fvar_id": "_uniq.8691157"
+        },
+        {
+          "statement": "v * t * v⁻¹ = t⁻¹",
+          "origin": "local_assumption",
+          "name": "hconj",
+          "fvar_id": "_uniq.8691198"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2062",
+      "conclusion": {
+        "statement": "v * v = t ^ (-r)",
+        "origin": "derived",
+        "name": "hvr",
+        "fvar_id": "_uniq.8695849"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r = -r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Injective fun k => t ^ k",
+          "origin": "derived",
+          "name": "htinj",
+          "fvar_id": "_uniq.8688671"
+        },
+        {
+          "statement": "v * v = t ^ r",
+          "origin": "derived",
+          "name": "hv2",
+          "fvar_id": "_uniq.8691157"
+        },
+        {
+          "statement": "v * v = t ^ (-r)",
+          "origin": "derived",
+          "name": "hvr",
+          "fvar_id": "_uniq.8695849"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2063",
+      "conclusion": {
+        "statement": "r = -r",
+        "origin": "derived",
+        "name": "hrneg",
+        "fvar_id": "_uniq.8698993"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "r = -r",
+          "origin": "derived",
+          "name": "hrneg",
+          "fvar_id": "_uniq.8698993"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2064",
+      "conclusion": {
+        "statement": "r = 0",
+        "origin": "derived",
+        "name": "hr0",
+        "fvar_id": "_uniq.8699161"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v * v = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true",
+        "zpow_zero"
+      ],
+      "premises": [
+        {
+          "statement": "v * v = t ^ r",
+          "origin": "derived",
+          "name": "hv2",
+          "fvar_id": "_uniq.8691157"
+        },
+        {
+          "statement": "r = 0",
+          "origin": "derived",
+          "name": "hr0",
+          "fvar_id": "_uniq.8699161"
+        }
+      ],
+      "parent": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+      "id": "local_2065",
+      "conclusion": {
+        "statement": "v * v = 1",
+        "origin": "derived",
+        "name": "hsq",
+        "fvar_id": "_uniq.8701020"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p1552_index_two_infinite_cyclic_classification",
+    "proof_sha256": "ca16ec0b4eb68fc59e6e018796ea3e9ad62d3dfff9476d84e70f557d46735815",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification"
+  }
+}

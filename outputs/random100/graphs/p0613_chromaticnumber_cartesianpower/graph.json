@@ -1,0 +1,985 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0613_chromaticnumber_cartesianpower",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 613,
+    "source": "1310.2268",
+    "theorem_name": "chromaticNumber_cartesianPower",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/613",
+    "reconstructed_proof": "../../candidates/p0613_chromaticnumber_cartesianpower/proof.lean",
+    "raw_elaboration": "../../candidates/p0613_chromaticnumber_cartesianpower/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0613_chromaticnumber_cartesianpower.chromaticNumber_cartesianPower",
+    "verification_call_id": "verify_submission:51",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "ae22701a4b328287dc620e363fc049b384035cf483673f85fda6131a05a68d18",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "97d9ae3a05a23aaf7ee679a8fe7da778b8f65606a26c07972dd59a30b949bd89",
+    "concrete_semantic_topology_sha256": "ae22701a4b328287dc620e363fc049b384035cf483673f85fda6131a05a68d18"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hk_ccc56dce",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hk",
+      "lean_fvar_id": "4",
+      "statement": "1 ≤ k"
+    },
+    {
+      "id": "m_hn_6705fb17",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "0 < n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber = G.chromaticNumber"
+    },
+    {
+      "id": "n_hcg_ece408c2",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hcG",
+      "lean_fvar_id": "6",
+      "statement": "G.Colorable q"
+    },
+    {
+      "id": "n_hcolor_a960497e",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hcolor",
+      "lean_fvar_id": "8",
+      "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).Colorable q"
+    },
+    {
+      "id": "n_hq_bf8c7e91",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hq",
+      "lean_fvar_id": "7",
+      "statement": "q ≠ 0"
+    },
+    {
+      "id": "n_htop_6a334dcc",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "htop",
+      "lean_fvar_id": "9",
+      "statement": "G.chromaticNumber ≠ ⊤"
+    },
+    {
+      "id": "n_upper_3bdb5fa4",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "upper",
+      "lean_fvar_id": "10",
+      "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber ≤ G.chromaticNumber"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hcg",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hcg_ece408c2",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "SimpleGraph.colorable_chromaticNumber_of_fintype",
+        "items": [
+          "SimpleGraph.colorable_chromaticNumber_of_fintype"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "SimpleGraph.colorable_chromaticNumber_of_fintype"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_6",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hcG : G.Colorable q := by\n    simpa [q] using SimpleGraph.colorable_chromaticNumber_of_fintype G",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "6",
+            "name": "hcG",
+            "statement": "G.Colorable q"
+          }
+        },
+        "lean_dependency_sha256": "09574f91e41ae72f636062a43cc12540b8133bb6180219b267249d70bfdd9563",
+        "kernel_witness_check": {
+          "proof_type": "G.Colorable q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "SimpleGraph.colorable_chromaticNumber_of_fintype"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_hq",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_6705fb17",
+        "n_hcg_ece408c2"
+      ],
+      "conclusion": "n_hq_bf8c7e91",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "SimpleGraph.isEmpty_of_colorable_zero",
+        "items": [
+          "SimpleGraph.isEmpty_of_colorable_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "SimpleGraph.isEmpty_of_colorable_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_7",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hq : q ≠ 0 := by\n    intro hq\n    rw [hq] at hcG\n    have hempty : IsEmpty (Fin n) := SimpleGraph.isEmpty_of_colorable_zero hcG\n    exact IsEmpty.elim hempty ⟨0, hn⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hn",
+              "statement": "0 < n"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hcG",
+              "statement": "G.Colorable q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "7",
+            "name": "hq",
+            "statement": "q ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "aa9e1594d65ca558c60422f9db1a7b447ed2989a2638d49a73071c66e05823ff",
+        "kernel_witness_check": {
+          "proof_type": "q = 0 → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "SimpleGraph.isEmpty_of_colorable_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hcolor",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hcg_ece408c2",
+        "n_hq_bf8c7e91"
+      ],
+      "conclusion": "n_hcolor_a960497e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_colorable_of_coloring",
+        "items": [
+          "Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_colorable_of_coloring"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_colorable_of_coloring"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_8",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hcolor : (SimpleGraph.fromRel (fun x y : Fin k → Fin n =>\n      ∃ i : Fin k, G.Adj (x i) (y i) ∧\n        ∀ j : Fin k, j ≠ i → x j = y j)).Colorable q := by\n    rcases hcG with ⟨C⟩\n    exact cartesianPower_colorable_of_coloring G C hq",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hcG",
+              "statement": "G.Colorable q"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hq",
+              "statement": "q ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "8",
+            "name": "hcolor",
+            "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).Colorable q"
+          }
+        },
+        "lean_dependency_sha256": "0be0b75aee40f033e97cd835caeaaeb29032fa760bf4c5d781d78515bbc56a4c",
+        "kernel_witness_check": {
+          "proof_type": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).Colorable q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_htop",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hcg_ece408c2"
+      ],
+      "conclusion": "n_htop_6a334dcc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "SimpleGraph.chromaticNumber_ne_top_iff_exists",
+        "items": [
+          "SimpleGraph.chromaticNumber_ne_top_iff_exists"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "SimpleGraph.chromaticNumber_ne_top_iff_exists"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_9",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have htop : G.chromaticNumber ≠ ⊤ := by\n    exact SimpleGraph.chromaticNumber_ne_top_iff_exists.mpr ⟨q, hcG⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hcG",
+              "statement": "G.Colorable q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "9",
+            "name": "htop",
+            "statement": "G.chromaticNumber ≠ ⊤"
+          }
+        },
+        "lean_dependency_sha256": "0999f0b75ba36e1da7c727ff591467c5597d077b18edb1be05437e1ed08f6f5d",
+        "kernel_witness_check": {
+          "proof_type": "G.chromaticNumber ≠ ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "SimpleGraph.chromaticNumber_ne_top_iff_exists"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:43"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_upper",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hcolor_a960497e",
+        "n_htop_6a334dcc"
+      ],
+      "conclusion": "n_upper_3bdb5fa4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENat.coe_toNat + SimpleGraph.Colorable.chromaticNumber_le",
+        "items": [
+          "ENat.coe_toNat",
+          "SimpleGraph.Colorable.chromaticNumber_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENat.coe_toNat",
+          "SimpleGraph.Colorable.chromaticNumber_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_10",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have upper : (SimpleGraph.fromRel (fun x y : Fin k → Fin n =>\n      ∃ i : Fin k, G.Adj (x i) (y i) ∧\n        ∀ j : Fin k, j ≠ i → x j = y j)).chromaticNumber ≤ G.chromaticNumber := by\n    have hle := hcolor.chromaticNumber_le\n    have hqeq : (q : ℕ∞) = G.chromaticNumber := by\n      dsimp [q]\n      exact ENat.coe_toNat htop\n    rw [hqeq] at hle\n    exact hle",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "8",
+              "name": "hcolor",
+              "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).Colorable q"
+            },
+            {
+              "fvar_id": "9",
+              "name": "htop",
+              "statement": "G.chromaticNumber ≠ ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "10",
+            "name": "upper",
+            "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber ≤ G.chromaticNumber"
+          }
+        },
+        "lean_dependency_sha256": "82ab56400d22d39cc1e7d01a9f7e03483b1cc83d3275dc3fda037aadfdcecad3",
+        "kernel_witness_check": {
+          "proof_type": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber ≤\n  G.chromaticNumber",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENat.coe_toNat",
+          "SimpleGraph.Colorable.chromaticNumber_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:42",
+          "loogle:0",
+          "leanfinder:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_6705fb17",
+        "m_hk_ccc56dce",
+        "n_upper_3bdb5fa4"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_chromaticNumber_lower + le_antisymm",
+        "items": [
+          "Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_chromaticNumber_lower",
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_chromaticNumber_lower",
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact le_antisymm upper (cartesianPower_chromaticNumber_lower hn hk G)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hn",
+              "statement": "0 < n"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hk",
+              "statement": "1 ≤ k"
+            },
+            {
+              "fvar_id": "10",
+              "name": "upper",
+              "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber ≤ G.chromaticNumber"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber = G.chromaticNumber"
+          }
+        },
+        "lean_dependency_sha256": "6fb1b568079d5ecfeeb7748fab48c7d99b99ce647e72943c5555323948d44593",
+        "kernel_witness_check": {
+          "proof_type": "(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber =\n  G.chromaticNumber",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "SimpleGraph.chromaticNumber",
+      "declarations": [
+        "SimpleGraph.chromaticNumber",
+        "SimpleGraph.colorable_chromaticNumber_of_fintype",
+        "SimpleGraph.cliqueNum_le_chromaticNumber",
+        "SimpleGraph.colorable_chromaticNumber",
+        "SimpleGraph.chromaticNumber_le_card",
+        "SimpleGraph.cliqueFree_of_chromaticNumber_lt",
+        "SimpleGraph.colorable_of_chromaticNumber_ne_top",
+        "SimpleGraph.Colorable.chromaticNumber_le",
+        "SimpleGraph.chromaticNumber_le_iff_colorable",
+        "SimpleGraph.chromaticNumber_le_one_of_subsingleton"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "simple graph chromatic number coloring upper bound lower bound chromaticNumber",
+      "declarations": [
+        "SimpleGraph.chromaticNumber_eq_iInf",
+        "SimpleGraph.colorable_chromaticNumber",
+        "SimpleGraph.chromaticNumber",
+        "SimpleGraph.Colorable.chromaticNumber_le",
+        "SimpleGraph.chromaticNumber_bot",
+        "SimpleGraph.le_chromaticNumber_iff_coloring",
+        "SimpleGraph.chromaticNumber_sum",
+        "SimpleGraph.chromaticNumber_mono",
+        "SimpleGraph.chromaticNumber_pathGraph",
+        "SimpleGraph.chromaticNumber_top"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "SimpleGraph.Coloring",
+      "declarations": [
+        "SimpleGraph.Coloring",
+        "SimpleGraph.selfColoring",
+        "SimpleGraph.coloringOfIsEmpty",
+        "SimpleGraph.Coloring.ofIsEmpty",
+        "SimpleGraph.CompleteBipartiteGraph.bicoloring",
+        "SimpleGraph.Coloring.colorClass",
+        "SimpleGraph.Coloring.colorClasses",
+        "SimpleGraph.instFintypeColoring",
+        "SimpleGraph.completeMultipartiteGraph.coloring",
+        "SimpleGraph.Coloring.colorClasses_isPartition"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "SimpleGraph.fromRel",
+      "declarations": [
+        "SimpleGraph.fromRel",
+        "instDecidableRelAdjFromRelOfDecidableEq",
+        "SimpleGraph.fromRel_adj"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "chromaticNumber (_ →g _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "chromaticNumber_le_of",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "graph homomorphism chromatic number inequality SimpleGraph",
+      "declarations": [
+        "SimpleGraph.colorable_chromaticNumber",
+        "SimpleGraph.chromaticNumber",
+        "SimpleGraph.Colorable.of_hom",
+        "SimpleGraph.chromaticNumber_mono_of_hom",
+        "SimpleGraph.chromaticNumber_bot",
+        "SimpleGraph.cliqueNum_le_chromaticNumber",
+        "SimpleGraph",
+        "SimpleGraph.chromaticNumber_mono",
+        "SimpleGraph.chromaticNumber_sum",
+        "SimpleGraph.chromaticNumber_top"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "SimpleGraph.Coloring.comp",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Colorable (_ →g _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "SimpleGraph.Hom",
+      "declarations": [
+        "SimpleGraph.Hom",
+        "SimpleGraph.Hom.id",
+        "SimpleGraph.Hom.instUniqueOfIsEmpty",
+        "SimpleGraph.Hom.comap",
+        "SimpleGraph.Hom.instIsEmptyOfForall",
+        "SimpleGraph.Hom.instSubsingletonOfForall",
+        "SimpleGraph.Embedding.toHom",
+        "SimpleGraph.Hom.instFinite",
+        "SimpleGraph.Iso.toHom",
+        "SimpleGraph.Hom.mapDart"
+      ],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "SimpleGraph.chromaticNumber_mono_of_hom",
+      "declarations": [
+        "SimpleGraph.chromaticNumber_mono_of_hom"
+      ],
+      "call_turn": 13,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "SimpleGraph.Colorable.of_hom",
+      "declarations": [
+        "SimpleGraph.Colorable.of_hom"
+      ],
+      "call_turn": 13,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "define simple graph homomorphism structure toFun map_rel'",
+      "declarations": [
+        "SimpleGraph.Hom.map_apply",
+        "SimpleGraph.Hom.map",
+        "SimpleGraph.simpleGraphOfStructure",
+        "SimpleGraph.fromRel",
+        "SimpleGraph.structure",
+        "SimpleGraph.",
+        "SimpleGraph.Subgraph.map",
+        "Stream'.homomorphism",
+        "SimpleGraph.Subgraph.map_comp",
+        "SimpleGraph"
+      ],
+      "call_turn": 13,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "SimpleGraph.Adj.ne",
+      "declarations": [
+        "SimpleGraph.Adj.ne"
+      ],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "SimpleGraph.ne_of_adj",
+      "declarations": [
+        "SimpleGraph.ne_of_adj"
+      ],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "(_ ≠ _) (_ .Adj _ _)",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "adjacent vertices not equal SimpleGraph adjacency ne",
+      "declarations": [
+        "SimpleGraph.Subgraph.Adj.ne",
+        "SimpleGraph.fromEdgeSet_adj",
+        "SimpleGraph.Adj.ne",
+        "SimpleGraph.sdiff_adj",
+        "SimpleGraph.ne_of_adj_of_not_adj",
+        "SimpleGraph",
+        "SimpleGraph.Adj.ne'",
+        "SimpleGraph.ConnectedComponent.connectedComponentMk_eq_of_adj",
+        "SimpleGraph.even_card_odd_degree_vertices",
+        "SimpleGraph.odd_card_odd_degree_vertices_ne"
+      ],
+      "call_turn": 18,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "SimpleGraph.Colorable",
+      "declarations": [
+        "SimpleGraph.Colorable",
+        "SimpleGraph.colorableOfIsEmpty",
+        "SimpleGraph.Colorable.of_isEmpty",
+        "SimpleGraph.colorable_of_fintype",
+        "SimpleGraph.colorable_chromaticNumber_of_fintype",
+        "SimpleGraph.chromaticNumber_bddBelow",
+        "SimpleGraph.isEmpty_of_colorable_zero",
+        "SimpleGraph.colorable_zero_iff",
+        "SimpleGraph.colorable_chromaticNumber",
+        "SimpleGraph.Coloring.colorable"
+      ],
+      "call_turn": 29,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Colorable.mk",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Coloring.valid",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 32
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "SimpleGraph colorable definition coloring Fin n nonempty coloring",
+      "declarations": [
+        "SimpleGraph.Coloring.colorable",
+        "SimpleGraph.Coloring",
+        "SimpleGraph.Colorable.toColoring",
+        "SimpleGraph.Colorable.isEmpty",
+        "SimpleGraph.Coloring.sum",
+        "SimpleGraph.Coloring.sumFin",
+        "SimpleGraph.coloringOfIsEmpty",
+        "SimpleGraph.colorableOfIsEmpty",
+        "SimpleGraph.Colorable.of_isEmpty",
+        "SimpleGraph"
+      ],
+      "call_turn": 29,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:24",
+      "tool": "leanfinder",
+      "query": "construct simple graph coloring from function adjacent colors unequal",
+      "declarations": [
+        "SimpleGraph.Coloring.colorable",
+        "SimpleGraph.Coloring.injective_comp_of_pairwise_adj",
+        "SimpleGraph.Coloring",
+        "SimpleGraph.Coloring.ofIsEmpty",
+        "SimpleGraph.Coloring.valid",
+        "SimpleGraph.Colorable.toColoring",
+        "SimpleGraph.Coloring.sum",
+        "SimpleGraph.selfColoring",
+        "SimpleGraph.Coloring.not_adj_of_mem_colorClass",
+        "SimpleGraph"
+      ],
+      "call_turn": 29,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Finset.sum_eq_sum_diff_singleton_add",
+      "declarations": [
+        "Finset.sum_eq_sum_diff_singleton_add"
+      ],
+      "call_turn": 41,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "Finset.sum_erase_add",
+      "declarations": [
+        "Finset.sum_erase_add"
+      ],
+      "call_turn": 41,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "sum _ = _ + sum (Finset.erase _ _)",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 44
+    },
+    {
+      "event_id": "leanfinder:31",
+      "tool": "leanfinder",
+      "query": "Finset sum split off one element sum erase add",
+      "declarations": [
+        "Finset.sum_eraseNone",
+        "Finset.add_sum_erase",
+        "List.sum_erase_of_comm",
+        "Finset.sum_erase_add",
+        "List.sum_map_erase",
+        "Lean.Expr.natAdd",
+        "Finset.sum_erase",
+        "List.sum",
+        "Finset.sum_sum_Ioi_add_eq_sum_sum_off_diag",
+        "Finset.sum_eq_sum_sdiff_singleton_add"
+      ],
+      "call_turn": 41,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "add_right_cancel_iff",
+      "declarations": [
+        "add_right_cancel_iff"
+      ],
+      "call_turn": 41,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "completeGraph_adj",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "(SimpleGraph.completeGraph _).Adj",
+      "declarations": [
+        "SimpleGraph.Embedding.coe_completeGraph",
+        "SimpleGraph.Coloring.mem_colorClass",
+        "SimpleGraph.colorable_iff_exists_bdd_nat_coloring",
+        "SimpleGraph.card_le_chromaticNumber_iff_forall_surjective",
+        "SimpleGraph.le_chromaticNumber_iff_forall_surjective",
+        "SimpleGraph.Coloring.mem_colorClasses",
+        "SimpleGraph.Coloring.injective_comp_of_pairwise_adj",
+        "SimpleGraph.chromaticNumber_eq_card_iff_forall_surjective",
+        "SimpleGraph.chromaticNumber_eq_iff_forall_surjective",
+        "SimpleGraph.Coloring.valid"
+      ],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "leanfinder:36",
+      "tool": "leanfinder",
+      "query": "complete graph adjacency iff not equal SimpleGraph completeGraph",
+      "declarations": [
+        "SimpleGraph.complete_graph_degree",
+        "SimpleGraph.completeMultipartiteGraph",
+        "SimpleGraph.instCompl",
+        "SimpleGraph",
+        "SimpleGraph.completeGraph",
+        "SimpleGraph.eq_top_iff_forall_ne_adj",
+        "SimpleGraph.completeAtomicBooleanAlgebra",
+        "SimpleGraph.IsCompleteBetween.symm",
+        "SimpleGraph.connected_or_connected_compl",
+        "SimpleGraph.completeEquipartiteGraph"
+      ],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "chromaticNumber_ne_top",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "chromaticNumber.toNat",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "ENat.coe_toNat",
+      "declarations": [
+        "ENat.coe_toNat"
+      ],
+      "call_turn": 59,
+      "result_turn": 62
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "finite simple graph chromatic number not top finite",
+      "declarations": [
+        "SimpleGraph.chromaticNumber_ne_top_iff_exists",
+        "SimpleGraph.chromaticNumber",
+        "SimpleGraph.chromaticNumber_pos",
+        "SimpleGraph.chromaticNumber_top",
+        "SimpleGraph.chromaticNumber_mono",
+        "SimpleGraph.colorable_of_chromaticNumber_ne_top",
+        "SimpleGraph.chromaticNumber_pathGraph",
+        "SimpleGraph.chromaticNumber_le_card",
+        "SimpleGraph.chromaticNumber_sum",
+        "SimpleGraph"
+      ],
+      "call_turn": 59,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "ENat.coe_toNat_eq_self",
+      "declarations": [
+        "ENat.coe_toNat_eq_self"
+      ],
+      "call_turn": 59,
+      "result_turn": 64
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 8,
+    "selected_hyperedge_count": 6,
+    "main_hyperedge_count": 6,
+    "side_hyperedge_count": 0,
+    "selected_depth": 5,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 5,
+    "retrieval_query_count": 35,
+    "useful_retrieval_event_count": 5,
+    "unused_retrieval_event_count": 30,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 52,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

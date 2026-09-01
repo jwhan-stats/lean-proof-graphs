@@ -1,0 +1,18 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hd_0a4fbf98" [shape=box, color="#178F82", label="hD\n∀ (S : Set W) (x : W), x ∈ D S ↔ ∃ F, F.Finite ∧ F ⊆ S ∧ x ∈ D F"];
+  "m_hn_988a2e38" [shape=box, color="#178F82", label="hn\n1 ≤ n"];
+  "m_hp_af267e16" [shape=box, color="#178F82", label="hP\nP ∈ D^[n] A"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)"];
+  "n_hsub_92f9646a" [shape=box, color="#D97706", label="hsub\n{P} ⊆ D^[n] A"];
+  "r_h_001_hsub" [shape=diamond, label="Set.mem_singleton_iff", color="#D97706"];
+  "m_hp_af267e16" -> "r_h_001_hsub";
+  "r_h_001_hsub" -> "n_hsub_92f9646a";
+  "r_h_goal" [shape=diamond, label="exact", color="#D97706"];
+  "m_hd_0a4fbf98" -> "r_h_goal";
+  "m_hn_988a2e38" -> "r_h_goal";
+  "n_hsub_92f9646a" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

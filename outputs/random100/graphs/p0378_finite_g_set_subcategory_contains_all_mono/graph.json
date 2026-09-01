@@ -1,0 +1,1575 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0378_finite_g_set_subcategory_contains_all_mono",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 378,
+    "source": "1603.03292",
+    "theorem_name": "finite_G_set_subcategory_contains_all_monomorphisms",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/378",
+    "reconstructed_proof": "../../candidates/p0378_finite_g_set_subcategory_contains_all_mono/proof.lean",
+    "raw_elaboration": "../../candidates/p0378_finite_g_set_subcategory_contains_all_mono/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0378_finite_g_set_subcategory_contains_all_mono.finite_G_set_subcategory_contains_all_monomorphisms",
+    "verification_call_id": "verify_submission:176",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "c7aa6e819654a31c1b25326607ad68d547a4afb2514a948524abcfdf1173b344",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "87c19d8e45010e036b1a8dc2f168422b77692a1e91fb06ab17e03d45a617ddfe",
+    "concrete_semantic_topology_sha256": "c7aa6e819654a31c1b25326607ad68d547a4afb2514a948524abcfdf1173b344"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hd_comp_05a2ab61",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hD_comp",
+      "lean_fvar_id": "5",
+      "statement": "D.IsStableUnderComposition"
+    },
+    {
+      "id": "m_hd_coproduct_398fe33e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hD_coproduct",
+      "lean_fvar_id": "7",
+      "statement": "D.IsStableUnderFiniteCoproducts"
+    },
+    {
+      "id": "m_hd_empty_c4cbba41",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hD_empty",
+      "lean_fvar_id": "8",
+      "statement": "D (CategoryTheory.Limits.initial.to (⊤_ Action FintypeCat G))"
+    },
+    {
+      "id": "m_hd_id_c6c6e6da",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hD_id",
+      "lean_fvar_id": "4",
+      "statement": "∀ {X Y : Action FintypeCat G} (f : X ⟶ Y), D f → D (CategoryTheory.CategoryStruct.id X) ∧ D (CategoryTheory.CategoryStruct.id Y)"
+    },
+    {
+      "id": "m_hd_pullback_74408238",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hD_pullback",
+      "lean_fvar_id": "6",
+      "statement": "D.IsStableUnderBaseChange"
+    },
+    {
+      "id": "m_hf_7224e182",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf",
+      "lean_fvar_id": "12",
+      "statement": "CategoryTheory.MorphismProperty.monomorphisms (Action FintypeCat G) f"
+    },
+    {
+      "id": "m_inst___proofs_1466848982_b4da8efc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1466848982._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "Finite G"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "D f"
+    },
+    {
+      "id": "n_htruth_53726675",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "htruth",
+      "lean_fvar_id": "13",
+      "statement": "D (Rollout_p0378_finite_g_set_subcategory_contains_all_mono.FiniteGSetProof.truthU G)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_htruth",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1466848982_b4da8efc",
+        "m_hd_id_c6c6e6da",
+        "m_hd_pullback_74408238",
+        "m_hd_coproduct_398fe33e",
+        "m_hd_empty_c4cbba41"
+      ],
+      "conclusion": "n_htruth_53726675",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have htruth : D (FiniteGSetProof.truthU G) :=\n    FiniteGSetProof.morphismProperty_truthU G D hD_id hD_pullback hD_coproduct hD_empty",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.1466848982._hygCtx._hyg.6",
+              "statement": "Finite G"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hD_id",
+              "statement": "∀ {X Y : Action FintypeCat G} (f : X ⟶ Y), D f → D (CategoryTheory.CategoryStruct.id X) ∧ D (CategoryTheory.CategoryStruct.id Y)"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hD_pullback",
+              "statement": "D.IsStableUnderBaseChange"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hD_coproduct",
+              "statement": "D.IsStableUnderFiniteCoproducts"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hD_empty",
+              "statement": "D (CategoryTheory.Limits.initial.to (⊤_ Action FintypeCat G))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "htruth",
+            "statement": "D (Rollout_p0378_finite_g_set_subcategory_contains_all_mono.FiniteGSetProof.truthU G)"
+          }
+        },
+        "lean_dependency_sha256": "0eace729b60949cba2ef3e19f2d7d7416aba503443eae4a23c663b8907f52d0b",
+        "kernel_witness_check": {
+          "proof_type": "D (Rollout_p0378_finite_g_set_subcategory_contains_all_mono.FiniteGSetProof.truthU G)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hd_pullback_74408238",
+        "m_hf_7224e182",
+        "n_htruth_53726675"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "CategoryTheory.MorphismProperty.of_isPullback",
+        "items": [
+          "CategoryTheory.MorphismProperty.of_isPullback"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "CategoryTheory.MorphismProperty.of_isPullback"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact CategoryTheory.MorphismProperty.of_isPullback\n    (FiniteGSetProof.characteristicSquareU_isPullback G f) htruth",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hD_pullback",
+              "statement": "D.IsStableUnderBaseChange"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hf",
+              "statement": "CategoryTheory.MorphismProperty.monomorphisms (Action FintypeCat G) f"
+            },
+            {
+              "fvar_id": "13",
+              "name": "htruth",
+              "statement": "D (Rollout_p0378_finite_g_set_subcategory_contains_all_mono.FiniteGSetProof.truthU G)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "D f"
+          }
+        },
+        "lean_dependency_sha256": "7e857323d4becbf00b167faba070272f1eba7447d1a6f696b04adb55f9c9d8fb",
+        "kernel_witness_check": {
+          "proof_type": "D f",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "CategoryTheory.MorphismProperty.of_isPullback"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:9"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Action FintypeCat",
+      "declarations": [
+        "Action.FintypeCat.ofMulAction",
+        "Action.instMulActionObjFiniteVFintypeCat",
+        "Action.FintypeCat.quotientToQuotientOfLE",
+        "Action.FintypeCat.toEndHom",
+        "Action.FintypeCat.quotientToEndHom",
+        "Action.FintypeCat.toEndHom_trivial_of_mem",
+        "Action.FintypeCat.toEndHom_apply",
+        "Action.FintypeCat.quotientToEndHom_mk",
+        "CategoryTheory.FintypeCat.instGaloisCategoryActionFintypeCat",
+        "CategoryTheory.FintypeCat.instPreGaloisCategoryActionFintypeCat"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "MorphismProperty.IsStableUnderBaseChange",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "MorphismProperty.IsStableUnderFiniteCoproducts",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Action (Type _) _ ⥤ FintypeCat",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "finite G-set category Action FintypeCat limits coproducts underlying map monomorphism injective",
+      "declarations": [
+        "FintypeCat",
+        "CategoryTheory.PreGaloisCategory.instPreservesFiniteCoproductsActionFintypeCatAutFunctorFunctorToAction",
+        "Action.instHasFiniteCoproducts",
+        "CategoryTheory.Limits.FintypeCat.hasFiniteLimits",
+        "Action.instPreservesFiniteLimitsForgetOfHasFiniteLimits",
+        "CategoryTheory.FintypeCat.instPreservesFiniteLimitsActionFintypeCatForgetHomSubtypeFunObjFiniteV",
+        "CategoryTheory.Limits.ReflectsFiniteCoproducts",
+        "CategoryTheory.Limits.FintypeCat.instPreservesFiniteLimitsFintypeCatForgetFunObjFinite",
+        "CategoryTheory.Limits.PreservesFiniteCoproducts",
+        "CategoryTheory.Limits.HasFiniteCoproducts"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "binary coproduct FintypeCat finite types coproduct Bool Sum is colimit binary cofan",
+      "declarations": [
+        "CategoryTheory.Limits.BinaryCofan.inl",
+        "CategoryTheory.FunctorToTypes.binaryCoproductCocone",
+        "CategoryTheory.Limits.Types.binaryCoproductIso",
+        "CategoryTheory.Limits.FintypeCat.finite_colimitType",
+        "CategoryTheory.Limits.Types.binaryCoproductColimit",
+        "CategoryTheory.FunctorToTypes.binaryCoproductCocone_pt_map_hom_apply",
+        "CategoryTheory.Limits.BinaryCofan.inr",
+        "CategoryTheory.FunctorToTypes.binaryCoproductColimit",
+        "CategoryTheory.Limits.Types.binaryCoproductColimitCocone",
+        "CategoryTheory.FunctorToTypes.binaryCoproductColimitCocone",
+        "CategoryTheory.Limits.CoproductsFromFiniteFiltered.liftToFinsetColimIso",
+        "CategoryTheory.Limits.Types.binaryCoproductCocone",
+        "CategoryTheory.FunctorToTypes.binaryCoproductColimit_desc",
+        "CategoryTheory.Limits.BinaryCoproductDisjoint.of_binaryCofan",
+        "CategoryTheory.Limits.Types.binaryProductLimit_lift",
+        "TopCat.binaryCofanIsColimit",
+        "CategoryTheory.Limits.Types.binaryCoproductColimit_desc",
+        "CategoryTheory.Limits.CofanTypes.equivOfIsColimit",
+        "CategoryTheory.Limits.BinaryCofan.IsColimit.desc",
+        "Preorder.isColimitBinaryCofan"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "pullback finite types FintypeCat cone is limit",
+      "declarations": [
+        "CategoryTheory.Limits.FintypeCat.finite_colimitType",
+        "CategoryTheory.Limits.Types.pullbackLimitCone",
+        "TopCat.pullbackConeIsLimit",
+        "TopCat.pullbackCone",
+        "CategoryTheory.Limits.Types.pullbackLimitCone_cone",
+        "CommRingCat.pullbackConeIsLimit",
+        "CategoryTheory.Limits.IsLimit",
+        "CategoryTheory.Limits.Types.binaryProductLimit_lift",
+        "CategoryTheory.Limits.PullbackCone.IsLimit.equivPullbackObj",
+        "CategoryTheory.Limits.Types.Small.limitCone",
+        "CategoryTheory.Limits.Types.pullbackLimitCone_isLimit",
+        "GrpCat.limitConeIsLimit",
+        "TopCat.Sheaf.isLimitPullbackCone",
+        "TopCat.limitConeIsLimit",
+        "CategoryTheory.Limits.Types.Small.productLimitCone",
+        "CategoryTheory.Limits.Types.binaryProductLimitCone_isLimit",
+        "CategoryTheory.Limits.Types.productLimitCone",
+        "RingCat.limitConeIsLimit",
+        "CategoryTheory.Limits.PullbackCone.isLimitEquivBijective",
+        "CategoryTheory.Limits.Types.limitConeIsLimit"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "MorphismProperty stable under base change pullback isomorphism mono finite coproduct",
+      "declarations": [
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.isomorphisms",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.diagonal",
+        "CategoryTheory.MorphismProperty.universally_isStableUnderBaseChange",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.mk'",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.monomorphisms",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.unop",
+        "CategoryTheory.MorphismProperty.instIsStableUnderBaseChangeTop",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.op",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.hasOfPostcompProperty_monomorphisms",
+        "CategoryTheory.MorphismProperty.pullbacks_le",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChangeAgainst",
+        "CategoryTheory.MorphismProperty.of_isPullback",
+        "CategoryTheory.MorphismProperty.instIsStableUnderBaseChangeAgainstOfIsStableUnderBaseChange",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChangeAlong",
+        "CategoryTheory.MorphismProperty.rlp_isStableUnderBaseChange",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.inf",
+        "CategoryTheory.MorphismProperty.pullback_snd",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.respectsIso",
+        "CategoryTheory.MorphismProperty.instIsStableUnderBaseChangeAlongCompOfHasPullbacksAlong"
+      ],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "IsPullback _ _ _ _",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "IsColimit (BinaryCofan _ _)",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "pullback.fst _ _ ≫ _ = _",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "MorphismProperty.IsStableUnderFiniteCoproducts.mk",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "subcategory pullback stable finite coproducts contains initial terminal map contains all monomorphisms category",
+      "declarations": [
+        "CategoryTheory.Types.instIsStableUnderCoproductsOfShapeMonomorphismsType",
+        "Vector.contains",
+        "CategoryTheory.hasFiniteCoproducts_of_has_binary_and_initial",
+        "Std.DTreeMap.contains",
+        "CategoryTheory.preservesFiniteCoproductsOfPreservesBinaryAndInitial",
+        "CategoryTheory.PreservesFiniteCoproducts.of_preserves_binary_and_initial",
+        "List.contains",
+        "CategoryTheory.instMono",
+        "Std.TreeMap.contains",
+        "CategoryTheory.Limits.HasFiniteCoproducts",
+        "CategoryTheory.Types.instIsStableUnderCoproductsMonomorphismsType",
+        "Array.contains",
+        "CategoryTheory.MorphismProperty.IsStableUnderFiniteCoproducts",
+        "Std.DTreeMap.Raw.contains",
+        "CategoryTheory.FinitaryExtensive.mono_",
+        "CategoryTheory.MorphismProperty.instMonoMapOfIsStableUnderCoproductsOfShapeMonomorphisms",
+        "CategoryTheory.Limits.instPreservesMonomorphismsObjFunctorTypeSigmaConst",
+        "CategoryTheory.MorphismProperty.coproducts_le",
+        "CategoryTheory.MorphismProperty.coproducts_le_iff",
+        "Std.HashMap.contains",
+        "List.contains_map",
+        "Std.DHashMap.contains",
+        "Std.DHashMap.Raw.contains",
+        "Vector.contains_map",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsOfShapeFunctorMonomorphismsOfHasCoproductsOfShapeOfHasPullbacks",
+        "SSet.instIsStableUnderCoproductsMonomorphismsOfHasCoproductsType",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsFunctorMonomorphismsOfHasCoproductsOfHasPullbacks",
+        "CategoryTheory.Limits.initialMonoClass_of_coproductsDisjoint",
+        "CategoryTheory.MorphismProperty.instIsStableUnderTransfiniteCompositionOfShapeFunctorMonomorphismsOfHasPullbacksOfHasIterationOfShape",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsMonomorphismsOfAB4OfSize"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "morphism property contains all monomorphisms stable under pullbacks coproducts initial terminal",
+      "declarations": [
+        "CategoryTheory.MorphismProperty.monomorphisms",
+        "CategoryTheory.MorphismProperty.IsStableUnderCoproductsOfShape",
+        "CategoryTheory.MorphismProperty.IsStableUnderRetracts.monomorphisms",
+        "StableUnderSpecialization",
+        "CategoryTheory.MorphismProperty.IsStableUnderComposition",
+        "CategoryTheory.MorphismProperty.IsStableUnderCobaseChange",
+        "CategoryTheory.MorphismProperty.hasPullbacksAgainst_top_iff",
+        "CategoryTheory.MorphismProperty.IsStableUnderRetracts",
+        "CategoryTheory.MorphismProperty.coproducts_le",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange",
+        "CategoryTheory.MorphismProperty.isStableUnderColimitsOfShape_monomorphisms",
+        "CategoryTheory.MorphismProperty.universally_le",
+        "CategoryTheory.MorphismProperty.IsStableUnderCoproducts",
+        "CategoryTheory.MorphismProperty.instMonoMapOfIsStableUnderCoproductsOfShapeMonomorphisms",
+        "CategoryTheory.MorphismProperty.universally_mk'",
+        "CategoryTheory.MorphismProperty.coproducts",
+        "CategoryTheory.Limits.PullbackCone.mono_snd_of_is_pullback_of_mono",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.hasOfPostcompProperty_monomorphisms",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsOfShapeFunctorMonomorphismsOfHasCoproductsOfShapeOfHasPullbacks",
+        "CategoryTheory.MorphismProperty.instHasPullbacksAgainstOfHasPullbacks",
+        "CategoryTheory.MorphismProperty.IsStableUnderBaseChange.monomorphisms",
+        "CategoryTheory.MorphismProperty.coproducts_le_iff",
+        "CategoryTheory.MorphismProperty.le_coproducts",
+        "StableUnderGeneralization",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsFunctorMonomorphismsOfHasCoproductsOfHasPullbacks",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsMonomorphismsOfAB4OfSize",
+        "CategoryTheory.MorphismProperty.IsStableUnderFiniteCoproducts",
+        "CategoryTheory.MorphismProperty.instIsStableUnderCoproductsLlp",
+        "CategoryTheory.MorphismProperty.instIsStableUnderTransfiniteCompositionOfShapeFunctorMonomorphismsOfHasPullbacksOfHasIterationOfShape",
+        "CategoryTheory.MorphismProperty.pullback_snd"
+      ],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "mono is pullback of point into coproduct characteristic map",
+      "declarations": [
+        "CategoryTheory.SubobjectRepresentableBy.",
+        "AlgebraicGeometry.Scheme.Pullback.ofPointTensor",
+        "CategoryTheory.SubobjectRepresentableBy.isPullback",
+        "AlgebraicGeometry.Scheme.Pullback.Triplet.ofPoint",
+        "AddSubgroup.Characteristic",
+        "CategoryTheory.Mono.",
+        "CategoryTheory.Limits.PullbackCone.isIso_snd_of_mono_of_isLimit",
+        "CategoryTheory.Presheaf.",
+        "CategoryTheory.SubobjectRepresentableBy.iso",
+        "CategoryTheory.Limits.FormalCoproduct.pullbackCone",
+        "CategoryTheory.Subobject.Classifier.pullback_",
+        "CategoryTheory.Sheaf.",
+        "CategoryTheory.Presheaf.isPullback_",
+        "CategoryTheory.Limits.PullbackCone.fst_eq_snd_of_mono_eq",
+        "ValueDistribution.characteristic",
+        "CategoryTheory.Limits.CoproductDisjoint.isPullback_of_isInitial",
+        "CategoryTheory.MonoOver.pullback",
+        "CategoryTheory.Limits.FormalCoproduct.isPullback",
+        "CategoryTheory.IsPushout.mono_of_isPullback_of_mono",
+        "Subgroup.Characteristic",
+        "CategoryTheory.Classifier.SubobjectRepresentableBy.pullback_homEquiv_symm_obj_",
+        "Subgroup.normal_of_characteristic",
+        "CategoryTheory.IsPullback.mono_fst_of_mono",
+        "CategoryTheory.Mono.of_coproductDisjoint",
+        "CategoryTheory.MonoOver.pullbackMapSelf",
+        "CategoryTheory.Limits.PullbackCone.isIso_fst_of_mono_of_isLimit",
+        "CategoryTheory.IsPullback.mono_snd_of_mono",
+        "CategoryTheory.Abelian.mono_cokernel_map_of_isPullback",
+        "frattini_characteristic",
+        "CategoryTheory.HasSubobjectClassifier.isPullback_"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "Action finite sets Boolean topos subobject classifier",
+      "declarations": [
+        "CategoryTheory.HasSubobjectClassifier.truth",
+        "CategoryTheory.HasSubobjectClassifier.",
+        "Mathlib.Meta.FunProp.",
+        "CategoryTheory.Subobject.Classifier.truth_as_subobject",
+        "CategoryTheory.Subobject.Classifier.hom",
+        "Lean.Elab.WF.isNatLtWF",
+        "BooleanAlgebra",
+        "CategoryTheory.Subobject.Classifier.ofEquivalence",
+        "MeasureTheory.Measure.FiniteSpanningSetsIn",
+        "CategoryTheory.Classifier.truth_as_subobject",
+        "BooleanSubalgebra.map",
+        "BooleanSubalgebra.comap",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "Lean.Level.isMVar",
+        "CategoryTheory.Subobject.Classifier.mkOfTerminal",
+        "Lean.Meta.getFunIndInfoForInduct",
+        "Lean.NameSSet.contains",
+        "CategoryTheory.Subobject.Classifier",
+        "CategoryTheory.HasSubobjectClassifier",
+        "CategoryTheory.Subobject.Classifier.isTerminal",
+        "CategoryTheory.Subobject",
+        "CategoryTheory.Subobject.Classifier.representableBy",
+        "Mathlib.Meta.FunProp.getLambdaTheorems",
+        "BooleanSubalgebra",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "CategoryTheory.HasSubobjectClassifier.unique",
+        "CategoryTheory.Subobject.Classifier.surjective_",
+        "CategoryTheory.Subobject.Classifier.ofIso",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor"
+      ],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "monomorphisms _ ≤ _",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "MorphismProperty.monomorphisms ≤ _",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "MorphismProperty.isomorphisms ≤ _",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 27
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "instance HasSubobjectClassifier Action category",
+      "declarations": [
+        "CategoryTheory.HasSubobjectClassifier.",
+        "SetLike.instVAddCommClassSubtypeMem",
+        "CategoryTheory.HasSubobjectClassifier.truth",
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "Lean.Parser.isParserCategory",
+        "Lean.Parser.getCategory",
+        "CategoryTheory.instCategoryActionCategory",
+        "CategoryTheory.HasSubobjectClassifier",
+        "CategoryTheory.HasSubobjectClassifier.isRegularMonoCategory",
+        "CategoryTheory.Subobject.Classifier.hom",
+        "CategoryTheory.HasSubobjectClassifier.comm",
+        "CategoryTheory.Subobject",
+        "CategoryTheory.HasSubobjectClassifier.reflectsIsomorphisms",
+        "CategoryTheory.HasSubobjectClassifier.comm_assoc",
+        "CategoryTheory.Classifier.SubobjectRepresentableBy.hasTerminal",
+        "CategoryTheory.Discrete.discreteCases",
+        "CategoryTheory.Subobject.Classifier",
+        "CategoryTheory.HasSubobjectClassifier.unique"
+      ],
+      "call_turn": 28,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "HasSubobjectClassifier (Action _ _)",
+      "declarations": [],
+      "call_turn": 28,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "HasSubobjectClassifier FintypeCat",
+      "declarations": [],
+      "call_turn": 28,
+      "result_turn": 31
+    },
+    {
+      "event_id": "leanfinder:24",
+      "tool": "leanfinder",
+      "query": "subobject classifier category of finite types FintypeCat",
+      "declarations": [
+        "CategoryTheory.Subobject.Classifier.hom",
+        "CategoryTheory.Subobject.Classifier.ofEquivalence",
+        "Lean.getConstInfoInduct",
+        "Lean.ConstantInfo.inductiveVal",
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "FintypeCat",
+        "CategoryTheory.Subobject.Classifier.ofIso_",
+        "CategoryTheory.Subobject.Classifier.mkOfTerminal",
+        "Lean.Meta.getFunIndInfoForInduct",
+        "CategoryTheory.Subobject.Classifier",
+        "Mathlib.Meta.FunProp.getLambdaTheorems",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "CategoryTheory.Subobject.Classifier.ofEquivalence_",
+        "CategoryTheory.Subobject.Classifier.ofEquivalence_truth",
+        "CategoryTheory.Subobject",
+        "CategoryTheory.Subobject.Classifier.ofIso",
+        "CategoryTheory.HasSubobjectClassifier",
+        "Lean.Meta.getFunInfo",
+        "Lean.Meta.Grind.instReprEMatchTheoremKind.repr",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor"
+      ],
+      "call_turn": 28,
+      "result_turn": 32
+    },
+    {
+      "event_id": "leanfinder:25",
+      "tool": "leanfinder",
+      "query": "subobject classifier action category group actions",
+      "declarations": [
+        "Lean.Lsp.DocumentHighlightKind.write",
+        "Lean.Parser.Tactic.Doc.tagInfo",
+        "CategoryTheory.Subobject.Classifier.hom",
+        "Std.Internal.UV.System.osGetGroup",
+        "CategoryTheory.HasSubobjectClassifier.truth",
+        "CategoryTheory.Subobject.Classifier.hom_refl",
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "CategoryTheory.Subobject.Classifier.truth_as_subobject",
+        "CategoryTheory.Classifier.truth_as_subobject",
+        "Lean.Elab.Do.ContInfoRef.toContInfo",
+        "CategoryTheory.Subobject.Classifier.isTerminal",
+        "CategoryTheory.Subobject",
+        "CategoryTheory.Subobject.Classifier",
+        "Lean.Elab.Tactic.Grind.getGoals",
+        "Lean.Widget.evalUserWidgetDefinition",
+        "CategoryTheory.HasSubobjectClassifier",
+        "CategoryTheory.Subobject.Classifier.ofIso",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor",
+        "CategoryTheory.HasSubobjectClassifier.unique",
+        "CategoryTheory.Subobject.Classifier.hom_comp_hom"
+      ],
+      "call_turn": 28,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "Action category hom ext apply equivariant morphism FintypeCat induced concrete category simplification",
+      "declarations": [
+        "AugmentedSimplexCategory.equivAugmentedSimplicialObject_counitIso_hom_app_left_app",
+        "FintypeCat.hom_apply",
+        "SimplexCategory.instConcreteCategoryOrderHomFinHAddNatLenOfNat",
+        "CategoryTheory.ConcreteCategory.ext",
+        "FintypeCat.hom_ext",
+        "Action.FintypeCat.toEndHom_apply",
+        "Lean.Meta.getFunIndInfoForInduct",
+        "Action.FintypeCat.ofMulAction_apply",
+        "CategoryTheory.ConcreteCategory.ext_apply",
+        "CategoryTheory.ConcreteCategory.hom_ext",
+        "CategoryTheory.ConcreteCategory",
+        "Action.instConcreteCategoryHomSubtypeV",
+        "CategoryTheory.ConcreteCategory.instCoeFunHomForallToType",
+        "BialgCat.concreteCategory",
+        "AugmentedSimplexCategory.equivAugmentedCosimplicialObject_counitIso_hom_app_left",
+        "CategoryTheory.InducedCategory.hom_ext",
+        "CoalgCat.concreteCategory",
+        "CategoryTheory.InducedCategory.instCategory",
+        "CategoryTheory.InducedCategory.concreteCategory",
+        "CategoryTheory.InducedCategory.Hom.ext",
+        "Mathlib.Tactic.Elementwise.elementwiseThms",
+        "AugmentedSimplexCategory.equivAugmentedCosimplicialObject_counitIso_inv_app_right_app",
+        "Action.actionPUnitEquivalence",
+        "FintypeCat.hom_ext_iff",
+        "CategoryTheory.Functor.equiv",
+        "CategoryTheory.FintypeCat.instPreservesFiniteLimitsActionFintypeCatForgetHomSubtypeFunObjFiniteV",
+        "CategoryTheory.ConcreteCategory.hom_ext_iff",
+        "CategoryTheory.Limits.pullbackConeEquivBinaryFan_unitIso",
+        "CategoryTheory.Equivalence.ext",
+        "CategoryTheory.ShortComplex.FunctorEquivalence.unitIso"
+      ],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "Action.hom_ext",
+      "declarations": [
+        "Action.hom_ext"
+      ],
+      "call_turn": 40,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Action.Hom.ext",
+      "declarations": [
+        "Action.Hom.ext"
+      ],
+      "call_turn": 40,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Action.Hom.hom",
+      "declarations": [
+        "Action.Hom.hom",
+        "Action.hom_injective",
+        "Action.Hom.id_hom",
+        "Action.instIsIsoHomHom",
+        "Action.instIsIsoHomInv",
+        "Action.id_hom",
+        "Action.Hom.ext",
+        "Action.Hom.ext_iff",
+        "Action.isIso_of_hom_isIso",
+        "Action.forget_map"
+      ],
+      "call_turn": 40,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Action.comp_hom",
+      "declarations": [
+        "Action.comp_hom"
+      ],
+      "call_turn": 40,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Action.id_hom",
+      "declarations": [
+        "Action.id_hom"
+      ],
+      "call_turn": 40,
+      "result_turn": 46
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "Action FintypeCat forget concrete hom apply",
+      "declarations": [
+        "Action.FintypeCat.toEndHom_apply",
+        "Action.FintypeCat.ofMulAction_apply",
+        "Mathlib.Tactic.DefEqAbuse.defeqAbuseCmd",
+        "Mathlib.Meta.FunProp.",
+        "Lean.Meta.getFunIndInfo",
+        "Action.FintypeCat.ofMulAction",
+        "Action.FintypeCat.",
+        "FintypeCat.hom_apply",
+        "Action.FintypeCat.toEndHom",
+        "Action.forget",
+        "FintypeCat.homMk",
+        "Lean.Expr.app7",
+        "Lean.Meta.getFunInfoNArgs",
+        "FintypeCat.homMk_apply",
+        "FintypeCat.id_apply",
+        "FintypeCat",
+        "Lean.getPPAnalyzeKnowsType",
+        "FintypeCat.inv_hom_id_apply",
+        "FintypeCat.hom_inv_id_apply",
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "Action.FintypeCat.quotientToEndHom",
+        "FintypeCat.equivEquivIso_apply_hom",
+        "Lean.Meta.getFunIndInfoForInduct",
+        "FintypeCat.comp_apply",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "Lean.Meta.getFunInfo",
+        "Mathlib.Meta.FunProp.getLambdaTheorems",
+        "CategoryTheory.FintypeCat.instFiberFunctorActionFintypeCatForget",
+        "Lean.Meta.Grind.instReprEMatchTheoremKind.repr",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor"
+      ],
+      "call_turn": 40,
+      "result_turn": 47
+    },
+    {
+      "event_id": "leanfinder:36",
+      "tool": "leanfinder",
+      "query": "IsPullback iff function injective fiber types concrete category preserves limits",
+      "declarations": [
+        "CategoryTheory.ConcreteCategory.injective_of_mono_of_preservesPullback",
+        "Function.Injective",
+        "CategoryTheory.Limits.Types.PullbackObj",
+        "CategoryTheory.ConcreteCategory.mono_iff_injective_of_preservesPullback",
+        "CategoryTheory.Limits.Concrete.pullbackMk",
+        "CategoryTheory.Limits.Types.pullbackLimitCone",
+        "CategoryTheory.MorphismProperty.CostructuredArrow.instPreservesLimitsOfShapeTopOverWalkingCospanToOver",
+        "CategoryTheory.MorphismProperty.Over.instPreservesFiniteLimitsTopPullback",
+        "CategoryTheory.Functor.sheafPullbackConstruction.preservesFiniteLimits",
+        "CategoryTheory.Limits.Types.pullbackIsoPullback",
+        "CategoryTheory.Limits.Concrete.pullbackMk_fst",
+        "CategoryTheory.Limits.Types.isPullback_iff",
+        "CategoryTheory.Limits.isLimitOfIsPullbackOfIsConnected",
+        "CategoryTheory.Limits.PreservesLimits",
+        "CategoryTheory.Limits.Types.pullbackCone",
+        "CategoryTheory.Limits.Concrete.widePullback_ext'",
+        "CategoryTheory.Limits.PreservesLimitsOfShape.ofWidePullbacks",
+        "CategoryTheory.Limits.PreservesFiniteLimits",
+        "CategoryTheory.Limits.PreservesPullback.iso",
+        "CategoryTheory.Functor.sheafPullbackConstruction.instPreservesFiniteLimitsSheafSheafPullback",
+        "CategoryTheory.Limits.PreservesLimit",
+        "CategoryTheory.Limits.preservesFiniteLimits_of_preservesTerminal_and_pullbacks",
+        "CategoryTheory.Limits.PullbackCone.isLimitEquivBijective",
+        "CategoryTheory.Limits.Concrete.pullbackMk_surjective",
+        "CategoryTheory.Limits.Concrete.pullbackEquiv",
+        "CategoryTheory.HasExactLimitsOfShape.domain_of_functor",
+        "CategoryTheory.Limits.Concrete.widePullback_ext",
+        "CategoryTheory.Limits.Concrete.pullbackMk_snd",
+        "CategoryTheory.Limits.preservesLimitsOfShape_walkingCospan_of_forall_isPullback",
+        "CategoryTheory.Limits.Types.pullbackLimitCone_isLimit"
+      ],
+      "call_turn": 48,
+      "result_turn": 49
+    },
+    {
+      "event_id": "leanfinder:37",
+      "tool": "leanfinder",
+      "query": "isPullback square Types iff canonical map bijective explicit pullback",
+      "declarations": [
+        "CategoryTheory.Square.IsPullback",
+        "CompHausLike.HasExplicitPullback",
+        "CategoryTheory.Limits.Types.exists_of_isPullback",
+        "CategoryTheory.IsPullback.lift_fst_assoc",
+        "CategoryTheory.IsPullback.isoPullback",
+        "CategoryTheory.Limits.Types.isPushout_of_isPullback_of_mono'",
+        "CategoryTheory.Limits.Types.pullbackIsoPullback_inv_fst_apply",
+        "CategoryTheory.Square.pullbackCone",
+        "CategoryTheory.Square.IsPullback.op",
+        "CategoryTheory.IsPullback.map_fst_comp_fst_snd_comp_fst",
+        "CategoryTheory.Square.IsPullback.isLimit",
+        "CategoryTheory.Square.IsPullback.map",
+        "CategoryTheory.Limits.pullback.mapDesc_comp",
+        "CategoryTheory.Square.IsPullback.of_map",
+        "CategoryTheory.Square.IsPullback.iff_of_equiv",
+        "CategoryTheory.Limits.leftSquareIsPullback",
+        "CategoryTheory.IsPullback.exists_lift",
+        "CategoryTheory.Square.IsPullback.flip",
+        "CategoryTheory.Square.isPullback_iff",
+        "CategoryTheory.Limits.Types.isPullback_iff",
+        "CategoryTheory.Limits.Types.pullbackIsoPullback_inv_snd_apply",
+        "CategoryTheory.IsPullback.lift",
+        "CategoryTheory.Square.IsPullback.iff_of_iso",
+        "CategoryTheory.Square.isPullback_iff_map_coyoneda_isPullback",
+        "CategoryTheory.IsPullback",
+        "CategoryTheory.IsPullback.hom_ext",
+        "CategoryTheory.Square.IsPullback.unop",
+        "CategoryTheory.Square.IsPullback.of_iso",
+        "CategoryTheory.Square.IsPullback.map_iff",
+        "CategoryTheory.IsPullback.of_iso'"
+      ],
+      "call_turn": 48,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "IsPullback _ _ _ _ ↔ _",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "IsPullback.of_isLimit",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "PullbackCone.isLimitEquivBijective",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "Function.Injective -> IsPullback",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "IsPullback _ _ _ _ → _",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 55
+    },
+    {
+      "event_id": "leanfinder:47",
+      "tool": "leanfinder",
+      "query": "Action forget reflects limits creates limits action category",
+      "declarations": [
+        "Action.instReflectsLimitsForget",
+        "Action.forget",
+        "Action.instReflectsLimitForget",
+        "ModuleCat.forget_reflectsLimits",
+        "Lean.Widget.evalUserWidgetDefinition",
+        "MonCat.forget_createsLimits",
+        "CategoryTheory.Comonad.forgetCreatesLimits",
+        "CategoryTheory.Limits.ReflectsLimit",
+        "Lean.getMaxHeartbeats",
+        "CategoryTheory.CreatesLimitsOfSize",
+        "Action.instReflectsColimitForget",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "Lean.Meta.getFunInfoNArgs",
+        "CategoryTheory.CreatesLimits",
+        "CategoryTheory.reflectsLimitsOfCreatesLimits",
+        "Lean.Elab.Do.ContInfoRef.toContInfo",
+        "Profinite.forgetCreatesLimits",
+        "Action.preservesLimits_forget",
+        "CategoryTheory.Limits.ReflectsLimits",
+        "Action.instReflectsLimitsOfShapeForget",
+        "CategoryTheory.Monad.forgetCreatesLimits",
+        "Action.instReflectsColimitsForget",
+        "CategoryTheory.CreatesLimitsOfShape",
+        "Lean.Meta.getFunInfo",
+        "CategoryTheory.Limits.ReflectsLimitsOfSize",
+        "CategoryTheory.Limits.ReflectsLimitsOfShape",
+        "tryAtEachStepGrindSuggestions",
+        "Lean.Elab.Tactic.Grind.getGoals",
+        "Lean.Compiler.LCNF.Alt.updateAlt",
+        "Lean.CollectLevelParams.State.collect"
+      ],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "ReflectsLimitsOfShape _ (Action.forget _ _)",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "CreatesLimitsOfShape _ (Action.forget _ _)",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "ReflectsLimit _ (Action.forget _ _)",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Action.instReflects",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Action.instCreates",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 70
+    },
+    {
+      "event_id": "leanfinder:55",
+      "tool": "leanfinder",
+      "query": "terminal object unique up to iso construct isomorphism terminal to object unique map",
+      "declarations": [
+        "CategoryTheory.Limits.terminal",
+        "CategoryTheory.Limits.terminalIsoIsTerminal_hom",
+        "CategoryTheory.Limits.IsTerminal.equivOfIso",
+        "CategoryTheory.Classifier.uniqueUpToIso",
+        "CategoryTheory.Limits.IsTerminal.uniqueUpToIso",
+        "CategoryTheory.Classifier.SubobjectRepresentableBy.iso",
+        "CategoryTheory.Limits.IsTerminal.ofIso",
+        "CategoryTheory.Limits.IsTerminal.uniqueUpToIso_hom",
+        "CategoryTheory.Limits.Types.terminalIso",
+        "CategoryTheory.Limits.IsTerminal.uniqueUpToIso_inv",
+        "CategoryTheory.Limits.IsTerminal.ofUnique",
+        "CategoryTheory.Limits.terminalIsoIsTerminal",
+        "CategoryTheory.WithTerminal.liftToTerminalUnique",
+        "CategoryTheory.Limits.uniqueToTerminal",
+        "CategoryTheory.SubobjectRepresentableBy.iso",
+        "CategoryTheory.Limits.Concrete.instUniqueToTypeTerminal",
+        "Unique",
+        "CategoryTheory.WithTerminal.liftToTerminalUnique_hom_app",
+        "CategoryTheory.WithTerminal.liftToTerminalUnique_inv_app",
+        "CategoryTheory.WithTerminal.liftUnique"
+      ],
+      "call_turn": 75,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "IsTerminal.uniqueUpToIso",
+      "declarations": [],
+      "call_turn": 75,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "terminalIsoOfIsTerminal",
+      "declarations": [],
+      "call_turn": 75,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "terminal.hom_ext",
+      "declarations": [],
+      "call_turn": 75,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "IsTerminal.hom_ext",
+      "declarations": [],
+      "call_turn": 75,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "IsTerminal.iso",
+      "declarations": [],
+      "call_turn": 75,
+      "result_turn": 81
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "Types cofan isColimit iff sigma bijective CofanTypes",
+      "declarations": [
+        "CategoryTheory.Limits.CofanTypes.sigma",
+        "CategoryTheory.Limits.CofanTypes.isColimit_mk",
+        "CategoryTheory.Limits.BinaryCofan.inl",
+        "CategoryTheory.Limits.CofanTypes.sigma_pt",
+        "CategoryTheory.Limits.CofanTypes.sigma_inj",
+        "CategoryTheory.Limits.CofanTypes.sigma_",
+        "CategoryTheory.Limits.CofanTypes.equivOfIsColimit",
+        "CategoryTheory.Limits.CofanTypes.bijective_fromSigma_of_isColimit",
+        "CategoryTheory.Limits.CofanTypes",
+        "CategoryTheory.Limits.CofanTypes.inj",
+        "CategoryTheory.Limits.CofanTypes.equivOfIsColimit_symm_apply",
+        "CategoryTheory.Limits.CofanTypes.fromSigma",
+        "CategoryTheory.Limits.CofanTypes.isColimit_sigma",
+        "CategoryTheory.Limits.CofanTypes.eq_of_inj_apply_eq_of_isColimit",
+        "CategoryTheory.Limits.Cofan.isColimitTrans",
+        "CategoryTheory.Limits.Cofan.nonempty_isColimit_iff_bijective_fromSigma",
+        "CategoryTheory.Limits.CofanTypes.inj_injective_of_isColimit",
+        "CategoryTheory.Functor.CoconeTypes.IsColimit",
+        "CategoryTheory.Limits.CofanTypes.isColimit_iff_bijective_fromSigma",
+        "CategoryTheory.Limits.Cofan.isColimit_cofanTypes_iff",
+        "CategoryTheory.Limits.Cofan.cofanTypes",
+        "CategoryTheory.Limits.BinaryCofan.inr",
+        "CategoryTheory.Functor.CoconeTypes.IsColimit.iff_bijective",
+        "CategoryTheory.Limits.Cofan.isColimitMkOfUnique",
+        "CategoryTheory.Limits.CofanTypes.equivOfIsColimit_apply",
+        "CategoryTheory.Limits.Cofan.inj",
+        "CategoryTheory.Limits.Cofan.IsColimit.desc",
+        "CategoryTheory.Limits.Types.binaryCofan_isColimit_iff",
+        "CategoryTheory.Functor.CoconeTypes.IsColimit.equiv_apply"
+      ],
+      "call_turn": 84,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "CofanTypes.isColimit",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "CofanTypes.equivOfIsColimit",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "IsColimit _ ↔ Function.Bijective _",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "IsColimit (Cofan.mk _ _)",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 89
+    },
+    {
+      "event_id": "leanfinder:67",
+      "tool": "leanfinder",
+      "query": "reflect colimit Action.forget FintypeCat incl finite coproduct",
+      "declarations": [
+        "FintypeCat.incl",
+        "CategoryTheory.IsSifted.instIsIsoObjFunctorTypeColimTensorObjProdComparison",
+        "CategoryTheory.Limits.CoproductsFromFiniteFiltered.liftToFinsetColimIso",
+        "FintypeCat.incl_obj",
+        "BigOperators.bigOpBindersProd",
+        "Action.forget",
+        "CategoryTheory.Limits.CoproductsFromFiniteFiltered.liftToFinsetColimIso_aux_assoc",
+        "FintypeCat.incl_map",
+        "CategoryTheory.FintypeCat.Action.imageComplementIncl",
+        "FintypeCat",
+        "Lean.Meta.getFunIndInfoForInduct",
+        "FintypeCat.Skeleton.incl",
+        "CategoryTheory.hasExactColimitsOfShape_discrete_of_hasExactColimitsOfShape_finset_discrete",
+        "CategoryTheory.Limits.createsColimitsOfShapeOfCreatesFiniteProducts",
+        "FintypeCat.instFullIncl",
+        "RingCat.forgetReflectIsos",
+        "FintypeCat.instFaithfulIncl",
+        "FintypeCat.instFullForgetFunObjFinite",
+        "CategoryTheory.Limits.instPreservesColimitsOfSizeObjFunctorTypeSigmaConst",
+        "CategoryTheory.Limits.instReflectsColimitsOfShapeDiscreteOfReflectsFiniteCoproductsOfFinite"
+      ],
+      "call_turn": 84,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "FintypeCat.image",
+      "declarations": [],
+      "call_turn": 93,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "FintypeCat.Action.image",
+      "declarations": [],
+      "call_turn": 93,
+      "result_turn": 95
+    },
+    {
+      "event_id": "leanfinder:71",
+      "tool": "leanfinder",
+      "query": "FintypeCat Action imageComplement decomposition coproduct morphism image complement",
+      "declarations": [
+        "Mathlib.Tactic.DefEqAbuse.defeqAbuseCmd",
+        "CategoryTheory.FintypeCat.Action.imageComplementIncl",
+        "CategoryTheory.FintypeCat.Action.imageComplement",
+        "Mathlib.Meta.FunProp.",
+        "CategoryTheory.FintypeCat.instMonoActionFintypeCatImageComplementIncl",
+        "Set.fintypeImage",
+        "CategoryTheory.FintypeCat.imageComplement",
+        "CategoryTheory.FintypeCat.imageComplementIncl",
+        "UInt8.complement",
+        "Mathlib.Tactic.Widget.homComp",
+        "Set.image",
+        "Mathlib.Tactic.Widget.homType",
+        "UInt64.complement",
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "UInt32.complement",
+        "Lean.Expr.app7",
+        "Int8.complement",
+        "Int64.complement",
+        "ISize.complement",
+        "UInt16.complement",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "instComplementUInt32",
+        "instComplementUInt16",
+        "Int32.complement",
+        "Int16.complement",
+        "Lean.Meta.smartUnfoldingMatchAlt",
+        "instComplementUInt8",
+        "Lean.Meta.getFunIndInfoForInduct",
+        "Complement",
+        "instComplementInt8",
+        "Mathlib.Tactic.Widget.commTriangleM",
+        "Manifold.IsSubmersionAtOfComplement.image_target_subset_target",
+        "Lean.Meta.getFunInfoNArgs",
+        "Lean.Meta.Grind.SolverExtension.getTerm",
+        "USize.complement",
+        "tryAtEachStepGrindSuggestions",
+        "Mathlib.Tactic.Widget.commSquareM",
+        "AddSubgroup.IsComplement",
+        "Lean.Meta.Grind.Arith.Linear.getNatStructId",
+        "Lean.Elab.Do.ContInfoRef.toContInfo",
+        "Lean.Meta.getFunInfo",
+        "Mathlib.Tactic.Widget.stringDiagram",
+        "Mathlib.Meta.FunProp.getLambdaTheorems",
+        "Mathlib.Tactic.Widget.mkCommDiag",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "instComplementUSize",
+        "Subgroup.IsComplement",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor",
+        "Subgroup.IsComplement'"
+      ],
+      "call_turn": 93,
+      "result_turn": 96
+    },
+    {
+      "event_id": "leanfinder:72",
+      "tool": "leanfinder",
+      "query": "finite G-set image complement binary coproduct action f mono",
+      "declarations": [
+        "CategoryTheory.FintypeCat.Action.imageComplement",
+        "CategoryTheory.FintypeCat.instMonoActionFintypeCatImageComplementIncl",
+        "Set.finite_image_iff",
+        "Set.finite_image2",
+        "CategoryTheory.Mono.inl_of_binaryCoproductDisjoint",
+        "Set.Finite.dependent_image",
+        "CategoryTheory.FintypeCat.Action.imageComplementIncl",
+        "Finite.Set.finite_image",
+        "CategoryTheory.Mono.inr_of_binaryCoproductDisjoint",
+        "Set.Finite.image",
+        "Set.image",
+        "isBinaryCoproductOfIsInitialIsPushout",
+        "Set.image_image2_antidistrib",
+        "CategoryTheory.Limits.BinaryCoproductDisjoint",
+        "Finset.image_image",
+        "Finset.image",
+        "CategoryTheory.PreGaloisCategory.instPreservesFiniteCoproductsActionFintypeCatAutFunctorFunctorToAction",
+        "Set.Finite.of_finite_image",
+        "Finite.Set.finite_of_finite_image",
+        "CategoryTheory.Limits.HasBinaryCoproduct",
+        "SetRel.image_mono",
+        "Set.image2_def",
+        "Set.Finite.toFinset_image",
+        "Set.image_mono",
+        "Set.image2",
+        "Set.image_val_mono",
+        "CategoryTheory.Mono.of_binaryCoproductDisjoint_left",
+        "Set.image_image2_right_anticomm",
+        "Set.toFinset_image2",
+        "Set.image2_distrib_subset_left",
+        "CategoryTheory.Mono.of_binaryCoproductDisjoint_right",
+        "Set.fintypeImage2",
+        "Set.image_image2_antidistrib_right",
+        "CategoryTheory.Mono.cofanInr_of_binaryCoproductDisjoint",
+        "Algebra.FinitePresentation.ker_fG_of_surjective",
+        "CategoryTheory.Mono.cofanInl_of_binaryCoproductDisjoint",
+        "Set.kernImage_mono",
+        "Set.image_image2_antidistrib_left",
+        "AddMonoid.fG_iff",
+        "Set.image2_right_comm",
+        "Set.FiniteExhaustion.mono"
+      ],
+      "call_turn": 93,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "imageComplementIncl",
+      "declarations": [],
+      "call_turn": 93,
+      "result_turn": 98
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "imageComplement",
+      "declarations": [],
+      "call_turn": 93,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "ConcreteCategory.hom (_ ≫ _) _ = _",
+      "declarations": [],
+      "call_turn": 132,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "ConcreteCategory.hom_comp",
+      "declarations": [],
+      "call_turn": 132,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "ConcreteCategory.comp_apply",
+      "declarations": [],
+      "call_turn": 132,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "ConcreteCategory.hom_apply_comp",
+      "declarations": [],
+      "call_turn": 132,
+      "result_turn": 136
+    },
+    {
+      "event_id": "leanfinder:95",
+      "tool": "leanfinder",
+      "query": "ConcreteCategory hom composition apply simp",
+      "declarations": [
+        "CategoryTheory.ConcreteCategory.hom_bijective",
+        "CategoryTheory.ConcreteCategory.ext_apply",
+        "CategoryTheory.ConcreteCategory",
+        "Lean.Meta.SimpCongrTheorems.get",
+        "CategoryTheory.ConcreteCategory.hom_ext",
+        "Compactum.instConcreteCategoryHomA",
+        "CategoryTheory.ConcreteCategory.hom_surjective",
+        "CategoryTheory.ConcreteCategory.hom_injective",
+        "CategoryTheory.ConcreteCategory.congr_hom",
+        "Mathlib.Tactic.tacticAlgebraize__",
+        "CategoryTheory.ConcreteCategory.forget",
+        "Mathlib.Tactic.Widget.commTriangleM",
+        "Mathlib.Tactic.Widget.commSquareM",
+        "CategoryTheory.ConcreteCategory.homEquiv",
+        "SimplexCategory.concreteCategoryHom_id",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith",
+        "Lean.Meta.mkHCongr",
+        "Lean.Meta.Simp.simpConst",
+        "Lean.Meta.Sym.Simp.getSymSimpTheorems"
+      ],
+      "call_turn": 132,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "FintypeCat.homMk (_ ∘ _) = _",
+      "declarations": [],
+      "call_turn": 132,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "Action.instMulActionObjFiniteVFintypeCat",
+      "declarations": [
+        "Action.instMulActionObjFiniteVFintypeCat",
+        "CategoryTheory.FintypeCat.Action.pretransitive_of_isConnected",
+        "CategoryTheory.FintypeCat.Action.isConnected_iff_transitive",
+        "CategoryTheory.FintypeCat.isoQuotientStabilizerOfIsConnected",
+        "CategoryTheory.PreGaloisCategory.has_decomp_quotients",
+        "CategoryTheory.PreGaloisCategory.exists_lift_of_continuous"
+      ],
+      "call_turn": 205,
+      "result_turn": 206
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "ConcreteCategory.hom (_.ρ _) _ = _ • _",
+      "declarations": [],
+      "call_turn": 205,
+      "result_turn": 207
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "Action.ρ_apply",
+      "declarations": [],
+      "call_turn": 205,
+      "result_turn": 208
+    },
+    {
+      "event_id": "leanfinder:133",
+      "tool": "leanfinder",
+      "query": "Action category object rho application smul ConcreteCategory FintypeCat",
+      "declarations": [
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "Lean.Parser.addParser",
+        "Lean.manualLink",
+        "Action.FintypeCat.ofMulAction",
+        "CategoryTheory.FintypeCat.Action.imageComplement",
+        "CategoryTheory.FintypeCat.Action.isConnected_of_transitive",
+        "CategoryTheory.FintypeCat.instPreGaloisCategoryActionFintypeCat",
+        "Action.FintypeCat.",
+        "Lean.Parser.getCategory",
+        "CategoryTheory.FintypeCat.Action.isConnected_iff_transitive",
+        "BialgCat.concreteCategory",
+        "Action.instConcreteCategoryHomSubtypeV",
+        "FintypeCat",
+        "CategoryTheory.FintypeCat.Action.imageComplementIncl",
+        "CategoryTheory.ConcreteCategory",
+        "CategoryTheory.FintypeCat.instFiberFunctorActionFintypeCatForget",
+        "Lean.Lsp.DocumentHighlightKind.write",
+        "Lean.Meta.getFunInfoNArgs",
+        "QuadraticModuleCat.concreteCategory",
+        "Lean.profileit",
+        "CategoryTheory.FintypeCat.Action.pretransitive_of_isConnected",
+        "CoalgCat.concreteCategory",
+        "HopfAlgCat.concreteCategory",
+        "CategoryTheory.FintypeCat.instGaloisCategoryActionFintypeCat",
+        "Lean.Elab.Do.ContInfoRef.toContInfo",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "Lean.Meta.getFunInfo",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor",
+        "Lean.Elab.Tactic.Grind.getGoals"
+      ],
+      "call_turn": 205,
+      "result_turn": 209
+    },
+    {
+      "event_id": "loogle:134",
+      "tool": "loogle",
+      "query": "Action.Hom.comm_apply",
+      "declarations": [],
+      "call_turn": 205,
+      "result_turn": 210
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 8,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 6,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 73,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 72,
+    "accepted_helper_count": 16,
+    "rollout_tool_call_count": 177,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,1796 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1494_p_adic_solenoid_only_periodic_point",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1494,
+    "source": "math_0312288",
+    "theorem_name": "p_adic_solenoid_only_periodic_point",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1494",
+    "reconstructed_proof": "../../candidates/p1494_p_adic_solenoid_only_periodic_point/proof.lean",
+    "raw_elaboration": "../../candidates/p1494_p_adic_solenoid_only_periodic_point/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+    "verification_call_id": "verify_submission:49",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "3f89eab81a87f5fb87faadc8e5b9321d877ac94dd5afae1efdb5824852a46a7d",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "2e5d4f30ee2f3555a0c81928dd2b6750debb001685284d4f7ed5d5ac48cd4ce8",
+    "concrete_semantic_topology_sha256": "3f89eab81a87f5fb87faadc8e5b9321d877ac94dd5afae1efdb5824852a46a7d"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hk_d44bc747",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hk",
+      "lean_fvar_id": "4",
+      "statement": "2 ≤ k"
+    },
+    {
+      "id": "m_hp_prime_e8276aa0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hP_prime",
+      "lean_fvar_id": "1",
+      "statement": "∀ (n : ℕ), Nat.Prime (P n)"
+    },
+    {
+      "id": "m_hp_recurrent_4b46f8a1",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hP_recurrent",
+      "lean_fvar_id": "2",
+      "statement": "∀ (q : ℕ), Nat.Prime q → ∀ (N : ℕ), ∃ n, N ≤ n ∧ P n = q"
+    },
+    {
+      "id": "m_hz_b7052217",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hz",
+      "lean_fvar_id": "6",
+      "statement": "(∀ (n : ℕ), ‖z n‖ = 1) ∧ ∀ (n : ℕ), z n = z (n + 1) ^ P n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1"
+    },
+    {
+      "id": "n_hbig_367e1d54",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbig",
+      "lean_fvar_id": "_uniq.2145837",
+      "statement": "k ^ m - 1 < r ^ (k ^ m - 1 + 1)"
+    },
+    {
+      "id": "n_hcoord_718f9797",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcoord",
+      "lean_fvar_id": "_uniq.2138796",
+      "statement": "∀ (n : ℕ), z n ^ k ^ m = z n"
+    },
+    {
+      "id": "n_hfin_2d1fff2d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfin",
+      "lean_fvar_id": "_uniq.2144423",
+      "statement": "IsOfFinOrder (z M)"
+    },
+    {
+      "id": "n_hfix_6db5360c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfix",
+      "lean_fvar_id": "_uniq.2138738",
+      "statement": "(fun w n => w n ^ k)^[m] z = z"
+    },
+    {
+      "id": "n_hk_8c72885c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hk",
+      "lean_fvar_id": "_uniq.2137254",
+      "statement": "2 ≤ k"
+    },
+    {
+      "id": "n_hkpos_6608f8de",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hKpos",
+      "lean_fvar_id": "_uniq.2138085",
+      "statement": "0 < k ^ m"
+    },
+    {
+      "id": "n_hktwo_d72caa6b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hKtwo",
+      "lean_fvar_id": "_uniq.2137450",
+      "statement": "2 ≤ k ^ m"
+    },
+    {
+      "id": "n_hm_87b66a7e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hm",
+      "lean_fvar_id": "_uniq.2137335",
+      "statement": "0 < m"
+    },
+    {
+      "id": "n_hm_e5e5978e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hM",
+      "lean_fvar_id": "_uniq.2144234",
+      "statement": "r ^ (k ^ m - 1 + 1) ∣ orderOf (z M)"
+    },
+    {
+      "id": "n_hn_5f8115f0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.2138819",
+      "statement": "(fun w n => w n ^ k)^[m] z n = z n"
+    },
+    {
+      "id": "n_hnorm_be21b63c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnorm",
+      "lean_fvar_id": "_uniq.2139063",
+      "statement": "‖z n‖ = 1"
+    },
+    {
+      "id": "n_hord_ne_one_fa84fcc6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hord_ne_one",
+      "lean_fvar_id": "_uniq.2143713",
+      "statement": "orderOf (z n) ≠ 1"
+    },
+    {
+      "id": "n_horder_le_ab67ceff",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "horder_le",
+      "lean_fvar_id": "_uniq.2145352",
+      "statement": "orderOf (z M) ≤ k ^ m - 1"
+    },
+    {
+      "id": "n_hordmpos_829eea49",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hordMpos",
+      "lean_fvar_id": "_uniq.2144944",
+      "statement": "0 < orderOf (z M)"
+    },
+    {
+      "id": "n_hper_b5065358",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hper",
+      "lean_fvar_id": "_uniq.2137336",
+      "statement": "Function.IsPeriodicPt (fun w n => w n ^ k) m z"
+    },
+    {
+      "id": "n_hpow_le_fb8cc0a0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpow_le",
+      "lean_fvar_id": "_uniq.2145100",
+      "statement": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)"
+    },
+    {
+      "id": "n_hpow_le_t_77edcbe5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpow_le_t",
+      "lean_fvar_id": "_uniq.2145624",
+      "statement": "r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1"
+    },
+    {
+      "id": "n_hr_afeab393",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hr",
+      "lean_fvar_id": "_uniq.2144146",
+      "statement": "Nat.Prime r"
+    },
+    {
+      "id": "n_hroot_4508e909",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hroot",
+      "lean_fvar_id": "_uniq.2139000",
+      "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1"
+    },
+    {
+      "id": "n_ht_49ba40bb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ht",
+      "lean_fvar_id": "_uniq.2138325",
+      "statement": "0 < k ^ m - 1"
+    },
+    {
+      "id": "n_hzn_a43dda4b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hzn",
+      "lean_fvar_id": "_uniq.2143488",
+      "statement": "¬z n = 1"
+    },
+    {
+      "id": "n_hzne_1556a147",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzne",
+      "lean_fvar_id": "_uniq.2139054",
+      "statement": "z n ≠ 0"
+    },
+    {
+      "id": "n_hznorm_e9bf0f63",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hznorm",
+      "lean_fvar_id": "_uniq.2137288",
+      "statement": "∀ (n : ℕ), ‖z n‖ = 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hfix_6db5360c"
+      ],
+      "conclusion": "n_hn_5f8115f0",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrFun",
+        "items": [
+          "congrFun"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrFun"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_585",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hn := congrFun hfix n\n      rwa [solenoid_iterate_apply k m z n] at hn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2138738",
+              "name": "hfix",
+              "statement": "(fun w n => w n ^ k)^[m] z = z"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2138819",
+            "name": "hn",
+            "statement": "(fun w n => w n ^ k)^[m] z n = z n"
+          }
+        },
+        "lean_dependency_sha256": "13c873448be9c465d621fe312dceb157752f2a0e12d9e5afb40de314511f7f9b",
+        "kernel_witness_check": {
+          "proof_type": "(fun w n => w n ^ k)^[m] z n = z n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hnorm",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hznorm_e9bf0f63"
+      ],
+      "conclusion": "n_hnorm_be21b63c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "norm_num + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_586",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hnorm := hznorm n\n        rw [hz0] at hnorm\n        norm_num at hnorm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137288",
+              "name": "hznorm",
+              "statement": "∀ (n : ℕ), ‖z n‖ = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2139063",
+            "name": "hnorm",
+            "statement": "‖z n‖ = 1"
+          }
+        },
+        "lean_dependency_sha256": "9972821b251571dc24c0ec731f9df65c6fb424d62165120ed89d16cd7f3d4367",
+        "kernel_witness_check": {
+          "proof_type": "‖z n‖ = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hzne",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hznorm_e9bf0f63"
+      ],
+      "conclusion": "n_hzne_1556a147",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "norm_num + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_587",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hzne : z n ≠ 0 := by\n        intro hz0\n        have hnorm := hznorm n\n        rw [hz0] at hnorm\n        norm_num at hnorm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137288",
+              "name": "hznorm",
+              "statement": "∀ (n : ℕ), ‖z n‖ = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2139054",
+            "name": "hzne",
+            "statement": "z n ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "4b57ce84537e558c57e5e746cc624ee1199b92327c7c3f1935398fc380896145",
+        "kernel_witness_check": {
+          "proof_type": "z n = 0 → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hktwo",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_8c72885c",
+        "n_hm_87b66a7e"
+      ],
+      "conclusion": "n_hktwo_d72caa6b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.le_self_pow + Nat.ne_of_gt + Nat.pow_le_pow_left",
+        "items": [
+          "Nat.le_self_pow",
+          "Nat.ne_of_gt",
+          "Nat.pow_le_pow_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.le_self_pow",
+          "Nat.ne_of_gt",
+          "Nat.pow_le_pow_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_588",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hKtwo : 2 ≤ k ^ m := by\n      calc\n        2 ≤ 2 ^ m := Nat.le_self_pow (Nat.ne_of_gt hm) 2\n        _ ≤ k ^ m := Nat.pow_le_pow_left hk m",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137254",
+              "name": "hk",
+              "statement": "2 ≤ k"
+            },
+            {
+              "fvar_id": "_uniq.2137335",
+              "name": "hm",
+              "statement": "0 < m"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2137450",
+            "name": "hKtwo",
+            "statement": "2 ≤ k ^ m"
+          }
+        },
+        "lean_dependency_sha256": "d435e9590c2d085f523afc6e4831b6ab78070c28bd0d8389f6f444dbd3e81fa1",
+        "kernel_witness_check": {
+          "proof_type": "2 ≤ k ^ m",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.le_self_pow",
+          "Nat.pow_le_pow_left"
+        ],
+        "observed_search_event_ids": [
+          "loogle:33",
+          "loogle:34"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hkpos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hktwo_d72caa6b"
+      ],
+      "conclusion": "n_hkpos_6608f8de",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_589",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hKpos : 0 < k ^ m := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137450",
+              "name": "hKtwo",
+              "statement": "2 ≤ k ^ m"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2138085",
+            "name": "hKpos",
+            "statement": "0 < k ^ m"
+          }
+        },
+        "lean_dependency_sha256": "b5e9a946dda168b0a354b981efa990eb7de8a15cfea1c9b64b6f7565074e95f2",
+        "kernel_witness_check": {
+          "proof_type": "0 < k ^ m",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hktwo_d72caa6b"
+      ],
+      "conclusion": "n_ht_49ba40bb",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_590",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have ht : 0 < k ^ m - 1 := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137450",
+              "name": "hKtwo",
+              "statement": "2 ≤ k ^ m"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2138325",
+            "name": "ht",
+            "statement": "0 < k ^ m - 1"
+          }
+        },
+        "lean_dependency_sha256": "da09e3e82069c3c557293ba7d6f9ee2091f5160214b54f80a7839deef2dbc14d",
+        "kernel_witness_check": {
+          "proof_type": "0 < k ^ m - 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hfix",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hper_b5065358"
+      ],
+      "conclusion": "n_hfix_6db5360c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_591",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hfix : (fun w : ℕ → ℂ => fun n => w n ^ k)^[m] z = z := hper",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137336",
+              "name": "hper",
+              "statement": "Function.IsPeriodicPt (fun w n => w n ^ k) m z"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2138738",
+            "name": "hfix",
+            "statement": "(fun w n => w n ^ k)^[m] z = z"
+          }
+        },
+        "lean_dependency_sha256": "9d2f67173572a78251c76c3ea8f85d4a3d90d1c46edc654a97e916e925378a8a",
+        "kernel_witness_check": {
+          "proof_type": "Function.IsPeriodicPt (fun w n => w n ^ k) m z",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hcoord",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hfix_6db5360c"
+      ],
+      "conclusion": "n_hcoord_718f9797",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "solenoid_iterate_apply + congrFun",
+        "items": [
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.solenoid_iterate_apply",
+          "congrFun"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.solenoid_iterate_apply"
+        ],
+        "mathlib_items": [
+          "congrFun"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_592",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcoord : ∀ n, z n ^ k ^ m = z n := by\n      intro n\n      have hn := congrFun hfix n\n      rwa [solenoid_iterate_apply k m z n] at hn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2138738",
+              "name": "hfix",
+              "statement": "(fun w n => w n ^ k)^[m] z = z"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2138796",
+            "name": "hcoord",
+            "statement": "∀ (n : ℕ), z n ^ k ^ m = z n"
+          }
+        },
+        "lean_dependency_sha256": "ec13d59fe9856953ce5f9e7a9af7c2ecd4540bff836389f476d861bb1e3af4c8",
+        "kernel_witness_check": {
+          "proof_type": "∀ (n : ℕ), z n ^ k ^ m = z n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hroot",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hznorm_e9bf0f63",
+        "n_hkpos_6608f8de",
+        "n_hcoord_718f9797"
+      ],
+      "conclusion": "n_hroot_4508e909",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "pow_sub_one_eq_one_of_pow_eq_self",
+        "items": [
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.pow_sub_one_eq_one_of_pow_eq_self"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.pow_sub_one_eq_one_of_pow_eq_self"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_593",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hroot : ∀ n, z n ^ (k ^ m - 1) = 1 := by\n      intro n\n      have hzne : z n ≠ 0 := by\n        intro hz0\n        have hnorm := hznorm n\n        rw [hz0] at hnorm\n        norm_num at hnorm\n      exact pow_sub_one_eq_one_of_pow_eq_self (z n) hzne hKpos (hcoord n)\n    by_contra hzn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2137288",
+              "name": "hznorm",
+              "statement": "∀ (n : ℕ), ‖z n‖ = 1"
+            },
+            {
+              "fvar_id": "_uniq.2138085",
+              "name": "hKpos",
+              "statement": "0 < k ^ m"
+            },
+            {
+              "fvar_id": "_uniq.2138796",
+              "name": "hcoord",
+              "statement": "∀ (n : ℕ), z n ^ k ^ m = z n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2139000",
+            "name": "hroot",
+            "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1"
+          }
+        },
+        "lean_dependency_sha256": "db796a21fc199144a6f51f9f95180298f5d335c4f8f0e2d1a301ea95137a31d5",
+        "kernel_witness_check": {
+          "proof_type": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hord_ne_one",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzn_a43dda4b"
+      ],
+      "conclusion": "n_hord_ne_one_fa84fcc6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "orderOf_eq_one_iff",
+        "items": [
+          "orderOf_eq_one_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "orderOf_eq_one_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_594",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hord_ne_one : orderOf (z n) ≠ 1 := by\n      intro hord\n      exact hzn (orderOf_eq_one_iff.mp hord)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2143488",
+              "name": "hzn",
+              "statement": "¬z n = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2143713",
+            "name": "hord_ne_one",
+            "statement": "orderOf (z n) ≠ 1"
+          }
+        },
+        "lean_dependency_sha256": "25012d2fb7db6480f951a94c43ceaec4efa21b8050725f33731e6e8cce533cfd",
+        "kernel_witness_check": {
+          "proof_type": "orderOf (z n) = 1 → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "orderOf_eq_one_iff"
+        ],
+        "observed_search_event_ids": [
+          "loogle:21"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_011_hfin",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ht_49ba40bb",
+        "n_hroot_4508e909"
+      ],
+      "conclusion": "n_hfin_2d1fff2d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "isOfFinOrder_iff_pow_eq_one",
+        "items": [
+          "isOfFinOrder_iff_pow_eq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "isOfFinOrder_iff_pow_eq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_595",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hfin : IsOfFinOrder (z M) := by\n      exact isOfFinOrder_iff_pow_eq_one.mpr ⟨k ^ m - 1, ht, hroot M⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2138325",
+              "name": "ht",
+              "statement": "0 < k ^ m - 1"
+            },
+            {
+              "fvar_id": "_uniq.2139000",
+              "name": "hroot",
+              "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2144423",
+            "name": "hfin",
+            "statement": "IsOfFinOrder (z M)"
+          }
+        },
+        "lean_dependency_sha256": "9860d2530a774b1705a1ae5801407a920eefe14cdb8a7ad47b735f07ed18ac32",
+        "kernel_witness_check": {
+          "proof_type": "IsOfFinOrder (z M)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "isOfFinOrder_iff_pow_eq_one"
+        ],
+        "observed_search_event_ids": [
+          "loogle:44"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_012_hordmpos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hfin_2d1fff2d"
+      ],
+      "conclusion": "n_hordmpos_829eea49",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "orderOf_pos_iff",
+        "items": [
+          "orderOf_pos_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "orderOf_pos_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_596",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hordMpos : 0 < orderOf (z M) := orderOf_pos_iff.mpr hfin",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2144423",
+              "name": "hfin",
+              "statement": "IsOfFinOrder (z M)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2144944",
+            "name": "hordMpos",
+            "statement": "0 < orderOf (z M)"
+          }
+        },
+        "lean_dependency_sha256": "8badbad27eb3bbd0e86ac2bcaacd6ea9ec66a1b2b129a9ae6f358f719c8b4a70",
+        "kernel_witness_check": {
+          "proof_type": "0 < orderOf (z M)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hpow_le",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hm_e5e5978e",
+        "n_hordmpos_829eea49"
+      ],
+      "conclusion": "n_hpow_le_fb8cc0a0",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.le_of_dvd",
+        "items": [
+          "Nat.le_of_dvd"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.le_of_dvd"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_597",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpow_le : r ^ (k ^ m - 1 + 1) ≤ orderOf (z M) :=\n      Nat.le_of_dvd hordMpos hM",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2144234",
+              "name": "hM",
+              "statement": "r ^ (k ^ m - 1 + 1) ∣ orderOf (z M)"
+            },
+            {
+              "fvar_id": "_uniq.2144944",
+              "name": "hordMpos",
+              "statement": "0 < orderOf (z M)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2145100",
+            "name": "hpow_le",
+            "statement": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)"
+          }
+        },
+        "lean_dependency_sha256": "f9ad4c17d47f476d8244e41afce83db6de4ed6f54f2b86845b5ffd407d1f0f81",
+        "kernel_witness_check": {
+          "proof_type": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_horder_le",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ht_49ba40bb",
+        "n_hroot_4508e909"
+      ],
+      "conclusion": "n_horder_le_ab67ceff",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "orderOf_le_of_pow_eq_one",
+        "items": [
+          "orderOf_le_of_pow_eq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "orderOf_le_of_pow_eq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_598",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have horder_le : orderOf (z M) ≤ k ^ m - 1 :=\n      orderOf_le_of_pow_eq_one ht (hroot M)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2138325",
+              "name": "ht",
+              "statement": "0 < k ^ m - 1"
+            },
+            {
+              "fvar_id": "_uniq.2139000",
+              "name": "hroot",
+              "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2145352",
+            "name": "horder_le",
+            "statement": "orderOf (z M) ≤ k ^ m - 1"
+          }
+        },
+        "lean_dependency_sha256": "f6535bd51012b324eb4bf3c2d80eb5739b683a186e6c347fb61242c6cfb335dd",
+        "kernel_witness_check": {
+          "proof_type": "orderOf (z M) ≤ k ^ m - 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "orderOf_le_of_pow_eq_one"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_015_hpow_le_t",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpow_le_fb8cc0a0",
+        "n_horder_le_ab67ceff"
+      ],
+      "conclusion": "n_hpow_le_t_77edcbe5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_trans",
+        "items": [
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_599",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpow_le_t : r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1 :=\n      le_trans hpow_le horder_le",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2145100",
+              "name": "hpow_le",
+              "statement": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)"
+            },
+            {
+              "fvar_id": "_uniq.2145352",
+              "name": "horder_le",
+              "statement": "orderOf (z M) ≤ k ^ m - 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2145624",
+            "name": "hpow_le_t",
+            "statement": "r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1"
+          }
+        },
+        "lean_dependency_sha256": "26d7607756f3903b7fdf579bb33b50c93d800fdd4e375a5ad1a9245a2e04fc3d",
+        "kernel_witness_check": {
+          "proof_type": "r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hbig",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_afeab393"
+      ],
+      "conclusion": "n_hbig_367e1d54",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.lt_pow_self + Nat.lt_succ_self + lt_trans",
+        "items": [
+          "Nat.lt_pow_self",
+          "Nat.lt_succ_self",
+          "lt_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.lt_pow_self",
+          "Nat.lt_succ_self",
+          "lt_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_600",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hbig : k ^ m - 1 < r ^ (k ^ m - 1 + 1) := by\n      exact lt_trans (Nat.lt_succ_self (k ^ m - 1)) (Nat.lt_pow_self hr.two_le)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2144146",
+              "name": "hr",
+              "statement": "Nat.Prime r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.2145837",
+            "name": "hbig",
+            "statement": "k ^ m - 1 < r ^ (k ^ m - 1 + 1)"
+          }
+        },
+        "lean_dependency_sha256": "7b7e5ef979077a372f4e790b02a1c513e30f4a14ed520a1360cf5fbe793e9c77",
+        "kernel_witness_check": {
+          "proof_type": "k ^ m - 1 < r ^ (k ^ m - 1 + 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.lt_pow_self"
+        ],
+        "observed_search_event_ids": [
+          "loogle:15",
+          "loogle:16"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_recurrent_4b46f8a1",
+        "m_hk_d44bc747",
+        "m_hz_b7052217"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.exists_prime_and_dvd + Nat.le_of_dvd + Nat.le_self_pow",
+        "items": [
+          "Nat.exists_prime_and_dvd",
+          "Nat.le_of_dvd",
+          "Nat.le_self_pow",
+          "Nat.lt_pow_self",
+          "Nat.ne_of_gt",
+          "Nat.pow_le_pow_left",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.exists_prime_power_order_forward",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.pow_sub_one_eq_one_of_pow_eq_self"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.exists_prime_power_order_forward",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.pow_sub_one_eq_one_of_pow_eq_self"
+        ],
+        "mathlib_items": [
+          "Nat.exists_prime_and_dvd",
+          "Nat.le_of_dvd",
+          "Nat.le_self_pow",
+          "Nat.lt_pow_self",
+          "Nat.ne_of_gt",
+          "Nat.pow_le_pow_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · rintro ⟨m, hm, hper⟩\n    funext n\n    have hKtwo : 2 ≤ k ^ m := by\n      calc\n        2 ≤ 2 ^ m := Nat.le_self_pow (Nat.ne_of_gt hm) 2\n        _ ≤ k ^ m := Nat.pow_le_pow_left hk m\n    have hKpos : 0 < k ^ m := by omega\n    have ht : 0 < k ^ m - 1 := by omega\n    have hfix : (fun w : ℕ → ℂ => fun n => w n ^ k)^[m] z = z := hper\n    have hcoord : ∀ n, z n ^ k ^ m = z n := by\n      intro n\n      have hn := congrFun hfix n\n      rwa [solenoid_iterate_apply k m z n] at hn\n    have hroot : ∀ n, z n ^ (k ^ m - 1) = 1 := by\n      intro n\n      have hzne : z n ≠ 0 := by\n        intro hz0\n        have hnorm := hznorm n\n        rw [hz0] at hnorm\n        norm_num at hnorm\n      exact pow_sub_one_eq_one_of_pow_eq_self (z n) hzne hKpos (hcoord n)\n    by_contra hzn\n    have hord_ne_one : orderOf (z n) ≠ 1 := by\n      intro hord\n      exact hzn (orderOf_eq_one_iff.mp hord)\n    obtain ⟨r, hr, hrdvd⟩ := Nat.exists_prime_and_dvd hord_ne_one\n    obtain ⟨M, hM⟩ :=\n      exists_prime_power_order_forward P hP_recurrent z hcompat hr (k ^ m - 1) n hrdvd\n    have hfin : IsOfFinOrder (z M) := by\n      exact isOfFinOrder_iff_pow_eq_one.mpr ⟨k ^ m - 1, ht, hroot M⟩\n    have hordMpos : 0 < orderOf (z M) := orderOf_pos_iff.mpr hfin\n    have hpow_le : r ^ (k ^ m - 1 + 1) ≤ orderOf (z M) :=\n      Nat.le_of_dvd hordMpos hM\n    have horder_le : orderOf (z M) ≤ k ^ m - 1 :=\n      orderOf_le_of_pow_eq_one ht (hroot M)\n    have hpow_le_t : r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1 :=\n      le_trans hpow_le horder_le\n    have hbig : k ^ m - 1 < r ^ (k ^ m - 1 + 1) := by\n      exact lt_trans (Nat.lt_succ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hP_recurrent",
+              "statement": "∀ (q : ℕ), Nat.Prime q → ∀ (N : ℕ), ∃ n, N ≤ n ∧ P n = q"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hk",
+              "statement": "2 ≤ k"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hz",
+              "statement": "(∀ (n : ℕ), ‖z n‖ = 1) ∧ ∀ (n : ℕ), z n = z (n + 1) ^ P n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1"
+          }
+        },
+        "lean_dependency_sha256": "8224fd4e9a4aa8c0d561f481d0f2d55789647c325b9622158afd1f7f81de76c5",
+        "kernel_witness_check": {
+          "proof_type": "(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.exists_prime_and_dvd",
+          "Nat.le_self_pow",
+          "Nat.lt_pow_self",
+          "Nat.pow_le_pow_left"
+        ],
+        "observed_search_event_ids": [
+          "loogle:18",
+          "loogle:19",
+          "loogle:33",
+          "loogle:15",
+          "loogle:16",
+          "loogle:34"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "orderOf (_ : _) ≤ _",
+      "declarations": [
+        "orderOf_le_card",
+        "orderOf_le_card_univ",
+        "LinearOrderedRing.orderOf_le_two",
+        "orderOf_le_of_pow_eq_one",
+        "Subgroup.orderOf_le_card",
+        "Submonoid.orderOf_le_card",
+        "Monoid.orderOf_le_exponent"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "orderOf (_ ^ _) = orderOf _ / Nat.gcd _ _",
+      "declarations": [
+        "IsOfFinOrder.orderOf_pow",
+        "orderOf_pow'",
+        "orderOf_pow"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Function.IsPeriodicPt",
+      "declarations": [
+        "Function.IsPeriodicPt",
+        "Function.is_periodic_id",
+        "Function.isPeriodicPt_minimalPeriod",
+        "Function.IsPeriodicPt.of_subsingleton",
+        "Function.isPeriodicPt_zero",
+        "Function.IsPeriodicPt.instDecidableOfDecidableEq",
+        "Function.IsFixedPt.isPeriodicPt",
+        "Function.IsPeriodicPt.apply",
+        "Function.IsPeriodicPt.isFixedPt",
+        "Function.IsPeriodicPt.minimalPeriod_dvd"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "order of power equals order divided by gcd finite order monoid",
+      "declarations": [
+        "orderOf",
+        "PowerSeries.Inv_divided_by_X_pow_order",
+        "IsOfFinOrder.orderOf_pow",
+        "PowerSeries.Unit_of_divided_by_X_pow_order",
+        "finEquivPowers_apply",
+        "orderOf_pow",
+        "orderOf_pow_dvd",
+        "orderOf_pow'",
+        "PowerSeries.Unit_of_divided_by_X_pow_order_zero",
+        "PowerSeries.Unit_of_divided_by_X_pow_order_nonzero"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "if x power positive equals one then orderOf x divides exponent",
+      "declarations": [
+        "orderOf_eq_of_pow_and_pow_div_prime",
+        "Lean.mkIntPowNat",
+        "orderOf_dvd_of_pow_eq_one",
+        "orderOf_pow_dvd",
+        "PowerSeries.order_X",
+        "PowerSeries.trunc_one_X",
+        "Nat.pow_dvd_pow_iff_pow_le_pow",
+        "PowerSeries.coeff_one_X",
+        "PowerSeries.X",
+        "PowerSeries.order_X_pow"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "(_ ^ _ ∣ _ / _) -> (_ ^ _ ∣ _)",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Nat.gcd (_ : ℕ) _ = _",
+      "declarations": [
+        "Nat.gcd_self",
+        "Nat.gcd_comm",
+        "Nat.gcd_zero_left",
+        "Nat.gcd_zero_right",
+        "Nat.gcd_gcd_self_left_left",
+        "Nat.gcd_gcd_self_left_right",
+        "Nat.gcd_gcd_self_right_left",
+        "Nat.gcd_gcd_self_right_right",
+        "Nat.gcd_eq_left",
+        "Nat.gcd_eq_right"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Nat.Prime (_ : ℕ) -> Nat.gcd _ _ = _",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "natural prime power divides quotient by prime implies next power divides original",
+      "declarations": [
+        "Nat.maxPowDvdDiv_self",
+        "Module.torsion_by_prime_power_decomposition",
+        "Nat.not_dvd_divMaxPow",
+        "PowerSeries.X_prime",
+        "Zsqrtd.divides_sq_eq_zero",
+        "Nat.pow_dvd_of_le_of_pow_dvd",
+        "Nat.succ_dvd_or_succ_dvd_of_succ_sum_dvd_mul",
+        "Int.succ_dvd_or_succ_dvd_of_succ_sum_dvd_mul",
+        "Nat.Prime",
+        "Zsqrtd.not_divides_sq"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "Nat factorization divisibility quotient prime power",
+      "declarations": [
+        "Nat.factorization_choose_prime_pow",
+        "Nat.factorization",
+        "Nat.minSqFacAux",
+        "UniqueFactorizationMonoid.multiplicative_prime_power",
+        "Nat.maxPowDvdDiv",
+        "Nat.Prime.factorization_pow",
+        "Nat.dvd_iff_div_factorization_eq_tsub",
+        "Nat.Prime.factorization",
+        "Nat.prod_primeFactors_dvd",
+        "Nat.Prime.factorization_self"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "_ ∣ _ ^ _",
+      "declarations": [
+        "Nat.pow_dvd_pow_iff",
+        "Nat.div_pow_of_pos",
+        "Nat.pow_dvd_pow",
+        "Nat.pow_dvd_pow_iff_le_right",
+        "Nat.pow_dvd_pow_iff_le_right'",
+        "Nat.pow_dvd_pow_iff_pow_le_pow",
+        "Int.pow_dvd_pow_iff",
+        "dvd_pow_self",
+        "pow_dvd_pow",
+        "dvd_pow"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "orderOf (_ ^ _) ∣ orderOf _",
+      "declarations": [
+        "orderOf_pow_dvd"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Nat.gcd_eq_right",
+      "declarations": [
+        "Nat.gcd_eq_right"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Nat.mul_div_cancel_left",
+      "declarations": [
+        "Nat.mul_div_cancel_left"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Nat.Prime.dvd_of_dvd_pow",
+      "declarations": [
+        "Nat.Prime.dvd_of_dvd_pow"
+      ],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "_ < _ ^ _",
+      "declarations": [
+        "BitVec.ofNatLT",
+        "Nat.pow_pos",
+        "Nat.two_pow_pos",
+        "Nat.pow_lt_pow_left",
+        "BitVec.isLt",
+        "Nat.shiftRight_eq_zero",
+        "Lean.Omega.Int.pos_pow_of_pos",
+        "Nat.lt_two_pow_self",
+        "Nat.pow_self_pos",
+        "Nat.lt_pow_self"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "Nat.lt_pow_self",
+      "declarations": [
+        "Nat.lt_pow_self"
+      ],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "natural number less than base power exponent if base at least two",
+      "declarations": [
+        "Nat.log",
+        "Nat.testBit_lt_two_pow",
+        "Lean.Meta.reducePow",
+        "Nat.base_pow_length_digits_le",
+        "Bool.atLeastTwo",
+        "Nat.AtLeastTwo",
+        "Nat.log.go",
+        "Nat.lt_two_pow_self",
+        "Nat.digits_lt_base",
+        "Float32.exp2"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Nat.exists_prime_and_dvd",
+      "declarations": [
+        "Nat.exists_prime_and_dvd"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "_ ≠ 1 -> ∃ p, Nat.Prime p ∧ p ∣ _",
+      "declarations": [
+        "Nat.exists_prime_and_dvd"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:20",
+      "tool": "leanfinder",
+      "query": "every natural number not one has a prime divisor",
+      "declarations": [
+        "Nat.not_prime_of_dvd_of_ne",
+        "Nat.not_prime_one",
+        "not_prime_one",
+        "PNat.not_prime_one",
+        "Nat.Prime.not_dvd_one",
+        "DivisorChain.isPrimePow_of_has_chain",
+        "Prime.not_dvd_one",
+        "Nat.Prime",
+        "lucas_primality",
+        "Nat.prod_primeFactors_dvd"
+      ],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "orderOf_eq_one_iff",
+      "declarations": [
+        "orderOf_eq_one_iff"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "orderOf_eq_one",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "_ ^ _ = _ ^ _ -> _ ^ (_ - _) = 1",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "pow_right_cancel₀",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "(_ : ℂ) ^ _ = _ -> _ ^ (_ - 1) = 1",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:28",
+      "tool": "leanfinder",
+      "query": "if x power n equals x and x nonzero then x power n minus one equals one",
+      "declarations": [
+        "PowerSeries.coe_X",
+        "PowerSeries.trunc_one_X",
+        "PowerSeries.rescale_neg_one_X",
+        "PowerSeries.X",
+        "NNReal.rpow_one_sub'",
+        "Nat.pow_sub_one",
+        "PowerSeries.coeff_one_X",
+        "Real.rpow_one_sub'",
+        "Real.rpow_sub_one",
+        "Real.rpow_sub_one'"
+      ],
+      "call_turn": 34,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "pow_sub_one_eq_one",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "(1 : ℕ) ≤ _ ^ _",
+      "declarations": [
+        "Nat.one_le_two_pow",
+        "Nat.one_le_pow",
+        "Nat.one_le_pow'"
+      ],
+      "call_turn": 44,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "_ ≤ _ ^ _",
+      "declarations": [
+        "Nat.pow_le_pow_left",
+        "Nat.pow_le_pow_right",
+        "Nat.one_le_two_pow",
+        "Nat.le_self_pow",
+        "Nat.le_pow",
+        "Nat.one_le_pow",
+        "Nat.pow_le_pow_iff_left",
+        "Nat.pow_le_pow_of_le",
+        "Nat.pow_le_pow_iff_right",
+        "Nat.pow_self_mul_pow_self_le"
+      ],
+      "call_turn": 44,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Nat.pow_le_pow_left",
+      "declarations": [
+        "Nat.pow_le_pow_left"
+      ],
+      "call_turn": 44,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "one_le_pow",
+      "declarations": [],
+      "call_turn": 44,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Nat.one_le_pow",
+      "declarations": [
+        "Nat.one_le_pow"
+      ],
+      "call_turn": 44,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "IsOfFinOrder _ ↔ ∃ _, 0 < _ ∧ _ ^ _ = 1",
+      "declarations": [
+        "isOfFinOrder_iff_pow_eq_one"
+      ],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "isOfFinOrder_iff",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "_ ^ _ = 1 -> IsOfFinOrder _",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 67
+    },
+    {
+      "event_id": "leanfinder:47",
+      "tool": "leanfinder",
+      "query": "finite order from positive power equals one monoid",
+      "declarations": [
+        "PowerSeries.order_one",
+        "Positive.commMonoid",
+        "IsOfFinOrder.finite_powers",
+        "Positive.val_one",
+        "PowerSeries.order",
+        "IsOfFinOrder.pow",
+        "RightCancelMonoid.finite_powers",
+        "finite_powers",
+        "Monoid.exponent_eq_zero_of_order_zero",
+        "LocallyFiniteOrder.orderMonoidHom"
+      ],
+      "call_turn": 64,
+      "result_turn": 68
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 4,
+    "retrieval_query_count": 37,
+    "useful_retrieval_event_count": 6,
+    "unused_retrieval_event_count": 31,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 50,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

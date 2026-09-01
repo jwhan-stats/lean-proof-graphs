@@ -1,0 +1,1368 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0971_derivwithin_neg_of_positive_solution",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 971,
+    "source": "1211.6416",
+    "theorem_name": "derivWithin_neg_of_positive_solution",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/971",
+    "reconstructed_proof": "../../candidates/p0971_derivwithin_neg_of_positive_solution/proof.lean",
+    "raw_elaboration": "../../candidates/p0971_derivwithin_neg_of_positive_solution/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+    "verification_call_id": "verify_submission:20",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "253a8736d821304a70bd1dc324f603e5e16229c1ee25c0de4161930c7617de03",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "3470018ccce7969c347e8c5fb4ad84d43059c687703e95f4eb05748158cdb7a9",
+    "concrete_semantic_topology_sha256": "253a8736d821304a70bd1dc324f603e5e16229c1ee25c0de4161930c7617de03"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_3bf53246",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hΦ",
+      "lean_fvar_id": "17",
+      "statement": "ContDiffOn ℝ 1 Φ (Set.Icc 0 β)"
+    },
+    {
+      "id": "m_h_a197ef65",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hβ",
+      "lean_fvar_id": "7",
+      "statement": "0 < β"
+    },
+    {
+      "id": "m_hf0_a622122a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf0",
+      "lean_fvar_id": "11",
+      "statement": "f 0 = 0"
+    },
+    {
+      "id": "m_hf_0_fc4c753c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hf'0",
+      "lean_fvar_id": "12",
+      "statement": "derivWithin f (Set.Icc 0 β) 0 = 1"
+    },
+    {
+      "id": "m_hf_51b9c44e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hf",
+      "lean_fvar_id": "10",
+      "statement": "ContDiffOn ℝ 2 f (Set.Icc 0 β)"
+    },
+    {
+      "id": "m_hfpos_fad6116e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hfpos",
+      "lean_fvar_id": "13",
+      "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t"
+    },
+    {
+      "id": "m_hlam_d3f7f0e9",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hlam",
+      "lean_fvar_id": "9",
+      "statement": "0 < lam"
+    },
+    {
+      "id": "m_hn_2dfd09d6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "6",
+      "statement": "2 ≤ n"
+    },
+    {
+      "id": "m_hode_8a38bc82",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hODE",
+      "lean_fvar_id": "18",
+      "statement": "∀ t ∈ Set.Ioo 0 β, deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0"
+    },
+    {
+      "id": "m_hp_aa2a55a4",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hp",
+      "lean_fvar_id": "8",
+      "statement": "1 < p"
+    },
+    {
+      "id": "m_ht_91546e9b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hT",
+      "lean_fvar_id": "14",
+      "statement": "ContDiffOn ℝ 1 T (Set.Icc 0 β)"
+    },
+    {
+      "id": "m_ht_d802aead",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ht",
+      "lean_fvar_id": "27",
+      "statement": "t ∈ Set.Ioc 0 β"
+    },
+    {
+      "id": "m_htpos_bc625b37",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hTpos",
+      "lean_fvar_id": "19",
+      "statement": "∀ t ∈ Set.Ioo 0 β, 0 < T t"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "derivWithin T (Set.Icc 0 β) t < 0"
+    },
+    {
+      "id": "n_h_0_cd4cd9ab",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hΦ0",
+      "lean_fvar_id": "25",
+      "statement": "Φ 0 = 0"
+    },
+    {
+      "id": "n_h_deriv_neg_0670405b",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hψderiv_neg",
+      "lean_fvar_id": "36",
+      "statement": "ψ (derivWithin T (Set.Icc 0 β) t) < 0"
+    },
+    {
+      "id": "n_h_neg_iff_cea023da",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hψneg_iff",
+      "lean_fvar_id": "20",
+      "statement": "∀ (s : ℝ), ψ s < 0 ↔ s < 0"
+    },
+    {
+      "id": "n_h_pos_iff_dde218a8",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hψpos_iff",
+      "lean_fvar_id": "21",
+      "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s"
+    },
+    {
+      "id": "n_h_t_neg_8efd921d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hΦt_neg",
+      "lean_fvar_id": "32",
+      "statement": "Φ t < 0"
+    },
+    {
+      "id": "n_hanti_492d7210",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hanti",
+      "lean_fvar_id": "23",
+      "statement": "StrictAntiOn Φ (Set.Icc 0 β)"
+    },
+    {
+      "id": "n_hderivneg_a119e2f7",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hderivneg",
+      "lean_fvar_id": "22",
+      "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0"
+    },
+    {
+      "id": "n_hf_t_a0d00476",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hf_t",
+      "lean_fvar_id": "34",
+      "statement": "0 < f t"
+    },
+    {
+      "id": "n_hmem0_02222ba7",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmem0",
+      "lean_fvar_id": "30",
+      "statement": "0 ∈ Set.Icc 0 β"
+    },
+    {
+      "id": "n_hmemt_96e6ce01",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmemt",
+      "lean_fvar_id": "31",
+      "statement": "t ∈ Set.Icc 0 β"
+    },
+    {
+      "id": "n_hn1_0c209d6d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hn1",
+      "lean_fvar_id": "24",
+      "statement": "n - 1 ≠ 0"
+    },
+    {
+      "id": "n_hpow_5a3633a3",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hpow",
+      "lean_fvar_id": "35",
+      "statement": "0 < f t ^ (n - 1)"
+    },
+    {
+      "id": "n_hprod_neg_5dce7630",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hprod_neg",
+      "lean_fvar_id": "33",
+      "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0"
+    },
+    {
+      "id": "n_ht_3faf6f52",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "htβ",
+      "lean_fvar_id": "29",
+      "statement": "t ≤ β"
+    },
+    {
+      "id": "n_htpos_b26618bc",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "htpos",
+      "lean_fvar_id": "28",
+      "statement": "0 < t"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h_neg_iff",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_h_neg_iff_cea023da",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "signed_ppower_neg_iff",
+        "items": [
+          "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_neg_iff"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_neg_iff"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hψneg_iff : ∀ s : ℝ, ψ s < 0 ↔ s < 0 := by\n    intro s\n    simpa [ψ] using signed_ppower_neg_iff p s",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hψneg_iff",
+            "statement": "∀ (s : ℝ), ψ s < 0 ↔ s < 0"
+          }
+        },
+        "lean_dependency_sha256": "adde8dda9303f120948a72ce7c13b35ff9b1f4dbcccf27c1bb6e082897d4b209",
+        "kernel_witness_check": {
+          "proof_type": "∀ (s : ℝ), ψ s < 0 ↔ s < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_h_pos_iff",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_h_pos_iff_dde218a8",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "signed_ppower_pos_iff",
+        "items": [
+          "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_pos_iff"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_pos_iff"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hψpos_iff : ∀ s : ℝ, 0 < ψ s ↔ 0 < s := by\n    intro s\n    simpa [ψ] using signed_ppower_pos_iff p s",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "hψpos_iff",
+            "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s"
+          }
+        },
+        "lean_dependency_sha256": "396c63498c7ee52d7bfec0c8d03c250e23c5487b217530d4ffc498ebce4369c0",
+        "kernel_witness_check": {
+          "proof_type": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hderivneg",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hlam_d3f7f0e9",
+        "m_hfpos_fad6116e",
+        "m_hode_8a38bc82",
+        "m_htpos_bc625b37",
+        "n_h_pos_iff_dde218a8"
+      ],
+      "conclusion": "n_hderivneg_a119e2f7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "interior_Icc + le_of_lt + mul_pos",
+        "items": [
+          "interior_Icc",
+          "le_of_lt",
+          "mul_pos",
+          "pow_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "interior_Icc",
+          "le_of_lt",
+          "mul_pos",
+          "pow_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hderivneg : ∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0 := by\n    rw [interior_Icc]\n    intro t ht\n    have hf_t : 0 < f t := hfpos t ⟨ht.1, le_of_lt ht.2⟩\n    have hpow : 0 < f t ^ (n - 1) := pow_pos hf_t _\n    have hψT : 0 < ψ (T t) := (hψpos_iff (T t)).mpr (hTpos t ht)\n    have hflux : 0 < lam * f t ^ (n - 1) * ψ (T t) :=\n      mul_pos (mul_pos hlam hpow) hψT\n    have heq := hODE t ht\n    nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "9",
+              "name": "hlam",
+              "statement": "0 < lam"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hfpos",
+              "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t"
+            },
+            {
+              "fvar_id": "18",
+              "name": "hODE",
+              "statement": "∀ t ∈ Set.Ioo 0 β, deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hTpos",
+              "statement": "∀ t ∈ Set.Ioo 0 β, 0 < T t"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hψpos_iff",
+              "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hderivneg",
+            "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0"
+          }
+        },
+        "lean_dependency_sha256": "daf08f90cc1f36916fa5e1b46ec3f8518ac298c618b082040ed9d37439b28024",
+        "kernel_witness_check": {
+          "proof_type": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hanti",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_3bf53246",
+        "n_hderivneg_a119e2f7"
+      ],
+      "conclusion": "n_hanti_492d7210",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "convex_Icc + strictAntiOn_of_deriv_neg",
+        "items": [
+          "convex_Icc",
+          "strictAntiOn_of_deriv_neg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "convex_Icc",
+          "strictAntiOn_of_deriv_neg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_23",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hanti : StrictAntiOn Φ (Set.Icc 0 β) :=\n    strictAntiOn_of_deriv_neg (convex_Icc 0 β) hΦ.continuousOn hderivneg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hΦ",
+              "statement": "ContDiffOn ℝ 1 Φ (Set.Icc 0 β)"
+            },
+            {
+              "fvar_id": "22",
+              "name": "hderivneg",
+              "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "23",
+            "name": "hanti",
+            "statement": "StrictAntiOn Φ (Set.Icc 0 β)"
+          }
+        },
+        "lean_dependency_sha256": "efb3dffc60bd452eac82b5665585833f9c913ac7a0f68e14c978c27796424569",
+        "kernel_witness_check": {
+          "proof_type": "StrictAntiOn Φ (Set.Icc 0 β)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "strictAntiOn_of_deriv_neg"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hn1",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_2dfd09d6"
+      ],
+      "conclusion": "n_hn1_0c209d6d",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_24",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hn1 : n - 1 ≠ 0 := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hn",
+              "statement": "2 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "24",
+            "name": "hn1",
+            "statement": "n - 1 ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "649c2fbffd722d035f07a43eeaa4764299b1d8488c3b5b9131ebe02972d8f1bf",
+        "kernel_witness_check": {
+          "proof_type": "n - 1 = 0 → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_h_0",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hf0_a622122a",
+        "n_hn1_0c209d6d"
+      ],
+      "conclusion": "n_h_0_cd4cd9ab",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "zero_pow",
+        "items": [
+          "zero_pow"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "zero_pow"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_25",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hΦ0 : Φ 0 = 0 := by\n    have hzero : (0 : ℝ) ^ (n - 1) = 0 := zero_pow hn1\n    simp [Φ, hf0, hzero]\n  intro t ht",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "11",
+              "name": "hf0",
+              "statement": "f 0 = 0"
+            },
+            {
+              "fvar_id": "24",
+              "name": "hn1",
+              "statement": "n - 1 ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "25",
+            "name": "hΦ0",
+            "statement": "Φ 0 = 0"
+          }
+        },
+        "lean_dependency_sha256": "8f05d9e005443dee4c24d18d5d0952db48e82b01b96fb8941631a9fc4f30853c",
+        "kernel_witness_check": {
+          "proof_type": "Φ 0 = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_htpos",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ht_d802aead"
+      ],
+      "conclusion": "n_htpos_b26618bc",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_28",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have htpos : 0 < t := ht.1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "27",
+              "name": "ht",
+              "statement": "t ∈ Set.Ioc 0 β"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "28",
+            "name": "htpos",
+            "statement": "0 < t"
+          }
+        },
+        "lean_dependency_sha256": "83ffacf613fb829f17f430fd713dbe78ab6c37db4dd12aa64dc5dcb97f3c70fa",
+        "kernel_witness_check": {
+          "proof_type": "0 < t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_ht",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ht_d802aead"
+      ],
+      "conclusion": "n_ht_3faf6f52",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_29",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have htβ : t ≤ β := ht.2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "27",
+              "name": "ht",
+              "statement": "t ∈ Set.Ioc 0 β"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "29",
+            "name": "htβ",
+            "statement": "t ≤ β"
+          }
+        },
+        "lean_dependency_sha256": "e8c92258554f18e04fb34d6de7f55028c4e46880133decef874cdc24fc78127e",
+        "kernel_witness_check": {
+          "proof_type": "t ≤ β",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hmem0",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_a197ef65"
+      ],
+      "conclusion": "n_hmem0_02222ba7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_of_lt + le_rfl",
+        "items": [
+          "le_of_lt",
+          "le_rfl"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_of_lt",
+          "le_rfl"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_30",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmem0 : (0 : ℝ) ∈ Set.Icc 0 β := ⟨le_rfl, le_of_lt hβ⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hβ",
+              "statement": "0 < β"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "30",
+            "name": "hmem0",
+            "statement": "0 ∈ Set.Icc 0 β"
+          }
+        },
+        "lean_dependency_sha256": "10e22643d97b0bd370215f1d98a2bde9cb75f95b7f41df3e56ea0bde3c726ad3",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ 0 ∧ 0 ≤ β",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hmemt",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_htpos_b26618bc",
+        "n_ht_3faf6f52"
+      ],
+      "conclusion": "n_hmemt_96e6ce01",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_of_lt",
+        "items": [
+          "le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_31",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmemt : t ∈ Set.Icc 0 β := ⟨le_of_lt htpos, htβ⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "28",
+              "name": "htpos",
+              "statement": "0 < t"
+            },
+            {
+              "fvar_id": "29",
+              "name": "htβ",
+              "statement": "t ≤ β"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "31",
+            "name": "hmemt",
+            "statement": "t ∈ Set.Icc 0 β"
+          }
+        },
+        "lean_dependency_sha256": "5af5c637f3bb492db63d6a28062c9a6df19fec9b6e314d0b9b756d24e3bfb27e",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ t ∧ t ≤ β",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_h_t_neg",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hanti_492d7210",
+        "n_h_0_cd4cd9ab",
+        "n_htpos_b26618bc",
+        "n_hmem0_02222ba7",
+        "n_hmemt_96e6ce01"
+      ],
+      "conclusion": "n_h_t_neg_8efd921d",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_32",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hΦt_neg : Φ t < 0 := by\n    have hlt : Φ t < Φ 0 := hanti hmem0 hmemt htpos\n    rwa [hΦ0] at hlt",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "23",
+              "name": "hanti",
+              "statement": "StrictAntiOn Φ (Set.Icc 0 β)"
+            },
+            {
+              "fvar_id": "25",
+              "name": "hΦ0",
+              "statement": "Φ 0 = 0"
+            },
+            {
+              "fvar_id": "28",
+              "name": "htpos",
+              "statement": "0 < t"
+            },
+            {
+              "fvar_id": "30",
+              "name": "hmem0",
+              "statement": "0 ∈ Set.Icc 0 β"
+            },
+            {
+              "fvar_id": "31",
+              "name": "hmemt",
+              "statement": "t ∈ Set.Icc 0 β"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "32",
+            "name": "hΦt_neg",
+            "statement": "Φ t < 0"
+          }
+        },
+        "lean_dependency_sha256": "74747030b2b292b185d3e59128527ba09053c5c75d84c2592d0d5c0078a24e07",
+        "kernel_witness_check": {
+          "proof_type": "Φ t < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hprod_neg",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_h_t_neg_8efd921d"
+      ],
+      "conclusion": "n_hprod_neg_5dce7630",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_33",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hprod_neg :\n      f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0 := by\n    simpa [Φ] using hΦt_neg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "32",
+              "name": "hΦt_neg",
+              "statement": "Φ t < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "33",
+            "name": "hprod_neg",
+            "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0"
+          }
+        },
+        "lean_dependency_sha256": "6cedd24087de0243aa3f561409422ba48eb14f194f0bd4daf66db450c747d6e7",
+        "kernel_witness_check": {
+          "proof_type": "Φ t < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hf_t",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hfpos_fad6116e",
+        "n_htpos_b26618bc",
+        "n_ht_3faf6f52"
+      ],
+      "conclusion": "n_hf_t_a0d00476",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_34",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "    have hf_t : 0 < f t := hfpos t ⟨ht.1, le_of_lt ht.2⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hfpos",
+              "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t"
+            },
+            {
+              "fvar_id": "28",
+              "name": "htpos",
+              "statement": "0 < t"
+            },
+            {
+              "fvar_id": "29",
+              "name": "htβ",
+              "statement": "t ≤ β"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "34",
+            "name": "hf_t",
+            "statement": "0 < f t"
+          }
+        },
+        "lean_dependency_sha256": "6c89dd3ad9081a090263b8b6958db812cc07215d3207d24895facf1406c11aea",
+        "kernel_witness_check": {
+          "proof_type": "0 < f t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hpow",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hf_t_a0d00476"
+      ],
+      "conclusion": "n_hpow_5a3633a3",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "pow_pos",
+        "items": [
+          "pow_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "pow_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_35",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "    have hpow : 0 < f t ^ (n - 1) := pow_pos hf_t _",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "34",
+              "name": "hf_t",
+              "statement": "0 < f t"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "35",
+            "name": "hpow",
+            "statement": "0 < f t ^ (n - 1)"
+          }
+        },
+        "lean_dependency_sha256": "43440d6b3d29f651875d1fccf7f75a4e461910d9ba9d757da4934789d12b6c24",
+        "kernel_witness_check": {
+          "proof_type": "0 < f t ^ (n - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_h_deriv_neg",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hprod_neg_5dce7630",
+        "n_hpow_5a3633a3"
+      ],
+      "conclusion": "n_h_deriv_neg_0670405b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_neg_iff + not_lt_of_ge",
+        "items": [
+          "mul_neg_iff",
+          "not_lt_of_ge"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_neg_iff",
+          "not_lt_of_ge"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_36",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hψderiv_neg : ψ (derivWithin T (Set.Icc 0 β) t) < 0 := by\n    have hmul := mul_neg_iff.mp hprod_neg\n    rcases hmul with ⟨hleft, hright⟩ | ⟨hleft, hright⟩\n    · exact hright\n    · exact False.elim ((not_lt_of_ge hpow.le) hleft)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "33",
+              "name": "hprod_neg",
+              "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0"
+            },
+            {
+              "fvar_id": "35",
+              "name": "hpow",
+              "statement": "0 < f t ^ (n - 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "36",
+            "name": "hψderiv_neg",
+            "statement": "ψ (derivWithin T (Set.Icc 0 β) t) < 0"
+          }
+        },
+        "lean_dependency_sha256": "80b16f9260725cc023f74d2b813ba70b596885c62d8bb19e23eace3429d0cbf9",
+        "kernel_witness_check": {
+          "proof_type": "ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "mul_neg_iff"
+        ],
+        "observed_search_event_ids": [
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_h_neg_iff_cea023da",
+        "n_h_deriv_neg_0670405b"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact (hψneg_iff (derivWithin T (Set.Icc 0 β) t)).mp hψderiv_neg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "20",
+              "name": "hψneg_iff",
+              "statement": "∀ (s : ℝ), ψ s < 0 ↔ s < 0"
+            },
+            {
+              "fvar_id": "36",
+              "name": "hψderiv_neg",
+              "statement": "ψ (derivWithin T (Set.Icc 0 β) t) < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "derivWithin T (Set.Icc 0 β) t < 0"
+          }
+        },
+        "lean_dependency_sha256": "272c18cef2fd4bddb0d9a8b0ebb277a8c22456567d3105282066073715603cd2",
+        "kernel_witness_check": {
+          "proof_type": "derivWithin T (Set.Icc 0 β) t < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "StrictMonoOn (_ : ℝ → ℝ) _ deriv",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "strictly monotone on interval derivative negative real function",
+      "declarations": [
+        "MonotoneOn.intervalIntegrable",
+        "MonotoneOn.intervalIntegrable_slope",
+        "MonotoneOn.intervalIntegrable_deriv",
+        "MonotoneOn",
+        "strictAntiOn_of_deriv_neg",
+        "strictMonoOn_of_hasDerivWithinAt_pos",
+        "strictAntiOn_of_hasDerivWithinAt_neg",
+        "MonotoneOn.intervalIntegral_slope_le",
+        "monotoneOn_of_deriv_nonneg",
+        "Real.monotoneOn_sin"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "(_ < _) -> Real.rpow _ _ < 0",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Real.rpow _ _ < 0",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "0 ^ (_ - 1) = 0",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "(_ * _ < 0)",
+      "declarations": [
+        "Int.mul_neg_of_neg_of_pos",
+        "Int.mul_neg_of_pos_of_neg",
+        "Int.neg_of_mul_neg_left",
+        "Int.neg_of_mul_neg_right",
+        "Int.pos_of_mul_neg_left",
+        "Int.pos_of_mul_neg_right",
+        "Rat.mul_neg_iff_of_pos_left",
+        "Rat.mul_neg_iff_of_pos_right",
+        "Lean.Grind.OrderedRing.mul_neg_of_neg_of_pos",
+        "Lean.Grind.OrderedRing.mul_neg_of_pos_of_neg"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "0 < _ -> _ * _ < 0 -> _ < 0",
+      "declarations": [
+        "Int.neg_of_mul_neg_left",
+        "Int.neg_of_mul_neg_right"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "mul_neg_iff",
+      "declarations": [
+        "mul_neg_iff"
+      ],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "neg_iff_neg_of_mul_pos",
+      "declarations": [
+        "neg_iff_neg_of_mul_pos"
+      ],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "product negative positive factor implies other negative",
+      "declarations": [
+        "Nat.pos_of_mul_pos_right",
+        "Int.pos_of_mul_neg_right",
+        "Int.pos_of_mul_neg_left",
+        "Int.neg_of_mul_pos_right",
+        "MeasureTheory.SignedMeasure.exists_isCompl_positive_negative",
+        "Ideal.Quotient.factor",
+        "PNat.factorMultiset",
+        "MeasureTheory.SignedMeasure.of_symmDiff_compl_positive_negative",
+        "MeasureTheory.SignedMeasure.exists_compl_positive_negative",
+        "MeasureTheory.JordanDecomposition.exists_compl_positive_negative"
+      ],
+      "call_turn": 12,
+      "result_turn": 17
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 25,
+    "selected_hyperedge_count": 16,
+    "main_hyperedge_count": 16,
+    "side_hyperedge_count": 0,
+    "selected_depth": 7,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 9,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 10,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 8,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 21,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

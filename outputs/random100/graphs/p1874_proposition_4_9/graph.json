@@ -1,0 +1,1354 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1874_proposition_4_9",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1874,
+    "source": "1405.6312",
+    "theorem_name": "proposition_4_9",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1874",
+    "reconstructed_proof": "../../candidates/p1874_proposition_4_9/proof.lean",
+    "raw_elaboration": "../../candidates/p1874_proposition_4_9/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1874_proposition_4_9.proposition_4_9",
+    "verification_call_id": "verify_submission:147",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "bcec890446f03ce91c83154fc3473ac279905ed22afa855c356ec184c9c9a442",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "b12e208deda86d7c8cc8bac2048832554dd375a72f75bb26d5456aaea9b79d92",
+    "concrete_semantic_topology_sha256": "bcec890446f03ce91c83154fc3473ac279905ed22afa855c356ec184c9c9a442"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_4f426a14",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hμ",
+      "lean_fvar_id": "5",
+      "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)), A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))"
+    },
+    {
+      "id": "m_h_8c3d8745",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hα",
+      "lean_fvar_id": "1",
+      "statement": "0 ≤ α"
+    },
+    {
+      "id": "m_hf_ee7a934a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf",
+      "lean_fvar_id": "3",
+      "statement": "Summable fun n => Real.rpow 2 (-↑(f n))"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤"
+    },
+    {
+      "id": "n_h_u_91292b61",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hμu",
+      "lean_fvar_id": "6",
+      "statement": "μ Set.univ < ⊤"
+    },
+    {
+      "id": "n_hk_ed1b14bf",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hK",
+      "lean_fvar_id": "9",
+      "statement": "K < ⊤"
+    },
+    {
+      "id": "n_htsum_a27f9d6e",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "htsum",
+      "lean_fvar_id": "7",
+      "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h_u",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_4f426a14"
+      ],
+      "conclusion": "n_h_u_91292b61",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "proposition_4_9_measure_univ_finite",
+        "items": [
+          "Rollout_p1874_proposition_4_9.proposition_4_9_measure_univ_finite"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1874_proposition_4_9.proposition_4_9_measure_univ_finite"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_6",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hμu : μ Set.univ < ⊤ := proposition_4_9_measure_univ_finite α f μ hμ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hμ",
+              "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)), A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "6",
+            "name": "hμu",
+            "statement": "μ Set.univ < ⊤"
+          }
+        },
+        "lean_dependency_sha256": "d180415ff535180922cd2e678a1bd48ac1c2dfdc8f8d79addbc95a4adaf6e4f4",
+        "kernel_witness_check": {
+          "proof_type": "μ Set.univ < ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_htsum",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hf_ee7a934a"
+      ],
+      "conclusion": "n_htsum_a27f9d6e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.ofReal_lt_top + ENNReal.ofReal_tsum_of_nonneg + Real.rpow_nonneg",
+        "items": [
+          "ENNReal.ofReal_lt_top",
+          "ENNReal.ofReal_tsum_of_nonneg",
+          "Real.rpow_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.ofReal_lt_top",
+          "ENNReal.ofReal_tsum_of_nonneg",
+          "Real.rpow_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_7",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have htsum : (∑' n : ℕ, ENNReal.ofReal (Real.rpow 2 (-(f n : ℝ)))) < ⊤ := by\n    have htsumEq := ENNReal.ofReal_tsum_of_nonneg\n      (f := fun n : ℕ => Real.rpow 2 (-(f n : ℝ)))\n      (fun n => Real.rpow_nonneg (by norm_num : (0:ℝ) ≤ 2) _) hf\n    rw [← htsumEq]\n    exact ENNReal.ofReal_lt_top\n  let K : ENNReal := ENNReal.ofReal ((2 : ℝ) ^ α) * μ Set.univ +\n    ENNReal.ofReal ((2 : ℝ) ^ (2 * α)) *\n      ∑' n : ℕ, ENNReal.ofReal (Real.rpow 2 (-(f n : ℝ)))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hf",
+              "statement": "Summable fun n => Real.rpow 2 (-↑(f n))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "7",
+            "name": "htsum",
+            "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤"
+          }
+        },
+        "lean_dependency_sha256": "ee4ec50b42750a1b6164b5ac1778179413f9d980729b2e56d1ee39fea8129f35",
+        "kernel_witness_check": {
+          "proof_type": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hk",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_h_u_91292b61",
+        "n_htsum_a27f9d6e"
+      ],
+      "conclusion": "n_hk_ed1b14bf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.add_lt_top + ENNReal.mul_lt_top + ENNReal.ofReal_lt_top",
+        "items": [
+          "ENNReal.add_lt_top",
+          "ENNReal.mul_lt_top",
+          "ENNReal.ofReal_lt_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.add_lt_top",
+          "ENNReal.mul_lt_top",
+          "ENNReal.ofReal_lt_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_9",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hK : K < ⊤ := by\n    apply ENNReal.add_lt_top.mpr\n    constructor\n    · exact ENNReal.mul_lt_top ENNReal.ofReal_lt_top hμu\n    · exact ENNReal.mul_lt_top ENNReal.ofReal_lt_top htsum\n  calc\n    (∫⁻ x, ∫⁻ y,\n        1 / (ENNReal.ofReal |(x : ℝ) - (y : ℝ)|) ^ α ∂μ ∂μ)\n        ≤ ∫⁻ x : Set.Icc (0 : ℝ) 1, K ∂μ := by\n      apply MeasureTheory.lintegral_mono\n      intro x\n      exact proposition_4_9_inner_energy_le α hα f hf μ hμ x\n    _ = K * μ Set.univ := MeasureTheory.lintegral_const K\n    _ < ⊤ := ENNReal.mul_lt_top hK hμu",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hμu",
+              "statement": "μ Set.univ < ⊤"
+            },
+            {
+              "fvar_id": "7",
+              "name": "htsum",
+              "statement": "∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "9",
+            "name": "hK",
+            "statement": "K < ⊤"
+          }
+        },
+        "lean_dependency_sha256": "6c239aa252036e72b723a5c5e7f99e0a79beeebdc56f3412ea5b0d1fdea1addf",
+        "kernel_witness_check": {
+          "proof_type": "ENNReal.ofReal (2 ^ α) * μ Set.univ +\n    ENNReal.ofReal (2 ^ (2 * α)) * ∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) <\n  ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_8c3d8745",
+        "m_hf_ee7a934a",
+        "m_h_4f426a14",
+        "n_h_u_91292b61",
+        "n_hk_ed1b14bf"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "ENNReal.mul_lt_top + MeasureTheory.lintegral_const + MeasureTheory.lintegral_mono",
+        "items": [
+          "ENNReal.mul_lt_top",
+          "MeasureTheory.lintegral_const",
+          "MeasureTheory.lintegral_mono",
+          "Rollout_p1874_proposition_4_9.proposition_4_9_inner_energy_le"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1874_proposition_4_9.proposition_4_9_inner_energy_le"
+        ],
+        "mathlib_items": [
+          "ENNReal.mul_lt_top",
+          "MeasureTheory.lintegral_const",
+          "MeasureTheory.lintegral_mono"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "      (fun n => Real.rpow_nonneg (by norm_num : (0:ℝ) ≤ 2) _) hf\n    rw [← htsumEq]\n    exact ENNReal.ofReal_lt_top\n  let K : ENNReal := ENNReal.ofReal ((2 : ℝ) ^ α) * μ Set.univ +\n    ENNReal.ofReal ((2 : ℝ) ^ (2 * α)) *\n      ∑' n : ℕ, ENNReal.ofReal (Real.rpow 2 (-(f n : ℝ)))\n  have hK : K < ⊤ := by\n    apply ENNReal.add_lt_top.mpr\n    constructor\n    · exact ENNReal.mul_lt_top ENNReal.ofReal_lt_top hμu\n    · exact ENNReal.mul_lt_top ENNReal.ofReal_lt_top htsum\n  calc\n    (∫⁻ x, ∫⁻ y,\n        1 / (ENNReal.ofReal |(x : ℝ) - (y : ℝ)|) ^ α ∂μ ∂μ)\n        ≤ ∫⁻ x : Set.Icc (0 : ℝ) 1, K ∂μ := by\n      apply MeasureTheory.lintegral_mono\n      intro x\n      exact proposition_4_9_inner_energy_le α hα f hf μ hμ x\n    _ = K * μ Set.univ := MeasureTheory.lintegral_const K\n    _ < ⊤ := ENNReal.mul_lt_top hK hμu",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hα",
+              "statement": "0 ≤ α"
+            },
+            {
+              "fvar_id": "3",
+              "name": "hf",
+              "statement": "Summable fun n => Real.rpow 2 (-↑(f n))"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hμ",
+              "statement": "∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)), A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hμu",
+              "statement": "μ Set.univ < ⊤"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hK",
+              "statement": "K < ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤"
+          }
+        },
+        "lean_dependency_sha256": "935fb8b66182ce88894680a7bc5e8f681d9f03a0b330e7328bb000c5d6f5e7bd",
+        "kernel_witness_check": {
+          "proof_type": "∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasureTheory.lintegral_const"
+        ],
+        "observed_search_event_ids": [
+          "loogle:8"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "finite energy measure Frostman condition dyadic annuli alpha energy",
+      "declarations": [
+        "Finpartition.energy",
+        "Finset.mulEnergy",
+        "Finpartition.coe_energy",
+        "Finset.addEnergy",
+        "Dyadic",
+        "blimsup_cthickening_mul_ae_eq",
+        "ProbabilityTheory.Fernique.lintegral_closedBall_sdiff_exp_logRatio_mul_sq_le",
+        "isCompact_setOf_finiteMeasure_mass_eq_compl_isCompact_le",
+        "ProbabilityTheory.exists_integrable_exp_sq_of_map_rotation_eq_self",
+        "Vitali.exists_disjoint_covering_ae"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "∫⁻ _, 1 / ENNReal.ofReal _ ^ _ < ⊤",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "lintegral double integral measure annulus finite summability",
+      "declarations": [
+        "IntervalIntegrable.finsum",
+        "MeasureTheory.lintegral",
+        "MeasureTheory.lintegral_finset_sum'",
+        "MeasureTheory.norm_integral_le_lintegral_norm",
+        "MeasureTheory.integrable_finsetSum'",
+        "MeasureTheory.SimpleFunc.lintegral_finset_sum",
+        "MeasureTheory.integrable_sum_dirac",
+        "MeasureTheory.edist_integral_le_lintegral_edist",
+        "MeasureTheory.enorm_integral_le_lintegral_enorm",
+        "MeasureTheory.lintegral_fn_integral_sub"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "lintegral (_ ×ˢ _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "integral of sum indicators partition sets lintegral ENNReal",
+      "declarations": [
+        "BoxIntegral.BoxAdditiveMap.sum_partition_boxes",
+        "Finset.sum_partition",
+        "BoxIntegral.integralSum_inf_partition",
+        "BoxIntegral.integralSum",
+        "BoxIntegral.integralSum_biUnion_partition",
+        "BoxIntegral.unitPartition.box",
+        "Parser.Attr.integral_simps",
+        "Lean.Meta.getFunInfo",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Meta.Simp.simpConst"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Set.OrdConnected",
+      "declarations": [
+        "Set.OrdConnected",
+        "Set.OrdConnected.mk",
+        "Set.OrdConnected.out'",
+        "Set.ordConnected_univ",
+        "Set.ordConnected_Ici",
+        "Set.ordConnected_Iic",
+        "Set.ordConnected_Iio",
+        "Set.ordConnected_Ioi",
+        "Set.ordConnected_empty",
+        "Set.ordConnected_Icc"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "lintegral_tsum",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "lintegral_indicator",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "MeasureTheory.lintegral_const",
+      "declarations": [
+        "MeasureTheory.lintegral_const"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_tsum",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "tsum_geometric",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Summable.comp_injective",
+      "declarations": [
+        "Summable.comp_injective"
+      ],
+      "call_turn": 8,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Metric.diam_Icc",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "Riesz energy finite measure potential kernel distance",
+      "declarations": [
+        "NNRealRMK.rieszMeasure",
+        "RealRMK.instIsFiniteMeasureRieszMeasure",
+        "RealRMK.rieszMeasure",
+        "MeasureTheory.FiniteMeasure",
+        "MeasureTheory.levyProkhorovDist",
+        "herglotzRieszKernel",
+        "MeasureTheory.IsFiniteMeasure",
+        "NNRealRMK.le_rieszMeasure_of_tsupport_subset",
+        "ProbabilityTheory.IsFiniteKernel",
+        "RealRMK.regular_rieszMeasure",
+        "herglotzRieszKernel_fun_def",
+        "ProbabilityTheory.Kernel.ae_kernel_lt_top",
+        "herglotzRieszKernel_add_const",
+        "NNRealRMK.integral_rieszMeasure",
+        "herglotzRieszKernel_def",
+        "RealRMK.integral_rieszMeasure",
+        "contentRegular_rieszContent",
+        "NNRealRMK.lintegral_rieszMeasure",
+        "re_herglotzRieszKernel_le",
+        "le_re_herglotzRieszKernel"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "Frostman lemma measure ball growth finite integral distance power",
+      "declarations": [
+        "MeasureTheory.Measure.integrablePower",
+        "MeasureTheory.HasFiniteIntegral",
+        "Metric.Snowflaking.image_toSnowflaking_emetricBall",
+        "MeasureTheory.HasFiniteIntegral.mono_measure",
+        "blimsup_cthickening_mul_ae_eq",
+        "MeasureTheory.IsFiniteMeasure.instHasTemperateGrowth",
+        "hofer",
+        "MeasureTheory.HasFiniteIntegral.neg",
+        "MeasureTheory.hasFiniteIntegral_add_measure",
+        "MeasureTheory.integral",
+        "MeasureTheory.hasFiniteIntegral_congr'",
+        "Metric.Snowflaking.preimage_ofSnowflaking_emetricBall",
+        "MeasureTheory.hasFiniteIntegral_zero_measure",
+        "integral_pow_mul_le_of_le_of_pow_mul_le",
+        "Metric.Snowflaking.image_ofSnowflaking_emetricClosedBall",
+        "blimsup_thickening_mul_ae_eq",
+        "ProbabilityTheory.exists_integrable_exp_sq_of_map_rotation_eq_self",
+        "ProbabilityTheory.IsGaussian.exists_integrable_exp_sq",
+        "ProbabilityTheory.Fernique.lintegral_closedBall_sdiff_exp_logRatio_mul_sq_le",
+        "MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure"
+      ],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "mutual energy measure metric space lintegral distance rpow",
+      "declarations": [
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "PiLp.dist_eq_sum",
+        "MeasureTheory.lintegral",
+        "MeasureTheory.levyProkhorovDist",
+        "Lean.EditDistance.levenshtein",
+        "PiCountable.dist",
+        "MetricSpace",
+        "WithLp.nndist_fst_le",
+        "MeasureTheory.VectorMeasure.edist_integral_le_lintegral_edist",
+        "MeasureTheory.VectorMeasure.dist_integral_le_lintegral_edist",
+        "MeasureTheory.lintegral_rpow_eq_lintegral_meas_lt_mul",
+        "PseudoMetricSpace",
+        "ENNReal.lintegral_mul_rpow_le_lintegral_rpow_mul_lintegral_rpow",
+        "MeasureTheory.lintegral_rpow_eq_lintegral_meas_le_mul",
+        "WithLp.nndist_snd_le",
+        "Lean.Meta.getFunInfo",
+        "MeasureTheory.lintegral_lintegral",
+        "MeasureTheory.eLpNorm_eq_lintegral_rpow_enorm",
+        "MeasureTheory.lintegral_rpow_enorm_eq_rpow_eLpNorm'",
+        "Lean.Server.Watchdog.ModuleQueryMatchScore"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "potential of finite measure finite lintegral ball estimate",
+      "declarations": [
+        "FiniteArchimedeanClass.ball",
+        "MeasureTheory.ext_of_forall_lintegral_eq_of_IsFiniteMeasure",
+        "MeasureTheory.HasFiniteIntegral",
+        "MeasureTheory.lintegral",
+        "MeasureTheory.FiniteMeasure.testAgainstNN_lipschitz_estimate",
+        "MeasureTheory.HasFiniteIntegral.of_bounded_enorm",
+        "MeasureTheory.lintegral_le_of_forall_fin_meas_le",
+        "MeasureTheory.FiniteMeasure.continuous_lintegral_continuousMap",
+        "MeasureTheory.HasFiniteIntegral.of_bounded",
+        "MeasureTheory.HasFiniteIntegral.restrict_of_bounded_enorm",
+        "MeasureTheory.exists_setLIntegral_compl_lt",
+        "MeasureTheory.FiniteMeasure.tendsto_lintegral_nn_of_le_const",
+        "MeasureTheory.HasFiniteIntegral.of_mem_Icc_of_ne_top",
+        "MeasureTheory.FiniteMeasure.continuous_lintegral_boundedContinuousFunction",
+        "MeasureTheory.FiniteMeasure.tendsto_iff_forall_lintegral_tendsto",
+        "MeasureTheory.Integrable.measure_enorm_ge_lt_top",
+        "MeasureTheory.FiniteMeasure.ext_of_forall_lintegral_eq",
+        "MeasureTheory.FiniteMeasure.continuous_iff_forall_continuous_lintegral",
+        "ProbabilityTheory.IsGaussian.exists_integrable_exp_sq",
+        "abs_integral_sub_setIntegral_mulExpNegMulSq_comp_lt"
+      ],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "IsFiniteMeasure",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "MeasureTheory.lintegral_iSup",
+      "declarations": [
+        "MeasureTheory.lintegral_iSup"
+      ],
+      "call_turn": 17,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "MeasureTheory.lintegral_tsum",
+      "declarations": [
+        "MeasureTheory.lintegral_tsum"
+      ],
+      "call_turn": 17,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "MeasureTheory.lintegral_indicator",
+      "declarations": [
+        "MeasureTheory.lintegral_indicator"
+      ],
+      "call_turn": 17,
+      "result_turn": 25
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "positive real exists natural power between half powers dyadic",
+      "declarations": [
+        "Lean.Nat.mkInstNatPow",
+        "Lean.Meta.Structural.isInstPowNat",
+        "Lean.Meta.Structural.isInstHPowNat",
+        "Dyadic",
+        "Finset.exists_between",
+        "exists_nat_pow_near_of_lt_one",
+        "Dyadic.instPowNat",
+        "Dyadic.pow",
+        "exists_between",
+        "EReal.exists_between_coe_real",
+        "Mathlib.Meta.NormNum.IsNNRat.nnreal_rpow_isNNRat",
+        "Dyadic.toRat_pow",
+        "Set.Finite.exists_between",
+        "Mathlib.Meta.NormNum.proveIsNatNNRealRPowIsNNRat",
+        "exists_between'",
+        "dense_iff_exists_between",
+        "Finset.exists_between'",
+        "exists_compact_between",
+        "Dense.exists_between",
+        "Set.Finite.exists_between'"
+      ],
+      "call_turn": 38,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "∃ n : ℕ, _ ^ n < _ ∧ _ ≤ _ ^ n",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "∃ n : ℕ, (_ / 2) ^ n < _",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "exists_pow_lt_of_lt_one",
+      "declarations": [
+        "exists_pow_lt_of_lt_one"
+      ],
+      "call_turn": 38,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "exists_nat_pow_near",
+      "declarations": [
+        "exists_nat_pow_near"
+      ],
+      "call_turn": 38,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Real.exists_pow_lt_of_lt_one",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "exists_nat_gt",
+      "declarations": [
+        "exists_nat_gt"
+      ],
+      "call_turn": 38,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Nat.find",
+      "declarations": [
+        "Nat.find",
+        "Nat.find_spec",
+        "Nat.find_le",
+        "Nat.find_min'",
+        "Nat.find_min",
+        "Nat.find_eq_zero",
+        "Nat.le_find_iff",
+        "Nat.lt_find_iff",
+        "Nat.find_pos",
+        "Nat.find_eq_iff"
+      ],
+      "call_turn": 38,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Nat.log",
+      "declarations": [
+        "Nat.log",
+        "Nat.log_monotone",
+        "Nat.log_le_self",
+        "Nat.log_le_clog",
+        "Nat.log2_eq_log_two",
+        "Nat.log_one_left",
+        "Nat.log_one_right",
+        "Nat.log_zero_left",
+        "Nat.log_zero_right",
+        "Nat.log_lt_self"
+      ],
+      "call_turn": 38,
+      "result_turn": 47
+    },
+    {
+      "event_id": "leanfinder:37",
+      "tool": "leanfinder",
+      "query": "ennreal equals zero if bounded above by sequence tending to zero",
+      "declarations": [
+        "ENNReal.toReal",
+        "ENat.toENNReal_zero",
+        "ENNReal.toNNReal",
+        "ENNReal.eq_zero_of_le_mul_pow",
+        "MeasureTheory.OuterMeasure.boundedBy_zero",
+        "EReal.toENNReal_zero",
+        "Real.limsInf_of_not_isBounded",
+        "NNReal.limsSup_of_not_isBounded",
+        "Hyperreal.gt_of_tendsto_zero_of_neg",
+        "ENNReal.toNNReal_zero",
+        "NNReal.iSup_eq_zero",
+        "ENNReal.toReal_zero",
+        "MeasureTheory.OuterMeasure.boundedBy",
+        "Hyperreal.neg_lt_of_tendsto_zero_of_pos",
+        "ENNReal.tendsto_nhds_zero",
+        "ENNReal.rpow_zero",
+        "tendsto_inv_atTop_nhds_zero_nat",
+        "ENNReal.zero_div",
+        "ENNReal.toReal_ne_zero",
+        "ENNReal.toNNReal_ne_zero"
+      ],
+      "call_turn": 50,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "_ = 0 ↔ ∀ ε > 0, _ < _",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "ENNReal _ ≤ 0",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "eq_zero_of_le_zero",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "le_zero_iff",
+      "declarations": [
+        "le_zero_iff"
+      ],
+      "call_turn": 50,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "ENNReal.coe_le_coe",
+      "declarations": [
+        "ENNReal.coe_le_coe"
+      ],
+      "call_turn": 50,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_eq_coe_nnreal",
+      "declarations": [
+        "ENNReal.ofReal_eq_coe_nnreal"
+      ],
+      "call_turn": 50,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_eq_zero",
+      "declarations": [
+        "ENNReal.ofReal_eq_zero"
+      ],
+      "call_turn": 50,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Subtype.dist_eq",
+      "declarations": [
+        "Subtype.dist_eq"
+      ],
+      "call_turn": 65,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Set.ordConnected_singleton",
+      "declarations": [
+        "Set.ordConnected_singleton"
+      ],
+      "call_turn": 89,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_inv_of_pos",
+      "declarations": [
+        "ENNReal.ofReal_inv_of_pos"
+      ],
+      "call_turn": 111,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_rpow",
+      "declarations": [],
+      "call_turn": 111,
+      "result_turn": 113
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_div_of_pos",
+      "declarations": [
+        "ENNReal.ofReal_div_of_pos"
+      ],
+      "call_turn": 111,
+      "result_turn": 114
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "ENNReal.div_le_iff",
+      "declarations": [
+        "ENNReal.div_le_iff"
+      ],
+      "call_turn": 111,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "ENNReal.inv_le_inv",
+      "declarations": [
+        "ENNReal.inv_le_inv"
+      ],
+      "call_turn": 111,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "one_div_le_one_div_of_le",
+      "declarations": [
+        "one_div_le_one_div_of_le"
+      ],
+      "call_turn": 111,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "one_div_le_one_div",
+      "declarations": [
+        "one_div_le_one_div"
+      ],
+      "call_turn": 111,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "ENNReal.rpow_le_rpow",
+      "declarations": [
+        "ENNReal.rpow_le_rpow"
+      ],
+      "call_turn": 111,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_natCast",
+      "declarations": [
+        "ENNReal.ofReal_natCast"
+      ],
+      "call_turn": 111,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_pow",
+      "declarations": [
+        "ENNReal.ofReal_pow"
+      ],
+      "call_turn": 111,
+      "result_turn": 121
+    },
+    {
+      "event_id": "leanfinder:81",
+      "tool": "leanfinder",
+      "query": "ENNReal ofReal real rpow positive",
+      "declarations": [
+        "ENNReal.ofReal_rpow_of_nonneg",
+        "ENNReal.ofReal_rpow_of_pos",
+        "Mathlib.Meta.NormNum.Result.toRat'",
+        "ENNReal.ofReal",
+        "Mathlib.Meta.Positivity.evalRealToNNReal",
+        "Lean.Meta.Sym.getRatValue",
+        "Mathlib.Meta.NormNum.Result.toRatNZ",
+        "Lean.Parser.Term.scientific",
+        "Mathlib.Tactic.Linarith.getNNRealToRealArg",
+        "Real.rpow_ofNat",
+        "Real.rpow_pos_of_pos",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "ENNReal.toReal_rpow",
+        "Real.rpow_mul",
+        "Real.toNNReal_eq_ofNat",
+        "Real.rpow_le_rpow",
+        "Real.toNNReal_of_nonneg",
+        "Mathlib.Meta.NormNum.evalNNRealRPow",
+        "Real.rpowIntegrand",
+        "Real.rpow"
+      ],
+      "call_turn": 122,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "le_tsum",
+      "declarations": [],
+      "call_turn": 130,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "ENNReal.le_tsum",
+      "declarations": [
+        "ENNReal.le_tsum"
+      ],
+      "call_turn": 130,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "single_le_tsum",
+      "declarations": [],
+      "call_turn": 130,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "tsum_le_tsum",
+      "declarations": [],
+      "call_turn": 130,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "ENNReal.tsum_eq_iSup_sum",
+      "declarations": [
+        "ENNReal.tsum_eq_iSup_sum"
+      ],
+      "call_turn": 130,
+      "result_turn": 135
+    },
+    {
+      "event_id": "leanfinder:103",
+      "tool": "leanfinder",
+      "query": "almost everywhere set complement measure zero ae mem",
+      "declarations": [
+        "IsCompact.measure_zero_of_nhdsWithin",
+        "MeasureTheory.mem_ae_iff",
+        "MeasureTheory.ae_zero",
+        "MeasureTheory.Measure.everywherePosSubset",
+        "MeasureTheory.ae",
+        "MeasureTheory.measure_eq_zero_iff_ae_notMem",
+        "MeasureTheory.aedisjoint_compl_left",
+        "MeasureTheory.aedisjoint_compl_right",
+        "aeSeq.measure_compl_aeSeqSet_eq_zero",
+        "MeasureTheory.measure_of_measure_compl_eq_zero",
+        "Set.Countable.measure_restrict_compl",
+        "MeasureTheory.measure_compl_sigmaFiniteSet",
+        "MeasurableSet.everywherePosSubset",
+        "aeSeqSet",
+        "MeasureTheory.AEDisjoint.of_null_left",
+        "MeasureTheory.Measure.IsEverywherePos",
+        "MeasureTheory.Measure.everywherePosSubset_ae_eq_of_measure_ne_top",
+        "MeasureTheory.Measure.everywherePosSubset_ae_eq",
+        "MeasureTheory.Measure.everywherePosSubset_subset",
+        "MeasureTheory.ae_finite_setOf_mem"
+      ],
+      "call_turn": 162,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "∀ᵐ _, _ ∈ _",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 164
+    },
+    {
+      "event_id": "loogle:105",
+      "tool": "loogle",
+      "query": "MeasureTheory.ae_of_all",
+      "declarations": [
+        "MeasureTheory.ae_of_all"
+      ],
+      "call_turn": 162,
+      "result_turn": 165
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "MeasureTheory.ae_iff",
+      "declarations": [
+        "MeasureTheory.ae_iff"
+      ],
+      "call_turn": 162,
+      "result_turn": 166
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "measure_compl_eq_zero",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "MeasureTheory.measure_eq_zero_iff_ae_not_mem",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "ae_compl_singleton",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "MeasureTheory.ae_ne_of_measure_singleton_eq_zero",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 170
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "∫⁻ _, _ + _ ∂_ = ∫⁻ _, _ ∂_ + ∫⁻ _, _ ∂_",
+      "declarations": [
+        "MeasureTheory.lintegral_add_left",
+        "MeasureTheory.lintegral_add_right",
+        "MeasureTheory.lintegral_add_left'",
+        "MeasureTheory.lintegral_add_right'",
+        "MeasureTheory.lintegral_add_aux",
+        "MeasureTheory.lintegral_enorm_add_left",
+        "MeasureTheory.lintegral_enorm_add_right"
+      ],
+      "call_turn": 173,
+      "result_turn": 174
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "ENNReal.rpow_inv",
+      "declarations": [],
+      "call_turn": 199,
+      "result_turn": 200
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "ENNReal.inv_rpow",
+      "declarations": [
+        "ENNReal.inv_rpow"
+      ],
+      "call_turn": 199,
+      "result_turn": 201
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "ENNReal.rpow_inv_natCast",
+      "declarations": [],
+      "call_turn": 199,
+      "result_turn": 202
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "ENNReal.rpow_neg",
+      "declarations": [
+        "ENNReal.rpow_neg"
+      ],
+      "call_turn": 199,
+      "result_turn": 203
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "ENNReal.one_div",
+      "declarations": [],
+      "call_turn": 199,
+      "result_turn": 204
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "ENNReal.inv_eq_one_div",
+      "declarations": [],
+      "call_turn": 199,
+      "result_turn": 205
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "ENNReal.div_eq_inv_mul",
+      "declarations": [
+        "ENNReal.div_eq_inv_mul"
+      ],
+      "call_turn": 210,
+      "result_turn": 211
+    },
+    {
+      "event_id": "loogle:134",
+      "tool": "loogle",
+      "query": "div_eq_inv_mul ENNReal",
+      "declarations": [],
+      "call_turn": 210,
+      "result_turn": 212
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "one_div ENNReal",
+      "declarations": [],
+      "call_turn": 210,
+      "result_turn": 213
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "ENNReal.div_self",
+      "declarations": [
+        "ENNReal.div_self"
+      ],
+      "call_turn": 210,
+      "result_turn": 214
+    },
+    {
+      "event_id": "leanfinder:137",
+      "tool": "leanfinder",
+      "query": "ENNReal division inverse one divided by x",
+      "declarations": [
+        "Lean.Meta.Structural.isInstDivNat",
+        "PowerSeries.Inv_divided_by_X_pow_order",
+        "Lean.Int.mkInstDiv",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "Mathlib.Meta.NormNum.Result.inv",
+        "Lean.Grind.CommRing.Mon.findInvNumeralVar",
+        "DividedPowers",
+        "PowerSeries.Unit_of_divided_by_X_pow_order",
+        "PowerSeries.Inv_divided_by_X_pow_order_leftInv",
+        "PowerSeries.Inv_divided_by_X_pow_order_rightInv",
+        "DivisionRing",
+        "Lean.Meta.Sym.getRatValue",
+        "Mathlib.Meta.NormNum.evalInv",
+        "PowerSeries.isUnit_divided_by_X_pow_order",
+        "Polynomial.divX",
+        "PowerSeries.Unit_of_divided_by_X_pow_order_nonzero",
+        "DivisionCommMonoid",
+        "PowerSeries.eq_divided_by_X_pow_order_Iff_Unit",
+        "PowerSeries.Unit_of_divided_by_X_pow_order_zero",
+        "DivisionMonoid"
+      ],
+      "call_turn": 210,
+      "result_turn": 215
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 7,
+    "selected_hyperedge_count": 4,
+    "main_hyperedge_count": 4,
+    "side_hyperedge_count": 0,
+    "selected_depth": 3,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 76,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 75,
+    "accepted_helper_count": 14,
+    "rollout_tool_call_count": 148,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

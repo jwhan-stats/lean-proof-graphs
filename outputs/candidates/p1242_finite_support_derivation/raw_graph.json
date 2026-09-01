@@ -1,0 +1,182 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1242_finite_support_derivation.finite_support_derivation",
+      "manifest": [
+        {
+          "statement": "∀ (S : Set W) (x : W), x ∈ D S ↔ ∃ F, F.Finite ∧ F ⊆ S ∧ x ∈ D F",
+          "origin": "manifest",
+          "name": "hD",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "1 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "P ∈ D^[n] A",
+          "origin": "manifest",
+          "name": "hP",
+          "fvar_id": "7"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ ⦃x : W⦄, x ∈ {P} → x ∈ D^[n] A",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Set.mem_singleton_iff",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "P ∈ D^[n] A",
+              "origin": "local_assumption",
+              "name": "hP",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p1242_finite_support_derivation.finite_support_derivation",
+          "id": "telescope_8",
+          "conclusion": {
+            "statement": "{P} ⊆ D^[n] A",
+            "origin": "derived",
+            "name": "hsub",
+            "fvar_id": "8"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Rollout_p1242_finite_support_derivation.finite_support_chain_forall",
+          "Set.finite_singleton"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (S : Set W) (x : W), x ∈ D S ↔ ∃ F, F.Finite ∧ F ⊆ S ∧ x ∈ D F",
+            "origin": "local_assumption",
+            "name": "hD",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "1 ≤ n",
+            "origin": "local_assumption",
+            "name": "hn",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "{P} ⊆ D^[n] A",
+            "origin": "derived",
+            "name": "hsub",
+            "fvar_id": "8"
+          }
+        ],
+        "parent": "Rollout_p1242_finite_support_derivation.finite_support_derivation",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃x : W⦄, x ∈ {P} → x ∈ D^[n] A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Set.mem_singleton_iff",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "P ∈ D^[n] A",
+          "origin": "local_assumption",
+          "name": "hP",
+          "fvar_id": "_uniq.869248"
+        }
+      ],
+      "parent": "Rollout_p1242_finite_support_derivation.finite_support_derivation",
+      "id": "local_124",
+      "conclusion": {
+        "statement": "{P} ⊆ D^[n] A",
+        "origin": "derived",
+        "name": "hsub",
+        "fvar_id": "_uniq.869510"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p1242_finite_support_derivation",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1242_finite_support_derivation.finite_support_derivation",
+    "proof_sha256": "cd077f49996aa525d5cdf2484fab8b5fd17d638ce423e2f4faaf24a12c98125f"
+  }
+}

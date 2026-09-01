@@ -1,0 +1,1682 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2674_graded_dual_rational_map_mem_completion",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2674,
+    "source": "1804.07424",
+    "theorem_name": "graded_dual_rational_map_mem_completion",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2674",
+    "reconstructed_proof": "../../candidates/p2674_graded_dual_rational_map_mem_completion/proof.lean",
+    "raw_elaboration": "../../candidates/p2674_graded_dual_rational_map_mem_completion/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+    "verification_call_id": "verify_submission:119",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "ee96ffed4839bb111b30a81d1b3d00b895a201f2c741ddc0e91de1722bd55d11",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "ff060e3612633e86cbf9ce57b1e996209f31b94d937077dd2c77ae60cc594695",
+    "concrete_semantic_topology_sha256": "ee96ffed4839bb111b30a81d1b3d00b895a201f2c741ddc0e91de1722bd55d11"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hcleared_fe443180",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcleared",
+      "lean_fvar_id": "10",
+      "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)), ∃ P, (∀ (α : Fin n →₀ ℕ), MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧ ∀ (z : { z // Function.Injective z }), (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P"
+    },
+    {
+      "id": "m_hhom_bfd12609",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hhom",
+      "lean_fvar_id": "11",
+      "statement": "∀ (α : Fin n →₀ ℕ) (a : ℂ), (a ≠ C + α.sum fun x e => ↑e) → g α a = 0"
+    },
+    {
+      "id": "m_hn_6705fb17",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "0 < n"
+    },
+    {
+      "id": "m_hrational_4e8d3551",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hrational",
+      "lean_fvar_id": "9",
+      "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)), ∃ q P, ∀ (z : { z // Function.Injective z }), (f z) w' = (MvPolynomial.eval ↑z) P / ∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ q i j"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)"
+    },
+    {
+      "id": "n_hcomponent_cc1f2366",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hcomponent",
+      "lean_fvar_id": "19",
+      "statement": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)"
+    },
+    {
+      "id": "n_hd_511f4912",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hD",
+      "lean_fvar_id": "17",
+      "statement": "D ≠ 0"
+    },
+    {
+      "id": "n_hfinite_g_b9335f94",
+      "class": "side",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hfinite_g",
+      "lean_fvar_id": "13",
+      "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hfinite_g",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_hcleared_fe443180"
+      ],
+      "conclusion": "n_hfinite_g_b9335f94",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "DirectSum.toModule_lof + Finset.finite_toSet + Finsupp.mem_support_iff",
+        "items": [
+          "DirectSum.toModule_lof",
+          "Finset.finite_toSet",
+          "Finsupp.mem_support_iff",
+          "Module.Dual.eval_apply",
+          "Rollout_p2674_graded_dual_rational_map_mem_completion.finite_family_support_of_dual_pointwise_finite",
+          "Set.Finite.subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2674_graded_dual_rational_map_mem_completion.finite_family_support_of_dual_pointwise_finite"
+        ],
+        "mathlib_items": [
+          "DirectSum.toModule_lof",
+          "Finset.finite_toSet",
+          "Finsupp.mem_support_iff",
+          "Module.Dual.eval_apply",
+          "Set.Finite.subset"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hfinite_g : ∀ a : ℂ, Set.Finite {α : Fin n →₀ ℕ | g α a ≠ 0} := by\n    intro a\n    apply finite_family_support_of_dual_pointwise_finite (fun α : Fin n →₀ ℕ => g α a)\n    intro l\n    obtain ⟨P, hcoeff, hid⟩ := hcleared (DirectSum.lof ℂ ℂ (fun b => Module.Dual ℂ (W b)) a l)\n    apply Set.Finite.subset (Finset.finite_toSet P.support)\n    intro α hα\n    exact Finsupp.mem_support_iff.mpr (by\n      have hc := hcoeff α\n      rw [DirectSum.toModule_lof, Module.Dual.eval_apply] at hc\n      change MvPolynomial.coeff α P ≠ 0\n      rwa [hc])\n  let S : ℂ → Finset (Fin n →₀ ℕ) := fun a => (hfinite_g a).toFinset\n  let mval : (Fin n →₀ ℕ) → ℂ := fun α => α.prod fun i e => z.1 i ^ e\n  let D : ℂ := ∏ i : Fin n, ∏ j ∈ Finset.Ioi i, (z.1 i - z.1 j) ^ p i j",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hcleared",
+              "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)), ∃ P, (∀ (α : Fin n →₀ ℕ), MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧ ∀ (z : { z // Function.Injective z }), (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "hfinite_g",
+            "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite"
+          }
+        },
+        "lean_dependency_sha256": "8ed0ba7688561d548d26abbd3292ac1db078caa3643836961bf3b82609b7216e",
+        "kernel_witness_check": {
+          "proof_type": "∀ (a : ℂ), {i | g i a ≠ 0}.Finite",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "DirectSum.toModule_lof",
+          "Finsupp.mem_support_iff",
+          "Module.Dual.eval_apply",
+          "Set.Finite.subset"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "loogle:8",
+          "loogle:9",
+          "loogle:86",
+          "loogle:115",
+          "loogle:2",
+          "loogle:58"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_hd",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hd_511f4912",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.mem_Ioi + Finset.prod_ne_zero_iff + Function.Injective.ne",
+        "items": [
+          "Finset.mem_Ioi",
+          "Finset.prod_ne_zero_iff",
+          "Function.Injective.ne",
+          "ne_of_lt",
+          "sub_ne_zero",
+          "zpow_ne_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.mem_Ioi",
+          "Finset.prod_ne_zero_iff",
+          "Function.Injective.ne",
+          "ne_of_lt",
+          "sub_ne_zero",
+          "zpow_ne_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_17",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hD : D ≠ 0 := by\n    dsimp [D]\n    apply Finset.prod_ne_zero_iff.mpr\n    intro i hi\n    apply Finset.prod_ne_zero_iff.mpr\n    intro j hj\n    apply zpow_ne_zero\n    rw [sub_ne_zero]\n    apply z.2.ne\n    rw [Finset.mem_Ioi] at hj\n    exact ne_of_lt hj\n  let b : ∀ a, W a := fun a =>\n    D⁻¹ • ∑ α ∈ S a, mval α • g α a",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "17",
+            "name": "hD",
+            "statement": "D ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "cdb284ad47163062c86be1088addaffbac44bdebb1bc6e02a0c61eea2678344b",
+        "kernel_witness_check": {
+          "proof_type": "D ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.mem_Ioi",
+          "Finset.prod_ne_zero_iff",
+          "Function.Injective.ne",
+          "sub_ne_zero",
+          "zpow_ne_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:105",
+          "loogle:102",
+          "loogle:104",
+          "loogle:103",
+          "loogle:101"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hcomponent",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hcleared_fe443180",
+        "n_hfinite_g_b9335f94",
+        "n_hd_511f4912"
+      ],
+      "conclusion": "n_hcomponent_cc1f2366",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "DirectSum.toModule_lof + Finset.sum_congr + Finset.sum_subset",
+        "items": [
+          "DirectSum.toModule_lof",
+          "Finset.sum_congr",
+          "Finset.sum_subset",
+          "Module.Dual.eval_apply",
+          "MvPolynomial.as_sum",
+          "MvPolynomial.eval_monomial",
+          "MvPolynomial.eval_sum",
+          "MvPolynomial.mem_support_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "DirectSum.toModule_lof",
+          "Finset.sum_congr",
+          "Finset.sum_subset",
+          "Module.Dual.eval_apply",
+          "MvPolynomial.as_sum",
+          "MvPolynomial.eval_monomial",
+          "MvPolynomial.eval_sum",
+          "MvPolynomial.mem_support_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_19",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hcomponent : ∀ (a : ℂ) (l : Module.Dual ℂ (W a)),\n      f z (DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a l) = l (b a) := by\n    intro a l\n    obtain ⟨P, hcoeff, hid⟩ :=\n      hcleared (DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a l)\n    have hPsub : P.support ⊆ S a := by\n      intro α hα\n      rw [MvPolynomial.mem_support_iff] at hα\n      have hc := hcoeff α\n      rw [DirectSum.toModule_lof, Module.Dual.eval_apply] at hc\n      change α ∈ (hfinite_g a).toFinset\n      rw [Set.Finite.mem_toFinset]\n      change g α a ≠ 0\n      intro hg\n      rw [hg, map_zero] at hc\n      exact hα hc\n    have h_eval : MvPolynomial.eval z.1 P = ∑ α ∈ S a, mval α * l (g α a) := by\n      have h_eval_support :\n          MvPolynomial.eval z.1 P = ∑ α ∈ P.support, mval α * l (g α a) := by\n        conv_lhs => rw [MvPolynomial.as_sum P]\n        rw [MvPolynomial.eval_sum]\n        apply Finset.sum_congr rfl\n        intro α hα\n        rw [MvPolynomial.eval_monomial, hcoeff α, DirectSum.toModule_lof,\n          Module.Dual.eval_apply]\n        change l (g α a) * mval α = mval α * l (g α a)\n        ring\n      rw [h_eval_support]\n      apply Finset.sum_subset hPsub\n      intro α hαS hαP\n      have h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hcleared",
+              "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)), ∃ P, (∀ (α : Fin n →₀ ℕ), MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧ ∀ (z : { z // Function.Injective z }), (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hfinite_g",
+              "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hD",
+              "statement": "D ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "19",
+            "name": "hcomponent",
+            "statement": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)"
+          }
+        },
+        "lean_dependency_sha256": "43e759b962678e171d11798d9c60c9a55edf9c693893e6eecdee532c845f00ed",
+        "kernel_witness_check": {
+          "proof_type": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "DirectSum.toModule_lof",
+          "Finset.sum_congr",
+          "Finset.sum_subset",
+          "Module.Dual.eval_apply",
+          "MvPolynomial.as_sum",
+          "MvPolynomial.eval_monomial",
+          "MvPolynomial.eval_sum",
+          "MvPolynomial.mem_support_iff"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "loogle:8",
+          "loogle:9",
+          "loogle:112",
+          "loogle:111",
+          "loogle:2",
+          "loogle:99",
+          "loogle:97",
+          "loogle:96",
+          "loogle:115",
+          "loogle:86"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hcomponent_cc1f2366"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "DirectSum.linearMap_ext + DirectSum.toModule_lof + LinearMap.ext",
+        "items": [
+          "DirectSum.linearMap_ext",
+          "DirectSum.toModule_lof",
+          "LinearMap.ext",
+          "Module.Dual.eval_apply"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "DirectSum.linearMap_ext",
+          "DirectSum.toModule_lof",
+          "LinearMap.ext",
+          "Module.Dual.eval_apply"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  apply LinearMap.ext\n  intro l\n  change f z (DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a l) =\n    (DirectSum.toModule ℂ ℂ ℂ fun c => (Module.Dual.eval ℂ (W c)) (b c))\n      (DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a l)\n  rw [hcomponent a l, DirectSum.toModule_lof, Module.Dual.eval_apply]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "19",
+              "name": "hcomponent",
+              "statement": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)"
+          }
+        },
+        "lean_dependency_sha256": "432d1f06644bf95d1ff7f3647e8c347c93d2626a85a1f45564cc719034b69cc9",
+        "kernel_witness_check": {
+          "proof_type": "∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "DirectSum.linearMap_ext",
+          "DirectSum.toModule_lof",
+          "LinearMap.ext",
+          "Module.Dual.eval_apply"
+        ],
+        "observed_search_event_ids": [
+          "loogle:6",
+          "loogle:9",
+          "loogle:1",
+          "loogle:8",
+          "loogle:11",
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "DirectSum.of",
+      "declarations": [
+        "DirectSum.of",
+        "DirectSum.of_injective",
+        "DirectSum.of_eq_same",
+        "DirectSum.support_of_subset",
+        "DirectSum.of_eq_of_ne",
+        "DirectSum.support_of",
+        "DirectSum.sum_univ_of",
+        "DirectSum.of_apply",
+        "DirectSum.induction_on",
+        "DirectSum.addHom_ext'"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "DirectSum.toModule",
+      "declarations": [
+        "DirectSum.toModule",
+        "DirectSum.coe_toModule_eq_coe_toAddMonoid",
+        "DirectSum.toModule_lof",
+        "DirectSum.toModule.unique",
+        "DirectSum.toLieAlgebra_apply",
+        "LinearAlgebra.FreeProduct.lift_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Module.Dual.eval",
+      "declarations": [
+        "Module.Dual.eval",
+        "Submodule.comap_dualAnnihilator",
+        "Module.evalEquiv_toLinearMap",
+        "Module.bijective_dual_eval",
+        "Module.IsReflexive.bijective_dual_eval'",
+        "Module.IsReflexive.mk",
+        "Module.Dual.eval_apply",
+        "LinearMap.ker_dualMap_eq_dualCoannihilator_range",
+        "Module.erange_coe",
+        "Module.Dual.eval_naturality"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "MvPolynomial.coeff_sum",
+      "declarations": [
+        "MvPolynomial.coeff_sum"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Finsupp.sum_single_index",
+      "declarations": [
+        "Finsupp.sum_single_index"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Set.Finite.toFinset",
+      "declarations": [
+        "Set.Finite.toFinset",
+        "Set.Finite.toFinset_nonempty",
+        "Set.Finite.toFinset_nontrivial",
+        "Set.Finite.toFinset_univ",
+        "Finset.finite_toSet_toFinset",
+        "Finset.forall",
+        "Set.Finite.coe_toFinset",
+        "Set.Finite.toFinset_eq_toFinset",
+        "Set.Finite.card_toFinset",
+        "Set.Finite.toFinset_empty"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "DirectSum.linearMap_ext",
+      "declarations": [
+        "DirectSum.linearMap_ext"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "DirectSum.toModule_of",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "DirectSum.toModule_lof",
+      "declarations": [
+        "DirectSum.toModule_lof"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "DirectSum.lof",
+      "declarations": [
+        "DirectSum.lof",
+        "DirectSum.single_eq_lof",
+        "DirectSum.lof_apply",
+        "DirectSum.component.lof_self",
+        "DirectSum.lof_eq_of",
+        "DirectSum.component.of",
+        "DirectSum.toModule_lof",
+        "DirectSum.linearMap_ext",
+        "DirectSum.linearMap_ext_iff",
+        "DirectSum.toModule.unique"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "LinearMap.ext_iff",
+      "declarations": [
+        "LinearMap.ext_iff"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "DirectSum.ext",
+      "declarations": [
+        "DirectSum.ext"
+      ],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "family of vectors such that every linear functional is nonzero on only finitely many vectors has finite support",
+      "declarations": [
+        "Finsupp.hasFiniteSupport",
+        "linearIndepOn_iff",
+        "Mem",
+        "Function.HasFiniteSupport",
+        "Equiv.Perm.vectorsProdEqOne",
+        "Finsupp.linearIndependent_single_of_ne_zero",
+        "LinearIndependent.linearCombination_ne_of_notMem_support",
+        "Equiv.Perm.VectorsProdEqOne.one_eq",
+        "Equiv.Perm.VectorsProdEqOne.card",
+        "Equiv.Perm.VectorsProdEqOne.rotate"
+      ],
+      "call_turn": 16,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "countable union of proper subspaces vector space complex numbers Baire category",
+      "declarations": [
+        "Complex.instProperSpace",
+        "secondCountable_of_proper",
+        "ProperSpace",
+        "dense_iInter_of_isOpen_nat",
+        "Subspace.top_mem_of_biUnion_eq_univ",
+        "BaireMeasurableSet.union",
+        "Subspace.biUnion_ne_univ_of_top_notMem",
+        "Set.Countable.isConnected_compl_of_one_lt_rank",
+        "BaireSpace",
+        "Homeomorph.baireSpace"
+      ],
+      "call_turn": 16,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Set.Countable.iUnion",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "exists_forall_not_mem_iUnion",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "proper closed subset nowhere dense countable union Baire space",
+      "declarations": [
+        "ProperSpace",
+        "isMeagre_iff_countable_union_isNowhereDense",
+        "isClosed_isNowhereDense_iff_compl",
+        "IsNowhereDense",
+        "dense_iInter_of_isOpen_nat",
+        "dense_biInter_of_isOpen",
+        "IsClosed.isNowhereDense_iff",
+        "IsNowhereDense.subset_of_closed_isNowhereDense",
+        "IsG",
+        "not_isMeagre_of_isG"
+      ],
+      "call_turn": 16,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "IsMeagre.iUnion",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "BaireSpace",
+      "declarations": [
+        "BaireSpace",
+        "BaireSpace.baire_property",
+        "BaireSpace.mk",
+        "baire_of_finite",
+        "not_isMeagre_of_isOpen",
+        "Topology.IsOpenEmbedding.baireSpace",
+        "dense_of_mem_residual",
+        "not_isMeagre_of_isG",
+        "not_isMeagre_of_mem_residual",
+        "IsOpen.baireSpace"
+      ],
+      "call_turn": 16,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:19",
+      "tool": "leanfinder",
+      "query": "countable union of proper affine subspaces does not cover vector space over uncountable field",
+      "declarations": [
+        "AffineSubspace.instCompleteLattice",
+        "uncountable_iff_not_countable",
+        "Subspace.top_mem_of_biUnion_eq_univ",
+        "not_uncountable",
+        "Subspace.biUnion_ne_univ_of_top_notMem",
+        "Uncountable.of_not_small",
+        "not_injective_uncountable_countable",
+        "AffineSubspace.instNontrivial",
+        "affineSpan",
+        "not_surjective_countable_uncountable"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "leanfinder:20",
+      "tool": "leanfinder",
+      "query": "vector space cannot be countable union of proper subspaces over uncountable field",
+      "declarations": [
+        "Uncountable",
+        "secondCountable_of_proper",
+        "ProperSpace",
+        "uncountable_iff_not_countable",
+        "Subspace.top_mem_of_biUnion_eq_univ",
+        "Subspace.biUnion_ne_univ_of_top_notMem",
+        "not_injective_uncountable_countable",
+        "not_surjective_countable_uncountable",
+        "Set.Countable.isConnected_compl_of_one_lt_rank",
+        "LinearIndependent.lt_aleph0_of_finiteDimensional"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Countable.iUnion_ne_univ",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Set.Countable.biUnion",
+      "declarations": [
+        "Set.Countable.biUnion"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Set.Countable.union",
+      "declarations": [
+        "Set.Countable.union"
+      ],
+      "call_turn": 24,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Set.Countable.sUnion",
+      "declarations": [
+        "Set.Countable.sUnion"
+      ],
+      "call_turn": 24,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Set.Countable.iInter",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "LinearMap.exists_extend",
+      "declarations": [
+        "LinearMap.exists_extend"
+      ],
+      "call_turn": 32,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "Submodule.exists_linearMap_extend",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 34
+    },
+    {
+      "event_id": "leanfinder:28",
+      "tool": "leanfinder",
+      "query": "extend a linear map from a submodule to the whole module",
+      "declarations": [
+        "Submodule.map",
+        "LinearMap.range_liftBaseChange",
+        "Module.Baer.ExtensionOf",
+        "Module.Baer.extensionOfMaxAdjoin",
+        "LinearMap.exists_extend",
+        "LinearMap.exists_extend_of_notMem",
+        "List.mapA",
+        "Submodule.range_valA",
+        "Option.mapA",
+        "Submodule.map_iSup"
+      ],
+      "call_turn": 32,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "Basis.coord",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "Basis.mk",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Module.finBasis",
+      "declarations": [
+        "Module.finBasis",
+        "minpoly.rootsOfMinPolyPiType",
+        "minpoly.aux_inj_roots_of_min_poly"
+      ],
+      "call_turn": 32,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Module.Free.chooseBasis",
+      "declarations": [
+        "Module.Free.chooseBasis",
+        "LinearMap.charpoly_def",
+        "Representation.Equiv.dualTensorHom_invFun"
+      ],
+      "call_turn": 32,
+      "result_turn": 39
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "infinite dimensional span generated by family contains infinite linearly independent subfamily",
+      "declarations": [
+        "exists_linearIndependent'",
+        "LinearIndependent.span_eq_top_of_card_eq_finrank",
+        "Set.Infinite",
+        "SetRel.InfiniteDimensional",
+        "finrank_span_eq_card",
+        "InfiniteDimensionalOrder",
+        "LinearIndependent.span_eq_top_of_card_eq_finrank'",
+        "Module.finrank_of_infinite_dimensional",
+        "Infinite",
+        "finiteDimensionalOrder_or_infiniteDimensionalOrder"
+      ],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "leanfinder:34",
+      "tool": "leanfinder",
+      "query": "from infinite dimensional vector space extract linearly independent sequence",
+      "declarations": [
+        "LinearIndependent.finSnoc",
+        "linearIndependent_fin_snoc",
+        "Vector.extract_extract",
+        "linearIndependent_fin_succ",
+        "InfiniteDimensionalOrder",
+        "LinearIndependent",
+        "Vector.extract",
+        "linearIndependent_finSucc'",
+        "LinearIndependent.fin_cons'",
+        "linearIndependent_finSucc"
+      ],
+      "call_turn": 40,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "exists_linearIndependent",
+      "declarations": [
+        "exists_linearIndependent"
+      ],
+      "call_turn": 40,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "linearIndependent_sequence",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "LinearIndependent.of_subtype_range",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "LinearIndependent.comp",
+      "declarations": [
+        "LinearIndependent.comp"
+      ],
+      "call_turn": 40,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "Submodule.finiteDimensional_iff",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "LinearIndependent.constr",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "LinearIndependent.extend",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Basis.span",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "LinearIndependent.span_eq",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Basis.constr",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Basis.mkOfLinearIndependent",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "LinearIndependent.exists_extend",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 55
+    },
+    {
+      "event_id": "leanfinder:47",
+      "tool": "leanfinder",
+      "query": "basis of span from linearly independent spanning set",
+      "declarations": [
+        "Matroid.Indep.exists_isBase_subset_spanning",
+        "Module.Basis.ofSpan",
+        "Module.Basis.range_ofSpan",
+        "OrthonormalBasis.fromOrthogonalSpanSingleton",
+        "Matroid.IsBasis.spanning_iff_spanning",
+        "LinearIndependent",
+        "AlgebraicIndependent.matroid_spanning_iff",
+        "linearIndependent_span",
+        "exists_linearIndependent'",
+        "exists_linearIndepOn_id_extension"
+      ],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "leanfinder:48",
+      "tool": "leanfinder",
+      "query": "construct linear map on a linearly independent family with prescribed values",
+      "declarations": [
+        "LinearIndepOn.of_comp",
+        "LinearIndependent.map",
+        "LinearIndependent.fintypeLinearCombination_injective",
+        "DFinsupp.mapRange.linearMap",
+        "LinearIndependent.linearIndepOn",
+        "LinearIndependent",
+        "LinearIndependent.map_injOn",
+        "OrthogonalFamily.independent",
+        "LinearIndependent.of_comp",
+        "LinearIndepOn.map_injOn"
+      ],
+      "call_turn": 56,
+      "result_turn": 58
+    },
+    {
+      "event_id": "leanfinder:49",
+      "tool": "leanfinder",
+      "query": "Basis from linear independent spanning family",
+      "declarations": [
+        "Module.Basis.mk_apply",
+        "Module.Basis.linearIndependent",
+        "basisOfLinearIndependentOfCardEqFinrank",
+        "LinearIndependent",
+        "exteriorPower.",
+        "OrthogonalFamily.independent",
+        "exists_linearIndependent'",
+        "coe_basisOfLinearIndependentOfCardEqFinrank'",
+        "coe_basisOfLinearIndependentOfCardEqFinrank",
+        "linearIndependent_le_basis"
+      ],
+      "call_turn": 56,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "Module.Basis.mk",
+      "declarations": [
+        "Module.Basis.mk",
+        "Module.Basis.coe_mk",
+        "Module.Basis.mk_apply",
+        "Module.Basis.mk_coord_apply_eq",
+        "Module.Basis.mk_coord_apply_ne",
+        "Module.Basis.mk_coord_apply",
+        "Module.Basis.mk_repr",
+        "Module.Basis.det_smul_mk_coord_eq_det_update"
+      ],
+      "call_turn": 56,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Module.Basis.constr",
+      "declarations": [
+        "Module.Basis.constr",
+        "Module.Basis.constr_range",
+        "Module.Basis.constr_basis",
+        "Module.Basis.constr_self",
+        "Module.Basis.constr_eq",
+        "Module.Basis.constr_symm_apply",
+        "Module.Basis.constr_apply_fintype",
+        "Module.Basis.constr_def",
+        "Module.Basis.constr_apply",
+        "Module.Basis.constr_comp"
+      ],
+      "call_turn": 56,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Module.Basis.span",
+      "declarations": [
+        "Module.Basis.span",
+        "Module.Basis.coe_span_apply",
+        "Module.Basis.span_apply",
+        "Module.Basis.span_repr_eq_single",
+        "Module.Basis.span_neg"
+      ],
+      "call_turn": 56,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Module.Basis.extend",
+      "declarations": [
+        "Module.Basis.extend",
+        "Module.Basis.range_extend",
+        "Module.Basis.coe_extend",
+        "Module.Basis.extend_apply_self"
+      ],
+      "call_turn": 56,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "Set.Infinite.range",
+      "declarations": [],
+      "call_turn": 66,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Set.infinite_range_of_injective",
+      "declarations": [
+        "Set.infinite_range_of_injective"
+      ],
+      "call_turn": 66,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Set.Infinite.mono",
+      "declarations": [
+        "Set.Infinite.mono"
+      ],
+      "call_turn": 66,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Set.Finite.subset",
+      "declarations": [
+        "Set.Finite.subset",
+        "Set.Finite.toFinset_insert",
+        "Set.Finite.induction_on_subset"
+      ],
+      "call_turn": 66,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Set.Finite.of_finite_image",
+      "declarations": [
+        "Set.Finite.of_finite_image"
+      ],
+      "call_turn": 66,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Set.Infinite.image",
+      "declarations": [
+        "Set.Infinite.image"
+      ],
+      "call_turn": 66,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "Set.Infinite.of_forall_exists_gt",
+      "declarations": [],
+      "call_turn": 66,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "Set.infinite_coe_iff",
+      "declarations": [
+        "Set.infinite_coe_iff"
+      ],
+      "call_turn": 74,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "Set.Infinite.to_subtype",
+      "declarations": [
+        "Set.Infinite.to_subtype",
+        "Nat.nth_apply_eq_orderIsoOfNat",
+        "Nat.nth_eq_orderIsoOfNat"
+      ],
+      "call_turn": 74,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "Set.infinite_univ",
+      "declarations": [
+        "Set.infinite_univ"
+      ],
+      "call_turn": 74,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "Set.not_finite",
+      "declarations": [
+        "Set.not_finite"
+      ],
+      "call_turn": 74,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Set.finite_coe_iff",
+      "declarations": [
+        "Set.finite_coe_iff"
+      ],
+      "call_turn": 74,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "Set.range Subtype.val",
+      "declarations": [
+        "Subtype.range_coe_subtype",
+        "Subtype.range_val_subtype",
+        "Subtype.range_coe",
+        "Subtype.range_val",
+        "finsetBasisOfLinearIndependentOfCardEqFinrank_repr_apply",
+        "finsetBasisOfTopLeSpanOfCardEqFinrank_repr_apply",
+        "affineSpan_singleton_union_vadd_eq_top_of_span_eq_top",
+        "range_euclideanQuadrant",
+        "range_euclideanHalfSpace"
+      ],
+      "call_turn": 86,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Subtype.range_val",
+      "declarations": [
+        "Subtype.range_val",
+        "Types.monoOverEquivalenceSet_counitIso"
+      ],
+      "call_turn": 86,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "Set.range_subtype_val",
+      "declarations": [],
+      "call_turn": 86,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "Subtype.range_coe",
+      "declarations": [
+        "Subtype.range_coe"
+      ],
+      "call_turn": 86,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "Set.Infinite.to_subtype",
+      "declarations": [
+        "Set.Infinite.to_subtype",
+        "Nat.nth_apply_eq_orderIsoOfNat",
+        "Nat.nth_eq_orderIsoOfNat"
+      ],
+      "call_turn": 86,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "Set.not_finite_iff_infinite",
+      "declarations": [],
+      "call_turn": 86,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "Set.Finite.biUnion",
+      "declarations": [
+        "Set.Finite.biUnion"
+      ],
+      "call_turn": 95,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "Set.Finite.iUnion",
+      "declarations": [
+        "Set.Finite.iUnion"
+      ],
+      "call_turn": 95,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "Set.Finite.fintype",
+      "declarations": [
+        "Set.Finite.fintype",
+        "Equiv.finsuppUnique_symm_apply_support_val",
+        "AddEquiv.finsuppUnique_symm_apply_support_val",
+        "Set.Finite.convexHull_eq_image"
+      ],
+      "call_turn": 95,
+      "result_turn": 98
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "Finsupp.ne_iff",
+      "declarations": [
+        "Finsupp.ne_iff"
+      ],
+      "call_turn": 95,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Finsupp.ext_iff",
+      "declarations": [
+        "Finsupp.ext_iff"
+      ],
+      "call_turn": 95,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "Finsupp.not_mem_support_iff",
+      "declarations": [],
+      "call_turn": 95,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "Finsupp.exists_mem_support_iff",
+      "declarations": [],
+      "call_turn": 95,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "Finsupp.support_nonempty_iff",
+      "declarations": [
+        "Finsupp.support_nonempty_iff"
+      ],
+      "call_turn": 103,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "Finsupp.support_eq_empty",
+      "declarations": [
+        "Finsupp.support_eq_empty"
+      ],
+      "call_turn": 103,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "Finsupp.mem_support_iff",
+      "declarations": [
+        "Finsupp.mem_support_iff"
+      ],
+      "call_turn": 103,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "Finsupp.support_nonempty",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Function.support_nonempty_iff",
+      "declarations": [
+        "Function.support_nonempty_iff"
+      ],
+      "call_turn": 103,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "MvPolynomial.eval_eq_sum",
+      "declarations": [],
+      "call_turn": 119,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "MvPolynomial.eval_eq_sum_range",
+      "declarations": [],
+      "call_turn": 119,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "MvPolynomial.eval_sum",
+      "declarations": [
+        "MvPolynomial.eval_sum"
+      ],
+      "call_turn": 119,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "MvPolynomial.eval_monomial",
+      "declarations": [
+        "MvPolynomial.eval_monomial"
+      ],
+      "call_turn": 119,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "MvPolynomial.eval_eq_sum_monomial",
+      "declarations": [],
+      "call_turn": 119,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "MvPolynomial.as_sum",
+      "declarations": [
+        "MvPolynomial.as_sum"
+      ],
+      "call_turn": 119,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "MvPolynomial.sum_monomial_eq",
+      "declarations": [
+        "MvPolynomial.sum_monomial_eq"
+      ],
+      "call_turn": 119,
+      "result_turn": 126
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "zpow_ne_zero",
+      "declarations": [
+        "zpow_ne_zero",
+        "cfcUnits_zpow",
+        "isCoveringMap_zpow",
+        "Complex.isOpenQuotientMap_zpow_compl_zero"
+      ],
+      "call_turn": 127,
+      "result_turn": 128
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "Finset.prod_ne_zero_iff",
+      "declarations": [
+        "Finset.prod_ne_zero_iff"
+      ],
+      "call_turn": 127,
+      "result_turn": 129
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "sub_ne_zero",
+      "declarations": [
+        "sub_ne_zero"
+      ],
+      "call_turn": 127,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "Function.Injective.ne",
+      "declarations": [
+        "Function.Injective.ne",
+        "Finset.disjiUnion_singleton",
+        "Finset.map_disjiUnion",
+        "Projectivization.map_mk"
+      ],
+      "call_turn": 127,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:105",
+      "tool": "loogle",
+      "query": "Finset.mem_Ioi",
+      "declarations": [
+        "Finset.mem_Ioi"
+      ],
+      "call_turn": 127,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "eq_inv_mul_iff_mul_eq₀",
+      "declarations": [
+        "eq_inv_mul_iff_mul_eq"
+      ],
+      "call_turn": 133,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "inv_mul_eq_iff_eq_mul₀",
+      "declarations": [
+        "inv_mul_eq_iff_eq_mul"
+      ],
+      "call_turn": 133,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "mul_inv_cancel_left₀",
+      "declarations": [
+        "mul_inv_cancel_left"
+      ],
+      "call_turn": 133,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "inv_mul_cancel_left₀",
+      "declarations": [
+        "inv_mul_cancel_left"
+      ],
+      "call_turn": 133,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "mul_left_cancel₀",
+      "declarations": [
+        "mul_left_cancel"
+      ],
+      "call_turn": 133,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "Finset.sum_subset",
+      "declarations": [
+        "Finset.sum_subset"
+      ],
+      "call_turn": 139,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Finset.sum_congr",
+      "declarations": [
+        "Finset.sum_congr"
+      ],
+      "call_turn": 139,
+      "result_turn": 141
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "MvPolynomial.coeff_eq_zero_of_not_mem_support",
+      "declarations": [],
+      "call_turn": 139,
+      "result_turn": 142
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "MvPolynomial.not_mem_support_iff",
+      "declarations": [],
+      "call_turn": 139,
+      "result_turn": 143
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "MvPolynomial.mem_support_iff",
+      "declarations": [
+        "MvPolynomial.mem_support_iff"
+      ],
+      "call_turn": 139,
+      "result_turn": 144
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 4,
+    "main_hyperedge_count": 3,
+    "side_hyperedge_count": 1,
+    "selected_depth": 3,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 17,
+    "retrieval_query_count": 106,
+    "useful_retrieval_event_count": 19,
+    "unused_retrieval_event_count": 87,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 120,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

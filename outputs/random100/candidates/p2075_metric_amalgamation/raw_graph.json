@@ -1,0 +1,449 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+      "manifest": [
+        {
+          "statement": "Set.univ.PairwiseDisjoint B",
+          "origin": "manifest",
+          "name": "hB_disjoint",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (i : I), IsClopen (B i)",
+          "origin": "manifest",
+          "name": "hB_clopen",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "⋃ i, B i = Set.univ",
+          "origin": "manifest",
+          "name": "hB_cover",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance",
+          "origin": "manifest",
+          "name": "he_top",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "∃ mD,\n  (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧\n    (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧\n      PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧\n        ∀ (ε : ℝ),\n          0 ≤ ε →\n            ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) →\n              sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ mD,\n  (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧\n    (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧\n      PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧\n        ∀ (ε : ℝ),\n          0 ≤ ε →\n            ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) →\n              sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.trans",
+          "Iff.mp",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNat_lt_true",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.mul_nonpos",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_one",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Nat.cast_zero",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "Nat.ofNat_pos._simp_1",
+          "Prod.isEmpty_right",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instNontrivial",
+          "Real.sSup_empty",
+          "Rollout_p2075_metric_amalgamation.MetricAmalgamation.dist_glueMetricSpace",
+          "Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_subtype_ne",
+          "Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_subtype_same",
+          "Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueMetricSpace_topology",
+          "Set.range_eq_empty",
+          "abs_zero",
+          "congrArg",
+          "congrFun'",
+          "csSup_le",
+          "dist_self",
+          "instNeZeroNatHAdd_1",
+          "le_of_not_gt",
+          "mul_nonneg_iff_of_pos_left._simp_1",
+          "not_nonempty_iff",
+          "of_eq_true",
+          "sub_self"
+        ],
+        "premises": [
+          {
+            "statement": "Set.univ.PairwiseDisjoint B",
+            "origin": "local_assumption",
+            "name": "hB_disjoint",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "∀ (i : I), IsClopen (B i)",
+            "origin": "local_assumption",
+            "name": "hB_clopen",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "⋃ i, B i = Set.univ",
+            "origin": "local_assumption",
+            "name": "hB_cover",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance",
+            "origin": "local_assumption",
+            "name": "he_top",
+            "fvar_id": "9"
+          }
+        ],
+        "parent": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ mD,\n  (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧\n    (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧\n      PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧\n        ∀ (ε : ℝ),\n          0 ≤ ε →\n            ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) →\n              sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Rollout_p2075_metric_amalgamation.MetricAmalgamation.dist_glueMetricSpace",
+        "Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_subtype_ne"
+      ],
+      "premises": [
+        {
+          "statement": "Set.univ.PairwiseDisjoint B",
+          "origin": "local_assumption",
+          "name": "hB_disjoint",
+          "fvar_id": "_uniq.4259497"
+        },
+        {
+          "statement": "∀ (i : I), IsClopen (B i)",
+          "origin": "local_assumption",
+          "name": "hB_clopen",
+          "fvar_id": "_uniq.4259498"
+        },
+        {
+          "statement": "⋃ i, B i = Set.univ",
+          "origin": "local_assumption",
+          "name": "hB_cover",
+          "fvar_id": "_uniq.4259499"
+        },
+        {
+          "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance",
+          "origin": "local_assumption",
+          "name": "he_top",
+          "fvar_id": "_uniq.4259502"
+        },
+        {
+          "statement": "i ≠ j",
+          "origin": "local_assumption",
+          "name": "hij",
+          "fvar_id": "_uniq.4259832"
+        }
+      ],
+      "parent": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+      "id": "local_1236",
+      "conclusion": {
+        "statement": "dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y",
+        "origin": "derived",
+        "name": "hmain",
+        "fvar_id": "_uniq.4260007"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Rollout_p2075_metric_amalgamation.MetricAmalgamation.dist_glueMetricSpace",
+        "Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_subtype_ne"
+      ],
+      "premises": [
+        {
+          "statement": "Set.univ.PairwiseDisjoint B",
+          "origin": "local_assumption",
+          "name": "hB_disjoint",
+          "fvar_id": "_uniq.4259497"
+        },
+        {
+          "statement": "∀ (i : I), IsClopen (B i)",
+          "origin": "local_assumption",
+          "name": "hB_clopen",
+          "fvar_id": "_uniq.4259498"
+        },
+        {
+          "statement": "⋃ i, B i = Set.univ",
+          "origin": "local_assumption",
+          "name": "hB_cover",
+          "fvar_id": "_uniq.4259499"
+        },
+        {
+          "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance",
+          "origin": "local_assumption",
+          "name": "he_top",
+          "fvar_id": "_uniq.4259502"
+        },
+        {
+          "statement": "i ≠ j",
+          "origin": "local_assumption",
+          "name": "hij",
+          "fvar_id": "_uniq.4259832"
+        }
+      ],
+      "parent": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+      "id": "local_1237",
+      "conclusion": {
+        "statement": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)",
+        "origin": "derived",
+        "name": "hpp0",
+        "fvar_id": "_uniq.4260177"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist ↑(p i) ↑(p j) = dist ↑(p i) ↑(p j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Nat.cast_zero",
+        "congrArg",
+        "dist_self"
+      ],
+      "premises": [
+        {
+          "statement": "Set.univ.PairwiseDisjoint B",
+          "origin": "local_assumption",
+          "name": "hB_disjoint",
+          "fvar_id": "_uniq.4259497"
+        },
+        {
+          "statement": "∀ (i : I), IsClopen (B i)",
+          "origin": "local_assumption",
+          "name": "hB_clopen",
+          "fvar_id": "_uniq.4259498"
+        },
+        {
+          "statement": "⋃ i, B i = Set.univ",
+          "origin": "local_assumption",
+          "name": "hB_cover",
+          "fvar_id": "_uniq.4259499"
+        },
+        {
+          "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance",
+          "origin": "local_assumption",
+          "name": "he_top",
+          "fvar_id": "_uniq.4259502"
+        },
+        {
+          "statement": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)",
+          "origin": "derived",
+          "name": "hpp0",
+          "fvar_id": "_uniq.4260177"
+        }
+      ],
+      "parent": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+      "id": "local_1238",
+      "conclusion": {
+        "statement": "dist ↑(p i) ↑(p j) = dist ↑(p i) ↑(p j)",
+        "origin": "derived",
+        "name": "hpp",
+        "fvar_id": "_uniq.4260373"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsEmpty X",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "not_nonempty_iff"
+      ],
+      "premises": [
+        {
+          "statement": "¬Nonempty X",
+          "origin": "local_assumption",
+          "name": "hX",
+          "fvar_id": "_uniq.4264326"
+        }
+      ],
+      "parent": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+      "id": "local_1240",
+      "conclusion": {
+        "statement": "IsEmpty X",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.4274036"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsEmpty (X × X)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Prod.isEmpty_right"
+      ],
+      "premises": [
+        {
+          "statement": "IsEmpty X",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.4274036"
+        }
+      ],
+      "parent": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+      "id": "local_1241",
+      "conclusion": {
+        "statement": "IsEmpty (X × X)",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.4274054"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p2075_metric_amalgamation",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+    "proof_sha256": "c109aa5b848ea59227c5b9bee20b75edfcfb1d49357164096500dd0cefcf365d"
+  }
+}

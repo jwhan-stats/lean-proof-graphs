@@ -1,0 +1,512 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "manifest": [
+        {
+          "statement": "0 < g",
+          "origin": "manifest",
+          "name": "hg",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "0 < d",
+          "origin": "manifest",
+          "name": "hd",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "0 < e",
+          "origin": "manifest",
+          "name": "he",
+          "fvar_id": "5"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "((∀ (n : ℕ),\n      0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔\n    ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧\n  ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "((∀ (n : ℕ),\n      0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔\n    ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧\n  ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "AddMonoidHomClass.toZeroHomClass",
+          "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+          "Eq.trans",
+          "Finset.sum_congr",
+          "Fintype.linearCombination_apply",
+          "Iff.mp",
+          "LinearMap.semilinearMapClass",
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "Nat.instNeZeroSucc",
+          "Nat.instZeroLEOneClass",
+          "SemilinearMapClass.distribMulActionSemiHomClass",
+          "congrArg",
+          "congrFun",
+          "congrFun'",
+          "funext",
+          "linearIndependent_iff_injective_fintypeLinearCombination",
+          "map_sub",
+          "map_zero",
+          "mul_comm",
+          "sub_eq_zero",
+          "sub_self",
+          "zero_lt_one"
+        ],
+        "premises": [],
+        "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "((∀ (n : ℕ),\n      0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔\n    ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧\n  ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "(∑ j, z j • A j) i k = 0 i k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrFun"
+      ],
+      "premises": [
+        {
+          "statement": "∑ j, z j • A j = 0",
+          "origin": "local_assumption",
+          "name": "hz",
+          "fvar_id": "_uniq.2424"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_3",
+      "conclusion": {
+        "statement": "(∑ j, z j • A j) i k = 0 i k",
+        "origin": "derived",
+        "name": "hz'",
+        "fvar_id": "_uniq.4291"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ j, (A j).kronecker (X j) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.sum_congr",
+        "Matrix.ext",
+        "Matrix.sum_apply",
+        "congrArg",
+        "congrFun",
+        "congrFun'",
+        "mul_comm"
+      ],
+      "premises": [
+        {
+          "statement": "∑ j, z j • A j = 0",
+          "origin": "local_assumption",
+          "name": "hz",
+          "fvar_id": "_uniq.2424"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_5",
+      "conclusion": {
+        "statement": "∑ j, (A j).kronecker (X j) = 0",
+        "origin": "derived",
+        "name": "hsum",
+        "fvar_id": "_uniq.3815"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (j : Fin g), X j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instNeZeroSucc",
+        "Nat.instZeroLEOneClass",
+        "zero_lt_one"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), 0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0",
+          "origin": "local_assumption",
+          "name": "h₁",
+          "fvar_id": "_uniq.2418"
+        },
+        {
+          "statement": "∑ j, (A j).kronecker (X j) = 0",
+          "origin": "derived",
+          "name": "hsum",
+          "fvar_id": "_uniq.3815"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_6",
+      "conclusion": {
+        "statement": "∀ (j : Fin g), X j = 0",
+        "origin": "derived",
+        "name": "hX",
+        "fvar_id": "_uniq.27076"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "X j 0 0 = 0 0 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instNeZeroSucc",
+        "congrFun"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (j : Fin g), X j = 0",
+          "origin": "derived",
+          "name": "hX",
+          "fvar_id": "_uniq.27076"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_7",
+      "conclusion": {
+        "statement": "X j 0 0 = 0 0 0",
+        "origin": "derived",
+        "name": "hj",
+        "fvar_id": "_uniq.27132"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(∑ j, (A j).kronecker (X j)) (i, r) (k, s) = 0 (i, r) (k, s)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrFun"
+      ],
+      "premises": [
+        {
+          "statement": "∑ j, (A j).kronecker (X j) = 0",
+          "origin": "local_assumption",
+          "name": "hX",
+          "fvar_id": "_uniq.27364"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_8",
+      "conclusion": {
+        "statement": "(∑ j, (A j).kronecker (X j)) (i, r) (k, s) = 0 (i, r) (k, s)",
+        "origin": "derived",
+        "name": "hX'",
+        "fvar_id": "_uniq.29092"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ j, z j • A j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.sum_congr",
+        "Matrix.ext",
+        "Matrix.sum_apply",
+        "congrArg",
+        "congrFun",
+        "congrFun'",
+        "mul_comm"
+      ],
+      "premises": [
+        {
+          "statement": "∑ j, (A j).kronecker (X j) = 0",
+          "origin": "local_assumption",
+          "name": "hX",
+          "fvar_id": "_uniq.27364"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_10",
+      "conclusion": {
+        "statement": "∑ j, z j • A j = 0",
+        "origin": "derived",
+        "name": "hzsum",
+        "fvar_id": "_uniq.28658"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "z j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0",
+          "origin": "local_assumption",
+          "name": "h₂",
+          "fvar_id": "_uniq.27351"
+        },
+        {
+          "statement": "∑ j, z j • A j = 0",
+          "origin": "derived",
+          "name": "hzsum",
+          "fvar_id": "_uniq.28658"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_11",
+      "conclusion": {
+        "statement": "z j = 0",
+        "origin": "derived",
+        "name": "hz",
+        "fvar_id": "_uniq.50670"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(Fintype.linearCombination ℂ A) (x - y) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+        "LinearMap.semilinearMapClass",
+        "SemilinearMapClass.distribMulActionSemiHomClass",
+        "congrArg",
+        "map_sub",
+        "sub_self"
+      ],
+      "premises": [
+        {
+          "statement": "(Fintype.linearCombination ℂ A) x = (Fintype.linearCombination ℂ A) y",
+          "origin": "local_assumption",
+          "name": "hxy",
+          "fvar_id": "_uniq.54007"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_12",
+      "conclusion": {
+        "statement": "(Fintype.linearCombination ℂ A) (x - y) = 0",
+        "origin": "derived",
+        "name": "hmap",
+        "fvar_id": "_uniq.55312"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ j, (x - y) j • A j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+        "Finset.sum_congr",
+        "LinearMap.semilinearMapClass",
+        "SemilinearMapClass.distribMulActionSemiHomClass",
+        "congrArg",
+        "congrFun'",
+        "map_sub",
+        "sub_self"
+      ],
+      "premises": [
+        {
+          "statement": "(Fintype.linearCombination ℂ A) x = (Fintype.linearCombination ℂ A) y",
+          "origin": "local_assumption",
+          "name": "hxy",
+          "fvar_id": "_uniq.54007"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_13",
+      "conclusion": {
+        "statement": "∑ j, (x - y) j • A j = 0",
+        "origin": "derived",
+        "name": "hdiff",
+        "fvar_id": "_uniq.55155"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (j : Fin g), (x - y) j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0",
+          "origin": "local_assumption",
+          "name": "h₂",
+          "fvar_id": "_uniq.50887"
+        },
+        {
+          "statement": "∑ j, (x - y) j • A j = 0",
+          "origin": "derived",
+          "name": "hdiff",
+          "fvar_id": "_uniq.55155"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_14",
+      "conclusion": {
+        "statement": "∀ (j : Fin g), (x - y) j = 0",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.80321"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(x - y) j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (j : Fin g), (x - y) j = 0",
+          "origin": "derived",
+          "name": "h",
+          "fvar_id": "_uniq.80321"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_15",
+      "conclusion": {
+        "statement": "(x - y) j = 0",
+        "origin": "derived",
+        "name": "hj",
+        "fvar_id": "_uniq.80754"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AddMonoidHomClass.toZeroHomClass",
+        "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+        "Fintype.linearCombination_apply",
+        "LinearMap.semilinearMapClass",
+        "SemilinearMapClass.distribMulActionSemiHomClass",
+        "congrArg",
+        "map_zero"
+      ],
+      "premises": [
+        {
+          "statement": "∑ j, z j • A j = 0",
+          "origin": "local_assumption",
+          "name": "hz",
+          "fvar_id": "_uniq.84126"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_16",
+      "conclusion": {
+        "statement": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0",
+        "origin": "derived",
+        "name": "hzlin",
+        "fvar_id": "_uniq.84309"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "z = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Function.Injective ⇑(Fintype.linearCombination ℂ A)",
+          "origin": "local_assumption",
+          "name": "h₃",
+          "fvar_id": "_uniq.84122"
+        },
+        {
+          "statement": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0",
+          "origin": "derived",
+          "name": "hzlin",
+          "fvar_id": "_uniq.84309"
+        }
+      ],
+      "parent": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+      "id": "local_17",
+      "conclusion": {
+        "statement": "z = 0",
+        "origin": "derived",
+        "name": "hz0",
+        "fvar_id": "_uniq.106303"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_28efe94731b00308/proofs.lean:9:17: warning: unused variable `hg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_28efe94731b00308/proofs.lean:9:30: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_28efe94731b00308/proofs.lean:9:43: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_28efe94731b00308/proofs.lean",
+    "namespace": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep",
+    "proof_sha256": "5f6b35e57af2756aa3fc75c8250ca61176fbf4c7dc7229c1560ad8136bf4f472",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent"
+  }
+}

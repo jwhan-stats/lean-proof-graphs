@@ -1,0 +1,1839 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0412_almosttrivial_and_almostfinite_of_shortexa",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 412,
+    "source": "math_0302116",
+    "theorem_name": "almostTrivial_and_almostFinite_of_shortExact",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/412",
+    "reconstructed_proof": "../../candidates/p0412_almosttrivial_and_almostfinite_of_shortexa/proof.lean",
+    "raw_elaboration": "../../candidates/p0412_almosttrivial_and_almostfinite_of_shortexa/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.almostTrivial_and_almostFinite_of_shortExact",
+    "verification_call_id": "verify_submission:121",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "9cb15c8d2be7ea66532caeaf9ddd881b9b97f2e4113556f5d73c0e7fcd4dc7c6",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "843c40e6ad54a8d7e96ae990aef32bf2967c7d7e584d4543992e50cf3f5f821f",
+    "concrete_semantic_topology_sha256": "9cb15c8d2be7ea66532caeaf9ddd881b9b97f2e4113556f5d73c0e7fcd4dc7c6"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hf_47fc7329",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf",
+      "lean_fvar_id": "14",
+      "statement": "Function.Injective ⇑f"
+    },
+    {
+      "id": "m_hfg_34a4e3a0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hfg",
+      "lean_fvar_id": "15",
+      "statement": "Function.Exact ⇑f ⇑g"
+    },
+    {
+      "id": "m_hg_93500924",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hg",
+      "lean_fvar_id": "16",
+      "statement": "Function.Surjective ⇑g"
+    },
+    {
+      "id": "m_inst___proofs_1734391863_c46f342e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "IsDomain R"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "((∃ r, r ≠ 0 ∧ ∀ (m : M₁), r • m = 0) ↔ (∃ r, r ≠ 0 ∧ ∀ (m : M₀), r • m = 0) ∧ ∃ r, r ≠ 0 ∧ ∀ (m : M₂), r • m = 0) ∧ (IsNoetherianRing R → ((∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0) ∧ Module.Finite R (M₁ ⧸ Submodule.torsion R M₁) ↔ ((∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0) ∧ Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)) ∧ (∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0) ∧ Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)))"
+    },
+    {
+      "id": "n_ha_9236a5ce",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.5683598",
+      "statement": "∀ (m : M₀), a • m = 0"
+    },
+    {
+      "id": "n_hb_406e9ce1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb",
+      "lean_fvar_id": "_uniq.5683634",
+      "statement": "∀ (m : M₂), b • m = 0"
+    },
+    {
+      "id": "n_hf_2566abea",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hF₀",
+      "lean_fvar_id": "_uniq.5716405",
+      "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+    },
+    {
+      "id": "n_hf_3a975af6",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hF₁",
+      "lean_fvar_id": "_uniq.5750148",
+      "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+    },
+    {
+      "id": "n_hf_6ef77b1e",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hF₂",
+      "lean_fvar_id": "_uniq.5719093",
+      "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+    },
+    {
+      "id": "n_hf_78718f12",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hF₁",
+      "lean_fvar_id": "_uniq.5701404",
+      "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+    },
+    {
+      "id": "n_hf_8ce1c17c",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hF₂",
+      "lean_fvar_id": "_uniq.5723066",
+      "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+    },
+    {
+      "id": "n_hf_e060865a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hf",
+      "lean_fvar_id": "_uniq.5643049",
+      "statement": "Function.Injective ⇑f"
+    },
+    {
+      "id": "n_hf_fa4c9777",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hF₀",
+      "lean_fvar_id": "_uniq.5723048",
+      "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+    },
+    {
+      "id": "n_hfg_cf4bab75",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hfg",
+      "lean_fvar_id": "_uniq.5643050",
+      "statement": "Function.Exact ⇑f ⇑g"
+    },
+    {
+      "id": "n_hfy_c0ed6c3a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfy",
+      "lean_fvar_id": "_uniq.5691297",
+      "statement": "f (a • y) = 0"
+    },
+    {
+      "id": "n_hg_a6937848",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hg",
+      "lean_fvar_id": "_uniq.5643051",
+      "statement": "Function.Surjective ⇑g"
+    },
+    {
+      "id": "n_hgb_8e59186d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hgb",
+      "lean_fvar_id": "_uniq.5686002",
+      "statement": "g (b • m) = 0"
+    },
+    {
+      "id": "n_hnoeth_ccd0f1e0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hNoeth",
+      "lean_fvar_id": "_uniq.5701270",
+      "statement": "IsNoetherianRing R"
+    },
+    {
+      "id": "n_ht_57d526ed",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hT₂",
+      "lean_fvar_id": "_uniq.5723065",
+      "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0"
+    },
+    {
+      "id": "n_ht_5b1181e0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hT₂",
+      "lean_fvar_id": "_uniq.5722981",
+      "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0"
+    },
+    {
+      "id": "n_ht_8e1f8d07",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hT₀",
+      "lean_fvar_id": "_uniq.5723047",
+      "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0"
+    },
+    {
+      "id": "n_ht_c10c2e9c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hT₁",
+      "lean_fvar_id": "_uniq.5746355",
+      "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0"
+    },
+    {
+      "id": "n_ht_da154c16",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hT₁",
+      "lean_fvar_id": "_uniq.5701403",
+      "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0"
+    },
+    {
+      "id": "n_ht_e5202589",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hT₀",
+      "lean_fvar_id": "_uniq.5713788",
+      "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0"
+    },
+    {
+      "id": "n_inst___proofs_1734391863_95c716ac",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+      "lean_fvar_id": "_uniq.5643037",
+      "statement": "IsDomain R"
+    },
+    {
+      "id": "n_this_5d342207",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.5742512",
+      "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+    },
+    {
+      "id": "n_this_c8b42eae",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.5711127",
+      "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+    },
+    {
+      "id": "n_this_df40c0aa",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.5732789",
+      "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+    },
+    {
+      "id": "n_this_df67803e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.5701356",
+      "statement": "IsNoetherianRing R"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hfy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_9236a5ce"
+      ],
+      "conclusion": "n_hfy_c0ed6c3a",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "map_zero",
+        "items": [
+          "map_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "map_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_522",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hfy : f (a • y) = 0 := by\n        rw [ha y, map_zero]\n      rw [map_smul, hy] at hfy\n      rw [smul_smul] at hfy",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5683598",
+              "name": "ha",
+              "statement": "∀ (m : M₀), a • m = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5691297",
+            "name": "hfy",
+            "statement": "f (a • y) = 0"
+          }
+        },
+        "lean_dependency_sha256": "c83ba0626cc9990b0f6fb724eaeeff5efa66cb9780e6be111b09a1e9b6bea532",
+        "kernel_witness_check": {
+          "proof_type": "f (a • y) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hgb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_406e9ce1"
+      ],
+      "conclusion": "n_hgb_8e59186d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "map_smul",
+        "items": [
+          "map_smul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "map_smul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_523",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hgb : g (b • m) = 0 := by\n        rw [map_smul, hb (g m)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5683634",
+              "name": "hb",
+              "statement": "∀ (m : M₂), b • m = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5686002",
+            "name": "hgb",
+            "statement": "g (b • m) = 0"
+          }
+        },
+        "lean_dependency_sha256": "c71349fa4d5e3f49e6ef65379fdec9655294834fd611d6cd7e5d5fd1e0f23288",
+        "kernel_witness_check": {
+          "proof_type": "g (b • m) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_this",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hf_78718f12"
+      ],
+      "conclusion": "n_this_c8b42eae",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_524",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5701404",
+              "name": "hF₁",
+              "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5711127",
+            "name": "this",
+            "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+          }
+        },
+        "lean_dependency_sha256": "4ac64f70e5befd4cc2231c5cb8896586c3229f36bb9e6ac5157866248aa59f09",
+        "kernel_witness_check": {
+          "proof_type": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1734391863_95c716ac",
+        "n_hf_e060865a",
+        "n_ht_da154c16"
+      ],
+      "conclusion": "n_ht_e5202589",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "torsion_left_annihilated_of_shortExact",
+        "items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_left_annihilated_of_shortExact"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_left_annihilated_of_shortExact"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_525",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hT₀ := torsion_left_annihilated_of_shortExact f hf hT₁",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5643037",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "_uniq.5643049",
+              "name": "hf",
+              "statement": "Function.Injective ⇑f"
+            },
+            {
+              "fvar_id": "_uniq.5701403",
+              "name": "hT₁",
+              "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5713788",
+            "name": "hT₀",
+            "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0"
+          }
+        },
+        "lean_dependency_sha256": "0a677caae076662a455aa634ba6e1024bddb5eb5af6c811e036d625cfe5a7dc4",
+        "kernel_witness_check": {
+          "proof_type": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hf",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1734391863_95c716ac",
+        "n_hf_e060865a",
+        "n_this_df67803e",
+        "n_this_c8b42eae"
+      ],
+      "conclusion": "n_hf_2566abea",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "finite_quotient_left_of_shortExact",
+        "items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_left_of_shortExact"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_left_of_shortExact"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_526",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hF₀ := finite_quotient_left_of_shortExact f hf",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5643037",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "_uniq.5643049",
+              "name": "hf",
+              "statement": "Function.Injective ⇑f"
+            },
+            {
+              "fvar_id": "_uniq.5701356",
+              "name": "this",
+              "statement": "IsNoetherianRing R"
+            },
+            {
+              "fvar_id": "_uniq.5711127",
+              "name": "this",
+              "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5716405",
+            "name": "hF₀",
+            "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+          }
+        },
+        "lean_dependency_sha256": "cef94d0e2f7770125728aab761ff0101d6b41793675d4fbe2293f75b15929c20",
+        "kernel_witness_check": {
+          "proof_type": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hf",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1734391863_95c716ac",
+        "n_hg_a6937848",
+        "n_this_c8b42eae"
+      ],
+      "conclusion": "n_hf_6ef77b1e",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "finite_quotient_right_of_shortExact",
+        "items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_right_of_shortExact"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_right_of_shortExact"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_527",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hF₂ := finite_quotient_right_of_shortExact g hg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5643037",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "_uniq.5643051",
+              "name": "hg",
+              "statement": "Function.Surjective ⇑g"
+            },
+            {
+              "fvar_id": "_uniq.5711127",
+              "name": "this",
+              "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5719093",
+            "name": "hF₂",
+            "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+          }
+        },
+        "lean_dependency_sha256": "a7693ca5f2625646e750c852510c92a88512c54688962984806db42aa076f7b1",
+        "kernel_witness_check": {
+          "proof_type": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1734391863_95c716ac",
+        "n_hfg_cf4bab75",
+        "n_hg_a6937848",
+        "n_this_df67803e",
+        "n_ht_da154c16",
+        "n_this_c8b42eae"
+      ],
+      "conclusion": "n_ht_5b1181e0",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "torsion_right_annihilated_of_shortExact",
+        "items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_right_annihilated_of_shortExact"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_right_annihilated_of_shortExact"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_528",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hT₂ := torsion_right_annihilated_of_shortExact f g hfg hg hT₁",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5643037",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "_uniq.5643050",
+              "name": "hfg",
+              "statement": "Function.Exact ⇑f ⇑g"
+            },
+            {
+              "fvar_id": "_uniq.5643051",
+              "name": "hg",
+              "statement": "Function.Surjective ⇑g"
+            },
+            {
+              "fvar_id": "_uniq.5701356",
+              "name": "this",
+              "statement": "IsNoetherianRing R"
+            },
+            {
+              "fvar_id": "_uniq.5701403",
+              "name": "hT₁",
+              "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0"
+            },
+            {
+              "fvar_id": "_uniq.5711127",
+              "name": "this",
+              "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5722981",
+            "name": "hT₂",
+            "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0"
+          }
+        },
+        "lean_dependency_sha256": "013a0e1e131c57453c61bb1fdd7377bd2a435089c25f6768df87360bae03e5f7",
+        "kernel_witness_check": {
+          "proof_type": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnoeth_ccd0f1e0"
+      ],
+      "conclusion": "n_this_df67803e",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_529",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5701270",
+              "name": "hNoeth",
+              "statement": "IsNoetherianRing R"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5701356",
+            "name": "this",
+            "statement": "IsNoetherianRing R"
+          }
+        },
+        "lean_dependency_sha256": "8565c1a8e273a1c90d5824cd2c624b7f38f46a5475daa4deaa1097edeb59bbe5",
+        "kernel_witness_check": {
+          "proof_type": "IsNoetherianRing R",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_this",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hf_fa4c9777"
+      ],
+      "conclusion": "n_this_df40c0aa",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_530",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5723048",
+              "name": "hF₀",
+              "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5732789",
+            "name": "this",
+            "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+          }
+        },
+        "lean_dependency_sha256": "6b5450daec15d74172774b9150ecd2a9ee96940c54725a114a0c651c10bf27e3",
+        "kernel_witness_check": {
+          "proof_type": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_this",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hf_8ce1c17c"
+      ],
+      "conclusion": "n_this_5d342207",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_531",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5723066",
+              "name": "hF₂",
+              "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5742512",
+            "name": "this",
+            "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+          }
+        },
+        "lean_dependency_sha256": "68c84ad03b275a250de0650715ff937de8349203af7474d506f8a343135d8ae5",
+        "kernel_witness_check": {
+          "proof_type": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1734391863_95c716ac",
+        "n_hf_e060865a",
+        "n_hfg_cf4bab75",
+        "n_ht_8e1f8d07",
+        "n_ht_57d526ed"
+      ],
+      "conclusion": "n_ht_c10c2e9c",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "torsion_middle_annihilated_of_shortExact",
+        "items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_middle_annihilated_of_shortExact"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_middle_annihilated_of_shortExact"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_532",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hT₁ := torsion_middle_annihilated_of_shortExact f g hf hfg hT₀ hT₂",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5643037",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "_uniq.5643049",
+              "name": "hf",
+              "statement": "Function.Injective ⇑f"
+            },
+            {
+              "fvar_id": "_uniq.5643050",
+              "name": "hfg",
+              "statement": "Function.Exact ⇑f ⇑g"
+            },
+            {
+              "fvar_id": "_uniq.5723047",
+              "name": "hT₀",
+              "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0"
+            },
+            {
+              "fvar_id": "_uniq.5723065",
+              "name": "hT₂",
+              "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5746355",
+            "name": "hT₁",
+            "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0"
+          }
+        },
+        "lean_dependency_sha256": "a967fbdf751948dc2aeb8ae12c73be82e3f29e1d44b155842e3af6f0e8dbf46d",
+        "kernel_witness_check": {
+          "proof_type": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hf",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1734391863_95c716ac",
+        "n_hfg_cf4bab75",
+        "n_hg_a6937848",
+        "n_this_df67803e",
+        "n_ht_57d526ed",
+        "n_this_df40c0aa",
+        "n_this_5d342207"
+      ],
+      "conclusion": "n_hf_3a975af6",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "finite_quotient_middle_of_shortExact",
+        "items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_middle_of_shortExact"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_middle_of_shortExact"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_533",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hF₁ := finite_quotient_middle_of_shortExact f g hfg hg hT₂",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5643037",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "_uniq.5643050",
+              "name": "hfg",
+              "statement": "Function.Exact ⇑f ⇑g"
+            },
+            {
+              "fvar_id": "_uniq.5643051",
+              "name": "hg",
+              "statement": "Function.Surjective ⇑g"
+            },
+            {
+              "fvar_id": "_uniq.5701356",
+              "name": "this",
+              "statement": "IsNoetherianRing R"
+            },
+            {
+              "fvar_id": "_uniq.5723065",
+              "name": "hT₂",
+              "statement": "∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0"
+            },
+            {
+              "fvar_id": "_uniq.5732789",
+              "name": "this",
+              "statement": "Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)"
+            },
+            {
+              "fvar_id": "_uniq.5742512",
+              "name": "this",
+              "statement": "Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5750148",
+            "name": "hF₁",
+            "statement": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)"
+          }
+        },
+        "lean_dependency_sha256": "ced4b58a287c296f5a34c5aeb52d87e736ec00b77d010fdc55a05774aa260faa",
+        "kernel_witness_check": {
+          "proof_type": "Module.Finite R (M₁ ⧸ Submodule.torsion R M₁)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1734391863_c46f342e",
+        "m_hf_47fc7329",
+        "m_hfg_34a4e3a0",
+        "m_hg_93500924"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "IsScalarTower.left + finite_quotient_left_of_shortExact + finite_quotient_middle_of_shortExact",
+        "items": [
+          "IsScalarTower.left",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_left_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_middle_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_right_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_left_annihilated_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_middle_annihilated_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_right_annihilated_of_shortExact",
+          "map_smul"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_left_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_middle_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.finite_quotient_right_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_left_annihilated_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_middle_annihilated_of_shortExact",
+          "Rollout_p0412_almosttrivial_and_almostfinite_of_shortexa.torsion_right_annihilated_of_shortExact"
+        ],
+        "mathlib_items": [
+          "IsScalarTower.left",
+          "map_smul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · constructor\n    · intro h\n      rcases h with ⟨r, hr0, hr⟩\n      constructor\n      · refine ⟨r, hr0, ?_⟩\n        intro m\n        apply hf\n        rw [map_smul, hr (f m), map_zero]\n      · refine ⟨r, hr0, ?_⟩\n        intro z\n        rcases hg z with ⟨m, rfl⟩\n        rw [← map_smul, hr m, map_zero]\n    · intro h\n      rcases h with ⟨⟨a, ha0, ha⟩, ⟨b, hb0, hb⟩⟩\n      refine ⟨a * b, mul_ne_zero ha0 hb0, ?_⟩\n      intro m\n      have hgb : g (b • m) = 0 := by\n        rw [map_smul, hb (g m)]\n      rcases ((hfg (b • m)).mp hgb) with ⟨y, hy⟩\n      have hfy : f (a • y) = 0 := by\n        rw [ha y, map_zero]\n      rw [map_smul, hy] at hfy\n      rw [smul_smul] at hfy\n      exact hfy\n  · intro hNoeth\n    haveI : IsNoetherianRing R := hNoeth\n    constructor\n    · intro hA\n      rcases hA with ⟨hT₁, hF₁⟩\n      haveI : Module.Finite R (M₁ ⧸ Submodule.torsion R M₁) := hF₁\n      have hT₀ := torsion_left_annihilated_of_shortExact f hf hT₁\n      have hF₀ := finite_quotient_left_of_shortExact f hf\n      have hF₂ := finite_quotient_right_of_shortExact g hg\n      have hT₂ := torsion_right_annihilated_of_shortExact f g hfg hg hT₁\n      exact ⟨⟨hT₀, hF₀⟩, ⟨hT₂, hF₂⟩⟩\n    · intro hA\n      rcases hA with ⟨⟨hT₀, hF₀⟩, ⟨hT₂, hF₂⟩⟩\n      haveI : Module.Finite R (M₀ ⧸ Submodule.torsion R M₀) := hF₀\n      haveI : Module.Finite R (M₂ ⧸ Submodule.torsion R M₂) := hF₂\n      have hT₁ := torsion_middle_annihilated_of_shortExact f g hf hfg hT₀ hT₂\n      have hF₁ := finite_quotient_middle_of_shortExact f g hfg hg hT₂\n      exact ⟨hT₁, hF₁⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.1734391863._hygCtx._hyg.6",
+              "statement": "IsDomain R"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hf",
+              "statement": "Function.Injective ⇑f"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hfg",
+              "statement": "Function.Exact ⇑f ⇑g"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hg",
+              "statement": "Function.Surjective ⇑g"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "((∃ r, r ≠ 0 ∧ ∀ (m : M₁), r • m = 0) ↔ (∃ r, r ≠ 0 ∧ ∀ (m : M₀), r • m = 0) ∧ ∃ r, r ≠ 0 ∧ ∀ (m : M₂), r • m = 0) ∧ (IsNoetherianRing R → ((∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0) ∧ Module.Finite R (M₁ ⧸ Submodule.torsion R M₁) ↔ ((∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0) ∧ Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)) ∧ (∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0) ∧ Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)))"
+          }
+        },
+        "lean_dependency_sha256": "03c06bcff1bfc04cd327bce584e7bcacd200dbd05ff716546a3e578d086f6dcb",
+        "kernel_witness_check": {
+          "proof_type": "((∃ r, r ≠ 0 ∧ ∀ (m : M₁), r • m = 0) ↔ (∃ r, r ≠ 0 ∧ ∀ (m : M₀), r • m = 0) ∧ ∃ r, r ≠ 0 ∧ ∀ (m : M₂), r • m = 0) ∧\n  (IsNoetherianRing R →\n    ((∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₁)), r • m = 0) ∧ Module.Finite R (M₁ ⧸ Submodule.torsion R M₁) ↔\n      ((∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₀)), r • m = 0) ∧ Module.Finite R (M₀ ⧸ Submodule.torsion R M₀)) ∧\n        (∃ r, r ≠ 0 ∧ ∀ (m : ↥(Submodule.torsion R M₂)), r • m = 0) ∧ Module.Finite R (M₂ ⧸ Submodule.torsion R M₂)))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "IsScalarTower.left"
+        ],
+        "observed_search_event_ids": [
+          "loogle:10"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Submodule.torsion",
+      "declarations": [
+        "Submodule.torsion",
+        "Submodule.torsion_int",
+        "Submodule.torsion_isTorsion",
+        "Submodule.isTorsionFree_iff_torsion_eq_bot",
+        "Submodule.coe_torsion_eq_annihilator_ne_bot",
+        "Submodule.QuotientTorsion.instIsTorsionFree",
+        "Submodule.torsion_torsion_eq_top",
+        "Submodule.mem_torsion_iff",
+        "Submodule.QuotientTorsion.torsion_eq_bot",
+        "Module.Flat.torsion_eq_bot"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Function.Exact LinearMap",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Module.Finite quotient submodule",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "torsion submodule map linear map torsion quotient injective exact short exact sequence",
+      "declarations": [
+        "Submodule.torsion",
+        "LinearMap.exact_map_mkQ_range",
+        "LinearMap.exact_subtype_mkQ",
+        "LinearMap.exact_zero_iff_injective",
+        "LinearMap.shortExact_shortComplexKer",
+        "Submodule.QuotientTorsion.torsion_eq_bot",
+        "CategoryTheory.ShortComplex.Exact",
+        "Function.Exact.exact_mapQ_iff",
+        "Submodule.torsion'",
+        "Function.Exact"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "Module finite iff submodule and quotient finite Noetherian",
+      "declarations": [
+        "Module.Finite.of_submodule_quotient",
+        "Module.Finite",
+        "Module.Finite.quotient",
+        "Submodule.finite_quotient_smul",
+        "Submodule.finiteQuotient_iff",
+        "fg_of_injective",
+        "fg_of_ker_bot",
+        "isNoetherian_iSup",
+        "Module.IsNoetherian.finite",
+        "Ring.HasFiniteQuotients.instIsNoetherianRing"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "linear map map torsion submodule injective restriction",
+      "declarations": [
+        "LinearMap.submoduleMap_injective",
+        "LinearMap.map_injective",
+        "LinearMap.submoduleMap",
+        "Submodule.torsion'",
+        "Submodule.torsion",
+        "LinearMap.injective_restrict_iff_disjoint",
+        "Submodule.map",
+        "Ideal.torsionMapQuot_injective",
+        "LinearMap.rTensor_injective_iff_subtype",
+        "Submodule.spanFinrank_map_eq_of_injective"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "finite module over Noetherian ring is Noetherian submodule finitely generated",
+      "declarations": [
+        "Subalgebra.fg_of_noetherian",
+        "Submodule.FG.of_le",
+        "IsNoetherianRing.of_finite",
+        "isNoetherian_span_of_finite",
+        "isNoetherian_of_fg_of_noetherian",
+        "IsNoetherian",
+        "Module.IsNoetherian.finite",
+        "isNoetherian_submodule",
+        "isNoetherian_submodule'",
+        "isNoetherian_of_isNoetherianRing_of_finite"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "IsNoetherianRing _ -> Module.Finite _ _ -> IsNoetherian _ _",
+      "declarations": [
+        "isNoetherian_of_isNoetherianRing_of_finite"
+      ],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Module.Finite -> IsNoetherian",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "IsNoetherian _ _ -> Module.Finite _ _",
+      "declarations": [
+        "Module.IsNoetherian.finite",
+        "Module.Finite.of_injective",
+        "Module.instFiniteSubtypeMemIdealOfIsNoetherian",
+        "FiniteDimensional.left",
+        "Module.Finite.left",
+        "ContinuousLinearMap.instModuleFinite",
+        "IsSemiprimaryRing.finite_of_isNoetherian",
+        "Representation.IntertwiningMap.instFiniteOfIsNoetherian"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Function.Injective _ -> Module.Finite _ _ -> Module.Finite _ _",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "IsNoetherianRing _ -> Module.Finite _ (_ ⧸ _)",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:19",
+      "tool": "leanfinder",
+      "query": "finite module extension exact sequence submodule quotient finite",
+      "declarations": [
+        "Module.finitePresentation_of_projective_of_exact",
+        "Module.finitePresentation_of_split_exact",
+        "Submodule.fg_of_fg_map_of_fg_inf_ker",
+        "Module.FinitePresentation.equiv_quotient",
+        "Module.Finite.quotient",
+        "Module.Finite",
+        "Module.Finite.of_exact",
+        "Module.Finite.of_submodule_quotient",
+        "Submodule.finite_quotient_smul",
+        "Submodule.finiteQuotient_iff"
+      ],
+      "call_turn": 30,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Function.Exact -> Module.Finite _ _ -> Module.Finite _ _ -> Module.Finite _ _",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Module.Finite (_ ⧸ _.range)",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Function.Exact -> Function.Surjective _ -> LinearEquiv _ (_ ⧸ _.range) _",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "LinearEquiv (_ ⧸ _.range) _",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "LinearMap.range _ = LinearMap.ker _ -> (_ ⧸ _) ≃ₗ _",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Submodule.mapQ _ _ _ _ (Submodule.Quotient.mk _) = _",
+      "declarations": [
+        "Submodule.mapQ_apply"
+      ],
+      "call_turn": 43,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "mapQ _ _ _ _ _ = _",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk _ = 0",
+      "declarations": [
+        "Submodule.Quotient.mk_zero",
+        "Submodule.Quotient.mk_eq_zero"
+      ],
+      "call_turn": 43,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_eq_zero",
+      "declarations": [
+        "Submodule.Quotient.mk_eq_zero"
+      ],
+      "call_turn": 43,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Submodule.mkQ _ _ = 0",
+      "declarations": [
+        "KaehlerDifferential.kerTotal_mkQ_single_algebraMap_one",
+        "KaehlerDifferential.kerTotal_mkQ_single_algebraMap"
+      ],
+      "call_turn": 43,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.induction_on",
+      "declarations": [
+        "Submodule.Quotient.induction_on"
+      ],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Quotient.inductionOn (_ ⧸ _)",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.exists_mk",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_surjective",
+      "declarations": [
+        "Submodule.Quotient.mk_surjective"
+      ],
+      "call_turn": 49,
+      "result_turn": 53
+    },
+    {
+      "event_id": "leanfinder:37",
+      "tool": "leanfinder",
+      "query": "every quotient module element is quotient mk induction quotient submodule",
+      "declarations": [
+        "Quotient.mk''",
+        "Submodule.Quotient.induction_on",
+        "Submodule.Quotient.mk_out",
+        "Submodule.powSMulQuotInclusion",
+        "LieSubmodule.Quotient.mk'",
+        "Submodule.mapQ",
+        "Submodule.Quotient.module'",
+        "LieSubmodule.Quotient.module'",
+        "Submodule.Quotient.module",
+        "Submodule.Quotient.instSubsingletonQuotient"
+      ],
+      "call_turn": 49,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "LinearMap.rangeRestrict",
+      "declarations": [
+        "LinearMap.rangeRestrict",
+        "LinearMap.ker_rangeRestrict",
+        "LinearMap.surjective_rangeRestrict",
+        "LinearMap.injective_rangeRestrict_iff",
+        "LinearMap.range_rangeRestrict",
+        "Function.Exact.linearMap_rangeRestrict",
+        "Function.Exact.iff_linearMap_rangeRestrict",
+        "ContinuousLinearMap.coe_rangeRestrict",
+        "Subspace.dualEquivDual_def",
+        "Algebra.TensorProduct.linearEquivIncludeRange_toLinearMap"
+      ],
+      "call_turn": 55,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "LinearMap.codRestrict",
+      "declarations": [
+        "LinearMap.codRestrict",
+        "LinearMap.subtype_comp_codRestrict",
+        "LinearMap.codRestrict_apply",
+        "LinearMap.restrict_eq_domRestrict_codRestrict",
+        "LinearMap.comp_codRestrict",
+        "LinearMap.restrict_eq_codRestrict_domRestrict",
+        "LinearMap.comap_codRestrict",
+        "LinearMap.map_codRestrict",
+        "LinearMap.ker_codRestrict",
+        "LinearMap.range_codRestrict"
+      ],
+      "call_turn": 55,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Module.Finite _ _.range",
+      "declarations": [],
+      "call_turn": 55,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "LinearMap.range _.FG",
+      "declarations": [],
+      "call_turn": 55,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Module.Finite.of_surjective",
+      "declarations": [
+        "Module.Finite.of_surjective"
+      ],
+      "call_turn": 55,
+      "result_turn": 60
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "linear map restrict codomain to range surjective finite image module finite",
+      "declarations": [
+        "LinearMap.fintypeRange",
+        "LinearMap.finiteRange",
+        "LinearMap.surjective_rangeRestrict",
+        "LinearMap.HasFiniteRange.of_isNoetherian_rng",
+        "Module.Finite",
+        "LinearMap.range_codRestrict",
+        "Module.Finite.of_surjective",
+        "rank_range_of_surjective",
+        "Module.Finite.range",
+        "Module.Finite.toModuleEnd_moduleEnd_surjective"
+      ],
+      "call_turn": 55,
+      "result_turn": 61
+    },
+    {
+      "event_id": "leanfinder:45",
+      "tool": "leanfinder",
+      "query": "finitely generated torsion module has nonzero annihilator integral domain",
+      "declarations": [
+        "Module.annihilator",
+        "Module.isTorsionBySet_annihilator_top",
+        "Submodule.annihilator_top_inter_nonZeroDivisors",
+        "Module.annihilator_eq_iInf_torsionOf",
+        "Module.isTorsionBy_iff_mem_annihilator",
+        "Module.IsTorsionFree",
+        "Module.isTorsionBySet_annihilator",
+        "Module.free_of_finite_type_torsion_free'",
+        "Submodule.isInternal_prime_power_torsion_of_pid",
+        "Submodule.isInternal_prime_power_torsion"
+      ],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Module.IsTorsion _ _ -> Module.Finite _ _ -> ∃ _, _ ≠ 0 ∧ ∀ _, _ • _ = 0",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "Submodule.torsion _ _ = ⊤ -> Module.Finite _ _ -> ∃ _ ≠ 0",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "_.annihilator ≠ ⊥ -> Module.Finite",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Module.IsTorsion annihilator",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 69
+    },
+    {
+      "event_id": "leanfinder:50",
+      "tool": "leanfinder",
+      "query": "finite torsion module annihilator nonzero product generators",
+      "declarations": [
+        "Module.isTorsionBySet_annihilator_top",
+        "Module.isTorsionBySet_annihilator",
+        "Submodule.annihilator_top_inter_nonZeroDivisors",
+        "Module.Finite",
+        "Module.annihilator",
+        "Module.isTorsionBy_iff_mem_annihilator",
+        "Ideal.annihilator_span_singleton_eq_torsionOf",
+        "Module.annihilator_eq_iInf_torsionOf",
+        "Submodule.exists_isTorsionBy",
+        "Submodule.isInternal_prime_power_torsion"
+      ],
+      "call_turn": 64,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk _ = Submodule.Quotient.mk _",
+      "declarations": [
+        "Submodule.Quotient.eq",
+        "Submodule.Quotient.eq'",
+        "SModEq.def",
+        "IsHausdorff.StrictMono.funext",
+        "AdicCompletion.AdicCauchySequence.mk_eq_mk",
+        "IsHausdorff.funext"
+      ],
+      "call_turn": 79,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_eq_mk",
+      "declarations": [],
+      "call_turn": 79,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.eq",
+      "declarations": [
+        "Submodule.Quotient.eq"
+      ],
+      "call_turn": 79,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_sub_mk",
+      "declarations": [],
+      "call_turn": 79,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_sub",
+      "declarations": [
+        "Submodule.Quotient.mk_sub"
+      ],
+      "call_turn": 79,
+      "result_turn": 84
+    },
+    {
+      "event_id": "leanfinder:60",
+      "tool": "leanfinder",
+      "query": "equality in quotient by submodule difference belongs submodule",
+      "declarations": [
+        "Submodule.hasQuotient",
+        "Submodule.sub_mem_iff_left",
+        "Submodule.Quotient.eq",
+        "Submodule.torsionBy",
+        "Submodule.Quotient.eq'",
+        "Submodule.instModuleQuotientTorsionBy",
+        "Submodule",
+        "Submodule.quotientQuotientEquivQuotient",
+        "Submodule.quotientQuotientLIEQuotient",
+        "Submodule.Quotient.equiv"
+      ],
+      "call_turn": 79,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk (_ • _) = _",
+      "declarations": [
+        "Submodule.Quotient.mk_smul"
+      ],
+      "call_turn": 100,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_smul",
+      "declarations": [
+        "Submodule.Quotient.mk_smul"
+      ],
+      "call_turn": 100,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "Submodule.mkQ (_ • _) = _",
+      "declarations": [],
+      "call_turn": 100,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Submodule.Quotient.mk_add",
+      "declarations": [
+        "Submodule.Quotient.mk_add"
+      ],
+      "call_turn": 100,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "Module.IsTorsionFree _ _ -> _ • _ = 0 -> _ = 0",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 150
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "Module.IsTorsionFree.smul_eq_zero",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 151
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "IsTorsionFree _ _ (nonZeroDivisors _)",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 152
+    },
+    {
+      "event_id": "leanfinder:97",
+      "tool": "leanfinder",
+      "query": "torsion-free module nonzero scalar multiplication injective equation scalar element zero",
+      "declarations": [
+        "Matrix.Module.scalar_smul",
+        "Module.IsTorsionFree",
+        "Algebra.lsmul_injective",
+        "smul_left_inj",
+        "smul_right_inj",
+        "smul_right_injective",
+        "Function.Injective.moduleIsTorsionFree",
+        "Module.IsTorsionBySet.isScalarTower",
+        "FreeAlgebra.Rel.mul_scalar",
+        "IsScalarTower"
+      ],
+      "call_turn": 149,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "Module.IsTorsionFree R _",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 154
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Submodule.QuotientTorsion.instIsTorsionFree",
+      "declarations": [
+        "Submodule.QuotientTorsion.instIsTorsionFree"
+      ],
+      "call_turn": 149,
+      "result_turn": 155
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 0,
+    "side_hyperedge_count": 1,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 56,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 55,
+    "accepted_helper_count": 8,
+    "rollout_tool_call_count": 122,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

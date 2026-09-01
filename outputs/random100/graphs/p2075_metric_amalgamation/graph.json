@@ -1,0 +1,1148 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2075_metric_amalgamation",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2075,
+    "source": "2104.12450",
+    "theorem_name": "metric_amalgamation",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2075",
+    "reconstructed_proof": "../../candidates/p2075_metric_amalgamation/proof.lean",
+    "raw_elaboration": "../../candidates/p2075_metric_amalgamation/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2075_metric_amalgamation.metric_amalgamation",
+    "verification_call_id": "verify_submission:98",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "deb664ff2993b355db8b0a33e35ab9f9f0aae3ff5569326fe1891b0dcff1b2ed",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "903d8e45b9f86066bf8aec4b6fa8d350f464a3152638aef49639e9ee2838e90b",
+    "concrete_semantic_topology_sha256": "deb664ff2993b355db8b0a33e35ab9f9f0aae3ff5569326fe1891b0dcff1b2ed"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hb_clopen_bab362fd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hB_clopen",
+      "lean_fvar_id": "5",
+      "statement": "∀ (i : I), IsClopen (B i)"
+    },
+    {
+      "id": "m_hb_cover_d2703464",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hB_cover",
+      "lean_fvar_id": "6",
+      "statement": "⋃ i, B i = Set.univ"
+    },
+    {
+      "id": "m_hb_disjoint_4bf34e1c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hB_disjoint",
+      "lean_fvar_id": "4",
+      "statement": "Set.univ.PairwiseDisjoint B"
+    },
+    {
+      "id": "m_he_top_34aeb27c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "he_top",
+      "lean_fvar_id": "9",
+      "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ mD, (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧ (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧ PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧ ∀ (ε : ℝ), 0 ≤ ε → ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) → sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε"
+    },
+    {
+      "id": "n_hb_clopen_d071b7c5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hB_clopen",
+      "lean_fvar_id": "_uniq.4259498",
+      "statement": "∀ (i : I), IsClopen (B i)"
+    },
+    {
+      "id": "n_hb_cover_c79130e8",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hB_cover",
+      "lean_fvar_id": "_uniq.4259499",
+      "statement": "⋃ i, B i = Set.univ"
+    },
+    {
+      "id": "n_hb_disjoint_2936e1a4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hB_disjoint",
+      "lean_fvar_id": "_uniq.4259497",
+      "statement": "Set.univ.PairwiseDisjoint B"
+    },
+    {
+      "id": "n_he_top_4ba68d8b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "he_top",
+      "lean_fvar_id": "_uniq.4259502",
+      "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"
+    },
+    {
+      "id": "n_hij_4e774a62",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hij",
+      "lean_fvar_id": "_uniq.4259832",
+      "statement": "i ≠ j"
+    },
+    {
+      "id": "n_hmain_61a0f9e2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmain",
+      "lean_fvar_id": "_uniq.4260007",
+      "statement": "dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y"
+    },
+    {
+      "id": "n_hpp0_5fafc90b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpp0",
+      "lean_fvar_id": "_uniq.4260177",
+      "statement": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)"
+    },
+    {
+      "id": "n_hpp_04128028",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpp",
+      "lean_fvar_id": "_uniq.4260373",
+      "statement": "dist ↑(p i) ↑(p j) = dist ↑(p i) ↑(p j)"
+    },
+    {
+      "id": "n_hx_b13d47d6",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hX",
+      "lean_fvar_id": "_uniq.4264326",
+      "statement": "¬Nonempty X"
+    },
+    {
+      "id": "n_this_e3a55c0c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.4274054",
+      "statement": "IsEmpty (X × X)"
+    },
+    {
+      "id": "n_this_eb7cadde",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.4274036",
+      "statement": "IsEmpty X"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hmain",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_disjoint_2936e1a4",
+        "n_hb_clopen_d071b7c5",
+        "n_hb_cover_c79130e8",
+        "n_he_top_4ba68d8b",
+        "n_hij_4e774a62"
+      ],
+      "conclusion": "n_hmain_61a0f9e2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1236",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hmain := (MetricAmalgamation.dist_glueMetricSpace (B := B)\n      (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n      (hB_cover := hB_cover) (p := p) (e := e) (he_top := he_top) x y).trans\n      (MetricAmalgamation.glueDist_subtype_ne (B := B)\n        (hB_disjoint := hB_disjoint) (hB_cover := hB_cover) (p := p) (e := e)\n        hij x y)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4259497",
+              "name": "hB_disjoint",
+              "statement": "Set.univ.PairwiseDisjoint B"
+            },
+            {
+              "fvar_id": "_uniq.4259498",
+              "name": "hB_clopen",
+              "statement": "∀ (i : I), IsClopen (B i)"
+            },
+            {
+              "fvar_id": "_uniq.4259499",
+              "name": "hB_cover",
+              "statement": "⋃ i, B i = Set.univ"
+            },
+            {
+              "fvar_id": "_uniq.4259502",
+              "name": "he_top",
+              "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"
+            },
+            {
+              "fvar_id": "_uniq.4259832",
+              "name": "hij",
+              "statement": "i ≠ j"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4260007",
+            "name": "hmain",
+            "statement": "dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y"
+          }
+        },
+        "lean_dependency_sha256": "248fdb69c26001dfd481617d6861f67c956ac1568b6bf60cb46b70d8e9eafda5",
+        "kernel_witness_check": {
+          "proof_type": "dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hpp0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_disjoint_2936e1a4",
+        "n_hb_clopen_d071b7c5",
+        "n_hb_cover_c79130e8",
+        "n_he_top_4ba68d8b",
+        "n_hij_4e774a62"
+      ],
+      "conclusion": "n_hpp0_5fafc90b",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1237",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpp0 := (MetricAmalgamation.dist_glueMetricSpace (B := B)\n      (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n      (hB_cover := hB_cover) (p := p) (e := e) (he_top := he_top)\n      (p i) (p j)).trans\n      (MetricAmalgamation.glueDist_subtype_ne (B := B)\n        (hB_disjoint := hB_disjoint) (hB_cover := hB_cover) (p := p) (e := e)\n        hij (p i) (p j))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4259497",
+              "name": "hB_disjoint",
+              "statement": "Set.univ.PairwiseDisjoint B"
+            },
+            {
+              "fvar_id": "_uniq.4259498",
+              "name": "hB_clopen",
+              "statement": "∀ (i : I), IsClopen (B i)"
+            },
+            {
+              "fvar_id": "_uniq.4259499",
+              "name": "hB_cover",
+              "statement": "⋃ i, B i = Set.univ"
+            },
+            {
+              "fvar_id": "_uniq.4259502",
+              "name": "he_top",
+              "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"
+            },
+            {
+              "fvar_id": "_uniq.4259832",
+              "name": "hij",
+              "statement": "i ≠ j"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4260177",
+            "name": "hpp0",
+            "statement": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)"
+          }
+        },
+        "lean_dependency_sha256": "80efed6aa988981e6afe2acb666099a94bcbda68ed43da9c3bf566dd889422da",
+        "kernel_witness_check": {
+          "proof_type": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hpp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_disjoint_2936e1a4",
+        "n_hb_clopen_d071b7c5",
+        "n_hb_cover_c79130e8",
+        "n_he_top_4ba68d8b",
+        "n_hpp0_5fafc90b"
+      ],
+      "conclusion": "n_hpp_04128028",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dist_self",
+        "items": [
+          "dist_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dist_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1238",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpp : @dist X (MetricAmalgamation.glueMetricSpace (B := B)\n        (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n        (hB_cover := hB_cover) (p := p) (e := e)\n        (he_top := he_top)).toPseudoMetricSpace.toDist (p i : X) (p j : X) =\n        dist (p i : X) (p j : X) := by\n      calc\n        @dist X (MetricAmalgamation.glueMetricSpace (B := B)\n          (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n          (hB_cover := hB_cover) (p := p) (e := e)\n          (he_top := he_top)).toPseudoMetricSpace.toDist (p i : X) (p j : X)\n            = @dist (B i) (e i).toPseudoMetricSpace.toDist (p i) (p i) +\n              dist (p i : X) (p j : X) +\n                @dist (B j) (e j).toPseudoMetricSpace.toDist (p j) (p j) := hpp0\n        _ = dist (p i : X) (p j : X) := by\n          rw [@dist_self (B i) (e i).toPseudoMetricSpace (p i)]\n          rw [@dist_self (B j) (e j).toPseudoMetricSpace (p j)]\n          ring\n    calc\n      @dist X (MetricAmalgamation.glueMetricSpace (B := B)\n        (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n        (hB_cover := hB_cover) (p := p) (e := e)\n        (he_top := he_top)).toPseudoMetricSpace.toDist x y\n          = @dist (B i",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4259497",
+              "name": "hB_disjoint",
+              "statement": "Set.univ.PairwiseDisjoint B"
+            },
+            {
+              "fvar_id": "_uniq.4259498",
+              "name": "hB_clopen",
+              "statement": "∀ (i : I), IsClopen (B i)"
+            },
+            {
+              "fvar_id": "_uniq.4259499",
+              "name": "hB_cover",
+              "statement": "⋃ i, B i = Set.univ"
+            },
+            {
+              "fvar_id": "_uniq.4259502",
+              "name": "he_top",
+              "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"
+            },
+            {
+              "fvar_id": "_uniq.4260177",
+              "name": "hpp0",
+              "statement": "dist ↑(p i) ↑(p j) = dist (p i) (p i) + dist ↑(p i) ↑(p j) + dist (p j) (p j)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4260373",
+            "name": "hpp",
+            "statement": "dist ↑(p i) ↑(p j) = dist ↑(p i) ↑(p j)"
+          }
+        },
+        "lean_dependency_sha256": "82a71e910b2c73cbc3018fd403725deb72f29a155ee7ddd147d11d67513675c8",
+        "kernel_witness_check": {
+          "proof_type": "dist ↑(p i) ↑(p j) = dist ↑(p i) ↑(p j)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_b13d47d6"
+      ],
+      "conclusion": "n_this_eb7cadde",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1240",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4264326",
+              "name": "hX",
+              "statement": "¬Nonempty X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4274036",
+            "name": "this",
+            "statement": "IsEmpty X"
+          }
+        },
+        "lean_dependency_sha256": "f02cebacce30f9a2e7c61638d832b5c1bc265ddae7c45b475d45f524ba5d1a49",
+        "kernel_witness_check": {
+          "proof_type": "IsEmpty X",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_this_eb7cadde"
+      ],
+      "conclusion": "n_this_e3a55c0c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1241",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4274036",
+              "name": "this",
+              "statement": "IsEmpty X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4274054",
+            "name": "this",
+            "statement": "IsEmpty (X × X)"
+          }
+        },
+        "lean_dependency_sha256": "23c84ad2bc70f392ba5f63057b1e6e5dd154e22c72760155b29cac79149e6c7c",
+        "kernel_witness_check": {
+          "proof_type": "IsEmpty (X × X)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hb_disjoint_4bf34e1c",
+        "m_hb_clopen_bab362fd",
+        "m_hb_cover_d2703464",
+        "m_he_top_34aeb27c"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.sSup_empty + Set.range_eq_empty + csSup_le",
+        "items": [
+          "Real.sSup_empty",
+          "Set.range_eq_empty",
+          "csSup_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.sSup_empty",
+          "Set.range_eq_empty",
+          "csSup_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨MetricAmalgamation.glueMetricSpace (B := B) (hB_disjoint := hB_disjoint)\n    (hB_clopen := hB_clopen) (hB_cover := hB_cover) (p := p) (e := e)\n    (he_top := he_top), ?_, ?_, ?_, ?_⟩\n  · intro i x y\n    exact (MetricAmalgamation.dist_glueMetricSpace (B := B)\n      (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n      (hB_cover := hB_cover) (p := p) (e := e) (he_top := he_top) x y).trans\n      (MetricAmalgamation.glueDist_subtype_same (B := B)\n        (hB_disjoint := hB_disjoint) (hB_cover := hB_cover) (p := p) (e := e) i x y)\n  · intro i j hij x y\n    have hmain := (MetricAmalgamation.dist_glueMetricSpace (B := B)\n      (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n      (hB_cover := hB_cover) (p := p) (e := e) (he_top := he_top) x y).trans\n      (MetricAmalgamation.glueDist_subtype_ne (B := B)\n        (hB_disjoint := hB_disjoint) (hB_cover := hB_cover) (p := p) (e := e)\n        hij x y)\n    have hpp0 := (MetricAmalgamation.dist_glueMetricSpace (B := B)\n      (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n      (hB_cover := hB_cover) (p := p) (e := e) (he_top := he_top)\n      (p i) (p j)).trans\n      (MetricAmalgamation.glueDist_subtype_ne (B := B)\n        (hB_disjoint := hB_disjoint) (hB_cover := hB_cover) (p := p) (e := e)\n        hij (p i) (p j))\n    have hpp : @dist X (MetricAmalgamation.glueMetricSpace (B := B)\n        (hB_disjoint := hB_disjoint) (hB_clopen := hB_clopen)\n        (hB_cover := hB_cover) (p := p) (e := e)\n        (he_top := he_top)).toPseudoMetricSpace.toDist (p i : X) (p j : X) =\n        dist (p i : X) (p j : X) := by\n    ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hB_disjoint",
+              "statement": "Set.univ.PairwiseDisjoint B"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hB_clopen",
+              "statement": "∀ (i : I), IsClopen (B i)"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hB_cover",
+              "statement": "⋃ i, B i = Set.univ"
+            },
+            {
+              "fvar_id": "9",
+              "name": "he_top",
+              "statement": "∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ mD, (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧ (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧ PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧ ∀ (ε : ℝ), 0 ≤ ε → ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) → sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε"
+          }
+        },
+        "lean_dependency_sha256": "747ce6e0c6328e80243618a0f2592190e73680b85f72d71757b4e1034239affd",
+        "kernel_witness_check": {
+          "proof_type": "∃ mD,\n  (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧\n    (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧\n      PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧\n        ∀ (ε : ℝ),\n          0 ≤ ε →\n            ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) →\n              sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.sSup_empty",
+          "Set.range_eq_empty",
+          "csSup_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:89",
+          "loogle:90",
+          "loogle:91",
+          "loogle:85",
+          "loogle:87"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "metric space gluing disjoint clopen partition amalgamation metric",
+      "declarations": [
+        "Metric.glueMetricApprox",
+        "Metric.GlueSpace",
+        "Metric.ball_disjoint_ball",
+        "Metric.instMetricSpaceGlueSpace",
+        "Metric.eball_disjoint",
+        "Metric.metricSpaceSum",
+        "MetricSpace",
+        "Metric.Sigma.metricSpace",
+        "TopologicalSpace.IsCompletelyMetrizableSpace.sigma",
+        "PseudoMetricSpace"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "MetricSpace",
+      "declarations": [
+        "MetricSpace",
+        "instMetricSpaceEmpty",
+        "instMetricSpacePUnit",
+        "MetricSpace.toPseudoMetricSpace",
+        "instMetricSpaceAdditive",
+        "instMetricSpaceMultiplicative",
+        "instMetricSpaceOrderDual",
+        "MetricSpace.replaceTopology",
+        "MetricSpace.replaceBornology",
+        "MetricSpace.ext"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "sSup range absolute difference distances diameter bounded",
+      "declarations": [
+        "Dyadic.blt",
+        "Metric.diam",
+        "Metric.ediam",
+        "Lean.EditDistance.levenshtein",
+        "sSup_range",
+        "iSupIndep.sSupIndep_range",
+        "Ideal.Filtration.Stable.bounded_difference",
+        "Real.dist_right_le_of_mem_uIcc",
+        "totallyBounded_sSup",
+        "Real.dist_le_of_mem_Icc"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "ediam dist difference subspace diameter",
+      "declarations": [
+        "Dyadic.blt",
+        "EuclideanGeometry.Sphere.IsDiameter.dist_left_right",
+        "CovariantDerivative.difference",
+        "AffineSubspace.signedInfDist",
+        "Metric.ediam",
+        "EuclideanGeometry.Sphere.isDiameter_iff_mem_and_mem_and_dist",
+        "Metric.ediam_le_of_forall_dist_le",
+        "Lean.EditDistance.levenshtein",
+        "Std.Time.Timestamp.since",
+        "Lean.Meta.getFunInfo"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Metric.Sigma",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Metric.sigmaDist",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Metric.Sigma.metricSpace",
+      "declarations": [
+        "Metric.Sigma.metricSpace",
+        "Metric.Sigma.isometry_mk",
+        "Metric.Sigma.completeSpace"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "disjoint union family metric distance cross components basepoint arbitrary function",
+      "declarations": [
+        "Metric.Sigma.dist",
+        "Metric.Sum.dist",
+        "Classical.arbitrary",
+        "Metric.Sigma.instDist",
+        "sUnion_irreducibleComponents",
+        "Metric.ball_disjoint_ball",
+        "Metric.eball_disjoint",
+        "Metric.Sigma.dist_ne",
+        "Disjoint",
+        "Plausible.InjectiveFunction.instArbitraryInt"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Metric.ediam_le_of_forall_dist_le",
+      "declarations": [
+        "Metric.ediam_le_of_forall_dist_le"
+      ],
+      "call_turn": 16,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Metric.dist_le_of_mem_ediam",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "(_ ≤ Metric.ediam _)",
+      "declarations": [
+        "EMetric.diam_mono",
+        "Metric.ediam_mono",
+        "EMetric.edist_le_diam_of_mem",
+        "Metric.edist_le_ediam_of_mem",
+        "EMetric.hausdorffEdist_le_ediam",
+        "Metric.hausdorffEDist_le_ediam",
+        "Real.volume_le_diam"
+      ],
+      "call_turn": 16,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "(ENNReal.ofReal (dist _ _) ≤ Metric.ediam _)",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "distance bounded by ediam points in set real epsilon",
+      "declarations": [
+        "Metric.ediam",
+        "Real.ediam_Ico",
+        "Real.ediam_Ioo",
+        "Metric.edist_le_infEDist_add_ediam",
+        "Real.ediam_Ioc",
+        "Set.Bounded",
+        "Metric.isSeparated_insert",
+        "Metric.isSeparated_insert_of_notMem",
+        "Metric.exists_real_pos_lt_infEDist_of_notMem_closure",
+        "Real.ediam_Icc"
+      ],
+      "call_turn": 16,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "(ENNReal.ofReal _ ≤ ENNReal.ofReal _)",
+      "declarations": [
+        "ENNReal.ofReal_le_ofReal",
+        "ENNReal.ofReal_le_ofReal_iff",
+        "ENNReal.ofReal_le_ofReal_iff'",
+        "MeasureTheory.all_ae_norm_ofReal_F_le_bound",
+        "MeasureTheory.all_ae_ofReal_F_le_bound",
+        "MeasureTheory.ae_norm_ofReal_f_le_bound",
+        "MeasureTheory.all_ae_ofReal_f_le_bound"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_le_ofReal",
+      "declarations": [
+        "ENNReal.ofReal_le_ofReal"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_eq_coe_nnreal",
+      "declarations": [
+        "ENNReal.ofReal_eq_coe_nnreal"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "edist_dist",
+      "declarations": [
+        "edist_dist"
+      ],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "homeomorphism sigma fibers equiv disjoint clopen partition",
+      "declarations": [
+        "Homeomorph.isSigmaCompact_image",
+        "exists_clopen_partition_of_clopen_cover",
+        "OpenPartialHomeomorph.piecewise_apply",
+        "disjoint_memPartition",
+        "IsClopen",
+        "IndexedPartition.disjoint",
+        "Partition.pairwiseDisjoint",
+        "Partition.disjoint",
+        "Homeomorph.isClosed_setOf_iff",
+        "IsEvenlyCovered.of_openPartialHomeomorph"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "leanfinder:30",
+      "tool": "leanfinder",
+      "query": "topological space disjoint union clopen partition homeomorphism sigma subtype",
+      "declarations": [
+        "TopologicalSpace.Clopens.isClopen",
+        "instTotallyDisconnectedSpaceSigma",
+        "instCompactlyGeneratedSpaceSigma",
+        "Partition.disjoint",
+        "instUCompactlyGeneratedSpaceSigma",
+        "MeasurableSpace.disjoint_countablePartition",
+        "Sigma.t2Space",
+        "instTopologicalSpaceSigma",
+        "TopologicalSpace",
+        "isClosed_sigma_iff"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Homeomorph.sigma",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Equiv.sigmaFiberEquiv",
+      "declarations": [
+        "Equiv.sigmaFiberEquiv",
+        "Equiv.sigmaFiberEquiv_symm_apply_fst",
+        "Equiv.sigmaFiberEquiv_symm_apply_snd_coe",
+        "Equiv.sigmaFiberEquiv_apply",
+        "Equiv.ofFiberEquiv_symm_apply",
+        "Equiv.ofFiberEquiv_apply",
+        "Equiv.ofPreimageEquiv_symm_apply",
+        "Equiv.ofPreimageEquiv_apply",
+        "DFinsupp.sigmaFinsetFunEquiv_apply_snd_coe"
+      ],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "continuous sigma mk clopen set partition",
+      "declarations": [
+        "ClopenUpperSet.coe_mk",
+        "ContinuousMap.sigmaMk",
+        "IsClopen",
+        "isClopen_range_sigmaMk",
+        "continuous_sigmaMk",
+        "exists_clopen_partition_of_clopen_cover",
+        "Set.sigma",
+        "Topology.delabIsClosed",
+        "Topology.delabClosure",
+        "instHasCountableSeparatingOnIsClosedOfIsOpen"
+      ],
+      "call_turn": 47,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "isOpen_induced_iff",
+      "declarations": [
+        "isOpen_induced_iff"
+      ],
+      "call_turn": 105,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "(IsOpen (Subtype.val ⁻¹' _))",
+      "declarations": [
+        "TopologicalSpace.IsOpenCover.isOpen_iff_coe_preimage"
+      ],
+      "call_turn": 105,
+      "result_turn": 107
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "open set subtype induced topology exists open preimage",
+      "declarations": [
+        "isOpen_induced",
+        "isOpen_induced_eq",
+        "isOpen_induced_iff",
+        "TopologicalSpace.Opens.map",
+        "IsOpen",
+        "WithTopology.isOpen_iff",
+        "exists_open_dense_of_open_dense_subtype",
+        "exists_open_set_nhds",
+        "exists_open_set_nhds'",
+        "Topology.IsCoinducing.isOpen_preimage"
+      ],
+      "call_turn": 105,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "isOpen_subtype_iff",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 109
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "abs_sub_le_iff",
+      "declarations": [
+        "abs_sub_le_iff"
+      ],
+      "call_turn": 130,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "(abs (_ - _) ≤ _)",
+      "declarations": [
+        "abs_abs_sub_abs_le",
+        "abs_inf_sub_inf_le_abs",
+        "abs_sup_sub_sup_le_abs",
+        "eq_of_abs_sub_nonpos",
+        "abs_sub_nonpos",
+        "sub_le_of_abs_sub_le_left",
+        "sub_le_of_abs_sub_le_right",
+        "abs_sub",
+        "abs_abs_sub_abs_le_abs_sub",
+        "eq_of_abs_sub_le_all"
+      ],
+      "call_turn": 130,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "abs_le",
+      "declarations": [
+        "abs_le"
+      ],
+      "call_turn": 130,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "sub_le_sub",
+      "declarations": [
+        "sub_le_sub"
+      ],
+      "call_turn": 130,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "csSup_le",
+      "declarations": [
+        "csSup_le"
+      ],
+      "call_turn": 149,
+      "result_turn": 150
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "sSup_le_iff",
+      "declarations": [
+        "sSup_le_iff"
+      ],
+      "call_turn": 149,
+      "result_turn": 151
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "(sSup _ ≤ _)",
+      "declarations": [
+        "sSup_le_sSup",
+        "sSup_le",
+        "sSup_le_iff",
+        "sSup_le_sSup_of_isCofinalFor",
+        "sSup_inter_le",
+        "sSup_le_sSup_of_subset_insert_bot",
+        "DirectedOn.csSup_le",
+        "DirectedOn.csSup_le_iff",
+        "DirectedOn.csSup_le_csSup",
+        "csSup_le"
+      ],
+      "call_turn": 149,
+      "result_turn": 152
+    },
+    {
+      "event_id": "leanfinder:88",
+      "tool": "leanfinder",
+      "query": "real supremum range bound every element",
+      "declarations": [
+        "Real.iSup_of_not_bddAbove",
+        "Real.cos_bound",
+        "Real.sin_bound",
+        "ENNReal.iSup_coe_eq_top",
+        "IsCompactElement",
+        "ENNReal.iSup_coe_lt_top",
+        "ciSup_of_not_bddAbove",
+        "Real.exp_bound'",
+        "BddAbove.range_iSup_of_iUnion_range",
+        "Real.exp_bound"
+      ],
+      "call_turn": 149,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "Real.sSup_empty",
+      "declarations": [
+        "Real.sSup_empty"
+      ],
+      "call_turn": 154,
+      "result_turn": 155
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "sSup_empty",
+      "declarations": [
+        "sSup_empty"
+      ],
+      "call_turn": 154,
+      "result_turn": 156
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "Set.range_eq_empty",
+      "declarations": [
+        "Set.range_eq_empty"
+      ],
+      "call_turn": 154,
+      "result_turn": 157
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Set.Nonempty.range",
+      "declarations": [],
+      "call_turn": 154,
+      "result_turn": 158
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 38,
+    "useful_retrieval_event_count": 5,
+    "unused_retrieval_event_count": 33,
+    "accepted_helper_count": 9,
+    "rollout_tool_call_count": 99,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

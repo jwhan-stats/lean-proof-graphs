@@ -1,0 +1,15 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hh_41e51520" [shape=box, color="#178F82", label="hH\ncommutator G ≤ H"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ f, Function.Surjective ⇑f ∧ ∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"];
+  "n_hmap_23c82176" [shape=box, color="#D97706", label="hmap\n∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"];
+  "r_h_001_hmap" [shape=diamond, label="exteriorSquare_alternatingMap_mk + Subgroup.Normal.quotient_commutative_iff_commutator_le + Subgroup.commutator_mem_commutator", color="#D97706"];
+  "m_hh_41e51520" -> "r_h_001_hmap";
+  "r_h_001_hmap" -> "n_hmap_23c82176";
+  "r_h_goal" [shape=diamond, label="Eq.symm + MonoidHom.range_eq_top + QuotientGroup.mk'_surjective", color="#D97706"];
+  "m_hh_41e51520" -> "r_h_goal";
+  "n_hmap_23c82176" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

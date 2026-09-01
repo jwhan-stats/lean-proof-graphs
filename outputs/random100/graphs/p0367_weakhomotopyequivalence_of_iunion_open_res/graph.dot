@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hf_3c986cc7" [shape=box, color="#178F82", label="hf\n∀ (n : { n // 1 ≤ n }), let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ }; Function.Bijective (Quotient.map ⇑g ⋯) ∧ ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)"];
+  "m_hu_cover_64aa1e62" [shape=box, color="#178F82", label="hU_cover\n⋃ n, U n = Set.univ"];
+  "m_hu_mono_fe4eb72b" [shape=box, color="#178F82", label="hU_mono\nMonotone U"];
+  "m_hu_open_b561bbe4" [shape=box, color="#178F82", label="hU_open\n∀ (n : { n // 1 ≤ n }), IsOpen (U n)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nFunction.Bijective (Quotient.map ⇑f ⋯) ∧ ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)"];
+  "r_h_goal" [shape=diamond, label="ContinuousMap.continuous + Quotient.eq + Quotient.exists_rep", color="#D97706"];
+  "m_hu_open_b561bbe4" -> "r_h_goal";
+  "m_hu_mono_fe4eb72b" -> "r_h_goal";
+  "m_hu_cover_64aa1e62" -> "r_h_goal";
+  "m_hf_3c986cc7" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

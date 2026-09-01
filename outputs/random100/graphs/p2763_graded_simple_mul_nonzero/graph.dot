@@ -1,0 +1,26 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_direct_92208337" [shape=box, color="#178F82", label="h_direct\niSupIndep 𝒜 ∧ iSup 𝒜 = ⊤"];
+  "m_h_mul_4db4c0df" [shape=box, color="#178F82", label="h_mul\n∀ {g h : G} {x y : A}, x ∈ 𝒜 g → y ∈ 𝒜 h → x * y ∈ 𝒜 (g * h)"];
+  "m_h_nonzero_mul_86638479" [shape=box, color="#178F82", label="h_nonzero_mul\n∃ x y, x * y ≠ 0"];
+  "m_h_simple_ff075256" [shape=box, color="#178F82", label="h_simple\n∀ (I : Submodule K A), (∀ (r : A) {x : A}, x ∈ I → r * x ∈ I) → (∀ (r : A) {x : A}, x ∈ I → x * r ∈ I) → ⨆ g, 𝒜 g ⊓ I = I → I = ⊥ ∨ I = ⊤"];
+  "m_ha0_61865008" [shape=box, color="#178F82", label="ha0\na ≠ 0"];
+  "m_ha_2f77bd98" [shape=box, color="#178F82", label="ha\na ∈ 𝒜 g"];
+  "m_hb0_68b0856c" [shape=box, color="#178F82", label="hb0\nb ≠ 0"];
+  "m_inst___proofs_1850184048_1a8267ff" [shape=box, color="#178F82", label="inst._@.proofs.1850184048._hygCtx._hyg.18\nIsScalarTower K A A"];
+  "m_inst___proofs_1850184048_8eee7ee8" [shape=box, color="#178F82", label="inst._@.proofs.1850184048._hygCtx._hyg.23\nSMulCommClass K A A"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ k, ∃ x ∈ 𝒜 k, a * x * b ≠ 0"];
+  "r_h_goal" [shape=diamond, label="exact", color="#D97706"];
+  "m_inst___proofs_1850184048_1a8267ff" -> "r_h_goal";
+  "m_inst___proofs_1850184048_8eee7ee8" -> "r_h_goal";
+  "m_h_direct_92208337" -> "r_h_goal";
+  "m_h_mul_4db4c0df" -> "r_h_goal";
+  "m_h_nonzero_mul_86638479" -> "r_h_goal";
+  "m_h_simple_ff075256" -> "r_h_goal";
+  "m_ha_2f77bd98" -> "r_h_goal";
+  "m_ha0_61865008" -> "r_h_goal";
+  "m_hb0_68b0856c" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,407 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2342_c0singlezero_apply",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2342,
+    "source": "1101.1482",
+    "theorem_name": "c0SingleZero_apply",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2342",
+    "reconstructed_proof": "../../candidates/p2342_c0singlezero_apply/proof.lean",
+    "raw_elaboration": "../../candidates/p2342_c0singlezero_apply/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2342_c0singlezero_apply.c0SingleZero_apply",
+    "verification_call_id": "verify_submission:34",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "21795638089805f2200533f25659a7f89ca729fc135727d8148dab9b2ca30161",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "520304e955c53ccbad8fb66ef0b39ecf5e97da09bdcef79f95f89153541d2d4b",
+    "concrete_semantic_topology_sha256": "21795638089805f2200533f25659a7f89ca729fc135727d8148dab9b2ca30161"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(Rollout_p2342_c0singlezero_apply.c0SingleZero x) n = (Rollout_p2342_c0singlezero_apply.c0SingleZero x) n"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact one_ne_zero h10",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(Rollout_p2342_c0singlezero_apply.c0SingleZero x) n = (Rollout_p2342_c0singlezero_apply.c0SingleZero x) n"
+          }
+        },
+        "lean_dependency_sha256": "7dd8ea41cbcf346066f31befeebfedcd5fee2a281730dc3a5ad8c8bb5ad2ae6f",
+        "kernel_witness_check": {
+          "proof_type": "(Rollout_p2342_c0singlezero_apply.c0SingleZero x) n = (Rollout_p2342_c0singlezero_apply.c0SingleZero x) n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "ZeroAtInftyContinuousMap.single",
+      "declarations": [],
+      "call_turn": 4,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "ZeroAtInftyContinuousMap finite support single coordinate",
+      "declarations": [
+        "CompactlySupportedContinuousMap.coe_zero",
+        "CompactlySupportedContinuousMap.coe_mk",
+        "DFinsupp.toFinsupp_zero",
+        "Finsupp.single",
+        "ZeroAtInftyContinuousMap",
+        "ZeroAtInftyContinuousMap.bounded",
+        "ContinuousMultilinearMap.curry0",
+        "ZeroAtInftyContinuousMap.ContinuousMap.liftZeroAtInfty",
+        "ZeroAtInftyContinuousMap.comp",
+        "ZeroAtInftyContinuousMap.uniformContinuous"
+      ],
+      "call_turn": 4,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "ZeroAtInftyContinuousMap ℕ _",
+      "declarations": [
+        "PadicInt.mahlerEquiv",
+        "PadicInt.mahlerEquiv_apply",
+        "PadicInt.mahlerEquiv_symm_apply"
+      ],
+      "call_turn": 4,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "ZeroAtInftyContinuousMap.mk",
+      "declarations": [
+        "ZeroAtInftyContinuousMap.mk",
+        "ZeroAtInftyContinuousMap.coe_mk"
+      ],
+      "call_turn": 4,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "construct C0 vanishing at infinity function with finite support discrete space Pi.single",
+      "declarations": [
+        "Pi.support_single",
+        "ZeroAtInfty.",
+        "ZeroAtInftyContinuousMap.instFunLike",
+        "Function.HasFiniteSupport.pi",
+        "Function.support",
+        "Pi.support_single_zero",
+        "Pi.mulSupport_mulSingle",
+        "ZeroAtInftyContinuousMap.instZero",
+        "Function.HasFiniteMulSupport.pi",
+        "Finsupp.single_left_inj"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "_ : ZeroAtInftyContinuousMap _ _",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "ZeroAtInftyContinuousMap constructor finite support compact support",
+      "declarations": [
+        "CompactlySupportedContinuousMap.coe_mk",
+        "HasCompactSupport",
+        "HasCompactMulSupport.is_one_at_infty",
+        "CompactlySupportedContinuousMap.coe_zero",
+        "HasCompactSupport.is_zero_at_infty",
+        "CompactlySupportedContinuousMap.instFunLike",
+        "HasCompactSupport.continuous_extend_zero",
+        "HasCompactSupport.zero",
+        "CompactlySupportedContinuousMapClass.instCoeTCCompactlySupportedContinuousMap",
+        "ZeroAtInftyContinuousMap"
+      ],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "HasCompactSupport ZeroAtInftyContinuousMap.mk of compact support",
+      "declarations": [
+        "HasCompactSupport",
+        "CompactlySupportedContinuousMap.coe_mk",
+        "HasCompactSupport.is_zero_at_infty",
+        "CompactlySupportedContinuousMap.coe_zero",
+        "HasCompactSupport.continuous_extend_zero",
+        "CompactlySupportedContinuousMap.instCompactlySupportedContinuousMapClass",
+        "HasCompactSupport.zero",
+        "CompactlySupportedContinuousMap.instFunLike",
+        "HasCompactMulSupport.is_one_at_infty",
+        "CompactlySupportedContinuousMapClass.instCoeTCCompactlySupportedContinuousMap"
+      ],
+      "call_turn": 15,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Filter.cocompact ℕ = Filter.atTop",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "tendsto _ (Filter.cocompact ℕ) _",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "HasCompactSupport.is_zero_at_infty",
+      "declarations": [
+        "HasCompactSupport.is_zero_at_infty"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "continuous_of_discreteTopology",
+      "declarations": [
+        "continuous_of_discreteTopology"
+      ],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Function.HasFiniteSupport _ → HasCompactSupport _",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "finite support implies has compact support",
+      "declarations": [
+        "HasCompactSupport.multiset_sum",
+        "HasCompactSupport.abs",
+        "HasCompactSupport.eq_zero_or_finiteDimensional",
+        "Function.HasFiniteSupport",
+        "HasCompactSupport",
+        "LocallyFiniteSupport.finite_inter_support_of_isCompact",
+        "HasCompactMulSupport",
+        "HasCompactSupport.inf",
+        "ContDiffMapSupportedIn.compact_supp",
+        "HasCompactSupport.convolution"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Set.Finite.isCompact",
+      "declarations": [
+        "Set.Finite.isCompact"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "HasCompactSupport _",
+      "declarations": [
+        "HasCompactSupport.of_compactSpace",
+        "HasCompactSupport.isCompact",
+        "HasCompactSupport.zero",
+        "hasCompactSupport_def",
+        "HasCompactSupport.isCompact_range",
+        "HasCompactSupport.is_zero_at_infty",
+        "HasCompactSupport.of_support_subset_isCompact",
+        "hasCompactSupport_iff_eventuallyEq",
+        "HasCompactSupport.comp_isClosedEmbedding",
+        "HasCompactSupport.mono"
+      ],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "_ ∈ (⊥ : NonUnitalStarSubalgebra _ _)",
+      "declarations": [
+        "NonUnitalStarAlgebra.mem_bot"
+      ],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "NonUnitalStarSubalgebra.mem_bot",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "NonUnitalStarSubalgebra.mem_comap",
+      "declarations": [
+        "NonUnitalStarSubalgebra.mem_comap"
+      ],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "leanfinder:31",
+      "tool": "leanfinder",
+      "query": "membership bottom non-unital star subalgebra equals zero comap",
+      "declarations": [
+        "NonUnitalStarAlgebra.coe_bot",
+        "NonUnitalStarSubalgebra.coe_comap",
+        "NonUnitalStarSubalgebra.mem_comap",
+        "NonUnitalStarSubalgebra",
+        "NonUnitalSubalgebra",
+        "NonUnitalStarSubalgebra.ofClass",
+        "NonUnitalStarSubalgebra.comap",
+        "NonUnitalStarAlgebra.adjoin",
+        "NonUnitalStarSubalgebra.toNonUnitalSubalgebra_toNonUnitalStarSubalgebra",
+        "NonUnitalStarSubalgebra.toNonUnitalSubalgebra_inj"
+      ],
+      "call_turn": 49,
+      "result_turn": 53
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 20,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 20,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 35,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

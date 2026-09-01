@@ -1,0 +1,764 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1918_correspondence_of_induced_probability_assi",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1918,
+    "source": "2003.07408",
+    "theorem_name": "correspondence_of_induced_probability_assignments",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1918",
+    "reconstructed_proof": "../../candidates/p1918_correspondence_of_induced_probability_assi/proof.lean",
+    "raw_elaboration": "../../candidates/p1918_correspondence_of_induced_probability_assi/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1918_correspondence_of_induced_probability_assi.correspondence_of_induced_probability_assignments",
+    "verification_call_id": "verify_submission:28",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "904ffa87e9965ebbd17e6fd553aa5ec27a654b9b759f39bd4bd300ddc3f04112",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "1d25dc1b751d0a3bbeb52df5bc8cd065c538116f2c02df7635467d288d551d52",
+    "concrete_semantic_topology_sha256": "904ffa87e9965ebbd17e6fd553aa5ec27a654b9b759f39bd4bd300ddc3f04112"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hnatom_a0d917b8",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hNatom",
+      "lean_fvar_id": "16",
+      "statement": "∀ (a : Atom), N (atom a) = vNeg a"
+    },
+    {
+      "id": "m_hnconj_b64fb0ea",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hNconj",
+      "lean_fvar_id": "20",
+      "statement": "∀ (φ ψ : Formula), N (conj φ ψ) = N φ ∪ N ψ"
+    },
+    {
+      "id": "m_hnneg_9ebcfe16",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hNneg",
+      "lean_fvar_id": "18",
+      "statement": "∀ (φ : Formula), N (neg φ) = P φ"
+    },
+    {
+      "id": "m_hpatom_c1412151",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hPatom",
+      "lean_fvar_id": "15",
+      "statement": "∀ (a : Atom), P (atom a) = vPos a"
+    },
+    {
+      "id": "m_hpconj_a07258fb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hPconj",
+      "lean_fvar_id": "19",
+      "statement": "∀ (φ ψ : Formula), P (conj φ ψ) = P φ ∩ P ψ"
+    },
+    {
+      "id": "m_hpneg_2980722f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hPneg",
+      "lean_fvar_id": "17",
+      "statement": "∀ (φ : Formula), P (neg φ) = N φ"
+    },
+    {
+      "id": "m_inst___proofs_4233523538_0b9ff17e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.4233523538._hygCtx._hyg.7",
+      "lean_fvar_id": "3",
+      "statement": "Countable State"
+    },
+    {
+      "id": "m_inst___proofs_4233523538_5e4ba526",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.4233523538._hygCtx._hyg.23",
+      "lean_fvar_id": "7",
+      "statement": "MeasureTheory.IsProbabilityMeasure μ"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "T41 q = p ∧ T14 p = q"
+    },
+    {
+      "id": "n_hconf_bd14382c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hconf",
+      "lean_fvar_id": "_uniq.1708921",
+      "statement": "P (conj φ (neg φ)) = P φ ∩ N φ"
+    },
+    {
+      "id": "n_hmeasn_a0da84db",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmeasN",
+      "lean_fvar_id": "_uniq.1708892",
+      "statement": "MeasurableSet (N φ)"
+    },
+    {
+      "id": "n_hmeasp_026a09fb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmeasP",
+      "lean_fvar_id": "_uniq.1708763",
+      "statement": "MeasurableSet (P φ)"
+    },
+    {
+      "id": "n_hneg_e945d90c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hneg",
+      "lean_fvar_id": "_uniq.1708901",
+      "statement": "P (neg φ) = N φ"
+    },
+    {
+      "id": "n_hpartition_85b93f3e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpartition",
+      "lean_fvar_id": "_uniq.1706607",
+      "statement": "(μ (P φ \\ N φ)).toReal + (μ (P φ ∩ N φ)).toReal = (μ (P φ)).toReal"
+    },
+    {
+      "id": "n_hpconj_3a17097c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hPconj",
+      "lean_fvar_id": "_uniq.1706290",
+      "statement": "∀ (φ ψ : Formula), P (conj φ ψ) = P φ ∩ P ψ"
+    },
+    {
+      "id": "n_hpneg_0979aca1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hPneg",
+      "lean_fvar_id": "_uniq.1706284",
+      "statement": "∀ (φ : Formula), P (neg φ) = N φ"
+    },
+    {
+      "id": "n_inst___proofs_4233523538_1d72457e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.4233523538._hygCtx._hyg.23",
+      "lean_fvar_id": "_uniq.1706251",
+      "statement": "MeasureTheory.IsProbabilityMeasure μ"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hpartition",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_4233523538_1d72457e"
+      ],
+      "conclusion": "n_hpartition_85b93f3e",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "MeasurableSpace.measurableSet_top + toReal_measure_sdiff_add_inter",
+        "items": [
+          "MeasurableSpace.measurableSet_top",
+          "Rollout_p1918_correspondence_of_induced_probability_assi.toReal_measure_sdiff_add_inter"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1918_correspondence_of_induced_probability_assi.toReal_measure_sdiff_add_inter"
+        ],
+        "mathlib_items": [
+          "MeasurableSpace.measurableSet_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_338",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpartition := @toReal_measure_sdiff_add_inter State ⊤ μ _ (P φ) (N φ)\n      MeasurableSpace.measurableSet_top\n    simp [T41, q, p]\n    nlinarith\n  · funext φ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1706251",
+              "name": "inst._@.proofs.4233523538._hygCtx._hyg.23",
+              "statement": "MeasureTheory.IsProbabilityMeasure μ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1706607",
+            "name": "hpartition",
+            "statement": "(μ (P φ \\ N φ)).toReal + (μ (P φ ∩ N φ)).toReal = (μ (P φ)).toReal"
+          }
+        },
+        "lean_dependency_sha256": "bb10da90eaafc590c7787b95cf093962c647f5edead608e0137a501d7c6033bf",
+        "kernel_witness_check": {
+          "proof_type": "(μ (P φ \\ N φ)).toReal + (μ (P φ ∩ N φ)).toReal = (μ (P φ)).toReal",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasurableSpace.measurableSet_top"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:12"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_hmeasp",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hmeasp_026a09fb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasurableSpace.measurableSet_top",
+        "items": [
+          "MeasurableSpace.measurableSet_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasurableSpace.measurableSet_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_348",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hmeasP : @MeasurableSet State ⊤ (P φ) := MeasurableSpace.measurableSet_top",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1708763",
+            "name": "hmeasP",
+            "statement": "MeasurableSet (P φ)"
+          }
+        },
+        "lean_dependency_sha256": "9fe0156433934911290a72b6eaad13baaf67c3988afc607dba3b71a34374cd4c",
+        "kernel_witness_check": {
+          "proof_type": "MeasurableSet (P φ)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasurableSpace.measurableSet_top"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:12"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hmeasn",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hmeasn_a0da84db",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasurableSpace.measurableSet_top",
+        "items": [
+          "MeasurableSpace.measurableSet_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasurableSpace.measurableSet_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_349",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hmeasN : @MeasurableSet State ⊤ (N φ) := MeasurableSpace.measurableSet_top",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1708892",
+            "name": "hmeasN",
+            "statement": "MeasurableSet (N φ)"
+          }
+        },
+        "lean_dependency_sha256": "a43e492a65eb5b2c26984812533633c0db785cf0dab1af04e6f5c8790fa95606",
+        "kernel_witness_check": {
+          "proof_type": "MeasurableSet (N φ)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasurableSpace.measurableSet_top"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:12"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hneg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpneg_0979aca1"
+      ],
+      "conclusion": "n_hneg_e945d90c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_350",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hneg : P (neg φ) = N φ := hPneg φ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1706284",
+              "name": "hPneg",
+              "statement": "∀ (φ : Formula), P (neg φ) = N φ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1708901",
+            "name": "hneg",
+            "statement": "P (neg φ) = N φ"
+          }
+        },
+        "lean_dependency_sha256": "9b22ddd4c488ff52df63e1d9c7ada7b622eab91d4c89d95b4a4ba9a8ad4d1687",
+        "kernel_witness_check": {
+          "proof_type": "P (neg φ) = N φ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hconf",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpconj_3a17097c",
+        "n_hneg_e945d90c"
+      ],
+      "conclusion": "n_hconf_bd14382c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_351",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hconf : P (conj φ (neg φ)) = P φ ∩ N φ := by\n      rw [hPconj, hneg]\n    dsimp [T14, p, q]\n    rw [hneg, hconf]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1706290",
+              "name": "hPconj",
+              "statement": "∀ (φ ψ : Formula), P (conj φ ψ) = P φ ∩ P ψ"
+            },
+            {
+              "fvar_id": "_uniq.1708901",
+              "name": "hneg",
+              "statement": "P (neg φ) = N φ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1708921",
+            "name": "hconf",
+            "statement": "P (conj φ (neg φ)) = P φ ∩ N φ"
+          }
+        },
+        "lean_dependency_sha256": "44e46aaf60b98285f03bc325c8342105ac4bf221720f2fcdcc1d5a65b9829a1e",
+        "kernel_witness_check": {
+          "proof_type": "P (conj φ (neg φ)) = P φ ∩ N φ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_4233523538_5e4ba526",
+        "m_hpneg_2980722f",
+        "m_hpconj_a07258fb"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "MeasurableSpace.measurableSet_top + four_valued_tuple_eq + toReal_measure_sdiff_add_inter",
+        "items": [
+          "MeasurableSpace.measurableSet_top",
+          "Rollout_p1918_correspondence_of_induced_probability_assi.four_valued_tuple_eq",
+          "Rollout_p1918_correspondence_of_induced_probability_assi.toReal_measure_sdiff_add_inter",
+          "funext"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1918_correspondence_of_induced_probability_assi.four_valued_tuple_eq",
+          "Rollout_p1918_correspondence_of_induced_probability_assi.toReal_measure_sdiff_add_inter"
+        ],
+        "mathlib_items": [
+          "MeasurableSpace.measurableSet_top",
+          "funext"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · funext φ\n    have hpartition := @toReal_measure_sdiff_add_inter State ⊤ μ _ (P φ) (N φ)\n      MeasurableSpace.measurableSet_top\n    simp [T41, q, p]\n    nlinarith\n  · funext φ\n    have hmeasP : @MeasurableSet State ⊤ (P φ) := MeasurableSpace.measurableSet_top\n    have hmeasN : @MeasurableSet State ⊤ (N φ) := MeasurableSpace.measurableSet_top\n    have hneg : P (neg φ) = N φ := hPneg φ\n    have hconf : P (conj φ (neg φ)) = P φ ∩ N φ := by\n      rw [hPconj, hneg]\n    dsimp [T14, p, q]\n    rw [hneg, hconf]\n    exact @four_valued_tuple_eq State ⊤ μ _ (P φ) (N φ) hmeasP hmeasN",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "inst._@.proofs.4233523538._hygCtx._hyg.23",
+              "statement": "MeasureTheory.IsProbabilityMeasure μ"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hPneg",
+              "statement": "∀ (φ : Formula), P (neg φ) = N φ"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hPconj",
+              "statement": "∀ (φ ψ : Formula), P (conj φ ψ) = P φ ∩ P ψ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "T41 q = p ∧ T14 p = q"
+          }
+        },
+        "lean_dependency_sha256": "ab21c73ec9e5cf8ea6629a69c6c9c576ca6aacad902b4c7951cf457e7a35613d",
+        "kernel_witness_check": {
+          "proof_type": "T41 q = p ∧ T14 p = q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasurableSpace.measurableSet_top"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:12"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "measure_diff",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "measure_union",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "ENNReal.toReal_add",
+      "declarations": [
+        "ENNReal.toReal_add"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "measure_inter_add_diff",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "IsProbabilityMeasure measure_univ",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "measure of set difference intersection finite measure measure_diff",
+      "declarations": [
+        "Set.Finite.measure_zero",
+        "MeasureTheory.measure_diff",
+        "MeasureTheory.measure_sdiff_add_inter",
+        "MeasureTheory.FiniteMeasure",
+        "MeasureTheory.measure_inter_add_sdiff",
+        "MeasureTheory.measureReal_diff_add_inter",
+        "MeasureTheory.predictablePart_bdd_difference",
+        "MeasureTheory.SigmaFinite",
+        "MeasureTheory.IsFiniteMeasure",
+        "MeasureTheory.martingalePart_bdd_difference"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "measure union disjoint measure_union ENNReal",
+      "declarations": [
+        "MeasureTheory.measure_union'",
+        "Lean.Meta.getFunInfo",
+        "MeasureTheory.measure_union",
+        "MeasureTheory.measure_sUnion",
+        "Lean.Omega.Coeffs.get",
+        "MeasureTheory.IsSetSemiring.disjointOfUnion",
+        "MeasureTheory.VectorMeasure.of_disjoint_iUnion",
+        "MeasureTheory.IsSetSemiring.disjointOfDiffUnion",
+        "MeasureTheory.measure_sdiff_add_inter",
+        "MeasureTheory.condExpInd_disjoint_union"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "measure set difference equals measure larger minus intersection",
+      "declarations": [
+        "MeasureTheory.le_measure_sdiff",
+        "MeasureTheory.measure_diff_add_inter",
+        "MeasureTheory.integral_simpleFunc_larger_space",
+        "MeasureTheory.measure_sdiff_add_inter",
+        "MeasureTheory.measure_diff_le_iff_le_add",
+        "MeasureTheory.SimpleFunc.toLargerSpace",
+        "MeasureTheory.NullMeasurableSet",
+        "MeasureTheory.predictablePart_bdd_difference",
+        "MeasureTheory.martingalePart_bdd_difference",
+        "MeasureTheory.BorelCantelli.process_difference_le"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "probability measure univ toReal one",
+      "declarations": [
+        "MeasureTheory.Measure.real",
+        "MeasureTheory.ProbabilityMeasure.toNNReal_measureReal_eq_coeFn",
+        "MeasureTheory.measureReal_restrict_apply_univ",
+        "MeasureTheory.measureReal_univ_eq_one",
+        "MeasureTheory.isProbabilityMeasure_iff_real",
+        "MeasureTheory.probReal_univ",
+        "MeasureTheory.ProbabilityMeasure.coeFn_univ",
+        "MeasureTheory.pdf.ofReal_toReal_ae_eq",
+        "MeasureTheory.Measure.toSphere_real_apply_univ",
+        "MeasureTheory.measureReal_univ_pos"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "measure_ne_top",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "measure_lt_top",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "MeasurableSet Set.top",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "top measurable space every set measurable",
+      "declarations": [
+        "MeasurableSpace.measurableSet_copy",
+        "MeasurableSet.of_discrete",
+        "MeasurableSpace.map_top",
+        "DiscreteMeasurableSpace.toMeasurableSingletonClass",
+        "MeasurableSpace.measurableSet_top",
+        "MeasurableSet",
+        "MeasurableSpace.measurableSet_measurableAtom",
+        "MeasurableSpace.measurableSet_comap",
+        "Set.Countable.measurableSet",
+        "isCountablySpanning_measurableSet"
+      ],
+      "call_turn": 13,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "finite measure every measurable set has measure not top",
+      "declarations": [
+        "MeasureTheory.Measure.OuterRegular.zero",
+        "MeasureTheory.HasFiniteIntegral",
+        "MeasureTheory.measurableSet_sigmaFiniteSet",
+        "MeasureTheory.measurableSet_sigmaFiniteSetWRT'",
+        "MeasureTheory.measurableSet_sigmaFiniteSetWRT",
+        "MeasurableSpace.MeasurableSingletonClass.of_separatesPoints",
+        "MeasureTheory.FiniteMeasure.measurableSet_isFiniteMeasure",
+        "MeasureTheory.measureDense_measurableSet",
+        "MeasurableSet.exists_isOpen_symmDiff_lt",
+        "MeasureTheory.NullMeasurableSet"
+      ],
+      "call_turn": 13,
+      "result_turn": 18
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 14,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 13,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 29,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

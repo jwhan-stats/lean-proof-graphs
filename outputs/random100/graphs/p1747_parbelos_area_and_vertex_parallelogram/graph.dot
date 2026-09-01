@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_7c03904a" [shape=box, color="#178F82", label="ha\n0 < a"];
+  "m_hb_1bbcab37" [shape=box, color="#178F82", label="hb\n0 < b"];
+  "m_hba_099f3aef" [shape=box, color="#178F82", label="hba\nb < 2 * a"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet C₁ := (0, 0); let C₂ := (2 * b, 0); let C₃ := (4 * a, 0); let U := fun x => a - (x - 2 * a) ^ 2 / (4 * a); let L := fun x => b / 2 - (x - b) ^ 2 / (2 * b); let R := fun x => (2 * a - b) / 2 - (x - (2 * a + b)) ^ 2 / (2 * (2 * a - b)); let P := {p | 0 ≤ p.1 ∧ p.1 ≤ 2 * b ∧ L p.1 ≤ p.2 ∧ p.2 ≤ U p.1 ∨ 2 * b ≤ p.1 ∧ p.1 ≤ 4 * a ∧ R p.1 ≤ p.2 ∧ p.2 ≤ U p.1}; let V₁ := (b, b / 2); let V₂ := (2 * a, a); let V₃ := (2 * a + b, a - b / 2); (V₁ - C₂ = V₂ - V₃ ∧ V₂ - V₁ = V₃ - C₂) ∧ MeasureTheory.volume P = 4 / 3 * MeasureTheory.volume ((convexHull ℝ) {C₂, V₁, V₂, V₃})"];
+  "r_h_goal" [shape=diamond, label="ENNReal.ofReal_div_of_pos + ENNReal.ofReal_mul + Prod.ext", color="#D97706"];
+  "m_ha_7c03904a" -> "r_h_goal";
+  "m_hb_1bbcab37" -> "r_h_goal";
+  "m_hba_099f3aef" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

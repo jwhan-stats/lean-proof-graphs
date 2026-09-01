@@ -1,0 +1,2842 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2247_sylow_rank_two_index_prime_subgroups",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2247,
+    "source": "1605.03695",
+    "theorem_name": "sylow_rank_two_index_prime_subgroups",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2247",
+    "reconstructed_proof": "../../candidates/p2247_sylow_rank_two_index_prime_subgroups/proof.lean",
+    "raw_elaboration": "../../candidates/p2247_sylow_rank_two_index_prime_subgroups/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2247_sylow_rank_two_index_prime_subgroups.sylow_rank_two_index_prime_subgroups",
+    "verification_call_id": "verify_submission:323",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "1c6ca46bbda1eeac93fb6cf04404be324d1119b830fc90bfd6f96fc2ea3164f9",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "9e85f1722eaafaf7fa2b66538ef46bc5175e0bbb7cbddcafec5e31648dedf95b",
+    "concrete_semantic_topology_sha256": "1c6ca46bbda1eeac93fb6cf04404be324d1119b830fc90bfd6f96fc2ea3164f9"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hind_fd555e00",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hind",
+      "lean_fvar_id": "16",
+      "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥"
+    },
+    {
+      "id": "m_hp_cd01ef90",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp",
+      "lean_fvar_id": "6",
+      "statement": "Nat.Prime p"
+    },
+    {
+      "id": "m_hspan_79695e3b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hspan",
+      "lean_fvar_id": "15",
+      "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤"
+    },
+    {
+      "id": "m_hu_bb5cc4bd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hu",
+      "lean_fvar_id": "7",
+      "statement": "0 < u"
+    },
+    {
+      "id": "m_huv_37a779ed",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "huv",
+      "lean_fvar_id": "9",
+      "statement": "v ≤ u"
+    },
+    {
+      "id": "m_hv_c9d5e870",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hv",
+      "lean_fvar_id": "8",
+      "statement": "0 < v"
+    },
+    {
+      "id": "m_hx_2c104564",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "13",
+      "statement": "orderOf x = p ^ u"
+    },
+    {
+      "id": "m_hy_4ad03fd3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hy",
+      "lean_fvar_id": "14",
+      "statement": "orderOf y = p ^ v"
+    },
+    {
+      "id": "m_inst___proofs_4000124397_672d90ac",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "Finite A"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧ (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧ (v = 1 ∧ 1 < u → N.index = p ∧ E ≤ N ∧ (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧ Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧ Nat.card { U // U.index = p ∧ U ≠ N } = p ∧ ∀ (U : Subgroup ↥↑P), U.index = p → U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧ (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)"
+    },
+    {
+      "id": "n_he_d61e16ca",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hE",
+      "lean_fvar_id": "19",
+      "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_he",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_cd01ef90",
+        "m_hu_bb5cc4bd",
+        "m_hv_c9d5e870",
+        "m_hx_2c104564",
+        "m_hy_4ad03fd3",
+        "m_hspan_79695e3b",
+        "m_hind_fd555e00"
+      ],
+      "conclusion": "n_he_d61e16ca",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "pow_ker_eq_zpowers_sup",
+        "items": [
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.pow_ker_eq_zpowers_sup"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.pow_ker_eq_zpowers_sup"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_19",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hE : E = Subgroup.zpowers (x ^ (p ^ (u - 1))) ⊔\n      Subgroup.zpowers (y ^ (p ^ (v - 1))) :=\n    pow_ker_eq_zpowers_sup hp hu hv hx hy hspan hind",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hp",
+              "statement": "Nat.Prime p"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hu",
+              "statement": "0 < u"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hv",
+              "statement": "0 < v"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hx",
+              "statement": "orderOf x = p ^ u"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hy",
+              "statement": "orderOf y = p ^ v"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hspan",
+              "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hind",
+              "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "19",
+            "name": "hE",
+            "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))"
+          }
+        },
+        "lean_dependency_sha256": "391cefb8839e1f6e51ba90350b8ca6b8e0086e2dcefdfe2b42abf1f3ef839b01",
+        "kernel_witness_check": {
+          "proof_type": "(powMonoidHom p).ker = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_4000124397_672d90ac",
+        "m_hp_cd01ef90",
+        "m_hu_bb5cc4bd",
+        "m_hv_c9d5e870",
+        "m_huv_37a779ed",
+        "m_hx_2c104564",
+        "m_hy_4ad03fd3",
+        "m_hspan_79695e3b",
+        "m_hind_fd555e00",
+        "n_he_d61e16ca"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Eq.symm + Eq.trans + N_index_mem_unique_v1",
+        "items": [
+          "Eq.symm",
+          "Eq.trans",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_index_mem_unique_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_mulEquiv_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_of_zpowers_sup_top_inf_bot",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_pow_ker",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.card_nonN_index_prime_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.cyclic_nonN_v1"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_index_mem_unique_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.N_mulEquiv_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_of_zpowers_sup_top_inf_bot",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.Nat_card_pow_ker",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.card_nonN_index_prime_v1",
+          "Rollout_p2247_sylow_rank_two_index_prime_subgroups.cyclic_nonN_v1"
+        ],
+        "mathlib_items": [
+          "Eq.symm",
+          "Eq.trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨hE, ?_, ?_, ?_⟩\n  · rintro ⟨hu1, hv1⟩\n    have hPcard : Nat.card P = p ^ 2 := by\n      calc\n        Nat.card P = orderOf x * orderOf y :=\n          Nat_card_of_zpowers_sup_top_inf_bot hspan hind\n        _ = p ^ 2 := by rw [hx, hy, hu1, hv1]; simpa using (pow_two p).symm\n    have hEcard : Nat.card ↥E = p ^ 2 :=\n      Nat_card_pow_ker hp hu hv hx hy hspan hind\n    have hEtop : E = ⊤ := Subgroup.eq_top_of_card_eq E (by rw [hEcard, hPcard])\n    intro U\n    rw [hEtop]\n    constructor\n    · intro hU\n      exact ⟨le_top, (subgroup_index_prime_iff_card_prime_of_card_sq hp hPcard U).mp hU⟩\n    · intro hU\n      exact (subgroup_index_prime_iff_card_prime_of_card_sq hp hPcard U).mpr hU.2\n  · rintro ⟨hv1, hu1⟩\n    have hNstruct := N_index_mem_unique_v1 hp hu hv hu1 hv1 hx hy hspan hind\n    change N.index = p ∧ E ≤ N ∧\n      (∀ U : Subgroup P, U.index = p → E ≤ U → U = N) at hNstruct\n    have hy' : orderOf y = p := by simpa [hv1] using hy\n    have hNiso : Nonempty (N ≃* Multiplicative (ZMod (p ^ (u - 1))) ×\n        Multiplicative (ZMod p)) := by\n      exact N_mulEquiv_v1 hp hu hx hy' hind\n    have hcount : Nat.card {U : Subgroup P // U.index = p ∧ U ≠ N} = p := by\n      exact card_nonN_index_prime_v1 hp hu hv hu1 hv1 hx hy hspan hind\n    refine ⟨hNstruct.1, hNstruct.2.1, hNstruct.2.2, hNiso, hcount, ?_⟩\n    intro U hU hUN\n    exact cyclic_nonN_v1 hp hu hv hu1 hv1 hx hy hspan hind hU hUN\n  · intro hv1\n    intro U hU\n    rw [hE]\n    apply sup_le\n    · rw [Subgroup.zpowers_le]\n      exact pow_pred_mem_subgroup_of_index_eq U (by omega : 1 < u) hU x\n    · rw [Subgroup.zpowers_le]\n  ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.4000124397._hygCtx._hyg.6",
+              "statement": "Finite A"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hp",
+              "statement": "Nat.Prime p"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hu",
+              "statement": "0 < u"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hv",
+              "statement": "0 < v"
+            },
+            {
+              "fvar_id": "9",
+              "name": "huv",
+              "statement": "v ≤ u"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hx",
+              "statement": "orderOf x = p ^ u"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hy",
+              "statement": "orderOf y = p ^ v"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hspan",
+              "statement": "Subgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hind",
+              "statement": "Subgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hE",
+              "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧ (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧ (v = 1 ∧ 1 < u → N.index = p ∧ E ≤ N ∧ (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧ Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧ Nat.card { U // U.index = p ∧ U ≠ N } = p ∧ ∀ (U : Subgroup ↥↑P), U.index = p → U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧ (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)"
+          }
+        },
+        "lean_dependency_sha256": "248fdb9d68495a2b2e92e7a549571fd22b494db1c5c106a422beeaa709bf52a2",
+        "kernel_witness_check": {
+          "proof_type": "E = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧\n  (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧\n    (v = 1 ∧ 1 < u →\n        N.index = p ∧\n          E ≤ N ∧\n            (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧\n              Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧\n                Nat.card { U // U.index = p ∧ U ≠ N } = p ∧\n                  ∀ (U : Subgroup ↥↑P),\n                    U.index = p →\n                      U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧\n      (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "Eq.trans"
+        ],
+        "observed_search_event_ids": [
+          "loogle:30",
+          "loogle:270"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers",
+      "declarations": [
+        "Subgroup.zpowers",
+        "Subgroup.mem_zpowers",
+        "Subgroup.zpowers_eq_closure",
+        "Subgroup.decidableMemZPowers",
+        "Subgroup.zpowers_inv",
+        "Subgroup.zpowers_one_eq_bot",
+        "Subgroup.zpowers_isMulCommutative",
+        "Subgroup.zpow_mem_zpowers",
+        "Subgroup.coe_zpowers",
+        "Subgroup.zpowers_eq_bot"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "MulEquiv (Multiplicative (ZMod _))",
+      "declarations": [
+        "MulAction.zpowersQuotientStabilizerEquiv_symm_apply",
+        "zmodCyclicMulEquiv",
+        "zmodMulEquivOfGenerator",
+        "zmodMulEquivOfGenerator_apply_ofAdd_one",
+        "zmodMulEquivOfGenerator_apply_ofAdd_intCast",
+        "IsCyclic.val_mulAutMulEquiv_apply",
+        "IsCyclic.val_inv_mulAutMulEquiv_apply",
+        "IsCyclic.mulAutMulEquiv_symm_apply_apply",
+        "IsCyclic.mulAutMulEquiv_symm_apply_symm_apply",
+        "autEquivZmod_symm_apply_intCast"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "internal direct product two subgroups supremum top infimum bottom construct multiplicative equivalence product",
+      "declarations": [
+        "AddSubmonoid.prod_bot_sup_bot_prod",
+        "EulerProduct.eulerProduct_completely_multiplicative_tprod",
+        "TensorProduct",
+        "EulerProduct.eulerProduct_completely_multiplicative",
+        "Subgroup.top_prod_top",
+        "TensorProduct.directSum",
+        "TensorProduct.directSumLeft",
+        "Subgroup.prod_le_iff",
+        "Subgroup.ofUnits_iSup",
+        "TensorProduct.directLimitRight"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "finite abelian group generated by two elements cyclic subgroups trivial intersection product equivalence",
+      "declarations": [
+        "CommGroup.equiv_free_prod_prod_multiplicative_zmod",
+        "AddCommGroup.equiv_free_prod_directSum_zmod",
+        "FreeAbelianGroup",
+        "not_isCyclic_prod_of_infinite_nontrivial",
+        "zpowers_mabs",
+        "PresentedGroup.generated_by",
+        "ContinuousGeneratedByCat.equivalence",
+        "ContinuousGeneratedByCat.equivalence_inverse",
+        "ContinuousGeneratedByCat.equivalence_functor",
+        "Topology.IsGeneratedBy"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Subgroup.index * Nat.card _ = Nat.card _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Nat.card (_ ⊔ _ : Subgroup _)",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Nat.card (_ ⊓ _ : Subgroup _)",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "cardinality product of two subgroups intersection formula finite group",
+      "declarations": [
+        "Subgroup.index_mul_card",
+        "Finset.card_pow_quotient_mul_pow_inter_subgroup_le",
+        "Valuation.subgroups_basis",
+        "Subgroup.relIndex",
+        "Group.ResiduallyFinite",
+        "RingSubgroupsBasis",
+        "AddSubgroup.index_mul_card",
+        "Subgroup.card_mul_index",
+        "RingSubgroupsBasis.mem_addGroupFilterBasis",
+        "RingSubgroupsBasis.of_comm"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Subgroup.card_mul_card_eq_card_mul_card_inter",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Subgroup.card_eq_card_quotient_mul_card",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Subgroup.index_mul_card",
+      "declarations": [
+        "Subgroup.index_mul_card"
+      ],
+      "call_turn": 8,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Nat.card (Subgroup.zpowers _)",
+      "declarations": [
+        "Nat.card_zpowers"
+      ],
+      "call_turn": 8,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "orderOf (_ ^ _)",
+      "declarations": [
+        "orderOf_pow_dvd",
+        "Nat.Coprime.orderOf_pow",
+        "IsOfFinOrder.orderOf_pow",
+        "orderOf_pow'",
+        "orderOf_pow",
+        "orderOf_pow_of_dvd",
+        "orderOf_pow_orderOf_div"
+      ],
+      "call_turn": 8,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_le_iff",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_inf_zpowers",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "subgroups index p elementary abelian rank two cyclic p group product classification",
+      "declarations": [
+        "TwoP",
+        "TwoP.swap_map",
+        "TwoP.of",
+        "not_isAddCyclic_iff_exponent_eq_prime",
+        "not_isCyclic_iff_exponent_eq_prime",
+        "AddCommGroup.equiv_directSum_zmod_of_finite",
+        "TwoP.swap",
+        "TwoPointing.TwoP",
+        "ZModModule.exists_submodule_subset_card_le",
+        "CharP"
+      ],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "maximal subgroups finite abelian p group p-th powers Frattini subgroup",
+      "declarations": [
+        "Sylow",
+        "DividedPowers.CharP.dividedPowers",
+        "frattini",
+        "frattini_le_coatom",
+        "frattini_nilpotent",
+        "frattini_nongenerating",
+        "CharP",
+        "Sylow.finite_of_ker_is_pGroup",
+        "Sylow.sSup_of_normal",
+        "Sylow.exists_subgroup_le_card_pow_prime_of_le_card"
+      ],
+      "call_turn": 19,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "number of subgroups of index p in finite abelian p group",
+      "declarations": [
+        "Subgroup.index",
+        "CharP.ringChar_ne_zero_of_finite",
+        "IsPGroup.index",
+        "AddSubgroup.index",
+        "CharP.char_ne_zero_of_finite",
+        "Sylow.finite_of_ker_is_pGroup",
+        "TwoP.of",
+        "CharP",
+        "Sylow.exists_subgroup_card_pow_prime_le",
+        "Sylow.exists_subgroup_le_card_pow_prime_of_le_card"
+      ],
+      "call_turn": 19,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "subgroups of direct product of cyclic groups p prime index p",
+      "declarations": [
+        "Sylow.not_dvd_card_commutator_or_not_dvd_index_commutator",
+        "IsPGroup.toSylow",
+        "charP_of_prime_pow_injective",
+        "Subgroup.index_prod",
+        "charP_of_card_eq_prime",
+        "CharP.char_is_prime_of_pos",
+        "pNilradical_prime",
+        "padicNorm.padicNorm_p_of_prime",
+        "CharP",
+        "Sylow.not_dvd_index"
+      ],
+      "call_turn": 19,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "FrattiniSubgroup",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "powMonoidHom _ _ .ker",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "MonoidHom.ker (powMonoidHom _)",
+      "declarations": [
+        "MonoidHom.normal_ker",
+        "MonoidHom.ker_id",
+        "MonoidHom.decidableMemKer",
+        "MonoidHom.ker_toHomUnits",
+        "MonoidHom.comap_bot",
+        "Subgroup.ker_le_comap",
+        "MonoidHom.ker_one",
+        "Subgroup.comap_map_eq_self",
+        "MonoidHom.ker_eq_bot_iff",
+        "Subgroup.map_eq_bot_iff"
+      ],
+      "call_turn": 19,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:22",
+      "tool": "leanfinder",
+      "query": "cardinal sup subgroup product finite groups card H card K card intersection",
+      "declarations": [
+        "Finset.card_pow_quotient_mul_pow_inter_subgroup_le",
+        "SemidirectProduct.card",
+        "Subgroup.IsComplement'.card_mul",
+        "Cardinal.card_surjective",
+        "Nat.card",
+        "Subgroup.card_mul_index",
+        "Subgroup.card_mul_eq_card_subgroup_mul_card_quotient",
+        "Finset.card",
+        "Cardinal.card_ord",
+        "Multiset.card_product"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Nat.card (_ : Subgroup _) * Nat.card (_ : Subgroup _)",
+      "declarations": [
+        "Subgroup.IsComplement'.card_mul",
+        "Subgroup.isComplement'_of_card_mul_and_disjoint",
+        "Subgroup.isComplement'_iff_card_mul_and_disjoint",
+        "Subgroup.isComplement'_of_coprime"
+      ],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Nat.card (_ × _) = Nat.card _ * Nat.card _",
+      "declarations": [
+        "Nat.card_prod"
+      ],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Function.Bijective (fun _ : _ × _ => _ * _)",
+      "declarations": [
+        "Subgroup.isComplement_iff_bijective"
+      ],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Subgroup.mulEquivProd",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 32
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "multiplicative equivalence product subgroups if inf bottom sup top",
+      "declarations": [
+        "AddSubgroup.quotientEquivProdOfLE'_symm_apply",
+        "EulerProduct.eulerProduct_completely_multiplicative",
+        "Ideal.sup_iInf_eq_top",
+        "Valuation.subgroups_basis",
+        "AddSubgroup.prod",
+        "Multiplicative",
+        "RingSubgroupsBasis",
+        "Multiplicative.orderTop",
+        "QuotientGroup.rightRel_prod",
+        "QuotientAddGroup.leftRel_prod"
+      ],
+      "call_turn": 27,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Subgroup.isCompl",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "IsCompl (_ : Subgroup _) _",
+      "declarations": [
+        "Subgroup.IsComplement'.isCompl"
+      ],
+      "call_turn": 27,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "Subgroup.IsComplement'",
+      "declarations": [
+        "Subgroup.IsComplement'",
+        "Subgroup.IsComplement'.symm",
+        "Subgroup.isComplement'_bot_top",
+        "Subgroup.isComplement'_comm",
+        "Subgroup.isComplement'_top_bot",
+        "Subgroup.isComplement'_bot_left",
+        "Subgroup.isComplement'_bot_right",
+        "Subgroup.isComplement'_top_left",
+        "Subgroup.isComplement'_top_right",
+        "Subgroup.IsComplement'.isCompl"
+      ],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Subgroup.isComplement'_iff",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Subgroup.IsComplement'.mulEquiv",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 39
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "IsComplement subgroup unique decomposition product",
+      "declarations": [
+        "Subgroup.isComplement_iff_existsUnique",
+        "AddSubgroup.IsComplement",
+        "AddSubgroup.IsComplement.existsUnique",
+        "Subgroup.IsComplement.equiv",
+        "Subgroup.IsComplement",
+        "Subgroup.isComplement_iff_existsUnique_inv_mul_mem",
+        "AddSubgroup.isComplement_iff_existsUnique",
+        "Subgroup.isComplement_iff_existsUnique_mul_inv_mem",
+        "Subgroup.IsComplement.existsUnique",
+        "Subgroup.IsComplement'"
+      ],
+      "call_turn": 36,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Subgroup.isComplement'_of",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "IsCompl.mulEquiv",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "IsComplement' ↔ _ = ⊤",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "IsComplement' _ _ ↔ Disjoint",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "_ ⊔ _ = ⊤ -> _ ⊓ _ = ⊥ -> Function.Bijective",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "Subgroup.isComplement'_iff_disjoint",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Subgroup.isComplement'_iff_sup_eq_top",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "IsCompl _ _ -> Subgroup.IsComplement'",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Subgroup.isComplement'_of_disjoint",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "_ ∈ _ ⊔ _ ↔ ∃ _ ∈ _, ∃ _ ∈ _, _ = _ * _",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Subgroup.mem_sup",
+      "declarations": [
+        "Subgroup.mem_sup"
+      ],
+      "call_turn": 51,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Subgroup.mul_mem_sup",
+      "declarations": [
+        "Subgroup.mul_mem_sup"
+      ],
+      "call_turn": 51,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Subgroup.sup_eq_range_mul",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 55
+    },
+    {
+      "event_id": "leanfinder:47",
+      "tool": "leanfinder",
+      "query": "membership supremum two commuting subgroups exists product",
+      "declarations": [
+        "Membership",
+        "RingSubgroupsBasis",
+        "Valuation.subgroups_basis",
+        "Subgroup.subgroupOf_sup",
+        "AddSubgroup.addSubgroupOf_sup",
+        "Subgroup.isMulCommutative_iSup",
+        "Subgroup.iSup_induction'",
+        "Subgroup.ofUnits_iSup",
+        "RingSubgroupsBasis.nonarchimedean",
+        "RingSubgroupsBasis.topology"
+      ],
+      "call_turn": 51,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Subgroup.mul_normal",
+      "declarations": [
+        "Subgroup.mul_normal"
+      ],
+      "call_turn": 51,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Subgroup.sup_eq_mul",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "_ ⊓ _ = ⊥ -> _ ∈ _ -> _ ∈ _ -> _ = 1",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Subgroup.mem_bot",
+      "declarations": [
+        "Subgroup.mem_bot"
+      ],
+      "call_turn": 59,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Subgroup.eq_bot_iff_forall",
+      "declarations": [
+        "Subgroup.eq_bot_iff_forall"
+      ],
+      "call_turn": 59,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Subgroup.mem_inf",
+      "declarations": [
+        "Subgroup.mem_inf"
+      ],
+      "call_turn": 59,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "Disjoint (_ : Subgroup _) _ ↔ _ ⊓ _ = ⊥",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 64
+    },
+    {
+      "event_id": "leanfinder:55",
+      "tool": "leanfinder",
+      "query": "monoid hom product of subgroup types multiplication into commutative group",
+      "declarations": [
+        "SemidirectProduct.monoidHomSubgroup",
+        "MonoidHom",
+        "Pi.instSubtractionCommMonoid",
+        "AddSubgroup.addSubgroupOf_isAddCommutative",
+        "MulEquiv.prodMultiplicative",
+        "Pi.commGroup",
+        "Subgroup.commGroup_isMulCommutative",
+        "AddSubgroup.addCommGroup_isAddCommutative",
+        "Pi.addCommMonoid",
+        "SemidirectProduct.monoidHomSubgroup_apply"
+      ],
+      "call_turn": 65,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Subgroup.mulMap",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Subgroup.inclusion.prodMap",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "MonoidHom.prodMap _ _ ≫ _",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Subgroup.subtype _ .comp",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "MulEquiv.ofBijective",
+      "declarations": [
+        "MulEquiv.ofBijective",
+        "MulEquiv.ofBijective_apply",
+        "MulEquiv.ofBijective_apply_symm_apply"
+      ],
+      "call_turn": 65,
+      "result_turn": 71
+    },
+    {
+      "event_id": "leanfinder:65",
+      "tool": "leanfinder",
+      "query": "order of join times order of intersection equals product orders finite subgroups",
+      "declarations": [
+        "orderOf",
+        "LocallyFiniteOrder.ofIcc",
+        "Pi.orderOf",
+        "Lean.Order.join",
+        "Subgroup.relIndex_inf_ne_zero",
+        "AddSubgroup.index_inf_ne_zero",
+        "LocallyFiniteOrder.ofIcc'",
+        "LocallyFiniteOrder.ofFiniteIcc",
+        "Subgroup.index_iInf_le",
+        "AddSubgroup.index_iInf_le"
+      ],
+      "call_turn": 80,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Nat.card (_ ⊔ _) * Nat.card (_ ⊓ _)",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "Nat.card (_ ⊔ _) = Nat.card _ * Nat.card _ / Nat.card (_ ⊓ _)",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Subgroup.card_sup",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "Subgroup.card_inf",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 85
+    },
+    {
+      "event_id": "leanfinder:70",
+      "tool": "leanfinder",
+      "query": "second isomorphism theorem cardinality subgroup join intersection",
+      "declarations": [
+        "Subgroup.card_eq_card_quotient_mul_card_subgroup",
+        "Option.join",
+        "AddSubgroup.card_mapAddSubgroup",
+        "Std.Rco.HasRcoIntersection",
+        "QuotientGroup.quotientInfEquivProdNormalizerQuotient",
+        "Subgroup.card_mapSubgroup",
+        "CategoryTheory.isomorphismClasses",
+        "AddSubgroup.index_mul_card",
+        "convexJoin",
+        "CategoryTheory.Functor.asIsomorphism"
+      ],
+      "call_turn": 80,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "MonoidHom.rangeRestrict",
+      "declarations": [
+        "MonoidHom.ker_rangeRestrict",
+        "MonoidHom.rangeRestrict",
+        "MonoidHom.subtype_comp_rangeRestrict",
+        "MonoidHom.rangeRestrict_surjective",
+        "MonoidHom.coe_rangeRestrict",
+        "MonoidHom.rangeRestrict_injective_iff",
+        "MonoidHom.coe_comp_rangeRestrict",
+        "Function.MulExact.monoidHom_rangeRestrict",
+        "Function.MulExact.iff_monoidHom_rangeRestrict"
+      ],
+      "call_turn": 87,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "MonoidHom.equivRange",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "MulEquiv.ofInjective",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "Equiv.ofInjective",
+      "declarations": [
+        "Equiv.ofInjective",
+        "Equiv.ofLeftInverse'_eq_ofInjective",
+        "Equiv.ofLeftInverse_eq_ofInjective",
+        "Equiv.coe_ofInjective_symm",
+        "Equiv.apply_ofInjective_symm",
+        "Equiv.ofInjective_apply",
+        "Equiv.self_comp_ofInjective_symm",
+        "Equiv.ofInjective_symm_apply",
+        "Fin.coe_of_injective_castLE_symm",
+        "Fin.coe_of_injective_castSucc_symm"
+      ],
+      "call_turn": 87,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "Nat.card_congr",
+      "declarations": [
+        "Nat.card_congr"
+      ],
+      "call_turn": 87,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "Nat.card_range_of_injective",
+      "declarations": [
+        "Nat.card_range_of_injective"
+      ],
+      "call_turn": 87,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "_ ^ _ / _ ^ _ = _ ^ (_ - _)",
+      "declarations": [
+        "Nat.pow_div"
+      ],
+      "call_turn": 118,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Nat.pow_div",
+      "declarations": [
+        "Nat.pow_div"
+      ],
+      "call_turn": 118,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "pow_dvd_pow",
+      "declarations": [
+        "pow_dvd_pow",
+        "PadicInt.zmod_cast_comp_toZModPow",
+        "PadicInt.nthHomSeq",
+        "PadicInt.limNthHom",
+        "PadicInt.lift",
+        "PadicInt.isCauSeq_nthHom",
+        "PadicInt.pow_dvd_nthHom_sub",
+        "PadicInt.limNthHom_one",
+        "PadicInt.limNthHom_zero",
+        "PadicInt.nthHomSeq_one"
+      ],
+      "call_turn": 118,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Nat.Prime.pow_dvd_pow",
+      "declarations": [],
+      "call_turn": 118,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "Nat.pow_sub_mul_pow",
+      "declarations": [
+        "Nat.pow_sub_mul_pow"
+      ],
+      "call_turn": 118,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "Nat.div_eq_of_lt_le",
+      "declarations": [
+        "Nat.div_eq_of_lt_le"
+      ],
+      "call_turn": 118,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_le_zpowers",
+      "declarations": [],
+      "call_turn": 129,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "zpowers _ ≤ zpowers _",
+      "declarations": [],
+      "call_turn": 129,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_mono",
+      "declarations": [],
+      "call_turn": 129,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "zpowers (_ ^ _) ≤ zpowers _",
+      "declarations": [],
+      "call_turn": 129,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_pow_le",
+      "declarations": [],
+      "call_turn": 129,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_le",
+      "declarations": [
+        "Subgroup.zpowers_le"
+      ],
+      "call_turn": 135,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "zpowers _ ≤ _ ↔ _ ∈ _",
+      "declarations": [],
+      "call_turn": 135,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_eq_bot",
+      "declarations": [
+        "Subgroup.zpowers_eq_bot"
+      ],
+      "call_turn": 135,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:105",
+      "tool": "loogle",
+      "query": "Subgroup.closure_le",
+      "declarations": [
+        "Subgroup.closure_le"
+      ],
+      "call_turn": 135,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "Subgroup.zpow_mem",
+      "declarations": [
+        "Subgroup.zpow_mem"
+      ],
+      "call_turn": 135,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "Subgroup.pow_mem",
+      "declarations": [
+        "Subgroup.pow_mem"
+      ],
+      "call_turn": 143,
+      "result_turn": 144
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "Subgroup.IsComplement'.existsUnique",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 150
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Subgroup.IsComplement'.equiv",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 151
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "Subgroup.IsComplement'.exists",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 152
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "Subgroup.IsComplement'.bijective",
+      "declarations": [],
+      "call_turn": 149,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "_ ∈ Subgroup.zpowers _ ↔ ∃ _ : ℤ",
+      "declarations": [],
+      "call_turn": 154,
+      "result_turn": 155
+    },
+    {
+      "event_id": "loogle:116",
+      "tool": "loogle",
+      "query": "Subgroup.mem_zpowers_iff_exists_zpow",
+      "declarations": [],
+      "call_turn": 154,
+      "result_turn": 156
+    },
+    {
+      "event_id": "loogle:117",
+      "tool": "loogle",
+      "query": "Subgroup.mem_zpowers_iff",
+      "declarations": [
+        "Subgroup.mem_zpowers_iff"
+      ],
+      "call_turn": 154,
+      "result_turn": 157
+    },
+    {
+      "event_id": "loogle:118",
+      "tool": "loogle",
+      "query": "Set.range fun _ => _ ^ _",
+      "declarations": [
+        "pow_mem_range_pow_of_coprime",
+        "Subgroup.coe_zpowers",
+        "Submonoid.coe_powers",
+        "Ideal.span_range_pow_eq_top",
+        "PowerBasis.mem_span_pow",
+        "PowerBasis.mem_span_pow'",
+        "IsIntegral.mem_span_pow",
+        "smoothingSeminormSeq_bddBelow",
+        "zero_mem_lowerBounds_smoothingSeminormSeq_range",
+        "Int.addSubmonoid_closure_range_pow"
+      ],
+      "call_turn": 154,
+      "result_turn": 158
+    },
+    {
+      "event_id": "loogle:119",
+      "tool": "loogle",
+      "query": "_ ^ _ = 1 ↔ orderOf _ ∣ _",
+      "declarations": [],
+      "call_turn": 159,
+      "result_turn": 160
+    },
+    {
+      "event_id": "loogle:120",
+      "tool": "loogle",
+      "query": "pow_eq_one_iff",
+      "declarations": [
+        "pow_eq_one_iff"
+      ],
+      "call_turn": 159,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:121",
+      "tool": "loogle",
+      "query": "orderOf_dvd_iff_pow_eq_one",
+      "declarations": [
+        "orderOf_dvd_iff_pow_eq_one"
+      ],
+      "call_turn": 159,
+      "result_turn": 162
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "orderOf_dvd_of_pow_eq_one",
+      "declarations": [
+        "orderOf_dvd_of_pow_eq_one"
+      ],
+      "call_turn": 159,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "pow_eq_one_iff_dvd_orderOf",
+      "declarations": [],
+      "call_turn": 159,
+      "result_turn": 164
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "zpow_eq_one_iff",
+      "declarations": [],
+      "call_turn": 165,
+      "result_turn": 166
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "_ ^ (_ : ℤ) = 1 ↔ _",
+      "declarations": [
+        "IsMulTorsionFree.zpow_eq_one_iff_left",
+        "IsMulTorsionFree.zpow_eq_one_iff_right",
+        "IsMulTorsionFree.zpow_eq_one_iff",
+        "zero_zpow_eq_one",
+        "zpow_abs_eq_one",
+        "zpow_eq_one_iff_right",
+        "zpow_eq_one_iff_modEq",
+        "zpow_eq_one_iff_of_ne_zero",
+        "zpow_eq_one_iff_cases",
+        "IsPrimitiveRoot.zpow_eq_one_iff_dvd"
+      ],
+      "call_turn": 165,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "orderOf_dvd_iff_zpow_eq_one",
+      "declarations": [
+        "orderOf_dvd_iff_zpow_eq_one"
+      ],
+      "call_turn": 165,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "zpow_eq_one_iff_orderOf_dvd",
+      "declarations": [],
+      "call_turn": 165,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "_ * _ ∣ _ * _ ↔ _ ∣ _",
+      "declarations": [
+        "Nat.mul_dvd_mul_iff_left",
+        "Nat.mul_dvd_mul_iff_right",
+        "Int.mul_dvd_mul_iff_left",
+        "Int.mul_dvd_mul_iff_right",
+        "IsLeftRegular.dvd_cancel_left",
+        "mul_dvd_mul_iff_left",
+        "mul_dvd_mul_iff_right",
+        "dvd_cancel_left_mem_nonZeroDivisors",
+        "dvd_cancel_right_mem_nonZeroDivisors",
+        "dvd_cancel_left_coe_nonZeroDivisors"
+      ],
+      "call_turn": 170,
+      "result_turn": 171
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "mul_dvd_mul_iff_right",
+      "declarations": [
+        "mul_dvd_mul_iff_right"
+      ],
+      "call_turn": 170,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "Int.mul_dvd_mul_iff_right",
+      "declarations": [
+        "Int.mul_dvd_mul_iff_right"
+      ],
+      "call_turn": 170,
+      "result_turn": 173
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "dvd_mul_cancel_right",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 174
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "_ * _ ∣ _ * _ -> _ ∣ _",
+      "declarations": [
+        "Nat.dvd_of_mul_dvd_mul_left",
+        "Nat.dvd_of_mul_dvd_mul_right",
+        "Int.dvd_of_mul_dvd_mul_left",
+        "Int.dvd_of_mul_dvd_mul_right",
+        "Int.dvd_of_mul_dvd",
+        "Squarefree.dvd_of_squarefree_of_mul_dvd_mul_left",
+        "Squarefree.dvd_of_squarefree_of_mul_dvd_mul_right"
+      ],
+      "call_turn": 170,
+      "result_turn": 175
+    },
+    {
+      "event_id": "loogle:134",
+      "tool": "loogle",
+      "query": "(_ ^ (_ : ℤ)) ^ _ = _ ^ (_ * _)",
+      "declarations": [],
+      "call_turn": 178,
+      "result_turn": 179
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "zpow_natCast",
+      "declarations": [
+        "zpow_natCast",
+        "finEquivZPowers_apply",
+        "zpowersEquivZPowers_apply"
+      ],
+      "call_turn": 178,
+      "result_turn": 180
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "zpow_mul",
+      "declarations": [
+        "zpow_mul"
+      ],
+      "call_turn": 178,
+      "result_turn": 181
+    },
+    {
+      "event_id": "loogle:137",
+      "tool": "loogle",
+      "query": "zpow_add",
+      "declarations": [
+        "zpow_add"
+      ],
+      "call_turn": 178,
+      "result_turn": 182
+    },
+    {
+      "event_id": "loogle:138",
+      "tool": "loogle",
+      "query": "mul_zpow",
+      "declarations": [
+        "mul_zpow"
+      ],
+      "call_turn": 178,
+      "result_turn": 183
+    },
+    {
+      "event_id": "loogle:150",
+      "tool": "loogle",
+      "query": "orderOf _ ∣ orderOf _",
+      "declarations": [
+        "orderOf_pow_dvd",
+        "IsOfFinOrder.mono",
+        "orderOf_fst_dvd_orderOf",
+        "orderOf_snd_dvd_orderOf",
+        "orderOf_apply_dvd_orderOf",
+        "orderOf_dvd_of_mem_zpowers",
+        "orderOf_map_dvd",
+        "Equiv.Perm.orderOf_cycleOf_dvd_orderOf",
+        "monoidHomOfForallMemZpowers",
+        "monoidHomOfForallMemZpowers_apply_gen"
+      ],
+      "call_turn": 206,
+      "result_turn": 207
+    },
+    {
+      "event_id": "loogle:151",
+      "tool": "loogle",
+      "query": "_ ∈ Subgroup.zpowers _ -> orderOf _ ∣ orderOf _",
+      "declarations": [
+        "orderOf_dvd_of_mem_zpowers"
+      ],
+      "call_turn": 206,
+      "result_turn": 208
+    },
+    {
+      "event_id": "loogle:152",
+      "tool": "loogle",
+      "query": "orderOf_dvd_of_mem_zpowers",
+      "declarations": [
+        "orderOf_dvd_of_mem_zpowers"
+      ],
+      "call_turn": 206,
+      "result_turn": 209
+    },
+    {
+      "event_id": "loogle:153",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_le -> orderOf _ ∣ orderOf _",
+      "declarations": [],
+      "call_turn": 206,
+      "result_turn": 210
+    },
+    {
+      "event_id": "loogle:154",
+      "tool": "loogle",
+      "query": "pow_orderOf_eq_one",
+      "declarations": [
+        "pow_orderOf_eq_one"
+      ],
+      "call_turn": 206,
+      "result_turn": 211
+    },
+    {
+      "event_id": "loogle:162",
+      "tool": "loogle",
+      "query": "Nat.card _ = Nat.card _ -> _ = ⊤",
+      "declarations": [
+        "AddSubgroup.eq_top_of_card_eq",
+        "Subgroup.eq_top_of_card_eq"
+      ],
+      "call_turn": 226,
+      "result_turn": 227
+    },
+    {
+      "event_id": "loogle:163",
+      "tool": "loogle",
+      "query": "Subgroup.eq_top_of_card_eq",
+      "declarations": [
+        "Subgroup.eq_top_of_card_eq"
+      ],
+      "call_turn": 226,
+      "result_turn": 228
+    },
+    {
+      "event_id": "loogle:164",
+      "tool": "loogle",
+      "query": "SetLike.coe_subset_coe card",
+      "declarations": [],
+      "call_turn": 226,
+      "result_turn": 229
+    },
+    {
+      "event_id": "leanfinder:165",
+      "tool": "leanfinder",
+      "query": "finite subgroup equals top if same cardinality as group",
+      "declarations": [
+        "AddSubgroup.instFiniteIndexTop",
+        "Subgroup.eq_top_of_card_eq",
+        "Subgroup.card_top",
+        "Subgroup.FiniteIndex",
+        "AddSubgroup.eq_top_of_le_card",
+        "Substring.Raw.sameAs",
+        "QuotientAddGroup.subsingleton_quotient_top",
+        "Subgroup.eq_top_of_le_card",
+        "IsGaloisGroup.fixingSubgroup_top",
+        "Subgroup.instFiniteIndexTop"
+      ],
+      "call_turn": 226,
+      "result_turn": 230
+    },
+    {
+      "event_id": "loogle:166",
+      "tool": "loogle",
+      "query": "Subgroup.index_eq_one",
+      "declarations": [
+        "Subgroup.index_eq_one"
+      ],
+      "call_turn": 226,
+      "result_turn": 231
+    },
+    {
+      "event_id": "loogle:167",
+      "tool": "loogle",
+      "query": "Subgroup.index_eq_one_iff",
+      "declarations": [],
+      "call_turn": 226,
+      "result_turn": 232
+    },
+    {
+      "event_id": "loogle:168",
+      "tool": "loogle",
+      "query": "Nat.mul_right_cancel",
+      "declarations": [
+        "Nat.mul_right_cancel"
+      ],
+      "call_turn": 233,
+      "result_turn": 234
+    },
+    {
+      "event_id": "loogle:169",
+      "tool": "loogle",
+      "query": "_ * _ = _ * _ -> _ = _",
+      "declarations": [
+        "Nat.eq_of_mul_eq_mul_left",
+        "Nat.eq_of_mul_eq_mul_right",
+        "Int.eq_of_mul_eq_mul_left",
+        "Int.eq_of_mul_eq_mul_right",
+        "Nat.mul_left_cancel",
+        "Nat.mul_right_cancel",
+        "Nat.gcd_mul_gcd_of_coprime_of_mul_eq_mul",
+        "Int.tdiv_eq_tdiv_of_mul_eq_mul",
+        "Int.ediv_eq_ediv_of_mul_eq_mul",
+        "Std.Tactic.BVDecide.BVExpr.eval_replicate"
+      ],
+      "call_turn": 233,
+      "result_turn": 235
+    },
+    {
+      "event_id": "loogle:170",
+      "tool": "loogle",
+      "query": "Nat.mul_left_cancel",
+      "declarations": [
+        "Nat.mul_left_cancel"
+      ],
+      "call_turn": 233,
+      "result_turn": 236
+    },
+    {
+      "event_id": "loogle:171",
+      "tool": "loogle",
+      "query": "Nat.eq_of_mul_eq_mul_left",
+      "declarations": [
+        "Nat.eq_of_mul_eq_mul_left"
+      ],
+      "call_turn": 233,
+      "result_turn": 237
+    },
+    {
+      "event_id": "loogle:172",
+      "tool": "loogle",
+      "query": "Nat.mul_eq_mul_left_iff",
+      "declarations": [],
+      "call_turn": 233,
+      "result_turn": 238
+    },
+    {
+      "event_id": "leanfinder:175",
+      "tool": "leanfinder",
+      "query": "every subgroup of commutative group normal quotient group",
+      "declarations": [
+        "AddSubgroup.Normal.quotient_commutative_iff_addCommutator_le",
+        "QuotientGroup.instNormalSubgroup",
+        "Con.subgroup_quotientGroupCon",
+        "QuotientGroup.Quotient.commGroup",
+        "Subgroup.Normal",
+        "Subgroup.normal_of_isMulCommutative",
+        "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+        "QuotientGroup.map_normal",
+        "Subgroup.SchurZassenhausInduction.step7",
+        "QuotientAddGroup.instNormalAddSubgroup"
+      ],
+      "call_turn": 243,
+      "result_turn": 244
+    },
+    {
+      "event_id": "loogle:176",
+      "tool": "loogle",
+      "query": "Subgroup.normal_of_commGroup",
+      "declarations": [],
+      "call_turn": 243,
+      "result_turn": 245
+    },
+    {
+      "event_id": "loogle:177",
+      "tool": "loogle",
+      "query": "CommGroup _ Normal",
+      "declarations": [],
+      "call_turn": 243,
+      "result_turn": 246
+    },
+    {
+      "event_id": "loogle:178",
+      "tool": "loogle",
+      "query": "Subgroup.normal_of_comm",
+      "declarations": [
+        "Subgroup.normal_of_comm",
+        "QuotientGroup.homQuotientZPowOfHom",
+        "QuotientGroup.equivQuotientZPowOfEquiv",
+        "QuotientGroup.homQuotientZPowOfHom_id",
+        "QuotientGroup.equivQuotientZPowOfEquiv_refl",
+        "QuotientGroup.mulEquivPiModRangePowMonoidHom",
+        "QuotientGroup.equivQuotientZPowOfEquiv_symm",
+        "QuotientGroup.homQuotientZPowOfHom_comp",
+        "QuotientGroup.equivQuotientZPowOfEquiv_trans",
+        "QuotientGroup.homQuotientZPowOfHom_comp_of_rightInverse"
+      ],
+      "call_turn": 243,
+      "result_turn": 247
+    },
+    {
+      "event_id": "loogle:179",
+      "tool": "loogle",
+      "query": "QuotientGroup.mk'",
+      "declarations": [
+        "QuotientGroup.ker_mk'",
+        "QuotientGroup.mk'",
+        "QuotientGroup.range_mk'",
+        "QuotientGroup.map_mk'_self",
+        "QuotientGroup.ker_lift",
+        "QuotientGroup.lift_comp_mk'",
+        "QuotientGroup.mk'_surjective",
+        "QuotientGroup.coe_mk'",
+        "QuotientGroup.mk'_apply",
+        "QuotientGroup.ker_map"
+      ],
+      "call_turn": 243,
+      "result_turn": 248
+    },
+    {
+      "event_id": "loogle:180",
+      "tool": "loogle",
+      "query": "Nat.card (_ ⧸ _) = _.index",
+      "declarations": [],
+      "call_turn": 243,
+      "result_turn": 249
+    },
+    {
+      "event_id": "loogle:181",
+      "tool": "loogle",
+      "query": "Subgroup.index_quotient",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 251
+    },
+    {
+      "event_id": "loogle:182",
+      "tool": "loogle",
+      "query": "Nat.card (_ ⧸ _)",
+      "declarations": [
+        "Submodule.card_eq_card_quotient_mul_card",
+        "Submodule.card_quotient_mul_card_quotient",
+        "AddSubgroup.card_quotient_dvd_card",
+        "Subgroup.card_quotient_dvd_card",
+        "AddSubgroup.card_eq_card_quotient_mul_card_addSubgroup",
+        "Subgroup.card_eq_card_quotient_mul_card_subgroup",
+        "AddSubgroup.index_eq_card",
+        "Subgroup.index_eq_card",
+        "Sylow.card_eq_card_quotient_normalizer",
+        "Sylow.card_quotient_normalizer_modEq_card_quotient"
+      ],
+      "call_turn": 250,
+      "result_turn": 252
+    },
+    {
+      "event_id": "loogle:183",
+      "tool": "loogle",
+      "query": "Nat.card_quotient",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 253
+    },
+    {
+      "event_id": "loogle:184",
+      "tool": "loogle",
+      "query": "Subgroup.index_eq_card_quotient",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 254
+    },
+    {
+      "event_id": "loogle:185",
+      "tool": "loogle",
+      "query": "Subgroup.index_eq_card",
+      "declarations": [
+        "Subgroup.index_eq_card"
+      ],
+      "call_turn": 250,
+      "result_turn": 255
+    },
+    {
+      "event_id": "loogle:186",
+      "tool": "loogle",
+      "query": "card_quotient_eq_index",
+      "declarations": [],
+      "call_turn": 250,
+      "result_turn": 256
+    },
+    {
+      "event_id": "loogle:187",
+      "tool": "loogle",
+      "query": "orderOf_dvd_card",
+      "declarations": [
+        "orderOf_dvd_card"
+      ],
+      "call_turn": 257,
+      "result_turn": 258
+    },
+    {
+      "event_id": "loogle:188",
+      "tool": "loogle",
+      "query": "orderOf _ ∣ Nat.card _",
+      "declarations": [
+        "orderOf_dvd_natCard",
+        "Subgroup.orderOf_dvd_natCard"
+      ],
+      "call_turn": 257,
+      "result_turn": 259
+    },
+    {
+      "event_id": "loogle:189",
+      "tool": "loogle",
+      "query": "pow_card_eq_one",
+      "declarations": [
+        "pow_card_eq_one"
+      ],
+      "call_turn": 257,
+      "result_turn": 260
+    },
+    {
+      "event_id": "loogle:190",
+      "tool": "loogle",
+      "query": "_ ^ Nat.card _ = 1",
+      "declarations": [
+        "pow_card_eq_one'"
+      ],
+      "call_turn": 257,
+      "result_turn": 261
+    },
+    {
+      "event_id": "loogle:191",
+      "tool": "loogle",
+      "query": "pow_card_eq_one'",
+      "declarations": [
+        "pow_card_eq_one'"
+      ],
+      "call_turn": 257,
+      "result_turn": 262
+    },
+    {
+      "event_id": "loogle:194",
+      "tool": "loogle",
+      "query": "Subgroup.eq_of_le_of_card_eq",
+      "declarations": [],
+      "call_turn": 267,
+      "result_turn": 268
+    },
+    {
+      "event_id": "loogle:195",
+      "tool": "loogle",
+      "query": "_ ≤ _ -> Nat.card _ = Nat.card _ -> _ = _",
+      "declarations": [],
+      "call_turn": 267,
+      "result_turn": 269
+    },
+    {
+      "event_id": "leanfinder:196",
+      "tool": "leanfinder",
+      "query": "subgroup equality inclusion and equal finite cardinality",
+      "declarations": [
+        "Subgroup.FiniteIndex",
+        "Subgroup.eq_of_le_of_card_ge",
+        "Subgroup.inclusion",
+        "Subgroup.eq_top_of_card_eq",
+        "AddSubgroup.inclusion",
+        "AddSubgroup.eq_of_le_of_card_ge",
+        "Subgroup.eq_top_of_le_card",
+        "Subgroup.inclusion_range",
+        "And",
+        "Subgroup.finite_iff_finite_and_finiteIndex"
+      ],
+      "call_turn": 267,
+      "result_turn": 270
+    },
+    {
+      "event_id": "loogle:197",
+      "tool": "loogle",
+      "query": "SetLike.eq_of_subset_of_card_eq",
+      "declarations": [],
+      "call_turn": 267,
+      "result_turn": 271
+    },
+    {
+      "event_id": "loogle:198",
+      "tool": "loogle",
+      "query": "Subgroup.eq_of_le_of_card_le",
+      "declarations": [],
+      "call_turn": 267,
+      "result_turn": 272
+    },
+    {
+      "event_id": "loogle:211",
+      "tool": "loogle",
+      "query": "IsCyclic ↥(Subgroup.zpowers _)",
+      "declarations": [
+        "Subgroup.isCyclic_zpowers"
+      ],
+      "call_turn": 297,
+      "result_turn": 298
+    },
+    {
+      "event_id": "loogle:212",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_isCyclic",
+      "declarations": [],
+      "call_turn": 297,
+      "result_turn": 299
+    },
+    {
+      "event_id": "loogle:213",
+      "tool": "loogle",
+      "query": "zmodCyclicMulEquiv",
+      "declarations": [
+        "zmodCyclicMulEquiv",
+        "IsCyclic.val_mulAutMulEquiv_apply",
+        "IsCyclic.val_inv_mulAutMulEquiv_apply",
+        "IsCyclic.mulAutMulEquiv_symm_apply_apply",
+        "IsCyclic.mulAutMulEquiv_symm_apply_symm_apply"
+      ],
+      "call_turn": 297,
+      "result_turn": 300
+    },
+    {
+      "event_id": "loogle:214",
+      "tool": "loogle",
+      "query": "MulEquiv.prodCongr",
+      "declarations": [
+        "MulEquiv.prodCongr"
+      ],
+      "call_turn": 297,
+      "result_turn": 301
+    },
+    {
+      "event_id": "loogle:215",
+      "tool": "loogle",
+      "query": "MulEquiv.trans (_ : _ ≃* _)",
+      "declarations": [
+        "MulEquiv.self_trans_symm",
+        "MulEquiv.symm_trans_self",
+        "MulEquiv.trans_apply",
+        "MulEquiv.coe_trans",
+        "MulEquiv.symm_trans_apply",
+        "MulEquiv.coe_monoidHom_trans",
+        "MulEquiv.piCongrRight_trans",
+        "MulEquiv.monoidHomCongrLeftEquiv_trans",
+        "MulEquiv.monoidHomCongrRightEquiv_trans",
+        "MulEquiv.monoidHomCongrLeft_trans"
+      ],
+      "call_turn": 297,
+      "result_turn": 302
+    },
+    {
+      "event_id": "loogle:216",
+      "tool": "loogle",
+      "query": "MulEquiv.symm (_ : _ ≃* _)",
+      "declarations": [
+        "MulEquiv.refl_symm",
+        "MulEquiv.symm_symm",
+        "MulEquiv.self_trans_symm",
+        "MulEquiv.symm_trans_self",
+        "MulEquiv.invFun_eq_symm",
+        "MulEquiv.toEquiv_symm",
+        "MulEquiv.equivLike_inv_eq_symm",
+        "MulEquiv.apply_symm_apply",
+        "MulEquiv.symm_apply_apply",
+        "MulEquiv.self_comp_symm"
+      ],
+      "call_turn": 297,
+      "result_turn": 303
+    },
+    {
+      "event_id": "loogle:217",
+      "tool": "loogle",
+      "query": "ZMod _ ≃* ZMod _",
+      "declarations": [],
+      "call_turn": 304,
+      "result_turn": 305
+    },
+    {
+      "event_id": "loogle:218",
+      "tool": "loogle",
+      "query": "MulEquiv.cast",
+      "declarations": [
+        "MulEquiv.cast",
+        "MulEquiv.cast_apply",
+        "MulEquiv.cast_symm_apply"
+      ],
+      "call_turn": 304,
+      "result_turn": 306
+    },
+    {
+      "event_id": "loogle:219",
+      "tool": "loogle",
+      "query": "MulEquiv.ofEq",
+      "declarations": [],
+      "call_turn": 304,
+      "result_turn": 307
+    },
+    {
+      "event_id": "loogle:220",
+      "tool": "loogle",
+      "query": "ZMod.castMulEquiv",
+      "declarations": [],
+      "call_turn": 304,
+      "result_turn": 308
+    },
+    {
+      "event_id": "leanfinder:221",
+      "tool": "leanfinder",
+      "query": "multiplicative equivalence after rewriting equal cardinality ZMod n ZMod m",
+      "declarations": [
+        "ZMod.inv",
+        "Lean.Meta.Structural.isInstModNat",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "ZMod",
+        "ZModModule.isPGroup_multiplicative",
+        "Lean.Meta.Grind.Arith.Cutsat.getModThm",
+        "ZMod.val_mul_le",
+        "ModN.instModuleZMod",
+        "ZMod.ringChar_zmod_n",
+        "Lean.Elab.Tactic.Omega.Justification.bmod"
+      ],
+      "call_turn": 304,
+      "result_turn": 309
+    },
+    {
+      "event_id": "loogle:222",
+      "tool": "loogle",
+      "query": "MulEquiv.ArrowCongr",
+      "declarations": [],
+      "call_turn": 304,
+      "result_turn": 310
+    },
+    {
+      "event_id": "loogle:223",
+      "tool": "loogle",
+      "query": "Multiplicative.mulEquivCongr",
+      "declarations": [],
+      "call_turn": 304,
+      "result_turn": 311
+    },
+    {
+      "event_id": "loogle:224",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers_subgroupOf",
+      "declarations": [],
+      "call_turn": 312,
+      "result_turn": 313
+    },
+    {
+      "event_id": "loogle:225",
+      "tool": "loogle",
+      "query": "zpowers ⟨_, _⟩ = _",
+      "declarations": [],
+      "call_turn": 312,
+      "result_turn": 314
+    },
+    {
+      "event_id": "leanfinder:226",
+      "tool": "leanfinder",
+      "query": "generator of cyclic subgroup subtype zpowers",
+      "declarations": [
+        "IsAddCyclic.image_range_card",
+        "Subgroup.zpowers",
+        "IsCyclic.exists_generator",
+        "Subgroup.zpow_mem_zpowers",
+        "Subgroup.isCyclic_iff_exists_zpowers_eq_top",
+        "ZMod.val_pow",
+        "IsZGroup.instIsCyclicSubtypeMemSubgroupOfFactPrime",
+        "Subgroup.instCountableSubtypeMemZpowers",
+        "Subgroup.isCyclic_zpowers",
+        "Subgroup.forall_zpowers"
+      ],
+      "call_turn": 312,
+      "result_turn": 315
+    },
+    {
+      "event_id": "loogle:227",
+      "tool": "loogle",
+      "query": "Subgroup.isCyclic_zpowers.exists_generator",
+      "declarations": [],
+      "call_turn": 312,
+      "result_turn": 316
+    },
+    {
+      "event_id": "loogle:228",
+      "tool": "loogle",
+      "query": "IsCyclic.exists_generator",
+      "declarations": [
+        "IsCyclic.exists_generator"
+      ],
+      "call_turn": 312,
+      "result_turn": 317
+    },
+    {
+      "event_id": "leanfinder:229",
+      "tool": "leanfinder",
+      "query": "group of prime cardinality cyclic nonidentity generator",
+      "declarations": [
+        "Ideal.prime_generator_of_prime",
+        "mem_zpowers_of_prime_card",
+        "zmultiples_eq_top_of_prime_card",
+        "isCyclic_of_prime_card",
+        "isAddCyclic_of_prime_card",
+        "Equiv.Perm.closure_prime_cycle_swap",
+        "IsAddCyclic.exists_generator",
+        "IsCyclic.exists_generator",
+        "IsCyclic.exists_monoid_generator",
+        "IsCyclic"
+      ],
+      "call_turn": 318,
+      "result_turn": 319
+    },
+    {
+      "event_id": "loogle:230",
+      "tool": "loogle",
+      "query": "IsCyclic.of_card_prime",
+      "declarations": [],
+      "call_turn": 318,
+      "result_turn": 320
+    },
+    {
+      "event_id": "loogle:231",
+      "tool": "loogle",
+      "query": "Nat.card _ = _.Prime -> IsCyclic _",
+      "declarations": [],
+      "call_turn": 318,
+      "result_turn": 321
+    },
+    {
+      "event_id": "loogle:232",
+      "tool": "loogle",
+      "query": "isCyclic_of_prime_card",
+      "declarations": [
+        "isCyclic_of_prime_card"
+      ],
+      "call_turn": 318,
+      "result_turn": 322
+    },
+    {
+      "event_id": "loogle:233",
+      "tool": "loogle",
+      "query": "zpowers _ = ⊤ ↔ orderOf _ = Nat.card _",
+      "declarations": [],
+      "call_turn": 318,
+      "result_turn": 323
+    },
+    {
+      "event_id": "loogle:234",
+      "tool": "loogle",
+      "query": "orderOf_eq_card_of_forall_mem_zpowers",
+      "declarations": [
+        "orderOf_eq_card_of_forall_mem_zpowers"
+      ],
+      "call_turn": 318,
+      "result_turn": 324
+    },
+    {
+      "event_id": "loogle:235",
+      "tool": "loogle",
+      "query": "mem_zpowers_of_prime_card",
+      "declarations": [
+        "mem_zpowers_of_prime_card"
+      ],
+      "call_turn": 325,
+      "result_turn": 326
+    },
+    {
+      "event_id": "loogle:236",
+      "tool": "loogle",
+      "query": "orderOf _ ≤ _",
+      "declarations": [
+        "orderOf_le_card",
+        "orderOf_le_card_univ",
+        "LinearOrderedRing.orderOf_le_two",
+        "orderOf_le_of_pow_eq_one",
+        "Subgroup.orderOf_le_card",
+        "Submonoid.orderOf_le_card",
+        "Monoid.orderOf_le_exponent"
+      ],
+      "call_turn": 327,
+      "result_turn": 328
+    },
+    {
+      "event_id": "loogle:237",
+      "tool": "loogle",
+      "query": "orderOf_le_of_pow_eq_one",
+      "declarations": [
+        "orderOf_le_of_pow_eq_one"
+      ],
+      "call_turn": 327,
+      "result_turn": 329
+    },
+    {
+      "event_id": "loogle:238",
+      "tool": "loogle",
+      "query": "le_orderOf",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 330
+    },
+    {
+      "event_id": "loogle:239",
+      "tool": "loogle",
+      "query": "orderOf_eq_of_pow_and_not_pow",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 331
+    },
+    {
+      "event_id": "loogle:240",
+      "tool": "loogle",
+      "query": "orderOf_eq_iff",
+      "declarations": [
+        "orderOf_eq_iff"
+      ],
+      "call_turn": 327,
+      "result_turn": 332
+    },
+    {
+      "event_id": "loogle:241",
+      "tool": "loogle",
+      "query": "orderOf_dvd_prime_pow",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 333
+    },
+    {
+      "event_id": "loogle:242",
+      "tool": "loogle",
+      "query": "orderOf_pos",
+      "declarations": [
+        "orderOf_pos"
+      ],
+      "call_turn": 334,
+      "result_turn": 335
+    },
+    {
+      "event_id": "loogle:243",
+      "tool": "loogle",
+      "query": "0 < orderOf _",
+      "declarations": [
+        "orderOf_pos",
+        "IsOfFinOrder.orderOf_pos",
+        "orderOf_pos_iff",
+        "Monoid.ExponentExists.orderOf_pos",
+        "Monoid.exponent_eq_zero_iff_range_orderOf_infinite",
+        "Monoid.exponent_ne_zero_iff_range_orderOf_finite",
+        "Monoid.exponent_eq_iSup_orderOf",
+        "MulChar.orderOf_pos",
+        "MulAction.period_le_orderOf",
+        "MulAction.period_pos_of_orderOf_pos"
+      ],
+      "call_turn": 334,
+      "result_turn": 336
+    },
+    {
+      "event_id": "loogle:244",
+      "tool": "loogle",
+      "query": "orderOf_pos_of_finite",
+      "declarations": [],
+      "call_turn": 334,
+      "result_turn": 337
+    },
+    {
+      "event_id": "loogle:245",
+      "tool": "loogle",
+      "query": "Nat.le_of_dvd",
+      "declarations": [
+        "Nat.le_of_dvd"
+      ],
+      "call_turn": 334,
+      "result_turn": 338
+    },
+    {
+      "event_id": "loogle:257",
+      "tool": "loogle",
+      "query": "zpow_eq_zpow_iff_modEq",
+      "declarations": [
+        "zpow_eq_zpow_iff_modEq"
+      ],
+      "call_turn": 361,
+      "result_turn": 362
+    },
+    {
+      "event_id": "loogle:258",
+      "tool": "loogle",
+      "query": "_ ^ _ = _ ^ _ ↔ _ ≡ _ [ZMOD orderOf _]",
+      "declarations": [
+        "zpow_eq_zpow_iff_modEq"
+      ],
+      "call_turn": 361,
+      "result_turn": 363
+    },
+    {
+      "event_id": "loogle:259",
+      "tool": "loogle",
+      "query": "zpow_eq_zpow_iff",
+      "declarations": [],
+      "call_turn": 361,
+      "result_turn": 364
+    },
+    {
+      "event_id": "loogle:260",
+      "tool": "loogle",
+      "query": "Int.ModEq _ orderOf _ -> _ ^ _ = _ ^ _",
+      "declarations": [],
+      "call_turn": 361,
+      "result_turn": 365
+    },
+    {
+      "event_id": "loogle:261",
+      "tool": "loogle",
+      "query": "zpow_mod_orderOf",
+      "declarations": [
+        "zpow_mod_orderOf"
+      ],
+      "call_turn": 361,
+      "result_turn": 366
+    },
+    {
+      "event_id": "loogle:262",
+      "tool": "loogle",
+      "query": "Int.emod_nonneg",
+      "declarations": [
+        "Int.emod_nonneg"
+      ],
+      "call_turn": 361,
+      "result_turn": 367
+    },
+    {
+      "event_id": "loogle:263",
+      "tool": "loogle",
+      "query": "Int.toNat_lt",
+      "declarations": [
+        "Int.toNat_lt"
+      ],
+      "call_turn": 368,
+      "result_turn": 369
+    },
+    {
+      "event_id": "loogle:264",
+      "tool": "loogle",
+      "query": "_ < _ -> _.toNat < _",
+      "declarations": [],
+      "call_turn": 368,
+      "result_turn": 370
+    },
+    {
+      "event_id": "loogle:265",
+      "tool": "loogle",
+      "query": "Int.toNat_of_nonneg",
+      "declarations": [
+        "Int.toNat_of_nonneg"
+      ],
+      "call_turn": 368,
+      "result_turn": 371
+    },
+    {
+      "event_id": "loogle:266",
+      "tool": "loogle",
+      "query": "Int.emod_lt_of_pos",
+      "declarations": [
+        "Int.emod_lt_of_pos"
+      ],
+      "call_turn": 368,
+      "result_turn": 372
+    },
+    {
+      "event_id": "loogle:267",
+      "tool": "loogle",
+      "query": "Int.ofNat_pos",
+      "declarations": [],
+      "call_turn": 368,
+      "result_turn": 373
+    },
+    {
+      "event_id": "loogle:268",
+      "tool": "loogle",
+      "query": "Int.modEq_iff_dvd",
+      "declarations": [
+        "Int.modEq_iff_dvd"
+      ],
+      "call_turn": 374,
+      "result_turn": 375
+    },
+    {
+      "event_id": "loogle:269",
+      "tool": "loogle",
+      "query": "_ ≡ _ [ZMOD _] ↔ _ ∣ _",
+      "declarations": [
+        "Int.modEq_zero_iff_dvd",
+        "Int.add_modEq_left_iff",
+        "Int.add_modEq_right_iff",
+        "Int.left_modEq_add_iff",
+        "Int.modEq_iff_dvd",
+        "Int.right_modEq_add_iff"
+      ],
+      "call_turn": 374,
+      "result_turn": 376
+    },
+    {
+      "event_id": "loogle:270",
+      "tool": "loogle",
+      "query": "Int.ModEq.trans",
+      "declarations": [
+        "Int.ModEq.trans"
+      ],
+      "call_turn": 374,
+      "result_turn": 377
+    },
+    {
+      "event_id": "loogle:271",
+      "tool": "loogle",
+      "query": "Int.ModEq.mul",
+      "declarations": [
+        "Int.ModEq.mul"
+      ],
+      "call_turn": 374,
+      "result_turn": 378
+    },
+    {
+      "event_id": "loogle:272",
+      "tool": "loogle",
+      "query": "Int.ModEq.sub",
+      "declarations": [
+        "Int.ModEq.sub"
+      ],
+      "call_turn": 374,
+      "result_turn": 379
+    },
+    {
+      "event_id": "loogle:273",
+      "tool": "loogle",
+      "query": "Int.ModEq.add",
+      "declarations": [
+        "Int.ModEq.add"
+      ],
+      "call_turn": 374,
+      "result_turn": 380
+    },
+    {
+      "event_id": "loogle:274",
+      "tool": "loogle",
+      "query": "Int.eq_zero_of_dvd",
+      "declarations": [],
+      "call_turn": 381,
+      "result_turn": 382
+    },
+    {
+      "event_id": "loogle:275",
+      "tool": "loogle",
+      "query": "_ ∣ _ -> _.natAbs < _ -> _ = 0",
+      "declarations": [],
+      "call_turn": 381,
+      "result_turn": 383
+    },
+    {
+      "event_id": "loogle:276",
+      "tool": "loogle",
+      "query": "Int.natAbs_lt_of_dvd",
+      "declarations": [],
+      "call_turn": 381,
+      "result_turn": 384
+    },
+    {
+      "event_id": "loogle:277",
+      "tool": "loogle",
+      "query": "Int.ModEq.eq_of_lt_of_lt",
+      "declarations": [],
+      "call_turn": 381,
+      "result_turn": 385
+    },
+    {
+      "event_id": "loogle:278",
+      "tool": "loogle",
+      "query": "Int.ModEq.natCast_eq_natCast",
+      "declarations": [],
+      "call_turn": 381,
+      "result_turn": 386
+    },
+    {
+      "event_id": "loogle:279",
+      "tool": "loogle",
+      "query": "ZMod.natCast_eq_natCast_iff",
+      "declarations": [
+        "ZMod.natCast_eq_natCast_iff"
+      ],
+      "call_turn": 381,
+      "result_turn": 387
+    },
+    {
+      "event_id": "loogle:280",
+      "tool": "loogle",
+      "query": "Int.cast_eq_zero_iff_dvd",
+      "declarations": [],
+      "call_turn": 388,
+      "result_turn": 389
+    },
+    {
+      "event_id": "loogle:281",
+      "tool": "loogle",
+      "query": "(_ : ZMod _) = 0 ↔ _ ∣ _",
+      "declarations": [
+        "ZMod.intCast_zmod_eq_zero_iff_dvd",
+        "ZMod.natCast_eq_zero_iff"
+      ],
+      "call_turn": 388,
+      "result_turn": 390
+    },
+    {
+      "event_id": "loogle:282",
+      "tool": "loogle",
+      "query": "ZMod.intCast_eq_zero_iff_dvd",
+      "declarations": [],
+      "call_turn": 388,
+      "result_turn": 391
+    },
+    {
+      "event_id": "loogle:283",
+      "tool": "loogle",
+      "query": "ZMod.eq_iff_modEq_nat",
+      "declarations": [],
+      "call_turn": 388,
+      "result_turn": 392
+    },
+    {
+      "event_id": "loogle:284",
+      "tool": "loogle",
+      "query": "ZMod.natCast_eq_natCast_iff'",
+      "declarations": [
+        "ZMod.natCast_eq_natCast_iff'"
+      ],
+      "call_turn": 388,
+      "result_turn": 393
+    },
+    {
+      "event_id": "loogle:285",
+      "tool": "loogle",
+      "query": "ZMod.intCast_eq_intCast_iff",
+      "declarations": [
+        "ZMod.intCast_eq_intCast_iff"
+      ],
+      "call_turn": 388,
+      "result_turn": 394
+    },
+    {
+      "event_id": "loogle:286",
+      "tool": "loogle",
+      "query": "Nat.ModEq.eq_of_lt_of_lt",
+      "declarations": [
+        "Nat.ModEq.eq_of_lt_of_lt"
+      ],
+      "call_turn": 395,
+      "result_turn": 396
+    },
+    {
+      "event_id": "loogle:287",
+      "tool": "loogle",
+      "query": "_ ≡ _ [MOD _] -> _ < _ -> _ < _ -> _ = _",
+      "declarations": [
+        "Nat.ModEq.eq_of_lt_of_lt"
+      ],
+      "call_turn": 395,
+      "result_turn": 397
+    },
+    {
+      "event_id": "loogle:288",
+      "tool": "loogle",
+      "query": "Nat.ModEq.eq_of_lt",
+      "declarations": [],
+      "call_turn": 395,
+      "result_turn": 398
+    },
+    {
+      "event_id": "loogle:289",
+      "tool": "loogle",
+      "query": "Nat.modEq_iff_dvd'",
+      "declarations": [
+        "Nat.modEq_iff_dvd'"
+      ],
+      "call_turn": 395,
+      "result_turn": 399
+    },
+    {
+      "event_id": "loogle:290",
+      "tool": "loogle",
+      "query": "Fin.ext_iff",
+      "declarations": [
+        "Fin.ext_iff",
+        "Fin.castPred_castSucc",
+        "Fin.castLT_eq_castPred",
+        "Fin.castPred_zero",
+        "Fin.castPred_one",
+        "Fin.pred_last"
+      ],
+      "call_turn": 395,
+      "result_turn": 400
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 11,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 1,
+    "selected_depth": 2,
+    "max_fan_in_all": 10,
+    "max_fan_in_main": 7,
+    "manifest_fact_count": 9,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 224,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 222,
+    "accepted_helper_count": 26,
+    "rollout_tool_call_count": 324,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

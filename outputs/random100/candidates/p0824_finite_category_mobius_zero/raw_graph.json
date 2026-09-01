@@ -1,0 +1,1016 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "manifest": [
+        {
+          "statement": "∀ (a c : A), ∑ b, μ a b * ↑(Fintype.card (b ⟶ c)) = if a = c then 1 else 0",
+          "origin": "manifest",
+          "name": "hμζ",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (a c : A), ∑ b, ↑(Fintype.card (a ⟶ b)) * μ b c = if a = c then 1 else 0",
+          "origin": "manifest",
+          "name": "hζμ",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "IsEmpty (a ⟶ b)",
+          "origin": "manifest",
+          "name": "hab",
+          "fvar_id": "10"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "M * ζ = 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Matrix.ext"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (a c : A), ∑ b, μ a b * ↑(Fintype.card (b ⟶ c)) = if a = c then 1 else 0",
+              "origin": "local_assumption",
+              "name": "hμζ",
+              "fvar_id": "6"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_13",
+          "conclusion": {
+            "statement": "M * ζ = 1",
+            "origin": "derived",
+            "name": "hMZ",
+            "fvar_id": "13"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "ζ * M = 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Matrix.ext"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (a c : A), ∑ b, ↑(Fintype.card (a ⟶ b)) * μ b c = if a = c then 1 else 0",
+              "origin": "local_assumption",
+              "name": "hζμ",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_14",
+          "conclusion": {
+            "statement": "ζ * M = 1",
+            "origin": "derived",
+            "name": "hZM",
+            "fvar_id": "14"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ ⦃i j : A⦄, label j < label i → ζ i j = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left",
+            "And.right",
+            "Bool.false_eq_true",
+            "Bool.lt_iff",
+            "Bool.true_eq_false",
+            "CharP.cast_eq_zero",
+            "CharP.ofCharZero",
+            "Decidable.byContradiction",
+            "Decidable.decide.congr_simp",
+            "Eq.trans",
+            "Fintype.card_pos",
+            "Fintype.card_pos_iff",
+            "Iff.mp",
+            "Nat.pos_of_ne_zero",
+            "Rat.instCharZero",
+            "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero._proof_1",
+            "congrArg",
+            "congrFun'",
+            "decide_false",
+            "decide_true",
+            "eq_false",
+            "eq_self",
+            "of_eq_true"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_16",
+          "conclusion": {
+            "statement": "ζ.BlockTriangular label",
+            "origin": "derived",
+            "name": "hζtri",
+            "fvar_id": "16"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "ζ⁻¹.BlockTriangular label",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "CommRing.orzechProperty",
+            "Matrix.blockTriangular_inv_of_blockTriangular",
+            "Matrix.instIsDedekindFiniteMonoidOfIsStablyFiniteRing",
+            "instIsStablyFiniteRingOfOrzechProperty"
+          ],
+          "premises": [
+            {
+              "statement": "ζ * M = 1",
+              "origin": "derived",
+              "name": "hZM",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "ζ.BlockTriangular label",
+              "origin": "derived",
+              "name": "hζtri",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "ζ⁻¹.BlockTriangular label",
+            "origin": "derived",
+            "name": "hμtri",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "ζ⁻¹ = M",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Matrix.inv_eq_left_inv"
+          ],
+          "premises": [
+            {
+              "statement": "M * ζ = 1",
+              "origin": "derived",
+              "name": "hMZ",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "ζ⁻¹ = M",
+            "origin": "derived",
+            "name": "hinv",
+            "fvar_id": "18"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Fintype.card (b ⟶ b) ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Fintype.card_ne_zero"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "Fintype.card (b ⟶ b) ≠ 0",
+            "origin": "derived",
+            "name": "hbcard",
+            "fvar_id": "19"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "label b < label a",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Bool.lt_iff",
+            "Decidable.decide.congr_simp",
+            "Eq.trans",
+            "Fintype.card_eq_zero",
+            "congrArg",
+            "congrFun'",
+            "decide_false",
+            "decide_true",
+            "eq_false",
+            "eq_self",
+            "of_eq_true"
+          ],
+          "premises": [
+            {
+              "statement": "IsEmpty (a ⟶ b)",
+              "origin": "local_assumption",
+              "name": "hab",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "Fintype.card (b ⟶ b) ≠ 0",
+              "origin": "derived",
+              "name": "hbcard",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "label b < label a",
+            "origin": "derived",
+            "name": "hlt",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "ζ⁻¹ a b = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "ζ⁻¹.BlockTriangular label",
+              "origin": "derived",
+              "name": "hμtri",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "label b < label a",
+              "origin": "derived",
+              "name": "hlt",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "ζ⁻¹ a b = 0",
+            "origin": "derived",
+            "name": "hzero",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "M a b = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [
+            {
+              "statement": "ζ⁻¹ = M",
+              "origin": "derived",
+              "name": "hinv",
+              "fvar_id": "18"
+            },
+            {
+              "statement": "ζ⁻¹ a b = 0",
+              "origin": "derived",
+              "name": "hzero",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "M a b = 0",
+            "origin": "derived",
+            "name": "this",
+            "fvar_id": "22"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "M a b = 0",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "M a b = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [],
+        "premises": [
+          {
+            "statement": "M a b = 0",
+            "origin": "derived",
+            "name": "this",
+            "fvar_id": "22"
+          }
+        ],
+        "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "M a b = 0",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 < Fintype.card (i ⟶ b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fintype.card_pos"
+      ],
+      "premises": [
+        {
+          "statement": "Nonempty (i ⟶ b)",
+          "origin": "local_assumption",
+          "name": "hi",
+          "fvar_id": "_uniq.3476662"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_770",
+      "conclusion": {
+        "statement": "0 < Fintype.card (i ⟶ b)",
+        "origin": "derived",
+        "name": "hpos",
+        "fvar_id": "_uniq.3477491"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Fintype.card (i ⟶ j) = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CharP.cast_eq_zero",
+        "CharP.ofCharZero",
+        "Eq.trans",
+        "Rat.instCharZero",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "¬ζ i j = 0",
+          "origin": "local_assumption",
+          "name": "hijζ",
+          "fvar_id": "_uniq.3433837"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_771",
+      "conclusion": {
+        "statement": "Fintype.card (i ⟶ j) ≠ 0",
+        "origin": "derived",
+        "name": "hcard",
+        "fvar_id": "_uniq.3433943"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty (i ⟶ j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fintype.card_pos_iff",
+        "Iff.mp",
+        "Nat.pos_of_ne_zero"
+      ],
+      "premises": [
+        {
+          "statement": "Fintype.card (i ⟶ j) ≠ 0",
+          "origin": "derived",
+          "name": "hcard",
+          "fvar_id": "_uniq.3433943"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_772",
+      "conclusion": {
+        "statement": "Nonempty (i ⟶ j)",
+        "origin": "derived",
+        "name": "hij",
+        "fvar_id": "_uniq.3448302"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "label j = false",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Bool.lt_iff",
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "label j < label i",
+          "origin": "local_assumption",
+          "name": "hlt",
+          "fvar_id": "_uniq.3433071"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_773",
+      "conclusion": {
+        "statement": "label j = false",
+        "origin": "derived",
+        "name": "hjfalse",
+        "fvar_id": "_uniq.3448315"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "label i = true",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Bool.lt_iff",
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "label j < label i",
+          "origin": "local_assumption",
+          "name": "hlt",
+          "fvar_id": "_uniq.3433071"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_774",
+      "conclusion": {
+        "statement": "label i = true",
+        "origin": "derived",
+        "name": "hitrue",
+        "fvar_id": "_uniq.3448328"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Fintype.card (j ⟶ b) = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Bool.true_eq_false",
+        "Decidable.decide.congr_simp",
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "decide_true",
+        "eq_self"
+      ],
+      "premises": [
+        {
+          "statement": "label j = false",
+          "origin": "derived",
+          "name": "hjfalse",
+          "fvar_id": "_uniq.3448315"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_775",
+      "conclusion": {
+        "statement": "Fintype.card (j ⟶ b) ≠ 0",
+        "origin": "derived",
+        "name": "hjcard",
+        "fvar_id": "_uniq.3448465"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty (j ⟶ b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fintype.card_pos_iff",
+        "Iff.mp",
+        "Nat.pos_of_ne_zero"
+      ],
+      "premises": [
+        {
+          "statement": "Fintype.card (j ⟶ b) ≠ 0",
+          "origin": "derived",
+          "name": "hjcard",
+          "fvar_id": "_uniq.3448465"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_776",
+      "conclusion": {
+        "statement": "Nonempty (j ⟶ b)",
+        "origin": "derived",
+        "name": "hjreach",
+        "fvar_id": "_uniq.3462269"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Fintype.card (i ⟶ b) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Bool.false_eq_true",
+        "Decidable.byContradiction",
+        "Decidable.decide.congr_simp",
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "decide_false",
+        "eq_false"
+      ],
+      "premises": [
+        {
+          "statement": "label i = true",
+          "origin": "derived",
+          "name": "hitrue",
+          "fvar_id": "_uniq.3448328"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_777",
+      "conclusion": {
+        "statement": "Fintype.card (i ⟶ b) = 0",
+        "origin": "derived",
+        "name": "hicard",
+        "fvar_id": "_uniq.3462417"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty (i ⟶ b) → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fintype.card_pos",
+        "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "Fintype.card (i ⟶ b) = 0",
+          "origin": "derived",
+          "name": "hicard",
+          "fvar_id": "_uniq.3462417"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_778",
+      "conclusion": {
+        "statement": "¬Nonempty (i ⟶ b)",
+        "origin": "derived",
+        "name": "hinreach",
+        "fvar_id": "_uniq.3476658"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty (b ⟶ b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_779",
+      "conclusion": {
+        "statement": "Nonempty (b ⟶ b)",
+        "origin": "derived",
+        "name": "hb",
+        "fvar_id": "_uniq.3479907"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "M * ζ = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.ext"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a c : A), ∑ b, μ a b * ↑(Fintype.card (b ⟶ c)) = if a = c then 1 else 0",
+          "origin": "local_assumption",
+          "name": "hμζ",
+          "fvar_id": "_uniq.3348267"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_782",
+      "conclusion": {
+        "statement": "M * ζ = 1",
+        "origin": "derived",
+        "name": "hMZ",
+        "fvar_id": "_uniq.3348718"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ζ * M = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.ext"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a c : A), ∑ b, ↑(Fintype.card (a ⟶ b)) * μ b c = if a = c then 1 else 0",
+          "origin": "local_assumption",
+          "name": "hζμ",
+          "fvar_id": "_uniq.3348268"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_783",
+      "conclusion": {
+        "statement": "ζ * M = 1",
+        "origin": "derived",
+        "name": "hZM",
+        "fvar_id": "_uniq.3390282"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃i j : A⦄, label j < label i → ζ i j = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Bool.false_eq_true",
+        "Bool.lt_iff",
+        "Bool.true_eq_false",
+        "CharP.cast_eq_zero",
+        "CharP.ofCharZero",
+        "Decidable.byContradiction",
+        "Decidable.decide.congr_simp",
+        "Eq.trans",
+        "Fintype.card_pos",
+        "Fintype.card_pos_iff",
+        "Iff.mp",
+        "Nat.pos_of_ne_zero",
+        "Rat.instCharZero",
+        "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero._proof_1",
+        "congrArg",
+        "congrFun'",
+        "decide_false",
+        "decide_true",
+        "eq_false",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_786",
+      "conclusion": {
+        "statement": "ζ.BlockTriangular label",
+        "origin": "derived",
+        "name": "hζtri",
+        "fvar_id": "_uniq.3433061"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ζ⁻¹.BlockTriangular label",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.blockTriangular_inv_of_blockTriangular"
+      ],
+      "premises": [
+        {
+          "statement": "ζ.BlockTriangular label",
+          "origin": "derived",
+          "name": "hζtri",
+          "fvar_id": "_uniq.3433061"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_787",
+      "conclusion": {
+        "statement": "ζ⁻¹.BlockTriangular label",
+        "origin": "derived",
+        "name": "hμtri",
+        "fvar_id": "_uniq.3478829"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ζ⁻¹ = M",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.inv_eq_left_inv"
+      ],
+      "premises": [
+        {
+          "statement": "M * ζ = 1",
+          "origin": "derived",
+          "name": "hMZ",
+          "fvar_id": "_uniq.3348718"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_788",
+      "conclusion": {
+        "statement": "ζ⁻¹ = M",
+        "origin": "derived",
+        "name": "hinv",
+        "fvar_id": "_uniq.3479608"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Fintype.card (b ⟶ b) ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fintype.card_ne_zero"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_789",
+      "conclusion": {
+        "statement": "Fintype.card (b ⟶ b) ≠ 0",
+        "origin": "derived",
+        "name": "hbcard",
+        "fvar_id": "_uniq.3479745"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "label b < label a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Bool.lt_iff",
+        "Decidable.decide.congr_simp",
+        "Eq.trans",
+        "Fintype.card_eq_zero",
+        "congrArg",
+        "congrFun'",
+        "decide_false",
+        "decide_true",
+        "eq_false",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "IsEmpty (a ⟶ b)",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3348271"
+        },
+        {
+          "statement": "Fintype.card (b ⟶ b) ≠ 0",
+          "origin": "derived",
+          "name": "hbcard",
+          "fvar_id": "_uniq.3479745"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_790",
+      "conclusion": {
+        "statement": "label b < label a",
+        "origin": "derived",
+        "name": "hlt",
+        "fvar_id": "_uniq.3480627"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ζ⁻¹ a b = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "ζ⁻¹.BlockTriangular label",
+          "origin": "derived",
+          "name": "hμtri",
+          "fvar_id": "_uniq.3478829"
+        },
+        {
+          "statement": "label b < label a",
+          "origin": "derived",
+          "name": "hlt",
+          "fvar_id": "_uniq.3480627"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_791",
+      "conclusion": {
+        "statement": "ζ⁻¹ a b = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3500926"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "M a b = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "ζ⁻¹ = M",
+          "origin": "derived",
+          "name": "hinv",
+          "fvar_id": "_uniq.3479608"
+        },
+        {
+          "statement": "ζ⁻¹ a b = 0",
+          "origin": "derived",
+          "name": "hzero",
+          "fvar_id": "_uniq.3500926"
+        }
+      ],
+      "parent": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+      "id": "local_792",
+      "conclusion": {
+        "statement": "M a b = 0",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3500966"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p0824_finite_category_mobius_zero",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0824_finite_category_mobius_zero.finite_category_mobius_zero",
+    "proof_sha256": "85bb367dff97023e3c5a6706022a1067e32c203f5187dc86b6b8333408893fc5"
+  }
+}

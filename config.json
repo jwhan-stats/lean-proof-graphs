@@ -1,0 +1,31 @@
+{
+  "schema_version": "dependency_graph_pipeline_config_v1",
+  "input": "data/k3-fsmzb-correct.jsonl",
+  "sample_size": 20,
+  "selection": {
+    "strategy": "shortest_sound_structured_stratified_by_helpers",
+    "no_helper_quota": 8,
+    "with_helper_quota": 12,
+    "min_main_have_count": 1,
+    "max_main_have_count": 18,
+    "max_submission_chars": 12000,
+    "require_retrieval_event": true,
+    "require_successful_verify_submission": true,
+    "forbidden_proof_tokens": ["sorry", "admit", "axiom", "sorryAx"]
+  },
+  "projection": {
+    "node_unit": "elaborated proposition-valued theorem-telescope binding",
+    "edge_unit": "kernel-checked theorem-value let binding",
+    "universal_introduction": "boundary; not counted as an edge",
+    "named_mathlib_declaration": "atomic",
+    "accepted_rollout_helper": "atomic and separately tagged",
+    "side_conditions": "retained and tagged",
+    "retrieval": "separate overlay matched by declaration name",
+    "minimality_status": "selected_derivation_only"
+  },
+  "lean": {
+    "version": "4.29.0",
+    "mathlib": "v4.29.0",
+    "batch_size": 20
+  }
+}

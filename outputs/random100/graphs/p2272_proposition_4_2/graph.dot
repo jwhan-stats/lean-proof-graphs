@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_e_e_72abb777" [shape=box, color="#178F82", label="hγe₁e₁\n↑γ (Sum.inl 0) (Sum.inl 0) = 1"];
+  "m_h_e_e_a415ba96" [shape=box, color="#178F82", label="hγe₁e₂\n↑γ (Sum.inl 1) (Sum.inl 0) = 1"];
+  "m_h_e_f_44ddd9cb" [shape=box, color="#178F82", label="hγe₁f₁\n↑γ (Sum.inr 0) (Sum.inl 0) = 0"];
+  "m_h_e_f_ae7c419d" [shape=box, color="#178F82", label="hγe₁f₂\n↑γ (Sum.inr 1) (Sum.inl 0) = 0"];
+  "m_h_gsp_b1623750" [shape=box, color="#178F82", label="hγGSp\n∃ μ, (↑γ).transpose * Matrix.J (Fin 2) ℤ_[p] * ↑γ = ↑μ • Matrix.J (Fin 2) ℤ_[p]"];
+  "m_inst___proofs_1926733331_a3817d3e" [shape=box, color="#178F82", label="inst._@.proofs.1926733331._hygCtx._hyg.8\nFact (Nat.Prime p)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n{h | (∃ A B, (↑A).det = (↑B).det ∧ h = Matrix.fromBlocks (Matrix.diagonal ![↑A 0 0, ↑B 0 0]) (Matrix.diagonal ![↑A 0 1, ↑B 0 1]) (Matrix.diagonal ![↑A 1 0, ↑B 1 0]) (Matrix.diagonal ![↑A 1 1, ↑B 1 1])) ∧ ∃ k, (∃ μ, (↑k).transpose * Matrix.J (Fin 2) ℤ_[p] * ↑k = ↑μ • Matrix.J (Fin 2) ℤ_[p]) ∧ (∀ (i : Fin 2 ⊕ Fin 2), i ≠ Sum.inl 0 → ↑p ^ m ∣ ↑k i (Sum.inl 0)) ∧ h = (↑(γ * k * γ⁻¹)).map ⇑(algebraMap ℤ_[p] ℚ_[p])} = {h | ∃ A B, (↑A).det = (↑B).det ∧ ↑p ^ m ∣ ↑A 1 0 ∧ ↑p ^ m ∣ ↑B 1 0 ∧ ↑p ^ m ∣ ↑A 0 0 - ↑B 0 0 ∧ h = (Matrix.fromBlocks (Matrix.diagonal ![↑A 0 0, ↑B 0 0]) (Matrix.diagonal ![↑A 0 1, ↑B 0 1]) (Matrix.diagonal ![↑A 1 0, ↑B 1 0]) (Matrix.diagonal ![↑A 1 1, ↑B 1 1])).map ⇑(algebraMap ℤ_[p] ℚ_[p])}"];
+  "r_h_goal" [shape=diamond, label="Matrix.GeneralLinearGroup.val_map_apply + RingHom.mapMatrix_apply + RingHom.map_det", color="#D97706"];
+  "m_inst___proofs_1926733331_a3817d3e" -> "r_h_goal";
+  "m_h_gsp_b1623750" -> "r_h_goal";
+  "m_h_e_e_72abb777" -> "r_h_goal";
+  "m_h_e_e_a415ba96" -> "r_h_goal";
+  "m_h_e_f_44ddd9cb" -> "r_h_goal";
+  "m_h_e_f_ae7c419d" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

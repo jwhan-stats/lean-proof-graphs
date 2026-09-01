@@ -1,0 +1,447 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+      "manifest": [
+        {
+          "statement": "∀ (g : G) (x y : ↑X), ‖↑(g • x) - ↑(g • y)‖ ≤ ‖↑x - ↑y‖",
+          "origin": "manifest",
+          "name": "hact",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "0 ≤ L",
+          "origin": "manifest",
+          "name": "hL",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (x y : ↑X), |f x - f y| ≤ L * ‖↑x - ↑y‖",
+          "origin": "manifest",
+          "name": "hf",
+          "fvar_id": "10"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "0 < C",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Fintype.card_pos",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Nat.cast_lt._simp_1",
+            "Nat.cast_zero",
+            "One.instNonempty",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instZeroLEOneClass",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [],
+          "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+          "id": "telescope_14",
+          "conclusion": {
+            "statement": "0 < C",
+            "origin": "derived",
+            "name": "hCpos",
+            "fvar_id": "14"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsOrderedRing.toPosMulMono",
+            "PiLp.innerProductSpace._proof_1",
+            "Real.instIsOrderedRing",
+            "fact_one_le_two_ennreal",
+            "mul_le_mul_of_nonneg_left"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (g : G) (x y : ↑X), ‖↑(g • x) - ↑(g • y)‖ ≤ ‖↑x - ↑y‖",
+              "origin": "local_assumption",
+              "name": "hact",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "0 ≤ L",
+              "origin": "local_assumption",
+              "name": "hL",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "∀ (x y : ↑X), |f x - f y| ≤ L * ‖↑x - ↑y‖",
+              "origin": "local_assumption",
+              "name": "hf",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖",
+            "origin": "derived",
+            "name": "hterm",
+            "fvar_id": "15"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Finset.abs_sum_le_sum_abs",
+            "Finset.card_univ",
+            "Finset.sum_const",
+            "Finset.sum_le_sum",
+            "Finset.sum_sub_distrib",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "PiLp.innerProductSpace._proof_1",
+            "Real.instIsOrderedAddMonoid",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "eq_true",
+            "fact_one_le_two_ennreal",
+            "nsmul_eq_mul",
+            "of_eq_true"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖",
+              "origin": "derived",
+              "name": "hterm",
+              "fvar_id": "15"
+            }
+          ],
+          "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+          "id": "telescope_16",
+          "conclusion": {
+            "statement": "|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)",
+            "origin": "derived",
+            "name": "hsum",
+            "fvar_id": "16"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mpr",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsStrictOrderedRing.toMulPosStrictMono",
+            "LT.lt.le",
+            "MulPosReflectLE.toMulPosReflectLT",
+            "MulPosStrictMono.toMulPosReflectLE",
+            "PiLp.innerProductSpace._proof_1",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsStrictOrderedRing",
+            "abs_div",
+            "abs_of_nonneg",
+            "congrArg",
+            "div_le_iff₀",
+            "fact_one_le_two_ennreal",
+            "mul_comm",
+            "sub_div"
+          ],
+          "premises": [
+            {
+              "statement": "0 < C",
+              "origin": "derived",
+              "name": "hCpos",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)",
+              "origin": "derived",
+              "name": "hsum",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+            "origin": "derived",
+            "name": "hdiv",
+            "fvar_id": "17"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [],
+        "premises": [
+          {
+            "statement": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+            "origin": "derived",
+            "name": "hdiv",
+            "fvar_id": "17"
+          }
+        ],
+        "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 < C",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Fintype.card_pos",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.cast_lt._simp_1",
+        "Nat.cast_zero",
+        "One.instNonempty",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+      "id": "local_6",
+      "conclusion": {
+        "statement": "0 < C",
+        "origin": "derived",
+        "name": "hCpos",
+        "fvar_id": "_uniq.277269"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedRing.toPosMulMono",
+        "PiLp.innerProductSpace._proof_1",
+        "Real.instIsOrderedRing",
+        "fact_one_le_two_ennreal",
+        "mul_le_mul_of_nonneg_left"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (g : G) (x y : ↑X), ‖↑(g • x) - ↑(g • y)‖ ≤ ‖↑x - ↑y‖",
+          "origin": "local_assumption",
+          "name": "hact",
+          "fvar_id": "_uniq.277147"
+        },
+        {
+          "statement": "0 ≤ L",
+          "origin": "local_assumption",
+          "name": "hL",
+          "fvar_id": "_uniq.277149"
+        },
+        {
+          "statement": "∀ (x y : ↑X), |f x - f y| ≤ L * ‖↑x - ↑y‖",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.277151"
+        }
+      ],
+      "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+      "id": "local_7",
+      "conclusion": {
+        "statement": "∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖",
+        "origin": "derived",
+        "name": "hterm",
+        "fvar_id": "_uniq.366708"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Finset.abs_sum_le_sum_abs",
+        "Finset.card_univ",
+        "Finset.sum_const",
+        "Finset.sum_le_sum",
+        "Finset.sum_sub_distrib",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "PiLp.innerProductSpace._proof_1",
+        "Real.instIsOrderedAddMonoid",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "eq_true",
+        "fact_one_le_two_ennreal",
+        "nsmul_eq_mul",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖",
+          "origin": "derived",
+          "name": "hterm",
+          "fvar_id": "_uniq.366708"
+        }
+      ],
+      "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+      "id": "local_8",
+      "conclusion": {
+        "statement": "|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)",
+        "origin": "derived",
+        "name": "hsum",
+        "fvar_id": "_uniq.454542"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mpr",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "LT.lt.le",
+        "MulPosReflectLE.toMulPosReflectLT",
+        "MulPosStrictMono.toMulPosReflectLE",
+        "PiLp.innerProductSpace._proof_1",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "abs_div",
+        "abs_of_nonneg",
+        "congrArg",
+        "div_le_iff₀",
+        "fact_one_le_two_ennreal",
+        "mul_comm",
+        "sub_div"
+      ],
+      "premises": [
+        {
+          "statement": "0 < C",
+          "origin": "derived",
+          "name": "hCpos",
+          "fvar_id": "_uniq.277269"
+        },
+        {
+          "statement": "|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)",
+          "origin": "derived",
+          "name": "hsum",
+          "fvar_id": "_uniq.454542"
+        }
+      ],
+      "parent": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+      "id": "local_9",
+      "conclusion": {
+        "statement": "|(∑ g, f (g • x)) / ↑(Fintype.card G) - (∑ g, f (g • y)) / ↑(Fintype.card G)| ≤ L * ‖↑x - ↑y‖",
+        "origin": "derived",
+        "name": "hdiv",
+        "fvar_id": "_uniq.552898"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p3260_group_symmetrization_lipschitz",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p3260_group_symmetrization_lipschitz.group_symmetrization_lipschitz",
+    "proof_sha256": "f5049a81a77e55fb08e36e0e068ba58d49266977f925d0df7cc9e25e4e6c8bb4"
+  }
+}

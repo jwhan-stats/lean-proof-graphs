@@ -1,0 +1,675 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3114_dimension_three_evaluation_of_asymptotic_c",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3114,
+    "source": "1505.04894",
+    "theorem_name": "dimension_three_evaluation_of_asymptotic_coefficient",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3114",
+    "reconstructed_proof": "../../candidates/p3114_dimension_three_evaluation_of_asymptotic_c/proof.lean",
+    "raw_elaboration": "../../candidates/p3114_dimension_three_evaluation_of_asymptotic_c/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.dimension_three_evaluation_of_asymptotic_coefficient",
+    "verification_call_id": "verify_submission:27",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "f3ac9afe8a0768f21a7fcd2874352f2bb2ead0abe5b84fdd5a46b71d0f19fc12",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "fbb0e2ce6695e96e7ab55a761727037bf959ab204141dab88b0daf6dd2846530",
+    "concrete_semantic_topology_sha256": "f3ac9afe8a0768f21a7fcd2874352f2bb2ead0abe5b84fdd5a46b71d0f19fc12"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let H := fun a => if a < 0 then 0 else if a = 0 then 1 / 2 else 1; let arccot := fun a => Real.pi / 2 - Real.arctan a; let κ := fun a => 1 / (4 * Real.pi) * ((-(1 / (2 * Real.pi)) * ∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) - 1 / 4 + H a * (1 + a ^ 2)); ∀ (a : ℝ), κ a = 1 / (4 * Real.pi) * (-1 / 4 - (1 + a ^ 2) * arccot a / Real.pi + (1 + a ^ 2) + a / Real.pi)"
+    },
+    {
+      "id": "n_ha0_4fdbd9fc",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha0",
+      "lean_fvar_id": "_uniq.7359849",
+      "statement": "¬a = 0"
+    },
+    {
+      "id": "n_hi_955889cc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hI",
+      "lean_fvar_id": "_uniq.7378886",
+      "statement": "(∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) = 2 * (1 + a ^ 2) * Real.arctan (1 / a) - 2 * a"
+    },
+    {
+      "id": "n_hi_ee15f2df",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hI",
+      "lean_fvar_id": "_uniq.7367657",
+      "statement": "(∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) = 2 * (1 + a ^ 2) * Real.arctan (1 / a) - 2 * a"
+    },
+    {
+      "id": "n_hneg_67bebbd7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hneg",
+      "lean_fvar_id": "_uniq.7367649",
+      "statement": "¬a < 0"
+    },
+    {
+      "id": "n_hneg_8423e8f1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hneg",
+      "lean_fvar_id": "_uniq.7367642",
+      "statement": "a < 0"
+    },
+    {
+      "id": "n_hpos_0dc82ad2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpos",
+      "lean_fvar_id": "_uniq.7378879",
+      "statement": "0 < a"
+    },
+    {
+      "id": "n_hrec_36448ab8",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrec",
+      "lean_fvar_id": "_uniq.7379085",
+      "statement": "Real.arctan (1 / a) = Real.pi / 2 - Real.arctan a"
+    },
+    {
+      "id": "n_hrec_7e1e6930",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrec",
+      "lean_fvar_id": "_uniq.7367865",
+      "statement": "Real.arctan (1 / a) = -(Real.pi / 2) - Real.arctan a"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hi",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha0_4fdbd9fc"
+      ],
+      "conclusion": "n_hi_ee15f2df",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "asymptotic_integrand_integral_of_ne_zero",
+        "items": [
+          "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.asymptotic_integrand_integral_of_ne_zero"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.asymptotic_integrand_integral_of_ne_zero"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1338",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hI := asymptotic_integrand_integral_of_ne_zero a ha0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7359849",
+              "name": "ha0",
+              "statement": "¬a = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7367657",
+            "name": "hI",
+            "statement": "(∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) = 2 * (1 + a ^ 2) * Real.arctan (1 / a) - 2 * a"
+          }
+        },
+        "lean_dependency_sha256": "aa4696700c239845a4cd180788439a1fa27df7ee321da55b68df374c80ee3486",
+        "kernel_witness_check": {
+          "proof_type": "(∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) =\n  2 * (1 + a ^ 2) * Real.arctan (1 / a) - 2 * a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hrec",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hneg_8423e8f1"
+      ],
+      "conclusion": "n_hrec_7e1e6930",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.arctan_inv_of_neg + one_div",
+        "items": [
+          "Real.arctan_inv_of_neg",
+          "one_div"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.arctan_inv_of_neg",
+          "one_div"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1339",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hrec : Real.arctan (1 / a) = -(Real.pi / 2) - Real.arctan a := by\n        simpa [one_div] using Real.arctan_inv_of_neg hneg\n      rw [hI, hrec]\n      simp [ha0, hneg, Real.pi_ne_zero]\n      field_simp [Real.pi_ne_zero]\n      ring\n    · have hpos : 0 < a := lt_of_le_of_ne (le_of_not_gt hneg) (Ne.symm ha0)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7367642",
+              "name": "hneg",
+              "statement": "a < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7367865",
+            "name": "hrec",
+            "statement": "Real.arctan (1 / a) = -(Real.pi / 2) - Real.arctan a"
+          }
+        },
+        "lean_dependency_sha256": "7e2c5ecfb4bfb7d4d035690e81e141e282f12c7b2a72effbe92d62f8763da639",
+        "kernel_witness_check": {
+          "proof_type": "Real.arctan (1 / a) = -(Real.pi / 2) - Real.arctan a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.arctan_inv_of_neg"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:22"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hpos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha0_4fdbd9fc",
+        "n_hneg_67bebbd7"
+      ],
+      "conclusion": "n_hpos_0dc82ad2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1340",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7359849",
+              "name": "ha0",
+              "statement": "¬a = 0"
+            },
+            {
+              "fvar_id": "_uniq.7367649",
+              "name": "hneg",
+              "statement": "¬a < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7378879",
+            "name": "hpos",
+            "statement": "0 < a"
+          }
+        },
+        "lean_dependency_sha256": "00cf1b2ab6a2db213e26f653120adc7d1d0fdda99fa00c2be49e72ad970575e1",
+        "kernel_witness_check": {
+          "proof_type": "0 < a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hi",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha0_4fdbd9fc"
+      ],
+      "conclusion": "n_hi_955889cc",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "asymptotic_integrand_integral_of_ne_zero",
+        "items": [
+          "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.asymptotic_integrand_integral_of_ne_zero"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.asymptotic_integrand_integral_of_ne_zero"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1341",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hI := asymptotic_integrand_integral_of_ne_zero a ha0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7359849",
+              "name": "ha0",
+              "statement": "¬a = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7378886",
+            "name": "hI",
+            "statement": "(∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) = 2 * (1 + a ^ 2) * Real.arctan (1 / a) - 2 * a"
+          }
+        },
+        "lean_dependency_sha256": "995fb25e1f1eb7b228b00a5b1ec742c95791553eb345a560711cfb1459602727",
+        "kernel_witness_check": {
+          "proof_type": "(∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) =\n  2 * (1 + a ^ 2) * Real.arctan (1 / a) - 2 * a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hrec",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpos_0dc82ad2"
+      ],
+      "conclusion": "n_hrec_36448ab8",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.arctan_inv_of_pos + one_div",
+        "items": [
+          "Real.arctan_inv_of_pos",
+          "one_div"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.arctan_inv_of_pos",
+          "one_div"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1342",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hrec : Real.arctan (1 / a) = -(Real.pi / 2) - Real.arctan a := by\n        simpa [one_div] using Real.arctan_inv_of_neg hneg\n      rw [hI, hrec]\n      simp [ha0, hneg, Real.pi_ne_zero]\n      field_simp [Real.pi_ne_zero]\n      ring\n    · have hpos : 0 < a := lt_of_le_of_ne (le_of_not_gt hneg) (Ne.symm ha0)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7378879",
+              "name": "hpos",
+              "statement": "0 < a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7379085",
+            "name": "hrec",
+            "statement": "Real.arctan (1 / a) = Real.pi / 2 - Real.arctan a"
+          }
+        },
+        "lean_dependency_sha256": "dbde6d8fe0338cf92e43b48bb32c6ab47ddb1e223c3877dc72c4c7cc253978ea",
+        "kernel_witness_check": {
+          "proof_type": "Real.arctan (1 / a) = Real.pi / 2 - Real.arctan a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.arctan_inv_of_pos"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:18",
+          "loogle:21",
+          "leanfinder:22"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Ne.symm + Real.arctan_inv_of_neg + Real.arctan_inv_of_pos",
+        "items": [
+          "Ne.symm",
+          "Real.arctan_inv_of_neg",
+          "Real.arctan_inv_of_pos",
+          "Real.arctan_zero",
+          "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.asymptotic_integrand_integral_of_ne_zero",
+          "le_of_not_gt",
+          "lt_of_le_of_ne",
+          "one_div"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3114_dimension_three_evaluation_of_asymptotic_c.asymptotic_integrand_integral_of_ne_zero"
+        ],
+        "mathlib_items": [
+          "Ne.symm",
+          "Real.arctan_inv_of_neg",
+          "Real.arctan_inv_of_pos",
+          "Real.arctan_zero",
+          "le_of_not_gt",
+          "lt_of_le_of_ne",
+          "one_div"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  · subst a\n    simp [asymptotic_integrand_integral_zero, Real.pi_ne_zero]\n    field_simp [Real.pi_ne_zero]\n    ring\n  · by_cases hneg : a < 0\n    · have hI := asymptotic_integrand_integral_of_ne_zero a ha0\n      have hrec : Real.arctan (1 / a) = -(Real.pi / 2) - Real.arctan a := by\n        simpa [one_div] using Real.arctan_inv_of_neg hneg\n      rw [hI, hrec]\n      simp [ha0, hneg, Real.pi_ne_zero]\n      field_simp [Real.pi_ne_zero]\n      ring\n    · have hpos : 0 < a := lt_of_le_of_ne (le_of_not_gt hneg) (Ne.symm ha0)\n      have hI := asymptotic_integrand_integral_of_ne_zero a ha0\n      have hrec : Real.arctan (1 / a) = Real.pi / 2 - Real.arctan a := by\n        simpa [one_div] using Real.arctan_inv_of_pos hpos\n      rw [hI, hrec]\n      simp [ha0, hneg, Real.pi_ne_zero]\n      field_simp [Real.pi_ne_zero]\n      ring",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let H := fun a => if a < 0 then 0 else if a = 0 then 1 / 2 else 1; let arccot := fun a => Real.pi / 2 - Real.arctan a; let κ := fun a => 1 / (4 * Real.pi) * ((-(1 / (2 * Real.pi)) * ∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) - 1 / 4 + H a * (1 + a ^ 2)); ∀ (a : ℝ), κ a = 1 / (4 * Real.pi) * (-1 / 4 - (1 + a ^ 2) * arccot a / Real.pi + (1 + a ^ 2) + a / Real.pi)"
+          }
+        },
+        "lean_dependency_sha256": "34f7277089819ffcea766389fb7b707a4fd4c8b765958ff1eb57e4e72910a6d6",
+        "kernel_witness_check": {
+          "proof_type": "let H := fun a => if a < 0 then 0 else if a = 0 then 1 / 2 else 1;\nlet arccot := fun a => Real.pi / 2 - Real.arctan a;\nlet κ := fun a =>\n  1 / (4 * Real.pi) *\n    ((-(1 / (2 * Real.pi)) * ∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) -\n        1 / 4 +\n      H a * (1 + a ^ 2));\n∀ (a : ℝ), κ a = 1 / (4 * Real.pi) * (-1 / 4 - (1 + a ^ 2) * arccot a / Real.pi + (1 + a ^ 2) + a / Real.pi)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.arctan_inv_of_neg",
+          "Real.arctan_inv_of_pos",
+          "Real.arctan_zero"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:22",
+          "leanfinder:18",
+          "loogle:21",
+          "loogle:19"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "intervalIntegral integral derivative Fubini fundamental theorem calculus derivative antiderivative",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_deriv_eq_sub",
+      "declarations": [
+        "intervalIntegral.integral_deriv_eq_sub"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "fundamental theorem of calculus interval integral derivative equals difference antiderivative",
+      "declarations": [
+        "intervalIntegral.integral_deriv_of_contDiffOn_uIcc",
+        "intervalIntegral.integral_deriv_eq_sub'",
+        "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+        "Continuous.deriv_integral",
+        "intervalIntegral.integral_deriv_eq_sub",
+        "intervalIntegral.integral_deriv_eq_sub_uIoo",
+        "intervalIntegral",
+        "IsCovariantDerivativeOn.difference",
+        "CovariantDerivative.difference",
+        "IsCovariantDerivativeOn.difference_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Real.deriv_arctan",
+      "declarations": [
+        "Real.deriv_arctan"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "HasDerivAt Real.arctan",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_deriv_eq_sub'",
+      "declarations": [
+        "intervalIntegral.integral_deriv_eq_sub'"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "Real.arctan_inv",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Real.arctan_add",
+      "declarations": [
+        "Real.arctan_add"
+      ],
+      "call_turn": 30,
+      "result_turn": 32
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "arctan reciprocal positive real pi over two",
+      "declarations": [
+        "Real.arctan_inv_of_pos",
+        "Real.pi",
+        "Real.two_mul_arctan_inv_2_sub_arctan_inv_7",
+        "Real.arctan_ne_mul_pi_div_two",
+        "Float.atan2",
+        "Real.two_mul_arctan",
+        "Real.two_mul_arctan_add_pi",
+        "Real.two_mul_arctan_sub_pi",
+        "Real.neg_pi_div_two_lt_arctan",
+        "Real.arctan_lt_pi_div_two"
+      ],
+      "call_turn": 30,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Real.arctan_zero",
+      "declarations": [
+        "Real.arctan_zero"
+      ],
+      "call_turn": 30,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Real.arctan_neg",
+      "declarations": [
+        "Real.arctan_neg"
+      ],
+      "call_turn": 30,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Real.arctan_inv_of_pos",
+      "declarations": [
+        "Real.arctan_inv_of_pos"
+      ],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:22",
+      "tool": "leanfinder",
+      "query": "arctangent reciprocal negative real minus pi over two",
+      "declarations": [
+        "Real.arctan_inv_of_neg",
+        "Real.arctan_inv_of_pos",
+        "Real.arctan_eq_neg_pi_div_four",
+        "Real.pi",
+        "Real.arctan_neg",
+        "Real.sin_pi_over_two_pow_succ",
+        "Complex.tan_pi_div_two_sub",
+        "Real.cos_pi_over_two_pow",
+        "Real.sin_sq_pi_over_two_pow",
+        "Real.sin_sq_pi_over_two_pow_succ"
+      ],
+      "call_turn": 38,
+      "result_turn": 39
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 13,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 9,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 28,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

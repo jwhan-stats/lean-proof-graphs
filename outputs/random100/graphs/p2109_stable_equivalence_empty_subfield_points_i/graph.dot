@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hstable_7703c624" [shape=box, color="#178F82", label="hstable\nRelation.EqvGen (fun X Y => (∃ k d S T, X = ⟨k, S⟩ ∧ Y = ⟨k + d, T⟩ ∧ ∃ r s φ ψ, (∀ v ∈ S, ∃ v', Fin.append v v' ∈ T) ∧ ∀ (v : Fin k → ℝ) (v' : Fin d → ℝ), Fin.append v v' ∈ T ↔ v ∈ S ∧ (∀ (i : Fin r), ∑ j, MvPolynomial.eval₂ (Int.castRingHom ℝ) v (φ i j) * v' j > 0) ∧ ∀ (i : Fin s), ∑ j, MvPolynomial.eval₂ (Int.castRingHom ℝ) v (ψ i j) * v' j = 0) ∨ ∃ k l S T, X = ⟨k, S⟩ ∧ Y = ⟨l, T⟩ ∧ ∃ h, (∀ (i : Fin l), ∃ p q, ∀ (v : ↑S), MvPolynomial.eval₂ (Rat.castHom ℝ) (↑v) q ≠ 0 ∧ ↑(h v) i = MvPolynomial.eval₂ (Rat.castHom ℝ) (↑v) p / MvPolynomial.eval₂ (Rat.castHom ℝ) (↑v) q) ∧ ∀ (i : Fin k), ∃ p q, ∀ (w : ↑T), MvPolynomial.eval₂ (Rat.castHom ℝ) (↑w) q ≠ 0 ∧ ↑(h.symm w) i = MvPolynomial.eval₂ (Rat.castHom ℝ) (↑w) p / MvPolynomial.eval₂ (Rat.castHom ℝ) (↑w) q) ⟨n, V⟩ ⟨m, W⟩"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(¬∃ v, (fun i => ↑(v i)) ∈ V) ↔ ¬∃ w, (fun i => ↑(w i)) ∈ W"];
+  "n_hpoints_f4b7b660" [shape=box, color="#D97706", label="hpoints\nRollout_p2109_stable_equivalence_empty_subfield_points_i.HasSubfieldPoint A ⟨n, V⟩ ↔ Rollout_p2109_stable_equivalence_empty_subfield_points_i.HasSubfieldPoint A ⟨m, W⟩"];
+  "r_h_001_hpoints" [shape=diamond, label="Iff.rfl + Iff.symm + Iff.trans", color="#D97706"];
+  "m_hstable_7703c624" -> "r_h_001_hpoints";
+  "r_h_001_hpoints" -> "n_hpoints_f4b7b660";
+  "r_h_goal" [shape=diamond, label="not_congr", color="#D97706"];
+  "n_hpoints_f4b7b660" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

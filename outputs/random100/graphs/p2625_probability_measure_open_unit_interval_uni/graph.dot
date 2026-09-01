@@ -1,0 +1,33 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_inst___proofs_1292248354_aff0af77" [shape=box, color="#178F82", label="inst._@.proofs.1292248354._hygCtx._hyg.13\nMeasureTheory.IsProbabilityMeasure μ"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ s, 0 < s ∧ s < 1 ∧ ∫ (x : ↑(Set.Ioo 0 1)), (Real.exp (s * (1 - ↑x)) - 1) / (1 - ↑x) ∂μ = 1 ∧ ∀ (t : ℝ), 0 < t → ∫ (x : ↑(Set.Ioo 0 1)), (Real.exp (t * (1 - ↑x)) - 1) / (1 - ↑x) ∂μ = 1 → t = s"];
+  "n_h1mem_1b8dd831" [shape=box, color="#D97706", label="h1mem\n1 ∈ Set.Ioo (F (1 / 4)) (F 1)"];
+  "n_hconticc_df6d560c" [shape=box, color="#D97706", label="hcontIcc\nContinuousOn F (Set.Icc (1 / 4) 1)"];
+  "n_hf14_3d37b8c8" [shape=box, color="#D97706", label="hF14\nF (1 / 4) < 1"];
+  "n_hf1_20c42063" [shape=box, color="#D97706", label="hF1\n1 < F 1"];
+  "n_himage_c8d732a6" [shape=box, color="#D97706", label="himage\n1 ∈ F '' Set.Ioo (1 / 4) 1"];
+  "r_h_001_hconticc" [shape=diamond, label="F_continuousOn_Icc", color="#D97706"];
+  "m_inst___proofs_1292248354_aff0af77" -> "r_h_001_hconticc";
+  "r_h_001_hconticc" -> "n_hconticc_df6d560c";
+  "r_h_002_hf14" [shape=diamond, label="F_quarter_lt_one", color="#D97706"];
+  "m_inst___proofs_1292248354_aff0af77" -> "r_h_002_hf14";
+  "r_h_002_hf14" -> "n_hf14_3d37b8c8";
+  "r_h_003_hf1" [shape=diamond, label="F_one_gt_one", color="#D97706"];
+  "m_inst___proofs_1292248354_aff0af77" -> "r_h_003_hf1";
+  "r_h_003_hf1" -> "n_hf1_20c42063";
+  "r_h_004_h1mem" [shape=diamond, label="proof_term_composition", color="#D97706"];
+  "n_hf14_3d37b8c8" -> "r_h_004_h1mem";
+  "n_hf1_20c42063" -> "r_h_004_h1mem";
+  "r_h_004_h1mem" -> "n_h1mem_1b8dd831";
+  "r_h_005_himage" [shape=diamond, label="intermediate_value_Ioo", color="#D97706"];
+  "n_hconticc_df6d560c" -> "r_h_005_himage";
+  "n_h1mem_1b8dd831" -> "r_h_005_himage";
+  "r_h_005_himage" -> "n_himage_c8d732a6";
+  "r_h_goal" [shape=diamond, label="Mathlib.Tactic.Linarith.lt_irrefl + F_strictMono_on_nonneg + lt_irrefl", color="#D97706"];
+  "m_inst___proofs_1292248354_aff0af77" -> "r_h_goal";
+  "n_himage_c8d732a6" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

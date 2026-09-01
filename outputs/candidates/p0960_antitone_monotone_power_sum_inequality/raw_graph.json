@@ -1,0 +1,1052 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "manifest": [
+        {
+          "statement": "0 < k",
+          "origin": "manifest",
+          "name": "hk",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "1 ≤ s",
+          "origin": "manifest",
+          "name": "hs",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (i : Fin k), 0 ≤ a i",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (i : Fin k), 0 ≤ b i",
+          "origin": "manifest",
+          "name": "hb",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "Antitone a",
+          "origin": "manifest",
+          "name": "ha_antitone",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "Monotone b",
+          "origin": "manifest",
+          "name": "hb_monotone",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (i j : Fin k), 0 ≤ W i j",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_pair_nonneg",
+            "eq_of_heq",
+            "le_total"
+          ],
+          "premises": [
+            {
+              "statement": "1 ≤ s",
+              "origin": "local_assumption",
+              "name": "hs",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "∀ (i : Fin k), 0 ≤ a i",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "∀ (i : Fin k), 0 ≤ b i",
+              "origin": "local_assumption",
+              "name": "hb",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "Antitone a",
+              "origin": "local_assumption",
+              "name": "ha_antitone",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "Monotone b",
+              "origin": "local_assumption",
+              "name": "hb_monotone",
+              "fvar_id": "9"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "∀ (i j : Fin k), 0 ≤ W i j",
+            "origin": "derived",
+            "name": "hWnonneg",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ ∑ i, ∑ j, W i j",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.sum_nonneg",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Real.instIsOrderedAddMonoid"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (i j : Fin k), 0 ≤ W i j",
+              "origin": "derived",
+              "name": "hWnonneg",
+              "fvar_id": "17"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "0 ≤ ∑ i, ∑ j, W i j",
+            "origin": "derived",
+            "name": "hsumW",
+            "fvar_id": "18"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ i, ∑ j, U i j = C * D",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Finset.sum_congr",
+            "Fintype.sum_mul_sum",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "∑ i, ∑ j, U i j = C * D",
+            "origin": "derived",
+            "name": "hU",
+            "fvar_id": "19"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ i, ∑ j, U j i = C * D",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.sum_comm"
+          ],
+          "premises": [
+            {
+              "statement": "∑ i, ∑ j, U i j = C * D",
+              "origin": "derived",
+              "name": "hU",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "∑ i, ∑ j, U j i = C * D",
+            "origin": "derived",
+            "name": "hUs",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ i, ∑ j, V i j = A * B",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Finset.sum_congr",
+            "Fintype.sum_mul_sum",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "∑ i, ∑ j, V i j = A * B",
+            "origin": "derived",
+            "name": "hV",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ i, ∑ j, V j i = A * B",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.sum_comm"
+          ],
+          "premises": [
+            {
+              "statement": "∑ i, ∑ j, V i j = A * B",
+              "origin": "derived",
+              "name": "hV",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "∑ i, ∑ j, V j i = A * B",
+            "origin": "derived",
+            "name": "hVs",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Finset.sum_add_distrib",
+            "Finset.sum_congr",
+            "Finset.sum_sub_distrib",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_add",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "of_eq_true"
+          ],
+          "premises": [
+            {
+              "statement": "∑ i, ∑ j, U i j = C * D",
+              "origin": "derived",
+              "name": "hU",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "∑ i, ∑ j, U j i = C * D",
+              "origin": "derived",
+              "name": "hUs",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "∑ i, ∑ j, V i j = A * B",
+              "origin": "derived",
+              "name": "hV",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "∑ i, ∑ j, V j i = A * B",
+              "origin": "derived",
+              "name": "hVs",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+            "origin": "derived",
+            "name": "hsumEq",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ C * D - A * B",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_lt_true",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+            "Mathlib.Tactic.Linarith.le_of_le_of_eq",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.mul_neg",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_zero",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "congrArg",
+            "instNeZeroNatHAdd_1",
+            "le_of_not_gt",
+            "sub_eq_zero_of_eq"
+          ],
+          "premises": [
+            {
+              "statement": "0 ≤ ∑ i, ∑ j, W i j",
+              "origin": "derived",
+              "name": "hsumW",
+              "fvar_id": "18"
+            },
+            {
+              "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+              "origin": "derived",
+              "name": "hsumEq",
+              "fvar_id": "23"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "0 ≤ C * D - A * B",
+            "origin": "derived",
+            "name": "hdiff",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "A * B ≤ C * D",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mp",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Real.instIsOrderedAddMonoid",
+            "covariant_swap_add_of_covariant_add",
+            "sub_nonneg"
+          ],
+          "premises": [
+            {
+              "statement": "0 ≤ C * D - A * B",
+              "origin": "derived",
+              "name": "hdiff",
+              "fvar_id": "24"
+            }
+          ],
+          "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "A * B ≤ C * D",
+            "origin": "derived",
+            "name": "hle",
+            "fvar_id": "25"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "(∑ i, (a i).rpow s) * ∑ i, a i ^ 2 * b i ≤ (∑ i, (a i).rpow (s + 1)) * ∑ i, a i * b i",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∑ i, (a i).rpow s) * ∑ i, a i ^ 2 * b i ≤ (∑ i, (a i).rpow (s + 1)) * ∑ i, a i * b i",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.trans",
+          "Finset.sum_congr",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "ge_iff_le._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "A * B ≤ C * D",
+            "origin": "derived",
+            "name": "hle",
+            "fvar_id": "25"
+          }
+        ],
+        "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∑ i, (a i).rpow s) * ∑ i, a i ^ 2 * b i ≤ (∑ i, (a i).rpow (s + 1)) * ∑ i, a i * b i",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ a j ^ (s + 1) * (a i * b i) + a i ^ (s + 1) * (a j * b j) - a j ^ s * (a i ^ 2 * b i) - a i ^ s * (a j ^ 2 * b j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_pair_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ s",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.1103842"
+        },
+        {
+          "statement": "∀ (i : Fin k), 0 ≤ a i",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1103845"
+        },
+        {
+          "statement": "∀ (i : Fin k), 0 ≤ b i",
+          "origin": "local_assumption",
+          "name": "hb",
+          "fvar_id": "_uniq.1103846"
+        },
+        {
+          "statement": "Antitone a",
+          "origin": "local_assumption",
+          "name": "ha_antitone",
+          "fvar_id": "_uniq.1103847"
+        },
+        {
+          "statement": "Monotone b",
+          "origin": "local_assumption",
+          "name": "hb_monotone",
+          "fvar_id": "_uniq.1103848"
+        },
+        {
+          "statement": "j ≤ i",
+          "origin": "local_assumption",
+          "name": "hji",
+          "fvar_id": "_uniq.1107339"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_185",
+      "conclusion": {
+        "statement": "0 ≤ a j ^ (s + 1) * (a i * b i) + a i ^ (s + 1) * (a j * b j) - a j ^ s * (a i ^ 2 * b i) - a i ^ s * (a j ^ 2 * b j)",
+        "origin": "derived",
+        "name": "hswap",
+        "fvar_id": "_uniq.1107380"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i j : Fin k), 0 ≤ W i j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_pair_nonneg",
+        "eq_of_heq",
+        "le_total"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ s",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.1103842"
+        },
+        {
+          "statement": "∀ (i : Fin k), 0 ≤ a i",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1103845"
+        },
+        {
+          "statement": "∀ (i : Fin k), 0 ≤ b i",
+          "origin": "local_assumption",
+          "name": "hb",
+          "fvar_id": "_uniq.1103846"
+        },
+        {
+          "statement": "Antitone a",
+          "origin": "local_assumption",
+          "name": "ha_antitone",
+          "fvar_id": "_uniq.1103847"
+        },
+        {
+          "statement": "Monotone b",
+          "origin": "local_assumption",
+          "name": "hb_monotone",
+          "fvar_id": "_uniq.1103848"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_193",
+      "conclusion": {
+        "statement": "∀ (i j : Fin k), 0 ≤ W i j",
+        "origin": "derived",
+        "name": "hWnonneg",
+        "fvar_id": "_uniq.1107290"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ ∑ i, ∑ j, W i j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_nonneg",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Real.instIsOrderedAddMonoid"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i j : Fin k), 0 ≤ W i j",
+          "origin": "derived",
+          "name": "hWnonneg",
+          "fvar_id": "_uniq.1107290"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_194",
+      "conclusion": {
+        "statement": "0 ≤ ∑ i, ∑ j, W i j",
+        "origin": "derived",
+        "name": "hsumW",
+        "fvar_id": "_uniq.1109927"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ i, ∑ j, U i j = C * D",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Finset.sum_congr",
+        "Fintype.sum_mul_sum",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_195",
+      "conclusion": {
+        "statement": "∑ i, ∑ j, U i j = C * D",
+        "origin": "derived",
+        "name": "hU",
+        "fvar_id": "_uniq.1110898"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ i, ∑ j, U j i = C * D",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_comm"
+      ],
+      "premises": [
+        {
+          "statement": "∑ i, ∑ j, U i j = C * D",
+          "origin": "derived",
+          "name": "hU",
+          "fvar_id": "_uniq.1110898"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_196",
+      "conclusion": {
+        "statement": "∑ i, ∑ j, U j i = C * D",
+        "origin": "derived",
+        "name": "hUs",
+        "fvar_id": "_uniq.1131467"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ i, ∑ j, V i j = A * B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Finset.sum_congr",
+        "Fintype.sum_mul_sum",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_197",
+      "conclusion": {
+        "statement": "∑ i, ∑ j, V i j = A * B",
+        "origin": "derived",
+        "name": "hV",
+        "fvar_id": "_uniq.1134608"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ i, ∑ j, V j i = A * B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_comm"
+      ],
+      "premises": [
+        {
+          "statement": "∑ i, ∑ j, V i j = A * B",
+          "origin": "derived",
+          "name": "hV",
+          "fvar_id": "_uniq.1134608"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_198",
+      "conclusion": {
+        "statement": "∑ i, ∑ j, V j i = A * B",
+        "origin": "derived",
+        "name": "hVs",
+        "fvar_id": "_uniq.1157379"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.sum_add_distrib",
+        "Finset.sum_congr",
+        "Finset.sum_sub_distrib",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "∑ i, ∑ j, U i j = C * D",
+          "origin": "derived",
+          "name": "hU",
+          "fvar_id": "_uniq.1110898"
+        },
+        {
+          "statement": "∑ i, ∑ j, U j i = C * D",
+          "origin": "derived",
+          "name": "hUs",
+          "fvar_id": "_uniq.1131467"
+        },
+        {
+          "statement": "∑ i, ∑ j, V i j = A * B",
+          "origin": "derived",
+          "name": "hV",
+          "fvar_id": "_uniq.1134608"
+        },
+        {
+          "statement": "∑ i, ∑ j, V j i = A * B",
+          "origin": "derived",
+          "name": "hVs",
+          "fvar_id": "_uniq.1157379"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_199",
+      "conclusion": {
+        "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+        "origin": "derived",
+        "name": "hsumEq",
+        "fvar_id": "_uniq.1160595"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ C * D - A * B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.le_of_le_of_eq",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "le_of_not_gt",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ ∑ i, ∑ j, W i j",
+          "origin": "derived",
+          "name": "hsumW",
+          "fvar_id": "_uniq.1109927"
+        },
+        {
+          "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+          "origin": "derived",
+          "name": "hsumEq",
+          "fvar_id": "_uniq.1160595"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_200",
+      "conclusion": {
+        "statement": "0 ≤ C * D - A * B",
+        "origin": "derived",
+        "name": "hdiff",
+        "fvar_id": "_uniq.1186671"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A * B ≤ C * D",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Real.instIsOrderedAddMonoid",
+        "covariant_swap_add_of_covariant_add",
+        "sub_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ C * D - A * B",
+          "origin": "derived",
+          "name": "hdiff",
+          "fvar_id": "_uniq.1186671"
+        }
+      ],
+      "parent": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+      "id": "local_201",
+      "conclusion": {
+        "statement": "A * B ≤ C * D",
+        "origin": "derived",
+        "name": "hle",
+        "fvar_id": "_uniq.1193481"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p0960_antitone_monotone_power_sum_inequality",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+    "proof_sha256": "571ab4248c4ae6b0931865d1da9639561fffc74480b2bc19df7cf281c6bbb8c7"
+  }
+}

@@ -1,0 +1,1892 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "manifest": [
+        {
+          "statement": "0 < b",
+          "origin": "manifest",
+          "name": "hb0",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "b < 1",
+          "origin": "manifest",
+          "name": "hb1",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "0 < θ₀",
+          "origin": "manifest",
+          "name": "hθ0",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "θ₀ < 2 * Real.pi",
+          "origin": "manifest",
+          "name": "hθ1",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "AEMeasurable α (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "manifest",
+          "name": "hαmeas",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "MeasureTheory.MemLp α ⊤ (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "manifest",
+          "name": "hαbounded",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "∀ᵐ (θ : ℝ) ∂MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)), α θ ∈ {b ^ 2, 1}",
+          "origin": "manifest",
+          "name": "hαvalues",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "(MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi))) {θ | α θ = b ^ 2} = ENNReal.ofReal θ₀",
+          "origin": "manifest",
+          "name": "hαmeasure",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "AbsolutelyContinuousOnInterval φ 0 (2 * Real.pi)",
+          "origin": "manifest",
+          "name": "hφac",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "MeasureTheory.MemLp φ 2 (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "manifest",
+          "name": "hφL2",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "MeasureTheory.MemLp (deriv φ) 2 (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "manifest",
+          "name": "hφderivL2",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "φ (2 * Real.pi) - φ 0 = 2 * Real.pi",
+          "origin": "manifest",
+          "name": "hφend",
+          "fvar_id": "15"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ 2 * Real.pi",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedRing.toPosMulMono",
+            "LT.lt.le",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedRing",
+            "Real.instZeroLEOneClass",
+            "Real.pi_pos",
+            "mul_nonneg",
+            "zero_le_two"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "0 ≤ 2 * Real.pi",
+            "origin": "derived",
+            "name": "h0le",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "MeasureTheory.Ioc_ae_eq_Icc'",
+            "MeasureTheory.NoAtoms.measure_singleton",
+            "MeasureTheory.setIntegral_congr_set",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Real.noAtoms_volume",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "intervalIntegral.integral_of_le",
+            "of_eq_true"
+          ],
+          "premises": [
+            {
+              "statement": "0 ≤ 2 * Real.pi",
+              "origin": "derived",
+              "name": "h0le",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+            "origin": "derived",
+            "name": "hinterval_to_restrict",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "L ^ 2 ≤ C * D",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Real.isFiniteMeasure_restrict_Icc",
+            "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_l1_sq_le_weighted_l2_mul_inv"
+          ],
+          "premises": [
+            {
+              "statement": "0 < b",
+              "origin": "local_assumption",
+              "name": "hb0",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "b < 1",
+              "origin": "local_assumption",
+              "name": "hb1",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "AEMeasurable α (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+              "origin": "local_assumption",
+              "name": "hαmeas",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "∀ᵐ (θ : ℝ) ∂MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)), α θ ∈ {b ^ 2, 1}",
+              "origin": "local_assumption",
+              "name": "hαvalues",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "MeasureTheory.MemLp (deriv φ) 2 (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+              "origin": "local_assumption",
+              "name": "hφderivL2",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "L ^ 2 ≤ C * D",
+            "origin": "derived",
+            "name": "hcs",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "D = 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.integral_inv_eq_of_two_valued_on_interval"
+          ],
+          "premises": [
+            {
+              "statement": "0 < b",
+              "origin": "local_assumption",
+              "name": "hb0",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "b < 1",
+              "origin": "local_assumption",
+              "name": "hb1",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "0 < θ₀",
+              "origin": "local_assumption",
+              "name": "hθ0",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "θ₀ < 2 * Real.pi",
+              "origin": "local_assumption",
+              "name": "hθ1",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "AEMeasurable α (MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+              "origin": "local_assumption",
+              "name": "hαmeas",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "∀ᵐ (θ : ℝ) ∂MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi)), α θ ∈ {b ^ 2, 1}",
+              "origin": "local_assumption",
+              "name": "hαvalues",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "(MeasureTheory.volume.restrict (Set.Icc 0 (2 * Real.pi))) {θ | α θ = b ^ 2} = ENNReal.ofReal θ₀",
+              "origin": "local_assumption",
+              "name": "hαmeasure",
+              "fvar_id": "11"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "D = 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+            "origin": "derived",
+            "name": "hD",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∫ (θ : ℝ), deriv φ θ ∂μ = 2 * Real.pi",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+            "Eq.symm",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "AbsolutelyContinuousOnInterval φ 0 (2 * Real.pi)",
+              "origin": "local_assumption",
+              "name": "hφac",
+              "fvar_id": "12"
+            },
+            {
+              "statement": "φ (2 * Real.pi) - φ 0 = 2 * Real.pi",
+              "origin": "local_assumption",
+              "name": "hφend",
+              "fvar_id": "15"
+            },
+            {
+              "statement": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+              "origin": "derived",
+              "name": "hinterval_to_restrict",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "∫ (θ : ℝ), deriv φ θ ∂μ = 2 * Real.pi",
+            "origin": "derived",
+            "name": "hIntg",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "2 * Real.pi ≤ ∫ (a : ℝ), |deriv φ a| ∂μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "MeasureTheory.abs_integral_le_integral_abs",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Real.instIsOrderedAddMonoid",
+            "abs_of_nonneg",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "0 ≤ 2 * Real.pi",
+              "origin": "derived",
+              "name": "h0le",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "∫ (θ : ℝ), deriv φ θ ∂μ = 2 * Real.pi",
+              "origin": "derived",
+              "name": "hIntg",
+              "fvar_id": "24"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "2 * Real.pi ≤ L",
+            "origin": "derived",
+            "name": "hLlower",
+            "fvar_id": "25"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ L",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Algebra.to_smulCommClass",
+            "HasSolidNorm.orderClosedTopology",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsScalarTower.right",
+            "MeasureTheory.integral_nonneg",
+            "RCLike.instStarModuleReal",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instStarOrderedRing",
+            "abs_nonneg",
+            "covariant_swap_add_of_covariant_add",
+            "instClosedIciTopology",
+            "instHasSolidNormReal",
+            "instIsOrderedModule"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_26",
+          "conclusion": {
+            "statement": "0 ≤ L",
+            "origin": "derived",
+            "name": "hLnonneg",
+            "fvar_id": "26"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsStrictOrderedRing",
+            "abs_of_nonneg",
+            "congrArg",
+            "sq_le_sq"
+          ],
+          "premises": [
+            {
+              "statement": "0 ≤ 2 * Real.pi",
+              "origin": "derived",
+              "name": "h0le",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "2 * Real.pi ≤ L",
+              "origin": "derived",
+              "name": "hLlower",
+              "fvar_id": "25"
+            },
+            {
+              "statement": "0 ≤ L",
+              "origin": "derived",
+              "name": "hLnonneg",
+              "fvar_id": "26"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_27",
+          "conclusion": {
+            "statement": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+            "origin": "derived",
+            "name": "hTsq_le_Lsq",
+            "fvar_id": "27"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(2 * Real.pi) ^ 2 ≤ C * D",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "LE.le.trans",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc"
+          ],
+          "premises": [
+            {
+              "statement": "L ^ 2 ≤ C * D",
+              "origin": "derived",
+              "name": "hcs",
+              "fvar_id": "22"
+            },
+            {
+              "statement": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+              "origin": "derived",
+              "name": "hTsq_le_Lsq",
+              "fvar_id": "27"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "(2 * Real.pi) ^ 2 ≤ C * D",
+            "origin": "derived",
+            "name": "hCD",
+            "fvar_id": "28"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "b ^ 2 < 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+            "IsStrictOrderedRing.toMulPosStrictMono",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_add",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+            "Mathlib.Tactic.Linarith.add_neg",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_one",
+            "Nat.cast_zero",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "Real.instStarOrderedRing",
+            "StarOrderedRing.toExistsAddOfLE",
+            "congrArg",
+            "contravariant_lt_of_covariant_le",
+            "contravariant_swap_add_of_contravariant_add",
+            "covariant_swap_add_of_covariant_add",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "instIsRightCancelAddOfAddRightReflectLE",
+            "lt_of_not_ge",
+            "mul_pos_of_neg_of_neg"
+          ],
+          "premises": [
+            {
+              "statement": "0 < b",
+              "origin": "local_assumption",
+              "name": "hb0",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "b < 1",
+              "origin": "local_assumption",
+              "name": "hb1",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_29",
+          "conclusion": {
+            "statement": "b ^ 2 < 1",
+            "origin": "derived",
+            "name": "hb2lt1",
+            "fvar_id": "29"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "1 < (b ^ 2)⁻¹",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "PosMulReflectLE.toPosMulReflectLT",
+            "PosMulStrictMono.toPosMulReflectLE",
+            "Real.instIsStrictOrderedRing",
+            "one_lt_inv₀",
+            "sq_pos_of_pos"
+          ],
+          "premises": [
+            {
+              "statement": "0 < b",
+              "origin": "local_assumption",
+              "name": "hb0",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "b ^ 2 < 1",
+              "origin": "derived",
+              "name": "hb2lt1",
+              "fvar_id": "29"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_30",
+          "conclusion": {
+            "statement": "1 < (b ^ 2)⁻¹",
+            "origin": "derived",
+            "name": "hinv_gt_one",
+            "fvar_id": "30"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+            "IsStrictOrderedRing.toMulPosStrictMono",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+            "Mathlib.Meta.NormNum.isNat_eq_true",
+            "Mathlib.Meta.NormNum.isNat_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.CancelDenoms.add_subst",
+            "Mathlib.Tactic.CancelDenoms.mul_subst",
+            "Mathlib.Tactic.CancelDenoms.sub_subst",
+            "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+            "Mathlib.Tactic.Linarith.add_neg",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+            "Mathlib.Tactic.Linarith.without_one_mul",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.inv_congr",
+            "Mathlib.Tactic.Ring.inv_mul",
+            "Mathlib.Tactic.Ring.inv_single",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_one",
+            "Nat.cast_zero",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "Real.instStarOrderedRing",
+            "StarOrderedRing.toExistsAddOfLE",
+            "congrArg",
+            "contravariant_lt_of_covariant_le",
+            "contravariant_swap_add_of_contravariant_add",
+            "covariant_swap_add_of_covariant_add",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "instIsRightCancelAddOfAddRightReflectLE",
+            "lt_of_not_ge",
+            "mul_pos_of_neg_of_neg"
+          ],
+          "premises": [
+            {
+              "statement": "0 < b",
+              "origin": "local_assumption",
+              "name": "hb0",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "b < 1",
+              "origin": "local_assumption",
+              "name": "hb1",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "0 < θ₀",
+              "origin": "local_assumption",
+              "name": "hθ0",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "θ₀ < 2 * Real.pi",
+              "origin": "local_assumption",
+              "name": "hθ1",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "1 < (b ^ 2)⁻¹",
+              "origin": "derived",
+              "name": "hinv_gt_one",
+              "fvar_id": "30"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_31",
+          "conclusion": {
+            "statement": "0 < 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+            "origin": "derived",
+            "name": "hdenpos",
+            "fvar_id": "31"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)) ≤ 1 / 2 * C",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Iff.mpr",
+            "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "IsOrderedRing.toMulPosMono",
+            "IsOrderedRing.toPosMulMono",
+            "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+            "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+            "IsStrictOrderedRing.toMulPosStrictMono",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNNRat.to_eq",
+            "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNatPowT.bit0",
+            "Mathlib.Meta.NormNum.IsNatPowT.run",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNNRat_div",
+            "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+            "Mathlib.Meta.NormNum.isNNRat_mul",
+            "Mathlib.Meta.NormNum.isNat_add",
+            "Mathlib.Meta.NormNum.isNat_eq_true",
+            "Mathlib.Meta.NormNum.isNat_lt_true",
+            "Mathlib.Meta.NormNum.isNat_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Meta.NormNum.isNat_pow",
+            "Mathlib.Meta.NormNum.one_natPow",
+            "Mathlib.Tactic.CancelDenoms.add_subst",
+            "Mathlib.Tactic.CancelDenoms.derive_trans",
+            "Mathlib.Tactic.CancelDenoms.div_subst",
+            "Mathlib.Tactic.CancelDenoms.mul_subst",
+            "Mathlib.Tactic.CancelDenoms.pow_subst",
+            "Mathlib.Tactic.CancelDenoms.sub_subst",
+            "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+            "Mathlib.Tactic.Linarith.add_nonpos",
+            "Mathlib.Tactic.Linarith.le_of_eq_of_le",
+            "Mathlib.Tactic.Linarith.le_of_le_of_eq",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.mul_eq",
+            "Mathlib.Tactic.Linarith.mul_neg",
+            "Mathlib.Tactic.Linarith.mul_zero_eq",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+            "Mathlib.Tactic.Linarith.without_one_mul",
+            "Mathlib.Tactic.Linarith.zero_mul_eq",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.inv_congr",
+            "Mathlib.Tactic.Ring.inv_mul",
+            "Mathlib.Tactic.Ring.inv_single",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_congr",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "MulPosReflectLE.toMulPosReflectLT",
+            "MulPosStrictMono.toMulPosReflectLE",
+            "Nat.cast_one",
+            "Nat.cast_zero",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "Real.instStarOrderedRing",
+            "StarOrderedRing.toExistsAddOfLE",
+            "congrArg",
+            "congrFun'",
+            "contravariant_lt_of_covariant_le",
+            "contravariant_swap_add_of_contravariant_add",
+            "covariant_swap_add_of_covariant_add",
+            "div_le_iff₀",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "instIsRightCancelAddOfAddRightReflectLE",
+            "instNeZeroNatHAdd_1",
+            "le_of_lt",
+            "le_of_not_gt",
+            "mul_nonneg_of_nonpos_of_nonpos",
+            "mul_pos_of_neg_of_neg",
+            "neg_eq_zero",
+            "sq_nonneg",
+            "sub_eq_zero_of_eq"
+          ],
+          "premises": [
+            {
+              "statement": "L ^ 2 ≤ C * D",
+              "origin": "derived",
+              "name": "hcs",
+              "fvar_id": "22"
+            },
+            {
+              "statement": "D = 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+              "origin": "derived",
+              "name": "hD",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+              "origin": "derived",
+              "name": "hTsq_le_Lsq",
+              "fvar_id": "27"
+            },
+            {
+              "statement": "0 < 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+              "origin": "derived",
+              "name": "hdenpos",
+              "fvar_id": "31"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_32",
+          "conclusion": {
+            "statement": "2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)) ≤ 1 / 2 * C",
+            "origin": "derived",
+            "name": "hmain",
+            "fvar_id": "32"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 = ∫ (θ : ℝ), α θ * |deriv φ θ| ^ 2 ∂μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+              "origin": "derived",
+              "name": "hinterval_to_restrict",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+          "id": "telescope_33",
+          "conclusion": {
+            "statement": "∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 = C",
+            "origin": "derived",
+            "name": "hCeq",
+            "fvar_id": "33"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "1 / 2 * ∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 ≥ 2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1))",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "1 / 2 * ∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 ≥ 2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "congrArg"
+        ],
+        "premises": [
+          {
+            "statement": "2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)) ≤ 1 / 2 * C",
+            "origin": "derived",
+            "name": "hmain",
+            "fvar_id": "32"
+          },
+          {
+            "statement": "∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 = C",
+            "origin": "derived",
+            "name": "hCeq",
+            "fvar_id": "33"
+          }
+        ],
+        "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "1 / 2 * ∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 ≥ 2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1))",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "|∫ (a : ℝ), deriv φ a ∂μ| ≤ ∫ (a : ℝ), |deriv φ a| ∂μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MeasureTheory.abs_integral_le_integral_abs"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_595",
+      "conclusion": {
+        "statement": "|∫ (a : ℝ), deriv φ a ∂μ| ≤ ∫ (a : ℝ), |deriv φ a| ∂μ",
+        "origin": "derived",
+        "name": "htriangle",
+        "fvar_id": "_uniq.5879733"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ 2 * Real.pi",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedRing.toPosMulMono",
+        "LT.lt.le",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instZeroLEOneClass",
+        "Real.pi_pos",
+        "mul_nonneg",
+        "zero_le_two"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_600",
+      "conclusion": {
+        "statement": "0 ≤ 2 * Real.pi",
+        "origin": "derived",
+        "name": "h0le",
+        "fvar_id": "_uniq.5871134"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "MeasureTheory.Ioc_ae_eq_Icc'",
+        "MeasureTheory.NoAtoms.measure_singleton",
+        "MeasureTheory.setIntegral_congr_set",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.noAtoms_volume",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "intervalIntegral.integral_of_le",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ 2 * Real.pi",
+          "origin": "derived",
+          "name": "h0le",
+          "fvar_id": "_uniq.5871134"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_601",
+      "conclusion": {
+        "statement": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+        "origin": "derived",
+        "name": "hinterval_to_restrict",
+        "fvar_id": "_uniq.5871229"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "L ^ 2 ≤ C * D",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.isFiniteMeasure_restrict_Icc",
+        "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_l1_sq_le_weighted_l2_mul_inv"
+      ],
+      "premises": [
+        {
+          "statement": "0 < b",
+          "origin": "local_assumption",
+          "name": "hb0",
+          "fvar_id": "_uniq.5865750"
+        },
+        {
+          "statement": "b < 1",
+          "origin": "local_assumption",
+          "name": "hb1",
+          "fvar_id": "_uniq.5865751"
+        },
+        {
+          "statement": "AEMeasurable α (volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "local_assumption",
+          "name": "hαmeas",
+          "fvar_id": "_uniq.5865754"
+        },
+        {
+          "statement": "∀ᵐ (θ : ℝ) ∂volume.restrict (Set.Icc 0 (2 * Real.pi)), α θ ∈ {b ^ 2, 1}",
+          "origin": "local_assumption",
+          "name": "hαvalues",
+          "fvar_id": "_uniq.5865756"
+        },
+        {
+          "statement": "MemLp (deriv φ) 2 (volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "local_assumption",
+          "name": "hφderivL2",
+          "fvar_id": "_uniq.5865760"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_602",
+      "conclusion": {
+        "statement": "L ^ 2 ≤ C * D",
+        "origin": "derived",
+        "name": "hcs",
+        "fvar_id": "_uniq.5872954"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "D = 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.integral_inv_eq_of_two_valued_on_interval"
+      ],
+      "premises": [
+        {
+          "statement": "0 < b",
+          "origin": "local_assumption",
+          "name": "hb0",
+          "fvar_id": "_uniq.5865750"
+        },
+        {
+          "statement": "b < 1",
+          "origin": "local_assumption",
+          "name": "hb1",
+          "fvar_id": "_uniq.5865751"
+        },
+        {
+          "statement": "0 < θ₀",
+          "origin": "local_assumption",
+          "name": "hθ0",
+          "fvar_id": "_uniq.5865752"
+        },
+        {
+          "statement": "θ₀ < 2 * Real.pi",
+          "origin": "local_assumption",
+          "name": "hθ1",
+          "fvar_id": "_uniq.5865753"
+        },
+        {
+          "statement": "AEMeasurable α (volume.restrict (Set.Icc 0 (2 * Real.pi)))",
+          "origin": "local_assumption",
+          "name": "hαmeas",
+          "fvar_id": "_uniq.5865754"
+        },
+        {
+          "statement": "∀ᵐ (θ : ℝ) ∂volume.restrict (Set.Icc 0 (2 * Real.pi)), α θ ∈ {b ^ 2, 1}",
+          "origin": "local_assumption",
+          "name": "hαvalues",
+          "fvar_id": "_uniq.5865756"
+        },
+        {
+          "statement": "(volume.restrict (Set.Icc 0 (2 * Real.pi))) {θ | α θ = b ^ 2} = ENNReal.ofReal θ₀",
+          "origin": "local_assumption",
+          "name": "hαmeasure",
+          "fvar_id": "_uniq.5865757"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_603",
+      "conclusion": {
+        "statement": "D = 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+        "origin": "derived",
+        "name": "hD",
+        "fvar_id": "_uniq.5875251"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∫ (θ : ℝ), deriv φ θ ∂μ = 2 * Real.pi",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+        "Eq.symm",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "AbsolutelyContinuousOnInterval φ 0 (2 * Real.pi)",
+          "origin": "local_assumption",
+          "name": "hφac",
+          "fvar_id": "_uniq.5865758"
+        },
+        {
+          "statement": "φ (2 * Real.pi) - φ 0 = 2 * Real.pi",
+          "origin": "local_assumption",
+          "name": "hφend",
+          "fvar_id": "_uniq.5865761"
+        },
+        {
+          "statement": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+          "origin": "derived",
+          "name": "hinterval_to_restrict",
+          "fvar_id": "_uniq.5871229"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_604",
+      "conclusion": {
+        "statement": "∫ (θ : ℝ), deriv φ θ ∂μ = 2 * Real.pi",
+        "origin": "derived",
+        "name": "hIntg",
+        "fvar_id": "_uniq.5876865"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "2 * Real.pi ≤ ∫ (a : ℝ), |deriv φ a| ∂μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "MeasureTheory.abs_integral_le_integral_abs",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "abs_of_nonneg",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ 2 * Real.pi",
+          "origin": "derived",
+          "name": "h0le",
+          "fvar_id": "_uniq.5871134"
+        },
+        {
+          "statement": "∫ (θ : ℝ), deriv φ θ ∂μ = 2 * Real.pi",
+          "origin": "derived",
+          "name": "hIntg",
+          "fvar_id": "_uniq.5876865"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_605",
+      "conclusion": {
+        "statement": "2 * Real.pi ≤ L",
+        "origin": "derived",
+        "name": "hLlower",
+        "fvar_id": "_uniq.5878332"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "HasSolidNorm.orderClosedTopology",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsScalarTower.right",
+        "MeasureTheory.integral_nonneg",
+        "RCLike.instStarModuleReal",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instStarOrderedRing",
+        "abs_nonneg",
+        "covariant_swap_add_of_covariant_add",
+        "instClosedIciTopology",
+        "instHasSolidNormReal",
+        "instIsOrderedModule"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_606",
+      "conclusion": {
+        "statement": "0 ≤ L",
+        "origin": "derived",
+        "name": "hLnonneg",
+        "fvar_id": "_uniq.5879984"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "abs_of_nonneg",
+        "congrArg",
+        "sq_le_sq"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ 2 * Real.pi",
+          "origin": "derived",
+          "name": "h0le",
+          "fvar_id": "_uniq.5871134"
+        },
+        {
+          "statement": "2 * Real.pi ≤ L",
+          "origin": "derived",
+          "name": "hLlower",
+          "fvar_id": "_uniq.5878332"
+        },
+        {
+          "statement": "0 ≤ L",
+          "origin": "derived",
+          "name": "hLnonneg",
+          "fvar_id": "_uniq.5879984"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_607",
+      "conclusion": {
+        "statement": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+        "origin": "derived",
+        "name": "hTsq_le_Lsq",
+        "fvar_id": "_uniq.5883916"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(2 * Real.pi) ^ 2 ≤ C * D",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LE.le.trans",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [
+        {
+          "statement": "L ^ 2 ≤ C * D",
+          "origin": "derived",
+          "name": "hcs",
+          "fvar_id": "_uniq.5872954"
+        },
+        {
+          "statement": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+          "origin": "derived",
+          "name": "hTsq_le_Lsq",
+          "fvar_id": "_uniq.5883916"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_608",
+      "conclusion": {
+        "statement": "(2 * Real.pi) ^ 2 ≤ C * D",
+        "origin": "derived",
+        "name": "hCD",
+        "fvar_id": "_uniq.5884999"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "b ^ 2 < 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.add_neg",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instStarOrderedRing",
+        "StarOrderedRing.toExistsAddOfLE",
+        "congrArg",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "lt_of_not_ge",
+        "mul_pos_of_neg_of_neg"
+      ],
+      "premises": [
+        {
+          "statement": "0 < b",
+          "origin": "local_assumption",
+          "name": "hb0",
+          "fvar_id": "_uniq.5865750"
+        },
+        {
+          "statement": "b < 1",
+          "origin": "local_assumption",
+          "name": "hb1",
+          "fvar_id": "_uniq.5865751"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_609",
+      "conclusion": {
+        "statement": "b ^ 2 < 1",
+        "origin": "derived",
+        "name": "hb2lt1",
+        "fvar_id": "_uniq.5885299"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 < (b ^ 2)⁻¹",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsStrictOrderedRing",
+        "one_lt_inv₀",
+        "sq_pos_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "0 < b",
+          "origin": "local_assumption",
+          "name": "hb0",
+          "fvar_id": "_uniq.5865750"
+        },
+        {
+          "statement": "b ^ 2 < 1",
+          "origin": "derived",
+          "name": "hb2lt1",
+          "fvar_id": "_uniq.5885299"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_610",
+      "conclusion": {
+        "statement": "1 < (b ^ 2)⁻¹",
+        "origin": "derived",
+        "name": "hinv_gt_one",
+        "fvar_id": "_uniq.5895859"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.mul_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.add_neg",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Linarith.without_one_mul",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.inv_congr",
+        "Mathlib.Tactic.Ring.inv_mul",
+        "Mathlib.Tactic.Ring.inv_single",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instStarOrderedRing",
+        "StarOrderedRing.toExistsAddOfLE",
+        "congrArg",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "lt_of_not_ge",
+        "mul_pos_of_neg_of_neg"
+      ],
+      "premises": [
+        {
+          "statement": "0 < b",
+          "origin": "local_assumption",
+          "name": "hb0",
+          "fvar_id": "_uniq.5865750"
+        },
+        {
+          "statement": "b < 1",
+          "origin": "local_assumption",
+          "name": "hb1",
+          "fvar_id": "_uniq.5865751"
+        },
+        {
+          "statement": "0 < θ₀",
+          "origin": "local_assumption",
+          "name": "hθ0",
+          "fvar_id": "_uniq.5865752"
+        },
+        {
+          "statement": "θ₀ < 2 * Real.pi",
+          "origin": "local_assumption",
+          "name": "hθ1",
+          "fvar_id": "_uniq.5865753"
+        },
+        {
+          "statement": "1 < (b ^ 2)⁻¹",
+          "origin": "derived",
+          "name": "hinv_gt_one",
+          "fvar_id": "_uniq.5895859"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_611",
+      "conclusion": {
+        "statement": "0 < 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+        "origin": "derived",
+        "name": "hdenpos",
+        "fvar_id": "_uniq.5896450"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)) ≤ 1 / 2 * C",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Iff.mpr",
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsOrderedRing.toMulPosMono",
+        "IsOrderedRing.toPosMulMono",
+        "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+        "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNatPowT.bit0",
+        "Mathlib.Meta.NormNum.IsNatPowT.run",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Meta.NormNum.isNat_pow",
+        "Mathlib.Meta.NormNum.one_natPow",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.derive_trans",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.mul_subst",
+        "Mathlib.Tactic.CancelDenoms.pow_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.add_nonpos",
+        "Mathlib.Tactic.Linarith.le_of_eq_of_le",
+        "Mathlib.Tactic.Linarith.le_of_le_of_eq",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_eq",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_zero_eq",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Linarith.without_one_mul",
+        "Mathlib.Tactic.Linarith.zero_mul_eq",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.inv_congr",
+        "Mathlib.Tactic.Ring.inv_mul",
+        "Mathlib.Tactic.Ring.inv_single",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "MulPosReflectLE.toMulPosReflectLT",
+        "MulPosStrictMono.toMulPosReflectLE",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instStarOrderedRing",
+        "StarOrderedRing.toExistsAddOfLE",
+        "congrArg",
+        "congrFun'",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "div_le_iff₀",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "instNeZeroNatHAdd_1",
+        "le_of_lt",
+        "le_of_not_gt",
+        "mul_nonneg_of_nonpos_of_nonpos",
+        "mul_pos_of_neg_of_neg",
+        "neg_eq_zero",
+        "sq_nonneg",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "L ^ 2 ≤ C * D",
+          "origin": "derived",
+          "name": "hcs",
+          "fvar_id": "_uniq.5872954"
+        },
+        {
+          "statement": "D = 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+          "origin": "derived",
+          "name": "hD",
+          "fvar_id": "_uniq.5875251"
+        },
+        {
+          "statement": "(2 * Real.pi) ^ 2 ≤ L ^ 2",
+          "origin": "derived",
+          "name": "hTsq_le_Lsq",
+          "fvar_id": "_uniq.5883916"
+        },
+        {
+          "statement": "0 < 2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)",
+          "origin": "derived",
+          "name": "hdenpos",
+          "fvar_id": "_uniq.5896450"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_612",
+      "conclusion": {
+        "statement": "2 * Real.pi ^ 2 / (2 * Real.pi + θ₀ * ((b ^ 2)⁻¹ - 1)) ≤ 1 / 2 * C",
+        "origin": "derived",
+        "name": "hmain",
+        "fvar_id": "_uniq.5910519"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 = ∫ (θ : ℝ), α θ * |deriv φ θ| ^ 2 ∂μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (f : ℝ → ℝ), ∫ (θ : ℝ) in 0..2 * Real.pi, f θ = ∫ (θ : ℝ), f θ ∂μ",
+          "origin": "derived",
+          "name": "hinterval_to_restrict",
+          "fvar_id": "_uniq.5871229"
+        }
+      ],
+      "parent": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+      "id": "local_613",
+      "conclusion": {
+        "statement": "∫ (θ : ℝ) in 0..2 * Real.pi, α θ * |deriv φ θ| ^ 2 = C",
+        "origin": "derived",
+        "name": "hCeq",
+        "fvar_id": "_uniq.5928881"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0273_weighted_one_dimensional_dirichlet_lower_b.weighted_one_dimensional_Dirichlet_lower_bound",
+    "proof_sha256": "8daa9f8974782856b2931c1224f8e532c59705f96566c59000509963506c6f6b"
+  }
+}

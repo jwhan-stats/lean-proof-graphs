@@ -1,0 +1,18 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_4e2dcd25" [shape=box, color="#178F82", label="hζ\nζ ∈ {ζ | (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧ (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧ (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧ (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧ ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}"];
+  "m_h_5de4e9ff" [shape=box, color="#178F82", label="hη\nη ∈ {ζ | (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧ (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧ (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧ (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧ ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}"];
+  "m_ha_750fee67" [shape=box, color="#178F82", label="ha\n0 ≤ a"];
+  "m_hab_427a159a" [shape=box, color="#178F82", label="hab\na + b = 1"];
+  "m_hb_7ae6cb56" [shape=box, color="#178F82", label="hb\n0 ≤ b"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∀ (i : Fin (l + m)), (a • ζ + b • η) i = (a • ζ + b • η) (σ i)) ∧ (∀ (i : Fin (l + m)), 0 < ((a • ζ + b • η) i).re) ∧ (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, (a • ζ + b • η) k).im) ∧ (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, (a • ζ + b • η) k).im < 0) ∧ ∑ k with ↑k < l, (a • ζ + b • η) k = ∑ k with l ≤ ↑k, (a • ζ + b • η) k"];
+  "r_h_goal" [shape=diamond, label="Finset.mul_sum + Finset.sum_add_distrib + strict_combination_neg", color="#D97706"];
+  "m_h_4e2dcd25" -> "r_h_goal";
+  "m_h_5de4e9ff" -> "r_h_goal";
+  "m_ha_750fee67" -> "r_h_goal";
+  "m_hb_7ae6cb56" -> "r_h_goal";
+  "m_hab_427a159a" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

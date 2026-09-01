@@ -1,0 +1,1313 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "manifest": [
+        {
+          "statement": "Nonempty X",
+          "origin": "manifest",
+          "name": "inst._@.proofs.697528154._hygCtx._hyg.3",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "CompleteSpace X",
+          "origin": "manifest",
+          "name": "inst._@.proofs.697528154._hygCtx._hyg.12",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (z : ℕ → X) (a : X), Monotone z → Filter.Tendsto z Filter.atTop (nhds a) → ∀ (n : ℕ), z n ≤ a",
+          "origin": "manifest",
+          "name": "hregular",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "Set.range f ⊆ Set.range H",
+          "origin": "manifest",
+          "name": "hf_range",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "Set.range g ⊆ Set.range H",
+          "origin": "manifest",
+          "name": "hg_range",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "IsClosed (Set.range H)",
+          "origin": "manifest",
+          "name": "hH_closed",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ (x y : X), H y = f x → f x ≤ g y",
+          "origin": "manifest",
+          "name": "hfg_inc",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (x y : X), H y = g x → g x ≤ f y",
+          "origin": "manifest",
+          "name": "hgf_inc",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (t : NNReal), β t < 1",
+          "origin": "manifest",
+          "name": "hβ_lt_one",
+          "fvar_id": "15"
+        },
+        {
+          "statement": "∀ (t : ℕ → NNReal), Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1) → Filter.Tendsto t Filter.atTop (nhds 0)",
+          "origin": "manifest",
+          "name": "hβ_zero",
+          "fvar_id": "16"
+        },
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "manifest",
+          "name": "hcontract",
+          "fvar_id": "17"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (x : X), f x = g x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mp",
+            "MulZeroClass.mul_zero",
+            "congrArg",
+            "le_antisymm",
+            "le_rfl",
+            "nndist_eq_zero",
+            "nndist_self",
+            "zero_le"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+              "origin": "local_assumption",
+              "name": "hcontract",
+              "fvar_id": "17"
+            }
+          ],
+          "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "∀ (x : X), f x = g x",
+            "origin": "derived",
+            "name": "hf_eq_g",
+            "fvar_id": "18"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∃ u, f u = g u ∧ g u = H u",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ u, f u = g u ∧ g u = H u",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "CauchySeq.tendsto_limUnder",
+          "Classical.choose_spec",
+          "EMetricSpace.metrizableSpace",
+          "Eq.symm",
+          "Filter.Eventually.of_forall",
+          "Filter.Tendsto.comp",
+          "Filter.Tendsto.congr'",
+          "Filter.Tendsto.nndist",
+          "Filter.atTop_neBot",
+          "Filter.tendsto_add_atTop_nat",
+          "Iff.mpr",
+          "IsClosed.mem_of_tendsto",
+          "LT.lt.le",
+          "NNReal.instOrderTopology",
+          "NNReal.mulLeftMono",
+          "NNReal.tendsto_coe",
+          "Nat.instStarOrderedRing",
+          "Rollout_p1362_common_coincidence_point_of_ordered_metric.cauchySeq_of_ordered_beta_contraction",
+          "StarOrderedRing.toIsOrderedRing",
+          "Subtype.property",
+          "TopologicalSpace.t2Space_of_metrizableSpace",
+          "congrArg",
+          "covariant_swap_mul_of_covariant_mul",
+          "dist_nndist",
+          "instArchimedeanNat",
+          "instIsDirectedOrder",
+          "instNonemptyOfInhabited",
+          "le_of_lt",
+          "monotone_nat_of_le_succ",
+          "mul_le_mul_right'",
+          "nndist_self",
+          "one_mul",
+          "tendsto_const_nhds",
+          "tendsto_iff_dist_tendsto_zero",
+          "tendsto_nhds_unique",
+          "tendsto_of_tendsto_of_tendsto_of_le_of_le",
+          "zero_le"
+        ],
+        "premises": [
+          {
+            "statement": "Nonempty X",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.697528154._hygCtx._hyg.3",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "CompleteSpace X",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.697528154._hygCtx._hyg.12",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "∀ (z : ℕ → X) (a : X), Monotone z → Filter.Tendsto z Filter.atTop (nhds a) → ∀ (n : ℕ), z n ≤ a",
+            "origin": "local_assumption",
+            "name": "hregular",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "Set.range f ⊆ Set.range H",
+            "origin": "local_assumption",
+            "name": "hf_range",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "IsClosed (Set.range H)",
+            "origin": "local_assumption",
+            "name": "hH_closed",
+            "fvar_id": "12"
+          },
+          {
+            "statement": "∀ (x y : X), H y = f x → f x ≤ g y",
+            "origin": "local_assumption",
+            "name": "hfg_inc",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "∀ (t : NNReal), β t < 1",
+            "origin": "local_assumption",
+            "name": "hβ_lt_one",
+            "fvar_id": "15"
+          },
+          {
+            "statement": "∀ (t : ℕ → NNReal), Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1) → Filter.Tendsto t Filter.atTop (nhds 0)",
+            "origin": "local_assumption",
+            "name": "hβ_zero",
+            "fvar_id": "16"
+          },
+          {
+            "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+            "origin": "local_assumption",
+            "name": "hcontract",
+            "fvar_id": "17"
+          },
+          {
+            "statement": "∀ (x : X), f x = g x",
+            "origin": "derived",
+            "name": "hf_eq_g",
+            "fvar_id": "18"
+          }
+        ],
+        "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ u, f u = g u ∧ g u = H u",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "nndist (f x) (g x) ≤ β (nndist (H x) (H x)) * nndist (H x) (H x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_rfl"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "local_assumption",
+          "name": "hcontract",
+          "fvar_id": "_uniq.4452434"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1155",
+      "conclusion": {
+        "statement": "nndist (f x) (g x) ≤ β (nndist (H x) (H x)) * nndist (H x) (H x)",
+        "origin": "derived",
+        "name": "hle",
+        "fvar_id": "_uniq.4452600"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "nndist (f x) (g x) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_antisymm",
+        "zero_le"
+      ],
+      "premises": [
+        {
+          "statement": "nndist (f x) (g x) ≤ 0",
+          "origin": "local_assumption",
+          "name": "hle",
+          "fvar_id": "_uniq.4453453"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1156",
+      "conclusion": {
+        "statement": "nndist (f x) (g x) = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.4455005"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "f (a n) ≤ g (a (n + 1))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H y = f x → f x ≤ g y",
+          "origin": "local_assumption",
+          "name": "hfg_inc",
+          "fvar_id": "_uniq.4452430"
+        },
+        {
+          "statement": "∀ (n : ℕ), H (a (n + 1)) = f (a n)",
+          "origin": "derived",
+          "name": "ha",
+          "fvar_id": "_uniq.4455338"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1157",
+      "conclusion": {
+        "statement": "f (a n) ≤ g (a (n + 1))",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4455569"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "nndist (f (a (m + 1))) (g (a (n + 1))) ≤\n  β (nndist (H (a (m + 1))) (H (a (n + 1)))) * nndist (H (a (m + 1))) (H (a (n + 1)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "local_assumption",
+          "name": "hcontract",
+          "fvar_id": "_uniq.4452434"
+        },
+        {
+          "statement": "H (a (m + 1)) ≤ H (a (n + 1))",
+          "origin": "derived",
+          "name": "hcomp",
+          "fvar_id": "_uniq.4457023"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1158",
+      "conclusion": {
+        "statement": "nndist (f (a (m + 1))) (g (a (n + 1))) ≤\n  β (nndist (H (a (m + 1))) (H (a (n + 1)))) * nndist (H (a (m + 1))) (H (a (n + 1)))",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.4457140"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y m ≤ y n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LT.lt.le"
+      ],
+      "premises": [
+        {
+          "statement": "Monotone y",
+          "origin": "derived",
+          "name": "hmono",
+          "fvar_id": "_uniq.4456165"
+        },
+        {
+          "statement": "m < n",
+          "origin": "local_assumption",
+          "name": "hmn",
+          "fvar_id": "_uniq.4456898"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1159",
+      "conclusion": {
+        "statement": "H (a (m + 1)) ≤ H (a (n + 1))",
+        "origin": "derived",
+        "name": "hcomp",
+        "fvar_id": "_uniq.4457023"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "L ∈ Set.range H",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Eventually.of_forall",
+        "Filter.atTop_neBot",
+        "IsClosed.mem_of_tendsto",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited"
+      ],
+      "premises": [
+        {
+          "statement": "IsClosed (Set.range H)",
+          "origin": "local_assumption",
+          "name": "hH_closed",
+          "fvar_id": "_uniq.4452429"
+        },
+        {
+          "statement": "Filter.Tendsto y Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hyL",
+          "fvar_id": "_uniq.4459727"
+        },
+        {
+          "statement": "∀ (n : ℕ), y n ∈ Set.range H",
+          "origin": "derived",
+          "name": "hy_mem",
+          "fvar_id": "_uniq.4459958"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1160",
+      "conclusion": {
+        "statement": "L ∈ Set.range H",
+        "origin": "derived",
+        "name": "hL_mem",
+        "fvar_id": "_uniq.4460295"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "nndist (f (a (n + 1))) (g u) ≤ β (nndist (H (a (n + 1))) (H u)) * nndist (H (a (n + 1))) (H u)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "local_assumption",
+          "name": "hcontract",
+          "fvar_id": "_uniq.4452434"
+        },
+        {
+          "statement": "H (a (n + 1)) ≤ H u",
+          "origin": "derived",
+          "name": "hcomp",
+          "fvar_id": "_uniq.4460438"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1161",
+      "conclusion": {
+        "statement": "nndist (f (a (n + 1))) (g u) ≤ β (nndist (H (a (n + 1))) (H u)) * nndist (H (a (n + 1))) (H u)",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.4460508"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "H (a (n + 1)) ≤ H u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), y n ≤ L",
+          "origin": "derived",
+          "name": "hy_le_L",
+          "fvar_id": "_uniq.4459745"
+        },
+        {
+          "statement": "H u = L",
+          "origin": "local_assumption",
+          "name": "huH",
+          "fvar_id": "_uniq.4460316"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1162",
+      "conclusion": {
+        "statement": "H (a (n + 1)) ≤ H u",
+        "origin": "derived",
+        "name": "hcomp",
+        "fvar_id": "_uniq.4460438"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => L) Filter.atTop (nhds L)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "tendsto_const_nhds"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1163",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun x => L) Filter.atTop (nhds L)",
+        "origin": "derived",
+        "name": "hconst",
+        "fvar_id": "_uniq.4463344"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => nndist (y x) L) Filter.atTop (nhds (nndist L L))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Tendsto.nndist"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto y Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hyL",
+          "fvar_id": "_uniq.4459727"
+        },
+        {
+          "statement": "Filter.Tendsto (fun x => L) Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hconst",
+          "fvar_id": "_uniq.4463344"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1164",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun x => nndist (y x) L) Filter.atTop (nhds (nndist L L))",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4463519"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun a => ↑(nndist (y (a + 1)) (f u))) Filter.atTop (nhds ↑0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => nndist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "htarget_nn",
+          "fvar_id": "_uniq.4464907"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1165",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => ↑(nndist (y (n + 1)) (f u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hcoe",
+        "fvar_id": "_uniq.4467595"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ᶠ (x : ℕ) in Filter.atTop, (fun n => ↑(nndist (y (n + 1)) (f u))) x = (fun n => dist (y (n + 1)) (f u)) x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Filter.Eventually.of_forall",
+        "dist_nndist"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1166",
+      "conclusion": {
+        "statement": "(fun n => ↑(nndist (y (n + 1)) (f u))) =ᶠ[Filter.atTop] fun n => dist (y (n + 1)) (f u)",
+        "origin": "derived",
+        "name": "heq",
+        "fvar_id": "_uniq.4468139"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : X), f x = g x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "MulZeroClass.mul_zero",
+        "congrArg",
+        "le_antisymm",
+        "le_rfl",
+        "nndist_eq_zero",
+        "nndist_self",
+        "zero_le"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "local_assumption",
+          "name": "hcontract",
+          "fvar_id": "_uniq.4452434"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1167",
+      "conclusion": {
+        "statement": "∀ (x : X), f x = g x",
+        "origin": "derived",
+        "name": "hf_eq_g",
+        "fvar_id": "_uniq.4452466"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), H ↑(next (a n)) = f (a n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Subtype.property"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1170",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), H (a (n + 1)) = f (a n)",
+        "origin": "derived",
+        "name": "ha",
+        "fvar_id": "_uniq.4455338"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), y n ≤ y (n + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H y = f x → f x ≤ g y",
+          "origin": "local_assumption",
+          "name": "hfg_inc",
+          "fvar_id": "_uniq.4452430"
+        },
+        {
+          "statement": "∀ (x : X), f x = g x",
+          "origin": "derived",
+          "name": "hf_eq_g",
+          "fvar_id": "_uniq.4452466"
+        },
+        {
+          "statement": "∀ (n : ℕ), H (a (n + 1)) = f (a n)",
+          "origin": "derived",
+          "name": "ha",
+          "fvar_id": "_uniq.4455338"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1172",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), y n ≤ y (n + 1)",
+        "origin": "derived",
+        "name": "hy_succ",
+        "fvar_id": "_uniq.4455502"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Monotone y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "monotone_nat_of_le_succ"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), y n ≤ y (n + 1)",
+          "origin": "derived",
+          "name": "hy_succ",
+          "fvar_id": "_uniq.4455502"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1173",
+      "conclusion": {
+        "statement": "Monotone y",
+        "origin": "derived",
+        "name": "hmono",
+        "fvar_id": "_uniq.4456165"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (m n : ℕ), m < n → nndist (y (m + 1)) (y (n + 1)) ≤ β (nndist (y m) (y n)) * nndist (y m) (y n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "LT.lt.le",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "local_assumption",
+          "name": "hcontract",
+          "fvar_id": "_uniq.4452434"
+        },
+        {
+          "statement": "∀ (x : X), f x = g x",
+          "origin": "derived",
+          "name": "hf_eq_g",
+          "fvar_id": "_uniq.4452466"
+        },
+        {
+          "statement": "∀ (n : ℕ), H (a (n + 1)) = f (a n)",
+          "origin": "derived",
+          "name": "ha",
+          "fvar_id": "_uniq.4455338"
+        },
+        {
+          "statement": "Monotone y",
+          "origin": "derived",
+          "name": "hmono",
+          "fvar_id": "_uniq.4456165"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1174",
+      "conclusion": {
+        "statement": "∀ (m n : ℕ), m < n → nndist (y (m + 1)) (y (n + 1)) ≤ β (nndist (y m) (y n)) * nndist (y m) (y n)",
+        "origin": "derived",
+        "name": "hcross",
+        "fvar_id": "_uniq.4456882"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "CauchySeq y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1362_common_coincidence_point_of_ordered_metric.cauchySeq_of_ordered_beta_contraction"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (t : NNReal), β t < 1",
+          "origin": "local_assumption",
+          "name": "hβ_lt_one",
+          "fvar_id": "_uniq.4452432"
+        },
+        {
+          "statement": "∀ (t : ℕ → NNReal), Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1) → Filter.Tendsto t Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hβ_zero",
+          "fvar_id": "_uniq.4452433"
+        },
+        {
+          "statement": "Monotone y",
+          "origin": "derived",
+          "name": "hmono",
+          "fvar_id": "_uniq.4456165"
+        },
+        {
+          "statement": "∀ (m n : ℕ), m < n → nndist (y (m + 1)) (y (n + 1)) ≤ β (nndist (y m) (y n)) * nndist (y m) (y n)",
+          "origin": "derived",
+          "name": "hcross",
+          "fvar_id": "_uniq.4456882"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1175",
+      "conclusion": {
+        "statement": "CauchySeq y",
+        "origin": "derived",
+        "name": "hycauchy",
+        "fvar_id": "_uniq.4458468"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto y Filter.atTop (nhds (Filter.atTop.limUnder y))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CauchySeq.tendsto_limUnder"
+      ],
+      "premises": [
+        {
+          "statement": "CompleteSpace X",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.697528154._hygCtx._hyg.12",
+          "fvar_id": "_uniq.4452421"
+        },
+        {
+          "statement": "CauchySeq y",
+          "origin": "derived",
+          "name": "hycauchy",
+          "fvar_id": "_uniq.4458468"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1177",
+      "conclusion": {
+        "statement": "Filter.Tendsto y Filter.atTop (nhds L)",
+        "origin": "derived",
+        "name": "hyL",
+        "fvar_id": "_uniq.4459727"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), y n ≤ L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (z : ℕ → X) (a : X), Monotone z → Filter.Tendsto z Filter.atTop (nhds a) → ∀ (n : ℕ), z n ≤ a",
+          "origin": "local_assumption",
+          "name": "hregular",
+          "fvar_id": "_uniq.4452426"
+        },
+        {
+          "statement": "Monotone y",
+          "origin": "derived",
+          "name": "hmono",
+          "fvar_id": "_uniq.4456165"
+        },
+        {
+          "statement": "Filter.Tendsto y Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hyL",
+          "fvar_id": "_uniq.4459727"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1178",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), y n ≤ L",
+        "origin": "derived",
+        "name": "hy_le_L",
+        "fvar_id": "_uniq.4459745"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), ∃ y_1, H y_1 = y n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1179",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), y n ∈ Set.range H",
+        "origin": "derived",
+        "name": "hy_mem",
+        "fvar_id": "_uniq.4459958"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), nndist (y (n + 1)) (f u) ≤ nndist (y n) L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "NNReal.mulLeftMono",
+        "congrArg",
+        "covariant_swap_mul_of_covariant_mul",
+        "le_of_lt",
+        "mul_le_mul_right'",
+        "one_mul"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (t : NNReal), β t < 1",
+          "origin": "local_assumption",
+          "name": "hβ_lt_one",
+          "fvar_id": "_uniq.4452432"
+        },
+        {
+          "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)",
+          "origin": "local_assumption",
+          "name": "hcontract",
+          "fvar_id": "_uniq.4452434"
+        },
+        {
+          "statement": "∀ (x : X), f x = g x",
+          "origin": "derived",
+          "name": "hf_eq_g",
+          "fvar_id": "_uniq.4452466"
+        },
+        {
+          "statement": "∀ (n : ℕ), H (a (n + 1)) = f (a n)",
+          "origin": "derived",
+          "name": "ha",
+          "fvar_id": "_uniq.4455338"
+        },
+        {
+          "statement": "∀ (n : ℕ), y n ≤ L",
+          "origin": "derived",
+          "name": "hy_le_L",
+          "fvar_id": "_uniq.4459745"
+        },
+        {
+          "statement": "H u = L",
+          "origin": "local_assumption",
+          "name": "huH",
+          "fvar_id": "_uniq.4460316"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1180",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), nndist (y (n + 1)) (f u) ≤ nndist (y n) L",
+        "origin": "derived",
+        "name": "hbound",
+        "fvar_id": "_uniq.4460379"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => nndist (y x) L) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Tendsto.nndist",
+        "congrArg",
+        "nndist_self",
+        "tendsto_const_nhds"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto y Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hyL",
+          "fvar_id": "_uniq.4459727"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1181",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => nndist (y n) L) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hdL",
+        "fvar_id": "_uniq.4462776"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun n => nndist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "NNReal.instOrderTopology",
+        "tendsto_const_nhds",
+        "tendsto_of_tendsto_of_tendsto_of_le_of_le",
+        "zero_le"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), nndist (y (n + 1)) (f u) ≤ nndist (y n) L",
+          "origin": "derived",
+          "name": "hbound",
+          "fvar_id": "_uniq.4460379"
+        },
+        {
+          "statement": "Filter.Tendsto (fun n => nndist (y n) L) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hdL",
+          "fvar_id": "_uniq.4462776"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1182",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => nndist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "htarget_nn",
+        "fvar_id": "_uniq.4464907"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun n => dist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Filter.Eventually.of_forall",
+        "Filter.Tendsto.congr'",
+        "Iff.mpr",
+        "NNReal.tendsto_coe",
+        "dist_nndist"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => nndist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "htarget_nn",
+          "fvar_id": "_uniq.4464907"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1183",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => dist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "htarget_dist",
+        "fvar_id": "_uniq.4467066"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun n => y (n + 1)) Filter.atTop (nhds (f u))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "tendsto_iff_dist_tendsto_zero"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => dist (y (n + 1)) (f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "htarget_dist",
+          "fvar_id": "_uniq.4467066"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1184",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => y (n + 1)) Filter.atTop (nhds (f u))",
+        "origin": "derived",
+        "name": "hyshift_fu",
+        "fvar_id": "_uniq.4468689"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (y ∘ fun a => a + 1) Filter.atTop (nhds L)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Tendsto.comp",
+        "Filter.tendsto_add_atTop_nat"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto y Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hyL",
+          "fvar_id": "_uniq.4459727"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1185",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => y (n + 1)) Filter.atTop (nhds L)",
+        "origin": "derived",
+        "name": "hyshift_L",
+        "fvar_id": "_uniq.4479130"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "L = f u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "EMetricSpace.metrizableSpace",
+        "Filter.atTop_neBot",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "tendsto_nhds_unique"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => y (n + 1)) Filter.atTop (nhds (f u))",
+          "origin": "derived",
+          "name": "hyshift_fu",
+          "fvar_id": "_uniq.4468689"
+        },
+        {
+          "statement": "Filter.Tendsto (fun n => y (n + 1)) Filter.atTop (nhds L)",
+          "origin": "derived",
+          "name": "hyshift_L",
+          "fvar_id": "_uniq.4479130"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1186",
+      "conclusion": {
+        "statement": "L = f u",
+        "origin": "derived",
+        "name": "hL_eq_fu",
+        "fvar_id": "_uniq.4480976"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "f u = H u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "H u = L",
+          "origin": "local_assumption",
+          "name": "huH",
+          "fvar_id": "_uniq.4460316"
+        },
+        {
+          "statement": "L = f u",
+          "origin": "derived",
+          "name": "hL_eq_fu",
+          "fvar_id": "_uniq.4480976"
+        }
+      ],
+      "parent": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+      "id": "local_1187",
+      "conclusion": {
+        "statement": "f u = H u",
+        "origin": "derived",
+        "name": "hfu_eq_Hu",
+        "fvar_id": "_uniq.4480984"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p1362_common_coincidence_point_of_ordered_metric",
+    "proof_sha256": "ceae85017b034b6623d4a36c366ba36c766efd22f5ba99119a865a3f08218e57",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction"
+  }
+}

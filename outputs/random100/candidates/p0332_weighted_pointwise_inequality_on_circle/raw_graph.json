@@ -1,0 +1,870 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "manifest": [],
+      "local_edges": [],
+      "goal": {
+        "statement": "∃ C,\n  0 < C ∧\n    ∀ (f : ℝ → ℝ),\n      Function.Periodic f (2 * Real.pi) →\n        AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi →\n          f 0 = 0 →\n            MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi)\n                MeasureTheory.volume →\n              essSup (fun x => |f x| / |Real.sin (x / 2)|)\n                  (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤\n                C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ C,\n  0 < C ∧\n    ∀ (f : ℝ → ℝ),\n      Function.Periodic f (2 * Real.pi) →\n        AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi →\n          f 0 = 0 →\n            MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi)\n                MeasureTheory.volume →\n              essSup (fun x => |f x| / |Real.sin (x / 2)|)\n                  (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤\n                C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "AddGroup.existsAddOfLE",
+          "Algebra.to_smulCommClass",
+          "And.left",
+          "And.right",
+          "BorelSpace.opensMeasurable",
+          "ENNReal.ofReal_eq_zero",
+          "Eq.trans",
+          "Even.pow_nonneg",
+          "Filter.IsBoundedUnder.isCoboundedUnder_flip",
+          "Filter.isBoundedUnder_of",
+          "Filter.limsup_le_of_le",
+          "Filter.mp_mem",
+          "Filter.univ_mem'",
+          "HasSolidNorm.orderClosedTopology",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedRing.toPosMulMono",
+          "IsScalarTower.right",
+          "IsStrictOrderedRing.toIsOrderedRing",
+          "IsStrictOrderedRing.toMulPosStrictMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNat_add",
+          "Mathlib.Meta.NormNum.isNat_lt_true",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.mul_neg",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_congr",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "MeasureTheory.Measure.instOuterMeasureClass",
+          "MeasureTheory.Measure.restrict_eq_zero",
+          "MeasureTheory.ae_neBot",
+          "MeasureTheory.ae_restrict_mem",
+          "MeasureTheory.integral_nonneg",
+          "MulPosReflectLE.toMulPosReflectLT",
+          "MulPosStrictMono.toMulPosReflectLE",
+          "MulZeroClass.mul_zero",
+          "MulZeroClass.zero_mul",
+          "Nat.cast_zero",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "RCLike.charZero_rclike",
+          "RCLike.instStarModuleReal",
+          "Real.borelSpace",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instStarOrderedRing",
+          "Real.pi_pos",
+          "Real.sqrt_nonneg",
+          "Real.volume_Icc",
+          "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle",
+          "abs_eq_zero",
+          "abs_nonneg",
+          "abs_nonpos_iff._simp_1",
+          "abs_pos",
+          "abs_zero",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "covariant_swap_add_of_covariant_add",
+          "div_le_iff₀",
+          "div_nonneg",
+          "div_zero",
+          "eq_self",
+          "even_two_mul",
+          "funext",
+          "ge_iff_le._simp_1",
+          "instClosedIciTopology",
+          "instHasSolidNormReal",
+          "instIsOrderedModule",
+          "instIsTransGe",
+          "instNeZeroNatHAdd_1",
+          "le_antisymm",
+          "le_of_lt",
+          "measurableSet_Icc",
+          "mul_nonneg",
+          "of_eq_true",
+          "sq_abs"
+        ],
+        "premises": [],
+        "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ C,\n  0 < C ∧\n    ∀ (f : ℝ → ℝ),\n      Function.Periodic f (2 * Real.pi) →\n        AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi →\n          f 0 = 0 →\n            MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi)\n                MeasureTheory.volume →\n              essSup (fun x => |f x| / |Real.sin (x / 2)|)\n                  (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤\n                C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "|f x| = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Real.instIsOrderedAddMonoid",
+        "abs_nonneg",
+        "covariant_swap_add_of_covariant_add",
+        "le_antisymm"
+      ],
+      "premises": [
+        {
+          "statement": "|f x| ≤ 0",
+          "origin": "derived",
+          "name": "hle0",
+          "fvar_id": "_uniq.6598695"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1305",
+      "conclusion": {
+        "statement": "|f x| = 0",
+        "origin": "derived",
+        "name": "habs0",
+        "fvar_id": "_uniq.6603260"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "|f x| ≤ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "MulZeroClass.mul_zero",
+        "MulZeroClass.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "abs_nonpos_iff._simp_1",
+        "abs_zero",
+        "congrArg",
+        "congrFun'",
+        "covariant_swap_add_of_covariant_add"
+      ],
+      "premises": [
+        {
+          "statement": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I",
+          "origin": "derived",
+          "name": "hbound",
+          "fvar_id": "_uniq.6538297"
+        },
+        {
+          "statement": "Real.sin (x / 2) = 0",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.6598616"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1306",
+      "conclusion": {
+        "statement": "|f x| ≤ 0",
+        "origin": "derived",
+        "name": "hle0",
+        "fvar_id": "_uniq.6598695"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "f x = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Real.instIsOrderedAddMonoid",
+        "abs_eq_zero",
+        "abs_nonneg",
+        "covariant_swap_add_of_covariant_add",
+        "le_antisymm"
+      ],
+      "premises": [
+        {
+          "statement": "|f x| ≤ 0",
+          "origin": "derived",
+          "name": "hle0",
+          "fvar_id": "_uniq.6598695"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1307",
+      "conclusion": {
+        "statement": "f x = 0",
+        "origin": "derived",
+        "name": "hfx0",
+        "fvar_id": "_uniq.6602362"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "|f x| / |Real.sin (x / 2)| = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "abs_zero",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "div_zero",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "Real.sin (x / 2) = 0",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.6598616"
+        },
+        {
+          "statement": "f x = 0",
+          "origin": "derived",
+          "name": "hfx0",
+          "fvar_id": "_uniq.6602362"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1308",
+      "conclusion": {
+        "statement": "|f x| / |Real.sin (x / 2)| = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.6603773"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle",
+        "congrArg",
+        "congrFun'",
+        "funext",
+        "sq_abs"
+      ],
+      "premises": [
+        {
+          "statement": "AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi",
+          "origin": "local_assumption",
+          "name": "hAC",
+          "fvar_id": "_uniq.6497812"
+        },
+        {
+          "statement": "f 0 = 0",
+          "origin": "local_assumption",
+          "name": "hf0",
+          "fvar_id": "_uniq.6497815"
+        },
+        {
+          "statement": "MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi)\n  MeasureTheory.volume",
+          "origin": "local_assumption",
+          "name": "hW",
+          "fvar_id": "_uniq.6497818"
+        },
+        {
+          "statement": "x ∈ Set.Icc (-Real.pi) Real.pi",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.6538214"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1309",
+      "conclusion": {
+        "statement": "|f x| ≤ Real.pi * |Real.sin (x / 2)| * √I",
+        "origin": "derived",
+        "name": "hbound",
+        "fvar_id": "_uniq.6538297"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < |Real.sin (x / 2)|",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "abs_pos"
+      ],
+      "premises": [
+        {
+          "statement": "¬Real.sin (x / 2) = 0",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.6598623"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1310",
+      "conclusion": {
+        "statement": "0 < |Real.sin (x / 2)|",
+        "origin": "derived",
+        "name": "hden",
+        "fvar_id": "_uniq.6604778"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "MeasureTheory.Measure.restrict_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi) = 0",
+          "origin": "local_assumption",
+          "name": "hμ",
+          "fvar_id": "_uniq.6605664"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1311",
+      "conclusion": {
+        "statement": "MeasureTheory.volume (Set.Icc (-Real.pi) Real.pi) = 0",
+        "origin": "derived",
+        "name": "hs",
+        "fvar_id": "_uniq.6605907"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Real.pi - -Real.pi ≤ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.ofReal_eq_zero",
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "ENNReal.ofReal (Real.pi - -Real.pi) = 0",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.6605922"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1312",
+      "conclusion": {
+        "statement": "Real.pi - -Real.pi ≤ 0",
+        "origin": "derived",
+        "name": "hle",
+        "fvar_id": "_uniq.6605935"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ I",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AddGroup.existsAddOfLE",
+        "Algebra.to_smulCommClass",
+        "Even.pow_nonneg",
+        "HasSolidNorm.orderClosedTopology",
+        "IsScalarTower.right",
+        "IsStrictOrderedRing.toIsOrderedRing",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "MeasureTheory.integral_nonneg",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "RCLike.instStarModuleReal",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "Real.instStarOrderedRing",
+        "div_nonneg",
+        "even_two_mul",
+        "instClosedIciTopology",
+        "instHasSolidNormReal",
+        "instIsOrderedModule"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1316",
+      "conclusion": {
+        "statement": "0 ≤ I",
+        "origin": "derived",
+        "name": "hI_nonneg",
+        "fvar_id": "_uniq.6500911"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedRing.toPosMulMono",
+        "Real.instIsOrderedRing",
+        "Real.pi_pos",
+        "Real.sqrt_nonneg",
+        "le_of_lt",
+        "mul_nonneg"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1317",
+      "conclusion": {
+        "statement": "0 ≤ B",
+        "origin": "derived",
+        "name": "hB_nonneg",
+        "fvar_id": "_uniq.6516907"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Eq.trans",
+        "Iff.mp",
+        "Iff.mpr",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "MulPosReflectLE.toMulPosReflectLT",
+        "MulPosStrictMono.toMulPosReflectLE",
+        "MulZeroClass.mul_zero",
+        "MulZeroClass.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "Rollout_p0332_weighted_pointwise_inequality_on_circle.pointwise_weighted_bound_on_circle",
+        "abs_eq_zero",
+        "abs_nonneg",
+        "abs_nonpos_iff._simp_1",
+        "abs_pos",
+        "abs_zero",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "covariant_swap_add_of_covariant_add",
+        "div_le_iff₀",
+        "div_zero",
+        "eq_self",
+        "funext",
+        "le_antisymm",
+        "of_eq_true",
+        "sq_abs"
+      ],
+      "premises": [
+        {
+          "statement": "AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi",
+          "origin": "local_assumption",
+          "name": "hAC",
+          "fvar_id": "_uniq.6497812"
+        },
+        {
+          "statement": "f 0 = 0",
+          "origin": "local_assumption",
+          "name": "hf0",
+          "fvar_id": "_uniq.6497815"
+        },
+        {
+          "statement": "MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi)\n  MeasureTheory.volume",
+          "origin": "local_assumption",
+          "name": "hW",
+          "fvar_id": "_uniq.6497818"
+        },
+        {
+          "statement": "0 ≤ B",
+          "origin": "derived",
+          "name": "hB_nonneg",
+          "fvar_id": "_uniq.6516907"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1318",
+      "conclusion": {
+        "statement": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B",
+        "origin": "derived",
+        "name": "hpoint",
+        "fvar_id": "_uniq.6538203"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(MeasureTheory.ae μ).NeBot",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.ofReal_eq_zero",
+        "Iff.mp",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "MeasureTheory.Measure.instOuterMeasureClass",
+        "MeasureTheory.Measure.restrict_eq_zero",
+        "MeasureTheory.ae_neBot",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.pi_pos",
+        "Real.volume_Icc",
+        "congrArg",
+        "instNeZeroNatHAdd_1"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1319",
+      "conclusion": {
+        "statement": "(MeasureTheory.ae μ).NeBot",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.6605442"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.isBoundedUnder_of",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "MeasureTheory.Measure.instOuterMeasureClass",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "abs_nonneg",
+        "covariant_swap_add_of_covariant_add",
+        "div_nonneg"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1320",
+      "conclusion": {
+        "statement": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+        "origin": "derived",
+        "name": "hbelow",
+        "fvar_id": "_uniq.6614222"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.IsCoboundedUnder (flip fun x y => y ≤ x) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.IsBoundedUnder.isCoboundedUnder_flip",
+        "MeasureTheory.Measure.instOuterMeasureClass",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg",
+        "congrFun'",
+        "funext",
+        "ge_iff_le._simp_1",
+        "instIsTransGe"
+      ],
+      "premises": [
+        {
+          "statement": "(MeasureTheory.ae μ).NeBot",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.6605442"
+        },
+        {
+          "statement": "Filter.IsBoundedUnder (fun x y => x ≥ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+          "origin": "derived",
+          "name": "hbelow",
+          "fvar_id": "_uniq.6614222"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1321",
+      "conclusion": {
+        "statement": "Filter.IsCoboundedUnder (fun x y => x ≤ y) (MeasureTheory.ae μ) fun x => |f x| / |Real.sin (x / 2)|",
+        "origin": "derived",
+        "name": "hcob",
+        "fvar_id": "_uniq.6630571"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "{x | (fun x => (fun x => |f x| / |Real.sin (x / 2)|) x ≤ (fun x => B) x) x} ∈ MeasureTheory.ae μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "Filter.mp_mem",
+        "Filter.univ_mem'",
+        "HasSolidNorm.orderClosedTopology",
+        "MeasureTheory.Measure.instOuterMeasureClass",
+        "MeasureTheory.ae_restrict_mem",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.borelSpace",
+        "Real.instIsOrderedAddMonoid",
+        "instHasSolidNormReal",
+        "measurableSet_Icc"
+      ],
+      "premises": [
+        {
+          "statement": "∀ x ∈ Set.Icc (-Real.pi) Real.pi, |f x| / |Real.sin (x / 2)| ≤ B",
+          "origin": "derived",
+          "name": "hpoint",
+          "fvar_id": "_uniq.6538203"
+        }
+      ],
+      "parent": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+      "id": "local_1322",
+      "conclusion": {
+        "statement": "(fun x => |f x| / |Real.sin (x / 2)|) ≤ᵐ[μ] fun x => B",
+        "origin": "derived",
+        "name": "hbound_ae",
+        "fvar_id": "_uniq.6636064"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p0332_weighted_pointwise_inequality_on_circle",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0332_weighted_pointwise_inequality_on_circle.weighted_pointwise_inequality_on_circle",
+    "proof_sha256": "c0f9c4178bcae7c3b1f8f3cbc252ced0829e73ea32c869fc88c1f4e768d1783e"
+  }
+}

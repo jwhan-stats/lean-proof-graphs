@@ -1,0 +1,985 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0960_antitone_monotone_power_sum_inequality",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 960,
+    "source": "1005.2954",
+    "theorem_name": "antitone_monotone_power_sum_inequality",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/960",
+    "reconstructed_proof": "../../candidates/p0960_antitone_monotone_power_sum_inequality/proof.lean",
+    "raw_elaboration": "../../candidates/p0960_antitone_monotone_power_sum_inequality/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_inequality",
+    "verification_call_id": "verify_submission:22",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "e4cd917d0aebd07d32c97b0a51e0e5210516236764cf68793d96a95ef4c7844f",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "afb46856d4b58ff732f57a5ef0996e9c2e6483b3b5ecd162b94bbd6305d09e91",
+    "concrete_semantic_topology_sha256": "e4cd917d0aebd07d32c97b0a51e0e5210516236764cf68793d96a95ef4c7844f"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_80a841a6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "6",
+      "statement": "∀ (i : Fin k), 0 ≤ a i"
+    },
+    {
+      "id": "m_ha_antitone_a874b65b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha_antitone",
+      "lean_fvar_id": "8",
+      "statement": "Antitone a"
+    },
+    {
+      "id": "m_hb_6b0828b5",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hb",
+      "lean_fvar_id": "7",
+      "statement": "∀ (i : Fin k), 0 ≤ b i"
+    },
+    {
+      "id": "m_hb_monotone_65c72e47",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hb_monotone",
+      "lean_fvar_id": "9",
+      "statement": "Monotone b"
+    },
+    {
+      "id": "m_hk_b2669010",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hk",
+      "lean_fvar_id": "1",
+      "statement": "0 < k"
+    },
+    {
+      "id": "m_hs_2c16af7f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hs",
+      "lean_fvar_id": "3",
+      "statement": "1 ≤ s"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∑ i, (a i).rpow s) * ∑ i, a i ^ 2 * b i ≤ (∑ i, (a i).rpow (s + 1)) * ∑ i, a i * b i"
+    },
+    {
+      "id": "n_hdiff_99da1ba8",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hdiff",
+      "lean_fvar_id": "24",
+      "statement": "0 ≤ C * D - A * B"
+    },
+    {
+      "id": "n_hle_9e5acb9a",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hle",
+      "lean_fvar_id": "25",
+      "statement": "A * B ≤ C * D"
+    },
+    {
+      "id": "n_hsumeq_f1e9655d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsumEq",
+      "lean_fvar_id": "23",
+      "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)"
+    },
+    {
+      "id": "n_hsumw_79bef114",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsumW",
+      "lean_fvar_id": "18",
+      "statement": "0 ≤ ∑ i, ∑ j, W i j"
+    },
+    {
+      "id": "n_hu_4049c9c9",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hU",
+      "lean_fvar_id": "19",
+      "statement": "∑ i, ∑ j, U i j = C * D"
+    },
+    {
+      "id": "n_hus_f3e76c88",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hUs",
+      "lean_fvar_id": "20",
+      "statement": "∑ i, ∑ j, U j i = C * D"
+    },
+    {
+      "id": "n_hv_18d9d1ea",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hV",
+      "lean_fvar_id": "21",
+      "statement": "∑ i, ∑ j, V i j = A * B"
+    },
+    {
+      "id": "n_hvs_83480d39",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hVs",
+      "lean_fvar_id": "22",
+      "statement": "∑ i, ∑ j, V j i = A * B"
+    },
+    {
+      "id": "n_hwnonneg_427f75a7",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hWnonneg",
+      "lean_fvar_id": "17",
+      "statement": "∀ (i j : Fin k), 0 ≤ W i j"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hwnonneg",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hs_2c16af7f",
+        "m_ha_80a841a6",
+        "m_hb_6b0828b5",
+        "m_ha_antitone_a874b65b",
+        "m_hb_monotone_65c72e47"
+      ],
+      "conclusion": "n_hwnonneg_427f75a7",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "antitone_monotone_power_sum_pair_nonneg + le_total",
+        "items": [
+          "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_pair_nonneg",
+          "le_total"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0960_antitone_monotone_power_sum_inequality.antitone_monotone_power_sum_pair_nonneg"
+        ],
+        "mathlib_items": [
+          "le_total"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_17",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hWnonneg : ∀ i j : Fin k, 0 ≤ W i j := by\n    intro i j\n    rcases le_total i j with hij | hji\n    · exact antitone_monotone_power_sum_pair_nonneg\n        (hy := ha j) (hxy := ha_antitone hij) (hu := hb i)\n        (huv := hb_monotone hij) hs\n    · have hswap := antitone_monotone_power_sum_pair_nonneg\n        (hy := ha i) (hxy := ha_antitone hji) (hu := hb j)\n        (huv := hb_monotone hji) hs\n      dsimp [W, U, V]\n      convert hswap using 1\n      ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hs",
+              "statement": "1 ≤ s"
+            },
+            {
+              "fvar_id": "6",
+              "name": "ha",
+              "statement": "∀ (i : Fin k), 0 ≤ a i"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hb",
+              "statement": "∀ (i : Fin k), 0 ≤ b i"
+            },
+            {
+              "fvar_id": "8",
+              "name": "ha_antitone",
+              "statement": "Antitone a"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hb_monotone",
+              "statement": "Monotone b"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "17",
+            "name": "hWnonneg",
+            "statement": "∀ (i j : Fin k), 0 ≤ W i j"
+          }
+        },
+        "lean_dependency_sha256": "606813c3d0ff53358fdf35b550949c42e1e7becb985d16c6bdacc9a6fdf31ffc",
+        "kernel_witness_check": {
+          "proof_type": "∀ (i j : Fin k), 0 ≤ W i j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hsumw",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hwnonneg_427f75a7"
+      ],
+      "conclusion": "n_hsumw_79bef114",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_nonneg",
+        "items": [
+          "Finset.sum_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_18",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsumW : 0 ≤ ∑ i : Fin k, ∑ j : Fin k, W i j :=\n    Finset.sum_nonneg fun i _ => Finset.sum_nonneg fun j _ => hWnonneg i j",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hWnonneg",
+              "statement": "∀ (i j : Fin k), 0 ≤ W i j"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "18",
+            "name": "hsumW",
+            "statement": "0 ≤ ∑ i, ∑ j, W i j"
+          }
+        },
+        "lean_dependency_sha256": "3abd1913f3ca7d6ca74663560ab2f07340e27e9e87cc20f63b80e2898e8385e3",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ ∑ i, ∑ j, W i j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hu",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hu_4049c9c9",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Fintype.sum_mul_sum",
+        "items": [
+          "Fintype.sum_mul_sum"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Fintype.sum_mul_sum"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_19",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hU : (∑ i : Fin k, ∑ j : Fin k, U i j) = C * D := by\n    simpa [U, C, D] using\n      (Fintype.sum_mul_sum (fun i : Fin k => (a i) ^ (s + 1))\n        (fun j : Fin k => a j * b j)).symm",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "19",
+            "name": "hU",
+            "statement": "∑ i, ∑ j, U i j = C * D"
+          }
+        },
+        "lean_dependency_sha256": "12ab19d837a095885d2ba1519ddcbb3fa5142de29effa7b63e0d3cb0b1b729db",
+        "kernel_witness_check": {
+          "proof_type": "∑ i, ∑ j, U i j = C * D",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Fintype.sum_mul_sum"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hus",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hu_4049c9c9"
+      ],
+      "conclusion": "n_hus_f3e76c88",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_comm",
+        "items": [
+          "Finset.sum_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hUs : (∑ i : Fin k, ∑ j : Fin k, U j i) = C * D := by\n    calc\n      (∑ i : Fin k, ∑ j : Fin k, U j i)\n          = ∑ j : Fin k, ∑ i : Fin k, U j i := Finset.sum_comm\n      _ = C * D := hU",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "19",
+              "name": "hU",
+              "statement": "∑ i, ∑ j, U i j = C * D"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hUs",
+            "statement": "∑ i, ∑ j, U j i = C * D"
+          }
+        },
+        "lean_dependency_sha256": "5eaf2d5e5dd327a38352abdb6ed163a12abc367a1a036bdc077f05ffcffddd5c",
+        "kernel_witness_check": {
+          "proof_type": "∑ i, ∑ j, U j i = C * D",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hv",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hv_18d9d1ea",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Fintype.sum_mul_sum",
+        "items": [
+          "Fintype.sum_mul_sum"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Fintype.sum_mul_sum"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hV : (∑ i : Fin k, ∑ j : Fin k, V i j) = A * B := by\n    simpa [V, A, B] using\n      (Fintype.sum_mul_sum (fun i : Fin k => (a i) ^ s)\n        (fun j : Fin k => (a j) ^ 2 * b j)).symm",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "hV",
+            "statement": "∑ i, ∑ j, V i j = A * B"
+          }
+        },
+        "lean_dependency_sha256": "b4718572e4f6f653755bc4e962a73795fda9ae2db1074498ff165a9711c2b2e1",
+        "kernel_witness_check": {
+          "proof_type": "∑ i, ∑ j, V i j = A * B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Fintype.sum_mul_sum"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hvs",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hv_18d9d1ea"
+      ],
+      "conclusion": "n_hvs_83480d39",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_comm",
+        "items": [
+          "Finset.sum_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hVs : (∑ i : Fin k, ∑ j : Fin k, V j i) = A * B := by\n    calc\n      (∑ i : Fin k, ∑ j : Fin k, V j i)\n          = ∑ j : Fin k, ∑ i : Fin k, V j i := Finset.sum_comm\n      _ = A * B := hV",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "21",
+              "name": "hV",
+              "statement": "∑ i, ∑ j, V i j = A * B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hVs",
+            "statement": "∑ i, ∑ j, V j i = A * B"
+          }
+        },
+        "lean_dependency_sha256": "b993e4ec999014a6bdaab2bae6bbe7ba3043bd1b6a05837d66353988a5693b25",
+        "kernel_witness_check": {
+          "proof_type": "∑ i, ∑ j, V j i = A * B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hsumeq",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hu_4049c9c9",
+        "n_hus_f3e76c88",
+        "n_hv_18d9d1ea",
+        "n_hvs_83480d39"
+      ],
+      "conclusion": "n_hsumeq_f1e9655d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_add_distrib + Finset.sum_sub_distrib",
+        "items": [
+          "Finset.sum_add_distrib",
+          "Finset.sum_sub_distrib"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_add_distrib",
+          "Finset.sum_sub_distrib"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_23",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsumEq : (∑ i : Fin k, ∑ j : Fin k, W i j) = 2 * (C * D - A * B) := by\n    calc\n      (∑ i : Fin k, ∑ j : Fin k, W i j)\n          = (∑ i : Fin k, ∑ j : Fin k, U i j) +\n              (∑ i : Fin k, ∑ j : Fin k, U j i) -\n              (∑ i : Fin k, ∑ j : Fin k, V i j) -\n              (∑ i : Fin k, ∑ j : Fin k, V j i) := by\n            simp [W, Finset.sum_add_distrib, Finset.sum_sub_distrib]\n      _ = 2 * (C * D - A * B) := by\n            rw [hU, hUs, hV, hVs]\n            ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "19",
+              "name": "hU",
+              "statement": "∑ i, ∑ j, U i j = C * D"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hUs",
+              "statement": "∑ i, ∑ j, U j i = C * D"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hV",
+              "statement": "∑ i, ∑ j, V i j = A * B"
+            },
+            {
+              "fvar_id": "22",
+              "name": "hVs",
+              "statement": "∑ i, ∑ j, V j i = A * B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "23",
+            "name": "hsumEq",
+            "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)"
+          }
+        },
+        "lean_dependency_sha256": "10a73d77e4a9ae1959aeb2263b026b691edc15d5087cf985363d365ea61a3680",
+        "kernel_witness_check": {
+          "proof_type": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hdiff",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hsumw_79bef114",
+        "n_hsumeq_f1e9655d"
+      ],
+      "conclusion": "n_hdiff_99da1ba8",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "nlinarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_24",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hdiff : 0 ≤ C * D - A * B := by\n    nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "18",
+              "name": "hsumW",
+              "statement": "0 ≤ ∑ i, ∑ j, W i j"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hsumEq",
+              "statement": "∑ i, ∑ j, W i j = 2 * (C * D - A * B)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "24",
+            "name": "hdiff",
+            "statement": "0 ≤ C * D - A * B"
+          }
+        },
+        "lean_dependency_sha256": "6dc29a5bd1c3b4648c43471840efab49a3aa326cabb6cb3143abc7f4cf149b9e",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ C * D - A * B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hle",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hdiff_99da1ba8"
+      ],
+      "conclusion": "n_hle_9e5acb9a",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "sub_nonneg",
+        "items": [
+          "sub_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "sub_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_25",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hle : A * B ≤ C * D := sub_nonneg.mp hdiff",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "24",
+              "name": "hdiff",
+              "statement": "0 ≤ C * D - A * B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "25",
+            "name": "hle",
+            "statement": "A * B ≤ C * D"
+          }
+        },
+        "lean_dependency_sha256": "081233bf3b81be33dcf9443be86c9dac84084ab56b05e959ddd5346434866ba3",
+        "kernel_witness_check": {
+          "proof_type": "A * B ≤ C * D",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "sub_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hle_9e5acb9a"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  simpa [A, B, C, D] using hle",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "25",
+              "name": "hle",
+              "statement": "A * B ≤ C * D"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∑ i, (a i).rpow s) * ∑ i, a i ^ 2 * b i ≤ (∑ i, (a i).rpow (s + 1)) * ∑ i, a i * b i"
+          }
+        },
+        "lean_dependency_sha256": "8d661dee9f5cccc33b0651a8fa7d44299fdbc8ea1bd76bee5471cb6bee2b796d",
+        "kernel_witness_check": {
+          "proof_type": "(∑ i, (a i).rpow s) * ∑ i, a i ^ 2 * b i ≤ (∑ i, (a i).rpow (s + 1)) * ∑ i, a i * b i",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Real.rpow_add",
+      "declarations": [
+        "Real.rpow_add"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Real.rpow_natCast",
+      "declarations": [
+        "Real.rpow_natCast"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Real.rpow_two",
+      "declarations": [
+        "Real.rpow_two"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "sum_mul_sum",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "sum over finite type of product of sums equals double sum",
+      "declarations": [
+        "sum_dotProduct",
+        "Finset.sum_finset_product",
+        "algebra_finiteType_of_liesOver",
+        "Summable.tsum_prod",
+        "Finset.sum_finset_product'",
+        "DirectSum.of",
+        "ENNReal.tsum_prod'",
+        "ENNReal.tsum_sigma",
+        "ENNReal.tsum_prod",
+        "Fintype.sum_sum_type"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "((_ * _) = ∑ _, ∑ _, _)",
+      "declarations": [
+        "Fintype.sum_mul_sum",
+        "gaussSum_mul"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Real.rpow_le_rpow",
+      "declarations": [
+        "Real.rpow_le_rpow"
+      ],
+      "call_turn": 10,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Real.rpow_nonneg",
+      "declarations": [
+        "Real.rpow_nonneg"
+      ],
+      "call_turn": 10,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "mul_le_mul",
+      "declarations": [
+        "mul_le_mul"
+      ],
+      "call_turn": 10,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "sub_nonneg",
+      "declarations": [
+        "sub_nonneg"
+      ],
+      "call_turn": 10,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Real.rpow_add_one",
+      "declarations": [
+        "Real.rpow_add_one"
+      ],
+      "call_turn": 15,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "(_ ^ (_ + 1) = _ ^ _ * _)",
+      "declarations": [
+        "Nat.pow_add_one",
+        "BitVec.pow_succ",
+        "UInt16.pow_succ",
+        "UInt32.pow_succ",
+        "UInt64.pow_succ",
+        "UInt8.pow_succ",
+        "USize.pow_succ",
+        "Rat.pow_succ",
+        "Rat.zpow_add_one",
+        "Lean.Grind.Semiring.pow_succ"
+      ],
+      "call_turn": 15,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Real.rpow_sub_one",
+      "declarations": [
+        "Real.rpow_sub_one"
+      ],
+      "call_turn": 15,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Real.rpow_sub",
+      "declarations": [
+        "Real.rpow_sub"
+      ],
+      "call_turn": 15,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Real.zero_rpow",
+      "declarations": [
+        "Real.zero_rpow"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "zero_rpow",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "Real.rpow_eq_zero_iff_of_nonneg",
+      "declarations": [
+        "Real.rpow_eq_zero_iff_of_nonneg"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 15,
+    "selected_hyperedge_count": 10,
+    "main_hyperedge_count": 10,
+    "side_hyperedge_count": 0,
+    "selected_depth": 6,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 5,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 17,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 15,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 23,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

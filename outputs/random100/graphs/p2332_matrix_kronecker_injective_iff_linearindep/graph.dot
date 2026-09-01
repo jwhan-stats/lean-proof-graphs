@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n((∀ (n : ℕ), 0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔ ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧ ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)"];
+  "r_h_goal" [shape=diamond, label="Fintype.linearCombination_apply + Matrix.ext + Matrix.sum_apply", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

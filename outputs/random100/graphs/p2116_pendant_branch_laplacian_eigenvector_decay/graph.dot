@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hbranch_6ad8696f" [shape=box, color="#178F82", label="hbranch\n∀ (a b : Fin k), G.Adj (i a) (i b) ↔ ↑a + 1 = ↑b ∨ ↑b + 1 = ↑a"];
+  "m_heigen_f5a84ca3" [shape=box, color="#178F82", label="heigen\n(SimpleGraph.lapMatrix ℝ G).mulVec φ = lam • φ"];
+  "m_hexternal_63e52170" [shape=box, color="#178F82", label="hexternal\n∃ x ∉ Set.range i, G.Adj (i ⟨0, hk⟩) x ∧ ∀ (a : Fin k), ∀ v ∉ Set.range i, G.Adj (i a) v → a = ⟨0, hk⟩ ∧ v = x"];
+  "m_hi_e7ca45d1" [shape=box, color="#178F82", label="hi\nFunction.Injective i"];
+  "m_hk_1b5c2871" [shape=box, color="#178F82", label="hk\n1 ≤ k"];
+  "m_hlam_94c3110a" [shape=box, color="#178F82", label="hlam\n4 < lam"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet γ := 2 / (lam - 2); 0 < γ ∧ γ < 1 ∧ (∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ γ * |φ (i j)|) ∧ ∀ (j : Fin k), |φ (i j)| ≤ γ ^ ↑j * |φ (i ⟨0, hk⟩)|"];
+  "r_h_goal" [shape=diamond, label="Fin.ext + congrArg + mul_le_mul_of_nonneg_left", color="#D97706"];
+  "m_hk_1b5c2871" -> "r_h_goal";
+  "m_hi_e7ca45d1" -> "r_h_goal";
+  "m_hbranch_6ad8696f" -> "r_h_goal";
+  "m_hexternal_63e52170" -> "r_h_goal";
+  "m_hlam_94c3110a" -> "r_h_goal";
+  "m_heigen_f5a84ca3" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "dependency_graph_pipeline_config_v2",
+  "input": "../data/k3-fsmzb-correct.jsonl",
+  "sample_size": 100,
+  "selection": {
+    "strategy": "deterministic_hash_sample",
+    "seed": "arxivlean-dependency-graph-random100-v1",
+    "min_main_have_count": 1,
+    "max_main_have_count": 30,
+    "max_submission_chars": 30000,
+    "require_retrieval_event": true,
+    "require_successful_verify_submission": true,
+    "forbidden_proof_tokens": ["sorry", "admit", "axiom", "sorryAx"],
+    "have_count_bin_maxima": [2, 5, 9, 18, 30],
+    "retrieval_count_bin_maxima": [3, 8]
+  },
+  "projection": {
+    "node_unit": "elaborated proposition-valued theorem-telescope binding",
+    "edge_unit": "kernel-checked theorem-value or accepted local binding",
+    "universal_introduction": "boundary; not counted as an edge",
+    "named_mathlib_declaration": "atomic",
+    "accepted_rollout_helper": "atomic and separately tagged",
+    "side_conditions": "retained and tagged",
+    "retrieval": "separate overlay matched by declaration name",
+    "minimality_status": "selected_derivation_only",
+    "topology_validation": "generated Lean theorem over abstract proposition nodes"
+  },
+  "lean": {
+    "version": "4.29.0",
+    "mathlib": "v4.29.0",
+    "batch_size": 25
+  }
+}

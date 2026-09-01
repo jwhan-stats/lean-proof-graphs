@@ -1,0 +1,38 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_af2eb410" [shape=box, color="#178F82", label="ha\n∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1"];
+  "m_hb_4e17ad83" [shape=box, color="#178F82", label="hB\nB.Nonempty"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nFilter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √(Lℝ fun m => Lℝ fun n => ↑((↑n).gcd ↑m) - 1)"];
+  "n_hboundn_24921fb3" [shape=box, color="#D97706", label="hboundN\n∀ (N : ℕ), 0 < N → ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + K / ↑N"];
+  "n_hmain_665b10f6" [shape=box, color="#D97706", label="hmain\n∀ (ε : ℝ), 0 < ε → Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √target + ε"];
+  "n_hperiod_089e61bf" [shape=box, color="#D97706", label="hperiod\n∀ (i j : ℕ), w (i * q + j) = w j"];
+  "n_hq_c29a582b" [shape=box, color="#D97706", label="hq\n0 < q"];
+  "n_hs_72570984" [shape=box, color="#D97706", label="hS\n0 < S"];
+  "n_htarget_period_4f7e0469" [shape=box, color="#D97706", label="htarget_period\ntarget = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2"];
+  "r_h_001_hq" [shape=diamond, label="Finset.prod_pos", color="#D97706"];
+  "r_h_001_hq" -> "n_hq_c29a582b";
+  "r_h_002_hs" [shape=diamond, label="Finset.sum_pos + one_div_pos", color="#D97706"];
+  "m_hb_4e17ad83" -> "r_h_002_hs";
+  "r_h_002_hs" -> "n_hs_72570984";
+  "r_h_005_hperiod" [shape=diamond, label="Finset.dvd_prod_of_mem + Finset.sum_congr + Nat.dvd_add_iff_right", color="#D97706"];
+  "r_h_005_hperiod" -> "n_hperiod_089e61bf";
+  "r_h_006_htarget_period" [shape=diamond, label="nested_log_avg_gcd + period_weight_square_avg", color="#D97706"];
+  "m_hb_4e17ad83" -> "r_h_006_htarget_period";
+  "r_h_006_htarget_period" -> "n_htarget_period_4f7e0469";
+  "r_h_007_hboundn" [shape=diamond, label="Nat.mul_pos + Nat.zero_lt_succ + global_local_approx", color="#D97706"];
+  "m_hb_4e17ad83" -> "r_h_007_hboundn";
+  "m_ha_af2eb410" -> "r_h_007_hboundn";
+  "n_hq_c29a582b" -> "r_h_007_hboundn";
+  "n_hs_72570984" -> "r_h_007_hboundn";
+  "n_hperiod_089e61bf" -> "r_h_007_hboundn";
+  "n_htarget_period_4f7e0469" -> "r_h_007_hboundn";
+  "r_h_007_hboundn" -> "n_hboundn_24921fb3";
+  "r_h_008_hmain" [shape=diamond, label="Filter.Eventually.of_forall + Filter.Tendsto.eventually_lt_const + Filter.eventually_ge_atTop", color="#D97706"];
+  "n_hboundn_24921fb3" -> "r_h_008_hmain";
+  "r_h_008_hmain" -> "n_hmain_665b10f6";
+  "r_h_goal" [shape=diamond, label="le_of_forall_pos_le_add", color="#D97706"];
+  "n_hmain_665b10f6" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

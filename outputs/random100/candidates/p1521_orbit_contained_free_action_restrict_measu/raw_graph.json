@@ -1,0 +1,807 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "manifest": [
+        {
+          "statement": "Countable Γ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.11",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "Countable Δ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.14",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "StandardBorelSpace Y",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.20",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "MeasurableConstSMul Γ Y",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.31",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "MeasurableConstSMul Δ Y",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.35",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ (y : Y), MulAction.stabilizer Γ y = ⊥",
+          "origin": "manifest",
+          "name": "hc_free",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (y : Y), MulAction.stabilizer Δ y = ⊥",
+          "origin": "manifest",
+          "name": "hd_free",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (δ : Δ) (y : Y), ∃ γ, δ • y = γ • y",
+          "origin": "manifest",
+          "name": "horbit",
+          "fvar_id": "15"
+        },
+        {
+          "statement": "MeasurableSet A",
+          "origin": "manifest",
+          "name": "hA_meas",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "∀ (δ : Δ), (fun y => δ • y) '' A = A",
+          "origin": "manifest",
+          "name": "hA_inv",
+          "fvar_id": "18"
+        },
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.116",
+          "fvar_id": "20"
+        },
+        {
+          "statement": "MeasureTheory.SMulInvariantMeasure Γ Y μ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.119",
+          "fvar_id": "21"
+        },
+        {
+          "statement": "μ A = 1",
+          "origin": "manifest",
+          "name": "hμA",
+          "fvar_id": "22"
+        },
+        {
+          "statement": "MeasurableSet B",
+          "origin": "manifest",
+          "name": "hB",
+          "fvar_id": "25"
+        },
+        {
+          "statement": "B ⊆ A",
+          "origin": "manifest",
+          "name": "hBA",
+          "fvar_id": "26"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (γ : Γ), MeasurableSet {x | δ • x = γ • x}",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "BorelSpace.opensMeasurable",
+            "MeasurableConstSMul.measurable_const_smul",
+            "PolishSpace.toIsCompletelyMetrizableSpace",
+            "PolishSpace.toSecondCountableTopology",
+            "TopologicalSpace.IsCompletelyMetrizableSpace.MetrizableSpace",
+            "TopologicalSpace.t2Space_of_metrizableSpace",
+            "UpgradedStandardBorel.toBorelSpace",
+            "UpgradedStandardBorel.toPolishSpace",
+            "instMeasurableEqOfSecondCountableTopologyOfT2Space",
+            "measurableSet_eq_fun"
+          ],
+          "premises": [
+            {
+              "statement": "StandardBorelSpace Y",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.2709197330._hygCtx._hyg.20",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "MeasurableConstSMul Γ Y",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.2709197330._hygCtx._hyg.31",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "MeasurableConstSMul Δ Y",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.2709197330._hygCtx._hyg.35",
+              "fvar_id": "12"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "∀ (γ : Γ), MeasurableSet (S γ)",
+            "origin": "derived",
+            "name": "hS_meas",
+            "fvar_id": "28"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "B = ⋃ γ, B ∩ S γ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left",
+            "Iff.mp",
+            "Iff.mpr",
+            "Set.ext",
+            "Set.mem_iUnion"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (δ : Δ) (y : Y), ∃ γ, δ • y = γ • y",
+              "origin": "local_assumption",
+              "name": "horbit",
+              "fvar_id": "15"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_29",
+          "conclusion": {
+            "statement": "B = ⋃ γ, B ∩ S γ",
+            "origin": "derived",
+            "name": "hB_eq",
+            "fvar_id": "29"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "MeasurableSet.inter"
+          ],
+          "premises": [
+            {
+              "statement": "MeasurableSet B",
+              "origin": "local_assumption",
+              "name": "hB",
+              "fvar_id": "25"
+            },
+            {
+              "statement": "∀ (γ : Γ), MeasurableSet (S γ)",
+              "origin": "derived",
+              "name": "hS_meas",
+              "fvar_id": "28"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_30",
+          "conclusion": {
+            "statement": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+            "origin": "derived",
+            "name": "hC_meas",
+            "fvar_id": "30"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ ⦃γ₁ γ₂ : Γ⦄, γ₁ ≠ γ₂ → Function.onFun Disjoint (fun γ => B ∩ S γ) γ₁ γ₂",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.right",
+            "Eq.symm",
+            "Eq.trans",
+            "Function.onFun.eq_1",
+            "Rollout_p1521_orbit_contained_free_action_restrict_measu.smul_eq_of_smul_eq_smul_of_stabilizer_bot",
+            "Set.disjoint_left",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (y : Y), MulAction.stabilizer Γ y = ⊥",
+              "origin": "local_assumption",
+              "name": "hc_free",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_31",
+          "conclusion": {
+            "statement": "Pairwise (Function.onFun Disjoint fun γ => B ∩ S γ)",
+            "origin": "derived",
+            "name": "hC_disjoint",
+            "fvar_id": "31"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(fun y => δ • y) '' B = ⋃ γ, γ • (B ∩ S γ)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left",
+            "And.right",
+            "Eq.trans",
+            "Iff.mp",
+            "Iff.mpr",
+            "Set.ext",
+            "Set.mem_iUnion",
+            "Set.mem_smul_set",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (δ : Δ) (y : Y), ∃ γ, δ • y = γ • y",
+              "origin": "local_assumption",
+              "name": "horbit",
+              "fvar_id": "15"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_32",
+          "conclusion": {
+            "statement": "(fun y => δ • y) '' B = ⋃ γ, γ • (B ∩ S γ)",
+            "origin": "derived",
+            "name": "himage_eq",
+            "fvar_id": "32"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (γ : Γ), MeasurableSet (γ • (B ∩ S γ))",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "MeasurableSet.const_smul"
+          ],
+          "premises": [
+            {
+              "statement": "MeasurableConstSMul Γ Y",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.2709197330._hygCtx._hyg.31",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+              "origin": "derived",
+              "name": "hC_meas",
+              "fvar_id": "30"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_33",
+          "conclusion": {
+            "statement": "∀ (γ : Γ), MeasurableSet (γ • (B ∩ S γ))",
+            "origin": "derived",
+            "name": "hT_meas",
+            "fvar_id": "33"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ ⦃γ₁ γ₂ : Γ⦄, γ₁ ≠ γ₂ → Function.onFun Disjoint (fun γ => γ • (B ∩ S γ)) γ₁ γ₂",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.right",
+            "Eq.symm",
+            "Function.onFun.eq_1",
+            "Rollout_p1521_orbit_contained_free_action_restrict_measu.smul_eq_of_smul_eq_smul_of_stabilizer_bot",
+            "Set.disjoint_left",
+            "Set.mem_smul_set",
+            "congrArg",
+            "smul_left_cancel"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (y : Y), MulAction.stabilizer Γ y = ⊥",
+              "origin": "local_assumption",
+              "name": "hc_free",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+          "id": "telescope_34",
+          "conclusion": {
+            "statement": "Pairwise (Function.onFun Disjoint fun γ => γ • (B ∩ S γ))",
+            "origin": "derived",
+            "name": "hT_disjoint",
+            "fvar_id": "34"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "μ ((fun y => δ • y) '' B) = μ B",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "μ ((fun y => δ • y) '' B) = μ B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "Eq.trans",
+          "MeasureTheory.measure_iUnion",
+          "MeasureTheory.measure_smul",
+          "congrArg",
+          "congrFun'",
+          "eq_self",
+          "funext",
+          "of_eq_true"
+        ],
+        "premises": [
+          {
+            "statement": "Countable Γ",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.2709197330._hygCtx._hyg.11",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "MeasureTheory.SMulInvariantMeasure Γ Y μ",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.2709197330._hygCtx._hyg.119",
+            "fvar_id": "21"
+          },
+          {
+            "statement": "B = ⋃ γ, B ∩ S γ",
+            "origin": "derived",
+            "name": "hB_eq",
+            "fvar_id": "29"
+          },
+          {
+            "statement": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+            "origin": "derived",
+            "name": "hC_meas",
+            "fvar_id": "30"
+          },
+          {
+            "statement": "Pairwise (Function.onFun Disjoint fun γ => B ∩ S γ)",
+            "origin": "derived",
+            "name": "hC_disjoint",
+            "fvar_id": "31"
+          },
+          {
+            "statement": "(fun y => δ • y) '' B = ⋃ γ, γ • (B ∩ S γ)",
+            "origin": "derived",
+            "name": "himage_eq",
+            "fvar_id": "32"
+          },
+          {
+            "statement": "∀ (γ : Γ), MeasurableSet (γ • (B ∩ S γ))",
+            "origin": "derived",
+            "name": "hT_meas",
+            "fvar_id": "33"
+          },
+          {
+            "statement": "Pairwise (Function.onFun Disjoint fun γ => γ • (B ∩ S γ))",
+            "origin": "derived",
+            "name": "hT_disjoint",
+            "fvar_id": "34"
+          }
+        ],
+        "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "μ ((fun y => δ • y) '' B) = μ B",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "y₁ = y₂",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Eq.symm",
+        "smul_left_cancel"
+      ],
+      "premises": [
+        {
+          "statement": "y₁ ∈ B ∩ S γ₁",
+          "origin": "local_assumption",
+          "name": "hy₁",
+          "fvar_id": "_uniq.99943"
+        },
+        {
+          "statement": "γ₁ • y₁ = x",
+          "origin": "local_assumption",
+          "name": "hx₁",
+          "fvar_id": "_uniq.99944"
+        },
+        {
+          "statement": "y₂ ∈ B ∩ S γ₂",
+          "origin": "local_assumption",
+          "name": "hy₂",
+          "fvar_id": "_uniq.99980"
+        },
+        {
+          "statement": "γ₂ • y₂ = x",
+          "origin": "local_assumption",
+          "name": "hx₂",
+          "fvar_id": "_uniq.99981"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_12",
+      "conclusion": {
+        "statement": "y₁ = y₂",
+        "origin": "derived",
+        "name": "hy",
+        "fvar_id": "_uniq.99988"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (γ : Γ), MeasurableSet {x | δ • x = γ • x}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "MeasurableConstSMul.measurable_const_smul",
+        "PolishSpace.toIsCompletelyMetrizableSpace",
+        "PolishSpace.toSecondCountableTopology",
+        "TopologicalSpace.IsCompletelyMetrizableSpace.MetrizableSpace",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "UpgradedStandardBorel.toBorelSpace",
+        "UpgradedStandardBorel.toPolishSpace",
+        "instMeasurableEqOfSecondCountableTopologyOfT2Space",
+        "measurableSet_eq_fun"
+      ],
+      "premises": [
+        {
+          "statement": "MeasurableConstSMul Γ Y",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.31",
+          "fvar_id": "_uniq.69585"
+        },
+        {
+          "statement": "MeasurableConstSMul Δ Y",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.35",
+          "fvar_id": "_uniq.69586"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_15",
+      "conclusion": {
+        "statement": "∀ (γ : Γ), MeasurableSet (S γ)",
+        "origin": "derived",
+        "name": "hS_meas",
+        "fvar_id": "_uniq.75744"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B = ⋃ γ, B ∩ S γ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Iff.mp",
+        "Iff.mpr",
+        "Set.ext",
+        "Set.mem_iUnion"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (δ : Δ) (y : Y), ∃ γ, δ • y = γ • y",
+          "origin": "local_assumption",
+          "name": "horbit",
+          "fvar_id": "_uniq.69589"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_16",
+      "conclusion": {
+        "statement": "B = ⋃ γ, B ∩ S γ",
+        "origin": "derived",
+        "name": "hB_eq",
+        "fvar_id": "_uniq.78482"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MeasurableSet.inter"
+      ],
+      "premises": [
+        {
+          "statement": "MeasurableSet B",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.69619"
+        },
+        {
+          "statement": "∀ (γ : Γ), MeasurableSet (S γ)",
+          "origin": "derived",
+          "name": "hS_meas",
+          "fvar_id": "_uniq.75744"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_17",
+      "conclusion": {
+        "statement": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+        "origin": "derived",
+        "name": "hC_meas",
+        "fvar_id": "_uniq.78733"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃γ₁ γ₂ : Γ⦄, γ₁ ≠ γ₂ → Function.onFun Disjoint (fun γ => B ∩ S γ) γ₁ γ₂",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Eq.symm",
+        "Eq.trans",
+        "Function.onFun.eq_1",
+        "Rollout_p1521_orbit_contained_free_action_restrict_measu.smul_eq_of_smul_eq_smul_of_stabilizer_bot",
+        "Set.disjoint_left",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (y : Y), MulAction.stabilizer Γ y = ⊥",
+          "origin": "local_assumption",
+          "name": "hc_free",
+          "fvar_id": "_uniq.69587"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_18",
+      "conclusion": {
+        "statement": "Pairwise (Function.onFun Disjoint fun γ => B ∩ S γ)",
+        "origin": "derived",
+        "name": "hC_disjoint",
+        "fvar_id": "_uniq.79923"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(fun y => δ • y) '' B = ⋃ γ, γ • (B ∩ S γ)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Eq.trans",
+        "Iff.mp",
+        "Iff.mpr",
+        "Set.ext",
+        "Set.mem_iUnion",
+        "Set.mem_smul_set",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (δ : Δ) (y : Y), ∃ γ, δ • y = γ • y",
+          "origin": "local_assumption",
+          "name": "horbit",
+          "fvar_id": "_uniq.69589"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_19",
+      "conclusion": {
+        "statement": "(fun y => δ • y) '' B = ⋃ γ, γ • (B ∩ S γ)",
+        "origin": "derived",
+        "name": "himage_eq",
+        "fvar_id": "_uniq.86168"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (γ : Γ), MeasurableSet (γ • (B ∩ S γ))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MeasurableSet.const_smul"
+      ],
+      "premises": [
+        {
+          "statement": "MeasurableConstSMul Γ Y",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.2709197330._hygCtx._hyg.31",
+          "fvar_id": "_uniq.69585"
+        },
+        {
+          "statement": "∀ (γ : Γ), MeasurableSet (B ∩ S γ)",
+          "origin": "derived",
+          "name": "hC_meas",
+          "fvar_id": "_uniq.78733"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_20",
+      "conclusion": {
+        "statement": "∀ (γ : Γ), MeasurableSet (γ • (B ∩ S γ))",
+        "origin": "derived",
+        "name": "hT_meas",
+        "fvar_id": "_uniq.94931"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃γ₁ γ₂ : Γ⦄, γ₁ ≠ γ₂ → Function.onFun Disjoint (fun γ => γ • (B ∩ S γ)) γ₁ γ₂",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Eq.symm",
+        "Function.onFun.eq_1",
+        "Rollout_p1521_orbit_contained_free_action_restrict_measu.smul_eq_of_smul_eq_smul_of_stabilizer_bot",
+        "Set.disjoint_left",
+        "Set.mem_smul_set",
+        "congrArg",
+        "smul_left_cancel"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (y : Y), MulAction.stabilizer Γ y = ⊥",
+          "origin": "local_assumption",
+          "name": "hc_free",
+          "fvar_id": "_uniq.69587"
+        }
+      ],
+      "parent": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+      "id": "local_21",
+      "conclusion": {
+        "statement": "Pairwise (Function.onFun Disjoint fun γ => γ • (B ∩ S γ))",
+        "origin": "derived",
+        "name": "hT_disjoint",
+        "fvar_id": "_uniq.96629"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p1521_orbit_contained_free_action_restrict_measu",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1521_orbit_contained_free_action_restrict_measu.orbit_contained_free_action_restrict_measure_preserving",
+    "proof_sha256": "5537b82aff44aef04ef1a6e1227e009fee9631f7a7fe9c2ed0f3aea63119fee4"
+  }
+}

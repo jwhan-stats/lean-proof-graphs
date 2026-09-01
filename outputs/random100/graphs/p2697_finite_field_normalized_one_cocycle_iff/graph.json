@@ -1,0 +1,2302 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2697_finite_field_normalized_one_cocycle_iff",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2697,
+    "source": "math_0209210",
+    "theorem_name": "finite_field_normalized_one_cocycle_iff",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2697",
+    "reconstructed_proof": "../../candidates/p2697_finite_field_normalized_one_cocycle_iff/proof.lean",
+    "raw_elaboration": "../../candidates/p2697_finite_field_normalized_one_cocycle_iff/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2697_finite_field_normalized_one_cocycle_iff.finite_field_normalized_one_cocycle_iff",
+    "verification_call_id": "verify_submission:37",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "4688cecc6caa9aaae7cb3c31292c9b97c22cc81698adb4908adfe5a123c9c151",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "e61dd3ac9440981eb85d130498d0c30cd78ecfa188d5c5e6a81b3101e057a809",
+    "concrete_semantic_topology_sha256": "4688cecc6caa9aaae7cb3c31292c9b97c22cc81698adb4908adfe5a123c9c151"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_173d84f6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hα",
+      "lean_fvar_id": "8",
+      "statement": "α ≠ 0"
+    },
+    {
+      "id": "m_h_464c541f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hν",
+      "lean_fvar_id": "6",
+      "statement": "orderOf ν = q"
+    },
+    {
+      "id": "m_hpq_c0999d7d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hpq",
+      "lean_fvar_id": "4",
+      "statement": "p ≡ 1 [MOD q]"
+    },
+    {
+      "id": "m_inst___proofs_2502934680_16334da9",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+      "lean_fvar_id": "3",
+      "statement": "Fact (Nat.Prime q)"
+    },
+    {
+      "id": "m_inst___proofs_2502934680_a3817d3e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+      "lean_fvar_id": "2",
+      "statement": "Fact (Nat.Prime p)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(α 0 = 0 ∧ ∀ (x y : ZMod q), α (x + y) = α x + (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ x.val * α y) ↔ ∃ r, r ≠ 0 ∧ α 0 = 0 ∧ ∀ (x : ZMod q), x ≠ 0 → α x = r * ∑ j ∈ Finset.range x.val, (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ j"
+    },
+    {
+      "id": "n_h0_1fc58542",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h0",
+      "lean_fvar_id": "_uniq.3560095",
+      "statement": "α 0 = 0"
+    },
+    {
+      "id": "n_h0_fba82513",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h0",
+      "lean_fvar_id": "_uniq.3565475",
+      "statement": "α 0 = 0"
+    },
+    {
+      "id": "n_h_0c2c4271",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hν",
+      "lean_fvar_id": "_uniq.3558441",
+      "statement": "orderOf ν = q"
+    },
+    {
+      "id": "n_h_pow_2c4463f4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hνpow",
+      "lean_fvar_id": "_uniq.3566770",
+      "statement": "↑ν ^ q = 1"
+    },
+    {
+      "id": "n_hall_99094e98",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hall",
+      "lean_fvar_id": "_uniq.3591613",
+      "statement": "∀ (z : ZMod q), α z = r * S z.val"
+    },
+    {
+      "id": "n_hcoc_404ea20c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcoc",
+      "lean_fvar_id": "_uniq.3560096",
+      "statement": "∀ (x y : ZMod q), α (x + y) = α x + (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ x.val * α y"
+    },
+    {
+      "id": "n_hcoerce_264aafdc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcoerce",
+      "lean_fvar_id": "_uniq.3581294",
+      "statement": "↑ν = 1"
+    },
+    {
+      "id": "n_hdecomp_07664ed2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdecomp",
+      "lean_fvar_id": "_uniq.3588422",
+      "statement": "x.val + y.val = q + (x + y).val"
+    },
+    {
+      "id": "n_hform_566e7c84",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hform",
+      "lean_fvar_id": "_uniq.3564487",
+      "statement": "∀ (x : ZMod q), α x = α 1 * S x.val"
+    },
+    {
+      "id": "n_hform_nat_f3ef60a0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hform_nat",
+      "lean_fvar_id": "_uniq.3560576",
+      "statement": "∀ n ≤ q, α ↑n = α 1 * S n"
+    },
+    {
+      "id": "n_hformne_749bcc16",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hformne",
+      "lean_fvar_id": "_uniq.3565476",
+      "statement": "∀ (x : ZMod q), x ≠ 0 → α x = r * ∑ j ∈ Finset.range x.val, (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ j"
+    },
+    {
+      "id": "n_hg_7b128e72",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hg",
+      "lean_fvar_id": "_uniq.3582142",
+      "statement": "∑ i ∈ Finset.range q, t ^ i = (t ^ q - 1) / (t - 1)"
+    },
+    {
+      "id": "n_hgeom_ab0761c7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hgeom",
+      "lean_fvar_id": "_uniq.3587838",
+      "statement": "∀ (x y : ZMod q), S (x + y).val = S x.val + t ^ x.val * S y.val"
+    },
+    {
+      "id": "n_hlt_af92d8db",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlt",
+      "lean_fvar_id": "_uniq.3590900",
+      "statement": "x.val + y.val < q"
+    },
+    {
+      "id": "n_hmap_7f7339c1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmap",
+      "lean_fvar_id": "_uniq.3573098",
+      "statement": "(algebraMap (ZMod p) (GaloisField p 2)) ↑ν = (algebraMap (ZMod p) (GaloisField p 2)) 1"
+    },
+    {
+      "id": "n_hn_861b6b40",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.3561000",
+      "statement": "n + 1 ≤ q"
+    },
+    {
+      "id": "n_hnq_877ef1ad",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnq",
+      "lean_fvar_id": "_uniq.3561012",
+      "statement": "n < q"
+    },
+    {
+      "id": "n_hover_06f5ccf6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hover",
+      "lean_fvar_id": "_uniq.3587915",
+      "statement": "q ≤ x.val + y.val"
+    },
+    {
+      "id": "n_hover_0817e0e7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hover",
+      "lean_fvar_id": "_uniq.3587922",
+      "statement": "¬q ≤ x.val + y.val"
+    },
+    {
+      "id": "n_hqeq_bd68e1ac",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hqeq",
+      "lean_fvar_id": "_uniq.3581732",
+      "statement": "q = 1"
+    },
+    {
+      "id": "n_hqsum_2367da7c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hqsum",
+      "lean_fvar_id": "_uniq.3582105",
+      "statement": "S q = 0"
+    },
+    {
+      "id": "n_hsplit_f2c5a5bc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsplit",
+      "lean_fvar_id": "_uniq.3584819",
+      "statement": "∀ (m n : ℕ), S (m + n) = S m + t ^ m * S n"
+    },
+    {
+      "id": "n_ht_7fe9f071",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ht",
+      "lean_fvar_id": "_uniq.3572381",
+      "statement": "t = 1"
+    },
+    {
+      "id": "n_htne_5e42a34d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htne",
+      "lean_fvar_id": "_uniq.3572377",
+      "statement": "t ≠ 1"
+    },
+    {
+      "id": "n_htpow_2248c1dc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htpow",
+      "lean_fvar_id": "_uniq.3566014",
+      "statement": "t ^ q = 1"
+    },
+    {
+      "id": "n_hu_96e1ca9e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hu",
+      "lean_fvar_id": "_uniq.3566865",
+      "statement": "ν ^ q = 1"
+    },
+    {
+      "id": "n_hunit_650140fd",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hunit",
+      "lean_fvar_id": "_uniq.3581687",
+      "statement": "ν = 1"
+    },
+    {
+      "id": "n_hval_10187ece",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hval",
+      "lean_fvar_id": "_uniq.3588362",
+      "statement": "(x + y).val = x.val + y.val - q"
+    },
+    {
+      "id": "n_hval_cdefe3be",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hval",
+      "lean_fvar_id": "_uniq.3591165",
+      "statement": "(x + y).val = x.val + y.val"
+    },
+    {
+      "id": "n_hx_455fd923",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3564676",
+      "statement": "α x = α 1 * S x.val"
+    },
+    {
+      "id": "n_hx_5a8ce71c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3564575",
+      "statement": "α ↑x.val = α 1 * S x.val"
+    },
+    {
+      "id": "n_ih_09ed0b57",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ih'",
+      "lean_fvar_id": "_uniq.3561155",
+      "statement": "α ↑n = α 1 * S n"
+    },
+    {
+      "id": "n_ih_e2a74036",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ih",
+      "lean_fvar_id": "_uniq.3560995",
+      "statement": "n ≤ q → α ↑n = α 1 * S n"
+    },
+    {
+      "id": "n_inst___proofs_2502934680_2587361a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+      "lean_fvar_id": "_uniq.3558438",
+      "statement": "Fact (Nat.Prime q)"
+    },
+    {
+      "id": "n_inst___proofs_2502934680_36e6e138",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+      "lean_fvar_id": "_uniq.3558437",
+      "statement": "Fact (Nat.Prime p)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hnq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_861b6b40"
+      ],
+      "conclusion": "n_hnq_877ef1ad",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.lt_of_succ_le",
+        "items": [
+          "Nat.lt_of_succ_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.lt_of_succ_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_813",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "          have hnq : n < q := Nat.lt_of_succ_le hn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3561000",
+              "name": "hn",
+              "statement": "n + 1 ≤ q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3561012",
+            "name": "hnq",
+            "statement": "n < q"
+          }
+        },
+        "lean_dependency_sha256": "948597205611a06316eff27e1bd062d624bd593a80e4cadcba3e8be1ecaa0d74",
+        "kernel_witness_check": {
+          "proof_type": "n < q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_ih",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ih_e2a74036",
+        "n_hnq_877ef1ad"
+      ],
+      "conclusion": "n_ih_09ed0b57",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_814",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3560995",
+              "name": "ih",
+              "statement": "n ≤ q → α ↑n = α 1 * S n"
+            },
+            {
+              "fvar_id": "_uniq.3561012",
+              "name": "hnq",
+              "statement": "n < q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3561155",
+            "name": "ih'",
+            "statement": "α ↑n = α 1 * S n"
+          }
+        },
+        "lean_dependency_sha256": "702138b3d570aa933e8c69beb3b1a40b3d417349e0118e7db1efcabd567ae203",
+        "kernel_witness_check": {
+          "proof_type": "α ↑n = α 1 * S n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_2587361a",
+        "n_hform_nat_f3ef60a0"
+      ],
+      "conclusion": "n_hx_5a8ce71c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.le_of_lt + ZMod.val_lt",
+        "items": [
+          "Nat.le_of_lt",
+          "ZMod.val_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.le_of_lt",
+          "ZMod.val_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_815",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hx := hform_nat x.val (Nat.le_of_lt (ZMod.val_lt x))\n      rwa [ZMod.natCast_zmod_val x] at hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3560576",
+              "name": "hform_nat",
+              "statement": "∀ n ≤ q, α ↑n = α 1 * S n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3564575",
+            "name": "hx",
+            "statement": "α ↑x.val = α 1 * S x.val"
+          }
+        },
+        "lean_dependency_sha256": "76219689e92e0f6a98d22e6a0a7f3cb9fc33468bb6aba6f0f81642ba35f8c6eb",
+        "kernel_witness_check": {
+          "proof_type": "α ↑x.val = α 1 * S x.val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hform_566e7c84"
+      ],
+      "conclusion": "n_hx_455fd923",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_816",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hx := hform_nat x.val (Nat.le_of_lt (ZMod.val_lt x))\n      rwa [ZMod.natCast_zmod_val x] at hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3564487",
+              "name": "hform",
+              "statement": "∀ (x : ZMod q), α x = α 1 * S x.val"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3564676",
+            "name": "hx",
+            "statement": "α x = α 1 * S x.val"
+          }
+        },
+        "lean_dependency_sha256": "206fdf91b68fdbe83456df2409485dbaa55a1b88f6f8a064051c4006a5e98220",
+        "kernel_witness_check": {
+          "proof_type": "α x = α 1 * S x.val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hform_nat",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_inst___proofs_2502934680_2587361a",
+        "n_h0_1fc58542",
+        "n_hcoc_404ea20c"
+      ],
+      "conclusion": "n_hform_nat_f3ef60a0",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_range_succ + Nat.le_of_lt + Nat.lt_of_succ_le",
+        "items": [
+          "Finset.sum_range_succ",
+          "Nat.le_of_lt",
+          "Nat.lt_of_succ_le",
+          "ZMod.val_cast_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_range_succ",
+          "Nat.le_of_lt",
+          "Nat.lt_of_succ_le",
+          "ZMod.val_cast_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_817",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hform_nat : ∀ n : ℕ, n ≤ q → α (n : ZMod q) = α 1 * S n := by\n      intro n\n      induction n with\n      | zero =>\n          intro hn\n          simp [S, h0]\n      | succ n ih =>\n          intro hn\n          have hnq : n < q := Nat.lt_of_succ_le hn\n          have ih' : α (n : ZMod q) = α 1 * S n := ih (Nat.le_of_lt hnq)\n          calc\n            α ((n + 1 : ℕ) : ZMod q) = α ((n : ZMod q) + 1) := by\n              norm_num\n            _ = α (n : ZMod q) + t ^ ((n : ZMod q).val) * α 1 := hcoc (n : ZMod q) 1\n            _ = α 1 * S n + t ^ n * α 1 := by\n              rw [ZMod.val_cast_of_lt hnq, ih']\n            _ = α 1 * S (n + 1) := by\n              simp [S, Finset.sum_range_succ]\n              ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3560095",
+              "name": "h0",
+              "statement": "α 0 = 0"
+            },
+            {
+              "fvar_id": "_uniq.3560096",
+              "name": "hcoc",
+              "statement": "∀ (x y : ZMod q), α (x + y) = α x + (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ x.val * α y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3560576",
+            "name": "hform_nat",
+            "statement": "∀ n ≤ q, α ↑n = α 1 * S n"
+          }
+        },
+        "lean_dependency_sha256": "c0d27e9b3a9647082fd58f3a4f47bb989f4fa770981ddada9f0f0c32ab4eb256",
+        "kernel_witness_check": {
+          "proof_type": "∀ n ≤ q, α ↑n = α 1 * S n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.sum_range_succ",
+          "ZMod.val_cast_of_lt"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2",
+          "loogle:20",
+          "loogle:15",
+          "leanfinder:17",
+          "leanfinder:18"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hform",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_inst___proofs_2502934680_2587361a",
+        "n_hform_nat_f3ef60a0"
+      ],
+      "conclusion": "n_hform_566e7c84",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.le_of_lt + ZMod.natCast_zmod_val + ZMod.val_lt",
+        "items": [
+          "Nat.le_of_lt",
+          "ZMod.natCast_zmod_val",
+          "ZMod.val_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.le_of_lt",
+          "ZMod.natCast_zmod_val",
+          "ZMod.val_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_818",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hform : ∀ x : ZMod q, α x = α 1 * S x.val := by\n      intro x\n      have hx := hform_nat x.val (Nat.le_of_lt (ZMod.val_lt x))\n      rwa [ZMod.natCast_zmod_val x] at hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3560576",
+              "name": "hform_nat",
+              "statement": "∀ n ≤ q, α ↑n = α 1 * S n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3564487",
+            "name": "hform",
+            "statement": "∀ (x : ZMod q), α x = α 1 * S x.val"
+          }
+        },
+        "lean_dependency_sha256": "deca952b0fc9ad4d1a1ff82d4868b2aa129657e37cd9eb727118ae16223a77ee",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : ZMod q), α x = α 1 * S x.val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ZMod.natCast_zmod_val"
+        ],
+        "observed_search_event_ids": [
+          "loogle:13",
+          "leanfinder:18"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_h_0c2c4271"
+      ],
+      "conclusion": "n_hu_96e1ca9e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "pow_orderOf_eq_one",
+        "items": [
+          "pow_orderOf_eq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "pow_orderOf_eq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_819",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hu : ν ^ q = 1 := by\n          rw [← hν]\n          exact pow_orderOf_eq_one ν",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558441",
+              "name": "hν",
+              "statement": "orderOf ν = q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3566865",
+            "name": "hu",
+            "statement": "ν ^ q = 1"
+          }
+        },
+        "lean_dependency_sha256": "72ccb2bb1f84310d2f5b7f30f24dbc6908b14146cf06872644348884756e1ee6",
+        "kernel_witness_check": {
+          "proof_type": "ν ^ q = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_h_pow",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_h_0c2c4271"
+      ],
+      "conclusion": "n_h_pow_2c4463f4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg + pow_orderOf_eq_one",
+        "items": [
+          "congrArg",
+          "pow_orderOf_eq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg",
+          "pow_orderOf_eq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_820",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hνpow : (ν : ZMod p) ^ q = 1 := by\n        have hu : ν ^ q = 1 := by\n          rw [← hν]\n          exact pow_orderOf_eq_one ν\n        exact congrArg Units.val hu\n      calc\n        t ^ q = algebraMap (ZMod p) (GaloisField p 2) ((ν : ZMod p) ^ q) := by\n          simp [t, map_pow]\n        _ = 1 := by\n          rw [hνpow]\n          simp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558441",
+              "name": "hν",
+              "statement": "orderOf ν = q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3566770",
+            "name": "hνpow",
+            "statement": "↑ν ^ q = 1"
+          }
+        },
+        "lean_dependency_sha256": "698964ba886967883eb1dff28ab046e514639df374d6cc9e0f0ff4bf0a88c891",
+        "kernel_witness_check": {
+          "proof_type": "↑(ν ^ q) = ↑1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hmap",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_ht_7fe9f071"
+      ],
+      "conclusion": "n_hmap_7f7339c1",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_821",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hmap : algebraMap (ZMod p) (GaloisField p 2) (ν : ZMod p) =\n          algebraMap (ZMod p) (GaloisField p 2) 1 := by\n        simpa [t] using ht",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3572381",
+              "name": "ht",
+              "statement": "t = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3573098",
+            "name": "hmap",
+            "statement": "(algebraMap (ZMod p) (GaloisField p 2)) ↑ν = (algebraMap (ZMod p) (GaloisField p 2)) 1"
+          }
+        },
+        "lean_dependency_sha256": "f99032d2c7197650834085bd5ae7d43f94adb2bccd1c217644ec756bdd6e4f38",
+        "kernel_witness_check": {
+          "proof_type": "(algebraMap (ZMod p) (GaloisField p 2)) ↑ν = (algebraMap (ZMod p) (GaloisField p 2)) 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hcoerce",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_hmap_7f7339c1"
+      ],
+      "conclusion": "n_hcoerce_264aafdc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "RingHom.injective",
+        "items": [
+          "RingHom.injective"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "RingHom.injective"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_822",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hcoerce : (ν : ZMod p) = 1 :=\n        (RingHom.injective (algebraMap (ZMod p) (GaloisField p 2))) hmap",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3573098",
+              "name": "hmap",
+              "statement": "(algebraMap (ZMod p) (GaloisField p 2)) ↑ν = (algebraMap (ZMod p) (GaloisField p 2)) 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3581294",
+            "name": "hcoerce",
+            "statement": "↑ν = 1"
+          }
+        },
+        "lean_dependency_sha256": "7f533265e22209a4b97a2f5f83e4a8e024d57a33a382a41308653f7e81ce3e61",
+        "kernel_witness_check": {
+          "proof_type": "↑ν = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "RingHom.injective"
+        ],
+        "observed_search_event_ids": [
+          "loogle:11",
+          "leanfinder:10"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_011_hunit",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_hcoerce_264aafdc"
+      ],
+      "conclusion": "n_hunit_650140fd",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Units.ext",
+        "items": [
+          "Units.ext"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Units.ext"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_823",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hunit : ν = 1 := Units.ext hcoerce",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3581294",
+              "name": "hcoerce",
+              "statement": "↑ν = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3581687",
+            "name": "hunit",
+            "statement": "ν = 1"
+          }
+        },
+        "lean_dependency_sha256": "7991d50b025910d7e0bb5b475b00b3ef187830c9c0e3acd6814be6e372da488d",
+        "kernel_witness_check": {
+          "proof_type": "ν = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hqeq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_h_0c2c4271",
+        "n_hunit_650140fd"
+      ],
+      "conclusion": "n_hqeq_bd68e1ac",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "orderOf_one",
+        "items": [
+          "orderOf_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "orderOf_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_824",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hqeq : q = 1 := by\n        rw [← hν, hunit]\n        exact orderOf_one",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558441",
+              "name": "hν",
+              "statement": "orderOf ν = q"
+            },
+            {
+              "fvar_id": "_uniq.3581687",
+              "name": "hunit",
+              "statement": "ν = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3581732",
+            "name": "hqeq",
+            "statement": "q = 1"
+          }
+        },
+        "lean_dependency_sha256": "cf1f74434ce69cdbb50b7eb60228a82a165c3c02461ab43b842af03d7fd728e9",
+        "kernel_witness_check": {
+          "proof_type": "q = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_htne_5e42a34d"
+      ],
+      "conclusion": "n_hg_7b128e72",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "geom_sum_eq",
+        "items": [
+          "geom_sum_eq"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "geom_sum_eq"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_825",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hg := geom_sum_eq (x := t) htne q\n      rw [htpow] at hg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3572377",
+              "name": "htne",
+              "statement": "t ≠ 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3582142",
+            "name": "hg",
+            "statement": "∑ i ∈ Finset.range q, t ^ i = (t ^ q - 1) / (t - 1)"
+          }
+        },
+        "lean_dependency_sha256": "f72e3f66de9a753666c70696e69d152d361d843a9163d5da414c9e6947ee82d0",
+        "kernel_witness_check": {
+          "proof_type": "∑ i ∈ Finset.range q, t ^ i = (t ^ q - 1) / (t - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "geom_sum_eq"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:5"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_014_hval",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_2587361a",
+        "n_hover_06f5ccf6"
+      ],
+      "conclusion": "n_hval_10187ece",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ZMod.val_add_of_le",
+        "items": [
+          "ZMod.val_add_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ZMod.val_add_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_826",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hval : (x+y).val = x.val+y.val := by\n          rw [ZMod.val_add, Nat.mod_eq_of_lt hlt]\n        rw [hval]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3587915",
+              "name": "hover",
+              "statement": "q ≤ x.val + y.val"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3588362",
+            "name": "hval",
+            "statement": "(x + y).val = x.val + y.val - q"
+          }
+        },
+        "lean_dependency_sha256": "41250113bb7bc4a2001d48502e44e42d50a3188c26f36e993a9efb4a4e9abc9e",
+        "kernel_witness_check": {
+          "proof_type": "(x + y).val = x.val + y.val - q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ZMod.val_add_of_le"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_015_hdecomp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_hover_06f5ccf6",
+        "n_hval_10187ece"
+      ],
+      "conclusion": "n_hdecomp_07664ed2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega + simp + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_827",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hdecomp : x.val + y.val = q + (x + y).val := by\n          rw [hval]\n          omega\n        calc\n          S (x+y).val = S (q + (x+y).val) := by\n            rw [hsplit q (x+y).val, hqsum, htpow]\n            simp\n          _ = S (x.val + y.val) := by\n            rw [← hdecomp]\n          _ = S x.val + t ^ x.val * S y.val := hsplit x.val y.val\n      · have hlt : x.val + y.val < q := Nat.lt_of_not_ge hover",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3587915",
+              "name": "hover",
+              "statement": "q ≤ x.val + y.val"
+            },
+            {
+              "fvar_id": "_uniq.3588362",
+              "name": "hval",
+              "statement": "(x + y).val = x.val + y.val - q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3588422",
+            "name": "hdecomp",
+            "statement": "x.val + y.val = q + (x + y).val"
+          }
+        },
+        "lean_dependency_sha256": "9024b64b8ec4ed750f8e96b64b76ea857b48867c05f83924034f2c0be61ffacf",
+        "kernel_witness_check": {
+          "proof_type": "x.val + y.val = q + (x + y).val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hlt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hover_0817e0e7"
+      ],
+      "conclusion": "n_hlt_af92d8db",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_828",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3587922",
+              "name": "hover",
+              "statement": "¬q ≤ x.val + y.val"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3590900",
+            "name": "hlt",
+            "statement": "x.val + y.val < q"
+          }
+        },
+        "lean_dependency_sha256": "52305159eb66afb7233669d23085055434a9a3837c3be84801d4ce9d4de34dc0",
+        "kernel_witness_check": {
+          "proof_type": "x.val + y.val < q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hval",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_2587361a",
+        "n_hlt_af92d8db"
+      ],
+      "conclusion": "n_hval_cdefe3be",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.mod_eq_of_lt + ZMod.val_add",
+        "items": [
+          "Nat.mod_eq_of_lt",
+          "ZMod.val_add"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.mod_eq_of_lt",
+          "ZMod.val_add"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_829",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hval : (x+y).val = x.val+y.val := by\n          rw [ZMod.val_add, Nat.mod_eq_of_lt hlt]\n        rw [hval]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3590900",
+              "name": "hlt",
+              "statement": "x.val + y.val < q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3591165",
+            "name": "hval",
+            "statement": "(x + y).val = x.val + y.val"
+          }
+        },
+        "lean_dependency_sha256": "18369f286f3a5a99c7915668c1e671ba539bf6054d489d0e0c648740ca749678",
+        "kernel_witness_check": {
+          "proof_type": "(x + y).val = x.val + y.val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ZMod.val_add"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "leanfinder:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_018_htpow",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_h_0c2c4271"
+      ],
+      "conclusion": "n_htpow_2248c1dc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg + map_pow + pow_orderOf_eq_one",
+        "items": [
+          "congrArg",
+          "map_pow",
+          "pow_orderOf_eq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg",
+          "map_pow",
+          "pow_orderOf_eq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_832",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have htpow : t ^ q = 1 := by\n      have hνpow : (ν : ZMod p) ^ q = 1 := by\n        have hu : ν ^ q = 1 := by\n          rw [← hν]\n          exact pow_orderOf_eq_one ν\n        exact congrArg Units.val hu\n      calc\n        t ^ q = algebraMap (ZMod p) (GaloisField p 2) ((ν : ZMod p) ^ q) := by\n          simp [t, map_pow]\n        _ = 1 := by\n          rw [hνpow]\n          simp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558441",
+              "name": "hν",
+              "statement": "orderOf ν = q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3566014",
+            "name": "htpow",
+            "statement": "t ^ q = 1"
+          }
+        },
+        "lean_dependency_sha256": "51dd277799bbe0554d1d0d2a6198f8ddfe8c2d59e4e7db8cde1b9f8b1f8d0248",
+        "kernel_witness_check": {
+          "proof_type": "t ^ q = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_htne",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_inst___proofs_2502934680_2587361a",
+        "n_h_0c2c4271"
+      ],
+      "conclusion": "n_htne_5e42a34d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Fact.out + RingHom.injective + Units.ext",
+        "items": [
+          "Fact.out",
+          "RingHom.injective",
+          "Units.ext",
+          "orderOf_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Fact.out",
+          "RingHom.injective",
+          "Units.ext",
+          "orderOf_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_833",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have htne : t ≠ 1 := by\n      intro ht\n      have hmap : algebraMap (ZMod p) (GaloisField p 2) (ν : ZMod p) =\n          algebraMap (ZMod p) (GaloisField p 2) 1 := by\n        simpa [t] using ht\n      have hcoerce : (ν : ZMod p) = 1 :=\n        (RingHom.injective (algebraMap (ZMod p) (GaloisField p 2))) hmap\n      have hunit : ν = 1 := Units.ext hcoerce\n      have hqeq : q = 1 := by\n        rw [← hν, hunit]\n        exact orderOf_one\n      exact (Fact.out : Nat.Prime q).ne_one hqeq",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3558441",
+              "name": "hν",
+              "statement": "orderOf ν = q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3572377",
+            "name": "htne",
+            "statement": "t ≠ 1"
+          }
+        },
+        "lean_dependency_sha256": "b5ed205ae4dd13a8d5c01093346774c94524f87e4027e09fdd05ff7e0896e408",
+        "kernel_witness_check": {
+          "proof_type": "t = 1 → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "RingHom.injective"
+        ],
+        "observed_search_event_ids": [
+          "loogle:11",
+          "leanfinder:10"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_020_hqsum",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_htpow_2248c1dc",
+        "n_htne_5e42a34d"
+      ],
+      "conclusion": "n_hqsum_2367da7c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "geom_sum_eq",
+        "items": [
+          "geom_sum_eq"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "geom_sum_eq"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_834",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hqsum : S q = 0 := by\n      have hg := geom_sum_eq (x := t) htne q\n      rw [htpow] at hg\n      simpa [S] using hg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3566014",
+              "name": "htpow",
+              "statement": "t ^ q = 1"
+            },
+            {
+              "fvar_id": "_uniq.3572377",
+              "name": "htne",
+              "statement": "t ≠ 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3582105",
+            "name": "hqsum",
+            "statement": "S q = 0"
+          }
+        },
+        "lean_dependency_sha256": "bff625cc31e5dfab337ce555a9cf3b3389d93bb645dbd4d26d08bc63a71aa915",
+        "kernel_witness_check": {
+          "proof_type": "S q = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "geom_sum_eq"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:5"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_021_hsplit",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138"
+      ],
+      "conclusion": "n_hsplit_f2c5a5bc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.mul_sum + Finset.sum_congr + Finset.sum_range_add",
+        "items": [
+          "Finset.mul_sum",
+          "Finset.sum_congr",
+          "Finset.sum_range_add",
+          "congrArg",
+          "pow_add"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.mul_sum",
+          "Finset.sum_congr",
+          "Finset.sum_range_add",
+          "congrArg",
+          "pow_add"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_835",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsplit : ∀ m n : ℕ, S (m+n) = S m + t^m * S n := by\n      intro m n\n      dsimp [S]\n      rw [Finset.sum_range_add]\n      rw [Finset.mul_sum]\n      apply congrArg ((∑ j ∈ Finset.range m, t ^ j) + ·)\n      apply Finset.sum_congr rfl\n      intro z hz\n      rw [pow_add]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3584819",
+            "name": "hsplit",
+            "statement": "∀ (m n : ℕ), S (m + n) = S m + t ^ m * S n"
+          }
+        },
+        "lean_dependency_sha256": "b57f7090e5c9591cd0bc736ec8d90102ce4e4f185a2aee74bb34c43192be387e",
+        "kernel_witness_check": {
+          "proof_type": "∀ (m n : ℕ), S (m + n) = S m + t ^ m * S n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.sum_range_add"
+        ],
+        "observed_search_event_ids": [
+          "loogle:20",
+          "loogle:21",
+          "leanfinder:23"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_022_hgeom",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_inst___proofs_2502934680_2587361a",
+        "n_htpow_2248c1dc",
+        "n_hqsum_2367da7c",
+        "n_hsplit_f2c5a5bc"
+      ],
+      "conclusion": "n_hgeom_ab0761c7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.lt_of_not_ge + Nat.mod_eq_of_lt + ZMod.val_add",
+        "items": [
+          "Nat.lt_of_not_ge",
+          "Nat.mod_eq_of_lt",
+          "ZMod.val_add",
+          "ZMod.val_add_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.lt_of_not_ge",
+          "Nat.mod_eq_of_lt",
+          "ZMod.val_add",
+          "ZMod.val_add_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_836",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hgeom : ∀ x y : ZMod q,\n        S (x+y).val = S x.val + t ^ x.val * S y.val := by\n      intro x y\n      by_cases hover : q ≤ x.val + y.val\n      · have hval : (x + y).val = x.val + y.val - q := ZMod.val_add_of_le hover\n        have hdecomp : x.val + y.val = q + (x + y).val := by\n          rw [hval]\n          omega\n        calc\n          S (x+y).val = S (q + (x+y).val) := by\n            rw [hsplit q (x+y).val, hqsum, htpow]\n            simp\n          _ = S (x.val + y.val) := by\n            rw [← hdecomp]\n          _ = S x.val + t ^ x.val * S y.val := hsplit x.val y.val\n      · have hlt : x.val + y.val < q := Nat.lt_of_not_ge hover\n        have hval : (x+y).val = x.val+y.val := by\n          rw [ZMod.val_add, Nat.mod_eq_of_lt hlt]\n        rw [hval]\n        exact hsplit x.val y.val",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3558438",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "_uniq.3566014",
+              "name": "htpow",
+              "statement": "t ^ q = 1"
+            },
+            {
+              "fvar_id": "_uniq.3582105",
+              "name": "hqsum",
+              "statement": "S q = 0"
+            },
+            {
+              "fvar_id": "_uniq.3584819",
+              "name": "hsplit",
+              "statement": "∀ (m n : ℕ), S (m + n) = S m + t ^ m * S n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3587838",
+            "name": "hgeom",
+            "statement": "∀ (x y : ZMod q), S (x + y).val = S x.val + t ^ x.val * S y.val"
+          }
+        },
+        "lean_dependency_sha256": "615681bcb340fdf980ff7641a1f4c082bd2a923a02cf4921174884b27020b915",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x y : ZMod q), S (x + y).val = S x.val + t ^ x.val * S y.val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ZMod.val_add",
+          "ZMod.val_add_of_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "leanfinder:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_023_hall",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_2502934680_36e6e138",
+        "n_h0_fba82513",
+        "n_hformne_749bcc16"
+      ],
+      "conclusion": "n_hall_99094e98",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa + simp + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_837",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hall : ∀ z : ZMod q, α z = r * S z.val := by\n      intro z\n      by_cases hz : z = 0\n      · rw [hz, h0]\n        simp [S]\n      · simpa [S] using hformne z hz",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3558437",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "_uniq.3565475",
+              "name": "h0",
+              "statement": "α 0 = 0"
+            },
+            {
+              "fvar_id": "_uniq.3565476",
+              "name": "hformne",
+              "statement": "∀ (x : ZMod q), x ≠ 0 → α x = r * ∑ j ∈ Finset.range x.val, (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ j"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3591613",
+            "name": "hall",
+            "statement": "∀ (z : ZMod q), α z = r * S z.val"
+          }
+        },
+        "lean_dependency_sha256": "2fa87d849a959dd6117c713c239831ec14e68819cc53cda94fc8f328d4d6eeaa",
+        "kernel_witness_check": {
+          "proof_type": "∀ (z : ZMod q), α z = r * S z.val",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_2502934680_a3817d3e",
+        "m_inst___proofs_2502934680_16334da9",
+        "m_h_464c541f",
+        "m_h_173d84f6"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_range_add + Finset.sum_range_succ + Nat.le_of_lt",
+        "items": [
+          "Finset.sum_range_add",
+          "Finset.sum_range_succ",
+          "Nat.le_of_lt",
+          "Nat.lt_of_succ_le",
+          "RingHom.injective",
+          "ZMod.natCast_zmod_val",
+          "ZMod.val_add",
+          "ZMod.val_add_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_range_add",
+          "Finset.sum_range_succ",
+          "Nat.le_of_lt",
+          "Nat.lt_of_succ_le",
+          "RingHom.injective",
+          "ZMod.natCast_zmod_val",
+          "ZMod.val_add",
+          "ZMod.val_add_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro h\n    rcases h with ⟨h0, hcoc⟩\n    have hform_nat : ∀ n : ℕ, n ≤ q → α (n : ZMod q) = α 1 * S n := by\n      intro n\n      induction n with\n      | zero =>\n          intro hn\n          simp [S, h0]\n      | succ n ih =>\n          intro hn\n          have hnq : n < q := Nat.lt_of_succ_le hn\n          have ih' : α (n : ZMod q) = α 1 * S n := ih (Nat.le_of_lt hnq)\n          calc\n            α ((n + 1 : ℕ) : ZMod q) = α ((n : ZMod q) + 1) := by\n              norm_num\n            _ = α (n : ZMod q) + t ^ ((n : ZMod q).val) * α 1 := hcoc (n : ZMod q) 1\n            _ = α 1 * S n + t ^ n * α 1 := by\n              rw [ZMod.val_cast_of_lt hnq, ih']\n            _ = α 1 * S (n + 1) := by\n              simp [S, Finset.sum_range_succ]\n              ring\n    have hform : ∀ x : ZMod q, α x = α 1 * S x.val := by\n      intro x\n      have hx := hform_nat x.val (Nat.le_of_lt (ZMod.val_lt x))\n      rwa [ZMod.natCast_zmod_val x] at hx\n    refine ⟨α 1, ?_, h0, ?_⟩\n    · by_contra hr\n      apply hα\n      funext x\n      have hx := hform x\n      rw [hr] at hx\n      simpa using hx\n    · intro x hx\n      simpa [S] using hform x\n  · intro h\n    rcases h with ⟨r, hr, h0, hformne⟩\n    have htpow : t ^ q = 1 := by\n      have hνpow : (ν : ZMod p) ^ q = 1 := by\n        have hu : ν ^ q = 1 := by\n          rw [← hν]\n          exact pow_orderOf_eq_one ν\n        exact congrArg Units.val hu\n      calc\n        t ^ q = algebraMap (ZMod p) (GaloisField p 2) ((ν : ZMod p) ^ q) := by\n          simp [t, map_pow]\n        _ = 1 := by\n          rw [hνpow]\n          simp\n    have htne : t ≠ 1 := by\n  ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.8",
+              "statement": "Fact (Nat.Prime p)"
+            },
+            {
+              "fvar_id": "3",
+              "name": "inst._@.proofs.2502934680._hygCtx._hyg.11",
+              "statement": "Fact (Nat.Prime q)"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hν",
+              "statement": "orderOf ν = q"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hα",
+              "statement": "α ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(α 0 = 0 ∧ ∀ (x y : ZMod q), α (x + y) = α x + (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ x.val * α y) ↔ ∃ r, r ≠ 0 ∧ α 0 = 0 ∧ ∀ (x : ZMod q), x ≠ 0 → α x = r * ∑ j ∈ Finset.range x.val, (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ j"
+          }
+        },
+        "lean_dependency_sha256": "aa560fb02be17c0301f431abf66a16a35d6040e4653fdc4dde1e29a5e520775d",
+        "kernel_witness_check": {
+          "proof_type": "(α 0 = 0 ∧ ∀ (x y : ZMod q), α (x + y) = α x + (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ x.val * α y) ↔\n  ∃ r,\n    r ≠ 0 ∧\n      α 0 = 0 ∧\n        ∀ (x : ZMod q), x ≠ 0 → α x = r * ∑ j ∈ Finset.range x.val, (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.sum_range_add",
+          "Finset.sum_range_succ",
+          "RingHom.injective",
+          "ZMod.natCast_zmod_val",
+          "ZMod.val_add",
+          "ZMod.val_add_of_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:20",
+          "loogle:21",
+          "leanfinder:23",
+          "loogle:2",
+          "loogle:11",
+          "leanfinder:10",
+          "loogle:13",
+          "leanfinder:18",
+          "loogle:0",
+          "leanfinder:4"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "ZMod.val_add",
+      "declarations": [
+        "ZMod.val_add"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "ZMod.val_natCast",
+      "declarations": [
+        "ZMod.val_natCast"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Finset.sum_range_succ",
+      "declarations": [
+        "Finset.sum_range_succ"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "geom_sum",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "ZMod val addition modulo sum of val",
+      "declarations": [
+        "ZMod.val_add",
+        "ZMod.val_ofNat",
+        "ZMod.val_unit'",
+        "ZMod.val_le",
+        "ZMod.val_add_of_le",
+        "ZMod.val",
+        "Fin.val_add",
+        "ZMod.val_injective",
+        "Lean.mkIntMod",
+        "instHModUInt8Nat"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "sum geometric series range equals zero if root of unity not one",
+      "declarations": [
+        "PartitionOfUnity.sum_eq_one",
+        "geom_sum_mul_of_one_le",
+        "PartitionOfUnity.sum_le_one",
+        "ENNReal.tsum_geometric_add_one",
+        "geom_sum_eq",
+        "RootPairing.zero_notMem_range_root",
+        "hasSum_geometric_of_abs_lt_one",
+        "geom_sum_Ico",
+        "hasSum_geometric_of_lt_one",
+        "rootsOfUnity"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "orderOf_eq_one_iff",
+      "declarations": [
+        "orderOf_eq_one_iff"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "orderOf_eq_one",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Function.Injective algebraMap ZMod GaloisField",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "algebraMap from field to field injective ring hom",
+      "declarations": [
+        "FunctionField.ringOfIntegers.algebraMap_injective",
+        "ExteriorAlgebra.map_injective_field",
+        "NumberField.AdeleRing.algebraMap_injective",
+        "NumberField.RingOfIntegers.algebraMap.injective",
+        "algebraMap_injective_of_field_isFractionRing",
+        "Algebra.IsAlgebraic.ringHom_of_comp_eq",
+        "NumberField.RingOfIntegers.ker_algebraMap_eq_bot",
+        "FunctionField.algebraMap_injective",
+        "NumberField.RingOfIntegers",
+        "isAlgebraic_algebraMap_iff"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "RingHom.injective",
+      "declarations": [
+        "RingHom.injective",
+        "WeierstrassCurve.Affine.Point.map_some",
+        "AbsoluteValue.LiesOver.comp_eq",
+        "AbsoluteValue.LiesOver.mk"
+      ],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "map_eq_zero algebraMap",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "((_ : ZMod _).val : ZMod _) = _",
+      "declarations": [
+        "ZMod.cast_id",
+        "ZMod.intCast_zmod_cast",
+        "ZMod.natCast_zmod_val",
+        "ZMod.cast_cast_zmod_of_le",
+        "ZMod.intCast_eq_intCast_iff",
+        "ZMod.val_eq_zero",
+        "ZMod.intCast_mod",
+        "ZMod.coe_unitOfCoprime",
+        "ZMod.natCast_eq_natCast_iff",
+        "ZMod.natCast_toNat"
+      ],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "ZMod.natCast_val",
+      "declarations": [
+        "ZMod.natCast_val"
+      ],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "ZMod.val_cast_of_lt",
+      "declarations": [
+        "ZMod.val_cast_of_lt"
+      ],
+      "call_turn": 18,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "ZMod.natCast_rightInverse",
+      "declarations": [
+        "ZMod.natCast_rightInverse"
+      ],
+      "call_turn": 18,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "natural cast of ZMod val returns original element",
+      "declarations": [
+        "ZMod.val_cast_of_lt",
+        "ZMod.natCast_val",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "Lean.Meta.Sym.getFinValue",
+        "ZMod.val_intCast",
+        "WithVal.toVal_intCast",
+        "ZMod.val_cast_eq_val_of_lt",
+        "ZMod.cast_eq_val",
+        "ZMod.val",
+        "ZMod.val_cast_zmod_lt"
+      ],
+      "call_turn": 18,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "ZMod val of natural cast less than modulus",
+      "declarations": [
+        "Lean.Meta.Structural.isInstModNat",
+        "ZMod.val_cast_of_lt",
+        "Fin.mod",
+        "ZMod.natCast_zmod_val",
+        "ZMod.val_cast_eq_val_of_lt",
+        "ZMod.val",
+        "Nat.mod",
+        "Mathlib.Meta.NormNum.evalNatMod",
+        "instHModUInt64Nat",
+        "instHModUInt8Nat"
+      ],
+      "call_turn": 18,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "∑ _ ∈ Finset.range (_ + _), _",
+      "declarations": [
+        "Finset.sum_range_succ",
+        "Finset.sum_range_succ_comm",
+        "Finset.sum_flip",
+        "Finset.sum_range_add",
+        "Finset.sum_range_add_sub_sum_range",
+        "Finset.sum_range_succ'",
+        "Finset.eq_sum_range_sub'",
+        "Finset.sum_range_succ_mul_sum_range_succ",
+        "Finset.sum_range_succ_sub_sum",
+        "Finset.sum_range_succ_sub_top"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Finset.sum_range_add",
+      "declarations": [
+        "Finset.sum_range_add"
+      ],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "sum_range_add",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "Finset sum over range m plus n split first m next n",
+      "declarations": [
+        "Computation.thinkN",
+        "Fin.natAdd",
+        "Finset.sum_Ico_eq_sum_range",
+        "Fin.sum_univ_add",
+        "Finset.sum_range_add",
+        "ModN",
+        "Finset.sum_range_add_sum_Ico",
+        "Nat.toArray_rco_add_add_eq_append",
+        "Lean.Meta.PProdN.projM",
+        "SSet.N"
+      ],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Finset.range_add",
+      "declarations": [
+        "Finset.range_add"
+      ],
+      "call_turn": 27,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Finset.sum_Ico_eq_sum_range",
+      "declarations": [
+        "Finset.sum_Ico_eq_sum_range"
+      ],
+      "call_turn": 27,
+      "result_turn": 33
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 6,
+    "retrieval_query_count": 24,
+    "useful_retrieval_event_count": 10,
+    "unused_retrieval_event_count": 14,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 38,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,969 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2331_reverse_cauchy_schwarz_with_three_term_min",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2331,
+    "source": "0905.4065",
+    "theorem_name": "reverse_cauchy_schwarz_with_three_term_min",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2331",
+    "reconstructed_proof": "../../candidates/p2331_reverse_cauchy_schwarz_with_three_term_min/proof.lean",
+    "raw_elaboration": "../../candidates/p2331_reverse_cauchy_schwarz_with_three_term_min/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.reverse_cauchy_schwarz_with_three_term_min",
+    "verification_call_id": "verify_submission:56",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "fec88aa8a97a4f2c48e2051cbfc90e6f8d3639b75ec1d7298bc969f8cf03b91b",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "fabf4e634884da01e7fb5f0dd60b316146a881eea744115f5b261f7e2a92aeea",
+    "concrete_semantic_topology_sha256": "fec88aa8a97a4f2c48e2051cbfc90e6f8d3639b75ec1d7298bc969f8cf03b91b"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_8b06309f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "6",
+      "statement": "0 < a"
+    },
+    {
+      "id": "m_haa_f314d9e3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "haA",
+      "lean_fvar_id": "7",
+      "statement": "a ≤ A"
+    },
+    {
+      "id": "m_hb_013f2694",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hb",
+      "lean_fvar_id": "8",
+      "statement": "0 < b"
+    },
+    {
+      "id": "m_hbb_5be0c6bd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hbB",
+      "lean_fvar_id": "9",
+      "statement": "b ≤ B"
+    },
+    {
+      "id": "m_hn_e68719f3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "m_hx_1b53bc06",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "12",
+      "statement": "∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"
+    },
+    {
+      "id": "m_hy_c918c96b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hy",
+      "lean_fvar_id": "13",
+      "statement": "∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * min ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2)) (min ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2)) ((∑ i, x i * y i) ^ 2 / (a * b * A * B))) ∧ ∀ (k : Fin 3), ∃ m a' A' b' B' x' y', 1 ≤ m ∧ 0 < a' ∧ a' ≤ A' ∧ 0 < b' ∧ b' ≤ B' ∧ (∀ (i : Fin m), a' ≤ x' i ∧ x' i ≤ A') ∧ (∀ (i : Fin m), b' ≤ y' i ∧ y' i ≤ B') ∧ let t := ![(∑ i, x' i ^ 2) ^ 2 / (A' ^ 2 * a' ^ 2), (∑ i, y' i ^ 2) ^ 2 / (B' ^ 2 * b' ^ 2), (∑ i, x' i * y' i) ^ 2 / (a' * b' * A' * B')]; ∀ (j : Fin 3), j ≠ k → t k < t j"
+    },
+    {
+      "id": "n_ha_dde3b90b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.4291269",
+      "statement": "0 < a"
+    },
+    {
+      "id": "n_haa_8178b256",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "haA",
+      "lean_fvar_id": "_uniq.4291270",
+      "statement": "a ≤ A"
+    },
+    {
+      "id": "n_hb_9901acb1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb",
+      "lean_fvar_id": "_uniq.4291271",
+      "statement": "0 < b"
+    },
+    {
+      "id": "n_hbb_404067ba",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbB",
+      "lean_fvar_id": "_uniq.4291272",
+      "statement": "b ≤ B"
+    },
+    {
+      "id": "n_hc_76d8b5a2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hc",
+      "lean_fvar_id": "_uniq.4345303",
+      "statement": "0 ≤ (A * B - a * b) ^ 2 / 4"
+    },
+    {
+      "id": "n_hcrossbound_eb122c2c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcrossbound",
+      "lean_fvar_id": "_uniq.4344871",
+      "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, x i * y i) ^ 2 / (a * b * A * B))"
+    },
+    {
+      "id": "n_hx_32d8df77",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.4291275",
+      "statement": "∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"
+    },
+    {
+      "id": "n_hxbound_ba472583",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxbound",
+      "lean_fvar_id": "_uniq.4302896",
+      "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2))"
+    },
+    {
+      "id": "n_hy_30248e8c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.4291276",
+      "statement": "∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"
+    },
+    {
+      "id": "n_hybound_93c5775f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hybound",
+      "lean_fvar_id": "_uniq.4314358",
+      "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))"
+    },
+    {
+      "id": "n_hyraw_27948920",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyraw",
+      "lean_fvar_id": "_uniq.4302915",
+      "statement": "(∑ i, y i ^ 2) * ∑ i, x i ^ 2 - (∑ i, y i * x i) ^ 2 ≤ (B * A - b * a) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hxbound",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_dde3b90b",
+        "n_haa_8178b256",
+        "n_hb_9901acb1",
+        "n_hbb_404067ba",
+        "n_hx_32d8df77",
+        "n_hy_30248e8c"
+      ],
+      "conclusion": "n_hxbound_ba472583",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1039",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4291269",
+              "name": "ha",
+              "statement": "0 < a"
+            },
+            {
+              "fvar_id": "_uniq.4291270",
+              "name": "haA",
+              "statement": "a ≤ A"
+            },
+            {
+              "fvar_id": "_uniq.4291271",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "_uniq.4291272",
+              "name": "hbB",
+              "statement": "b ≤ B"
+            },
+            {
+              "fvar_id": "_uniq.4291275",
+              "name": "hx",
+              "statement": "∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"
+            },
+            {
+              "fvar_id": "_uniq.4291276",
+              "name": "hy",
+              "statement": "∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4302896",
+            "name": "hxbound",
+            "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2))"
+          }
+        },
+        "lean_dependency_sha256": "ab021bd066b002e9f15b18a1e69e1518bca4cd5d7e96ed3f80320ce7636d3fed",
+        "kernel_witness_check": {
+          "proof_type": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hyraw",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_dde3b90b",
+        "n_haa_8178b256",
+        "n_hb_9901acb1",
+        "n_hbb_404067ba",
+        "n_hx_32d8df77",
+        "n_hy_30248e8c"
+      ],
+      "conclusion": "n_hyraw_27948920",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "interval_variance_bound",
+        "items": [
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_variance_bound"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_variance_bound"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1040",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hyraw := interval_variance_bound b B a A hb hbB ha haA y x hy hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4291269",
+              "name": "ha",
+              "statement": "0 < a"
+            },
+            {
+              "fvar_id": "_uniq.4291270",
+              "name": "haA",
+              "statement": "a ≤ A"
+            },
+            {
+              "fvar_id": "_uniq.4291271",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "_uniq.4291272",
+              "name": "hbB",
+              "statement": "b ≤ B"
+            },
+            {
+              "fvar_id": "_uniq.4291275",
+              "name": "hx",
+              "statement": "∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"
+            },
+            {
+              "fvar_id": "_uniq.4291276",
+              "name": "hy",
+              "statement": "∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4302915",
+            "name": "hyraw",
+            "statement": "(∑ i, y i ^ 2) * ∑ i, x i ^ 2 - (∑ i, y i * x i) ^ 2 ≤ (B * A - b * a) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))"
+          }
+        },
+        "lean_dependency_sha256": "f7fb94919126f4f1bff7113c1f2596ce3f49ec58783fb67c3ac607a75f71831b",
+        "kernel_witness_check": {
+          "proof_type": "(∑ i, y i ^ 2) * ∑ i, x i ^ 2 - (∑ i, y i * x i) ^ 2 ≤ (B * A - b * a) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hybound",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hyraw_27948920"
+      ],
+      "conclusion": "n_hybound_93c5775f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_comm",
+        "items": [
+          "mul_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1041",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hybound :\n        (∑ i, x i ^ 2) * (∑ i, y i ^ 2) - (∑ i, x i * y i) ^ 2 ≤\n          ((A * B - a * b) ^ 2 / 4) *\n            ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2)) := by\n      simpa [mul_comm, mul_left_comm, mul_assoc] using hyraw",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4302915",
+              "name": "hyraw",
+              "statement": "(∑ i, y i ^ 2) * ∑ i, x i ^ 2 - (∑ i, y i * x i) ^ 2 ≤ (B * A - b * a) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4314358",
+            "name": "hybound",
+            "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))"
+          }
+        },
+        "lean_dependency_sha256": "35ea68ee952d5fa437b7e6a09f25d1a89d0761543e5366168e38360942f3220e",
+        "kernel_witness_check": {
+          "proof_type": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hcrossbound",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_dde3b90b",
+        "n_haa_8178b256",
+        "n_hb_9901acb1",
+        "n_hbb_404067ba",
+        "n_hx_32d8df77",
+        "n_hy_30248e8c"
+      ],
+      "conclusion": "n_hcrossbound_eb122c2c",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "interval_cross_bound",
+        "items": [
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_cross_bound"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_cross_bound"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1042",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcrossbound :\n        (∑ i, x i ^ 2) * (∑ i, y i ^ 2) - (∑ i, x i * y i) ^ 2 ≤\n          ((A * B - a * b) ^ 2 / 4) *\n            ((∑ i, x i * y i) ^ 2 / (a * b * A * B)) :=\n      interval_cross_bound a A b B ha haA hb hbB x y hx hy",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4291269",
+              "name": "ha",
+              "statement": "0 < a"
+            },
+            {
+              "fvar_id": "_uniq.4291270",
+              "name": "haA",
+              "statement": "a ≤ A"
+            },
+            {
+              "fvar_id": "_uniq.4291271",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "_uniq.4291272",
+              "name": "hbB",
+              "statement": "b ≤ B"
+            },
+            {
+              "fvar_id": "_uniq.4291275",
+              "name": "hx",
+              "statement": "∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"
+            },
+            {
+              "fvar_id": "_uniq.4291276",
+              "name": "hy",
+              "statement": "∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4344871",
+            "name": "hcrossbound",
+            "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * ((∑ i, x i * y i) ^ 2 / (a * b * A * B))"
+          }
+        },
+        "lean_dependency_sha256": "b1fd4938ff599a8acff63d60e12cf2ac07bca572bda929ce497bd69acf10544d",
+        "kernel_witness_check": {
+          "proof_type": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤\n  (A * B - a * b) ^ 2 / 4 * ((∑ i, x i * y i) ^ 2 / (a * b * A * B))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hc",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hc_76d8b5a2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "positivity + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1043",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hc : 0 ≤ ((A * B - a * b) ^ 2 / 4) := by positivity\n    rw [mul_min_of_nonneg _ _ hc, mul_min_of_nonneg _ _ hc]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.4345303",
+            "name": "hc",
+            "statement": "0 ≤ (A * B - a * b) ^ 2 / 4"
+          }
+        },
+        "lean_dependency_sha256": "0a53913f087b482f0565150332c9da76ea535407712563393e9cc1dff31eb87d",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ (A * B - a * b) ^ 2 / 4",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_8b06309f",
+        "m_haa_f314d9e3",
+        "m_hb_013f2694",
+        "m_hbb_5be0c6bd",
+        "m_hx_1b53bc06",
+        "m_hy_c918c96b"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "interval_cross_bound + interval_variance_bound + three_term_strict_examples",
+        "items": [
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_cross_bound",
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_variance_bound",
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.three_term_strict_examples",
+          "le_min",
+          "mul_comm",
+          "mul_min_of_nonneg"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_cross_bound",
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.interval_variance_bound",
+          "Rollout_p2331_reverse_cauchy_schwarz_with_three_term_min.three_term_strict_examples"
+        ],
+        "mathlib_items": [
+          "le_min",
+          "mul_comm",
+          "mul_min_of_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · have hxbound :\n        (∑ i, x i ^ 2) * (∑ i, y i ^ 2) - (∑ i, x i * y i) ^ 2 ≤\n          ((A * B - a * b) ^ 2 / 4) *\n            ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2)) :=\n      interval_variance_bound a A b B ha haA hb hbB x y hx hy\n    have hyraw := interval_variance_bound b B a A hb hbB ha haA y x hy hx\n    have hybound :\n        (∑ i, x i ^ 2) * (∑ i, y i ^ 2) - (∑ i, x i * y i) ^ 2 ≤\n          ((A * B - a * b) ^ 2 / 4) *\n            ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2)) := by\n      simpa [mul_comm, mul_left_comm, mul_assoc] using hyraw\n    have hcrossbound :\n        (∑ i, x i ^ 2) * (∑ i, y i ^ 2) - (∑ i, x i * y i) ^ 2 ≤\n          ((A * B - a * b) ^ 2 / 4) *\n            ((∑ i, x i * y i) ^ 2 / (a * b * A * B)) :=\n      interval_cross_bound a A b B ha haA hb hbB x y hx hy\n    have hc : 0 ≤ ((A * B - a * b) ^ 2 / 4) := by positivity\n    rw [mul_min_of_nonneg _ _ hc, mul_min_of_nonneg _ _ hc]\n    exact le_min hxbound (le_min hybound hcrossbound)\n  · exact three_term_strict_examples",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "ha",
+              "statement": "0 < a"
+            },
+            {
+              "fvar_id": "7",
+              "name": "haA",
+              "statement": "a ≤ A"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hbB",
+              "statement": "b ≤ B"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hx",
+              "statement": "∀ (i : Fin n), a ≤ x i ∧ x i ≤ A"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hy",
+              "statement": "∀ (i : Fin n), b ≤ y i ∧ y i ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤ (A * B - a * b) ^ 2 / 4 * min ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2)) (min ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2)) ((∑ i, x i * y i) ^ 2 / (a * b * A * B))) ∧ ∀ (k : Fin 3), ∃ m a' A' b' B' x' y', 1 ≤ m ∧ 0 < a' ∧ a' ≤ A' ∧ 0 < b' ∧ b' ≤ B' ∧ (∀ (i : Fin m), a' ≤ x' i ∧ x' i ≤ A') ∧ (∀ (i : Fin m), b' ≤ y' i ∧ y' i ≤ B') ∧ let t := ![(∑ i, x' i ^ 2) ^ 2 / (A' ^ 2 * a' ^ 2), (∑ i, y' i ^ 2) ^ 2 / (B' ^ 2 * b' ^ 2), (∑ i, x' i * y' i) ^ 2 / (a' * b' * A' * B')]; ∀ (j : Fin 3), j ≠ k → t k < t j"
+          }
+        },
+        "lean_dependency_sha256": "3dab8b07ba994bf36d385553ca8ad915c0339aae9490a71f009fdcd515e4aeb6",
+        "kernel_witness_check": {
+          "proof_type": "(∑ i, x i ^ 2) * ∑ i, y i ^ 2 - (∑ i, x i * y i) ^ 2 ≤\n    (A * B - a * b) ^ 2 / 4 *\n      min ((∑ i, x i ^ 2) ^ 2 / (A ^ 2 * a ^ 2))\n        (min ((∑ i, y i ^ 2) ^ 2 / (B ^ 2 * b ^ 2)) ((∑ i, x i * y i) ^ 2 / (a * b * A * B))) ∧\n  ∀ (k : Fin 3),\n    ∃ m a' A' b' B' x' y',\n      1 ≤ m ∧\n        0 < a' ∧\n          a' ≤ A' ∧\n            0 < b' ∧\n              b' ≤ B' ∧\n                (∀ (i : Fin m), a' ≤ x' i ∧ x' i ≤ A') ∧\n                  (∀ (i : Fin m), b' ≤ y' i ∧ y' i ≤ B') ∧\n                    let t :=\n                      ![(∑ i, x' i ^ 2) ^ 2 / (A' ^ 2 * a' ^ 2), (∑ i, y' i ^ 2) ^ 2 / (B' ^ 2 * b' ^ 2),\n                        (∑ i, x' i * y' i) ^ 2 / (a' * b' * A' * B')];\n                    ∀ (j : Fin 3), j ≠ k → t k < t j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "le_min",
+          "mul_min_of_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "loogle:30",
+          "loogle:27",
+          "loogle:29"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "((∑ _, _) * (∑ _, _) - (∑ _, _) ^ 2 = _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "Lagrange identity finite sums Cauchy Schwarz double sum squares",
+      "declarations": [
+        "NNReal.sum_sqrt_mul_sqrt_le",
+        "Real.sum_mul_le_sqrt_mul_sqrt",
+        "Nat.sum_four_squares",
+        "Lagrange.sum_basis",
+        "Finset.sum_mul_sq_le_sq_mul_sq",
+        "Real.sum_sqrt_mul_sqrt_le",
+        "QuadraticMap.weightedSumSquares",
+        "InnerProductSpace.Core.cauchy_schwarz_aux",
+        "Cauchy",
+        "InnerProductSpace.Core.cauchy_schwarz_aux'"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "sum_sq_mul_sum_sq_sub_sq_sum_mul",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "reverse Cauchy Schwarz Kantorovich inequality finite sums positive ratios",
+      "declarations": [
+        "NNReal.sum_sqrt_mul_sqrt_le",
+        "NNReal.inner_le_Lp_mul_Lq_tsum",
+        "NNReal.sum_mul_le_sqrt_mul_sqrt",
+        "Real.sum_sqrt_mul_sqrt_le",
+        "List.reverse",
+        "NNReal.inner_le_Lp_mul_Lq_hasSum",
+        "InnerProductSpace.Core.cauchy_schwarz_aux",
+        "InnerProductSpace.Core.cauchy_schwarz_aux'",
+        "UniqueSums",
+        "tsirelson_inequality"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "Binet Cauchy identity sum products squared double sum differences",
+      "declarations": [
+        "EisensteinSeries.tsum_tsum_symmetricIco_sub_eq",
+        "BoundingSieve.mainSum_lambdaSquared_eq_sum_sum_mul",
+        "sq_add_sq_mul_sq_add_sq",
+        "sq_add_sq_mul",
+        "QuadraticForm.equivalent_one_neg_one_weighted_sum_squared",
+        "QuadraticForm.equivalent_signType_weighted_sum_squared",
+        "Nat.choose_succ_succ'",
+        "Orthonormal.sum_inner_products_le",
+        "Nat.sq_add_sq_mul",
+        "Sum"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Finset.sum_mul_sum",
+      "declarations": [
+        "Finset.sum_mul_sum"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Finset.sum_product",
+      "declarations": [
+        "Finset.sum_product"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "sum_mul_sq_le_sq_mul_sq",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Finset.sum_add_distrib",
+      "declarations": [
+        "Finset.sum_add_distrib"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Finset.sum_sub_distrib",
+      "declarations": [
+        "Finset.sum_sub_distrib"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "Finset.sum_mul",
+      "declarations": [
+        "Finset.sum_mul"
+      ],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Finset.mul_sum",
+      "declarations": [
+        "Finset.mul_sum"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "pow_le_pow_left₀",
+      "declarations": [
+        "pow_le_pow_left"
+      ],
+      "call_turn": 29,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "sq_le_sq",
+      "declarations": [
+        "sq_le_sq"
+      ],
+      "call_turn": 29,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "div_le_div_iff₀",
+      "declarations": [
+        "div_le_div_iff"
+      ],
+      "call_turn": 29,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "le_div_iff₀",
+      "declarations": [
+        "le_div_iff"
+      ],
+      "call_turn": 29,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "mul_min_of_nonneg",
+      "declarations": [
+        "mul_min_of_nonneg"
+      ],
+      "call_turn": 44,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "min_mul_of_nonneg",
+      "declarations": [
+        "min_mul_of_nonneg"
+      ],
+      "call_turn": 44,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "(_ * min _ _ = min (_ * _) (_ * _))",
+      "declarations": [
+        "mul_min",
+        "mul_inf",
+        "mul_min_of_nonneg",
+        "Ideal.mul_inf",
+        "FractionalIdeal.mul_inf"
+      ],
+      "call_turn": 44,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "le_min",
+      "declarations": [
+        "le_min",
+        "ArchimedeanClass.FiniteElement.mk_sub_mk",
+        "ArchimedeanClass.FiniteElement.mk_add_mk"
+      ],
+      "call_turn": 44,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "Fin.forall_fin_two",
+      "declarations": [
+        "Fin.forall_fin_two"
+      ],
+      "call_turn": 87,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "forall_fin_two",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Fin.sum_univ_two",
+      "declarations": [
+        "Fin.sum_univ_two"
+      ],
+      "call_turn": 87,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Matrix.cons_val_zero",
+      "declarations": [
+        "Matrix.cons_val_zero"
+      ],
+      "call_turn": 87,
+      "result_turn": 91
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 7,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 6,
+    "manifest_fact_count": 6,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 24,
+    "useful_retrieval_event_count": 3,
+    "unused_retrieval_event_count": 21,
+    "accepted_helper_count": 4,
+    "rollout_tool_call_count": 57,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

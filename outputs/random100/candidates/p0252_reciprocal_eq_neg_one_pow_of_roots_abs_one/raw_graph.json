@@ -1,0 +1,575 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "manifest": [
+        {
+          "statement": "f ≠ 0",
+          "origin": "manifest",
+          "name": "hf",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "∀ (z : ℂ), (Polynomial.map (algebraMap ℝ ℂ) f).IsRoot z → ‖z‖ = 1",
+          "origin": "manifest",
+          "name": "hroots",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "Polynomial.rootMultiplicity 1 f = n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "4"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "(Polynomial.X - Polynomial.C 1) ^ n ∣ f",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Polynomial.pow_rootMultiplicity_dvd",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "Polynomial.rootMultiplicity 1 f = n",
+              "origin": "local_assumption",
+              "name": "hn",
+              "fvar_id": "4"
+            }
+          ],
+          "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+          "id": "telescope_6",
+          "conclusion": {
+            "statement": "A ^ n ∣ f",
+            "origin": "derived",
+            "name": "hdvd",
+            "fvar_id": "6"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "f.reverse = (-1) ^ n • f",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "f.reverse = (-1) ^ n • f",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Iff.mpr",
+          "IsScalarTower.right",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_one",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.pow_add",
+          "Mathlib.Tactic.Ring.pow_atom",
+          "Mathlib.Tactic.Ring.pow_congr",
+          "Mathlib.Tactic.Ring.pow_zero",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "MulZeroClass.mul_zero",
+          "NormMulClass.toNoZeroDivisors",
+          "NormedDivisionRing.toNormMulClass",
+          "Polynomial.dvd_iff_isRoot",
+          "Polynomial.map_mul",
+          "Polynomial.pow_rootMultiplicity_not_dvd",
+          "Polynomial.reverse_mul_of_domain",
+          "Polynomial.root_mul",
+          "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reverse_X_sub_C_one_pow",
+          "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reverse_eq_self_of_roots_norm_one_of_not_root_one",
+          "congrArg",
+          "pow_succ",
+          "smul_mul_assoc"
+        ],
+        "premises": [
+          {
+            "statement": "f ≠ 0",
+            "origin": "local_assumption",
+            "name": "hf",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "∀ (z : ℂ), (Polynomial.map (algebraMap ℝ ℂ) f).IsRoot z → ‖z‖ = 1",
+            "origin": "local_assumption",
+            "name": "hroots",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "Polynomial.rootMultiplicity 1 f = n",
+            "origin": "local_assumption",
+            "name": "hn",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "A ^ n ∣ f",
+            "origin": "derived",
+            "name": "hdvd",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "f.reverse = (-1) ^ n • f",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "(X - C 1) ^ rootMultiplicity 1 f ∣ f",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Polynomial.pow_rootMultiplicity_dvd"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_360",
+      "conclusion": {
+        "statement": "(X - C 1) ^ rootMultiplicity 1 f ∣ f",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.4472332"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(X - C 1) ^ n ∣ f",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Polynomial.pow_rootMultiplicity_dvd",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "rootMultiplicity 1 f = n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.4470729"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_361",
+      "conclusion": {
+        "statement": "A ^ n ∣ f",
+        "origin": "derived",
+        "name": "hdvd",
+        "fvar_id": "_uniq.4472309"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A ∣ g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Polynomial.dvd_iff_isRoot",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "g.IsRoot 1",
+          "origin": "local_assumption",
+          "name": "hgroot",
+          "fvar_id": "_uniq.4472777"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_362",
+      "conclusion": {
+        "statement": "A ∣ g",
+        "origin": "derived",
+        "name": "hlin",
+        "fvar_id": "_uniq.4472788"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(X - C 1) ^ (rootMultiplicity 1 f + 1) ∣ f",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Polynomial.pow_rootMultiplicity_not_dvd"
+      ],
+      "premises": [
+        {
+          "statement": "f ≠ 0",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.4470727"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_363",
+      "conclusion": {
+        "statement": "¬(X - C 1) ^ (rootMultiplicity 1 f + 1) ∣ f",
+        "origin": "derived",
+        "name": "hnot",
+        "fvar_id": "_uniq.4475027"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ c, f = A ^ (n + 1) * c",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_atom",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "congrArg",
+        "pow_succ"
+      ],
+      "premises": [
+        {
+          "statement": "f = A ^ n * g",
+          "origin": "local_assumption",
+          "name": "hfg",
+          "fvar_id": "_uniq.4472410"
+        },
+        {
+          "statement": "g = A * h",
+          "origin": "local_assumption",
+          "name": "gh",
+          "fvar_id": "_uniq.4473268"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_364",
+      "conclusion": {
+        "statement": "A ^ (n + 1) ∣ f",
+        "origin": "derived",
+        "name": "hbig",
+        "fvar_id": "_uniq.4473369"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(map (algebraMap ℝ ℂ) f).IsRoot z",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "Polynomial.map_mul",
+        "Polynomial.root_mul",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "f = A ^ n * g",
+          "origin": "local_assumption",
+          "name": "hfg",
+          "fvar_id": "_uniq.4472410"
+        },
+        {
+          "statement": "(map (algebraMap ℝ ℂ) g).IsRoot z",
+          "origin": "local_assumption",
+          "name": "hz",
+          "fvar_id": "_uniq.4475396"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_365",
+      "conclusion": {
+        "statement": "(map (algebraMap ℝ ℂ) f).IsRoot z",
+        "origin": "derived",
+        "name": "hrootf",
+        "fvar_id": "_uniq.4475429"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "g = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MulZeroClass.mul_zero",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "f ≠ 0",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.4470727"
+        },
+        {
+          "statement": "f = A ^ n * g",
+          "origin": "local_assumption",
+          "name": "hfg",
+          "fvar_id": "_uniq.4472410"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_367",
+      "conclusion": {
+        "statement": "g ≠ 0",
+        "origin": "derived",
+        "name": "hg0",
+        "fvar_id": "_uniq.4472463"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "g.IsRoot 1 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_atom",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Polynomial.dvd_iff_isRoot",
+        "Polynomial.pow_rootMultiplicity_not_dvd",
+        "congrArg",
+        "pow_succ"
+      ],
+      "premises": [
+        {
+          "statement": "f ≠ 0",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.4470727"
+        },
+        {
+          "statement": "rootMultiplicity 1 f = n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.4470729"
+        },
+        {
+          "statement": "f = A ^ n * g",
+          "origin": "local_assumption",
+          "name": "hfg",
+          "fvar_id": "_uniq.4472410"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_368",
+      "conclusion": {
+        "statement": "¬g.IsRoot 1",
+        "origin": "derived",
+        "name": "hnotg",
+        "fvar_id": "_uniq.4472773"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (z : ℂ), (map (algebraMap ℝ ℂ) g).IsRoot z → ‖z‖ = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "Polynomial.map_mul",
+        "Polynomial.root_mul",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (z : ℂ), (map (algebraMap ℝ ℂ) f).IsRoot z → ‖z‖ = 1",
+          "origin": "local_assumption",
+          "name": "hroots",
+          "fvar_id": "_uniq.4470728"
+        },
+        {
+          "statement": "f = A ^ n * g",
+          "origin": "local_assumption",
+          "name": "hfg",
+          "fvar_id": "_uniq.4472410"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_369",
+      "conclusion": {
+        "statement": "∀ (z : ℂ), (map (algebraMap ℝ ℂ) g).IsRoot z → ‖z‖ = 1",
+        "origin": "derived",
+        "name": "hgroots",
+        "fvar_id": "_uniq.4475389"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "g.reverse = g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reverse_eq_self_of_roots_norm_one_of_not_root_one"
+      ],
+      "premises": [
+        {
+          "statement": "g ≠ 0",
+          "origin": "derived",
+          "name": "hg0",
+          "fvar_id": "_uniq.4472463"
+        },
+        {
+          "statement": "¬g.IsRoot 1",
+          "origin": "derived",
+          "name": "hnotg",
+          "fvar_id": "_uniq.4472773"
+        },
+        {
+          "statement": "∀ (z : ℂ), (map (algebraMap ℝ ℂ) g).IsRoot z → ‖z‖ = 1",
+          "origin": "derived",
+          "name": "hgroots",
+          "fvar_id": "_uniq.4475389"
+        }
+      ],
+      "parent": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+      "id": "local_370",
+      "conclusion": {
+        "statement": "g.reverse = g",
+        "origin": "derived",
+        "name": "hgrev",
+        "fvar_id": "_uniq.4476341"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0252_reciprocal_eq_neg_one_pow_of_roots_abs_one.reciprocal_eq_neg_one_pow_of_roots_abs_one",
+    "proof_sha256": "c8d0557b1bfb53b4360e1a89f409935e1a246e1f3fbfe327c0b3d3346182f3f2"
+  }
+}

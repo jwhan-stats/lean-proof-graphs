@@ -1,0 +1,1556 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "manifest": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "manifest",
+          "name": "hB",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "3"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "0 < ∏ i ∈ B, ↑i",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.prod_pos",
+            "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+            "Nat.instNontrivial",
+            "Nat.instZeroLEOneClass",
+            "Subtype.property"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_14",
+          "conclusion": {
+            "statement": "0 < q",
+            "origin": "derived",
+            "name": "hq",
+            "fvar_id": "14"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < ∑ i ∈ B, 1 / ↑↑i",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Finset.sum_pos",
+            "Iff.mpr",
+            "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "Nat.cast_lt._simp_1",
+            "Nat.cast_zero",
+            "PosMulReflectLE.toPosMulReflectLT",
+            "PosMulStrictMono.toPosMulReflectLE",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "Real.instIsStrictOrderedRing",
+            "Real.instZeroLEOneClass",
+            "Subtype.property",
+            "congrArg",
+            "congrFun'",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "one_div_pos"
+          ],
+          "premises": [
+            {
+              "statement": "B.Nonempty",
+              "origin": "local_assumption",
+              "name": "hB",
+              "fvar_id": "1"
+            }
+          ],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "0 < S",
+            "origin": "derived",
+            "name": "hS",
+            "fvar_id": "15"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ ∑ i ∈ Finset.range q, |w i|",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.sum_nonneg",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Real.instIsOrderedAddMonoid",
+            "abs_nonneg",
+            "covariant_swap_add_of_covariant_add"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_16",
+          "conclusion": {
+            "statement": "0 ≤ T",
+            "origin": "derived",
+            "name": "hT",
+            "fvar_id": "16"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ K",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.Nonempty.card_pos",
+            "Finset.sum_nonneg",
+            "Iff.mpr",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "Nat.cast_pos'",
+            "NeZero.charZero_one",
+            "PosMulReflectLE.toPosMulReflectLT",
+            "PosMulStrictMono.toPosMulReflectLE",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsStrictOrderedRing",
+            "Real.instZeroLEOneClass",
+            "Right.add_pos_of_nonneg_of_pos",
+            "abs_nonneg",
+            "covariant_swap_add_of_covariant_add",
+            "div_pos",
+            "le_of_lt"
+          ],
+          "premises": [
+            {
+              "statement": "B.Nonempty",
+              "origin": "local_assumption",
+              "name": "hB",
+              "fvar_id": "1"
+            },
+            {
+              "statement": "0 < S",
+              "origin": "derived",
+              "name": "hS",
+              "fvar_id": "15"
+            }
+          ],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "0 ≤ K",
+            "origin": "derived",
+            "name": "hK",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (i j : ℕ), w (i * q + j) = w j",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Finset.dvd_prod_of_mem",
+            "Finset.sum_congr",
+            "Iff.symm",
+            "Nat.dvd_add_iff_right",
+            "add_assoc",
+            "add_comm",
+            "add_left_comm",
+            "congrArg",
+            "congrFun'",
+            "dvd_mul_left",
+            "dvd_trans",
+            "eq_self",
+            "ite_congr",
+            "of_eq_true"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "∀ (i j : ℕ), w (i * q + j) = w j",
+            "origin": "derived",
+            "name": "hperiod",
+            "fvar_id": "18"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1089_logarithmic_average_bound.nested_log_avg_gcd",
+            "Rollout_p1089_logarithmic_average_bound.period_weight_square_avg",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "B.Nonempty",
+              "origin": "local_assumption",
+              "name": "hB",
+              "fvar_id": "1"
+            }
+          ],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+            "origin": "derived",
+            "name": "htarget_period",
+            "fvar_id": "19"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (N : ℕ),\n  0 < N →\n    let actual := Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩;\n    ‖A N a - actual‖ ≤ √target + K / ↑N",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "GroupWithZero.toNontrivial",
+            "Iff.mpr",
+            "IsCancelMulZero.toIsLeftCancelMulZero",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsNat.to_eq",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_neg",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Abel.const_add_termg",
+            "Mathlib.Tactic.Abel.subst_into_addg",
+            "Mathlib.Tactic.Abel.subst_into_negg",
+            "Mathlib.Tactic.Abel.term_add_constg",
+            "Mathlib.Tactic.Abel.term_add_termg",
+            "Mathlib.Tactic.Abel.term_atomg",
+            "Mathlib.Tactic.Abel.term_neg",
+            "Mathlib.Tactic.Abel.unfold_sub",
+            "Mathlib.Tactic.Abel.zero_termg",
+            "Mathlib.Tactic.FieldSimp.NF.atom_eq_eval",
+            "Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div",
+            "Mathlib.Tactic.FieldSimp.NF.cons_ne_zero",
+            "Mathlib.Tactic.FieldSimp.NF.div_eq_eval",
+            "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₁",
+            "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₃",
+            "Mathlib.Tactic.FieldSimp.NF.eval_cons",
+            "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval",
+            "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval_cons_neg",
+            "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons",
+            "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval",
+            "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃",
+            "Mathlib.Tactic.FieldSimp.NF.one_div_eq_eval",
+            "Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst",
+            "Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq",
+            "Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul",
+            "Mathlib.Tactic.FieldSimp.subst_add",
+            "Mathlib.Tactic.FieldSimp.zpow'_one",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_pos'",
+            "Nat.mul_pos",
+            "Nat.zero_lt_succ",
+            "NeZero.charZero_one",
+            "NeZero.one",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instZeroLEOneClass",
+            "Rollout_p1089_logarithmic_average_bound.global_local_approx",
+            "Rollout_p1089_logarithmic_average_bound.weighted_prefix_bound_generic",
+            "Rollout_p1089_logarithmic_average_bound.weighted_prefix_eq",
+            "Subtype.property",
+            "add_le_add",
+            "congrArg",
+            "congr_arg₂",
+            "covariant_swap_add_of_covariant_add",
+            "div_one",
+            "instIsCancelMulZero",
+            "mul_one",
+            "ne_of_gt",
+            "neg_zero",
+            "norm_add_le",
+            "one_mul",
+            "one_ne_zero",
+            "zero_add"
+          ],
+          "premises": [
+            {
+              "statement": "B.Nonempty",
+              "origin": "local_assumption",
+              "name": "hB",
+              "fvar_id": "1"
+            },
+            {
+              "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "0 < q",
+              "origin": "derived",
+              "name": "hq",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "0 < S",
+              "origin": "derived",
+              "name": "hS",
+              "fvar_id": "15"
+            },
+            {
+              "statement": "∀ (i j : ℕ), w (i * q + j) = w j",
+              "origin": "derived",
+              "name": "hperiod",
+              "fvar_id": "18"
+            },
+            {
+              "statement": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+              "origin": "derived",
+              "name": "htarget_period",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "∀ (N : ℕ), 0 < N → ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + K / ↑N",
+            "origin": "derived",
+            "name": "hboundN",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (ε : ℝ),\n  0 < ε → Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √target + ε",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Filter.Eventually.mono",
+            "Filter.Eventually.of_forall",
+            "Filter.Tendsto.eventually_lt_const",
+            "Filter.atTop_neBot",
+            "Filter.eventually_ge_atTop",
+            "Filter.isCoboundedUnder_le_of_eventually_le",
+            "Filter.limsup_le_of_le",
+            "Filter.mp_mem",
+            "Filter.univ_mem'",
+            "HasSolidNorm.orderClosedTopology",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsScalarTower.nnrat",
+            "IsTopologicalRing.toIsTopologicalSemiring",
+            "IsTopologicalSemiring.toContinuousMul",
+            "LE.le.trans",
+            "LT.lt.le",
+            "NNRat.instContinuousSMulOfIsScalarTowerOfRat",
+            "NNRat.instContinuousSMulRatReal",
+            "Nat.instStarOrderedRing",
+            "Nat.mul_pos",
+            "RCLike.charZero_rclike",
+            "Rat.instCharZero",
+            "Real.instIsOrderedAddMonoid",
+            "StarOrderedRing.toIsOrderedRing",
+            "Subtype.property",
+            "add_le_add",
+            "covariant_swap_add_of_covariant_add",
+            "instArchimedeanNat",
+            "instClosedIciTopology",
+            "instHasSolidNormReal",
+            "instIsDirectedOrder",
+            "instIsTopologicalRingReal",
+            "instNonemptyOfInhabited",
+            "le_rfl",
+            "norm_nonneg",
+            "tendsto_const_div_atTop_nhds_zero_nat"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (N : ℕ), 0 < N → ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + K / ↑N",
+              "origin": "derived",
+              "name": "hboundN",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "∀ (ε : ℝ),\n  0 < ε → Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √target + ε",
+            "origin": "derived",
+            "name": "hmain",
+            "fvar_id": "21"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤\n  √(Lℝ fun m => Lℝ fun n => ↑((↑n).gcd ↑m) - 1)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤\n  √(Lℝ fun m => Lℝ fun n => ↑((↑n).gcd ↑m) - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "LinearOrderedSemiField.toDenselyOrdered",
+          "Nat.mul_pos",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsStrictOrderedRing",
+          "Real.instStarOrderedRing",
+          "StarOrderedRing.toExistsAddOfLE",
+          "Subtype.property",
+          "contravariant_lt_of_covariant_le",
+          "le_of_forall_pos_le_add"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (ε : ℝ),\n  0 < ε → Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √target + ε",
+            "origin": "derived",
+            "name": "hmain",
+            "fvar_id": "21"
+          }
+        ],
+        "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤\n  √(Lℝ fun m => Lℝ fun n => ↑((↑n).gcd ↑m) - 1)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "↑m ∣ j + 1 ↔ ↑m ∣ i * q + (j + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.dvd_add_iff_right"
+      ],
+      "premises": [
+        {
+          "statement": "↑m ∣ i * q",
+          "origin": "derived",
+          "name": "hmiq",
+          "fvar_id": "_uniq.2031746"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_511",
+      "conclusion": {
+        "statement": "↑m ∣ j + 1 ↔ ↑m ∣ i * q + (j + 1)",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.2031953"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑m ∣ ∏ i ∈ B, ↑i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.dvd_prod_of_mem"
+      ],
+      "premises": [
+        {
+          "statement": "m ∈ B",
+          "origin": "local_assumption",
+          "name": "hm",
+          "fvar_id": "_uniq.2030817"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_512",
+      "conclusion": {
+        "statement": "↑m ∣ q",
+        "origin": "derived",
+        "name": "hmq",
+        "fvar_id": "_uniq.2031604"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑m ∣ i * q",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "dvd_mul_left",
+        "dvd_trans"
+      ],
+      "premises": [
+        {
+          "statement": "↑m ∣ q",
+          "origin": "derived",
+          "name": "hmq",
+          "fvar_id": "_uniq.2031604"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_513",
+      "conclusion": {
+        "statement": "↑m ∣ i * q",
+        "origin": "derived",
+        "name": "hmiq",
+        "fvar_id": "_uniq.2031746"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑m ∣ i * q + j + 1 ↔ ↑m ∣ j + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Iff.symm",
+        "Nat.dvd_add_iff_right",
+        "add_assoc",
+        "add_comm",
+        "add_left_comm",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "↑m ∣ i * q",
+          "origin": "derived",
+          "name": "hmiq",
+          "fvar_id": "_uniq.2031746"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_514",
+      "conclusion": {
+        "statement": "↑m ∣ i * q + j + 1 ↔ ↑m ∣ j + 1",
+        "origin": "derived",
+        "name": "hiff",
+        "fvar_id": "_uniq.2031900"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have q := ∏ m ∈ B, ↑m;\nhave S := ∑ m ∈ B, 1 / ↑↑m;\n(↑q)⁻¹ * ∑ j ∈ Finset.range q, (1 - (∑ m ∈ B, if ↑m ∣ j + 1 then 1 else 0) / S) ^ 2 =\n  S⁻¹ ^ 2 * ∑ m ∈ B, ∑ n ∈ B, ↑((↑n).gcd ↑m) / (↑↑n * ↑↑m) - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1089_logarithmic_average_bound.period_weight_square_avg"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_515",
+      "conclusion": {
+        "statement": "have q := ∏ m ∈ B, ↑m;\nhave S := ∑ m ∈ B, 1 / ↑↑m;\n(↑q)⁻¹ * ∑ j ∈ Finset.range q, (1 - (∑ m ∈ B, if ↑m ∣ j + 1 then 1 else 0) / S) ^ 2 =\n  S⁻¹ ^ 2 * ∑ m ∈ B, ∑ n ∈ B, ↑((↑n).gcd ↑m) / (↑↑n * ↑↑m) - 1",
+        "origin": "derived",
+        "name": "hp",
+        "fvar_id": "_uniq.2038882"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have S := ∑ m ∈ B, 1 / ↑↑m;\n(∑ m ∈ B, (∑ n ∈ B, (↑((↑n).gcd ↑m) - 1) / ↑↑n) / S / ↑↑m) / S =\n  S⁻¹ ^ 2 * ∑ m ∈ B, ∑ n ∈ B, ↑((↑n).gcd ↑m) / (↑↑n * ↑↑m) - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1089_logarithmic_average_bound.nested_log_avg_gcd"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_516",
+      "conclusion": {
+        "statement": "have S := ∑ m ∈ B, 1 / ↑↑m;\n(∑ m ∈ B, (∑ n ∈ B, (↑((↑n).gcd ↑m) - 1) / ↑↑n) / S / ↑↑m) / S =\n  S⁻¹ ^ 2 * ∑ m ∈ B, ∑ n ∈ B, ↑((↑n).gcd ↑m) / (↑↑n * ↑↑m) - 1",
+        "origin": "derived",
+        "name": "hn",
+        "fvar_id": "_uniq.2038889"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have A := fun M c => (↑M)⁻¹ * ∑ k ∈ Finset.range M, c ⟨k + 1, ⋯⟩;\nhave S := ∑ m ∈ B, 1 / ↑↑m;\nhave Sℂ := ∑ m ∈ B, 1 / ↑↑m;\nhave actual := ∑ m ∈ B, (A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩) / ↑↑m;\nhave ideal := ∑ m ∈ B, (↑N)⁻¹ * ∑ k ∈ Finset.range (N / ↑m), a ⟨↑m * (k + 1), ⋯⟩;\n‖A N a - actual / Sℂ - (A N a - ideal / Sℂ)‖ ≤ ↑B.card / (↑N * S)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1089_logarithmic_average_bound.global_local_approx"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        },
+        {
+          "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1989773"
+        },
+        {
+          "statement": "0 < N",
+          "origin": "local_assumption",
+          "name": "hN",
+          "fvar_id": "_uniq.2045879"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_517",
+      "conclusion": {
+        "statement": "‖(↑N)⁻¹ * ∑ k ∈ Finset.range N, a ⟨k + 1, ⋯⟩ -\n        (∑ m ∈ B, ((↑(N / ↑m))⁻¹ * ∑ k ∈ Finset.range (N / ↑m), a ⟨↑m * (k + 1), ⋯⟩) / ↑↑m) / ∑ m ∈ B, 1 / ↑↑m -\n      ((↑N)⁻¹ * ∑ k ∈ Finset.range N, a ⟨k + 1, ⋯⟩ -\n        (∑ m ∈ B, (↑N)⁻¹ * ∑ k ∈ Finset.range (N / ↑m), a ⟨↑m * (k + 1), ⋯⟩) / ∑ m ∈ B, 1 / ↑↑m)‖ ≤\n  ↑B.card / (↑N * ∑ m ∈ B, 1 / ↑↑m)",
+        "origin": "derived",
+        "name": "hg",
+        "fvar_id": "_uniq.2046771"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have A := fun M c => (↑M)⁻¹ * ∑ k ∈ Finset.range M, c ⟨k + 1, ⋯⟩;\nhave S := ∑ m ∈ B, 1 / ↑↑m;\nhave Sℂ := ∑ m ∈ B, 1 / ↑↑m;\nhave ideal := ∑ m ∈ B, (↑N)⁻¹ * ∑ k ∈ Finset.range (N / ↑m), a ⟨↑m * (k + 1), ⋯⟩;\nhave w := fun j => 1 - (∑ m ∈ B, if ↑m ∣ j + 1 then 1 else 0) / S;\nA N a - ideal / Sℂ = (↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(w j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1089_logarithmic_average_bound.weighted_prefix_eq"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_518",
+      "conclusion": {
+        "statement": "(↑N)⁻¹ * ∑ k ∈ Finset.range N, a ⟨k + 1, ⋯⟩ -\n    (∑ m ∈ B, (↑N)⁻¹ * ∑ k ∈ Finset.range (N / ↑m), a ⟨↑m * (k + 1), ⋯⟩) / ∑ m ∈ B, 1 / ↑↑m =\n  (↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(1 - (∑ m ∈ B, if ↑m ∣ j + 1 then 1 else 0) / ∑ m ∈ B, 1 / ↑↑m)",
+        "origin": "derived",
+        "name": "hw",
+        "fvar_id": "_uniq.2053807"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have T := ∑ j ∈ Finset.range q, |w j|;\n‖(↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(w j)‖ ≤ √((↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2) + T / ↑N",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1089_logarithmic_average_bound.weighted_prefix_bound_generic"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1989773"
+        },
+        {
+          "statement": "0 < q",
+          "origin": "derived",
+          "name": "hq",
+          "fvar_id": "_uniq.1992751"
+        },
+        {
+          "statement": "∀ (i j : ℕ), w (i * q + j) = w j",
+          "origin": "derived",
+          "name": "hperiod",
+          "fvar_id": "_uniq.2024651"
+        },
+        {
+          "statement": "0 < N",
+          "origin": "local_assumption",
+          "name": "hN",
+          "fvar_id": "_uniq.2045879"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_519",
+      "conclusion": {
+        "statement": "‖(↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(w j)‖ ≤\n  √((↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2) + (∑ j ∈ Finset.range q, |w j|) / ↑N",
+        "origin": "derived",
+        "name": "hp",
+        "fvar_id": "_uniq.2070891"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖A N a - actual - adj‖ ≤ ↑B.card / (↑N * S)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.mul_pos",
+        "Nat.zero_lt_succ",
+        "Rollout_p1089_logarithmic_average_bound.global_local_approx",
+        "Subtype.property"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        },
+        {
+          "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1989773"
+        },
+        {
+          "statement": "0 < N",
+          "origin": "local_assumption",
+          "name": "hN",
+          "fvar_id": "_uniq.2045879"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_523",
+      "conclusion": {
+        "statement": "‖A N a - actual - adj‖ ≤ ↑B.card / (↑N * S)",
+        "origin": "derived",
+        "name": "happ",
+        "fvar_id": "_uniq.2046758"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "adj = (↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(w j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.mul_pos",
+        "Nat.zero_lt_succ",
+        "Rollout_p1089_logarithmic_average_bound.weighted_prefix_eq",
+        "Subtype.property"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_524",
+      "conclusion": {
+        "statement": "adj = (↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(w j)",
+        "origin": "derived",
+        "name": "hadj",
+        "fvar_id": "_uniq.2053795"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖adj‖ ≤ √target + T / ↑N",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.zero_lt_succ",
+        "Rollout_p1089_logarithmic_average_bound.weighted_prefix_bound_generic",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1989773"
+        },
+        {
+          "statement": "0 < q",
+          "origin": "derived",
+          "name": "hq",
+          "fvar_id": "_uniq.1992751"
+        },
+        {
+          "statement": "∀ (i j : ℕ), w (i * q + j) = w j",
+          "origin": "derived",
+          "name": "hperiod",
+          "fvar_id": "_uniq.2024651"
+        },
+        {
+          "statement": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+          "origin": "derived",
+          "name": "htarget_period",
+          "fvar_id": "_uniq.2038874"
+        },
+        {
+          "statement": "0 < N",
+          "origin": "local_assumption",
+          "name": "hN",
+          "fvar_id": "_uniq.2045879"
+        },
+        {
+          "statement": "adj = (↑N)⁻¹ * ∑ j ∈ Finset.range N, a ⟨j + 1, ⋯⟩ * ↑(w j)",
+          "origin": "derived",
+          "name": "hadj",
+          "fvar_id": "_uniq.2053795"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_525",
+      "conclusion": {
+        "statement": "‖adj‖ ≤ √target + T / ↑N",
+        "origin": "derived",
+        "name": "hweighted",
+        "fvar_id": "_uniq.2070875"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖A N a - actual‖ ≤ ‖adj‖ + ‖A N a - actual - adj‖",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.to_eq",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_neg",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Abel.const_add_termg",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.subst_into_negg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_add_termg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Mathlib.Tactic.Abel.term_neg",
+        "Mathlib.Tactic.Abel.unfold_sub",
+        "Mathlib.Tactic.Abel.zero_termg",
+        "neg_zero",
+        "norm_add_le",
+        "zero_add"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_526",
+      "conclusion": {
+        "statement": "‖A N a - actual‖ ≤ ‖adj‖ + ‖A N a - actual - adj‖",
+        "origin": "derived",
+        "name": "htri",
+        "fvar_id": "_uniq.2072212"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun n => K / ↑n) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsScalarTower.nnrat",
+        "IsTopologicalRing.toIsTopologicalSemiring",
+        "IsTopologicalSemiring.toContinuousMul",
+        "NNRat.instContinuousSMulOfIsScalarTowerOfRat",
+        "NNRat.instContinuousSMulRatReal",
+        "RCLike.charZero_rclike",
+        "Rat.instCharZero",
+        "instIsTopologicalRingReal",
+        "tendsto_const_div_atTop_nhds_zero_nat"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_527",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun N => K / ↑N) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hlim",
+        "fvar_id": "_uniq.2108901"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ᶠ (a : ℕ) in Filter.atTop, K / ↑a < ε",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Tendsto.eventually_lt_const",
+        "HasSolidNorm.orderClosedTopology",
+        "Real.instIsOrderedAddMonoid",
+        "instClosedIciTopology",
+        "instHasSolidNormReal"
+      ],
+      "premises": [
+        {
+          "statement": "0 < ε",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.2107271"
+        },
+        {
+          "statement": "Filter.Tendsto (fun N => K / ↑N) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hlim",
+          "fvar_id": "_uniq.2108901"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_528",
+      "conclusion": {
+        "statement": "∀ᶠ (N : ℕ) in Filter.atTop, K / ↑N < ε",
+        "origin": "derived",
+        "name": "hsmall",
+        "fvar_id": "_uniq.2109467"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ᶠ (x : ℕ) in Filter.atTop, 0 < x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Eventually.mono",
+        "Filter.eventually_ge_atTop"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_529",
+      "conclusion": {
+        "statement": "∀ᶠ (N : ℕ) in Filter.atTop, 0 < N",
+        "origin": "derived",
+        "name": "hpos",
+        "fvar_id": "_uniq.2109769"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "{x | (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + ε) x} ∈ Filter.atTop",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.mp_mem",
+        "Filter.univ_mem'",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "LE.le.trans",
+        "LT.lt.le",
+        "Nat.mul_pos",
+        "Real.instIsOrderedAddMonoid",
+        "Subtype.property",
+        "add_le_add",
+        "covariant_swap_add_of_covariant_add",
+        "le_rfl"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (N : ℕ), 0 < N → ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + K / ↑N",
+          "origin": "derived",
+          "name": "hboundN",
+          "fvar_id": "_uniq.2045868"
+        },
+        {
+          "statement": "∀ᶠ (N : ℕ) in Filter.atTop, K / ↑N < ε",
+          "origin": "derived",
+          "name": "hsmall",
+          "fvar_id": "_uniq.2109467"
+        },
+        {
+          "statement": "∀ᶠ (N : ℕ) in Filter.atTop, 0 < N",
+          "origin": "derived",
+          "name": "hpos",
+          "fvar_id": "_uniq.2109769"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_530",
+      "conclusion": {
+        "statement": "∀ᶠ (N : ℕ) in Filter.atTop, ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + ε",
+        "origin": "derived",
+        "name": "hev",
+        "fvar_id": "_uniq.2109975"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ∏ i ∈ B, ↑i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.prod_pos",
+        "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+        "Nat.instNontrivial",
+        "Nat.instZeroLEOneClass",
+        "Subtype.property"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_541",
+      "conclusion": {
+        "statement": "0 < q",
+        "origin": "derived",
+        "name": "hq",
+        "fvar_id": "_uniq.1992751"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ∑ i ∈ B, 1 / ↑↑i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Finset.sum_pos",
+        "Iff.mpr",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Nat.cast_lt._simp_1",
+        "Nat.cast_zero",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "Real.instZeroLEOneClass",
+        "Subtype.property",
+        "congrArg",
+        "congrFun'",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "one_div_pos"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_542",
+      "conclusion": {
+        "statement": "0 < S",
+        "origin": "derived",
+        "name": "hS",
+        "fvar_id": "_uniq.1992808"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ ∑ i ∈ Finset.range q, |w i|",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_nonneg",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Real.instIsOrderedAddMonoid",
+        "abs_nonneg",
+        "covariant_swap_add_of_covariant_add"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_543",
+      "conclusion": {
+        "statement": "0 ≤ T",
+        "origin": "derived",
+        "name": "hT",
+        "fvar_id": "_uniq.1998061"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ K",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.Nonempty.card_pos",
+        "Finset.sum_nonneg",
+        "Iff.mpr",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Nat.cast_pos'",
+        "NeZero.charZero_one",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "Real.instZeroLEOneClass",
+        "Right.add_pos_of_nonneg_of_pos",
+        "abs_nonneg",
+        "covariant_swap_add_of_covariant_add",
+        "div_pos",
+        "le_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        },
+        {
+          "statement": "0 < S",
+          "origin": "derived",
+          "name": "hS",
+          "fvar_id": "_uniq.1992808"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_544",
+      "conclusion": {
+        "statement": "0 ≤ K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.1998115"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i j : ℕ), w (i * q + j) = w j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.dvd_prod_of_mem",
+        "Finset.sum_congr",
+        "Iff.symm",
+        "Nat.dvd_add_iff_right",
+        "add_assoc",
+        "add_comm",
+        "add_left_comm",
+        "congrArg",
+        "congrFun'",
+        "dvd_mul_left",
+        "dvd_trans",
+        "eq_self",
+        "ite_congr",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_545",
+      "conclusion": {
+        "statement": "∀ (i j : ℕ), w (i * q + j) = w j",
+        "origin": "derived",
+        "name": "hperiod",
+        "fvar_id": "_uniq.2024651"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1089_logarithmic_average_bound.nested_log_avg_gcd",
+        "Rollout_p1089_logarithmic_average_bound.period_weight_square_avg",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_546",
+      "conclusion": {
+        "statement": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+        "origin": "derived",
+        "name": "htarget_period",
+        "fvar_id": "_uniq.2038874"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (N : ℕ),\n  0 < N →\n    let actual := Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩;\n    ‖A N a - actual‖ ≤ √target + K / ↑N",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "GroupWithZero.toNontrivial",
+        "Iff.mpr",
+        "IsCancelMulZero.toIsLeftCancelMulZero",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.to_eq",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_neg",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Abel.const_add_termg",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.subst_into_negg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_add_termg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Mathlib.Tactic.Abel.term_neg",
+        "Mathlib.Tactic.Abel.unfold_sub",
+        "Mathlib.Tactic.Abel.zero_termg",
+        "Mathlib.Tactic.FieldSimp.NF.atom_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div",
+        "Mathlib.Tactic.FieldSimp.NF.cons_ne_zero",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₁",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₃",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval_cons_neg",
+        "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃",
+        "Mathlib.Tactic.FieldSimp.NF.one_div_eq_eval",
+        "Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst",
+        "Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq",
+        "Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul",
+        "Mathlib.Tactic.FieldSimp.subst_add",
+        "Mathlib.Tactic.FieldSimp.zpow'_one",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_pos'",
+        "Nat.mul_pos",
+        "Nat.zero_lt_succ",
+        "NeZero.charZero_one",
+        "NeZero.one",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "Rollout_p1089_logarithmic_average_bound.global_local_approx",
+        "Rollout_p1089_logarithmic_average_bound.weighted_prefix_bound_generic",
+        "Rollout_p1089_logarithmic_average_bound.weighted_prefix_eq",
+        "Subtype.property",
+        "add_le_add",
+        "congrArg",
+        "congr_arg₂",
+        "covariant_swap_add_of_covariant_add",
+        "div_one",
+        "instIsCancelMulZero",
+        "mul_one",
+        "ne_of_gt",
+        "neg_zero",
+        "norm_add_le",
+        "one_mul",
+        "one_ne_zero",
+        "zero_add"
+      ],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.1989771"
+        },
+        {
+          "statement": "∀ (n : { n // 0 < n }), ‖a n‖ ≤ 1",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.1989773"
+        },
+        {
+          "statement": "0 < q",
+          "origin": "derived",
+          "name": "hq",
+          "fvar_id": "_uniq.1992751"
+        },
+        {
+          "statement": "0 < S",
+          "origin": "derived",
+          "name": "hS",
+          "fvar_id": "_uniq.1992808"
+        },
+        {
+          "statement": "∀ (i j : ℕ), w (i * q + j) = w j",
+          "origin": "derived",
+          "name": "hperiod",
+          "fvar_id": "_uniq.2024651"
+        },
+        {
+          "statement": "target = (↑q)⁻¹ * ∑ j ∈ Finset.range q, w j ^ 2",
+          "origin": "derived",
+          "name": "htarget_period",
+          "fvar_id": "_uniq.2038874"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_547",
+      "conclusion": {
+        "statement": "∀ (N : ℕ), 0 < N → ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + K / ↑N",
+        "origin": "derived",
+        "name": "hboundN",
+        "fvar_id": "_uniq.2045868"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (ε : ℝ),\n  0 < ε → Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √target + ε",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Eventually.mono",
+        "Filter.Eventually.of_forall",
+        "Filter.Tendsto.eventually_lt_const",
+        "Filter.atTop_neBot",
+        "Filter.eventually_ge_atTop",
+        "Filter.isCoboundedUnder_le_of_eventually_le",
+        "Filter.limsup_le_of_le",
+        "Filter.mp_mem",
+        "Filter.univ_mem'",
+        "HasSolidNorm.orderClosedTopology",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsScalarTower.nnrat",
+        "IsTopologicalRing.toIsTopologicalSemiring",
+        "IsTopologicalSemiring.toContinuousMul",
+        "LE.le.trans",
+        "LT.lt.le",
+        "NNRat.instContinuousSMulOfIsScalarTowerOfRat",
+        "NNRat.instContinuousSMulRatReal",
+        "Nat.instStarOrderedRing",
+        "Nat.mul_pos",
+        "RCLike.charZero_rclike",
+        "Rat.instCharZero",
+        "Real.instIsOrderedAddMonoid",
+        "StarOrderedRing.toIsOrderedRing",
+        "Subtype.property",
+        "add_le_add",
+        "covariant_swap_add_of_covariant_add",
+        "instArchimedeanNat",
+        "instClosedIciTopology",
+        "instHasSolidNormReal",
+        "instIsDirectedOrder",
+        "instIsTopologicalRingReal",
+        "instNonemptyOfInhabited",
+        "le_rfl",
+        "norm_nonneg",
+        "tendsto_const_div_atTop_nhds_zero_nat"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (N : ℕ), 0 < N → ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖ ≤ √target + K / ↑N",
+          "origin": "derived",
+          "name": "hboundN",
+          "fvar_id": "_uniq.2045868"
+        }
+      ],
+      "parent": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+      "id": "local_548",
+      "conclusion": {
+        "statement": "∀ (ε : ℝ),\n  0 < ε → Filter.limsup (fun N => ‖A N a - Lℂ fun m => A (N / ↑m) fun k => a ⟨↑m * ↑k, ⋯⟩‖) Filter.atTop ≤ √target + ε",
+        "origin": "derived",
+        "name": "hmain",
+        "fvar_id": "_uniq.2107260"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p1089_logarithmic_average_bound",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1089_logarithmic_average_bound.logarithmic_average_bound",
+    "proof_sha256": "c6fbcb13365678ea7f4ec991d10ff76066d8d782cca0b446b954f8b737f3882f"
+  }
+}

@@ -1,0 +1,23 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hdiag_4722f23b" [shape=box, color="#178F82", label="hdiag\n∀ (i : Fin n), G.Adj (x i) (y i)"];
+  "m_hunmixed_f5b8f313" [shape=box, color="#178F82", label="hunmixed\n∀ (C : Set V), Minimal G.IsVertexCover C → C.ncard = n"];
+  "m_hxy_0a0caba5" [shape=box, color="#178F82", label="hxy\nFunction.Bijective (Sum.elim x y)"];
+  "m_hy_bcc69f11" [shape=box, color="#178F82", label="hY\nMaximal G.IsIndepSet (Set.range y)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n((∃ M, M.IsPerfectMatching ∧ (∀ (u v : V), M.Adj u v ↔ ∃ i, u = x i ∧ v = y i ∨ u = y i ∧ v = x i) ∧ ∀ (M' : G.Subgraph), M'.IsPerfectMatching → M' = M) ↔ ∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ∧ ((∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ↔ ∀ (r : ℕ) (i : Fin (r + 2) → Fin n), Function.Injective i → ¬∀ (s : Fin (r + 2)), G.Adj (x (i s)) (y (i s)) ∧ G.Adj (y (i s)) (x (i (s + 1))))"];
+  "n_hbc_2af06470" [shape=box, color="#D97706", label="hBC\nB ↔ C"];
+  "r_h_001_hbc" [shape=diamond, label="Function.Injective.ne + Maximal.prop + Nat.find_min", color="#D97706"];
+  "m_hxy_0a0caba5" -> "r_h_001_hbc";
+  "m_hy_bcc69f11" -> "r_h_001_hbc";
+  "m_hdiag_4722f23b" -> "r_h_001_hbc";
+  "m_hunmixed_f5b8f313" -> "r_h_001_hbc";
+  "r_h_001_hbc" -> "n_hbc_2af06470";
+  "r_h_goal" [shape=diamond, label="Iff.rfl + Maximal.prop + diagonalGraph_toSubgraph_isPerfectMatching", color="#D97706"];
+  "m_hxy_0a0caba5" -> "r_h_goal";
+  "m_hy_bcc69f11" -> "r_h_goal";
+  "m_hdiag_4722f23b" -> "r_h_goal";
+  "n_hbc_2af06470" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

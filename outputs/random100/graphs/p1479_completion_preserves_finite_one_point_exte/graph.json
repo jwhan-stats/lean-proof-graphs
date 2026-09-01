@@ -1,0 +1,1417 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1479_completion_preserves_finite_one_point_exte",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1479,
+    "source": "math_0004119",
+    "theorem_name": "completion_preserves_finite_one_point_extension",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1479",
+    "reconstructed_proof": "../../candidates/p1479_completion_preserves_finite_one_point_exte/proof.lean",
+    "raw_elaboration": "../../candidates/p1479_completion_preserves_finite_one_point_exte/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1479_completion_preserves_finite_one_point_exte.completion_preserves_finite_one_point_extension",
+    "verification_call_id": "verify_submission:145",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "39b1009545f4bff0a670c51396fb742561c861c05ae85f94cd168a4c403d40dc",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "7ca6ca3f61e5d9bbeda0664beabed5c0e8eb6dcbda992070b1e30481da086167",
+    "concrete_semantic_topology_sha256": "39b1009545f4bff0a670c51396fb742561c861c05ae85f94cd168a4c403d40dc"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hdiam_5fffba26",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hdiam",
+      "lean_fvar_id": "2",
+      "statement": "Metric.diam Set.univ = 1"
+    },
+    {
+      "id": "m_hext_688f23a4",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hext",
+      "lean_fvar_id": "3",
+      "statement": "∀ (F : Set A), F.Finite → ∀ (f : ↑F → ↑(Set.Icc 0 1)), (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) → ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "Metric.diam Set.univ = 1 ∧ ∀ (F : Set (UniformSpace.Completion A)), F.Finite → ∀ (f : ↑F → ↑(Set.Icc 0 1)), (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) → ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)"
+    },
+    {
+      "id": "n_hdiamx_5d5e1a93",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hdiamX",
+      "lean_fvar_id": "4",
+      "statement": "Metric.diam Set.univ = 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hdiamx",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hdiam_5fffba26"
+      ],
+      "conclusion": "n_hdiamx_5d5e1a93",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "completion_diam_eq",
+        "items": [
+          "Rollout_p1479_completion_preserves_finite_one_point_exte.completion_diam_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1479_completion_preserves_finite_one_point_exte.completion_diam_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_4",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hdiamX : Metric.diam (Set.univ : Set (UniformSpace.Completion A)) = 1 := by\n    rw [completion_diam_eq A, hdiam]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hdiam",
+              "statement": "Metric.diam Set.univ = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "4",
+            "name": "hdiamX",
+            "statement": "Metric.diam Set.univ = 1"
+          }
+        },
+        "lean_dependency_sha256": "d454c5b2e0ea1c39b0e3b44b0b9313c6ea90631ab0e03f98518a0f19d467273f",
+        "kernel_witness_check": {
+          "proof_type": "Metric.diam Set.univ = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_hext_688f23a4",
+        "n_hdiamx_5d5e1a93"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finite.exists_equiv_fin",
+        "items": [
+          "Finite.exists_equiv_fin"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finite.exists_equiv_fin"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  simpa [x, r] using hy",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hext",
+              "statement": "∀ (F : Set A), F.Finite → ∀ (f : ↑F → ↑(Set.Icc 0 1)), (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) → ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hdiamX",
+              "statement": "Metric.diam Set.univ = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "Metric.diam Set.univ = 1 ∧ ∀ (F : Set (UniformSpace.Completion A)), F.Finite → ∀ (f : ↑F → ↑(Set.Icc 0 1)), (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) → ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)"
+          }
+        },
+        "lean_dependency_sha256": "ed8135650521fcbcb8801793c7b9c7eb468cde02e8913cf3903bee8c24c16b66",
+        "kernel_witness_check": {
+          "proof_type": "Metric.diam Set.univ = 1 ∧\n  ∀ (F : Set (UniformSpace.Completion A)),\n    F.Finite →\n      ∀ (f : ↑F → ↑(Set.Icc 0 1)),\n        (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) →\n          ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finite.exists_equiv_fin"
+        ],
+        "observed_search_event_ids": [
+          "loogle:27"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "completion finite one-point extension property metric space diameter",
+      "declarations": [
+        "Metric.ediam_singleton",
+        "Metric.ediam_zero",
+        "UniformSpace.Completion.instMetricSpace",
+        "EMetric.diam_singleton",
+        "Metric.ediam",
+        "Metric.ediam_one",
+        "UniformSpace.Completion.uniformContinuous_extension",
+        "UniformSpace.Completion.extension",
+        "UniformSpace.Completion.extension_coe",
+        "UniformSpace.Completion.continuous_extension"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "metric completion diameter dist Completion extension",
+      "declarations": [
+        "Isometry.completion_extension",
+        "Lean.Parser.Command.docs_to_verso",
+        "UniformSpace.Completion.instMetricSpace",
+        "UniformSpace.Completion.extension",
+        "LipschitzWith.completion_extension",
+        "Lean.Meta.Tactic.BVDecide.Normalize.PreProcessM.lookupInterestingStructure",
+        "UniformSpace.Completion",
+        "Lean.Meta.getFunInfo",
+        "AdicCompletion",
+        "Std.Time.Timestamp.since"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Metric.diam Set.univ (UniformSpace.Completion _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "dist (UniformSpace.Completion.mk _ _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "IsCompact (UniformSpace.Completion _)",
+      "declarations": [
+        "CompactSpace.isCompact_univ",
+        "CompactSpace.mk",
+        "NoncompactSpace.mk",
+        "NoncompactSpace.noncompact_univ",
+        "WeaklyLocallyCompactSpace.exists_compact_mem_nhds",
+        "WeaklyLocallyCompactSpace.mk",
+        "LocallyCompactSpace.local_compact_nhds",
+        "LocallyCompactSpace.mk",
+        "LocallyCompactPair.exists_mem_nhds_isCompact_mapsTo",
+        "LocallyCompactPair.mk"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "finite one point extension property metric spaces completion",
+      "declarations": [
+        "OnePoint",
+        "UniformSpace.Completion.induction_on",
+        "UniformSpace.Completion.instMetricSpace",
+        "instWeakEMetricSpaceOnePoint",
+        "LipschitzWith.completion_extension",
+        "Isometry.completion_extension",
+        "UniformSpace.Completion.extension_coe",
+        "OnePoint.infty",
+        "UniformSpace.Completion.extension",
+        "OnePoint.some"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "one-point extension property finite subsets metric space",
+      "declarations": [
+        "Metric.infEDist_zero_of_mem",
+        "OnePoint.instCompactSpace",
+        "TopologicalSpace.Compacts.closure_finite_subsets",
+        "Unique.instTietzeExtension",
+        "EMetric.countable_closure_of_compact",
+        "TopologicalSpace.NonemptyCompacts.closure_finite_subsets",
+        "Set.Finite.finite_subsets",
+        "TopologicalSpace.vietoris.closure_finite_subsets",
+        "MetricSpace",
+        "Set.Finite.relatively_discrete"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "spherical intersection property metric completion",
+      "declarations": [
+        "Metric.sphere",
+        "UniformSpace.Completion.mem_uniformity_dist",
+        "UniformSpace.Completion.dist_triangle",
+        "UniformSpace.Completion.instMetricSpace",
+        "UniformSpace.Completion.edist_eq",
+        "Std.Rco.LawfulRcoIntersection",
+        "sphere_pi",
+        "EuclideanGeometry.Sphere.power",
+        "Isometry.isClosedEmbedding",
+        "EuclideanGeometry.inner_pos_or_eq_of_dist_le_radius"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "finitely injective metric space completion",
+      "declarations": [
+        "UniformSpace.Completion.instMetricSpace",
+        "UniformSpace.Completion.coe_inj",
+        "UniformSpace.Completion",
+        "UniformSpace.Completion.coe_injective",
+        "Isometry.isClosedEmbedding",
+        "Isometry.completion_extension",
+        "Dilation.isClosedEmbedding",
+        "MetricSpace",
+        "UniformSpace.Completion.isDenseEmbedding_coe",
+        "UniformSpace.Completion.uniformSpace"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "Katetov extension finite metric space completion",
+      "declarations": [
+        "UniformSpace.Completion.instMetricSpace",
+        "Isometry.completion_extension",
+        "UniformSpace.Completion.extension",
+        "UniformSpace.Completion.extension_coe",
+        "UniformSpace.Completion",
+        "UniformSpace.Completion.continuous_extension",
+        "TietzeExtension.of_tvs",
+        "UniformSpace.Completion.uniformContinuous_extension",
+        "Isometry.isClosedEmbedding",
+        "MetricSpace"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Metric.diam (closure _) = Metric.diam _",
+      "declarations": [
+        "Metric.diam_closure"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Metric.diam _ ≤ 1",
+      "declarations": [
+        "diam_stdSimplex_le"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Metric.diam (Set.range _) = Metric.diam Set.univ",
+      "declarations": [
+        "Isometry.diam_range",
+        "IsometryClass.diam_range",
+        "SemilinearIsometryClass.diam_range",
+        "LinearIsometry.diam_range",
+        "AffineIsometry.diam_range"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "diameter closure dense set metric",
+      "declarations": [
+        "DenseRange.closure_range",
+        "Dense.closure",
+        "Dense.of_closure",
+        "Metric.diam_closure",
+        "Metric.ediam_closure",
+        "EMetric.diam_closure",
+        "dense_closure",
+        "closure",
+        "Topology.delabClosure",
+        "Metric.dense_iff"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "diameter completion metric space",
+      "declarations": [
+        "UniformSpace.Completion.instMetricSpace",
+        "EMetric.complete_of_convergent_controlled_sequences",
+        "TopologicalSpace.Opens.CompleteCopy",
+        "UniformSpace.Completion.instIsBoundedSMul",
+        "UniformSpace.Completion",
+        "UniformSpace.metricSpace",
+        "UniformSpace.Completion.uniformSpace",
+        "Dilation.isClosedEmbedding",
+        "MetricSpace",
+        "Real.metricSpace"
+      ],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Isometry ((↑) : _ → UniformSpace.Completion _)",
+      "declarations": [
+        "UniformSpace.Completion.coe_isometry",
+        "Isometry.completion_map",
+        "Isometry.isometry_mapRingHom"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "UniformSpace.Completion.isometry",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "dist ((_) : UniformSpace.Completion _) ((_) : UniformSpace.Completion _) = dist _ _",
+      "declarations": [
+        "UniformSpace.Completion.dist_eq",
+        "UniformSpace.Completion.dist_comm"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "DenseRange ((↑) : _ → UniformSpace.Completion _)",
+      "declarations": [
+        "UniformSpace.Completion.denseRange_coe",
+        "NormedAddCommGroup.denseRange_toCompl"
+      ],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Finset.exists_min_image",
+      "declarations": [
+        "Finset.exists_min_image"
+      ],
+      "call_turn": 25,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Finset.exists_min",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 27
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "finite set positive real minimum",
+      "declarations": [
+        "List.minimum_mem",
+        "AkraBazziRecurrence.min_bi",
+        "Real.lt_sInf_add_pos",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "List.minimum_nil",
+        "List.minimum_cons",
+        "List.minimum",
+        "Finite.exists_min",
+        "List.trop_minimum",
+        "Set.Finite"
+      ],
+      "call_turn": 25,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Finset.min'",
+      "declarations": [
+        "Finset.min'",
+        "Finset.min'_singleton",
+        "Finset.coe_min'",
+        "Finset.min'_mem",
+        "Finset.min'_eq_inf'",
+        "Finset.min'_le_max'",
+        "Finset.isLeast_min'",
+        "Finset.min'_erase_ne_self",
+        "Finset.min'_subset",
+        "Finset.min'_lt_of_mem_erase_min'"
+      ],
+      "call_turn": 25,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Finset.inf'",
+      "declarations": [
+        "Finset.inf'",
+        "Finset.inf'_const",
+        "Finset.inf'_singleton",
+        "Finset.isGLB_inf'",
+        "Finset.inf'_eq_inf",
+        "Finset.inf'_eq_of_forall",
+        "Finset.exists_mem_eq_inf'",
+        "Finset.inf'_apply",
+        "Finset.coe_inf'",
+        "Finset.inf'_comp_eq_image"
+      ],
+      "call_turn": 25,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Set.Finite.relatively_discrete",
+      "declarations": [
+        "Set.Finite.relatively_discrete"
+      ],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Fintype.equivFin",
+      "declarations": [
+        "Fintype.equivFin",
+        "CategoryTheory.FinCategory.objAsTypeEquiv",
+        "CategoryTheory.FinCategory.asTypeEquivObjAsType",
+        "CategoryTheory.FinCategory.asTypeToObjAsType",
+        "CategoryTheory.FinCategory.objAsTypeToAsType",
+        "CategoryTheory.FinCategory.instFintypeHomObjAsType",
+        "CategoryTheory.FinCategory.asTypeToObjAsType_obj",
+        "CategoryTheory.FinCategory.objAsTypeToAsType_obj",
+        "CategoryTheory.FinCategory.categoryAsType_id",
+        "CategoryTheory.FinCategory.objAsTypeToAsType_map"
+      ],
+      "call_turn": 33,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Set.Finite.fintype",
+      "declarations": [
+        "Set.Finite.fintype",
+        "Equiv.finsuppUnique_symm_apply_support_val",
+        "AddEquiv.finsuppUnique_symm_apply_support_val",
+        "Set.Finite.convexHull_eq_image"
+      ],
+      "call_turn": 33,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "Finite.exists_equiv_fin",
+      "declarations": [
+        "Finite.exists_equiv_fin"
+      ],
+      "call_turn": 33,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Fintype.card _ = _ Fin",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "finite type equivalence Fin cardinal",
+      "declarations": [
+        "Fintype.card_congr'",
+        "Finite.of_equiv",
+        "Cardinal.type_cardinal",
+        "Algebra.FiniteType",
+        "Fintype.ofEquiv",
+        "grpTypeEquivalenceGrp",
+        "Fintype.ofEquiv_card",
+        "monTypeEquivalenceMon",
+        "Ordinal.type_fin",
+        "Cardinal.mk_fin"
+      ],
+      "call_turn": 33,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "DenseRange.exists_dist_lt",
+      "declarations": [
+        "DenseRange.exists_dist_lt"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Dense.exists_dist_lt",
+      "declarations": [
+        "Dense.exists_dist_lt"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "∃ _ ∈ Set.range _, dist _ _ < _",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "leanfinder:37",
+      "tool": "leanfinder",
+      "query": "dense range exists point within epsilon distance",
+      "declarations": [
+        "DenseRange.nhdsWithin_neBot",
+        "DenseRange.exists_dist_lt",
+        "DenseRange.exists_mem_open",
+        "UniqueMDiffWithinAt.image_denseRange",
+        "DenseRange",
+        "Metric.mem_sphere",
+        "exists_dist_lt_le",
+        "Metric.mem_closure_range_iff",
+        "Metric.mem_sphere'",
+        "OnePoint.denseRange_coe"
+      ],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "dist _ _ ≤ Metric.diam Set.univ",
+      "declarations": [],
+      "call_turn": 52,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "Metric.dist_le_diam",
+      "declarations": [],
+      "call_turn": 52,
+      "result_turn": 54
+    },
+    {
+      "event_id": "leanfinder:40",
+      "tool": "leanfinder",
+      "query": "distance bounded by diameter univ metric",
+      "declarations": [
+        "Metric.diam",
+        "Metric.hausdorffDist_le_diam",
+        "Metric.ediam",
+        "Metric.diam_le_of_forall_dist_le_of_nonempty",
+        "EMetric.diam_le",
+        "Metric.isBounded_iff",
+        "EMetric.diam_triple",
+        "Metric.isBounded_sphere",
+        "Metric.boundedSpace_iff",
+        "Metric.compactSpace_iff_isBounded_univ"
+      ],
+      "call_turn": 52,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "_ ∈ _ → _ ∈ _ → dist _ _ ≤ Metric.diam _",
+      "declarations": [
+        "Metric.dist_le_diam_of_mem",
+        "Metric.dist_le_diam_of_mem'"
+      ],
+      "call_turn": 52,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Metric.diam _ = _ → Metric.ediam _ ≠ ⊤",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "Metric.diam_eq",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Metric.ediam_eq_coe",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 60
+    },
+    {
+      "event_id": "leanfinder:45",
+      "tool": "leanfinder",
+      "query": "real diameter equality implies bounded",
+      "declarations": [
+        "Real.ediam_eq",
+        "Dyadic.blt",
+        "true_implies",
+        "Real",
+        "implies_congr",
+        "decide_implies",
+        "Real.volume_le_diam",
+        "implies_true",
+        "ENNReal.ofReal_le_one",
+        "MeasureTheory.all_ae_norm_ofReal_F_le_bound"
+      ],
+      "call_turn": 57,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "Set.Finite (Set.range _)",
+      "declarations": [
+        "Set.finite_range_const",
+        "Set.finite_range_iff",
+        "Set.finite_range_findGreatest",
+        "Set.Finite.toFinset_range",
+        "Set.finite_range_ite",
+        "Set.finite_range",
+        "Set.union_finset_finite_of_range_finite",
+        "Finsupp.finite_range",
+        "Polynomial.finite_range_coeff",
+        "AddMonoid.exponent_ne_zero_iff_range_addOrderOf_finite"
+      ],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "Fin.induction",
+      "declarations": [
+        "Fin.induction",
+        "Fin.induction_succ",
+        "Fin.induction_zero"
+      ],
+      "call_turn": 70,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Fin.lastCases",
+      "declarations": [
+        "Fin.lastCases",
+        "Fin.lastCases_last",
+        "Fin.lastCases_castSucc",
+        "Fin.orderSucc_apply",
+        "Fin.orderSucc_eq"
+      ],
+      "call_turn": 70,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Fin.castSucc_injective",
+      "declarations": [
+        "Fin.castSucc_injective",
+        "Fin.coe_of_injective_castSucc_symm"
+      ],
+      "call_turn": 70,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Fin.succAbove",
+      "declarations": [
+        "Fin.predAbove_succAbove",
+        "Fin.succAbove_last",
+        "Fin.succAbove_last_apply",
+        "Fin.succAbove_castSucc_self",
+        "Fin.succAbove_succ_self",
+        "Fin.predAbove_predAbove_succAbove",
+        "Fin.succAbove",
+        "Fin.succAbove_left_injective",
+        "Fin.succAbove_right_injective",
+        "Fin.succAbove_castSucc_of_le"
+      ],
+      "call_turn": 70,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "Fin.castSuccEmb",
+      "declarations": [
+        "Fin.castSuccEmb",
+        "Fin.coe_castSuccEmb",
+        "Fin.castSuccEmb_apply",
+        "Fin.univ_castSuccEmb",
+        "Fin.map_castSuccEmb_uIcc",
+        "Fin.map_castSuccEmb_Iic",
+        "Fin.map_castSuccEmb_Iio",
+        "Fin.map_castSuccEmb_Ici",
+        "Fin.map_castSuccEmb_Ioi",
+        "Fin.map_castSuccEmb_Icc"
+      ],
+      "call_turn": 70,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "|_ - _| ≤ _ ↔ _",
+      "declarations": [
+        "abs_sub_nonpos",
+        "abs_sub_le_iff",
+        "Set.mem_Icc_iff_abs_le"
+      ],
+      "call_turn": 76,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "abs_sub_le_iff",
+      "declarations": [
+        "abs_sub_le_iff"
+      ],
+      "call_turn": 76,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "dist_triangle",
+      "declarations": [
+        "Metric.toUniformSpace_eq",
+        "dist_triangle"
+      ],
+      "call_turn": 76,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "abs_sub_comm",
+      "declarations": [
+        "abs_sub_comm"
+      ],
+      "call_turn": 76,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Fin.castSucc < Fin.last _",
+      "declarations": [],
+      "call_turn": 81,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Fin.castSucc_lt_last",
+      "declarations": [
+        "Fin.castSucc_lt_last",
+        "Fin.predAbove_of_le_castSucc",
+        "Fin.castPred_castSucc"
+      ],
+      "call_turn": 81,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "Fin.castSucc_ne_last",
+      "declarations": [
+        "Fin.castSucc_ne_last"
+      ],
+      "call_turn": 81,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "Fin.last_ne_castSucc",
+      "declarations": [],
+      "call_turn": 81,
+      "result_turn": 85
+    },
+    {
+      "event_id": "leanfinder:69",
+      "tool": "leanfinder",
+      "query": "CauchySeq distance successive terms summable",
+      "declarations": [
+        "CauchySeq",
+        "cauchySeq_of_summable_dist",
+        "cauchySeq_of_edist_le_of_summable",
+        "Summable",
+        "cauchySeq_of_dist_le_of_summable",
+        "IsCauSeq.cauchy",
+        "IsCauSeq.series_ratio_test",
+        "summable_iff_cauchySeq_finset",
+        "cauchySeq_finset_of_summable_norm",
+        "Metric.exists_subseq_summable_dist_of_cauchySeq"
+      ],
+      "call_turn": 98,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "CauchySeq _ dist (_ _)",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Summable (fun n => dist (_ (n+1)) (_ n)) → CauchySeq",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "cauchySeq_of",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "CauchySeq.of",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "summable_geometric",
+      "declarations": [],
+      "call_turn": 104,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "Summable fun n => _ / 2 ^ n",
+      "declarations": [
+        "summable_geometric_two'"
+      ],
+      "call_turn": 104,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "Summable fun n : ℕ => (_ : ℝ) / 2 ^ n",
+      "declarations": [
+        "summable_geometric_two'"
+      ],
+      "call_turn": 104,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "summable_pow_mul_div",
+      "declarations": [],
+      "call_turn": 104,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "Summable (fun n => _ * _ ^ n)",
+      "declarations": [
+        "summable_choose_mul_geometric_of_norm_lt_one",
+        "summable_descFactorial_mul_geometric_of_norm_lt_one",
+        "summable_pow_mul_geometric_of_norm_lt_one",
+        "summable_powerSeries_of_norm_lt_one",
+        "summable_powerSeries_of_norm_lt",
+        "FormalMultilinearSeries.radius_eq_top_of_summable_norm",
+        "FormalMultilinearSeries.radius_eq_top_iff_summable_norm",
+        "FormalMultilinearSeries.le_radius_of_summable",
+        "FormalMultilinearSeries.le_radius_of_summable_norm",
+        "FormalMultilinearSeries.summable_norm_mul_pow"
+      ],
+      "call_turn": 104,
+      "result_turn": 109
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "CompleteSpace (UniformSpace.Completion _)",
+      "declarations": [
+        "UniformSpace.Completion.completeSpace"
+      ],
+      "call_turn": 110,
+      "result_turn": 111
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "UniformSpace.Completion.instCompleteSpace",
+      "declarations": [],
+      "call_turn": 110,
+      "result_turn": 112
+    },
+    {
+      "event_id": "leanfinder:81",
+      "tool": "leanfinder",
+      "query": "uniform completion complete space instance",
+      "declarations": [
+        "UniformSpace.Completion.completeSpace",
+        "Unitization.instCompleteSpace",
+        "CompleteSpace",
+        "CompleteSpace.snd_of_prod",
+        "AbstractCompletion.ofComplete",
+        "CompleteSpace.fst_of_prod",
+        "UniformSpace.Completion.inhabited",
+        "UniformSpace.Completion",
+        "UniformSpace.Completion.UniformCompletion.completeEquivSelf",
+        "UniformSpace.Completion.uniformSpace"
+      ],
+      "call_turn": 110,
+      "result_turn": 113
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "CauchySeq → ∃ _, Tendsto _ atTop (nhds _)",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "CompleteSpace.complete",
+      "declarations": [
+        "CompleteSpace.complete"
+      ],
+      "call_turn": 114,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "CauchySeq.exists_limit",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "cauchySeq_tendsto_of_complete",
+      "declarations": [
+        "cauchySeq_tendsto_of_complete"
+      ],
+      "call_turn": 114,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "Continuous fun p : _ × _ => dist p.1 p.2",
+      "declarations": [
+        "continuous_dist"
+      ],
+      "call_turn": 119,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "continuous_dist",
+      "declarations": [
+        "continuous_dist"
+      ],
+      "call_turn": 119,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Tendsto (fun n => dist (_ n) _)",
+      "declarations": [],
+      "call_turn": 119,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "Filter.Tendsto.dist",
+      "declarations": [
+        "Filter.Tendsto.dist"
+      ],
+      "call_turn": 119,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Summable.tendsto_atTop_zero",
+      "declarations": [
+        "Summable.tendsto_atTop_zero"
+      ],
+      "call_turn": 124,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "Filter.Tendsto.div_const",
+      "declarations": [
+        "Filter.Tendsto.div_const"
+      ],
+      "call_turn": 126,
+      "result_turn": 127
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Filter.Tendsto.const_div",
+      "declarations": [],
+      "call_turn": 126,
+      "result_turn": 128
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "Tendsto (_ / _) _ (nhds (_ / _))",
+      "declarations": [],
+      "call_turn": 126,
+      "result_turn": 129
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "tendsto_iff_dist_tendsto_zero",
+      "declarations": [
+        "tendsto_iff_dist_tendsto_zero"
+      ],
+      "call_turn": 130,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "Tendsto _ _ (nhds _) ↔ Tendsto (fun _ => dist _ _)",
+      "declarations": [],
+      "call_turn": 130,
+      "result_turn": 132
+    },
+    {
+      "event_id": "leanfinder:96",
+      "tool": "leanfinder",
+      "query": "convergence iff distance tends zero metric",
+      "declarations": [
+        "Metric.ediam_eq_zero_iff",
+        "tendsto_iff_of_dist",
+        "Metric.thickening",
+        "dist_le_of_le_geometric_two_of_tendsto",
+        "MeasureTheory.tendstoInMeasure_of_ne_top",
+        "dist_le_of_le_geometric_of_tendsto",
+        "Filter.Tendsto.congr_dist",
+        "PointwiseConvergenceCLM",
+        "Metric.ball",
+        "UniformConvergenceCLM"
+      ],
+      "call_turn": 130,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "tendsto_of_tendsto_of_tendsto_of_le_of_le",
+      "declarations": [
+        "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+      ],
+      "call_turn": 134,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "squeeze_zero",
+      "declarations": [
+        "squeeze_zero"
+      ],
+      "call_turn": 134,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Tendsto _ _ (nhds 0) → 0 ≤ _ → _ ≤ _",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 137
+    },
+    {
+      "event_id": "leanfinder:100",
+      "tool": "leanfinder",
+      "query": "squeeze theorem tendsto zero nonnegative upper bound",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "squeeze_zero",
+        "gronwallBound",
+        "MeasureTheory.tendsto_lintegral_of_dominated_convergence",
+        "squeeze_zero_norm'",
+        "Filter.Tendsto.squeeze",
+        "squeeze_zero_norm",
+        "squeeze_zero'",
+        "Filter.Tendsto.squeeze'",
+        "Filter.Tendsto.nonpos_add_atBot"
+      ],
+      "call_turn": 134,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "tendsto_nhds_unique",
+      "declarations": [
+        "tendsto_nhds_unique"
+      ],
+      "call_turn": 139,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "Tendsto _ _ (nhds _) → Tendsto _ _ (nhds _) → _ = _",
+      "declarations": [],
+      "call_turn": 139,
+      "result_turn": 141
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "tendsto_nhds_unique'",
+      "declarations": [
+        "tendsto_nhds_unique'"
+      ],
+      "call_turn": 139,
+      "result_turn": 142
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "Filter.Tendsto.congr'",
+      "declarations": [
+        "Filter.Tendsto.congr'"
+      ],
+      "call_turn": 139,
+      "result_turn": 143
+    },
+    {
+      "event_id": "loogle:120",
+      "tool": "loogle",
+      "query": "EventuallyEq.of_forall",
+      "declarations": [],
+      "call_turn": 174,
+      "result_turn": 175
+    },
+    {
+      "event_id": "loogle:121",
+      "tool": "loogle",
+      "query": "Filter.EventuallyEq.of_forall",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "∀ _, _ = _ → _ =ᶠ[_] _",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 178
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "Filter.Eventually.of_forall",
+      "declarations": [
+        "Filter.Eventually.of_forall"
+      ],
+      "call_turn": 176,
+      "result_turn": 179
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "eventuallyEq_of_forall",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 180
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 1,
+    "selected_depth": 2,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 97,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 96,
+    "accepted_helper_count": 3,
+    "rollout_tool_call_count": 146,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

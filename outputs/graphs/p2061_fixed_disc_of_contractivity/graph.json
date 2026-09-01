@@ -1,0 +1,887 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2061_fixed_disc_of_contractivity",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2061,
+    "source": "1901.02623",
+    "theorem_name": "fixed_disc_of_contractivity",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2061",
+    "reconstructed_proof": "../../candidates/p2061_fixed_disc_of_contractivity/proof.lean",
+    "raw_elaboration": "../../candidates/p2061_fixed_disc_of_contractivity/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+    "verification_call_id": "verify_submission:3",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "cdaf7feb9a824a85005a206c49841c05ff511f246426e3bdb3992b5cb809e336",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "d9dea12de7ff98795c27fc3bf2e16ffd47402a885c8b00474f5d79c5579a9594",
+    "concrete_semantic_topology_sha256": "cdaf7feb9a824a85005a206c49841c05ff511f246426e3bdb3992b5cb809e336"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hc_0fa2f463",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc₁",
+      "lean_fvar_id": "6",
+      "statement": "c < 1"
+    },
+    {
+      "id": "m_hc_72155243",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hc₀",
+      "lean_fvar_id": "5",
+      "statement": "0 ≤ c"
+    },
+    {
+      "id": "m_hcontractive_d6d09758",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcontractive",
+      "lean_fvar_id": "7",
+      "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}; (∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x"
+    },
+    {
+      "id": "n_h_933833d1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.568888",
+      "statement": "∀ (x : X), dist x x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)} → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+    },
+    {
+      "id": "n_h__le_5f2fb4b5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hρ_le",
+      "lean_fvar_id": "_uniq.579033",
+      "statement": "sInf S ≤ dist x (T x)"
+    },
+    {
+      "id": "n_ha_98f96227",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.579040",
+      "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+    },
+    {
+      "id": "n_hc_a9427949",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hc₁",
+      "lean_fvar_id": "_uniq.568851",
+      "statement": "c < 1"
+    },
+    {
+      "id": "n_hcon_497fd23f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcon",
+      "lean_fvar_id": "_uniq.579102",
+      "statement": "dist x (T x) ≤ c * dist (T x) x₀"
+    },
+    {
+      "id": "n_hcontractive_54423860",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcontractive",
+      "lean_fvar_id": "_uniq.568852",
+      "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀"
+    },
+    {
+      "id": "n_hd_5010c9f3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hd",
+      "lean_fvar_id": "_uniq.576104",
+      "statement": "dist (T x₀) x₀ = 0"
+    },
+    {
+      "id": "n_hdpos_594aae21",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hdpos",
+      "lean_fvar_id": "_uniq.569359",
+      "statement": "¬0 < dist (T x₀) x₀"
+    },
+    {
+      "id": "n_hdpos_8c95542d",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hdpos",
+      "lean_fvar_id": "_uniq.569352",
+      "statement": "0 < dist (T x₀) x₀"
+    },
+    {
+      "id": "n_hlt_a0bee0d5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlt",
+      "lean_fvar_id": "_uniq.591329",
+      "statement": "c * dist (T x) x₀ < dist (T x) x₀"
+    },
+    {
+      "id": "n_hlt_c8e81a8f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlt",
+      "lean_fvar_id": "_uniq.569573",
+      "statement": "c * dist (T x₀) x₀ < dist (T x₀) x₀"
+    },
+    {
+      "id": "n_hsbdd_b9f9fa98",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSbdd",
+      "lean_fvar_id": "_uniq.578375",
+      "statement": "BddBelow S"
+    },
+    {
+      "id": "n_hsmem_31cee172",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSmem",
+      "lean_fvar_id": "_uniq.578979",
+      "statement": "dist x (T x) ∈ S"
+    },
+    {
+      "id": "n_htx_d6e7fdf1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hTx",
+      "lean_fvar_id": "_uniq.578081",
+      "statement": "¬T x = x"
+    },
+    {
+      "id": "n_hx0_96ecd6fb",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx0",
+      "lean_fvar_id": "_uniq.569109",
+      "statement": "¬x = x₀"
+    },
+    {
+      "id": "n_hx_b854238c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.568894",
+      "statement": "dist x x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+    },
+    {
+      "id": "n_this_2d7f3290",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.597808",
+      "statement": "sInf S < sInf S"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hlt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hc_a9427949",
+        "n_hdpos_8c95542d"
+      ],
+      "conclusion": "n_hlt_c8e81a8f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_lt_mul_of_pos_right",
+        "items": [
+          "mul_lt_mul_of_pos_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_lt_mul_of_pos_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_11",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hlt : c * dist (T x) x₀ < dist (T x) x₀ := by\n      simpa using mul_lt_mul_of_pos_right hc₁ ha.1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.568851",
+              "name": "hc₁",
+              "statement": "c < 1"
+            },
+            {
+              "fvar_id": "_uniq.569352",
+              "name": "hdpos",
+              "statement": "0 < dist (T x₀) x₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.569573",
+            "name": "hlt",
+            "statement": "c * dist (T x₀) x₀ < dist (T x₀) x₀"
+          }
+        },
+        "lean_dependency_sha256": "62a75e73a01aaddf40c2dd0f4d2cb3734c47d6575d38c9ac06514c7e8fb15a89",
+        "kernel_witness_check": {
+          "proof_type": "c * dist (T x₀) x₀ < dist (T x₀) x₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hd",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdpos_594aae21"
+      ],
+      "conclusion": "n_hd_5010c9f3",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_12",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.569359",
+              "name": "hdpos",
+              "statement": "¬0 < dist (T x₀) x₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.576104",
+            "name": "hd",
+            "statement": "dist (T x₀) x₀ = 0"
+          }
+        },
+        "lean_dependency_sha256": "35efe3a70aa562835053038479731714107a7a2c40c4230e4bae5211f4dd0758",
+        "kernel_witness_check": {
+          "proof_type": "dist (T x₀) x₀ = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hsbdd",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsbdd_b9f9fa98",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dist_nonneg",
+        "items": [
+          "dist_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dist_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_14",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hSbdd : BddBelow S := by\n      refine ⟨0, ?_⟩\n      intro r hr\n      rcases hr with ⟨y, hy, rfl⟩\n      exact dist_nonneg",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.578375",
+            "name": "hSbdd",
+            "statement": "BddBelow S"
+          }
+        },
+        "lean_dependency_sha256": "31c7badd98edaf33eee49858955451094eb3b2a9a5503a4cfa9f8e9bdfd815df",
+        "kernel_witness_check": {
+          "proof_type": "∃ x, x ∈ lowerBounds S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hsmem",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htx_d6e7fdf1"
+      ],
+      "conclusion": "n_hsmem_31cee172",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_15",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hSmem : dist x (T x) ∈ S := ⟨x, hTx, rfl⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.578081",
+              "name": "hTx",
+              "statement": "¬T x = x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.578979",
+            "name": "hSmem",
+            "statement": "dist x (T x) ∈ S"
+          }
+        },
+        "lean_dependency_sha256": "91b052426985376b20701277fe033fc9628580cf27d776067258f9c75cad7bd8",
+        "kernel_witness_check": {
+          "proof_type": "∃ y, T y ≠ y ∧ dist x (T x) = dist y (T y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_h__le",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsbdd_b9f9fa98",
+        "n_hsmem_31cee172"
+      ],
+      "conclusion": "n_h__le_5f2fb4b5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "csInf_le",
+        "items": [
+          "csInf_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "csInf_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_16",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hρ_le : sInf S ≤ dist x (T x) := csInf_le hSbdd hSmem",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.578375",
+              "name": "hSbdd",
+              "statement": "BddBelow S"
+            },
+            {
+              "fvar_id": "_uniq.578979",
+              "name": "hSmem",
+              "statement": "dist x (T x) ∈ S"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.579033",
+            "name": "hρ_le",
+            "statement": "sInf S ≤ dist x (T x)"
+          }
+        },
+        "lean_dependency_sha256": "26cb3afc03a8ea7847beca7873d19bb28c63740441b778898805bcddd5d9aac2",
+        "kernel_witness_check": {
+          "proof_type": "sInf S ≤ dist x (T x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "csInf_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_ha",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_933833d1",
+        "n_hx_b854238c",
+        "n_hx0_96ecd6fb"
+      ],
+      "conclusion": "n_ha_98f96227",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_17",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have ha := h x hx hx0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.568888",
+              "name": "h",
+              "statement": "∀ (x : X), dist x x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)} → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+            },
+            {
+              "fvar_id": "_uniq.568894",
+              "name": "hx",
+              "statement": "dist x x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+            },
+            {
+              "fvar_id": "_uniq.569109",
+              "name": "hx0",
+              "statement": "¬x = x₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.579040",
+            "name": "ha",
+            "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+          }
+        },
+        "lean_dependency_sha256": "7de8632126ad663d5ee4f49906ef04d3ac0abe4b6146b21edebea5f0e40e8400",
+        "kernel_witness_check": {
+          "proof_type": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hcon",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcontractive_54423860"
+      ],
+      "conclusion": "n_hcon_497fd23f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dist_comm",
+        "items": [
+          "dist_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dist_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_18",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcon : dist x (T x) ≤ c * dist (T x) x₀ := by\n      simpa [dist_comm] using hcontractive x",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.568852",
+              "name": "hcontractive",
+              "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.579102",
+            "name": "hcon",
+            "statement": "dist x (T x) ≤ c * dist (T x) x₀"
+          }
+        },
+        "lean_dependency_sha256": "b3f64a46e1c15e04aa917ffbe00356a4927ab537156eabca4f7f03ab389c35e7",
+        "kernel_witness_check": {
+          "proof_type": "dist x (T x) ≤ c * dist (T x) x₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hlt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hc_a9427949",
+        "n_ha_98f96227"
+      ],
+      "conclusion": "n_hlt_a0bee0d5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_lt_mul_of_pos_right",
+        "items": [
+          "mul_lt_mul_of_pos_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_lt_mul_of_pos_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_19",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hlt : c * dist (T x) x₀ < dist (T x) x₀ := by\n      simpa using mul_lt_mul_of_pos_right hc₁ ha.1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.568851",
+              "name": "hc₁",
+              "statement": "c < 1"
+            },
+            {
+              "fvar_id": "_uniq.579040",
+              "name": "ha",
+              "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.591329",
+            "name": "hlt",
+            "statement": "c * dist (T x) x₀ < dist (T x) x₀"
+          }
+        },
+        "lean_dependency_sha256": "731bd69e55f5d995c09a94c40a30395e37ca596e7cff65d8ff7992b3e490ea86",
+        "kernel_witness_check": {
+          "proof_type": "c * dist (T x) x₀ < dist (T x) x₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__le_5f2fb4b5",
+        "n_ha_98f96227",
+        "n_hcon_497fd23f",
+        "n_hlt_a0bee0d5"
+      ],
+      "conclusion": "n_this_2d7f3290",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_20",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.579033",
+              "name": "hρ_le",
+              "statement": "sInf S ≤ dist x (T x)"
+            },
+            {
+              "fvar_id": "_uniq.579040",
+              "name": "ha",
+              "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}"
+            },
+            {
+              "fvar_id": "_uniq.579102",
+              "name": "hcon",
+              "statement": "dist x (T x) ≤ c * dist (T x) x₀"
+            },
+            {
+              "fvar_id": "_uniq.591329",
+              "name": "hlt",
+              "statement": "c * dist (T x) x₀ < dist (T x) x₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.597808",
+            "name": "this",
+            "statement": "sInf S < sInf S"
+          }
+        },
+        "lean_dependency_sha256": "c7428580e890a6406650485a2369935339c6e3756f39a343ce5cbf585e3c778c",
+        "kernel_witness_check": {
+          "proof_type": "sInf S < sInf S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hc_0fa2f463",
+        "m_hcontractive_d6d09758"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "csInf_le + dist_comm + dist_eq_zero",
+        "items": [
+          "csInf_le",
+          "dist_comm",
+          "dist_eq_zero",
+          "dist_nonneg",
+          "le_trans",
+          "lt_irrefl",
+          "lt_of_le_of_lt",
+          "lt_of_lt_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "csInf_le",
+          "dist_comm",
+          "dist_eq_zero",
+          "dist_nonneg",
+          "le_trans",
+          "lt_irrefl",
+          "lt_of_le_of_lt",
+          "lt_of_lt_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "      exact dist_eq_zero.mp hd\n  · by_contra hTx\n    let S : Set ℝ := {r : ℝ | ∃ y : X, T y ≠ y ∧ r = dist y (T y)}\n    have hSbdd : BddBelow S := by\n      refine ⟨0, ?_⟩\n      intro r hr\n      rcases hr with ⟨y, hy, rfl⟩\n      exact dist_nonneg\n    have hSmem : dist x (T x) ∈ S := ⟨x, hTx, rfl⟩\n    have hρ_le : sInf S ≤ dist x (T x) := csInf_le hSbdd hSmem\n    have ha := h x hx hx0\n    have hcon : dist x (T x) ≤ c * dist (T x) x₀ := by\n      simpa [dist_comm] using hcontractive x\n    have hlt : c * dist (T x) x₀ < dist (T x) x₀ := by\n      simpa using mul_lt_mul_of_pos_right hc₁ ha.1\n    have : sInf S < sInf S := by\n      exact lt_of_lt_of_le\n        (lt_of_le_of_lt (le_trans hρ_le hcon) hlt)\n        ha.2\n    exact (lt_irrefl (sInf S) this).elim",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hc₁",
+              "statement": "c < 1"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hcontractive",
+              "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}; (∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x"
+          }
+        },
+        "lean_dependency_sha256": "ed1f0dd24656ab1e8a2fcf8dd409ba7198e9a3e92813a907d603ebd39ac85812",
+        "kernel_witness_check": {
+          "proof_type": "let ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)};\n(∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "csInf_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "sInf _ ≤ _",
+      "declarations": [
+        "sInf_le",
+        "sInf_le_sInf",
+        "sInf_le_of_le",
+        "sInf_le_iff",
+        "sInf_le_sSup",
+        "sInf_le_sInf_of_isCoinitialFor",
+        "sInf_le_sSup_of_nonempty_inter",
+        "sInf_le_sInf_of_subset_insert_top",
+        "DirectedOn.csInf_le",
+        "DirectedOn.csInf_le_of_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "csInf_le",
+      "declarations": [
+        "csInf_le"
+      ],
+      "call_turn": 4,
+      "result_turn": 5
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 2,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 0,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 4,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

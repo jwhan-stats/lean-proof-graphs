@@ -1,0 +1,1144 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1335_quarter_stratifiable_diagonal_isgdelta_and",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1335,
+    "source": "0810.3024",
+    "theorem_name": "quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1335",
+    "reconstructed_proof": "../../candidates/p1335_quarter_stratifiable_diagonal_isgdelta_and/proof.lean",
+    "raw_elaboration": "../../candidates/p1335_quarter_stratifiable_diagonal_isgdelta_and/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1335_quarter_stratifiable_diagonal_isgdelta_and.quarter_stratifiable_diagonal_isGDelta_and_countable_pseudocharacter",
+    "verification_call_id": "verify_submission:8",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "f6d5f2b5cdd3ab71e8e47d685829467cee1447f2787f921b97cf0a3b7dda70a0",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "e83e7d082a5dae8809e833f8145f26f4b060e8a1108d97bd58f30dfe3adca95a",
+    "concrete_semantic_topology_sha256": "f6d5f2b5cdd3ab71e8e47d685829467cee1447f2787f921b97cf0a3b7dda70a0"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hg_converges_15425f23",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hg_converges",
+      "lean_fvar_id": "6",
+      "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+    },
+    {
+      "id": "m_hg_cover_0ea0b35d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hg_cover",
+      "lean_fvar_id": "5",
+      "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ"
+    },
+    {
+      "id": "m_hg_open_e3f133c0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hg_open",
+      "lean_fvar_id": "4",
+      "statement": "∀ (n : ℕ) (a : X), IsOpen (g n a)"
+    },
+    {
+      "id": "m_inst___proofs_1599378177_d0038dd8",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "T2Space X"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧ ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}"
+    },
+    {
+      "id": "n_ha_00fc9b12",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.601048",
+      "statement": "∀ (n : ℕ), p.1 ∈ g n (a n) ∧ p.2 ∈ g n (a n)"
+    },
+    {
+      "id": "n_ha_89021abc",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.601837",
+      "statement": "∀ (n : ℕ), x ∈ g n (a n)"
+    },
+    {
+      "id": "n_hc_d50a49ea",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hc",
+      "lean_fvar_id": "_uniq.600465",
+      "statement": "p.1 ∈ ⋃ a, g n a"
+    },
+    {
+      "id": "n_hchoice_ab5c64f2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hchoice",
+      "lean_fvar_id": "_uniq.601643",
+      "statement": "∀ (n : ℕ), ∃ a, x ∈ g n a"
+    },
+    {
+      "id": "n_hchoice_c81a5496",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hchoice",
+      "lean_fvar_id": "_uniq.600774",
+      "statement": "∀ (n : ℕ), ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a"
+    },
+    {
+      "id": "n_hg_converges_a801ac2e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hg_converges",
+      "lean_fvar_id": "_uniq.599661",
+      "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+    },
+    {
+      "id": "n_hg_cover_4238c537",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hg_cover",
+      "lean_fvar_id": "_uniq.599660",
+      "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ"
+    },
+    {
+      "id": "n_hlim_3197fd3a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlim₂",
+      "lean_fvar_id": "_uniq.601087",
+      "statement": "Filter.Tendsto a Filter.atTop (nhds p.2)"
+    },
+    {
+      "id": "n_hlim_b46a2381",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlim₁",
+      "lean_fvar_id": "_uniq.601067",
+      "statement": "Filter.Tendsto a Filter.atTop (nhds p.1)"
+    },
+    {
+      "id": "n_hlimx_0a7e73a6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlimx",
+      "lean_fvar_id": "_uniq.602078",
+      "statement": "Filter.Tendsto a Filter.atTop (nhds x)"
+    },
+    {
+      "id": "n_hlimy_05c4eee8",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlimy",
+      "lean_fvar_id": "_uniq.602066",
+      "statement": "Filter.Tendsto a Filter.atTop (nhds y)"
+    },
+    {
+      "id": "n_hp_8de3180d",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hp",
+      "lean_fvar_id": "_uniq.600717",
+      "statement": "p ∈ ⋂ n, (fun n => ⋃ a, g n a ×ˢ g n a) n"
+    },
+    {
+      "id": "n_hpn_1e73b298",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpn",
+      "lean_fvar_id": "_uniq.600972",
+      "statement": "p ∈ ⋃ a, g n a ×ˢ g n a"
+    },
+    {
+      "id": "n_hx_4f418afd",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.601782",
+      "statement": "x ∈ ⋃ a, g n a"
+    },
+    {
+      "id": "n_hy_0f416d23",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.601907",
+      "statement": "y ∈ ⋂ n, (fun n => g n (a n)) n"
+    },
+    {
+      "id": "n_hy_8e5a358b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hy'",
+      "lean_fvar_id": "_uniq.602052",
+      "statement": "∀ (n : ℕ), y ∈ g n (a n)"
+    },
+    {
+      "id": "n_hy_942a34e7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.602555",
+      "statement": "y ∈ {x}"
+    },
+    {
+      "id": "n_hyx_503c6191",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyx",
+      "lean_fvar_id": "_uniq.602562",
+      "statement": "y = x"
+    },
+    {
+      "id": "n_hyx_f8933188",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyx",
+      "lean_fvar_id": "_uniq.602510",
+      "statement": "y = x"
+    },
+    {
+      "id": "n_inst___proofs_1599378177_d790594c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+      "lean_fvar_id": "_uniq.599657",
+      "statement": "T2Space X"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_cover_4238c537"
+      ],
+      "conclusion": "n_hc_d50a49ea",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_21",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hc : p.1 ∈ ⋃ a, g n a := by\n          rw [hg_cover n]\n          trivial\n        rw [Set.mem_iUnion] at hc",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599660",
+              "name": "hg_cover",
+              "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.600465",
+            "name": "hc",
+            "statement": "p.1 ∈ ⋃ a, g n a"
+          }
+        },
+        "lean_dependency_sha256": "3e567cf2bd2d8de88b6842ad82ce1855b803b1c3fa7cb90ff8a18a7c3fc1bb88",
+        "kernel_witness_check": {
+          "proof_type": "p.1 ∈ ⋃ a, g n a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hpn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hp_8de3180d"
+      ],
+      "conclusion": "n_hpn_1e73b298",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_iInter",
+        "items": [
+          "Set.mem_iInter"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_iInter"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_22",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "          have hpn : p ∈ ⋃ a, (g n a) ×ˢ (g n a) := Set.mem_iInter.mp hp n\n          rw [Set.mem_iUnion] at hpn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.600717",
+              "name": "hp",
+              "statement": "p ∈ ⋂ n, (fun n => ⋃ a, g n a ×ˢ g n a) n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.600972",
+            "name": "hpn",
+            "statement": "p ∈ ⋃ a, g n a ×ˢ g n a"
+          }
+        },
+        "lean_dependency_sha256": "bf3f5d4d6cde296e347fc1dbe7e189a5e0c4784ef39b1e607613684fa1c2fbc2",
+        "kernel_witness_check": {
+          "proof_type": "p ∈ ⋃ a, g n a ×ˢ g n a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.mem_iInter"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hchoice",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hp_8de3180d"
+      ],
+      "conclusion": "n_hchoice_c81a5496",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_iInter + Set.mem_iUnion + Set.mem_prod",
+        "items": [
+          "Set.mem_iInter",
+          "Set.mem_iUnion",
+          "Set.mem_prod"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_iInter",
+          "Set.mem_iUnion",
+          "Set.mem_prod"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_23",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hchoice : ∀ n, ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a := by\n          intro n\n          have hpn : p ∈ ⋃ a, (g n a) ×ˢ (g n a) := Set.mem_iInter.mp hp n\n          rw [Set.mem_iUnion] at hpn\n          rcases hpn with ⟨a, hpa⟩\n          exact ⟨a, Set.mem_prod.mp hpa⟩\n        choose a ha using hchoice",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.600717",
+              "name": "hp",
+              "statement": "p ∈ ⋂ n, (fun n => ⋃ a, g n a ×ˢ g n a) n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.600774",
+            "name": "hchoice",
+            "statement": "∀ (n : ℕ), ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a"
+          }
+        },
+        "lean_dependency_sha256": "1f008108014427fc6ea20355cffc72568e30ae2d0d1eb5a9647aa4f70d2eeacf",
+        "kernel_witness_check": {
+          "proof_type": "∀ (n : ℕ), ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.mem_iInter",
+          "Set.mem_prod"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hlim",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_converges_a801ac2e",
+        "n_ha_00fc9b12"
+      ],
+      "conclusion": "n_hlim_b46a2381",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_24",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hlim₁ := hg_converges p.1 a fun n => (ha n).1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599661",
+              "name": "hg_converges",
+              "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+            },
+            {
+              "fvar_id": "_uniq.601048",
+              "name": "ha",
+              "statement": "∀ (n : ℕ), p.1 ∈ g n (a n) ∧ p.2 ∈ g n (a n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.601067",
+            "name": "hlim₁",
+            "statement": "Filter.Tendsto a Filter.atTop (nhds p.1)"
+          }
+        },
+        "lean_dependency_sha256": "43102983efa8aa931a889faf53a835049a6f97ffbfabcfd0b595cab9bfad492b",
+        "kernel_witness_check": {
+          "proof_type": "Filter.Tendsto a Filter.atTop (nhds p.1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hlim",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_converges_a801ac2e",
+        "n_ha_00fc9b12"
+      ],
+      "conclusion": "n_hlim_3197fd3a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_25",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hlim₂ := hg_converges p.2 a fun n => (ha n).2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599661",
+              "name": "hg_converges",
+              "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+            },
+            {
+              "fvar_id": "_uniq.601048",
+              "name": "ha",
+              "statement": "∀ (n : ℕ), p.1 ∈ g n (a n) ∧ p.2 ∈ g n (a n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.601087",
+            "name": "hlim₂",
+            "statement": "Filter.Tendsto a Filter.atTop (nhds p.2)"
+          }
+        },
+        "lean_dependency_sha256": "23290ef88774d1a254ae4f40759d995a05ebd4fcf33492a6b40a3675f9c5befa",
+        "kernel_witness_check": {
+          "proof_type": "Filter.Tendsto a Filter.atTop (nhds p.2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_cover_4238c537"
+      ],
+      "conclusion": "n_hx_4f418afd",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_26",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hx : x ∈ ⋃ a, g n a := by\n        rw [hg_cover n]\n        trivial\n      rw [Set.mem_iUnion] at hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599660",
+              "name": "hg_cover",
+              "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.601782",
+            "name": "hx",
+            "statement": "x ∈ ⋃ a, g n a"
+          }
+        },
+        "lean_dependency_sha256": "4c2c1e5d6fe104682a8cba11dc15da16832eb9a2818bd2dd15f0ecacd5966af0",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ ⋃ a, g n a",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hchoice",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_cover_4238c537"
+      ],
+      "conclusion": "n_hchoice_ab5c64f2",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_iUnion",
+        "items": [
+          "Set.mem_iUnion"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_iUnion"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_27",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hchoice : ∀ n, ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a := by\n          intro n\n          have hpn : p ∈ ⋃ a, (g n a) ×ˢ (g n a) := Set.mem_iInter.mp hp n\n          rw [Set.mem_iUnion] at hpn\n          rcases hpn with ⟨a, hpa⟩\n          exact ⟨a, Set.mem_prod.mp hpa⟩\n        choose a ha using hchoice",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599660",
+              "name": "hg_cover",
+              "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.601643",
+            "name": "hchoice",
+            "statement": "∀ (n : ℕ), ∃ a, x ∈ g n a"
+          }
+        },
+        "lean_dependency_sha256": "6e244dcfd3c1f3d9c65a0a2b61b13fb632f5ed523d24d09bb5d4f7ef186a3023",
+        "kernel_witness_check": {
+          "proof_type": "∀ (n : ℕ), ∃ i, x ∈ g n i",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hy_0f416d23"
+      ],
+      "conclusion": "n_hy_8e5a358b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_iInter",
+        "items": [
+          "Set.mem_iInter"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_iInter"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_28",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.601907",
+              "name": "hy",
+              "statement": "y ∈ ⋂ n, (fun n => g n (a n)) n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.602052",
+            "name": "hy'",
+            "statement": "∀ (n : ℕ), y ∈ g n (a n)"
+          }
+        },
+        "lean_dependency_sha256": "87d5a61c5d804c913e18ac66bc400e50994bacb5b5b2ad2aec0d0ede3feddeb8",
+        "kernel_witness_check": {
+          "proof_type": "∀ (i : ℕ), y ∈ g i (a i)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.mem_iInter"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_009_hlimy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_converges_a801ac2e",
+        "n_hy_8e5a358b"
+      ],
+      "conclusion": "n_hlimy_05c4eee8",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_29",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hlimy := hg_converges y a hy'",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599661",
+              "name": "hg_converges",
+              "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+            },
+            {
+              "fvar_id": "_uniq.602052",
+              "name": "hy'",
+              "statement": "∀ (n : ℕ), y ∈ g n (a n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.602066",
+            "name": "hlimy",
+            "statement": "Filter.Tendsto a Filter.atTop (nhds y)"
+          }
+        },
+        "lean_dependency_sha256": "8361b678e4c039c889321079a2944796f1cc6824c356ffa93cf5bbf99e73a711",
+        "kernel_witness_check": {
+          "proof_type": "Filter.Tendsto a Filter.atTop (nhds y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hlimx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_converges_a801ac2e",
+        "n_ha_89021abc"
+      ],
+      "conclusion": "n_hlimx_0a7e73a6",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_30",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hlimx := hg_converges x a ha",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599661",
+              "name": "hg_converges",
+              "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+            },
+            {
+              "fvar_id": "_uniq.601837",
+              "name": "ha",
+              "statement": "∀ (n : ℕ), x ∈ g n (a n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.602078",
+            "name": "hlimx",
+            "statement": "Filter.Tendsto a Filter.atTop (nhds x)"
+          }
+        },
+        "lean_dependency_sha256": "dd6821ffcce59cbc81701fbe6553ce529321e2b0ef7ce1fd89041f414c425076",
+        "kernel_witness_check": {
+          "proof_type": "Filter.Tendsto a Filter.atTop (nhds x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hyx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1599378177_d790594c",
+        "n_hlimy_05c4eee8",
+        "n_hlimx_0a7e73a6"
+      ],
+      "conclusion": "n_hyx_f8933188",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "tendsto_nhds_unique",
+        "items": [
+          "tendsto_nhds_unique"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "tendsto_nhds_unique"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_31",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hyx : y = x := tendsto_nhds_unique hlimy hlimx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.599657",
+              "name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+              "statement": "T2Space X"
+            },
+            {
+              "fvar_id": "_uniq.602066",
+              "name": "hlimy",
+              "statement": "Filter.Tendsto a Filter.atTop (nhds y)"
+            },
+            {
+              "fvar_id": "_uniq.602078",
+              "name": "hlimx",
+              "statement": "Filter.Tendsto a Filter.atTop (nhds x)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.602510",
+            "name": "hyx",
+            "statement": "y = x"
+          }
+        },
+        "lean_dependency_sha256": "3b9693c836ad958b1b386f0e8993700f96ea95a8b1bbd58e726eb7b2e69659cf",
+        "kernel_witness_check": {
+          "proof_type": "y = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "tendsto_nhds_unique"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_012_hyx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hy_942a34e7"
+      ],
+      "conclusion": "n_hyx_503c6191",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_32",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hyx : y = x := tendsto_nhds_unique hlimy hlimx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.602555",
+              "name": "hy",
+              "statement": "y ∈ {x}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.602562",
+            "name": "hyx",
+            "statement": "y = x"
+          }
+        },
+        "lean_dependency_sha256": "3695752be19eccc3fb09069165f9d9002cab5d2e6b08ff62fc42d2aa3f6524fb",
+        "kernel_witness_check": {
+          "proof_type": "y = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1599378177_d0038dd8",
+        "m_hg_open_e3f133c0",
+        "m_hg_cover_0ea0b35d",
+        "m_hg_converges_15425f23"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "IsOpen.prod + Set.ext + Set.mem_diagonal_iff",
+        "items": [
+          "IsOpen.prod",
+          "Set.ext",
+          "Set.mem_diagonal_iff",
+          "Set.mem_iInter",
+          "Set.mem_iUnion",
+          "Set.mem_prod",
+          "isOpen_iUnion",
+          "tendsto_nhds_unique"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "IsOpen.prod",
+          "Set.ext",
+          "Set.mem_diagonal_iff",
+          "Set.mem_iInter",
+          "Set.mem_iUnion",
+          "Set.mem_prod",
+          "isOpen_iUnion",
+          "tendsto_nhds_unique"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · refine ⟨fun n => ⋃ a, (g n a) ×ˢ (g n a), ?_, ?_⟩\n    · intro n\n      exact isOpen_iUnion fun a => (hg_open n a).prod (hg_open n a)\n    · ext p\n      constructor\n      · intro hp\n        rw [Set.mem_diagonal_iff] at hp\n        rw [Set.mem_iInter]\n        intro n\n        have hc : p.1 ∈ ⋃ a, g n a := by\n          rw [hg_cover n]\n          trivial\n        rw [Set.mem_iUnion] at hc\n        rcases hc with ⟨a, hpa⟩\n        rw [Set.mem_iUnion]\n        exact ⟨a, by\n          rw [Set.mem_prod]\n          exact ⟨hpa, by simpa [hp] using hpa⟩⟩\n      · intro hp\n        rw [Set.mem_diagonal_iff]\n        have hchoice : ∀ n, ∃ a, p.1 ∈ g n a ∧ p.2 ∈ g n a := by\n          intro n\n          have hpn : p ∈ ⋃ a, (g n a) ×ˢ (g n a) := Set.mem_iInter.mp hp n\n          rw [Set.mem_iUnion] at hpn\n          rcases hpn with ⟨a, hpa⟩\n          exact ⟨a, Set.mem_prod.mp hpa⟩\n        choose a ha using hchoice\n        have hlim₁ := hg_converges p.1 a fun n => (ha n).1\n        have hlim₂ := hg_converges p.2 a fun n => (ha n).2\n        exact tendsto_nhds_unique hlim₁ hlim₂\n  · intro x\n    have hchoice : ∀ n, ∃ a, x ∈ g n a := by\n      intro n\n      have hx : x ∈ ⋃ a, g n a := by\n        rw [hg_cover n]\n        trivial\n      rw [Set.mem_iUnion] at hx\n      exact hx\n    choose a ha using hchoice\n    refine ⟨fun n => g n (a n), ?_, ?_⟩\n    · intro n\n      exact ⟨hg_open n (a n), ha n⟩\n    · ext y\n      constructor\n      · intro hy\n        have hy' : ∀ n, y ∈ g n (a n) := Set.mem_iInter.mp hy\n        have hlimy := hg_converges y a hy'\n        have hlimx := hg_converges x a ha\n        have h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.1599378177._hygCtx._hyg.6",
+              "statement": "T2Space X"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hg_open",
+              "statement": "∀ (n : ℕ) (a : X), IsOpen (g n a)"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hg_cover",
+              "statement": "∀ (n : ℕ), ⋃ a, g n a = Set.univ"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hg_converges",
+              "statement": "∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧ ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}"
+          }
+        },
+        "lean_dependency_sha256": "a59c5055232e0b664a21452b630a448fb5161a784598566ab9e6fc467ca64cce",
+        "kernel_witness_check": {
+          "proof_type": "(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧\n  ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "IsOpen.prod",
+          "Set.mem_diagonal_iff",
+          "Set.mem_iInter",
+          "Set.mem_prod",
+          "tendsto_nhds_unique"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "loogle:1",
+          "loogle:5",
+          "loogle:4",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "IsOpen.prod",
+      "declarations": [
+        "IsOpen.prod"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Set.diagonal",
+      "declarations": [
+        "Set.diagonal",
+        "Set.mem_diagonal",
+        "Set.mem_diagonal_iff",
+        "Set.diagonal_nonempty",
+        "Set.diagonal_eq_univ",
+        "Set.diagonal_eq_univ_iff",
+        "Set.range_diag",
+        "Set.offDiag_univ",
+        "Set.decidableMemDiagonal",
+        "Set.prod_sdiff_diagonal"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Filter.Tendsto.eq_nhds",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "tendsto_nhds_unique",
+      "declarations": [
+        "tendsto_nhds_unique"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Set.mem_prod",
+      "declarations": [
+        "Set.mem_prod"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Set.mem_iInter",
+      "declarations": [
+        "Set.mem_iInter"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Set.mem_diagonal",
+      "declarations": [
+        "Set.mem_diagonal"
+      ],
+      "call_turn": 2,
+      "result_turn": 9
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 5,
+    "retrieval_query_count": 7,
+    "useful_retrieval_event_count": 5,
+    "unused_retrieval_event_count": 2,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 9,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

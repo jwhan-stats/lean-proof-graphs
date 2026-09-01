@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet P := (i : Fin n) → T i; let grid := {q | ∀ (i : Fin n), q i ∈ Q i}; let upper := {x | ∃ q ∈ grid, q ≤ x}; let cell := fun y => {x | x ∈ upper ∧ ∀ (i : Fin n), IsGreatest {a | a ∈ Q i ∧ a ≤ x i} (y i)}; (∀ ⦃x y y' : P⦄, x ∈ cell y → y' ∈ grid → y ≤ y' → y' ⊔ x ∈ cell y' ∧ ∃ x' ∈ cell y', x ≤ x') ∧ ∀ y ∈ grid, IsSublattice (cell y)"];
+  "r_h_goal" [shape=diamond, label="Pi.inf_apply + Pi.sup_apply + isGreatest_grid_lower_inf", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

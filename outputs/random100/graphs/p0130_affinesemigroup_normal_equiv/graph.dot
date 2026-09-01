@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hali_61b5464b" [shape=box, color="#178F82", label="haLI\nLinearIndependent ℝ fun i j => ↑(a i j)"];
+  "m_has_b0ff54cc" [shape=box, color="#178F82", label="haS\n∀ (i : Fin d), a i ∈ S"];
+  "m_hcone_42466fe5" [shape=box, color="#178F82", label="hcone\n∀ (x : Fin d → ℝ), x ∈ ConvexCone.hull ℝ ((fun u j => ↑(u j)) '' ↑S) ↔ ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)"];
+  "m_hd_06910ac4" [shape=box, color="#178F82", label="hd\n1 ≤ d"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet natToInt := fun u j => ↑(u j); let natToReal := fun u j => ↑(u j); let intToReal := fun u j => ↑(u j); let C := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)}; let relintC := {x | ∃ c, (∀ (i : Fin d), 0 < c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)}; let fundamentalParallelepiped := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i ∧ c i < 1) ∧ x = ∑ i, c i • fun j => ↑(a i j)}; let apery := {w | w ∈ S ∧ ∀ (i : Fin d), ¬∃ s ∈ S, w = s + a i}; let leS := fun u v => ∃ s ∈ S, v = u + s; let maximalApery := fun m => m ∈ apery ∧ ∀ w ∈ apery, leS m w → leS w m; let QF := {f | ∃ m, maximalApery m ∧ f = natToInt m - ∑ i, natToInt (a i)}; let G := {z | ∃ u ∈ S, ∃ v ∈ S, z = natToInt u - natToInt v}; let normal := natToInt '' ↑S = G ∩ {z | intToReal z ∈ C}; let condition2 := ∀ f ∈ QF, -f ∈ natToInt '' ↑S ∧ intToReal (-f) ∈ relintC; let condition3 := ∀ f ∈ QF, intToReal (-f) ∈ relintC; let condition4 := ∀ w ∈ apery, natToReal w ∈ fundamentalParallelepiped; (normal ↔ condition2) ∧ (normal ↔ condition3) ∧ (normal ↔ condition4)"];
+  "r_h_goal" [shape=diamond, label="affineSemigroup_normal_implies_condition4", color="#D97706"];
+  "m_hd_06910ac4" -> "r_h_goal";
+  "m_has_b0ff54cc" -> "r_h_goal";
+  "m_hali_61b5464b" -> "r_h_goal";
+  "m_hcone_42466fe5" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

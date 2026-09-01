@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hg_converges_15425f23" [shape=box, color="#178F82", label="hg_converges\n∀ (x : X) (a : ℕ → X), (∀ (n : ℕ), x ∈ g n (a n)) → Filter.Tendsto a Filter.atTop (nhds x)"];
+  "m_hg_cover_0ea0b35d" [shape=box, color="#178F82", label="hg_cover\n∀ (n : ℕ), ⋃ a, g n a = Set.univ"];
+  "m_hg_open_e3f133c0" [shape=box, color="#178F82", label="hg_open\n∀ (n : ℕ) (a : X), IsOpen (g n a)"];
+  "m_inst___proofs_1599378177_d0038dd8" [shape=box, color="#178F82", label="inst._@.proofs.1599378177._hygCtx._hyg.6\nT2Space X"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∃ G, (∀ (n : ℕ), IsOpen (G n)) ∧ Set.diagonal X = ⋂ n, G n) ∧ ∀ (x : X), ∃ V, (∀ (n : ℕ), IsOpen (V n) ∧ x ∈ V n) ∧ ⋂ n, V n = {x}"];
+  "r_h_goal" [shape=diamond, label="IsOpen.prod + Set.ext + Set.mem_diagonal_iff", color="#D97706"];
+  "m_inst___proofs_1599378177_d0038dd8" -> "r_h_goal";
+  "m_hg_open_e3f133c0" -> "r_h_goal";
+  "m_hg_cover_0ea0b35d" -> "r_h_goal";
+  "m_hg_converges_15425f23" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hb_clopen_bab362fd" [shape=box, color="#178F82", label="hB_clopen\n∀ (i : I), IsClopen (B i)"];
+  "m_hb_cover_d2703464" [shape=box, color="#178F82", label="hB_cover\n⋃ i, B i = Set.univ"];
+  "m_hb_disjoint_4bf34e1c" [shape=box, color="#178F82", label="hB_disjoint\nSet.univ.PairwiseDisjoint B"];
+  "m_he_top_34aeb27c" [shape=box, color="#178F82", label="he_top\n∀ (i : I), PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ mD, (∀ (i : I) (x y : ↑(B i)), dist ↑x ↑y = dist x y) ∧ (∀ (i j : I), i ≠ j → ∀ (x : ↑(B i)) (y : ↑(B j)), dist ↑x ↑y = dist x (p i) + dist ↑(p i) ↑(p j) + dist (p j) y) ∧ PseudoMetricSpace.toUniformSpace.toTopologicalSpace = inferInstance ∧ ∀ (ε : ℝ), 0 ≤ ε → ((∀ (i : I), Metric.ediam (B i) ≤ ENNReal.ofReal ε) ∧ ∀ (i : I), Metric.ediam Set.univ ≤ ENNReal.ofReal ε) → sSup (Set.range fun q => |dist q.1 q.2 - dist q.1 q.2|) ≤ 4 * ε"];
+  "r_h_goal" [shape=diamond, label="Real.sSup_empty + Set.range_eq_empty + csSup_le", color="#D97706"];
+  "m_hb_disjoint_4bf34e1c" -> "r_h_goal";
+  "m_hb_clopen_bab362fd" -> "r_h_goal";
+  "m_hb_cover_d2703464" -> "r_h_goal";
+  "m_he_top_34aeb27c" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

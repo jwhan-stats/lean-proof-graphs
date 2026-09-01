@@ -1,0 +1,771 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "manifest": [
+        {
+          "statement": "Nonempty X",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3357448525._hygCtx._hyg.3",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "1 ≤ s",
+          "origin": "manifest",
+          "name": "hs",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+          "origin": "manifest",
+          "name": "hd_zero",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "manifest",
+          "name": "hd_symm",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "manifest",
+          "name": "hd_triangle",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ (x : ℕ → X),\n  Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) →\n    ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+          "origin": "manifest",
+          "name": "hcomplete",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "1 < A",
+          "origin": "manifest",
+          "name": "hA",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ (x : ℕ → X) (u : X),\n  Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) →\n    Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "manifest",
+          "name": "hf_continuous",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))",
+          "origin": "manifest",
+          "name": "hcaristi",
+          "fvar_id": "14"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_orbit_tendsto_pair"
+          ],
+          "premises": [
+            {
+              "statement": "1 ≤ s",
+              "origin": "local_assumption",
+              "name": "hs",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+              "origin": "local_assumption",
+              "name": "hd_zero",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+              "origin": "local_assumption",
+              "name": "hd_symm",
+              "fvar_id": "9"
+            },
+            {
+              "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+              "origin": "local_assumption",
+              "name": "hd_triangle",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "1 < A",
+              "origin": "local_assumption",
+              "name": "hA",
+              "fvar_id": "12"
+            },
+            {
+              "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))",
+              "origin": "local_assumption",
+              "name": "hcaristi",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+            "origin": "derived",
+            "name": "hcauchy",
+            "fvar_id": "17"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "EMetricSpace.metrizableSpace",
+          "Eq.symm",
+          "Eq.trans",
+          "Filter.Tendsto.add",
+          "Filter.Tendsto.comp",
+          "Filter.Tendsto.const_mul",
+          "Filter.atTop_neBot",
+          "Filter.tendsto_add_atTop_nat",
+          "Function.iterate_succ_apply'",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsSemitopologicalRing.toIsSemitopologicalSemiring",
+          "IsSemitopologicalSemiring.toContinuousAdd",
+          "IsSemitopologicalSemiring.toSeparatelyContinuousMul",
+          "IsTopologicalRing.toIsSemitopologicalRing",
+          "MulZeroClass.mul_zero",
+          "NNReal.coe_nonneg",
+          "NNReal.tendsto_coe",
+          "Nat.instStarOrderedRing",
+          "StarOrderedRing.toIsOrderedRing",
+          "TopologicalSpace.t2Space_of_metrizableSpace",
+          "add_zero",
+          "congrArg",
+          "instArchimedeanNat",
+          "instIsDirectedOrder",
+          "instIsTopologicalRingReal",
+          "instNonemptyOfInhabited",
+          "instOrderTopologyReal",
+          "tendsto_const_nhds",
+          "tendsto_nhds_unique",
+          "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+            "origin": "local_assumption",
+            "name": "hd_zero",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+            "origin": "local_assumption",
+            "name": "hd_symm",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+            "origin": "local_assumption",
+            "name": "hd_triangle",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "∀ (x : ℕ → X),\n  Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) →\n    ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+            "origin": "local_assumption",
+            "name": "hcomplete",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "∀ (x : ℕ → X) (u : X),\n  Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) →\n    Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+            "origin": "local_assumption",
+            "name": "hf_continuous",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+            "origin": "derived",
+            "name": "hcauchy",
+            "fvar_id": "17"
+          }
+        ],
+        "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun a => ↑(d (f (x a), f u))) Filter.atTop (nhds ↑0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hfx",
+          "fvar_id": "_uniq.3546123"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_798",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => ↑(d (f (x n), f u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hfxR",
+        "fvar_id": "_uniq.3548441"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun a => ↑(d (x (a + 1), u))) Filter.atTop (nhds ↑0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (x (n + 1), u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hshift",
+          "fvar_id": "_uniq.3546548"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_799",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => ↑(d (x (n + 1), u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hshiftR",
+        "fvar_id": "_uniq.3548910"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(d (f u, u)) ≤ s * (↑(d (f u, f (x n))) + ↑(d (f (x n), u)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "local_assumption",
+          "name": "hd_triangle",
+          "fvar_id": "_uniq.3543860"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_800",
+      "conclusion": {
+        "statement": "↑(d (f u, u)) ≤ s * (↑(d (f u, f (x n))) + ↑(d (f (x n), u)))",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.3550136"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(d (f u, f (x n))) = ↑(d (f (x n), f u))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "local_assumption",
+          "name": "hd_symm",
+          "fvar_id": "_uniq.3543859"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_801",
+      "conclusion": {
+        "statement": "↑(d (f u, f (x n))) = ↑(d (f (x n), f u))",
+        "origin": "derived",
+        "name": "hsymm1",
+        "fvar_id": "_uniq.3550266"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x (n + 1) = f (x n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Function.iterate_succ_apply'"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_802",
+      "conclusion": {
+        "statement": "x (n + 1) = f (x n)",
+        "origin": "derived",
+        "name": "hrw",
+        "fvar_id": "_uniq.3550328"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 = d (f u, u)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "EMetricSpace.metrizableSpace",
+        "Filter.atTop_neBot",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "tendsto_const_nhds",
+        "tendsto_nhds_unique"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hconst_tendsto",
+          "fvar_id": "_uniq.3552346"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_803",
+      "conclusion": {
+        "statement": "0 = d (f u, u)",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.3554319"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_orbit_tendsto_pair"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ s",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.3543857"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+          "origin": "local_assumption",
+          "name": "hd_zero",
+          "fvar_id": "_uniq.3543858"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "local_assumption",
+          "name": "hd_symm",
+          "fvar_id": "_uniq.3543859"
+        },
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "local_assumption",
+          "name": "hd_triangle",
+          "fvar_id": "_uniq.3543860"
+        },
+        {
+          "statement": "1 < A",
+          "origin": "local_assumption",
+          "name": "hA",
+          "fvar_id": "_uniq.3543862"
+        },
+        {
+          "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))",
+          "origin": "local_assumption",
+          "name": "hcaristi",
+          "fvar_id": "_uniq.3543864"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_805",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+        "origin": "derived",
+        "name": "hcauchy",
+        "fvar_id": "_uniq.3544569"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : ℕ → X) (u : X),\n  Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) →\n    Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hf_continuous",
+          "fvar_id": "_uniq.3543863"
+        },
+        {
+          "statement": "Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.3545780"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_806",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hfx",
+        "fvar_id": "_uniq.3546123"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto ((fun n => d (x n, u)) ∘ fun a => a + 1) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Tendsto.comp",
+        "Filter.tendsto_add_atTop_nat"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.3545780"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_807",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => d (x (n + 1), u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hshift",
+        "fvar_id": "_uniq.3546548"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x_1 => s * (↑(d (f (x x_1), f u)) + ↑(d (x (x_1 + 1), u)))) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Filter.Tendsto.add",
+        "Filter.Tendsto.const_mul",
+        "Iff.mpr",
+        "IsSemitopologicalRing.toIsSemitopologicalSemiring",
+        "IsSemitopologicalSemiring.toContinuousAdd",
+        "IsSemitopologicalSemiring.toSeparatelyContinuousMul",
+        "IsTopologicalRing.toIsSemitopologicalRing",
+        "MulZeroClass.mul_zero",
+        "NNReal.tendsto_coe",
+        "add_zero",
+        "congrArg",
+        "instIsTopologicalRingReal"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hfx",
+          "fvar_id": "_uniq.3546123"
+        },
+        {
+          "statement": "Filter.Tendsto (fun n => d (x (n + 1), u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hshift",
+          "fvar_id": "_uniq.3546548"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_808",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hupper_tendsto",
+        "fvar_id": "_uniq.3548020"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), ↑(d (f u, u)) ≤ s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Function.iterate_succ_apply'",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "local_assumption",
+          "name": "hd_symm",
+          "fvar_id": "_uniq.3543859"
+        },
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "local_assumption",
+          "name": "hd_triangle",
+          "fvar_id": "_uniq.3543860"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_809",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), ↑(d (f u, u)) ≤ s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))",
+        "origin": "derived",
+        "name": "hineq",
+        "fvar_id": "_uniq.3550125"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => ↑(d (f u, u))) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "NNReal.coe_nonneg",
+        "instOrderTopologyReal",
+        "tendsto_const_nhds",
+        "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hupper_tendsto",
+          "fvar_id": "_uniq.3548020"
+        },
+        {
+          "statement": "∀ (n : ℕ), ↑(d (f u, u)) ≤ s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))",
+          "origin": "derived",
+          "name": "hineq",
+          "fvar_id": "_uniq.3550125"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_810",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun x => ↑(d (f u, u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hconst_tendsto_real",
+        "fvar_id": "_uniq.3551381"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun x => ↑(d (f u, u))) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hconst_tendsto_real",
+          "fvar_id": "_uniq.3551381"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_811",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hconst_tendsto",
+        "fvar_id": "_uniq.3552346"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d (f u, u) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "EMetricSpace.metrizableSpace",
+        "Eq.symm",
+        "Filter.atTop_neBot",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "tendsto_const_nhds",
+        "tendsto_nhds_unique"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hconst_tendsto",
+          "fvar_id": "_uniq.3552346"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_812",
+      "conclusion": {
+        "statement": "d (f u, u) = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3552390"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "f u = u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+          "origin": "local_assumption",
+          "name": "hd_zero",
+          "fvar_id": "_uniq.3543858"
+        },
+        {
+          "statement": "d (f u, u) = 0",
+          "origin": "derived",
+          "name": "hzero",
+          "fvar_id": "_uniq.3552390"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_813",
+      "conclusion": {
+        "statement": "f u = u",
+        "origin": "derived",
+        "name": "hfixed",
+        "fvar_id": "_uniq.3554336"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_19390104429fa091/proofs.lean",
+    "namespace": "Rollout_p0489_caristi_kirk_bmetric_fixed_point",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+    "proof_sha256": "fb7c2ed30a2457a3fe100abbf439e471d2a98f12fac28c3d6456b7c379bc0e0f"
+  }
+}

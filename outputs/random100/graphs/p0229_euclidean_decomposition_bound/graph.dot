@@ -1,0 +1,24 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hep_36f0e95b" [shape=box, color="#178F82", label="hep\ne ≤ p + 1"];
+  "m_hp_64f06c50" [shape=box, color="#178F82", label="hp\nNat.Prime p"];
+  "m_hsize_c54fbb9f" [shape=box, color="#178F82", label="hsize\n4 * p ^ 2 ≤ n + 2"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ d, ∃ f < p, n + 2 = p * d + f + e ∧ d ≥ e + f + (2 * p - 2)"];
+  "n_hp0_4f060ed6" [shape=box, color="#D97706", label="hp0\n0 < p"];
+  "n_hp2_764e0c79" [shape=box, color="#D97706", label="hp2\n2 ≤ p"];
+  "r_h_001_hp0" [shape=diamond, label="proof_term_composition", color="#D97706"];
+  "m_hp_64f06c50" -> "r_h_001_hp0";
+  "r_h_001_hp0" -> "n_hp0_4f060ed6";
+  "r_h_002_hp2" [shape=diamond, label="Nat.Prime.two_le", color="#D97706"];
+  "m_hp_64f06c50" -> "r_h_002_hp2";
+  "r_h_002_hp2" -> "n_hp2_764e0c79";
+  "r_h_goal" [shape=diamond, label="Nat.div_add_mod + Nat.exists_eq_add_of_le + Nat.le_div_iff_mul_le", color="#D97706"];
+  "m_hp_64f06c50" -> "r_h_goal";
+  "m_hsize_c54fbb9f" -> "r_h_goal";
+  "m_hep_36f0e95b" -> "r_h_goal";
+  "n_hp0_4f060ed6" -> "r_h_goal";
+  "n_hp2_764e0c79" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

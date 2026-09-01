@@ -1,0 +1,30 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_0a87ba16" [shape=box, color="#178F82", label="hδ\n∀ r ∈ N, 0 < δ r"];
+  "m_h_cdbb3767" [shape=box, color="#178F82", label="hε\n∀ r ∈ N, 0 ≤ ε r"];
+  "m_ha_b92b3937" [shape=box, color="#178F82", label="hA\n∀ r ∈ N, 0 ≤ A r"];
+  "m_hd_981bb597" [shape=box, color="#178F82", label="hd\ndρSdt = 1 / V * ∑ r ∈ N, A r * (-D r + g r + entropyProduction r)"];
+  "m_hh_7db41f13" [shape=box, color="#178F82", label="hH\n∀ r ∈ N, (H r).PosSemidef"];
+  "m_ht_200ab3ff" [shape=box, color="#178F82", label="hT\n0 < T"];
+  "m_hv_c43b4a6e" [shape=box, color="#178F82", label="hV\n0 < V"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\ndρSdt + 1 / V * ∑ r ∈ N, A r * D r - 1 / V * ∑ r ∈ N, A r * g r ≥ 0"];
+  "n_hprod_477fca01" [shape=box, color="#D97706", label="hprod\n∀ r ∈ N, 0 ≤ entropyProduction r"];
+  "n_hsum_4f6ea00b" [shape=box, color="#D97706", label="hsum\n∑ r ∈ N, A r * (-D r + g r + entropyProduction r) = -∑ r ∈ N, A r * D r + ∑ r ∈ N, A r * g r + ∑ r ∈ N, A r * entropyProduction r"];
+  "r_h_001_hprod" [shape=diamond, label="Matrix.PosSemidef.dotProduct_mulVec_nonneg + div_nonneg + mul_nonneg", color="#D97706"];
+  "m_h_0a87ba16" -> "r_h_001_hprod";
+  "m_h_cdbb3767" -> "r_h_001_hprod";
+  "m_ht_200ab3ff" -> "r_h_001_hprod";
+  "m_hh_7db41f13" -> "r_h_001_hprod";
+  "r_h_001_hprod" -> "n_hprod_477fca01";
+  "r_h_002_hsum" [shape=diamond, label="Finset.sum_add_distrib + Finset.sum_neg_distrib + mul_add", color="#D97706"];
+  "r_h_002_hsum" -> "n_hsum_4f6ea00b";
+  "r_h_goal" [shape=diamond, label="Finset.sum_nonneg + Mathlib.Tactic.Ring.mul_add + mul_nonneg", color="#D97706"];
+  "m_hv_c43b4a6e" -> "r_h_goal";
+  "m_ha_b92b3937" -> "r_h_goal";
+  "m_hd_981bb597" -> "r_h_goal";
+  "n_hprod_477fca01" -> "r_h_goal";
+  "n_hsum_4f6ea00b" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

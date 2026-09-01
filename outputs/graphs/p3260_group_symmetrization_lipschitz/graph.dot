@@ -1,0 +1,30 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hact_5279ec24" [shape=box, color="#178F82", label="hact\n∀ (g : G) (x y : ↑X), ‖↑(g • x) - ↑(g • y)‖ ≤ ‖↑x - ↑y‖"];
+  "m_hf_46737a55" [shape=box, color="#178F82", label="hf\n∀ (x y : ↑X), |f x - f y| ≤ L * ‖↑x - ↑y‖"];
+  "m_hl_d1c8f094" [shape=box, color="#178F82", label="hL\n0 ≤ L"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖"];
+  "n_hcpos_bef0cef8" [shape=box, color="#D97706", label="hCpos\n0 < C"];
+  "n_hdiv_0b5a04ef" [shape=box, color="#D97706", label="hdiv\n|(∑ g, f (g • x)) / C - (∑ g, f (g • y)) / C| ≤ L * ‖↑x - ↑y‖"];
+  "n_hsum_b2e3ab5a" [shape=box, color="#D97706", label="hsum\n|∑ g, f (g • x) - ∑ g, f (g • y)| ≤ C * (L * ‖↑x - ↑y‖)"];
+  "n_hterm_f3f4efb4" [shape=box, color="#D97706", label="hterm\n∀ (g : G), |f (g • x) - f (g • y)| ≤ L * ‖↑x - ↑y‖"];
+  "r_h_001_hcpos" [shape=diamond, label="Fintype.card_pos", color="#D97706"];
+  "r_h_001_hcpos" -> "n_hcpos_bef0cef8";
+  "r_h_002_hterm" [shape=diamond, label="mul_le_mul_of_nonneg_left", color="#D97706"];
+  "m_hact_5279ec24" -> "r_h_002_hterm";
+  "m_hl_d1c8f094" -> "r_h_002_hterm";
+  "m_hf_46737a55" -> "r_h_002_hterm";
+  "r_h_002_hterm" -> "n_hterm_f3f4efb4";
+  "r_h_003_hsum" [shape=diamond, label="Finset.abs_sum_le_sum_abs + Finset.card_univ + Finset.sum_const", color="#D97706"];
+  "n_hterm_f3f4efb4" -> "r_h_003_hsum";
+  "r_h_003_hsum" -> "n_hsum_b2e3ab5a";
+  "r_h_004_hdiv" [shape=diamond, label="abs_div + abs_of_nonneg + div_le_iff₀", color="#D97706"];
+  "n_hcpos_bef0cef8" -> "r_h_004_hdiv";
+  "n_hsum_b2e3ab5a" -> "r_h_004_hdiv";
+  "r_h_004_hdiv" -> "n_hdiv_0b5a04ef";
+  "r_h_goal" [shape=diamond, label="exact", color="#D97706"];
+  "n_hdiv_0b5a04ef" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

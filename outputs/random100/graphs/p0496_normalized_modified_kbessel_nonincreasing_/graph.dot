@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hk_f1bdabff" [shape=box, color="#178F82", label="hk\n0 < k"];
+  "m_hx_a8401f9d" [shape=box, color="#178F82", label="hx\n0 < x"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet Γk := fun z => k ^ (z / k - 1) * Real.Gamma (z / k); let 𝓘 := fun ν => ∑' (r : ℕ), Γk (ν + k) / (Γk (↑r * k + ν + k) * 4 ^ r * ↑r.factorial) * x ^ (2 * r); (∀ ⦃ν μ : ℝ⦄, -k < ν → ν ≤ μ → 𝓘 μ ≤ 𝓘 ν) ∧ ∀ ⦃ν₁ ν₂ α : ℝ⦄, -k < ν₁ → -k < ν₂ → 0 ≤ α → α ≤ 1 → 𝓘 (α * ν₁ + (1 - α) * ν₂) ≤ 𝓘 ν₁ ^ α * 𝓘 ν₂ ^ (1 - α)"];
+  "r_h_goal" [shape=diamond, label="Ne.symm + kBessel_convexCombo_gt + kBessel_term_antitone", color="#D97706"];
+  "m_hk_f1bdabff" -> "r_h_goal";
+  "m_hx_a8401f9d" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

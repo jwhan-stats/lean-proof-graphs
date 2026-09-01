@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_71686869" [shape=box, color="#178F82", label="h\nstar e_ab = -e_ab + (2 * μ) • e_bd ∧ star e_ac = e_ac ∧ star e_ad = (1 / (1 + q ^ 2)) • (2 • e_bc - (q ^ 2 * μ) • e_ad) ∧ star e_bc = (q ^ 2 / (1 + q ^ 2)) • (2 • e_ad + μ • e_bc) ∧ star e_bd = e_bd ∧ star e_cd = -e_cd"];
+  "m_hq0_e3026d1d" [shape=box, color="#178F82", label="hq0\nq ≠ 0"];
+  "m_hq_neg_one_bdb3a4a7" [shape=box, color="#178F82", label="hq_neg_one\nq ^ 2 ≠ -1"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nstar ∘ₗ star = LinearMap.id ∧ (star - LinearMap.id).ker = Submodule.span ℂ {e_bd, e_ac, e_ad + e_bc} ∧ (star + LinearMap.id).ker = Submodule.span ℂ {e_cd, e_ab - μ • e_bd, e_ad - (q ^ 2)⁻¹ • e_bc} ∧ Module.finrank ℂ ↥(star - LinearMap.id).ker = 3 ∧ Module.finrank ℂ ↥(star + LinearMap.id).ker = 3"];
+  "r_h_goal" [shape=diamond, label="hodge_finrank_antidual_span + hodge_finrank_selfdual_span", color="#D97706"];
+  "m_hq0_e3026d1d" -> "r_h_goal";
+  "m_hq_neg_one_bdb3a4a7" -> "r_h_goal";
+  "m_h_71686869" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

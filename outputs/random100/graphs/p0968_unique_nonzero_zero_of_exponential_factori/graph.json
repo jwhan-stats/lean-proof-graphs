@@ -1,0 +1,1261 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0968_unique_nonzero_zero_of_exponential_factori",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 968,
+    "source": "1203.4794",
+    "theorem_name": "unique_nonzero_zero_of_exponential_factorial_sum",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/968",
+    "reconstructed_proof": "../../candidates/p0968_unique_nonzero_zero_of_exponential_factori/proof.lean",
+    "raw_elaboration": "../../candidates/p0968_unique_nonzero_zero_of_exponential_factori/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0968_unique_nonzero_zero_of_exponential_factori.unique_nonzero_zero_of_exponential_factorial_sum",
+    "verification_call_id": "verify_submission:157",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "d4ca74383152f0bfeefc3bc82eda301a06f7f3b5f660876d151afe5a084e3479",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "d1196c87f2ca683458ae3fb678acbbd70c8a2263fffb6cd4fdb754bb38787711",
+    "concrete_semantic_topology_sha256": "d4ca74383152f0bfeefc3bc82eda301a06f7f3b5f660876d151afe5a084e3479"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hk_17c45368",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hk₂",
+      "lean_fvar_id": "4",
+      "statement": "k ≤ n - 1"
+    },
+    {
+      "id": "m_hk_c25e1a3a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hk₁",
+      "lean_fvar_id": "3",
+      "statement": "1 ≤ k"
+    },
+    {
+      "id": "m_hn_824a8db5",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "2",
+      "statement": "2 ≤ n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let h := fun x => Real.exp (2 * ↑k * x) * ∑ j ∈ Finset.range (n + 1), (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n + ↑k) ^ (↑j - 1) * (↑n + ↑k - ↑j) * x ^ j - ∑ j ∈ Finset.range (n + 1), (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n - ↑k) ^ (↑j - 1) * (↑n - ↑k - ↑j) * x ^ j; ∃ c, -1 < c ∧ c < 0 ∧ h c = 0 ∧ ∀ (x : ℝ), h x = 0 ↔ x = 0 ∨ x = c"
+    },
+    {
+      "id": "n_hck_c11aefab",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcK",
+      "lean_fvar_id": "_uniq.7287471",
+      "statement": "Kcenter n k c = 0"
+    },
+    {
+      "id": "n_heq_543a3002",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hEq",
+      "lean_fvar_id": "_uniq.7289010",
+      "statement": "Kcenter n k x = Kcenter n k c"
+    },
+    {
+      "id": "n_hxp_0afb2d76",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxp",
+      "lean_fvar_id": "_uniq.7288324",
+      "statement": "Real.exp (↑k * x) = 0 ∨ x ^ (n + 1) = 0"
+    },
+    {
+      "id": "n_hz_6d3da690",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hz'",
+      "lean_fvar_id": "_uniq.7288084",
+      "statement": "Real.exp (↑k * x) * x ^ (n + 1) = 0 ∨ Kcenter n k x = 0"
+    },
+    {
+      "id": "n_hz_6ed734a3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz'",
+      "lean_fvar_id": "_uniq.7288198",
+      "statement": "Real.exp (↑k * x) * x ^ (n + 1) = 0"
+    },
+    {
+      "id": "n_hz_d00f7ba5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz'",
+      "lean_fvar_id": "_uniq.7288203",
+      "statement": "Kcenter n k x = 0"
+    },
+    {
+      "id": "n_hz_db9f8988",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.7287963",
+      "statement": "Real.exp (↑k * x) * x ^ (n + 1) * Kcenter n k x = 0"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hz",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hz_db9f8988"
+      ],
+      "conclusion": "n_hz_6d3da690",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_eq_zero",
+        "items": [
+          "mul_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1791",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7287963",
+              "name": "hz",
+              "statement": "Real.exp (↑k * x) * x ^ (n + 1) * Kcenter n k x = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7288084",
+            "name": "hz'",
+            "statement": "Real.exp (↑k * x) * x ^ (n + 1) = 0 ∨ Kcenter n k x = 0"
+          }
+        },
+        "lean_dependency_sha256": "747e18e913e21bf4c1443c6f12d9ab5ab4f472dbdf014c47f2824bb8002925ca",
+        "kernel_witness_check": {
+          "proof_type": "Real.exp (↑k * x) * x ^ (n + 1) = 0 ∨ Kcenter n k x = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "mul_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:155"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_hxp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hz_6ed734a3"
+      ],
+      "conclusion": "n_hxp_0afb2d76",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_eq_zero",
+        "items": [
+          "mul_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1792",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7288198",
+              "name": "hz'",
+              "statement": "Real.exp (↑k * x) * x ^ (n + 1) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7288324",
+            "name": "hxp",
+            "statement": "Real.exp (↑k * x) = 0 ∨ x ^ (n + 1) = 0"
+          }
+        },
+        "lean_dependency_sha256": "c8006a4e68a4dcf0f8fd0a8df719562922bd7bd0567e2464fd6993d32df0ed2a",
+        "kernel_witness_check": {
+          "proof_type": "Real.exp (↑k * x) = 0 ∨ x ^ (n + 1) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "mul_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:155"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_heq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hck_c11aefab",
+        "n_hz_d00f7ba5"
+      ],
+      "conclusion": "n_heq_543a3002",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1793",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hEq : Kcenter n k x = Kcenter n k c := by\n          rw [hz', hcK]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7287471",
+              "name": "hcK",
+              "statement": "Kcenter n k c = 0"
+            },
+            {
+              "fvar_id": "_uniq.7288203",
+              "name": "hz'",
+              "statement": "Kcenter n k x = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7289010",
+            "name": "hEq",
+            "statement": "Kcenter n k x = Kcenter n k c"
+          }
+        },
+        "lean_dependency_sha256": "bc3caa3f03af391f8294cabdf70e6e3a114772fd024a0072d31fb7feced17422",
+        "kernel_witness_check": {
+          "proof_type": "Kcenter n k x = Kcenter n k c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_824a8db5",
+        "m_hk_c25e1a3a",
+        "m_hk_17c45368"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Real.exp_pos + Real.exp_zero + Hformal_eq_factor",
+        "items": [
+          "Real.exp_pos",
+          "Real.exp_zero",
+          "Rollout_p0968_unique_nonzero_zero_of_exponential_factori.Hformal_eq_factor",
+          "Rollout_p0968_unique_nonzero_zero_of_exponential_factori.Kcenter_strictMono",
+          "StrictMono.injective",
+          "eq_zero_of_pow_eq_zero",
+          "mul_eq_zero",
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0968_unique_nonzero_zero_of_exponential_factori.Hformal_eq_factor",
+          "Rollout_p0968_unique_nonzero_zero_of_exponential_factori.Kcenter_strictMono"
+        ],
+        "mathlib_items": [
+          "Real.exp_pos",
+          "Real.exp_zero",
+          "StrictMono.injective",
+          "eq_zero_of_pow_eq_zero",
+          "mul_eq_zero",
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨c, hcneg, hcneg0, ?_, ?_⟩\n  · show Hformal n k c = 0\n    rw [Hformal_eq_factor n k hn hk₂ c, hcK]\n    simp\n  · intro x\n    show Hformal n k x = 0 ↔ x = 0 ∨ x = c\n    rw [Hformal_eq_factor n k hn hk₂ x]\n    constructor\n    · intro hz\n      have hz' := (mul_eq_zero.mp hz)\n      rcases hz' with hz' | hz'\n      · have hxp := (mul_eq_zero.mp hz')\n        rcases hxp with hexp | hxp\n        · exact False.elim ((ne_of_gt (Real.exp_pos _)) hexp)\n        · left\n          exact eq_zero_of_pow_eq_zero hxp\n      · right\n        have hEq : Kcenter n k x = Kcenter n k c := by\n          rw [hz', hcK]\n        exact (Kcenter_strictMono hn hk₁ hk₂).injective hEq\n    · intro hxc\n      rcases hxc with rfl | rfl\n      · simp\n      · rw [hcK]\n        simp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hn",
+              "statement": "2 ≤ n"
+            },
+            {
+              "fvar_id": "3",
+              "name": "hk₁",
+              "statement": "1 ≤ k"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hk₂",
+              "statement": "k ≤ n - 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let h := fun x => Real.exp (2 * ↑k * x) * ∑ j ∈ Finset.range (n + 1), (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n + ↑k) ^ (↑j - 1) * (↑n + ↑k - ↑j) * x ^ j - ∑ j ∈ Finset.range (n + 1), (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n - ↑k) ^ (↑j - 1) * (↑n - ↑k - ↑j) * x ^ j; ∃ c, -1 < c ∧ c < 0 ∧ h c = 0 ∧ ∀ (x : ℝ), h x = 0 ↔ x = 0 ∨ x = c"
+          }
+        },
+        "lean_dependency_sha256": "cae7c7afde6a39bfb163d712b948e263a4328ccde3fc1116e71312dd92dc8b0c",
+        "kernel_witness_check": {
+          "proof_type": "let h := fun x =>\n  Real.exp (2 * ↑k * x) *\n      ∑ j ∈ Finset.range (n + 1),\n        (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n + ↑k) ^ (↑j - 1) * (↑n + ↑k - ↑j) * x ^ j -\n    ∑ j ∈ Finset.range (n + 1),\n      (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n - ↑k) ^ (↑j - 1) * (↑n - ↑k - ↑j) * x ^ j;\n∃ c, -1 < c ∧ c < 0 ∧ h c = 0 ∧ ∀ (x : ℝ), h x = 0 ↔ x = 0 ∨ x = c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.exp_zero",
+          "StrictMono.injective",
+          "mul_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:111",
+          "loogle:154",
+          "loogle:155"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_mul_left",
+      "declarations": [
+        "intervalIntegral.integral_comp_mul_left"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_mul_right",
+      "declarations": [
+        "intervalIntegral.integral_comp_mul_right"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_deriv_eq_sub",
+      "declarations": [
+        "intervalIntegral.integral_deriv_eq_sub"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "integral_eq_sub_of_hasDerivAt",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "intervalIntegral integral positive continuous strict",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Real.log_lt_sub_one_of_pos",
+      "declarations": [
+        "Real.log_lt_sub_one_of_pos"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "log x > 2 * (x - 1) / (x + 1)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_pos",
+      "declarations": [
+        "intervalIntegral.integral_pos"
+      ],
+      "call_turn": 10,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_nonneg",
+      "declarations": [
+        "intervalIntegral.integral_nonneg"
+      ],
+      "call_turn": 10,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_pos",
+      "declarations": [],
+      "call_turn": 10,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "strictly positive interval integral of continuous function positive except at endpoint",
+      "declarations": [
+        "intervalIntegral.integral_pos",
+        "intervalIntegral.intervalIntegral_pos_of_pos",
+        "intervalIntegral.intervalIntegral_pos_of_pos_on",
+        "IsStrictlyPositive.smul",
+        "intervalIntegral",
+        "IsStrictlyPositive.nonneg",
+        "intervalIntegral.integral_pos_iff_support_of_nonneg_ae",
+        "IsStrictlyPositive",
+        "intervalIntegral.integral_pos_iff_support_of_nonneg_ae'",
+        "IsStrictlyPositive.isUnit"
+      ],
+      "call_turn": 10,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "real logarithm lower bound 2 (x - 1) / (x + 1)",
+      "declarations": [
+        "CochainComplex.mk'_X_1",
+        "ChainComplex.mk'_X_1",
+        "Real.negMulLog_lt_one_sub_self",
+        "Real.neg_inv_le_log",
+        "Real.logb",
+        "Real.le_log_one_add_of_nonneg",
+        "Real.lt_log_one_add_of_pos",
+        "ChainComplex.mk_X_1",
+        "CochainComplex.mk_X_1",
+        "Polynomial.X"
+      ],
+      "call_turn": 10,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "log ratio artanh inequality exponential rational bound",
+      "declarations": [
+        "Real.artanh_eq_half_log",
+        "Real.exp_mul_le_cosh_add_mul_sinh",
+        "circleAverage_log_norm_factorizedRational",
+        "Real.artanh",
+        "Real.lt_rpow_of_log_lt",
+        "Real.le_exp_of_log_le",
+        "Real.log",
+        "ProbabilityTheory.Fernique.logRatio",
+        "Real.le_log_one_add_of_nonneg",
+        "circleIntegrable_log_norm_factorizedRational"
+      ],
+      "call_turn": 10,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Real.lt_log_one_add_of_pos",
+      "declarations": [
+        "Real.lt_log_one_add_of_pos"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Real.le_log_one_add_of_nonneg",
+      "declarations": [
+        "Real.le_log_one_add_of_nonneg"
+      ],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "(_ < Real.log _)",
+      "declarations": [
+        "Real.log_pos",
+        "Real.log_lt_log",
+        "Real.log_pos_of_lt_neg_one",
+        "Real.lt_log_iff_exp_lt",
+        "Mathlib.Meta.Positivity.log_pos_of_isNegNat",
+        "Mathlib.Meta.Positivity.log_pos_of_isNat",
+        "Real.log_pos_iff",
+        "Real.log_lt_log_iff",
+        "Mathlib.Meta.Positivity.log_pos_of_isNNRat",
+        "Mathlib.Meta.Positivity.log_pos_of_isRat_neg"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "(2 * (_ - 1) / (_ + 1) < Real.log _)",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "strict lower bound natural logarithm x greater than one Pade two times x minus one over x plus one mathlib",
+      "declarations": [
+        "Nat.log_lt_of_lt_pow'",
+        "Dyadic.blt",
+        "Nat.le_log_of_pow_le",
+        "LaurentPolynomial.mk'_one_X",
+        "Pell.Solution",
+        "Polynomial.coeff_X_one",
+        "Polynomial.X",
+        "Polynomial.divX_one",
+        "Float.log10",
+        "Polynomial.reflect_one_X"
+      ],
+      "call_turn": 17,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "log convexity secant lower bound reciprocal interval",
+      "declarations": [
+        "Mathlib.Tactic.IntervalCases.Bound.asLower",
+        "Behrend.roth_lower_bound",
+        "concaveOn_of_slope_anti_adjacent",
+        "ConcaveOn.ge_on_segment'",
+        "Real.log",
+        "IntervalIntegrable.log",
+        "StrictConvexOn.slope_lt_deriv",
+        "ConvexOn.le_slope_of_hasDerivWithinAt_Ioi",
+        "ConvexOn.rightDeriv_le_slope_of_mem_interior",
+        "ConvexOn.le_on_segment'"
+      ],
+      "call_turn": 17,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "deriv_fun_sum",
+      "declarations": [
+        "deriv_fun_sum"
+      ],
+      "call_turn": 26,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "deriv_sum",
+      "declarations": [
+        "deriv_sum"
+      ],
+      "call_turn": 26,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "HasDerivAt.sum",
+      "declarations": [
+        "HasDerivAt.sum"
+      ],
+      "call_turn": 26,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "DifferentiableAt.sum",
+      "declarations": [
+        "DifferentiableAt.sum"
+      ],
+      "call_turn": 26,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "deriv (Finset.sum _ _) _ = Finset.sum _ _",
+      "declarations": [
+        "deriv_sum"
+      ],
+      "call_turn": 26,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Real.hasDerivAt_exp",
+      "declarations": [
+        "Real.hasDerivAt_exp"
+      ],
+      "call_turn": 50,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "DifferentiableAt.hasDerivAt",
+      "declarations": [
+        "DifferentiableAt.hasDerivAt"
+      ],
+      "call_turn": 50,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "HasDerivAt.mul",
+      "declarations": [
+        "HasDerivAt.mul"
+      ],
+      "call_turn": 50,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+      "declarations": [
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt"
+      ],
+      "call_turn": 50,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_eq_sub",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "integral_eq_sub_of_hasDerivWithinAt",
+      "declarations": [],
+      "call_turn": 50,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_add_left",
+      "declarations": [
+        "intervalIntegral.integral_comp_add_left"
+      ],
+      "call_turn": 83,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_add_right",
+      "declarations": [
+        "intervalIntegral.integral_comp_add_right"
+      ],
+      "call_turn": 83,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "integral_comp_add",
+      "declarations": [],
+      "call_turn": 83,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_add",
+      "declarations": [
+        "intervalIntegral.integral_add"
+      ],
+      "call_turn": 83,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_sub",
+      "declarations": [
+        "intervalIntegral.integral_sub"
+      ],
+      "call_turn": 83,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_mul_const",
+      "declarations": [
+        "intervalIntegral.integral_mul_const"
+      ],
+      "call_turn": 83,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_congr",
+      "declarations": [
+        "intervalIntegral.integral_congr"
+      ],
+      "call_turn": 83,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_const_mul",
+      "declarations": [
+        "intervalIntegral.integral_const_mul"
+      ],
+      "call_turn": 111,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "IntervalIntegrable.const_mul",
+      "declarations": [
+        "IntervalIntegrable.const_mul"
+      ],
+      "call_turn": 123,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_add_adjacent_intervals",
+      "declarations": [
+        "intervalIntegral.integral_add_adjacent_intervals"
+      ],
+      "call_turn": 161,
+      "result_turn": 162
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_interval_add",
+      "declarations": [],
+      "call_turn": 161,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_neg",
+      "declarations": [
+        "intervalIntegral.integral_comp_neg"
+      ],
+      "call_turn": 161,
+      "result_turn": 164
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "integral_comp_neg",
+      "declarations": [],
+      "call_turn": 161,
+      "result_turn": 165
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_symm",
+      "declarations": [
+        "intervalIntegral.integral_symm"
+      ],
+      "call_turn": 161,
+      "result_turn": 166
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_sub_left",
+      "declarations": [
+        "intervalIntegral.integral_comp_sub_left"
+      ],
+      "call_turn": 161,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "pow_lt_pow_left₀",
+      "declarations": [
+        "pow_lt_pow_left"
+      ],
+      "call_turn": 182,
+      "result_turn": 183
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "pow_lt_pow_left",
+      "declarations": [],
+      "call_turn": 182,
+      "result_turn": 184
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "(0 < _ -> _ < _ -> _ ^ _ < _ ^ _)",
+      "declarations": [
+        "Nat.pow_pred_lt_pow",
+        "pow_lt_pow_right_of_lt_one",
+        "zpow_lt_zpow_left",
+        "zpow_lt_zpow_right_of_lt_one",
+        "Real.rpow_lt_rpow",
+        "Real.rpow_lt_rpow_of_exponent_gt",
+        "Real.rpow_lt_rpow_of_exponent_neg",
+        "Real.rpow_lt_rpow_of_neg",
+        "ENNReal.rpow_lt_rpow"
+      ],
+      "call_turn": 182,
+      "result_turn": 185
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "Real.exp_zero",
+      "declarations": [
+        "Real.exp_zero"
+      ],
+      "call_turn": 182,
+      "result_turn": 186
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Real.exp_neg",
+      "declarations": [
+        "Real.exp_neg"
+      ],
+      "call_turn": 182,
+      "result_turn": 187
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "pow_le_pow_left₀",
+      "declarations": [
+        "pow_le_pow_left"
+      ],
+      "call_turn": 188,
+      "result_turn": 189
+    },
+    {
+      "event_id": "loogle:116",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_neg",
+      "declarations": [
+        "intervalIntegral.integral_neg"
+      ],
+      "call_turn": 194,
+      "result_turn": 195
+    },
+    {
+      "event_id": "loogle:119",
+      "tool": "loogle",
+      "query": "Real.log_lt_log_iff",
+      "declarations": [
+        "Real.log_lt_log_iff"
+      ],
+      "call_turn": 200,
+      "result_turn": 201
+    },
+    {
+      "event_id": "loogle:120",
+      "tool": "loogle",
+      "query": "Real.log_mul",
+      "declarations": [
+        "Real.log_mul"
+      ],
+      "call_turn": 200,
+      "result_turn": 202
+    },
+    {
+      "event_id": "loogle:121",
+      "tool": "loogle",
+      "query": "Real.log_pow",
+      "declarations": [
+        "Real.log_pow"
+      ],
+      "call_turn": 200,
+      "result_turn": 203
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "Real.log_exp",
+      "declarations": [
+        "Real.log_exp"
+      ],
+      "call_turn": 200,
+      "result_turn": 204
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "Real.log_div",
+      "declarations": [
+        "Real.log_div"
+      ],
+      "call_turn": 200,
+      "result_turn": 205
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "Continuous.intervalIntegral",
+      "declarations": [],
+      "call_turn": 222,
+      "result_turn": 223
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "continuous_intervalIntegral",
+      "declarations": [],
+      "call_turn": 222,
+      "result_turn": 224
+    },
+    {
+      "event_id": "leanfinder:134",
+      "tool": "leanfinder",
+      "query": "continuity of interval integral with parameter continuous jointly",
+      "declarations": [
+        "intervalIntegral.differentiable_integral_of_continuous",
+        "intervalIntegral.continuous_primitive",
+        "intervalIntegral",
+        "intervalIntegral.continuous_of_dominated_interval",
+        "intervalIntegral.continuousWithinAt_of_dominated_interval",
+        "intervalIntegral.continuous_parametric_intervalIntegral_of_continuous",
+        "intervalIntegral.continuous_parametric_intervalIntegral_of_continuous'",
+        "MeasureTheory.continuousOn_of_dominated",
+        "intervalIntegral.continuousAt_of_dominated_interval",
+        "intervalIntegral.continuous_parametric_primitive_of_continuous"
+      ],
+      "call_turn": 222,
+      "result_turn": 225
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "ContinuousOn.intervalIntegral",
+      "declarations": [],
+      "call_turn": 222,
+      "result_turn": 226
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "HasDerivAt.intervalIntegral",
+      "declarations": [],
+      "call_turn": 222,
+      "result_turn": 227
+    },
+    {
+      "event_id": "leanfinder:137",
+      "tool": "leanfinder",
+      "query": "differentiate under integral sign finite interval continuous derivative",
+      "declarations": [
+        "intervalIntegral.integral_deriv_mul_eq_sub_of_hasDerivWithinAt",
+        "intervalIntegral.integral_deriv_mul_eq_sub_of_hasDerivAt",
+        "intervalIntegral.continuous_primitive",
+        "intervalIntegral.integral_deriv_eq_sub'",
+        "intervalIntegral.integral_deriv_eq_sub_uIoo",
+        "intervalIntegral",
+        "intervalIntegral.differentiable_integral_of_continuous",
+        "intervalIntegral.continuous_parametric_intervalIntegral_of_continuous'",
+        "intervalIntegral.continuousOn_primitive",
+        "intervalIntegral.continuous_of_dominated_interval"
+      ],
+      "call_turn": 222,
+      "result_turn": 228
+    },
+    {
+      "event_id": "loogle:138",
+      "tool": "loogle",
+      "query": "intervalIntegral.continuous_parametric_intervalIntegral_of_continuous'",
+      "declarations": [
+        "intervalIntegral.continuous_parametric_intervalIntegral_of_continuous'"
+      ],
+      "call_turn": 229,
+      "result_turn": 230
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "intermediate_value_Ioo",
+      "declarations": [
+        "intermediate_value_Ioo"
+      ],
+      "call_turn": 231,
+      "result_turn": 232
+    },
+    {
+      "event_id": "loogle:140",
+      "tool": "loogle",
+      "query": "intermediate_value_Icc",
+      "declarations": [
+        "intermediate_value_Icc"
+      ],
+      "call_turn": 231,
+      "result_turn": 233
+    },
+    {
+      "event_id": "loogle:141",
+      "tool": "loogle",
+      "query": "Continuous.intermediate_value",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 234
+    },
+    {
+      "event_id": "loogle:142",
+      "tool": "loogle",
+      "query": "isPreconnected.intermediate_value",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 235
+    },
+    {
+      "event_id": "leanfinder:143",
+      "tool": "leanfinder",
+      "query": "real continuous function negative at left positive at right exists root interval",
+      "declarations": [
+        "ContinuousAt",
+        "continuousAt_iff_continuous_left'_right'",
+        "continuousAt_iff_continuous_left_right",
+        "uniqueDiffWithinAt_Iio",
+        "AbsolutelyContinuousOnInterval.neg",
+        "MeasureTheory.JordanDecomposition.exists_compl_positive_negative",
+        "intermediate_value_Ioc'",
+        "uniqueDiffWithinAt_Iic",
+        "MeasureTheory.SignedMeasure.exists_isCompl_positive_negative",
+        "MeasureTheory.SignedMeasure.exists_compl_positive_negative"
+      ],
+      "call_turn": 231,
+      "result_turn": 236
+    },
+    {
+      "event_id": "loogle:144",
+      "tool": "loogle",
+      "query": "exists_eq_zero_of_continuous_on_of_neg_of_pos",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 237
+    },
+    {
+      "event_id": "loogle:151",
+      "tool": "loogle",
+      "query": "pow_eq_zero",
+      "declarations": [
+        "pow_eq_zero"
+      ],
+      "call_turn": 250,
+      "result_turn": 251
+    },
+    {
+      "event_id": "loogle:152",
+      "tool": "loogle",
+      "query": "pow_eq_zero_iff",
+      "declarations": [
+        "pow_eq_zero_iff"
+      ],
+      "call_turn": 250,
+      "result_turn": 252
+    },
+    {
+      "event_id": "loogle:153",
+      "tool": "loogle",
+      "query": "pow_ne_zero",
+      "declarations": [
+        "pow_ne_zero",
+        "cfcUnits_pow",
+        "isCoveringMap_npow",
+        "Complex.isOpenQuotientMap_pow_compl_zero",
+        "MvPowerSeries.map_iterateFrobenius_expand"
+      ],
+      "call_turn": 250,
+      "result_turn": 253
+    },
+    {
+      "event_id": "loogle:154",
+      "tool": "loogle",
+      "query": "StrictMono.injective",
+      "declarations": [
+        "StrictMono.injective",
+        "HahnSeries.ofPowerSeries_apply"
+      ],
+      "call_turn": 250,
+      "result_turn": 254
+    },
+    {
+      "event_id": "loogle:155",
+      "tool": "loogle",
+      "query": "mul_eq_zero",
+      "declarations": [
+        "mul_eq_zero"
+      ],
+      "call_turn": 250,
+      "result_turn": 255
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 75,
+    "useful_retrieval_event_count": 3,
+    "unused_retrieval_event_count": 72,
+    "accepted_helper_count": 21,
+    "rollout_tool_call_count": 158,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

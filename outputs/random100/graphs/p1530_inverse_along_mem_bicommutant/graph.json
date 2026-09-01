@@ -1,0 +1,636 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1530_inverse_along_mem_bicommutant",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1530,
+    "source": "0903.1785",
+    "theorem_name": "inverse_along_mem_bicommutant",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1530",
+    "reconstructed_proof": "../../candidates/p1530_inverse_along_mem_bicommutant/proof.lean",
+    "raw_elaboration": "../../candidates/p1530_inverse_along_mem_bicommutant/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1530_inverse_along_mem_bicommutant.inverse_along_mem_bicommutant",
+    "verification_call_id": "verify_submission:6",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "b46fcaa3152d6c46b1095bf53141771c7e60801a5c82e999fd8954042fb790bd",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "04909c8bb24a3ad3594b313232067dc27d5b9caba13c405133433871d145fc4c",
+    "concrete_semantic_topology_sha256": "b46fcaa3152d6c46b1095bf53141771c7e60801a5c82e999fd8954042fb790bd"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hbad_76927288",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hbad",
+      "lean_fvar_id": "5",
+      "statement": "b * a * d = d"
+    },
+    {
+      "id": "m_hbd_aa72fb5e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hbd",
+      "lean_fvar_id": "7",
+      "statement": "∃ x y, b = d * x ∧ b = y * d"
+    },
+    {
+      "id": "m_hdab_a028c4c6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hdab",
+      "lean_fvar_id": "6",
+      "statement": "d * a * b = d"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c"
+    },
+    {
+      "id": "n_h_1250e285",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.4290336",
+      "statement": "y * d * a * (d * c) * x = y * d * a * (c * d) * x"
+    },
+    {
+      "id": "n_h_2c5c776f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.4301828",
+      "statement": "y * (d * c) * a * d * x = y * (c * d) * a * d * x"
+    },
+    {
+      "id": "n_h_37c2b8ae",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.4296058",
+      "statement": "y * d * (a * c) * d * x = y * d * (c * a) * d * x"
+    },
+    {
+      "id": "n_h_60ffba12",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.4307559",
+      "statement": "y * c * (d * a * d * x) = y * c * d"
+    },
+    {
+      "id": "n_hbad_42ebdd61",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbad",
+      "lean_fvar_id": "_uniq.4278330",
+      "statement": "b * a * d = d"
+    },
+    {
+      "id": "n_hbx_f6dc22fa",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbx",
+      "lean_fvar_id": "_uniq.4278391",
+      "statement": "b = d * x"
+    },
+    {
+      "id": "n_hby_cb4ede0b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hby",
+      "lean_fvar_id": "_uniq.4278392",
+      "statement": "b = y * d"
+    },
+    {
+      "id": "n_hca_0976915c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hca",
+      "lean_fvar_id": "_uniq.4278398",
+      "statement": "c * a = a * c"
+    },
+    {
+      "id": "n_hcd_698826a4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcd",
+      "lean_fvar_id": "_uniq.4278401",
+      "statement": "c * d = d * c"
+    },
+    {
+      "id": "n_hdab_aa56f7f3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hdab",
+      "lean_fvar_id": "_uniq.4278331",
+      "statement": "d * a * b = d"
+    },
+    {
+      "id": "n_hdadx_1cf3cf87",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdadx",
+      "lean_fvar_id": "_uniq.4282952",
+      "statement": "d * a * d * x = d"
+    },
+    {
+      "id": "n_hyad_c495e070",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyad",
+      "lean_fvar_id": "_uniq.4280098",
+      "statement": "y * d * a * d = d"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcd_698826a4"
+      ],
+      "conclusion": "n_h_1250e285",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1242",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h : y * d * a * (d * c) * x = y * d * a * (c * d) * x := by\n        rw [hcd]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4278401",
+              "name": "hcd",
+              "statement": "c * d = d * c"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4290336",
+            "name": "h",
+            "statement": "y * d * a * (d * c) * x = y * d * a * (c * d) * x"
+          }
+        },
+        "lean_dependency_sha256": "30f1d196b1c4fb3a817fe93871b9e495bce388d52f1c8765d263212a31cdad6d",
+        "kernel_witness_check": {
+          "proof_type": "y * d * a * (d * c) * x = y * d * a * (c * d) * x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hca_0976915c"
+      ],
+      "conclusion": "n_h_37c2b8ae",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1243",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h : y * d * a * (d * c) * x = y * d * a * (c * d) * x := by\n        rw [hcd]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4278398",
+              "name": "hca",
+              "statement": "c * a = a * c"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4296058",
+            "name": "h",
+            "statement": "y * d * (a * c) * d * x = y * d * (c * a) * d * x"
+          }
+        },
+        "lean_dependency_sha256": "5c44e9e0f41ab407782a76d5dab50ead8a7af759b4a8b0d02c6bb72c5395ad06",
+        "kernel_witness_check": {
+          "proof_type": "y * d * (a * c) * d * x = y * d * (c * a) * d * x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcd_698826a4"
+      ],
+      "conclusion": "n_h_2c5c776f",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1244",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h : y * d * a * (d * c) * x = y * d * a * (c * d) * x := by\n        rw [hcd]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4278401",
+              "name": "hcd",
+              "statement": "c * d = d * c"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4301828",
+            "name": "h",
+            "statement": "y * (d * c) * a * d * x = y * (c * d) * a * d * x"
+          }
+        },
+        "lean_dependency_sha256": "b5e326f3166520987aab38d9d3c3d1b3f720d4577aaf2da3b6c64972f4d570eb",
+        "kernel_witness_check": {
+          "proof_type": "y * (d * c) * a * d * x = y * (c * d) * a * d * x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdadx_1cf3cf87"
+      ],
+      "conclusion": "n_h_60ffba12",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1245",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h : y * d * a * (d * c) * x = y * d * a * (c * d) * x := by\n        rw [hcd]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4282952",
+              "name": "hdadx",
+              "statement": "d * a * d * x = d"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4307559",
+            "name": "h",
+            "statement": "y * c * (d * a * d * x) = y * c * d"
+          }
+        },
+        "lean_dependency_sha256": "2ea58e352e280a1b8ac07d0c04fd856c352745655f516197253cc9d55986953b",
+        "kernel_witness_check": {
+          "proof_type": "y * c * (d * a * d * x) = y * c * d",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hyad",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbad_42ebdd61",
+        "n_hby_cb4ede0b"
+      ],
+      "conclusion": "n_hyad_c495e070",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1246",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hyad : y * d * a * d = d := by\n    simpa [hby] using hbad",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4278330",
+              "name": "hbad",
+              "statement": "b * a * d = d"
+            },
+            {
+              "fvar_id": "_uniq.4278392",
+              "name": "hby",
+              "statement": "b = y * d"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4280098",
+            "name": "hyad",
+            "statement": "y * d * a * d = d"
+          }
+        },
+        "lean_dependency_sha256": "7b46f9c4211aa4557a1075acf56cba600f20db2aa25065c1bf8b12819152201c",
+        "kernel_witness_check": {
+          "proof_type": "y * d * a * d = d",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hdadx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdab_aa56f7f3",
+        "n_hbx_f6dc22fa"
+      ],
+      "conclusion": "n_hdadx_1cf3cf87",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_assoc",
+        "items": [
+          "mul_assoc"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_assoc"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1247",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hdadx : d * a * d * x = d := by\n    simpa [hbx, mul_assoc] using hdab\n  calc\n    c * b = d * c * x := by\n      calc\n        c * b = c * (d * x) := by rw [hbx]\n        _ = c * d * x := by rw [mul_assoc]\n        _ = d * c * x := by rw [hcd]\n    _ = y * d * a * d * c * x := by\n      rw [hyad]\n    _ = y * d * a * c * d * x := by\n      have h : y * d * a * (d * c) * x = y * d * a * (c * d) * x := by\n        rw [hcd]\n      simpa [mul_assoc] using h\n    _ = y * d * c * a * d * x := by\n      have h : y * d * (a * c) * d * x = y * d * (c * a) * d * x := by\n        rw [← hca]\n      simpa [mul_assoc] using h\n    _ = y * c * d * a * d * x := by\n      have h : y * (d * c) * a * d * x = y * (c * d) * a * d * x := by\n        rw [hcd]\n      simpa [mul_assoc] using h\n    _ = y * c * d := by\n      have h : y * c * (d * a * d * x) = y * c * d := by\n        rw [hdadx]\n      simpa [mul_assoc] using h\n    _ = y * d * c := by\n      rw [mul_assoc, hcd, ← mul_assoc]\n    _ = b * c := by\n      rw [← hby]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4278331",
+              "name": "hdab",
+              "statement": "d * a * b = d"
+            },
+            {
+              "fvar_id": "_uniq.4278391",
+              "name": "hbx",
+              "statement": "b = d * x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4282952",
+            "name": "hdadx",
+            "statement": "d * a * d * x = d"
+          }
+        },
+        "lean_dependency_sha256": "b0d491f44222cc3fdbbc37306dee64490f0a91d35da295dfb0b1a614bf26ce85",
+        "kernel_witness_check": {
+          "proof_type": "d * a * d * x = d",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hbad_76927288",
+        "m_hdab_a028c4c6",
+        "m_hbd_aa72fb5e"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_assoc",
+        "items": [
+          "mul_assoc"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_assoc"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "    _ = y * d * a * c * d * x := by\n      have h : y * d * a * (d * c) * x = y * d * a * (c * d) * x := by\n        rw [hcd]\n      simpa [mul_assoc] using h\n    _ = y * d * c * a * d * x := by\n      have h : y * d * (a * c) * d * x = y * d * (c * a) * d * x := by\n        rw [← hca]\n      simpa [mul_assoc] using h\n    _ = y * c * d * a * d * x := by\n      have h : y * (d * c) * a * d * x = y * (c * d) * a * d * x := by\n        rw [hcd]\n      simpa [mul_assoc] using h\n    _ = y * c * d := by\n      have h : y * c * (d * a * d * x) = y * c * d := by\n        rw [hdadx]\n      simpa [mul_assoc] using h\n    _ = y * d * c := by\n      rw [mul_assoc, hcd, ← mul_assoc]\n    _ = b * c := by\n      rw [← hby]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hbad",
+              "statement": "b * a * d = d"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hdab",
+              "statement": "d * a * b = d"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hbd",
+              "statement": "∃ x y, b = d * x ∧ b = y * d"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c"
+          }
+        },
+        "lean_dependency_sha256": "f7898bbb1f109e0a97446ce3d6dbee26c03c57d97c639b7e39f52970e3eb945b",
+        "kernel_witness_check": {
+          "proof_type": "∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "inverse along",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "semigroup inverse along an element bicommutant",
+      "declarations": [
+        "AddSemigroup",
+        "Lean.Meta.Grind.Arith.CommRing.SemiringM.getCommSemiring",
+        "AddSubsemigroup.decidableMemCenter",
+        "commutatorElement",
+        "Commute.invOf_left",
+        "IsGroupLikeElem.of_mul_eq_one",
+        "Semigroup",
+        "IsLocalization.mul_add_inv_left",
+        "CommSemigroup",
+        "Semigroup.opposite_smulCommClass"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "_ * _ * _ = _ -> _ * _ * _ = _ -> _ * _ = _ * _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [],
+    "constructive_core_only": true,
+    "classical": [],
+    "extensional_or_quotient": [],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 3,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 3,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 7,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

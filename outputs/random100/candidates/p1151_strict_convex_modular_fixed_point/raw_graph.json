@@ -1,0 +1,1322 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "manifest": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x : X), w l x x = 0",
+          "origin": "manifest",
+          "name": "hself",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x y : X), w l x y = w l y x",
+          "origin": "manifest",
+          "name": "hsymm",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (x y : X), (∃ l, 0 < l ∧ w l x y = 0) → x = y",
+          "origin": "manifest",
+          "name": "hstrict",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ (l m : NNReal), 0 < l → 0 < m → ∀ (x y z : X), w (l + m) x y ≤ ↑l / (↑l + ↑m) * w l x z + ↑m / (↑l + ↑m) * w m y z",
+          "origin": "manifest",
+          "name": "hconv",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (x : ℕ → { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal),\n  0 < l →\n    Filter.Tendsto (fun p => w l ↑(x p.1) ↑(x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) →\n      ∃ y, Filter.Tendsto (fun n => w l ↑(x n) ↑y) Filter.atTop (nhds 0)",
+          "origin": "manifest",
+          "name": "hcomplete",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∃ k L,\n  0 < k ∧\n    k < 1 ∧\n      0 < L ∧\n        ∀ (x y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal), 0 < l → l ≤ L → w (k * l) ↑(T x) ↑(T y) ≤ w l ↑x ↑y",
+          "origin": "manifest",
+          "name": "hcontractive",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "((∀ (l : NNReal), 0 < l → ∃ x, w l ↑x ↑(T x) < ⊤) → ∃ x, T x = x) ∧\n  ((∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤) →\n    ∃ xstar,\n      T xstar = xstar ∧\n        (∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar) ∧\n          ∀ (x : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }),\n            ∃ l, 0 < l ∧ Filter.Tendsto (fun n => w l ↑(T^[n] x) ↑xstar) Filter.atTop (nhds 0))",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "((∀ (l : NNReal), 0 < l → ∃ x, w l ↑x ↑(T x) < ⊤) → ∃ x, T x = x) ∧\n  ((∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤) →\n    ∃ xstar,\n      T xstar = xstar ∧\n        (∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar) ∧\n          ∀ (x : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }),\n            ∃ l, 0 < l ∧ Filter.Tendsto (fun n => w l ↑(T^[n] x) ↑xstar) Filter.atTop (nhds 0))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "ENNReal.coe_inj._simp_1",
+          "ENNReal.coe_mul",
+          "ENNReal.coe_ne_top",
+          "ENNReal.div_self",
+          "ENNReal.instIsOrderedMonoid",
+          "ENNReal.zero_lt_top",
+          "Eq.symm",
+          "Eq.trans",
+          "IsOrderedMonoid.toMulLeftMono",
+          "LT.lt.le",
+          "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNNRat_div",
+          "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+          "Mathlib.Meta.NormNum.isNNRat_mul",
+          "Mathlib.Meta.NormNum.isNat_eq_true",
+          "Mathlib.Meta.NormNum.isNat_lt_true",
+          "Mathlib.Meta.NormNum.isNat_mul",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Tactic.CancelDenoms.add_subst",
+          "Mathlib.Tactic.CancelDenoms.div_subst",
+          "Mathlib.Tactic.CancelDenoms.sub_subst",
+          "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.mul_nonpos",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_gt",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_one",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "NNReal.mulLeftMono",
+          "NNReal.toReal_le._simp_1",
+          "NNReal.toReal_lt._simp_1",
+          "Nat.cast_one",
+          "Nat.cast_zero",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Rollout_p1151_strict_convex_modular_fixed_point.ennreal_eq_zero_of_le_coe_mul_self",
+          "Rollout_p1151_strict_convex_modular_fixed_point.modular_fixed_point_of_displacement",
+          "Rollout_p1151_strict_convex_modular_fixed_point.modular_scale_le",
+          "Subtype.ext",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "covariant_swap_mul_of_covariant_mul",
+          "funext",
+          "le_rfl",
+          "lt_of_not_ge",
+          "mul_div_assoc",
+          "mul_le_mul_left'",
+          "mul_le_mul_right'",
+          "mul_one",
+          "mul_pos",
+          "ne_of_gt",
+          "ne_of_lt",
+          "one_mul",
+          "tsub_pos_of_lt"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (l : NNReal), 0 < l → ∀ (x : X), w l x x = 0",
+            "origin": "local_assumption",
+            "name": "hself",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "∀ (l : NNReal), 0 < l → ∀ (x y : X), w l x y = w l y x",
+            "origin": "local_assumption",
+            "name": "hsymm",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "∀ (x y : X), (∃ l, 0 < l ∧ w l x y = 0) → x = y",
+            "origin": "local_assumption",
+            "name": "hstrict",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "∀ (l m : NNReal), 0 < l → 0 < m → ∀ (x y z : X), w (l + m) x y ≤ ↑l / (↑l + ↑m) * w l x z + ↑m / (↑l + ↑m) * w m y z",
+            "origin": "local_assumption",
+            "name": "hconv",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∀ (x : ℕ → { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal),\n  0 < l →\n    Filter.Tendsto (fun p => w l ↑(x p.1) ↑(x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) →\n      ∃ y, Filter.Tendsto (fun n => w l ↑(x n) ↑y) Filter.atTop (nhds 0)",
+            "origin": "local_assumption",
+            "name": "hcomplete",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "∃ k L,\n  0 < k ∧\n    k < 1 ∧\n      0 < L ∧\n        ∀ (x y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal), 0 < l → l ≤ L → w (k * l) ↑(T x) ↑(T y) ≤ w l ↑x ↑y",
+            "origin": "local_assumption",
+            "name": "hcontractive",
+            "fvar_id": "9"
+          }
+        ],
+        "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "((∀ (l : NNReal), 0 < l → ∃ x, w l ↑x ↑(T x) < ⊤) → ∃ x, T x = x) ∧\n  ((∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤) →\n    ∃ xstar,\n      T xstar = xstar ∧\n        (∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar) ∧\n          ∀ (x : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }),\n            ∃ l, 0 < l ∧ Filter.Tendsto (fun n => w l ↑(T^[n] x) ↑xstar) Filter.atTop (nhds 0))",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "(1 + k) / 2 < 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "NNReal.toReal_le._simp_1",
+        "NNReal.toReal_lt._simp_1",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3312102"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_745",
+      "conclusion": {
+        "statement": "(1 + k) / 2 < 1",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.3313801"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "NNReal.toReal_le._simp_1",
+        "NNReal.toReal_lt._simp_1",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "lt_of_not_ge",
+        "mul_pos",
+        "tsub_pos_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3312102"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3312120"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_747",
+      "conclusion": {
+        "statement": "0 < a",
+        "origin": "derived",
+        "name": "ha0",
+        "fvar_id": "_uniq.3313596"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(1 + k) / 2 < 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "NNReal.toReal_le._simp_1",
+        "NNReal.toReal_lt._simp_1",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3319410"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_748",
+      "conclusion": {
+        "statement": "(1 + k) / 2 < 1",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.3321109"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑L ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.coe_inj._simp_1",
+        "Eq.symm",
+        "Eq.trans",
+        "Nat.cast_zero",
+        "congrArg",
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_749",
+      "conclusion": {
+        "statement": "↑L ≠ 0",
+        "origin": "derived",
+        "name": "h0",
+        "fvar_id": "_uniq.3338302"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑L ≠ ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.coe_ne_top"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_750",
+      "conclusion": {
+        "statement": "↑L ≠ ⊤",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.3340394"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d ≠ ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤",
+          "origin": "local_assumption",
+          "name": "hfinite",
+          "fvar_id": "_uniq.3319319"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_752",
+      "conclusion": {
+        "statement": "d ≠ ⊤",
+        "origin": "derived",
+        "name": "hdne",
+        "fvar_id": "_uniq.3328362"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w (k * L) ↑(T y) ↑(T xstar) ≤ w L ↑y ↑xstar",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_rfl"
+      ],
+      "premises": [
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        },
+        {
+          "statement": "∀ (x y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal), 0 < l → l ≤ L → w (k * l) ↑(T x) ↑(T y) ≤ w l ↑x ↑y",
+          "origin": "local_assumption",
+          "name": "hcontr",
+          "fvar_id": "_uniq.3319429"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_753",
+      "conclusion": {
+        "statement": "w (k * L) ↑(T y) ↑(T xstar) ≤ w L ↑y ↑xstar",
+        "origin": "derived",
+        "name": "hctr0",
+        "fvar_id": "_uniq.3328913"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w (k * L) ↑y ↑xstar ≤ d",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congr",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "T xstar = xstar",
+          "origin": "local_assumption",
+          "name": "hstar",
+          "fvar_id": "_uniq.3327604"
+        },
+        {
+          "statement": "T y = y",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.3327918"
+        },
+        {
+          "statement": "w (k * L) ↑(T y) ↑(T xstar) ≤ w L ↑y ↑xstar",
+          "origin": "derived",
+          "name": "hctr0",
+          "fvar_id": "_uniq.3328913"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_754",
+      "conclusion": {
+        "statement": "w (k * L) ↑y ↑xstar ≤ d",
+        "origin": "derived",
+        "name": "hctr",
+        "fvar_id": "_uniq.3329466"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < k * L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+        "mul_pos"
+      ],
+      "premises": [
+        {
+          "statement": "0 < k",
+          "origin": "local_assumption",
+          "name": "hk0",
+          "fvar_id": "_uniq.3319392"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_755",
+      "conclusion": {
+        "statement": "0 < k * L",
+        "origin": "derived",
+        "name": "hkL",
+        "fvar_id": "_uniq.3336597"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "k * L ≤ L",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LT.lt.le",
+        "NNReal.mulLeftMono",
+        "covariant_swap_mul_of_covariant_mul",
+        "mul_le_mul_right'",
+        "one_mul"
+      ],
+      "premises": [
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3319410"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_756",
+      "conclusion": {
+        "statement": "k * L ≤ L",
+        "origin": "derived",
+        "name": "hkL_le",
+        "fvar_id": "_uniq.3336638"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w L ↑y ↑xstar ≤ ↑(k * L) / ↑L * w (k * L) ↑y ↑xstar",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1151_strict_convex_modular_fixed_point.modular_scale_le"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x : X), w l x x = 0",
+          "origin": "local_assumption",
+          "name": "hself",
+          "fvar_id": "_uniq.3311986"
+        },
+        {
+          "statement": "∀ (l m : NNReal), 0 < l → 0 < m → ∀ (x y z : X), w (l + m) x y ≤ ↑l / (↑l + ↑m) * w l x z + ↑m / (↑l + ↑m) * w m y z",
+          "origin": "local_assumption",
+          "name": "hconv",
+          "fvar_id": "_uniq.3311989"
+        },
+        {
+          "statement": "0 < k * L",
+          "origin": "derived",
+          "name": "hkL",
+          "fvar_id": "_uniq.3336597"
+        },
+        {
+          "statement": "k * L ≤ L",
+          "origin": "derived",
+          "name": "hkL_le",
+          "fvar_id": "_uniq.3336638"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_757",
+      "conclusion": {
+        "statement": "w L ↑y ↑xstar ≤ ↑(k * L) / ↑L * w (k * L) ↑y ↑xstar",
+        "origin": "derived",
+        "name": "hsc",
+        "fvar_id": "_uniq.3338006"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(k * L) / ↑L = ↑k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.coe_inj._simp_1",
+        "ENNReal.coe_mul",
+        "ENNReal.coe_ne_top",
+        "ENNReal.div_self",
+        "Eq.symm",
+        "Eq.trans",
+        "Nat.cast_zero",
+        "congrArg",
+        "mul_div_assoc",
+        "mul_one",
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_758",
+      "conclusion": {
+        "statement": "↑(k * L) / ↑L = ↑k",
+        "origin": "derived",
+        "name": "hcoef",
+        "fvar_id": "_uniq.3338250"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d ≤ ↑k * d",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.instIsOrderedMonoid",
+        "IsOrderedMonoid.toMulLeftMono",
+        "congrArg",
+        "mul_le_mul_left'"
+      ],
+      "premises": [
+        {
+          "statement": "w (k * L) ↑y ↑xstar ≤ d",
+          "origin": "derived",
+          "name": "hctr",
+          "fvar_id": "_uniq.3329466"
+        },
+        {
+          "statement": "w L ↑y ↑xstar ≤ ↑(k * L) / ↑L * w (k * L) ↑y ↑xstar",
+          "origin": "derived",
+          "name": "hsc",
+          "fvar_id": "_uniq.3338006"
+        },
+        {
+          "statement": "↑(k * L) / ↑L = ↑k",
+          "origin": "derived",
+          "name": "hcoef",
+          "fvar_id": "_uniq.3338250"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_759",
+      "conclusion": {
+        "statement": "d ≤ ↑k * d",
+        "origin": "derived",
+        "name": "hdself",
+        "fvar_id": "_uniq.3342182"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1151_strict_convex_modular_fixed_point.ennreal_eq_zero_of_le_coe_mul_self"
+      ],
+      "premises": [
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3319410"
+        },
+        {
+          "statement": "d ≠ ⊤",
+          "origin": "derived",
+          "name": "hdne",
+          "fvar_id": "_uniq.3328362"
+        },
+        {
+          "statement": "d ≤ ↑k * d",
+          "origin": "derived",
+          "name": "hdself",
+          "fvar_id": "_uniq.3342182"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_760",
+      "conclusion": {
+        "statement": "d = 0",
+        "origin": "derived",
+        "name": "hdzero",
+        "fvar_id": "_uniq.3344033"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑y = ↑xstar",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), (∃ l, 0 < l ∧ w l x y = 0) → x = y",
+          "origin": "local_assumption",
+          "name": "hstrict",
+          "fvar_id": "_uniq.3311988"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        },
+        {
+          "statement": "d = 0",
+          "origin": "derived",
+          "name": "hdzero",
+          "fvar_id": "_uniq.3344033"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_761",
+      "conclusion": {
+        "statement": "↑y = ↑xstar",
+        "origin": "derived",
+        "name": "hval",
+        "fvar_id": "_uniq.3344267"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "NNReal.toReal_le._simp_1",
+        "NNReal.toReal_lt._simp_1",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "lt_of_not_ge",
+        "mul_pos",
+        "tsub_pos_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3319410"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_763",
+      "conclusion": {
+        "statement": "0 < a",
+        "origin": "derived",
+        "name": "ha0",
+        "fvar_id": "_uniq.3320904"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w L b b < ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.zero_lt_top",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x : X), w l x x = 0",
+          "origin": "local_assumption",
+          "name": "hself",
+          "fvar_id": "_uniq.3311986"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_764",
+      "conclusion": {
+        "statement": "w L b b < ⊤",
+        "origin": "derived",
+        "name": "hbw",
+        "fvar_id": "_uniq.3326642"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w a ↑xb ↑(T xb) < ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤",
+          "origin": "local_assumption",
+          "name": "hfinite",
+          "fvar_id": "_uniq.3319319"
+        },
+        {
+          "statement": "0 < a",
+          "origin": "derived",
+          "name": "ha0",
+          "fvar_id": "_uniq.3320904"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_766",
+      "conclusion": {
+        "statement": "w a ↑xb ↑(T xb) < ⊤",
+        "origin": "derived",
+        "name": "hxb",
+        "fvar_id": "_uniq.3327444"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.coe_inj._simp_1",
+        "ENNReal.coe_mul",
+        "ENNReal.coe_ne_top",
+        "ENNReal.div_self",
+        "ENNReal.instIsOrderedMonoid",
+        "Eq.symm",
+        "Eq.trans",
+        "IsOrderedMonoid.toMulLeftMono",
+        "LT.lt.le",
+        "LinearOrderedCommMonoidWithZero.toPosMulStrictMono",
+        "NNReal.mulLeftMono",
+        "Nat.cast_zero",
+        "Rollout_p1151_strict_convex_modular_fixed_point.ennreal_eq_zero_of_le_coe_mul_self",
+        "Rollout_p1151_strict_convex_modular_fixed_point.modular_scale_le",
+        "Subtype.ext",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "covariant_swap_mul_of_covariant_mul",
+        "le_rfl",
+        "mul_div_assoc",
+        "mul_le_mul_left'",
+        "mul_le_mul_right'",
+        "mul_one",
+        "mul_pos",
+        "ne_of_gt",
+        "ne_of_lt",
+        "one_mul"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x : X), w l x x = 0",
+          "origin": "local_assumption",
+          "name": "hself",
+          "fvar_id": "_uniq.3311986"
+        },
+        {
+          "statement": "∀ (x y : X), (∃ l, 0 < l ∧ w l x y = 0) → x = y",
+          "origin": "local_assumption",
+          "name": "hstrict",
+          "fvar_id": "_uniq.3311988"
+        },
+        {
+          "statement": "∀ (l m : NNReal), 0 < l → 0 < m → ∀ (x y z : X), w (l + m) x y ≤ ↑l / (↑l + ↑m) * w l x z + ↑m / (↑l + ↑m) * w m y z",
+          "origin": "local_assumption",
+          "name": "hconv",
+          "fvar_id": "_uniq.3311989"
+        },
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤",
+          "origin": "local_assumption",
+          "name": "hfinite",
+          "fvar_id": "_uniq.3319319"
+        },
+        {
+          "statement": "0 < k",
+          "origin": "local_assumption",
+          "name": "hk0",
+          "fvar_id": "_uniq.3319392"
+        },
+        {
+          "statement": "k < 1",
+          "origin": "local_assumption",
+          "name": "hk1",
+          "fvar_id": "_uniq.3319410"
+        },
+        {
+          "statement": "0 < L",
+          "origin": "local_assumption",
+          "name": "hL0",
+          "fvar_id": "_uniq.3319428"
+        },
+        {
+          "statement": "∀ (x y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal), 0 < l → l ≤ L → w (k * l) ↑(T x) ↑(T y) ≤ w l ↑x ↑y",
+          "origin": "local_assumption",
+          "name": "hcontr",
+          "fvar_id": "_uniq.3319429"
+        },
+        {
+          "statement": "T xstar = xstar",
+          "origin": "local_assumption",
+          "name": "hstar",
+          "fvar_id": "_uniq.3327604"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_767",
+      "conclusion": {
+        "statement": "∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar",
+        "origin": "derived",
+        "name": "huniq",
+        "fvar_id": "_uniq.3327911"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w a ↑x ↑(T x) < ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤",
+          "origin": "local_assumption",
+          "name": "hfinite",
+          "fvar_id": "_uniq.3319319"
+        },
+        {
+          "statement": "0 < a",
+          "origin": "derived",
+          "name": "ha0",
+          "fvar_id": "_uniq.3320904"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_768",
+      "conclusion": {
+        "statement": "w a ↑x ↑(T x) < ⊤",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3344774"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y = xstar",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar",
+          "origin": "derived",
+          "name": "huniq",
+          "fvar_id": "_uniq.3327911"
+        },
+        {
+          "statement": "T y = y",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.3344926"
+        }
+      ],
+      "parent": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+      "id": "local_769",
+      "conclusion": {
+        "statement": "y = xstar",
+        "origin": "derived",
+        "name": "hyx",
+        "fvar_id": "_uniq.3344933"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p1151_strict_convex_modular_fixed_point",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1151_strict_convex_modular_fixed_point.strict_convex_modular_fixed_point",
+    "proof_sha256": "cea97ffc432c413055eec64974cc014dba1d8d6801bcea53159b47603dfff4ec"
+  }
+}

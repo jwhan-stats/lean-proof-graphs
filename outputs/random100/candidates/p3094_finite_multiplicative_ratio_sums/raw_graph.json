@@ -1,0 +1,911 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "manifest": [
+        {
+          "statement": "Nonempty I",
+          "origin": "manifest",
+          "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "∀ (e d : I), 0 < r (e, d)",
+          "origin": "manifest",
+          "name": "hr_pos",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "manifest",
+          "name": "hr_mul",
+          "fvar_id": "5"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (e : I), r (e, e) = 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "IsCancelMulZero.toIsLeftCancelMulZero",
+            "IsDomain.toIsCancelMulZero",
+            "Real.instIsDomain",
+            "congrArg",
+            "mul_left_cancel₀",
+            "mul_one",
+            "ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (e d : I), 0 < r (e, d)",
+              "origin": "local_assumption",
+              "name": "hr_pos",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+              "origin": "local_assumption",
+              "name": "hr_mul",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_7",
+          "conclusion": {
+            "statement": "∀ (e : I), r (e, e) = 1",
+            "origin": "derived",
+            "name": "hdiag",
+            "fvar_id": "7"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "congrArg",
+            "inv_eq_of_mul_eq_one_right"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+              "origin": "local_assumption",
+              "name": "hr_mul",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "∀ (e : I), r (e, e) = 1",
+              "origin": "derived",
+              "name": "hdiag",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_8",
+          "conclusion": {
+            "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+            "origin": "derived",
+            "name": "hinv",
+            "fvar_id": "8"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (e : I), 0 < ∑ i, r (i, e)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.sum_pos",
+            "Finset.univ_nonempty",
+            "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "instIsLeftCancelAddOfAddLeftReflectLE"
+          ],
+          "premises": [
+            {
+              "statement": "Nonempty I",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+              "fvar_id": "2"
+            },
+            {
+              "statement": "∀ (e d : I), 0 < r (e, d)",
+              "origin": "local_assumption",
+              "name": "hr_pos",
+              "fvar_id": "4"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_9",
+          "conclusion": {
+            "statement": "∀ (e : I), 0 < ∑ d, r (d, e)",
+            "origin": "derived",
+            "name": "hsum_pos",
+            "fvar_id": "9"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (e : I), 0 < ∑ d, r (d, e)",
+              "origin": "derived",
+              "name": "hsum_pos",
+              "fvar_id": "9"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_10",
+          "conclusion": {
+            "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+            "origin": "derived",
+            "name": "hsum_ne",
+            "fvar_id": "10"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ e, (∑ d, r (d, e))⁻¹ = 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Finset.sum_congr",
+            "Finset.sum_div",
+            "Finset.sum_mul",
+            "congrArg",
+            "div_eq_mul_inv",
+            "div_self",
+            "inv_div"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+              "origin": "local_assumption",
+              "name": "hr_mul",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+              "origin": "derived",
+              "name": "hinv",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+              "origin": "derived",
+              "name": "hsum_ne",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_11",
+          "conclusion": {
+            "statement": "∑ e, (∑ d, r (d, e))⁻¹ = 1",
+            "origin": "derived",
+            "name": "hA",
+            "fvar_id": "11"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finset.sum_congr",
+            "Finset.sum_pos",
+            "Finset.univ_nonempty",
+            "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "congrArg",
+            "div_self",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "Nonempty I",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+              "fvar_id": "2"
+            },
+            {
+              "statement": "∀ (e d : I), 0 < r (e, d)",
+              "origin": "local_assumption",
+              "name": "hr_pos",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+              "origin": "derived",
+              "name": "hinv",
+              "fvar_id": "8"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_12",
+          "conclusion": {
+            "statement": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1",
+            "origin": "derived",
+            "name": "hB",
+            "fvar_id": "12"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "congrArg",
+            "div_self"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+              "origin": "derived",
+              "name": "hsum_ne",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+          "id": "telescope_13",
+          "conclusion": {
+            "statement": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+            "origin": "derived",
+            "name": "hC",
+            "fvar_id": "13"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∑ e, (∑ d, r (d, e))⁻¹ = (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ ∧\n  (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = (∑ e, r (e, b)) / ∑ d, r (d, b) ∧ (∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∑ e, (∑ d, r (d, e))⁻¹ = (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ ∧\n  (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = (∑ e, r (e, b)) / ∑ d, r (d, b) ∧ (∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "Eq.trans"
+        ],
+        "premises": [
+          {
+            "statement": "∑ e, (∑ d, r (d, e))⁻¹ = 1",
+            "origin": "derived",
+            "name": "hA",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1",
+            "origin": "derived",
+            "name": "hB",
+            "fvar_id": "12"
+          },
+          {
+            "statement": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+            "origin": "derived",
+            "name": "hC",
+            "fvar_id": "13"
+          }
+        ],
+        "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∑ e, (∑ d, r (d, e))⁻¹ = (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ ∧\n  (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = (∑ e, r (e, b)) / ∑ d, r (d, b) ∧ (∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "r (e, e) ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d : I), 0 < r (e, d)",
+          "origin": "local_assumption",
+          "name": "hr_pos",
+          "fvar_id": "_uniq.8991432"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1626",
+      "conclusion": {
+        "statement": "r (e, e) ≠ 0",
+        "origin": "derived",
+        "name": "hz",
+        "fvar_id": "_uniq.8991653"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r (e, e) * r (e, e) = r (e, e) * 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg",
+        "mul_one"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "local_assumption",
+          "name": "hr_mul",
+          "fvar_id": "_uniq.8991433"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1627",
+      "conclusion": {
+        "statement": "r (e, e) * r (e, e) = r (e, e) * 1",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.8991765"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r (e, d) * r (d, e) = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "local_assumption",
+          "name": "hr_mul",
+          "fvar_id": "_uniq.8991433"
+        },
+        {
+          "statement": "∀ (e : I), r (e, e) = 1",
+          "origin": "derived",
+          "name": "hdiag",
+          "fvar_id": "_uniq.8991496"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1628",
+      "conclusion": {
+        "statement": "r (e, d) * r (d, e) = 1",
+        "origin": "derived",
+        "name": "hone",
+        "fvar_id": "_uniq.8992893"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (e : I), (∑ d, r (d, e))⁻¹ = r (e, b) / ∑ d, r (d, b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_congr",
+        "Finset.sum_mul",
+        "congrArg",
+        "div_eq_mul_inv",
+        "inv_div"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "local_assumption",
+          "name": "hr_mul",
+          "fvar_id": "_uniq.8991433"
+        },
+        {
+          "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+          "origin": "derived",
+          "name": "hinv",
+          "fvar_id": "_uniq.8992826"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1629",
+      "conclusion": {
+        "statement": "∀ (e : I), (∑ d, r (d, e))⁻¹ = r (e, b) / ∑ d, r (d, b)",
+        "origin": "derived",
+        "name": "hterm",
+        "fvar_id": "_uniq.8997210"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ d, (r (d, b))⁻¹ = ∑ e, r (b, e)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_congr"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+          "origin": "derived",
+          "name": "hinv",
+          "fvar_id": "_uniq.8992826"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1630",
+      "conclusion": {
+        "statement": "∑ d, (r (d, b))⁻¹ = ∑ e, r (b, e)",
+        "origin": "derived",
+        "name": "hden",
+        "fvar_id": "_uniq.9005469"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ∑ i, r (b, i)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_pos",
+        "Finset.univ_nonempty",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "instIsLeftCancelAddOfAddLeftReflectLE"
+      ],
+      "premises": [
+        {
+          "statement": "Nonempty I",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+          "fvar_id": "_uniq.8991430"
+        },
+        {
+          "statement": "∀ (e d : I), 0 < r (e, d)",
+          "origin": "local_assumption",
+          "name": "hr_pos",
+          "fvar_id": "_uniq.8991432"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1631",
+      "conclusion": {
+        "statement": "0 < ∑ e, r (b, e)",
+        "origin": "derived",
+        "name": "hnum_pos",
+        "fvar_id": "_uniq.9007759"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ e, r (e, b) = ∑ e, r (e, b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1632",
+      "conclusion": {
+        "statement": "∑ e, r (e, b) = ∑ d, r (d, b)",
+        "origin": "derived",
+        "name": "hnum",
+        "fvar_id": "_uniq.9009282"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (e : I), r (e, e) = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "IsCancelMulZero.toIsLeftCancelMulZero",
+        "IsDomain.toIsCancelMulZero",
+        "Real.instIsDomain",
+        "congrArg",
+        "mul_left_cancel₀",
+        "mul_one",
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d : I), 0 < r (e, d)",
+          "origin": "local_assumption",
+          "name": "hr_pos",
+          "fvar_id": "_uniq.8991432"
+        },
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "local_assumption",
+          "name": "hr_mul",
+          "fvar_id": "_uniq.8991433"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1633",
+      "conclusion": {
+        "statement": "∀ (e : I), r (e, e) = 1",
+        "origin": "derived",
+        "name": "hdiag",
+        "fvar_id": "_uniq.8991496"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg",
+        "inv_eq_of_mul_eq_one_right"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "local_assumption",
+          "name": "hr_mul",
+          "fvar_id": "_uniq.8991433"
+        },
+        {
+          "statement": "∀ (e : I), r (e, e) = 1",
+          "origin": "derived",
+          "name": "hdiag",
+          "fvar_id": "_uniq.8991496"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1634",
+      "conclusion": {
+        "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+        "origin": "derived",
+        "name": "hinv",
+        "fvar_id": "_uniq.8992826"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (e : I), 0 < ∑ i, r (i, e)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_pos",
+        "Finset.univ_nonempty",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "instIsLeftCancelAddOfAddLeftReflectLE"
+      ],
+      "premises": [
+        {
+          "statement": "Nonempty I",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+          "fvar_id": "_uniq.8991430"
+        },
+        {
+          "statement": "∀ (e d : I), 0 < r (e, d)",
+          "origin": "local_assumption",
+          "name": "hr_pos",
+          "fvar_id": "_uniq.8991432"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1635",
+      "conclusion": {
+        "statement": "∀ (e : I), 0 < ∑ d, r (d, e)",
+        "origin": "derived",
+        "name": "hsum_pos",
+        "fvar_id": "_uniq.8993369"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e : I), 0 < ∑ d, r (d, e)",
+          "origin": "derived",
+          "name": "hsum_pos",
+          "fvar_id": "_uniq.8993369"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1636",
+      "conclusion": {
+        "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+        "origin": "derived",
+        "name": "hsum_ne",
+        "fvar_id": "_uniq.8995046"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ e, (∑ d, r (d, e))⁻¹ = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Finset.sum_congr",
+        "Finset.sum_div",
+        "Finset.sum_mul",
+        "congrArg",
+        "div_eq_mul_inv",
+        "div_self",
+        "inv_div"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)",
+          "origin": "local_assumption",
+          "name": "hr_mul",
+          "fvar_id": "_uniq.8991433"
+        },
+        {
+          "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+          "origin": "derived",
+          "name": "hinv",
+          "fvar_id": "_uniq.8992826"
+        },
+        {
+          "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+          "origin": "derived",
+          "name": "hsum_ne",
+          "fvar_id": "_uniq.8995046"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1637",
+      "conclusion": {
+        "statement": "∑ e, (∑ d, r (d, e))⁻¹ = 1",
+        "origin": "derived",
+        "name": "hA",
+        "fvar_id": "_uniq.8996222"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.sum_congr",
+        "Finset.sum_pos",
+        "Finset.univ_nonempty",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "congrArg",
+        "div_self",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "Nonempty I",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+          "fvar_id": "_uniq.8991430"
+        },
+        {
+          "statement": "∀ (e d : I), 0 < r (e, d)",
+          "origin": "local_assumption",
+          "name": "hr_pos",
+          "fvar_id": "_uniq.8991432"
+        },
+        {
+          "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+          "origin": "derived",
+          "name": "hinv",
+          "fvar_id": "_uniq.8992826"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1638",
+      "conclusion": {
+        "statement": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1",
+        "origin": "derived",
+        "name": "hB",
+        "fvar_id": "_uniq.9004700"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg",
+        "div_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+          "origin": "derived",
+          "name": "hsum_ne",
+          "fvar_id": "_uniq.8995046"
+        }
+      ],
+      "parent": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+      "id": "local_1639",
+      "conclusion": {
+        "statement": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+        "origin": "derived",
+        "name": "hC",
+        "fvar_id": "_uniq.9008630"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p3094_finite_multiplicative_ratio_sums",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+    "proof_sha256": "dd870d418b7e4a9c7dfbcc6a7842cad3d95e9c2fa01b5b02f991ba2c7e7ccd6e"
+  }
+}

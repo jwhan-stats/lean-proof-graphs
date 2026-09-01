@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ C, 0 < C ∧ ∀ (f : ℝ → ℝ), Function.Periodic f (2 * Real.pi) → AbsolutelyContinuousOnInterval f (-Real.pi) Real.pi → f 0 = 0 → MeasureTheory.IntegrableOn (fun x => |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2) (Set.Icc (-Real.pi) Real.pi) MeasureTheory.volume → essSup (fun x => |f x| / |Real.sin (x / 2)|) (MeasureTheory.volume.restrict (Set.Icc (-Real.pi) Real.pi)) ≤ C * √(∫ (x : ℝ) in Set.Icc (-Real.pi) Real.pi, |deriv f x| ^ 2 / Real.sin (x / 2) ^ 2)"];
+  "r_h_goal" [shape=diamond, label="ENNReal.ofReal_eq_zero + Filter.limsup_le_of_le + MeasureTheory.ae_neBot", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

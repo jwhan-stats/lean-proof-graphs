@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hmissing_8fb2f908" [shape=box, color="#178F82", label="hmissing\n∀ (S : Set ℕ), Minimal (fun T => T ⊆ Set.Icc 1 m ∧ T ∉ K) S ↔ S = I ∨ S = J"];
+  "m_hs_69ea3611" [shape=box, color="#178F82", label="hS\nS ⊆ Set.Icc 1 m \ {w}"];
+  "m_hw_c56c86df" [shape=box, color="#178F82", label="hw\nw ∈ I ∩ J"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nS ∈ K"];
+  "r_h_goal" [shape=diamond, label="Set.Finite.exists_minimal + Set.Finite.subset + subset_rfl", color="#D97706"];
+  "m_hmissing_8fb2f908" -> "r_h_goal";
+  "m_hw_c56c86df" -> "r_h_goal";
+  "m_hs_69ea3611" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

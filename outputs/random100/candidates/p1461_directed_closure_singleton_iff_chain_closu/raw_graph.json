@@ -1,0 +1,121 @@
+{
+  "theorems": [
+    {
+      "theorem_name": "directed_closure_singleton_iff_chain_closure_singleton",
+      "manifest": [
+        {
+          "statement": "T0Space X",
+          "origin": "manifest",
+          "name": "inst._@.proof.2120908755._hygCtx._hyg.6",
+          "fvar_id": "2"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "(∀ (D : Set X), D.Nonempty → DirectedOn LE.le D → ∃! x, closure D = closure {x}) ↔\n  ∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∀ (D : Set X), D.Nonempty → DirectedOn LE.le D → ∃! x, closure D = closure {x}) ↔\n  ∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "ExistsUnique.exists",
+          "Iff.mpr",
+          "Inseparable.eq",
+          "IsChain.directedOn",
+          "congrArg",
+          "exists_closure_singleton_of_chain",
+          "inseparable_iff_closure_eq",
+          "instReflLe"
+        ],
+        "premises": [
+          {
+            "statement": "T0Space X",
+            "origin": "local_assumption",
+            "name": "inst._@.proof.2120908755._hygCtx._hyg.6",
+            "fvar_id": "2"
+          }
+        ],
+        "parent": "directed_closure_singleton_iff_chain_closure_singleton",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∀ (D : Set X), D.Nonempty → DirectedOn LE.le D → ∃! x, closure D = closure {x}) ↔\n  ∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "∃ x, closure D = closure {x}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ExistsUnique.exists",
+        "exists_closure_singleton_of_chain"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}",
+          "origin": "local_assumption",
+          "name": "h",
+          "fvar_id": "_uniq.128963"
+        },
+        {
+          "statement": "D.Nonempty",
+          "origin": "local_assumption",
+          "name": "hDne",
+          "fvar_id": "_uniq.128972"
+        },
+        {
+          "statement": "DirectedOn LE.le D",
+          "origin": "local_assumption",
+          "name": "hDdir",
+          "fvar_id": "_uniq.128975"
+        }
+      ],
+      "parent": "directed_closure_singleton_iff_chain_closure_singleton",
+      "id": "local_83",
+      "conclusion": {
+        "statement": "∃ x, closure D = closure {x}",
+        "origin": "derived",
+        "name": "hex",
+        "fvar_id": "_uniq.129070"
+      }
+    }
+  ],
+  "lean_version": "4.29.0",
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean:65:42: warning: unused variable `f`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean:67:13: warning: unused variable `ih`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean:284:50: warning: unused variable `children`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean:286:13: warning: unused variable `ih`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean:470:16: warning: This simp argument is unused:\n  A\n\nHint: Omit it from the simp argument list.\n  simp [A̵,̵ ̵d, i]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean",
+    "namespace": null,
+    "isolation_mode": "standalone_source",
+    "export_theorem_name": "directed_closure_singleton_iff_chain_closure_singleton",
+    "proof_sha256": "17f67180bd332453eed8f2d165176bfc0015985623cb13a8129711f7b7bb698e"
+  }
+}

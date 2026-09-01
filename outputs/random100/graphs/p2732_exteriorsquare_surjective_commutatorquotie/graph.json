@@ -1,0 +1,1366 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2732_exteriorsquare_surjective_commutatorquotie",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2732,
+    "source": "0812.3433",
+    "theorem_name": "exteriorSquare_surjective_commutatorQuotient",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2732",
+    "reconstructed_proof": "../../candidates/p2732_exteriorsquare_surjective_commutatorquotie/proof.lean",
+    "raw_elaboration": "../../candidates/p2732_exteriorsquare_surjective_commutatorquotie/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2732_exteriorsquare_surjective_commutatorquotie.exteriorSquare_surjective_commutatorQuotient",
+    "verification_call_id": "verify_submission:176",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "4c76e8035e3fa2c06ceb6be0f2951f8fb779a8602cf5b04a5536a790c7d79b17",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "63fd2d7a1d614aa8754b318f1c269eda8cd00dc788dfd3a4de423ba5a341e8c3",
+    "concrete_semantic_topology_sha256": "4c76e8035e3fa2c06ceb6be0f2951f8fb779a8602cf5b04a5536a790c7d79b17"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hh_41e51520",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hH",
+      "lean_fvar_id": "3",
+      "statement": "commutator G ≤ H"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ f, Function.Surjective ⇑f ∧ ∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"
+    },
+    {
+      "id": "n_hmap_23c82176",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hmap",
+      "lean_fvar_id": "12",
+      "statement": "∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hmap",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hh_41e51520"
+      ],
+      "conclusion": "n_hmap_23c82176",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "exteriorSquare_alternatingMap_mk + Subgroup.Normal.quotient_commutative_iff_commutator_le + Subgroup.commutator_mem_commutator",
+        "items": [
+          "Rollout_p2732_exteriorsquare_surjective_commutatorquotie.exteriorSquare_alternatingMap_mk",
+          "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+          "Subgroup.commutator_mem_commutator",
+          "Subgroup.mem_top",
+          "exteriorPower.alternatingMapLinearEquiv_apply_ιMulti"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2732_exteriorsquare_surjective_commutatorquotie.exteriorSquare_alternatingMap_mk"
+        ],
+        "mathlib_items": [
+          "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+          "Subgroup.commutator_mem_commutator",
+          "Subgroup.mem_top",
+          "exteriorPower.alternatingMapLinearEquiv_apply_ιMulti"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_12",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hmap : ∀ a b : G,\n      f (Multiplicative.ofAdd\n        ((exteriorPower.ιMulti ℤ 2)\n          ![Additive.ofMul (QuotientGroup.mk' K a),\n            Additive.ofMul (QuotientGroup.mk' K b)])) =\n        QuotientGroup.mk' D\n          ⟨(@commutatorElement G _).bracket a b,\n            Subgroup.commutator_mem_commutator\n              (Subgroup.mem_top a) (Subgroup.mem_top b)⟩ := by\n    intro a b\n    change Additive.toMul\n        ((exteriorPower.alternatingMapLinearEquiv A)\n          ((exteriorPower.ιMulti ℤ 2)\n            ![Additive.ofMul (QuotientGroup.mk' K a),\n              Additive.ofMul (QuotientGroup.mk' K b)])) = _\n    rw [exteriorPower.alternatingMapLinearEquiv_apply_ιMulti]\n    rw [exteriorSquare_alternatingMap_mk]\n    rfl",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hH",
+              "statement": "commutator G ≤ H"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "12",
+            "name": "hmap",
+            "statement": "∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"
+          }
+        },
+        "lean_dependency_sha256": "f76cd067480addc6d10c6bfa3f06aaab470dadc9a00114aba5945acb68e69461",
+        "kernel_witness_check": {
+          "proof_type": "∀ (a b : G),\n  f\n      (Multiplicative.ofAdd\n        ((exteriorPower.ιMulti ℤ 2)\n          ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) =\n    (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+          "Subgroup.commutator_mem_commutator"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:7",
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hh_41e51520",
+        "n_hmap_23c82176"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + MonoidHom.range_eq_top + QuotientGroup.mk'_surjective",
+        "items": [
+          "Eq.symm",
+          "MonoidHom.range_eq_top",
+          "QuotientGroup.mk'_surjective",
+          "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+          "Subgroup.closure_induction",
+          "Subgroup.commutator_def",
+          "Subgroup.commutator_mem_commutator",
+          "map_inv"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "MonoidHom.range_eq_top",
+          "QuotientGroup.mk'_surjective",
+          "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+          "Subgroup.closure_induction",
+          "Subgroup.commutator_def",
+          "Subgroup.commutator_mem_commutator",
+          "map_inv"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine Subgroup.closure_induction\n      (p := fun g hg =>\n        (QuotientGroup.mk' D ⟨g, hg⟩ : DG ⧸ D) ∈ f.range)\n      ?_ ?_ ?_ ?_ hx\n  · intro g hg\n    rcases hg with ⟨a, -, b, -, rfl⟩\n    rw [← hmap a b]\n    exact ⟨_, rfl⟩\n  · change (QuotientGroup.mk' D (1 : DG)) ∈ f.range\n    rw [map_one]\n    exact f.range.one_mem\n  · intro x y hx hy px py\n    change (QuotientGroup.mk' D ((⟨x, hx⟩ : DG) * ⟨y, hy⟩)) ∈ f.range\n    rw [map_mul]\n    exact f.range.mul_mem px py\n  · intro x hx px\n    change (QuotientGroup.mk' D (⟨x, hx⟩ : DG)⁻¹) ∈ f.range\n    rw [map_inv]\n    exact f.range.inv_mem px",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hH",
+              "statement": "commutator G ≤ H"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hmap",
+              "statement": "∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ f, Function.Surjective ⇑f ∧ ∀ (a b : G), f (Multiplicative.ofAdd ((exteriorPower.ιMulti ℤ 2) ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) = (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩"
+          }
+        },
+        "lean_dependency_sha256": "de9d951c2d7fa0b2596a5d3b83dde29e08506e51bddba1ab775c2ce17e63f9f2",
+        "kernel_witness_check": {
+          "proof_type": "∃ f,\n  Function.Surjective ⇑f ∧\n    ∀ (a b : G),\n      f\n          (Multiplicative.ofAdd\n            ((exteriorPower.ιMulti ℤ 2)\n              ![Additive.ofMul ((QuotientGroup.mk' K) a), Additive.ofMul ((QuotientGroup.mk' K) b)])) =\n        (QuotientGroup.mk' D) ⟨⁅a, b⁆, ⋯⟩",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "MonoidHom.range_eq_top",
+          "QuotientGroup.mk'_surjective",
+          "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+          "Subgroup.closure_induction",
+          "Subgroup.commutator_def",
+          "Subgroup.commutator_mem_commutator",
+          "map_inv"
+        ],
+        "observed_search_event_ids": [
+          "loogle:98",
+          "loogle:8",
+          "loogle:10",
+          "leanfinder:7",
+          "loogle:164",
+          "loogle:168",
+          "loogle:4",
+          "loogle:109"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "ExteriorAlgebra.exteriorPower",
+      "declarations": [
+        "ExteriorAlgebra.exteriorPower",
+        "ExteriorAlgebra.",
+        "exteriorPower.",
+        "exteriorPower.presentation",
+        "exteriorPower.presentation_G",
+        "exteriorPower.presentation_R"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "exteriorPower.ιMulti",
+      "declarations": [
+        "exteriorPower.",
+        "exteriorPower.map_comp_",
+        "exteriorPower.linearMap_ext",
+        "exteriorPower.linearMap_ext_iff",
+        "exteriorPower.presentation_var",
+        "exteriorPower.oneEquiv_",
+        "exteriorPower.zeroEquiv_"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "universal property exterior power alternating multilinear map lift",
+      "declarations": [
+        "exteriorPower.presentation.isPresentationCore",
+        "exteriorPower.alternatingMapLinearEquiv",
+        "ExteriorAlgebra.liftAlternating_",
+        "ExteriorAlgebra.liftAlternating_comp_",
+        "ExteriorAlgebra.liftAlternating",
+        "exteriorPower.alternatingMapToDual",
+        "ExteriorAlgebra.liftAlternating_algebraMap",
+        "AlternatingMap"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "commutator subgroup quotient surjective homomorphism group commutator",
+      "declarations": [
+        "MonoidHom.commGroupOfSurjective",
+        "commutator",
+        "Subgroup.commutator",
+        "Subgroup.commutator_le_map_commutator",
+        "AddSubgroup.addCommutator_le_map_addCommutator",
+        "Abelianization.commutator_subset_ker",
+        "AddSubgroup.addCommutator",
+        "QuotientGroup.Quotient.commGroup",
+        "Subgroup.map_commutator",
+        "Subgroup.commutator_characteristic"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_mem_commutator",
+      "declarations": [
+        "Subgroup.commutator_mem_commutator"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "commutatorElement",
+      "declarations": [
+        "commutatorElement",
+        "commutatorElement_def",
+        "commutator_mem_commutatorSet",
+        "commutatorElement_self",
+        "commutatorSet_def",
+        "mem_commutatorSet_iff",
+        "commutatorElement_inv",
+        "commutatorElement_one_left",
+        "commutatorElement_one_right",
+        "Commute.commutator_eq"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "exterior square group commutator map subgroup center",
+      "declarations": [
+        "Subgroup.map_subtype_commutator",
+        "Subgroup.commutator_le_map_commutator",
+        "commutator_eq_bot_iff_center_eq_top",
+        "addCommutator_centralizer_addCommutator_le_center",
+        "Subgroup.center",
+        "Subgroup.commutator",
+        "Subgroup.map_commutator",
+        "Subgroup.center.isMulCommutative",
+        "isAddCommutative_of_isAddCyclic_quotient_center_self",
+        "Subgroup.card_commutator_dvd_index_center_pow"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "commutator induces alternating bilinear map abelianization exterior square derived subgroup",
+      "declarations": [
+        "commutator",
+        "addCommutator_centralizer_addCommutator_le_center",
+        "Abelianization.ker_of",
+        "ExteriorAlgebra.liftAlternating_algebraMap",
+        "Abelianization.equivOfComm",
+        "instFintypeAbelianizationOfDecidablePredMemSubgroupCommutator",
+        "Abelianization.commutator_subset_ker",
+        "Subgroup.Normal.quotient_commutative_iff_commutator_le",
+        "Abelianization.equivOfComm_apply",
+        "Subgroup.map_commutator"
+      ],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "MonoidHom.range_eq_top",
+      "declarations": [
+        "MonoidHom.range_eq_top"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Function.Surjective _ ↔ MonoidHom.range _ = ⊤",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "QuotientGroup.mk'_surjective",
+      "declarations": [
+        "QuotientGroup.mk'_surjective"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "commutator_eq_bot_iff_le_centralizer",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "exteriorPower.alternatingMapLinearEquiv",
+      "declarations": [
+        "exteriorPower.alternatingMapLinearEquiv",
+        "exteriorPower.alternatingMapLinearEquiv_comp_",
+        "exteriorPower.alternatingMapLinearEquiv_apply_",
+        "exteriorPower.alternatingMapLinearEquiv_symm_apply",
+        "exteriorPower.alternatingMapLinearEquiv_comp",
+        "exteriorPower.alternatingMapLinearEquiv_",
+        "exteriorPower.alternatingMapLinearEquiv_symm_map"
+      ],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "AlternatingMap.ofLinearMap",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "AlternatingMap.mk",
+      "declarations": [
+        "AlternatingMap.mk",
+        "AlternatingMap.coe_mk",
+        "AlternatingMap.mk_zero",
+        "AlternatingMap.coe_multilinearMap_mk"
+      ],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "MultilinearMap.mk",
+      "declarations": [
+        "MultilinearMap.mk",
+        "MultilinearMap.coe_mk",
+        "MultilinearMap.mk_coe",
+        "MultilinearMap.domDomCongrLinearEquiv'_apply",
+        "MultilinearMap.domDomCongrLinearEquiv'_symm_apply",
+        "AlternatingMap.coe_multilinearMap_mk"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "construct alternating map from bilinear map equal arguments zero",
+      "declarations": [
+        "AlternatingMap.mk_zero",
+        "ContinuousLinearMap.flip_zero",
+        "AlternatingMap.alternatizeUncurryFin_alternatizeUncurryFinLM_comp_of_symmetric",
+        "AlternatingMap.map_zero",
+        "LinearMap.BilinMap.toQuadraticMap_eq_zero",
+        "LinearMap.IsAlt.self_eq_zero",
+        "AlternatingMap.zero_apply",
+        "ContinuousAlternatingMap.map_zero",
+        "AlternatingMap",
+        "ContinuousAlternatingMap"
+      ],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "(_ [⋀^Fin 2]→ₗ[_] _)",
+      "declarations": [
+        "Orientation.rightAngleRotation_trans_neg_orientation",
+        "Orientation.rightAngleRotation_neg_orientation",
+        "Orientation.areaForm_to_volumeForm",
+        "Orientation.areaForm_neg_orientation",
+        "Orientation.kahler_neg_orientation",
+        "Orientation.areaForm_def",
+        "Orientation.oangle_neg_orientation_eq_neg",
+        "Orientation.rotation_neg_orientation_eq_neg"
+      ],
+      "call_turn": 20,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "AddMonoidHom.toIntLinearMap",
+      "declarations": [
+        "AddMonoidHom.toIntLinearMap",
+        "AddMonoidHom.toIntLinearMap_injective",
+        "AddMonoidHom.coe_toIntLinearMap",
+        "addMonoidHomLequivInt_apply",
+        "Submodule.AddMonoidHom.coe_toIntLinearMap_comap",
+        "AddMonoidHom.coe_toIntLinearMap_map",
+        "AddMonoidHom.coe_toIntLinearMap_ker",
+        "AddMonoidHom.coe_toIntLinearMap_range",
+        "Submodule.natAbs_det_equiv",
+        "Ideal.natAbs_det_equiv"
+      ],
+      "call_turn": 20,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "commutator G = ⁅⊤, ⊤⁆",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "commutator_eq_top_commutator",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_eq",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "commutator_le",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_le",
+      "declarations": [
+        "Subgroup.commutator_le"
+      ],
+      "call_turn": 27,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Subgroup.comap_subtype_mem",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "commutator element product first argument modulo commutator subgroup",
+      "declarations": [
+        "commutator",
+        "commutatorElement",
+        "commutatorElement_mul_left_eq_conj_mul",
+        "commutatorElement_def",
+        "Subgroup.instFiniteSubtypeMemCommutatorOfElemCommutatorSet",
+        "commutatorElement_mul_left_mul",
+        "addCommutatorElement",
+        "Subgroup.commutator_prod_prod",
+        "map_commutatorElement",
+        "conjugate_commutatorElement"
+      ],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:28",
+      "tool": "leanfinder",
+      "query": "commutator of product equals product commutators conjugation group",
+      "declarations": [
+        "conj_eq_commutatorElement_mul",
+        "DihedralGroup.Product",
+        "TensorProduct",
+        "dotProduct",
+        "commutatorElement_mul_right_eq_mul_conj",
+        "SemidirectProduct.instGroup",
+        "commutatorElement_mul_left_eq_conj_mul",
+        "commutatorElement_mul_left_mul",
+        "isNilpotent_of_product_of_sylow_group",
+        "Group.isNilpotent_of_product_of_sylow_group"
+      ],
+      "call_turn": 36,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "commutatorElement_mul",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "commutator_eq_one_iff_commute",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "commutatorElement_commute",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Subgroup.mem_comap",
+      "declarations": [
+        "Subgroup.mem_comap"
+      ],
+      "call_turn": 36,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_comm",
+      "declarations": [
+        "Subgroup.commutator_comm"
+      ],
+      "call_turn": 43,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "⁅_, _⁆ = ⁅_, _⁆",
+      "declarations": [
+        "AddSubgroup.addCommutator_comm",
+        "Subgroup.commutator_comm",
+        "Subgroup.quotientCentralizerEmbedding_apply",
+        "Subgroup.quotientCenterEmbedding_apply",
+        "LieRingModule.compLieHom_apply",
+        "LieSubalgebra.coe_bracket_of_module",
+        "LieModule.ext_of_isFaithful",
+        "LieIdeal.coe_bracket_of_module",
+        "LieSubmodule.lie_comm",
+        "LieDerivation.lie_ad"
+      ],
+      "call_turn": 43,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "commutator_conj",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "conj_eq_commutatorElement_mul",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "commutatorElement_mul_right_eq_mul_conj",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "commutatorElement_mul_left_eq_conj_mul",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "(_ * ⁅_, _⁆ * _ = _)",
+      "declarations": [
+        "conjugate_commutatorElement"
+      ],
+      "call_turn": 52,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "QuotientGroup.lift",
+      "declarations": [
+        "QuotientGroup.lift",
+        "QuotientGroup.ker_lift",
+        "QuotientGroup.lift_comp_mk'",
+        "QuotientGroup.lift_mk",
+        "QuotientGroup.lift_mk'",
+        "QuotientGroup.lift_quot_mk",
+        "QuotientGroup.lift_surjective_of_surjective"
+      ],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "QuotientGroup.lift_mk'",
+      "declarations": [
+        "QuotientGroup.lift_mk'"
+      ],
+      "call_turn": 54,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "QuotientGroup.lift_mk",
+      "declarations": [
+        "QuotientGroup.lift_mk"
+      ],
+      "call_turn": 54,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "QuotientGroup.map",
+      "declarations": [
+        "QuotientGroup.map",
+        "QuotientGroup.ker_map",
+        "QuotientGroup.map_id",
+        "QuotientGroup.map_id_apply",
+        "QuotientGroup.map_mk",
+        "QuotientGroup.map_surjective_of_surjective",
+        "QuotientGroup.map_mk'",
+        "QuotientGroup.map_comp_map",
+        "QuotientGroup.map_map",
+        "QuotientGroup.quotientQuotientEquivQuotientAux_mk"
+      ],
+      "call_turn": 54,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Subgroup.map_quotient",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "QuotientGroup.induction_on",
+      "declarations": [
+        "QuotientGroup.induction_on"
+      ],
+      "call_turn": 54,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Subgroup.map_subtype_commutator",
+      "declarations": [
+        "Subgroup.map_subtype_commutator"
+      ],
+      "call_turn": 63,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Subgroup.map_commutator",
+      "declarations": [
+        "Subgroup.map_commutator"
+      ],
+      "call_turn": 63,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_le_map_commutator",
+      "declarations": [
+        "Subgroup.commutator_le_map_commutator"
+      ],
+      "call_turn": 63,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Subgroup.map_subtype",
+      "declarations": [],
+      "call_turn": 63,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Subgroup.mem_map",
+      "declarations": [
+        "Subgroup.mem_map"
+      ],
+      "call_turn": 63,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Subgroup.comap_subtype_eq_top",
+      "declarations": [],
+      "call_turn": 63,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "Subgroup.le_comap",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "_ ≤ Subgroup.comap _ _ ↔ Subgroup.map _ _ ≤ _",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Subgroup.map_le_iff_le_comap",
+      "declarations": [
+        "Subgroup.map_le_iff_le_comap"
+      ],
+      "call_turn": 70,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Subgroup.le_comap_iff",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Subgroup.mem_comap_subtype",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Subgroup.map_subtype_le_iff",
+      "declarations": [],
+      "call_turn": 70,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "Subgroup.Normal.conj_mem",
+      "declarations": [
+        "Subgroup.Normal.conj_mem"
+      ],
+      "call_turn": 81,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "Subgroup.Normal.mem_conj",
+      "declarations": [],
+      "call_turn": 81,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "_ * _ * _⁻¹ ∈ _",
+      "declarations": [
+        "Subgroup.Normal.conj_mem",
+        "Subgroup.Normal.mk",
+        "Subgroup.mem_normalizer_iff",
+        "Group.conj_mem_conjugatesOfSet",
+        "Subgroup.normal_subgroupOf_iff",
+        "Subgroup.conj_mem_sup_of_mem_inf_normalizer_of_mem_inf",
+        "Subgroup.mem_normalizer_fintype",
+        "Equiv.Perm.mem_cycleFactorsFinset_conj",
+        "mem_upperCentralSeriesStep",
+        "mem_upperCentralSeries_succ_iff"
+      ],
+      "call_turn": 81,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "Subgroup.conj_mem",
+      "declarations": [],
+      "call_turn": 81,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Subgroup.Normal.conj",
+      "declarations": [],
+      "call_turn": 81,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "Subgroup.normal_conj_mem",
+      "declarations": [],
+      "call_turn": 81,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "QuotientGroup.mk'_eq_one",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 129
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "QuotientGroup.mk_eq_one",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "QuotientGroup.eq_one_iff",
+      "declarations": [
+        "QuotientGroup.eq_one_iff"
+      ],
+      "call_turn": 128,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "MonoidHom.mem_ker",
+      "declarations": [
+        "MonoidHom.mem_ker"
+      ],
+      "call_turn": 128,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Subgroup.mem_ker",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "sup_le_iff",
+      "declarations": [
+        "sup_le_iff"
+      ],
+      "call_turn": 128,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "Subgroup.mem_center",
+      "declarations": [],
+      "call_turn": 135,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "Subgroup.center",
+      "declarations": [
+        "Subgroup.center",
+        "Subgroup.centerCharacteristic",
+        "Subgroup.instNormalCenter",
+        "Group.commGroupOfCenterEqTop",
+        "CommGroup.center_eq_top",
+        "Subgroup.center_toSubmonoid",
+        "Subgroup.coe_center",
+        "Subgroup.center.isMulCommutative",
+        "Subgroup.center_le_normalizer",
+        "ConjClasses.mk_bijOn"
+      ],
+      "call_turn": 135,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "_ ∈ Subgroup.center _ ↔ ∀ _, _",
+      "declarations": [
+        "Subgroup.mem_center_iff"
+      ],
+      "call_turn": 135,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "Subgroup.mem_center_iff",
+      "declarations": [
+        "Subgroup.mem_center_iff"
+      ],
+      "call_turn": 135,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "Commute _ _",
+      "declarations": [
+        "Commute.refl",
+        "Commute.all",
+        "Commute.symm",
+        "Commute.semiconjBy",
+        "Commute.symm_iff",
+        "Commute.on_refl",
+        "Commute.one_left",
+        "Commute.one_right",
+        "Commute.pow_self",
+        "Commute.self_pow"
+      ],
+      "call_turn": 135,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Subgroup.center_eq_top_iff",
+      "declarations": [],
+      "call_turn": 135,
+      "result_turn": 141
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "MonoidHom.instCommGroup",
+      "declarations": [
+        "MonoidHom.instCommGroup",
+        "MonoidHom.map_inv",
+        "MonoidHom.map_div",
+        "MonoidHom.restrictHomKerEquiv",
+        "MonoidHom.restrictHomKerEquiv_apply_coe",
+        "MonoidHom.restrictHomKerEquiv_symm_coe_apply",
+        "CommGrpCat.coyoneda_obj_map",
+        "CommGrpCat.coyoneda_map_app",
+        "CommGroup.monoidHomMonoidHomEquiv",
+        "CommGroup.subgroupOrderIsoSubgroupMonoidHom"
+      ],
+      "call_turn": 160,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "MonoidHom.instGroup",
+      "declarations": [],
+      "call_turn": 160,
+      "result_turn": 162
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "MonoidHom.instMulOneClass",
+      "declarations": [],
+      "call_turn": 160,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "MonoidHom.mul",
+      "declarations": [
+        "MonoidHom.mul",
+        "MonoidHom.mul_apply",
+        "MonoidHom.mul_comp",
+        "MonoidHom.comp_mul",
+        "AddMonoidHom.toMultiplicativeLeftAddEquiv",
+        "AddMonoidHom.toMultiplicativeRightAddEquiv",
+        "MonoidHom.toAdditiveLeftMulEquiv",
+        "MonoidHom.toAdditiveRightMulEquiv",
+        "AddMonoidHom.toMultiplicative_add",
+        "MonoidHom.toHomUnitsMulEquiv"
+      ],
+      "call_turn": 160,
+      "result_turn": 164
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "MonoidHom.one",
+      "declarations": [],
+      "call_turn": 160,
+      "result_turn": 165
+    },
+    {
+      "event_id": "leanfinder:114",
+      "tool": "leanfinder",
+      "query": "group structure on monoid homomorphisms into commutative group pointwise",
+      "declarations": [
+        "MonoidHom.toHomUnitsMulEquiv",
+        "alternatingGroup.iwasawaStructure_three",
+        "Algebra.GrothendieckGroup.lift",
+        "MonoidHom.instCommGroup",
+        "Group",
+        "alternatingGroup.iwasawaStructure_four",
+        "DihedralGroup.not_commutative",
+        "DihedralGroup.commutative_iff",
+        "MonoidHom.instCommMonoid",
+        "Algebra.GrothendieckAddGroup.lift_apply"
+      ],
+      "call_turn": 160,
+      "result_turn": 166
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "Multiplicative.toAddMulEquiv",
+      "declarations": [],
+      "call_turn": 189,
+      "result_turn": 190
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "Additive.ofMulMulEquiv",
+      "declarations": [],
+      "call_turn": 189,
+      "result_turn": 191
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "Multiplicative.addEquiv",
+      "declarations": [],
+      "call_turn": 189,
+      "result_turn": 192
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "Multiplicative.toAdd_surjective",
+      "declarations": [],
+      "call_turn": 189,
+      "result_turn": 193
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "Multiplicative.toAdd_apply",
+      "declarations": [],
+      "call_turn": 189,
+      "result_turn": 194
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "Additive.ofMul_add",
+      "declarations": [],
+      "call_turn": 189,
+      "result_turn": 195
+    },
+    {
+      "event_id": "loogle:144",
+      "tool": "loogle",
+      "query": "AddMonoidHom.map_zsmul",
+      "declarations": [
+        "AddMonoidHom.map_zsmul"
+      ],
+      "call_turn": 220,
+      "result_turn": 221
+    },
+    {
+      "event_id": "loogle:145",
+      "tool": "loogle",
+      "query": "map_zsmul",
+      "declarations": [
+        "map_zsmul"
+      ],
+      "call_turn": 220,
+      "result_turn": 222
+    },
+    {
+      "event_id": "loogle:146",
+      "tool": "loogle",
+      "query": "AddMonoidHom.map_int_smul",
+      "declarations": [],
+      "call_turn": 220,
+      "result_turn": 223
+    },
+    {
+      "event_id": "loogle:147",
+      "tool": "loogle",
+      "query": "zsmul_add",
+      "declarations": [
+        "zsmul_add"
+      ],
+      "call_turn": 220,
+      "result_turn": 224
+    },
+    {
+      "event_id": "loogle:148",
+      "tool": "loogle",
+      "query": "map_zpow",
+      "declarations": [
+        "map_zpow"
+      ],
+      "call_turn": 220,
+      "result_turn": 225
+    },
+    {
+      "event_id": "loogle:149",
+      "tool": "loogle",
+      "query": "MonoidHom.map_zpow",
+      "declarations": [
+        "MonoidHom.map_zpow"
+      ],
+      "call_turn": 220,
+      "result_turn": 226
+    },
+    {
+      "event_id": "loogle:164",
+      "tool": "loogle",
+      "query": "Subgroup.closure_induction",
+      "declarations": [
+        "Subgroup.closure_induction"
+      ],
+      "call_turn": 255,
+      "result_turn": 256
+    },
+    {
+      "event_id": "loogle:165",
+      "tool": "loogle",
+      "query": "Subgroup.closure_induction'",
+      "declarations": [],
+      "call_turn": 255,
+      "result_turn": 257
+    },
+    {
+      "event_id": "loogle:166",
+      "tool": "loogle",
+      "query": "Subgroup.induction_on_closure",
+      "declarations": [],
+      "call_turn": 255,
+      "result_turn": 258
+    },
+    {
+      "event_id": "loogle:167",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_eq_closure",
+      "declarations": [],
+      "call_turn": 255,
+      "result_turn": 259
+    },
+    {
+      "event_id": "loogle:168",
+      "tool": "loogle",
+      "query": "Subgroup.commutator_def",
+      "declarations": [
+        "Subgroup.commutator_def"
+      ],
+      "call_turn": 255,
+      "result_turn": 260
+    },
+    {
+      "event_id": "loogle:169",
+      "tool": "loogle",
+      "query": "mem_commutatorSet_iff",
+      "declarations": [
+        "mem_commutatorSet_iff"
+      ],
+      "call_turn": 255,
+      "result_turn": 261
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 8,
+    "retrieval_query_count": 98,
+    "useful_retrieval_event_count": 8,
+    "unused_retrieval_event_count": 90,
+    "accepted_helper_count": 13,
+    "rollout_tool_call_count": 177,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

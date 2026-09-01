@@ -1,0 +1,635 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "manifest": [
+        {
+          "statement": "∃ g k x, g ≠ 1 ∧ 1 ≤ k ∧ (List.ofFn fun i => (x i)⁻¹ * g * x i).prod = 1",
+          "origin": "manifest",
+          "name": "h",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "∃ r, IsStrictTotalOrder G r ∧ (∀ (a b c : G), r a b ↔ r (c * a) (c * b)) ∧ ∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "manifest",
+          "name": "a._@._internal.0.proofs.1064056188._hygCtx._hyg.161",
+          "fvar_id": "3"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "False",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Classical.byContradiction",
+          "Eq.symm",
+          "Eq.trans",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsStrictOrder.toIrrefl",
+          "IsStrictTotalOrder.toIsStrictOrder",
+          "IsStrictTotalOrder.toTrichotomous",
+          "List.mem_ofFn",
+          "List.ofFn_eq_nil_iff",
+          "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff",
+          "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.list_prod_lt_one_of_forall_lt_one",
+          "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.list_prod_one_lt_of_forall_one_lt",
+          "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one._proof_1",
+          "Std.Irrefl.irrefl",
+          "Std.Trichotomous.trichotomous",
+          "congrArg",
+          "congrFun'",
+          "inv_mul_cancel",
+          "mul_one"
+        ],
+        "premises": [
+          {
+            "statement": "∃ g k x, g ≠ 1 ∧ 1 ≤ k ∧ (List.ofFn fun i => (x i)⁻¹ * g * x i).prod = 1",
+            "origin": "local_assumption",
+            "name": "h",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "∃ r, IsStrictTotalOrder G r ∧ (∀ (a b c : G), r a b ↔ r (c * a) (c * b)) ∧ ∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+            "origin": "local_assumption",
+            "name": "a._@._internal.0.proofs.1064056188._hygCtx._hyg.161",
+            "fvar_id": "3"
+          }
+        ],
+        "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "False",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "1 = g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictTotalOrder.toTrichotomous",
+        "Std.Trichotomous.trichotomous"
+      ],
+      "premises": [
+        {
+          "statement": "IsStrictTotalOrder G r",
+          "origin": "local_assumption",
+          "name": "hsto",
+          "fvar_id": "_uniq.818101"
+        },
+        {
+          "statement": "¬r 1 g",
+          "origin": "local_assumption",
+          "name": "hpos",
+          "fvar_id": "_uniq.820642"
+        },
+        {
+          "statement": "¬r g 1",
+          "origin": "local_assumption",
+          "name": "hneg",
+          "fvar_id": "_uniq.821408"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_96",
+      "conclusion": {
+        "statement": "1 = g",
+        "origin": "derived",
+        "name": "heq",
+        "fvar_id": "_uniq.821792"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r ((x i)⁻¹ * 1 * x i) ((x i)⁻¹ * g * x i) ↔ r 1 g",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (c * a) (c * b)",
+          "origin": "local_assumption",
+          "name": "hleft",
+          "fvar_id": "_uniq.818119"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_97",
+      "conclusion": {
+        "statement": "r ((x i)⁻¹ * 1 * x i) ((x i)⁻¹ * g * x i) ↔ r 1 g",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.823632"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r 1 ((x i)⁻¹ * g * x i)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Iff.mpr",
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff",
+        "congrArg",
+        "congrFun'",
+        "inv_mul_cancel",
+        "mul_one"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (c * a) (c * b)",
+          "origin": "local_assumption",
+          "name": "hleft",
+          "fvar_id": "_uniq.818119"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        },
+        {
+          "statement": "r 1 g",
+          "origin": "local_assumption",
+          "name": "hpos",
+          "fvar_id": "_uniq.821831"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_98",
+      "conclusion": {
+        "statement": "r 1 ((x i)⁻¹ * g * x i)",
+        "origin": "derived",
+        "name": "hci",
+        "fvar_id": "_uniq.823587"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r 1 l.prod",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.list_prod_one_lt_of_forall_one_lt"
+      ],
+      "premises": [
+        {
+          "statement": "IsStrictTotalOrder G r",
+          "origin": "local_assumption",
+          "name": "hsto",
+          "fvar_id": "_uniq.818101"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        },
+        {
+          "statement": "l ≠ []",
+          "origin": "derived",
+          "name": "hne",
+          "fvar_id": "_uniq.819811"
+        },
+        {
+          "statement": "∀ a ∈ l, r 1 a",
+          "origin": "derived",
+          "name": "hall",
+          "fvar_id": "_uniq.821982"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_99",
+      "conclusion": {
+        "statement": "r 1 l.prod",
+        "origin": "derived",
+        "name": "hprodside",
+        "fvar_id": "_uniq.827816"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(List.ofFn fun i => (x i)⁻¹ * g * x i).prod = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "(List.ofFn fun i => (x i)⁻¹ * g * x i).prod = 1",
+          "origin": "local_assumption",
+          "name": "hprod",
+          "fvar_id": "_uniq.818211"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_100",
+      "conclusion": {
+        "statement": "l.prod = 1",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.827865"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ a ∈ l, r 1 a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Iff.mp",
+        "Iff.mpr",
+        "List.mem_ofFn",
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff",
+        "congrArg",
+        "congrFun'",
+        "inv_mul_cancel",
+        "mul_one"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (c * a) (c * b)",
+          "origin": "local_assumption",
+          "name": "hleft",
+          "fvar_id": "_uniq.818119"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        },
+        {
+          "statement": "r 1 g",
+          "origin": "local_assumption",
+          "name": "hpos",
+          "fvar_id": "_uniq.821831"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_101",
+      "conclusion": {
+        "statement": "∀ a ∈ l, r 1 a",
+        "origin": "derived",
+        "name": "hall",
+        "fvar_id": "_uniq.821982"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r 1 g ∨ r g 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Classical.byContradiction",
+        "Eq.symm",
+        "IsStrictTotalOrder.toTrichotomous",
+        "Std.Trichotomous.trichotomous"
+      ],
+      "premises": [
+        {
+          "statement": "IsStrictTotalOrder G r",
+          "origin": "local_assumption",
+          "name": "hsto",
+          "fvar_id": "_uniq.818101"
+        },
+        {
+          "statement": "g ≠ 1",
+          "origin": "local_assumption",
+          "name": "hg",
+          "fvar_id": "_uniq.818192"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_102",
+      "conclusion": {
+        "statement": "r 1 g ∨ r g 1",
+        "origin": "derived",
+        "name": "hside",
+        "fvar_id": "_uniq.820302"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r ((x i)⁻¹ * g * x i) ((x i)⁻¹ * 1 * x i) ↔ r g 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (c * a) (c * b)",
+          "origin": "local_assumption",
+          "name": "hleft",
+          "fvar_id": "_uniq.818119"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_103",
+      "conclusion": {
+        "statement": "r ((x i)⁻¹ * g * x i) ((x i)⁻¹ * 1 * x i) ↔ r g 1",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.828160"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r ((x i)⁻¹ * g * x i) 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Iff.mpr",
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff",
+        "congrArg",
+        "congrFun'",
+        "inv_mul_cancel",
+        "mul_one"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (c * a) (c * b)",
+          "origin": "local_assumption",
+          "name": "hleft",
+          "fvar_id": "_uniq.818119"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        },
+        {
+          "statement": "r g 1",
+          "origin": "local_assumption",
+          "name": "hneg",
+          "fvar_id": "_uniq.827903"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_104",
+      "conclusion": {
+        "statement": "r ((x i)⁻¹ * g * x i) 1",
+        "origin": "derived",
+        "name": "hci",
+        "fvar_id": "_uniq.828127"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r l.prod 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.list_prod_lt_one_of_forall_lt_one"
+      ],
+      "premises": [
+        {
+          "statement": "IsStrictTotalOrder G r",
+          "origin": "local_assumption",
+          "name": "hsto",
+          "fvar_id": "_uniq.818101"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        },
+        {
+          "statement": "l ≠ []",
+          "origin": "derived",
+          "name": "hne",
+          "fvar_id": "_uniq.819811"
+        },
+        {
+          "statement": "∀ a ∈ l, r a 1",
+          "origin": "derived",
+          "name": "hall",
+          "fvar_id": "_uniq.828045"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_105",
+      "conclusion": {
+        "statement": "r l.prod 1",
+        "origin": "derived",
+        "name": "hprodside",
+        "fvar_id": "_uniq.830544"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(List.ofFn fun i => (x i)⁻¹ * g * x i).prod = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "(List.ofFn fun i => (x i)⁻¹ * g * x i).prod = 1",
+          "origin": "local_assumption",
+          "name": "hprod",
+          "fvar_id": "_uniq.818211"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_106",
+      "conclusion": {
+        "statement": "l.prod = 1",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.830593"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "l ≠ []",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "List.ofFn_eq_nil_iff",
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one._proof_1",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ k",
+          "origin": "local_assumption",
+          "name": "hk",
+          "fvar_id": "_uniq.818210"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_108",
+      "conclusion": {
+        "statement": "l ≠ []",
+        "origin": "derived",
+        "name": "hne",
+        "fvar_id": "_uniq.819811"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ a ∈ l, r a 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Iff.mp",
+        "Iff.mpr",
+        "List.mem_ofFn",
+        "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.conj_mul_iff",
+        "congrArg",
+        "congrFun'",
+        "inv_mul_cancel",
+        "mul_one"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (c * a) (c * b)",
+          "origin": "local_assumption",
+          "name": "hleft",
+          "fvar_id": "_uniq.818119"
+        },
+        {
+          "statement": "∀ (a b c : G), r a b ↔ r (a * c) (b * c)",
+          "origin": "local_assumption",
+          "name": "hright",
+          "fvar_id": "_uniq.818120"
+        },
+        {
+          "statement": "r g 1",
+          "origin": "local_assumption",
+          "name": "hneg",
+          "fvar_id": "_uniq.827903"
+        }
+      ],
+      "parent": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+      "id": "local_109",
+      "conclusion": {
+        "statement": "∀ a ∈ l, r a 1",
+        "origin": "derived",
+        "name": "hall",
+        "fvar_id": "_uniq.828045"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1572_not_biorderable_of_product_conjugates_eq_o.not_biorderable_of_product_conjugates_eq_one",
+    "proof_sha256": "60bc70dc6b1f49b2ddf30d1711286557dc83383f559e5352dd6b45603efdc2dd"
+  }
+}

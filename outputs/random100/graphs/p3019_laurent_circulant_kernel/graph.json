@@ -1,0 +1,1376 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3019_laurent_circulant_kernel",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3019,
+    "source": "1403.7571",
+    "theorem_name": "laurent_circulant_kernel",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3019",
+    "reconstructed_proof": "../../candidates/p3019_laurent_circulant_kernel/proof.lean",
+    "raw_elaboration": "../../candidates/p3019_laurent_circulant_kernel/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+    "verification_call_id": "verify_submission:137",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "63d6015b119f90a9baba38749e4205742c89b29c8136c262b83a135dc804b604",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "0e564b05be0c8502561e97318b551bf5141373f76af9fa24203e89d8590ce4a2",
+    "concrete_semantic_topology_sha256": "63d6015b119f90a9baba38749e4205742c89b29c8136c262b83a135dc804b604"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_38f34c70",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "3",
+      "statement": "0 < a"
+    },
+    {
+      "id": "m_hab_41ac4068",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hab",
+      "lean_fvar_id": "4",
+      "statement": "a < b"
+    },
+    {
+      "id": "m_hab_coprime_2561a90f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hab_coprime",
+      "lean_fvar_id": "5",
+      "statement": "a.Coprime b"
+    },
+    {
+      "id": "m_hn_587d7606",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "6",
+      "statement": "3 ≤ n"
+    },
+    {
+      "id": "m_hv_8b8d611f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hv",
+      "lean_fvar_id": "13",
+      "statement": "B.mulVec v = 0"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "v i = v j"
+    },
+    {
+      "id": "n_hcop_da305c8b",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hcop",
+      "lean_fvar_id": "23",
+      "statement": "a.Coprime (a + b)"
+    },
+    {
+      "id": "n_hne_9ce5d142",
+      "class": "side",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hNe",
+      "lean_fvar_id": "7",
+      "statement": "NeZero (a + b)"
+    },
+    {
+      "id": "n_hrec_7beb7a61",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hrec",
+      "lean_fvar_id": "20",
+      "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0"
+    },
+    {
+      "id": "n_ht_76fc374c",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "ht",
+      "lean_fvar_id": "21",
+      "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)"
+    },
+    {
+      "id": "n_hv_a0eb4d20",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hv'",
+      "lean_fvar_id": "16",
+      "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0"
+    },
+    {
+      "id": "n_hvinv_39487606",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hvinv",
+      "lean_fvar_id": "26",
+      "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)"
+    },
+    {
+      "id": "n_hweq_b0ea75df",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hweq",
+      "lean_fvar_id": "25",
+      "statement": "∀ (i j : ZMod (a + b)), w i = w j"
+    },
+    {
+      "id": "n_hwinv_036dec10",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hwinv",
+      "lean_fvar_id": "24",
+      "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)"
+    },
+    {
+      "id": "n_hx_4d0599ac",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "22",
+      "statement": "∀ (r : ZMod (a + b)), x r = 0"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hne",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_ha_38f34c70"
+      ],
+      "conclusion": "n_hne_9ce5d142",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_7",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "ha",
+              "statement": "0 < a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "7",
+            "name": "hNe",
+            "statement": "NeZero (a + b)"
+          }
+        },
+        "lean_dependency_sha256": "512b136ab60af965c9640606546b5b98ea8f8d971f8a631d704b7036d34b1940",
+        "kernel_witness_check": {
+          "proof_type": "NeZero (a + b)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hv",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hne_9ce5d142",
+        "m_hv_8b8d611f"
+      ],
+      "conclusion": "n_hv_a0eb4d20",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_16",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hv",
+              "statement": "B.mulVec v = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "16",
+            "name": "hv'",
+            "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0"
+          }
+        },
+        "lean_dependency_sha256": "9594be650670a53ae6c238dd552603639a243ed57a20a5fef396291c06f9f7a2",
+        "kernel_witness_check": {
+          "proof_type": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hrec",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_38f34c70",
+        "m_hab_41ac4068",
+        "n_hne_9ce5d142",
+        "n_hv_a0eb4d20"
+      ],
+      "conclusion": "n_hrec_7beb7a61",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "laurentCirculantB_mulVec_factor + congrFun",
+        "items": [
+          "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor",
+          "congrFun"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor"
+        ],
+        "mathlib_items": [
+          "congrFun"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hrec : ∀ r : ZMod (a+b), x r + t * x (r + 1) = 0 := by\n    intro r\n    have hfac := laurentCirculantB_mulVec_factor a b ha hab ε v r\n    have hidx : r + (a : ZMod (a+b)) + 1 = (r + 1) + (a : ZMod (a+b)) := by abel\n    calc\n      x r + t * x (r + 1) =\n          (w (r + (a : ZMod (a+b))) - w r) +\n            t * (w (r + (a : ZMod (a+b)) + 1) - w (r + 1)) := by\n            show (w (r + (a : ZMod (a+b))) - w r) +\n                t * (w ((r + 1) + (a : ZMod (a+b))) - w (r + 1)) =\n              (w (r + (a : ZMod (a+b))) - w r) +\n                t * (w (r + (a : ZMod (a+b)) + 1) - w (r + 1))\n            rw [hidx]\n      _ = (laurentCirculantB a b ε).mulVec v r := hfac.symm\n      _ = 0 := congrFun hv' r",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "ha",
+              "statement": "0 < a"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hab",
+              "statement": "a < b"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hv'",
+              "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hrec",
+            "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0"
+          }
+        },
+        "lean_dependency_sha256": "6375bc1ee68e0a88c927c93d9321e404ade90f44cce7f9a8fedb2b8c673e7fdc",
+        "kernel_witness_check": {
+          "proof_type": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_ht",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hne_9ce5d142"
+      ],
+      "conclusion": "n_ht_76fc374c",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "laurent_neg_one_t_pow_ne",
+        "items": [
+          "Rollout_p3019_laurent_circulant_kernel.laurent_neg_one_t_pow_ne"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3019_laurent_circulant_kernel.laurent_neg_one_t_pow_ne"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have ht : t ^ (a+b) ≠ (-1 : LaurentPolynomial ℤ) ^ (a+b) := by\n    simpa [t, ε] using laurent_neg_one_t_pow_ne (a+b) n",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "ht",
+            "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)"
+          }
+        },
+        "lean_dependency_sha256": "40798e6050db4de1d8efb0fc551e829da4b09e776b03a5773c7014f1a73b5edb",
+        "kernel_witness_check": {
+          "proof_type": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hx",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hne_9ce5d142",
+        "n_hrec_7beb7a61",
+        "n_ht_76fc374c"
+      ],
+      "conclusion": "n_hx_4d0599ac",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "zmod_recur_eq_zero",
+        "items": [
+          "Rollout_p3019_laurent_circulant_kernel.zmod_recur_eq_zero"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3019_laurent_circulant_kernel.zmod_recur_eq_zero"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hx : ∀ r : ZMod (a+b), x r = 0 :=\n    zmod_recur_eq_zero hrec ht",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hrec",
+              "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0"
+            },
+            {
+              "fvar_id": "21",
+              "name": "ht",
+              "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hx",
+            "statement": "∀ (r : ZMod (a + b)), x r = 0"
+          }
+        },
+        "lean_dependency_sha256": "cee151340fc155374f07e6ee114f72086973f839353e196558b04cbdf6b1f6d7",
+        "kernel_witness_check": {
+          "proof_type": "∀ (r : ZMod (a + b)), x r = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hcop",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hab_coprime_2561a90f"
+      ],
+      "conclusion": "n_hcop_da305c8b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.coprime_self_add_right",
+        "items": [
+          "Nat.coprime_self_add_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.coprime_self_add_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_23",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hcop : Nat.Coprime a (a+b) := by\n    exact Nat.coprime_self_add_right.2 hab_coprime",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hab_coprime",
+              "statement": "a.Coprime b"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "23",
+            "name": "hcop",
+            "statement": "a.Coprime (a + b)"
+          }
+        },
+        "lean_dependency_sha256": "62383cd7656d59ce8c7e2c2997b9296b238382baeb208c972ee33327aa69d3c5",
+        "kernel_witness_check": {
+          "proof_type": "a.Coprime (a + b)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.coprime_self_add_right"
+        ],
+        "observed_search_event_ids": [
+          "loogle:18"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hwinv",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hx_4d0599ac"
+      ],
+      "conclusion": "n_hwinv_036dec10",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "sub_eq_zero",
+        "items": [
+          "sub_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "sub_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_24",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hwinv : ∀ r : ZMod (a+b), w r = w (r - (a : ZMod (a+b))) := by\n    intro r\n    have hxr := hx (r - (a : ZMod (a+b)))\n    have h := sub_eq_zero.mp hxr\n    have hidx : (r - (a : ZMod (a+b))) + (a : ZMod (a+b)) = r := by abel\n    rw [hidx] at h\n    exact h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "22",
+              "name": "hx",
+              "statement": "∀ (r : ZMod (a + b)), x r = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "24",
+            "name": "hwinv",
+            "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)"
+          }
+        },
+        "lean_dependency_sha256": "8b2fa67c1bf48c0f07db83641cdc2f52cd78b4375132eafb62ba230ecb5d2855",
+        "kernel_witness_check": {
+          "proof_type": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hweq",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hne_9ce5d142",
+        "n_hcop_da305c8b",
+        "n_hwinv_036dec10"
+      ],
+      "conclusion": "n_hweq_b0ea75df",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "eq_of_forall_sub_natCast_zmod",
+        "items": [
+          "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_25",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hweq : ∀ i j : ZMod (a+b), w i = w j :=\n    eq_of_forall_sub_natCast_zmod hcop hwinv",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hcop",
+              "statement": "a.Coprime (a + b)"
+            },
+            {
+              "fvar_id": "24",
+              "name": "hwinv",
+              "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "25",
+            "name": "hweq",
+            "statement": "∀ (i j : ZMod (a + b)), w i = w j"
+          }
+        },
+        "lean_dependency_sha256": "f6bee8e4caed914aa4a06ae3c63e12425686d95eab818a6133ee4871567c948b",
+        "kernel_witness_check": {
+          "proof_type": "∀ (i j : ZMod (a + b)), w i = w j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hvinv",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_38f34c70",
+        "n_hne_9ce5d142",
+        "n_hweq_b0ea75df"
+      ],
+      "conclusion": "n_hvinv_39487606",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "zmod_window_succ_sub + sub_eq_zero",
+        "items": [
+          "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub",
+          "sub_eq_zero"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub"
+        ],
+        "mathlib_items": [
+          "sub_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_26",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hvinv : ∀ r : ZMod (a+b), v r = v (r - (a : ZMod (a+b))) := by\n    intro r\n    have hdiff : w (r+1) - w r = 0 := sub_eq_zero.mpr (hweq (r+1) r)\n    have htel := zmod_window_succ_sub a b ha v r\n    have hzero : v r - v (r - (a : ZMod (a+b))) = 0 := by\n      calc\n        v r - v (r - (a : ZMod (a+b))) = w (r+1) - w r := by\n          show v r - v (r - (a : ZMod (a+b))) =\n            (∑ k ∈ Finset.Ico 1 (a+1), v ((r + 1) - (k : ZMod (a+b)))) -\n              (∑ k ∈ Finset.Ico 1 (a+1), v (r - (k : ZMod (a+b))))\n          exact htel.symm\n        _ = 0 := hdiff\n    exact sub_eq_zero.mp hzero",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "ha",
+              "statement": "0 < a"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            },
+            {
+              "fvar_id": "25",
+              "name": "hweq",
+              "statement": "∀ (i j : ZMod (a + b)), w i = w j"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "26",
+            "name": "hvinv",
+            "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)"
+          }
+        },
+        "lean_dependency_sha256": "5554e73d1825eb8d8e5f84bb0b5216da48a181b1fdf49f81f30735d578271c92",
+        "kernel_witness_check": {
+          "proof_type": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hne_9ce5d142",
+        "n_hcop_da305c8b",
+        "n_hvinv_39487606"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "eq_of_forall_sub_natCast_zmod",
+        "items": [
+          "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact eq_of_forall_sub_natCast_zmod hcop hvinv i j",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hNe",
+              "statement": "NeZero (a + b)"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hcop",
+              "statement": "a.Coprime (a + b)"
+            },
+            {
+              "fvar_id": "26",
+              "name": "hvinv",
+              "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "v i = v j"
+          }
+        },
+        "lean_dependency_sha256": "3dc1189e1902be757f5b293da4b566cdb7da5129665a2782c0076ca218700302",
+        "kernel_witness_check": {
+          "proof_type": "v i = v j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "LaurentPolynomial.T",
+      "declarations": [
+        "LaurentPolynomial.T",
+        "LaurentPolynomial.degree_T",
+        "LaurentPolynomial.commute_T",
+        "LaurentPolynomial.isUnit_T",
+        "LaurentPolynomial.degree_T_le",
+        "LaurentPolynomial.invertibleT",
+        "LaurentPolynomial.T_zero",
+        "LaurentPolynomial.T_add",
+        "LaurentPolynomial.invOf_T",
+        "LaurentPolynomial.T_sub"
+      ],
+      "call_turn": 4,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "LaurentPolynomial.C",
+      "declarations": [
+        "LaurentPolynomial.C",
+        "LaurentPolynomial.single_eq_C",
+        "LaurentPolynomial.single_eq_C_mul_T",
+        "LaurentPolynomial.degree_C_le",
+        "LaurentPolynomial.degree_C",
+        "LaurentPolynomial.degree_C_mul_T_le",
+        "LaurentPolynomial.degree_C_mul_T",
+        "LaurentPolynomial.support_C_mul_T",
+        "LaurentPolynomial.C_apply",
+        "LaurentPolynomial.degree_C_ite"
+      ],
+      "call_turn": 4,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "LaurentPolynomial.ext",
+      "declarations": [
+        "LaurentPolynomial.ext"
+      ],
+      "call_turn": 4,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "LaurentPolynomial coefficient T C ext",
+      "declarations": [
+        "LaurentPolynomial.counit_C_mul_T",
+        "Mathlib.Tactic.ComputeDegree.dispatchLemma",
+        "LaurentPolynomial.C_apply",
+        "Mathlib.Tactic.ComputeDegree.tacticCompute_degree",
+        "LaurentPolynomial.support_C_mul_T",
+        "LaurentPolynomial.eval",
+        "LaurentPolynomial.degree_C_mul_T",
+        "Lean.Omega.Coeffs.get",
+        "Int.Linear.Poly.checkCoeffs",
+        "Polynomial.C"
+      ],
+      "call_turn": 4,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "LaurentPolynomial.T _ ^ _",
+      "declarations": [
+        "LaurentPolynomial.T_pow"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "LaurentPolynomial.T_apply",
+      "declarations": [
+        "LaurentPolynomial.T_apply"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "ZMod.natCast_injective",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "ZMod.intCast_injective",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "(_ : ZMod _) = _ ↔ _ % _ = _ % _",
+      "declarations": [
+        "ZMod.intCast_eq_intCast_iff'",
+        "ZMod.natCast_eq_natCast_iff'"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "ZMod cast injective when values less modulus",
+      "declarations": [
+        "ZMod.lift_injective",
+        "Lean.Meta.Structural.isInstModNat",
+        "ZMod.val_injective",
+        "ZMod.castHom_injective",
+        "ZMod.cast",
+        "ZMod.val_cast_eq_val_of_lt",
+        "Lean.Meta.Structural.isInstModInt",
+        "ZMod.cast_injective_of_le",
+        "Lean.Meta.Structural.isInstHModInt",
+        "instHModUInt8Nat"
+      ],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "ZMod.val_natCast",
+      "declarations": [
+        "ZMod.val_natCast"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "ZMod.isUnit_iff_coprime",
+      "declarations": [
+        "ZMod.isUnit_iff_coprime"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "IsUnit (_ : ZMod _)",
+      "declarations": [
+        "ZMod.isUnit_iff_coprime",
+        "ZMod.isUnit_prime_of_not_dvd",
+        "ZMod.isUnit_prime_iff_not_dvd",
+        "ZMod.val_unit'",
+        "ZMod.inv_mul_of_unit",
+        "ZMod.mul_inv_of_unit",
+        "ZMod.inv_mul_eq_one_of_isUnit",
+        "ZMod.eq_one_of_isUnit_natCast",
+        "ZMod.eq_one_or_isUnit_sub_one",
+        "ZMod.not_isUnit_of_mem_primeFactors"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "ZMod cast unit iff coprime",
+      "declarations": [
+        "ZMod.coe_unitOfCoprime",
+        "ZMod.unitOfCoprime",
+        "ZMod.coe_unitOfIsCoprime",
+        "ZMod.unitOfIsCoprime",
+        "ZMod.unitsMap_val",
+        "ZMod.isUnit_iff_coprime",
+        "ZMod",
+        "ZMod.cast",
+        "IsCoprime",
+        "instHModUInt8Nat"
+      ],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "ZMod.natCast_val",
+      "declarations": [
+        "ZMod.natCast_val"
+      ],
+      "call_turn": 28,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Nat.Coprime _ (_ + _)",
+      "declarations": [
+        "Nat.coprime_add_self_right",
+        "Nat.coprime_self_add_right",
+        "Nat.coprime_add_iff_left",
+        "Nat.coprime_add_iff_right",
+        "Nat.coprime_add_mul_left_right",
+        "Nat.coprime_add_mul_right_right",
+        "Nat.coprime_mul_left_add_right",
+        "Nat.coprime_mul_right_add_right",
+        "Nat.coprime_mul_succ"
+      ],
+      "call_turn": 30,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Matrix.ext",
+      "declarations": [
+        "Matrix.ext"
+      ],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Finset.sum_apply",
+      "declarations": [
+        "Finset.sum_apply"
+      ],
+      "call_turn": 44,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Matrix.sum_apply",
+      "declarations": [
+        "Matrix.sum_apply"
+      ],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "ZMod.intCast_eq_intCast_iff",
+      "declarations": [
+        "ZMod.intCast_eq_intCast_iff"
+      ],
+      "call_turn": 76,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Int.ModEq _ _ ↔ _ ∣ _",
+      "declarations": [],
+      "call_turn": 78,
+      "result_turn": 79
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "Int.ModEq divisibility difference",
+      "declarations": [
+        "Lean.Meta.Structural.isInstDvdInt",
+        "Dyadic.blt",
+        "Lean.mkIntDvd",
+        "Lean.Meta.Simp.Arith.Int.dvdCnstr",
+        "Int.ModEq",
+        "Int.ModEq.pow",
+        "Int.Linear.cooper_dvd_right_cert",
+        "Int.modEq_abs",
+        "Int.mod_modEq",
+        "Int.ModEq.eq"
+      ],
+      "call_turn": 80,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "ZMod.val_intCast",
+      "declarations": [
+        "ZMod.val_intCast"
+      ],
+      "call_turn": 82,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "Int.ModEq.eq_of",
+      "declarations": [],
+      "call_turn": 88,
+      "result_turn": 89
+    },
+    {
+      "event_id": "leanfinder:48",
+      "tool": "leanfinder",
+      "query": "integer congruent modulo n equal if absolute difference less than n",
+      "declarations": [
+        "Nat.ModEq.eq_of_abs_lt",
+        "ZMod.valMinAbs",
+        "Mathlib.Meta.NormNum.evalNatModEq",
+        "ZMod.natAbs_min_of_le_div_two",
+        "Int.eq_of_mod_eq_of_natAbs_sub_lt_natAbs",
+        "Int.modEq_of_dvd",
+        "Int.ModEq",
+        "Nat.ModEq",
+        "Nat.ModEq.dvd",
+        "SSet.N"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Int.eq_of_mod_eq_of_natAbs_sub_lt_natAbs",
+      "declarations": [
+        "Int.eq_of_mod_eq_of_natAbs_sub_lt_natAbs"
+      ],
+      "call_turn": 92,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Int.modEq_iff_dvd",
+      "declarations": [
+        "Int.modEq_iff_dvd"
+      ],
+      "call_turn": 96,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Int.eq_zero_of_dvd_of_natAbs_lt",
+      "declarations": [],
+      "call_turn": 100,
+      "result_turn": 101
+    },
+    {
+      "event_id": "leanfinder:54",
+      "tool": "leanfinder",
+      "query": "integer divides and absolute value less then zero",
+      "declarations": [
+        "AbsoluteValue.map_zero",
+        "Int.eq_zero_of_dvd_of_natAbs_lt_natAbs",
+        "Int.eq_zero_of_abs_lt_dvd",
+        "AbsoluteValue.eq_zero",
+        "Int.natAbs",
+        "Int.natAbs_le_of_dvd_ne_zero",
+        "Int.abs_ediv_le_abs",
+        "AbsoluteValue.ne_zero",
+        "AndThen",
+        "AbsoluteValue"
+      ],
+      "call_turn": 102,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "dotProduct",
+      "declarations": [
+        "dotProduct",
+        "dotProduct_pUnit",
+        "dotProduct_comm",
+        "dotProduct_zero'",
+        "zero_dotProduct'",
+        "not_injective_dotProduct_left",
+        "not_injective_dotProduct_right",
+        "dotProduct_one",
+        "dotProduct_zero",
+        "one_dotProduct"
+      ],
+      "call_turn": 152,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "Matrix.add_mulVec",
+      "declarations": [
+        "Matrix.add_mulVec"
+      ],
+      "call_turn": 158,
+      "result_turn": 159
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "Matrix.smul_mulVec",
+      "declarations": [
+        "Matrix.smul_mulVec"
+      ],
+      "call_turn": 158,
+      "result_turn": 160
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "Matrix.sum_mulVec",
+      "declarations": [
+        "Matrix.sum_mulVec"
+      ],
+      "call_turn": 158,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "Finset.sum_Ico_eq_sub",
+      "declarations": [
+        "Finset.sum_Ico_eq_sub"
+      ],
+      "call_turn": 162,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "Finset.sum_Ico_succ_top",
+      "declarations": [
+        "Finset.sum_Ico_succ_top"
+      ],
+      "call_turn": 164,
+      "result_turn": 165
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "Finset.sum_Ico_succ_bot",
+      "declarations": [],
+      "call_turn": 164,
+      "result_turn": 166
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Finset.sum_Ico_eq_sum_range",
+      "declarations": [
+        "Finset.sum_Ico_eq_sum_range"
+      ],
+      "call_turn": 164,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "Finset.sum_range_succ_comm",
+      "declarations": [
+        "Finset.sum_range_succ_comm"
+      ],
+      "call_turn": 164,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Finset.sum_range_sub",
+      "declarations": [
+        "Finset.sum_range_sub"
+      ],
+      "call_turn": 169,
+      "result_turn": 170
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "Finset.sum_range_rev",
+      "declarations": [],
+      "call_turn": 171,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Finset.sum_range _ (_ - _)",
+      "declarations": [],
+      "call_turn": 173,
+      "result_turn": 174
+    },
+    {
+      "event_id": "leanfinder:93",
+      "tool": "leanfinder",
+      "query": "Finset reverse range sum",
+      "declarations": [
+        "Finset.sum_range_sub'",
+        "Finset.sum_range_succ",
+        "Finset.sum_range",
+        "Finset.sum_range_reflect",
+        "Finset.sum_range_add",
+        "Finset.sum_Ico_eq_sum_range",
+        "Finset.sum_flip",
+        "Finset.range",
+        "Finset.sum_range_add_sum_Ico",
+        "Finset.sum_range_sub_sum_range"
+      ],
+      "call_turn": 175,
+      "result_turn": 176
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "Finset.sum_range_succ'",
+      "declarations": [
+        "Finset.sum_range_succ'"
+      ],
+      "call_turn": 177,
+      "result_turn": 178
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "Matrix.neg_mulVec",
+      "declarations": [
+        "Matrix.neg_mulVec"
+      ],
+      "call_turn": 181,
+      "result_turn": 182
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "eq_neg_of_add_eq_zero_left",
+      "declarations": [
+        "eq_neg_of_add_eq_zero_left"
+      ],
+      "call_turn": 243,
+      "result_turn": 244
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "eq_neg_of_add_eq_zero_right",
+      "declarations": [
+        "eq_neg_of_add_eq_zero_right"
+      ],
+      "call_turn": 245,
+      "result_turn": 246
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 14,
+    "selected_hyperedge_count": 10,
+    "main_hyperedge_count": 9,
+    "side_hyperedge_count": 1,
+    "selected_depth": 8,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 46,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 45,
+    "accepted_helper_count": 21,
+    "rollout_tool_call_count": 138,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

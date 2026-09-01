@@ -1,0 +1,776 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "manifest": [
+        {
+          "statement": "∀ (m : ℕ), Filter.Tendsto (a m) Filter.atTop (nhds (aInf m))",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "Filter.Tendsto aInf Filter.atTop (nhds aInfInf)",
+          "origin": "manifest",
+          "name": "hInf",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "∃ b,\n  Monotone b ∧\n    Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ b,\n  Monotone b ∧\n    Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Classical.choose_spec",
+          "Eq.symm",
+          "Eq.trans",
+          "Filter.tendsto_atTop_atTop",
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Finset.le_sup",
+          "Finset.mem_range._simp_1",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+          "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+          "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "Mathlib.Meta.NormNum.IsNNRat.den_nz",
+          "Mathlib.Meta.NormNum.IsNNRat.of_raw",
+          "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+          "Mathlib.Meta.NormNum.IsNNRat.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isNNRat_add",
+          "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Meta.Positivity.pos_of_isNat",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.div_congr",
+          "Mathlib.Tactic.Ring.div_pf",
+          "Mathlib.Tactic.Ring.inv_single",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Metric.tendsto_atTop",
+          "Nat.cast_add._simp_1",
+          "Nat.cast_add_one_pos",
+          "Nat.cast_le._simp_1",
+          "Nat.cast_one",
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right",
+          "Nat.findGreatest_spec",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instCanonicallyOrderedAdd",
+          "Nat.instIsOrderedAddMonoid",
+          "Nat.instIsOrderedCancelAddMonoid",
+          "Nat.instNeZeroSucc",
+          "Nat.instNoMaxOrder",
+          "Nat.instStarOrderedRing",
+          "Nat.le_findGreatest",
+          "Nat.succ_le_succ",
+          "Nat.zero_le",
+          "NeZero.charZero_one",
+          "Order.lt_one_iff._simp_1",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "RCLike.charZero_rclike",
+          "Real.instArchimedean",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedCancelAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instNontrivial",
+          "Real.instZeroLEOneClass",
+          "StarOrderedRing.toIsOrderedRing",
+          "add_lt_add",
+          "congr",
+          "congrArg",
+          "contravariant_lt_of_covariant_le",
+          "contravariant_swap_add_of_contravariant_add",
+          "covariant_swap_add_of_covariant_add",
+          "dist_triangle",
+          "div_pos",
+          "eq_self",
+          "exists_nat_one_div_lt",
+          "instArchimedeanNat",
+          "instIsDirectedOrder",
+          "instIsLeftCancelAddOfAddLeftReflectLE",
+          "instIsRightCancelAddOfAddRightReflectLE",
+          "instNonemptyOfInhabited",
+          "le_max_left",
+          "le_max_right",
+          "le_rfl",
+          "le_trans",
+          "lt_add_iff_pos_right._simp_1",
+          "lt_of_lt_of_le",
+          "lt_trans",
+          "of_eq_true",
+          "one_div_le_one_div_of_le",
+          "one_div_pos"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (m : ℕ), Filter.Tendsto (a m) Filter.atTop (nhds (aInf m))",
+            "origin": "local_assumption",
+            "name": "ha",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "Filter.Tendsto aInf Filter.atTop (nhds aInfInf)",
+            "origin": "local_assumption",
+            "name": "hInf",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ b,\n  Monotone b ∧\n    Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 < ε / 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Meta.Positivity.pos_of_isNat",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instNontrivial",
+        "div_pos"
+      ],
+      "premises": [
+        {
+          "statement": "ε > 0",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.3507929"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_793",
+      "conclusion": {
+        "statement": "0 < ε / 2",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3508068"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "b n ∈ Finset.range (b n + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.mem_range._simp_1",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "Nat.instCanonicallyOrderedAdd",
+        "Nat.instIsOrderedAddMonoid",
+        "Nat.instIsOrderedCancelAddMonoid",
+        "Nat.instNoMaxOrder",
+        "Order.lt_one_iff._simp_1",
+        "contravariant_lt_of_covariant_le",
+        "eq_self",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "lt_add_iff_pos_right._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_794",
+      "conclusion": {
+        "statement": "b n ∈ Finset.range (b n + 1)",
+        "origin": "derived",
+        "name": "hmem",
+        "fvar_id": "_uniq.3518905"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "N (b n) (b n) ≤ (Finset.range (b n + 1)).sup fun k => N (b n) k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.le_sup"
+      ],
+      "premises": [
+        {
+          "statement": "b n ∈ Finset.range (b n + 1)",
+          "origin": "derived",
+          "name": "hmem",
+          "fvar_id": "_uniq.3518905"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_795",
+      "conclusion": {
+        "statement": "(fun k => N (b n) k) (b n) ≤ (Finset.range (b n + 1)).sup fun k => N (b n) k",
+        "origin": "derived",
+        "name": "hs",
+        "fvar_id": "_uniq.3519825"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃m n : ℕ⦄, m ≤ n → b m ≤ b n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.findGreatest_mono_left",
+        "Nat.findGreatest_mono_right",
+        "le_trans"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_798",
+      "conclusion": {
+        "statement": "Monotone b",
+        "origin": "derived",
+        "name": "hbmono",
+        "fvar_id": "_uniq.3505835"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Tendsto b atTop atTop",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.tendsto_atTop_atTop_iff_of_monotone",
+        "Nat.instStarOrderedRing",
+        "Nat.le_findGreatest",
+        "StarOrderedRing.toIsOrderedRing",
+        "congrArg",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "le_max_left",
+        "le_rfl"
+      ],
+      "premises": [
+        {
+          "statement": "Monotone b",
+          "origin": "derived",
+          "name": "hbmono",
+          "fvar_id": "_uniq.3505835"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_799",
+      "conclusion": {
+        "statement": "Tendsto b atTop atTop",
+        "origin": "derived",
+        "name": "hbtop",
+        "fvar_id": "_uniq.3506560"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A 0 ≤ n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_max_left",
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "n ≥ max (A 0) Nb",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.3517836"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_800",
+      "conclusion": {
+        "statement": "A 0 ≤ n",
+        "origin": "derived",
+        "name": "hA0n",
+        "fvar_id": "_uniq.3518046"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A (b n) ≤ n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.findGreatest_spec",
+        "Nat.zero_le"
+      ],
+      "premises": [
+        {
+          "statement": "A 0 ≤ n",
+          "origin": "derived",
+          "name": "hA0n",
+          "fvar_id": "_uniq.3518046"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_801",
+      "conclusion": {
+        "statement": "A (b n) ≤ n",
+        "origin": "derived",
+        "name": "hAbn",
+        "fvar_id": "_uniq.3518055"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "max K L ≤ b n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_max_right",
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a : ℕ), Nb ≤ a → max K L ≤ b a",
+          "origin": "local_assumption",
+          "name": "hNb",
+          "fvar_id": "_uniq.3517682"
+        },
+        {
+          "statement": "n ≥ max (A 0) Nb",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.3517836"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_802",
+      "conclusion": {
+        "statement": "max K L ≤ b n",
+        "origin": "derived",
+        "name": "hbn_ge",
+        "fvar_id": "_uniq.3518294"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "K ≤ b n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_max_left",
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "max K L ≤ b n",
+          "origin": "derived",
+          "name": "hbn_ge",
+          "fvar_id": "_uniq.3518294"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_803",
+      "conclusion": {
+        "statement": "K ≤ b n",
+        "origin": "derived",
+        "name": "hKb",
+        "fvar_id": "_uniq.3518485"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "L ≤ b n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_max_right",
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "max K L ≤ b n",
+          "origin": "derived",
+          "name": "hbn_ge",
+          "fvar_id": "_uniq.3518294"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_804",
+      "conclusion": {
+        "statement": "L ≤ b n",
+        "origin": "derived",
+        "name": "hLb",
+        "fvar_id": "_uniq.3518676"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "N (b n) (b n) ≤ A (b n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.le_sup",
+        "Finset.mem_range._simp_1",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "Nat.instCanonicallyOrderedAdd",
+        "Nat.instIsOrderedAddMonoid",
+        "Nat.instIsOrderedCancelAddMonoid",
+        "Nat.instNoMaxOrder",
+        "Order.lt_one_iff._simp_1",
+        "contravariant_lt_of_covariant_le",
+        "eq_self",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "le_max_right",
+        "le_trans",
+        "lt_add_iff_pos_right._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_805",
+      "conclusion": {
+        "statement": "N (b n) (b n) ≤ A (b n)",
+        "origin": "derived",
+        "name": "hNA",
+        "fvar_id": "_uniq.3518685"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (m k n : ℕ), n ≥ N m k → dist (a m n) (aInf m) < 1 / (↑k + 1)",
+          "origin": "local_assumption",
+          "name": "hN",
+          "fvar_id": "_uniq.3505126"
+        },
+        {
+          "statement": "A (b n) ≤ n",
+          "origin": "derived",
+          "name": "hAbn",
+          "fvar_id": "_uniq.3518055"
+        },
+        {
+          "statement": "N (b n) (b n) ≤ A (b n)",
+          "origin": "derived",
+          "name": "hNA",
+          "fvar_id": "_uniq.3518685"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_806",
+      "conclusion": {
+        "statement": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)",
+        "origin": "derived",
+        "name": "hfirst",
+        "fvar_id": "_uniq.3520538"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑K + 1 ≤ ↑(b n) + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.cast_add._simp_1",
+        "Nat.cast_le._simp_1",
+        "Nat.cast_one",
+        "Nat.succ_le_succ",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "congr",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "K ≤ b n",
+          "origin": "derived",
+          "name": "hKb",
+          "fvar_id": "_uniq.3518485"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_807",
+      "conclusion": {
+        "statement": "↑K + 1 ≤ ↑(b n) + 1",
+        "origin": "derived",
+        "name": "hcast",
+        "fvar_id": "_uniq.3520683"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Nat.cast_add_one_pos",
+        "NeZero.charZero_one",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "Real.instZeroLEOneClass",
+        "one_div_le_one_div_of_le"
+      ],
+      "premises": [
+        {
+          "statement": "↑K + 1 ≤ ↑(b n) + 1",
+          "origin": "derived",
+          "name": "hcast",
+          "fvar_id": "_uniq.3520683"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_808",
+      "conclusion": {
+        "statement": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)",
+        "origin": "derived",
+        "name": "hrec",
+        "fvar_id": "_uniq.3522346"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (a (b n) n) (aInf (b n)) < ε / 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "lt_of_lt_of_le",
+        "lt_trans"
+      ],
+      "premises": [
+        {
+          "statement": "1 / (↑K + 1) < ε / 2",
+          "origin": "local_assumption",
+          "name": "hK",
+          "fvar_id": "_uniq.3511988"
+        },
+        {
+          "statement": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)",
+          "origin": "derived",
+          "name": "hfirst",
+          "fvar_id": "_uniq.3520538"
+        },
+        {
+          "statement": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)",
+          "origin": "derived",
+          "name": "hrec",
+          "fvar_id": "_uniq.3522346"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_809",
+      "conclusion": {
+        "statement": "dist (a (b n) n) (aInf (b n)) < ε / 2",
+        "origin": "derived",
+        "name": "hfirst'",
+        "fvar_id": "_uniq.3522611"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (aInf (b n)) aInfInf < ε / 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ n ≥ L, dist (aInf n) aInfInf < ε / 2",
+          "origin": "local_assumption",
+          "name": "hL",
+          "fvar_id": "_uniq.3516873"
+        },
+        {
+          "statement": "L ≤ b n",
+          "origin": "derived",
+          "name": "hLb",
+          "fvar_id": "_uniq.3518676"
+        }
+      ],
+      "parent": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+      "id": "local_810",
+      "conclusion": {
+        "statement": "dist (aInf (b n)) aInfInf < ε / 2",
+        "origin": "derived",
+        "name": "hsecond",
+        "fvar_id": "_uniq.3522663"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p2604_diagonal_convergence_of_sequences",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+    "proof_sha256": "238481b24472d90be60030089453999ede85862b712a588b33658b515764271b"
+  }
+}

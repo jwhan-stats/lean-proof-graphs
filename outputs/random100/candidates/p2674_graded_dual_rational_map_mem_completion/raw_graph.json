@@ -1,0 +1,804 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "manifest": [
+        {
+          "statement": "0 < n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)),\n  ∃ q P,\n    ∀ (z : { z // Function.Injective z }),\n      (f z) w' = (MvPolynomial.eval ↑z) P / ∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ q i j",
+          "origin": "manifest",
+          "name": "hrational",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)),\n  ∃ P,\n    (∀ (α : Fin n →₀ ℕ),\n        MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧\n      ∀ (z : { z // Function.Injective z }),\n        (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P",
+          "origin": "manifest",
+          "name": "hcleared",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ) (a : ℂ), (a ≠ C + α.sum fun x e => ↑e) → g α a = 0",
+          "origin": "manifest",
+          "name": "hhom",
+          "fvar_id": "11"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (a : ℂ), {i | g i a ≠ 0}.Finite",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Algebra.to_smulCommClass",
+            "DirectSum.toModule_lof",
+            "Finset.finite_toSet",
+            "Finsupp.mem_support_iff",
+            "Iff.mpr",
+            "Module.Dual.eval_apply",
+            "NonUnitalCStarAlgebra.toSMulCommClass",
+            "Rollout_p2674_graded_dual_rational_map_mem_completion.finite_family_support_of_dual_pointwise_finite",
+            "Set.Finite.subset",
+            "congrArg",
+            "smulCommClass_self"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)),\n  ∃ P,\n    (∀ (α : Fin n →₀ ℕ),\n        MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧\n      ∀ (z : { z // Function.Injective z }),\n        (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P",
+              "origin": "local_assumption",
+              "name": "hcleared",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+          "id": "telescope_13",
+          "conclusion": {
+            "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite",
+            "origin": "derived",
+            "name": "hfinite_g",
+            "fvar_id": "13"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "D ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Complex.instNontrivial",
+            "Finset.mem_Ioi",
+            "Finset.prod_ne_zero_iff",
+            "Function.Injective.ne",
+            "Iff.mpr",
+            "NormMulClass.toNoZeroDivisors",
+            "NormedDivisionRing.toNormMulClass",
+            "Subtype.property",
+            "congrArg",
+            "ne_of_lt",
+            "sub_ne_zero",
+            "zpow_ne_zero"
+          ],
+          "premises": [],
+          "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "D ≠ 0",
+            "origin": "derived",
+            "name": "hD",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "AddMonoidHomClass.toZeroHomClass",
+            "Algebra.to_smulCommClass",
+            "Decidable.byContradiction",
+            "DirectSum.toModule_lof",
+            "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+            "Eq.symm",
+            "Eq.trans",
+            "Finset.sum_congr",
+            "Finset.sum_subset",
+            "Iff.mpr",
+            "LinearMap.semilinearMapClass",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Module.Dual.eval_apply",
+            "MulZeroClass.mul_zero",
+            "MvPolynomial.as_sum",
+            "MvPolynomial.eval_monomial",
+            "MvPolynomial.eval_sum",
+            "MvPolynomial.mem_support_iff",
+            "NonUnitalCStarAlgebra.toSMulCommClass",
+            "SemilinearMapClass.distribMulActionSemiHomClass",
+            "SemilinearMapClass.toMulActionSemiHomClass",
+            "Set.Finite.mem_toFinset",
+            "congrArg",
+            "eq_inv_mul_iff_mul_eq₀",
+            "map_smul",
+            "map_sum",
+            "map_zero",
+            "smulCommClass_self"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)),\n  ∃ P,\n    (∀ (α : Fin n →₀ ℕ),\n        MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧\n      ∀ (z : { z // Function.Injective z }),\n        (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P",
+              "origin": "local_assumption",
+              "name": "hcleared",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite",
+              "origin": "derived",
+              "name": "hfinite_g",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "D ≠ 0",
+              "origin": "derived",
+              "name": "hD",
+              "fvar_id": "17"
+            }
+          ],
+          "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)",
+            "origin": "derived",
+            "name": "hcomponent",
+            "fvar_id": "19"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Algebra.to_smulCommClass",
+          "DirectSum.linearMap_ext",
+          "DirectSum.toModule_lof",
+          "LinearMap.ext",
+          "Module.Dual.eval_apply",
+          "NonUnitalCStarAlgebra.toSMulCommClass",
+          "RingHomCompTriple.ids",
+          "congrArg",
+          "smulCommClass_self"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)",
+            "origin": "derived",
+            "name": "hcomponent",
+            "fvar_id": "19"
+          }
+        ],
+        "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "MvPolynomial.coeff α P =\n  (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n    ((DirectSum.lof ℂ ℂ (fun b => Module.Dual ℂ (W b)) a) l)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ),\n  MvPolynomial.coeff α P =\n    (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n      ((DirectSum.lof ℂ ℂ (fun b => Module.Dual ℂ (W b)) a) l)",
+          "origin": "local_assumption",
+          "name": "hcoeff",
+          "fvar_id": "_uniq.249568"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_29",
+      "conclusion": {
+        "statement": "MvPolynomial.coeff α P =\n  (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n    ((DirectSum.lof ℂ ℂ (fun b => Module.Dual ℂ (W b)) a) l)",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.250044"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MvPolynomial.coeff α P =\n  (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n    ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ),\n  MvPolynomial.coeff α P =\n    (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n      ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+          "origin": "local_assumption",
+          "name": "hcoeff",
+          "fvar_id": "_uniq.271581"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_30",
+      "conclusion": {
+        "statement": "MvPolynomial.coeff α P =\n  (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n    ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.271908"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(MvPolynomial.eval ↑z) P = ∑ α ∈ P.support, mval α * l (g α a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "DirectSum.toModule_lof",
+        "Eq.trans",
+        "Finset.sum_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Module.Dual.eval_apply",
+        "MvPolynomial.as_sum",
+        "MvPolynomial.eval_monomial",
+        "MvPolynomial.eval_sum",
+        "NonUnitalCStarAlgebra.toSMulCommClass",
+        "congrArg",
+        "smulCommClass_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ),\n  MvPolynomial.coeff α P =\n    (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n      ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+          "origin": "local_assumption",
+          "name": "hcoeff",
+          "fvar_id": "_uniq.271581"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_31",
+      "conclusion": {
+        "statement": "(MvPolynomial.eval ↑z) P = ∑ α ∈ P.support, mval α * l (g α a)",
+        "origin": "derived",
+        "name": "h_eval_support",
+        "fvar_id": "_uniq.287838"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MvPolynomial.coeff α P = l (g α a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "DirectSum.toModule_lof",
+        "NonUnitalCStarAlgebra.toSMulCommClass",
+        "congrArg",
+        "smulCommClass_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ),\n  MvPolynomial.coeff α P =\n    (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n      ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+          "origin": "local_assumption",
+          "name": "hcoeff",
+          "fvar_id": "_uniq.271581"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_32",
+      "conclusion": {
+        "statement": "MvPolynomial.coeff α P = l (g α a)",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.290254"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MvPolynomial.coeff α P = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Iff.mpr",
+        "MvPolynomial.mem_support_iff"
+      ],
+      "premises": [
+        {
+          "statement": "α ∉ P.support",
+          "origin": "local_assumption",
+          "name": "hαP",
+          "fvar_id": "_uniq.290151"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_33",
+      "conclusion": {
+        "statement": "MvPolynomial.coeff α P = 0",
+        "origin": "derived",
+        "name": "hc0",
+        "fvar_id": "_uniq.290809"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "l (g α a) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "MvPolynomial.coeff α P = l (g α a)",
+          "origin": "derived",
+          "name": "hc",
+          "fvar_id": "_uniq.290254"
+        },
+        {
+          "statement": "MvPolynomial.coeff α P = 0",
+          "origin": "derived",
+          "name": "hc0",
+          "fvar_id": "_uniq.290809"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_34",
+      "conclusion": {
+        "statement": "l (g α a) = 0",
+        "origin": "derived",
+        "name": "hl0",
+        "fvar_id": "_uniq.291832"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃α : Fin n →₀ ℕ⦄, α ∈ P.support → α ∈ S a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AddMonoidHomClass.toZeroHomClass",
+        "Algebra.to_smulCommClass",
+        "DirectSum.toModule_lof",
+        "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+        "LinearMap.semilinearMapClass",
+        "Module.Dual.eval_apply",
+        "MvPolynomial.mem_support_iff",
+        "NonUnitalCStarAlgebra.toSMulCommClass",
+        "SemilinearMapClass.distribMulActionSemiHomClass",
+        "Set.Finite.mem_toFinset",
+        "congrArg",
+        "map_zero",
+        "smulCommClass_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite",
+          "origin": "derived",
+          "name": "hfinite_g",
+          "fvar_id": "_uniq.244393"
+        },
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ),\n  MvPolynomial.coeff α P =\n    (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n      ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+          "origin": "local_assumption",
+          "name": "hcoeff",
+          "fvar_id": "_uniq.271581"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_35",
+      "conclusion": {
+        "statement": "P.support ⊆ S a",
+        "origin": "derived",
+        "name": "hPsub",
+        "fvar_id": "_uniq.271619"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(MvPolynomial.eval ↑z) P = ∑ α ∈ S a, mval α * l (g α a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "Decidable.byContradiction",
+        "DirectSum.toModule_lof",
+        "Eq.symm",
+        "Eq.trans",
+        "Finset.sum_congr",
+        "Finset.sum_subset",
+        "Iff.mpr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Module.Dual.eval_apply",
+        "MulZeroClass.mul_zero",
+        "MvPolynomial.as_sum",
+        "MvPolynomial.eval_monomial",
+        "MvPolynomial.eval_sum",
+        "MvPolynomial.mem_support_iff",
+        "NonUnitalCStarAlgebra.toSMulCommClass",
+        "congrArg",
+        "smulCommClass_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (α : Fin n →₀ ℕ),\n  MvPolynomial.coeff α P =\n    (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a))\n      ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l)",
+          "origin": "local_assumption",
+          "name": "hcoeff",
+          "fvar_id": "_uniq.271581"
+        },
+        {
+          "statement": "P.support ⊆ S a",
+          "origin": "derived",
+          "name": "hPsub",
+          "fvar_id": "_uniq.271619"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_36",
+      "conclusion": {
+        "statement": "(MvPolynomial.eval ↑z) P = ∑ α ∈ S a, mval α * l (g α a)",
+        "origin": "derived",
+        "name": "h_eval",
+        "fvar_id": "_uniq.287765"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = D⁻¹ * (MvPolynomial.eval ↑z) P",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "Iff.mpr",
+        "eq_inv_mul_iff_mul_eq₀"
+      ],
+      "premises": [
+        {
+          "statement": "D ≠ 0",
+          "origin": "derived",
+          "name": "hD",
+          "fvar_id": "_uniq.251699"
+        },
+        {
+          "statement": "∀ (z : { z // Function.Injective z }),\n  (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) =\n    (MvPolynomial.eval ↑z) P",
+          "origin": "local_assumption",
+          "name": "hid",
+          "fvar_id": "_uniq.271582"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_37",
+      "conclusion": {
+        "statement": "(f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = D⁻¹ * (MvPolynomial.eval ↑z) P",
+        "origin": "derived",
+        "name": "hf",
+        "fvar_id": "_uniq.297281"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (a : ℂ), {i | g i a ≠ 0}.Finite",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "DirectSum.toModule_lof",
+        "Finset.finite_toSet",
+        "Finsupp.mem_support_iff",
+        "Iff.mpr",
+        "Module.Dual.eval_apply",
+        "NonUnitalCStarAlgebra.toSMulCommClass",
+        "Rollout_p2674_graded_dual_rational_map_mem_completion.finite_family_support_of_dual_pointwise_finite",
+        "Set.Finite.subset",
+        "congrArg",
+        "smulCommClass_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)),\n  ∃ P,\n    (∀ (α : Fin n →₀ ℕ),\n        MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧\n      ∀ (z : { z // Function.Injective z }),\n        (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P",
+          "origin": "local_assumption",
+          "name": "hcleared",
+          "fvar_id": "_uniq.242896"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_38",
+      "conclusion": {
+        "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite",
+        "origin": "derived",
+        "name": "hfinite_g",
+        "fvar_id": "_uniq.244393"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "D ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Complex.instNontrivial",
+        "Finset.mem_Ioi",
+        "Finset.prod_ne_zero_iff",
+        "Function.Injective.ne",
+        "Iff.mpr",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "Subtype.property",
+        "congrArg",
+        "ne_of_lt",
+        "sub_ne_zero",
+        "zpow_ne_zero"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_42",
+      "conclusion": {
+        "statement": "D ≠ 0",
+        "origin": "derived",
+        "name": "hD",
+        "fvar_id": "_uniq.251699"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AddMonoidHomClass.toZeroHomClass",
+        "Algebra.to_smulCommClass",
+        "Decidable.byContradiction",
+        "DirectSum.toModule_lof",
+        "DistribMulActionSemiHomClass.toAddMonoidHomClass",
+        "Eq.symm",
+        "Eq.trans",
+        "Finset.sum_congr",
+        "Finset.sum_subset",
+        "Iff.mpr",
+        "LinearMap.semilinearMapClass",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Module.Dual.eval_apply",
+        "MulZeroClass.mul_zero",
+        "MvPolynomial.as_sum",
+        "MvPolynomial.eval_monomial",
+        "MvPolynomial.eval_sum",
+        "MvPolynomial.mem_support_iff",
+        "NonUnitalCStarAlgebra.toSMulCommClass",
+        "SemilinearMapClass.distribMulActionSemiHomClass",
+        "SemilinearMapClass.toMulActionSemiHomClass",
+        "Set.Finite.mem_toFinset",
+        "congrArg",
+        "eq_inv_mul_iff_mul_eq₀",
+        "map_smul",
+        "map_sum",
+        "map_zero",
+        "smulCommClass_self"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)),\n  ∃ P,\n    (∀ (α : Fin n →₀ ℕ),\n        MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧\n      ∀ (z : { z // Function.Injective z }),\n        (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P",
+          "origin": "local_assumption",
+          "name": "hcleared",
+          "fvar_id": "_uniq.242896"
+        },
+        {
+          "statement": "∀ (a : ℂ), {α | g α a ≠ 0}.Finite",
+          "origin": "derived",
+          "name": "hfinite_g",
+          "fvar_id": "_uniq.244393"
+        },
+        {
+          "statement": "D ≠ 0",
+          "origin": "derived",
+          "name": "hD",
+          "fvar_id": "_uniq.251699"
+        }
+      ],
+      "parent": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion",
+      "id": "local_44",
+      "conclusion": {
+        "statement": "∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)",
+        "origin": "derived",
+        "name": "hcomponent",
+        "fvar_id": "_uniq.269468"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p2674_graded_dual_rational_map_mem_completion",
+    "proof_sha256": "0046f17857bd64d50d78ba09992033d5aec361a99586c0435defed668a7eded7",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2674_graded_dual_rational_map_mem_completion.graded_dual_rational_map_mem_completion"
+  }
+}

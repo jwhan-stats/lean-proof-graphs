@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ ω, (∀ (i : Fin n), 0 ≤ ω i ∧ ω i ≤ 1) ∧ ((fun z => Matrix.diagonal fun i => if 0 ≤ z i then 1 else 0) x).mulVec x - ((fun z => Matrix.diagonal fun i => if 0 ≤ z i then 1 else 0) y).mulVec y = (Matrix.diagonal ω).mulVec (x - y)"];
+  "n_h_abfa7725" [shape=box, color="#D97706", label="hω\n∀ (i : Fin n), 0 ≤ ω i ∧ ω i ≤ 1 ∧ (if 0 ≤ x i then 1 else 0) * x i - (if 0 ≤ y i then 1 else 0) * y i = ω i * (x i - y i)"];
+  "r_h_001_h" [shape=diamond, label="Classical.choose_spec + Rollout_p2112_diagonal_nonnegative_part_difference.positive_part_secant_aux", color="#D97706"];
+  "r_h_001_h" -> "n_h_abfa7725";
+  "r_h_goal" [shape=diamond, label="Matrix.mulVec_diagonal + funext", color="#D97706"];
+  "n_h_abfa7725" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

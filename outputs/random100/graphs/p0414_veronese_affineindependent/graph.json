@@ -1,0 +1,728 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0414_veronese_affineindependent",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 414,
+    "source": "math_0307103",
+    "theorem_name": "veronese_affineIndependent",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/414",
+    "reconstructed_proof": "../../candidates/p0414_veronese_affineindependent/proof.lean",
+    "raw_elaboration": "../../candidates/p0414_veronese_affineindependent/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0414_veronese_affineindependent.veronese_affineIndependent",
+    "verification_call_id": "verify_submission:48",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "f61763d7c3c5fc654d7efba8545fcae2b44416562e2f20714ee9fb6cc89e5284",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "267fb6aa753e16fa15c51e8cb89082f8d9ca529d7b479fa7d7796a91f1415645",
+    "concrete_semantic_topology_sha256": "f61763d7c3c5fc654d7efba8545fcae2b44416562e2f20714ee9fb6cc89e5284"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hr_1ea63c78",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hr",
+      "lean_fvar_id": "4",
+      "statement": "1 ≤ r"
+    },
+    {
+      "id": "m_hrp_4617b290",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hrp",
+      "lean_fvar_id": "5",
+      "statement": "r ≤ p + 1"
+    },
+    {
+      "id": "m_hx_4d46edef",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "7",
+      "statement": "Function.Injective x"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let I := { ab // (ab.1.sum fun x n => n) ≤ p ∧ (ab.2.sum fun x n => n) ≤ q }; let v := fun z ab => ((↑ab).1.prod fun i n => z i ^ n) * (↑ab).2.prod fun i n => (starRingEnd ℂ) (z i) ^ n; AffineIndependent ℝ fun j => v (x j)"
+    },
+    {
+      "id": "n_hc_2ae2c5f3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hC",
+      "lean_fvar_id": "_uniq.183751",
+      "statement": "LinearIndependent ℂ fun j => veroneseVector m p q (x j)"
+    },
+    {
+      "id": "n_hinj_3b12249b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hinj",
+      "lean_fvar_id": "_uniq.183857",
+      "statement": "Function.Injective fun a => a • 1"
+    },
+    {
+      "id": "n_hrp_9eea38ba",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hrp",
+      "lean_fvar_id": "_uniq.182134",
+      "statement": "r ≤ p + 1"
+    },
+    {
+      "id": "n_hx_d4ce069f",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.182136",
+      "statement": "Function.Injective x"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrp_9eea38ba",
+        "n_hx_d4ce069f"
+      ],
+      "conclusion": "n_hc_2ae2c5f3",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "veronese_linearIndependent_complex",
+        "items": [
+          "Rollout_p0414_veronese_affineindependent.veronese_linearIndependent_complex"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0414_veronese_affineindependent.veronese_linearIndependent_complex"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_18",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hC : LinearIndependent ℂ (fun j : Fin r => veroneseVector m p q (x j)) :=\n    veronese_linearIndependent_complex m p q r hrp x hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.182134",
+              "name": "hrp",
+              "statement": "r ≤ p + 1"
+            },
+            {
+              "fvar_id": "_uniq.182136",
+              "name": "hx",
+              "statement": "Function.Injective x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.183751",
+            "name": "hC",
+            "statement": "LinearIndependent ℂ fun j => veroneseVector m p q (x j)"
+          }
+        },
+        "lean_dependency_sha256": "15a6fe35854447c08b429464c1ad218e7a19fea870890818ffc4ddd6c37b6329",
+        "kernel_witness_check": {
+          "proof_type": "LinearIndependent ℂ fun j => veroneseVector m p q (x j)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hinj",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hinj_3b12249b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Complex.ofReal_injective",
+        "items": [
+          "Complex.ofReal_injective"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Complex.ofReal_injective"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_19",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hinj : Function.Injective fun a : ℝ => a • (1 : ℂ) := by\n    intro a b h\n    exact Complex.ofReal_injective (by simpa using h)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.183857",
+            "name": "hinj",
+            "statement": "Function.Injective fun a => a • 1"
+          }
+        },
+        "lean_dependency_sha256": "94ffbec0655879933aca5af286d94d78e15b9e7fb7c25c50bd3465a920e1a7b9",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃a b : ℝ⦄, (fun a => a • 1) a = (fun a => a • 1) b → a = b",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Complex.ofReal_injective"
+        ],
+        "observed_search_event_ids": [
+          "loogle:46"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hrp_4617b290",
+        "m_hx_4d46edef"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Complex.ofReal_injective + LinearIndependent.affineIndependent + LinearIndependent.restrict_scalars",
+        "items": [
+          "Complex.ofReal_injective",
+          "LinearIndependent.affineIndependent",
+          "LinearIndependent.restrict_scalars"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Complex.ofReal_injective",
+          "LinearIndependent.affineIndependent",
+          "LinearIndependent.restrict_scalars"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact (hC.restrict_scalars hinj).affineIndependent",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hrp",
+              "statement": "r ≤ p + 1"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hx",
+              "statement": "Function.Injective x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let I := { ab // (ab.1.sum fun x n => n) ≤ p ∧ (ab.2.sum fun x n => n) ≤ q }; let v := fun z ab => ((↑ab).1.prod fun i n => z i ^ n) * (↑ab).2.prod fun i n => (starRingEnd ℂ) (z i) ^ n; AffineIndependent ℝ fun j => v (x j)"
+          }
+        },
+        "lean_dependency_sha256": "6b753501160595784b9d750f2928d951b469f12020c86a8cf94be6b4a5921653",
+        "kernel_witness_check": {
+          "proof_type": "let I := { ab // (ab.1.sum fun x n => n) ≤ p ∧ (ab.2.sum fun x n => n) ≤ q };\nlet v := fun z ab => ((↑ab).1.prod fun i n => z i ^ n) * (↑ab).2.prod fun i n => (starRingEnd ℂ) (z i) ^ n;\nAffineIndependent ℝ fun j => v (x j)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Complex.ofReal_injective",
+          "LinearIndependent.affineIndependent",
+          "LinearIndependent.restrict_scalars"
+        ],
+        "observed_search_event_ids": [
+          "loogle:46",
+          "leanfinder:2",
+          "loogle:3",
+          "leanfinder:4"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "AffineIndependent.of_linearIndependent",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "LinearIndependent -> AffineIndependent",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "affine independent from linearly independent vectors",
+      "declarations": [
+        "affineIndependent_iff_linearIndependent_vsub",
+        "LinearIndependent.affineIndependent",
+        "affineIndependent_set_iff_linearIndependent_vsub",
+        "LinearIndependent",
+        "AffineIndependent.smul",
+        "AffineIndependent",
+        "affineIndependent_iff_not_finrank_vectorSpan_le",
+        "linearIndependent_set_iff_affineIndependent_vadd_union_singleton",
+        "affineIndependent_iff",
+        "affineIndependent_def"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "LinearIndependent.restrict_scalars",
+      "declarations": [
+        "LinearIndependent.restrict_scalars"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "complex linear independent implies real linear independent restrict scalars",
+      "declarations": [
+        "LinearMap.complexOfReal",
+        "UpperHalfPlane.linear_ne_zero_of_im",
+        "LinearIndependent",
+        "Complex.restrictScalars_toSpanSingleton",
+        "RCLike.complexLinearIsometryEquiv_symm_apply",
+        "LinearIndependent.restrict_scalars'",
+        "linearIndependent_restrict_iff",
+        "LinearIndependent.restrict_scalars",
+        "linearIndependent_smul",
+        "AlgebraicIndependent.restrictScalars"
+      ],
+      "call_turn": 6,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "LinearIndependent _ _ -> LinearIndependent _ _",
+      "declarations": [
+        "LinearIndependent.comp",
+        "LinearIndependent.neg",
+        "LinearIndependent.of_comp",
+        "LinearIndependent.of_linearIndependent_subset",
+        "LinearIndependent.units_smul",
+        "LinearIndependent.sum_type",
+        "linearIndependent_finset_map_embedding_subtype",
+        "linearIndependent_span",
+        "LinearIndependent.map_injOn",
+        "LinearIndependent.group_smul"
+      ],
+      "call_turn": 6,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "linearIndependent_of_dual",
+      "declarations": [],
+      "call_turn": 10,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "prove linearly independent using linear functionals delta evaluations",
+      "declarations": [
+        "LinearIndependent",
+        "delabLinearIndependent",
+        "Lean.Elab.Tactic.NormCast.proveEqUsing",
+        "Mathlib.Tactic.Linarith.proveEqZeroUsing",
+        "Lean.Elab.Tactic.NormCast.proveEqUsingDown",
+        "Profinite.NobelingProof.GoodProducts.linearIndependentSingleton",
+        "Profinite.NobelingProof.GoodProducts.linearIndependent_comp_of_eval",
+        "Profinite.NobelingProof.GoodProducts.linearIndependent_iff_range",
+        "span_flip_eq_top_iff_linearIndependent",
+        "Finsupp.linearIndependent_single_of_ne_zero"
+      ],
+      "call_turn": 10,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "LinearIndependent.sumElim",
+      "declarations": [],
+      "call_turn": 10,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "multivariate polynomial interpolation finite distinct points linearly independent evaluation vectors",
+      "declarations": [
+        "genericPoints.finite",
+        "LinearIndependent.finite",
+        "LinearIndependent",
+        "LinearMap.toMvPolynomial_eval_eq_apply",
+        "Lagrange.eval_interpolate_at_node",
+        "MvPolynomial.eval",
+        "MvPolynomial.eval_eq'",
+        "MvPolynomial.eval_prod",
+        "MvPolynomial.eval_eq",
+        "Convex.convexIndependent_extremePoints"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "polynomial functions separate finite points affine independent monomial evaluation",
+      "declarations": [
+        "Affine.Simplex.affineIndependent_points_update_centroid",
+        "MvPolynomial.aeval_X_left_apply",
+        "MvPolynomial.eval_eq'",
+        "polynomialFunctions_separatesPoints",
+        "AlgebraicIndependent.aeval_of_algebraicIndependent",
+        "AffineIndependent",
+        "polynomialFunctions",
+        "polynomialFunctions_coe",
+        "Polynomial.monomial",
+        "MvPolynomial.eval_eq"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "MvPolynomial.totalDegree",
+      "declarations": [
+        "MvPolynomial.totalDegree",
+        "MvPolynomial.degreeOf_le_totalDegree",
+        "MvPolynomial.totalDegree_X",
+        "MvPolynomial.totalDegree_le_degrees_card",
+        "MvPolynomial.totalDegree_one",
+        "MvPolynomial.totalDegree_le_of_support_subset",
+        "MvPolynomial.totalDegree_finset_sum",
+        "MvPolynomial.totalDegree_zero",
+        "MvPolynomial.totalDegree_multiset_prod",
+        "MvPolynomial.totalDegree_finset_prod"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "MvPolynomial.eval_prod",
+      "declarations": [
+        "MvPolynomial.eval_prod"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "MvPolynomial.totalDegree_le_iff",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "MvPolynomial.degree_le_totalDegree",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "MvPolynomial.coeff_eq_zero_of_totalDegree_lt",
+      "declarations": [
+        "MvPolynomial.coeff_eq_zero_of_totalDegree_lt"
+      ],
+      "call_turn": 19,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "MvPolynomial monomial degree bounded by totalDegree coefficients",
+      "declarations": [
+        "MvPolynomial.totalDegree_coeff_optionEquivLeft_add_le",
+        "Mathlib.Tactic.ComputeDegree.tacticCompute_degree",
+        "Mathlib.Tactic.ComputeDegree.computeDegree",
+        "MvPolynomial.weightedTotalDegree",
+        "MvPolynomial.totalDegree",
+        "MvPolynomial.coeff_eq_zero_of_totalDegree_lt",
+        "MvPolynomial.totalDegree_monomial",
+        "MvPolynomial.totalDegree_monomial_le",
+        "MvPolynomial.le_totalDegree",
+        "Polynomial.degree"
+      ],
+      "call_turn": 19,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "MvPolynomial.totalDegree_sub",
+      "declarations": [
+        "MvPolynomial.totalDegree_sub"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "MvPolynomial.totalDegree_add",
+      "declarations": [
+        "MvPolynomial.totalDegree_add"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "MvPolynomial.totalDegree_mul",
+      "declarations": [
+        "MvPolynomial.totalDegree_mul"
+      ],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "MvPolynomial.totalDegree_C",
+      "declarations": [
+        "MvPolynomial.totalDegree_C"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "MvPolynomial.le_totalDegree",
+      "declarations": [
+        "MvPolynomial.le_totalDegree"
+      ],
+      "call_turn": 29,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "linearIndependent_iff'",
+      "declarations": [
+        "linearIndependent_iff'"
+      ],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Fintype.linearIndependent_iff",
+      "declarations": [
+        "Fintype.linearIndependent_iff"
+      ],
+      "call_turn": 31,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "linearIndependent_iff_finset_sum_eq_zero",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 34
+    },
+    {
+      "event_id": "leanfinder:25",
+      "tool": "leanfinder",
+      "query": "linear independent iff finite sum coefficients zero",
+      "declarations": [
+        "LinearIndependent.eq_coords_of_eq",
+        "LinearIndependent",
+        "LinearIndependent.finite",
+        "Int.Linear.Poly.checkCoeffs",
+        "LinearIndependent.setFinite",
+        "linearIndependent_sum",
+        "linearIndepOn_finset_iff",
+        "linearIndependent_zero_iff",
+        "linearIndependent_iff'",
+        "linearIndependent_iff''"
+      ],
+      "call_turn": 31,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Function.ne_iff",
+      "declarations": [
+        "Function.ne_iff"
+      ],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Finset.sum_attach",
+      "declarations": [
+        "Finset.sum_attach"
+      ],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "Finset.sum_eq_single",
+      "declarations": [
+        "Finset.sum_eq_single"
+      ],
+      "call_turn": 66,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "map_sum",
+      "declarations": [
+        "map_sum"
+      ],
+      "call_turn": 70,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Complex.ofReal_injective",
+      "declarations": [
+        "Complex.ofReal_injective"
+      ],
+      "call_turn": 76,
+      "result_turn": 77
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 31,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 27,
+    "accepted_helper_count": 3,
+    "rollout_tool_call_count": 49,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

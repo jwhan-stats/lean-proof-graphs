@@ -1,0 +1,895 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1371_decktransformation_eq_id_of_fixed_point",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1371,
+    "source": "1108.3253",
+    "theorem_name": "deckTransformation_eq_id_of_fixed_point",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1371",
+    "reconstructed_proof": "../../candidates/p1371_decktransformation_eq_id_of_fixed_point/proof.lean",
+    "raw_elaboration": "../../candidates/p1371_decktransformation_eq_id_of_fixed_point/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1371_decktransformation_eq_id_of_fixed_point.deckTransformation_eq_id_of_fixed_point",
+    "verification_call_id": "verify_submission:18",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "49b9b585e041fe141c9e7bf83d6fcded9c12a63a2cdd4f73c72e7081daaf95bf",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "b8dc7f7fa8db9f5d19919cb2c960f7271b4495a2f07f058e784d8fd4445a00e6",
+    "concrete_semantic_topology_sha256": "49b9b585e041fe141c9e7bf83d6fcded9c12a63a2cdd4f73c72e7081daaf95bf"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_arc_lifting_49339519",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "arc_lifting",
+      "lean_fvar_id": "7",
+      "statement": "∀ (f : C(↑(Set.Icc 0 1), B)) (t₀ : ↑(Set.Icc 0 1)) (e₀ : E), p e₀ = f t₀ → ∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g t₀ = e₀"
+    },
+    {
+      "id": "m_hdeck_23083a2c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hdeck",
+      "lean_fvar_id": "9",
+      "statement": "p ∘ ⇑h = p"
+    },
+    {
+      "id": "m_he_488e0532",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "he",
+      "lean_fvar_id": "11",
+      "statement": "h e = e"
+    },
+    {
+      "id": "m_hp_d3dbce28",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp",
+      "lean_fvar_id": "6",
+      "statement": "Continuous p"
+    },
+    {
+      "id": "m_inst___proofs_4209456836_a76283bb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.4209456836._hygCtx._hyg.10",
+      "lean_fvar_id": "4",
+      "statement": "PathConnectedSpace E"
+    },
+    {
+      "id": "n_arc_lifting_694c970c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "arc_lifting",
+      "lean_fvar_id": "_uniq.4483121",
+      "statement": "∀ (f : C(↑(Set.Icc 0 1), B)) (t₀ : ↑(Set.Icc 0 1)) (e₀ : E), p e₀ = f t₀ → ∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g t₀ = e₀"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "h = Homeomorph.refl E"
+    },
+    {
+      "id": "n_hbase_41e6bf42",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbase",
+      "lean_fvar_id": "_uniq.4487075",
+      "statement": "p e = f 0"
+    },
+    {
+      "id": "n_hdeck_d1402bcc",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hdeck",
+      "lean_fvar_id": "_uniq.4483123",
+      "statement": "p ∘ ⇑h = p"
+    },
+    {
+      "id": "n_he_eae5d8af",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "he",
+      "lean_fvar_id": "_uniq.4483125",
+      "statement": "h e = e"
+    },
+    {
+      "id": "n_hg_64759306",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hg₁",
+      "lean_fvar_id": "_uniq.4487224",
+      "statement": "(∀ (t : ↑(Set.Icc 0 1)), p (g₁ t) = f t) ∧ g₁ 0 = e"
+    },
+    {
+      "id": "n_hg_82b4ada6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hg",
+      "lean_fvar_id": "_uniq.4487545",
+      "statement": "g₁ = g₂"
+    },
+    {
+      "id": "n_hg_f06b262b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hg₂",
+      "lean_fvar_id": "_uniq.4487298",
+      "statement": "(∀ (t : ↑(Set.Icc 0 1)), p (g₂ t) = f t) ∧ g₂ 0 = e"
+    },
+    {
+      "id": "n_huniq_94272ea2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "huniq",
+      "lean_fvar_id": "_uniq.4487114",
+      "statement": "∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g 0 = e"
+    },
+    {
+      "id": "n_hx_7fc8982b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.4488060",
+      "statement": "γ 1 = h (γ 1)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hbase",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hbase_41e6bf42",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + Path.source + congrArg",
+        "items": [
+          "Eq.symm",
+          "Path.source",
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "Path.source",
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1192",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbase : p e = f 0 := by\n    exact (congrArg p γ.source).symm",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.4487075",
+            "name": "hbase",
+            "statement": "p e = f 0"
+          }
+        },
+        "lean_dependency_sha256": "04f8a8e471f788866715154b207a13f208a512f80005a772e8b3c3fc53301fbc",
+        "kernel_witness_check": {
+          "proof_type": "p e = p (γ 0)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "Path.source"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:1",
+          "loogle:14",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_huniq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_arc_lifting_694c970c",
+        "n_hbase_41e6bf42"
+      ],
+      "conclusion": "n_huniq_94272ea2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1193",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have huniq := arc_lifting f 0 e hbase",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4483121",
+              "name": "arc_lifting",
+              "statement": "∀ (f : C(↑(Set.Icc 0 1), B)) (t₀ : ↑(Set.Icc 0 1)) (e₀ : E), p e₀ = f t₀ → ∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g t₀ = e₀"
+            },
+            {
+              "fvar_id": "_uniq.4487075",
+              "name": "hbase",
+              "statement": "p e = f 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4487114",
+            "name": "huniq",
+            "statement": "∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g 0 = e"
+          }
+        },
+        "lean_dependency_sha256": "d93a2ddf7d13dda2ca39c5da7934cdef23943f4b877a2ea7d1f1d800de7c34cd",
+        "kernel_witness_check": {
+          "proof_type": "∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g 0 = e",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hg",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hg_64759306",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Path.source",
+        "items": [
+          "Path.source"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Path.source"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1194",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hg₁ : (∀ t, p (g₁ t) = f t) ∧ g₁ 0 = e := by\n    constructor\n    · intro t\n      rfl\n    · exact γ.source",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.4487224",
+            "name": "hg₁",
+            "statement": "(∀ (t : ↑(Set.Icc 0 1)), p (g₁ t) = f t) ∧ g₁ 0 = e"
+          }
+        },
+        "lean_dependency_sha256": "2deb56743783280e516e257be3d2149b01fc051e8c1c8c09fb556f117442bde0",
+        "kernel_witness_check": {
+          "proof_type": "(∀ (t : ↑(Set.Icc 0 1)), p (g₁ t) = f t) ∧ g₁ 0 = e",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Path.source"
+        ],
+        "observed_search_event_ids": [
+          "loogle:14",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdeck_d1402bcc",
+        "n_he_eae5d8af"
+      ],
+      "conclusion": "n_hg_f06b262b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Path.source + congrArg + congrFun",
+        "items": [
+          "Path.source",
+          "congrArg",
+          "congrFun"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Path.source",
+          "congrArg",
+          "congrFun"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1195",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hg₂ : (∀ t, p (g₂ t) = f t) ∧ g₂ 0 = e := by\n    constructor\n    · intro t\n      exact congrFun hdeck (γ t)\n    · calc\n        g₂ 0 = h (γ 0) := rfl\n        _ = h e := congrArg h γ.source\n        _ = e := he",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4483123",
+              "name": "hdeck",
+              "statement": "p ∘ ⇑h = p"
+            },
+            {
+              "fvar_id": "_uniq.4483125",
+              "name": "he",
+              "statement": "h e = e"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4487298",
+            "name": "hg₂",
+            "statement": "(∀ (t : ↑(Set.Icc 0 1)), p (g₂ t) = f t) ∧ g₂ 0 = e"
+          }
+        },
+        "lean_dependency_sha256": "5d40bc82355dca8dd5e7eb14fb7093011c4a2f2ed069d1b537e20b5a344d0fdf",
+        "kernel_witness_check": {
+          "proof_type": "(∀ (t : ↑(Set.Icc 0 1)), p (g₂ t) = f t) ∧ g₂ 0 = e",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Path.source"
+        ],
+        "observed_search_event_ids": [
+          "loogle:14",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_huniq_94272ea2",
+        "n_hg_64759306",
+        "n_hg_f06b262b"
+      ],
+      "conclusion": "n_hg_82b4ada6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ExistsUnique.unique",
+        "items": [
+          "ExistsUnique.unique"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ExistsUnique.unique"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1196",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hg : g₁ = g₂ := huniq.unique hg₁ hg₂",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4487114",
+              "name": "huniq",
+              "statement": "∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g 0 = e"
+            },
+            {
+              "fvar_id": "_uniq.4487224",
+              "name": "hg₁",
+              "statement": "(∀ (t : ↑(Set.Icc 0 1)), p (g₁ t) = f t) ∧ g₁ 0 = e"
+            },
+            {
+              "fvar_id": "_uniq.4487298",
+              "name": "hg₂",
+              "statement": "(∀ (t : ↑(Set.Icc 0 1)), p (g₂ t) = f t) ∧ g₂ 0 = e"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4487545",
+            "name": "hg",
+            "statement": "g₁ = g₂"
+          }
+        },
+        "lean_dependency_sha256": "f8b6441e954380f1cd5ad8d6896e926129d759ab474a9f446e86e4b72d71c8fb",
+        "kernel_witness_check": {
+          "proof_type": "g₁ = g₂",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ExistsUnique.unique"
+        ],
+        "observed_search_event_ids": [
+          "loogle:13"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hg_82b4ada6"
+      ],
+      "conclusion": "n_hx_7fc8982b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg",
+        "items": [
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1197",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hx : γ 1 = h (γ 1) := congrArg (fun g : C(Set.Icc (0 : ℝ) 1, E) => g 1) hg\n  calc\n    h x = h (γ 1) := by rw [γ.target]\n    _ = γ 1 := hx.symm\n    _ = x := γ.target",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4487545",
+              "name": "hg",
+              "statement": "g₁ = g₂"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4488060",
+            "name": "hx",
+            "statement": "γ 1 = h (γ 1)"
+          }
+        },
+        "lean_dependency_sha256": "4f8723f4c52ee070d7b7f7a6a2b35d079a9e4cecae311bf33ad40d3d425f6a20",
+        "kernel_witness_check": {
+          "proof_type": "g₁ 1 = g₂ 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_4209456836_a76283bb",
+        "m_hp_d3dbce28",
+        "m_arc_lifting_49339519",
+        "m_hdeck_23083a2c",
+        "m_he_488e0532"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Continuous.comp + Eq.symm + ExistsUnique.unique",
+        "items": [
+          "Continuous.comp",
+          "Eq.symm",
+          "ExistsUnique.unique",
+          "Homeomorph.continuous",
+          "Homeomorph.ext",
+          "Path.continuous",
+          "Path.source",
+          "Path.target"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Continuous.comp",
+          "Eq.symm",
+          "ExistsUnique.unique",
+          "Homeomorph.continuous",
+          "Homeomorph.ext",
+          "Path.continuous",
+          "Path.source",
+          "Path.target"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  apply Homeomorph.ext\n  intro x\n  let γ : Path e x := PathConnectedSpace.somePath e x\n  let f : C(Set.Icc (0 : ℝ) 1, B) := ⟨fun t => p (γ t), hp.comp γ.continuous⟩\n  let g₁ : C(Set.Icc (0 : ℝ) 1, E) := ⟨fun t => γ t, γ.continuous⟩\n  let g₂ : C(Set.Icc (0 : ℝ) 1, E) := ⟨fun t => h (γ t), h.continuous.comp γ.continuous⟩\n  have hbase : p e = f 0 := by\n    exact (congrArg p γ.source).symm\n  have huniq := arc_lifting f 0 e hbase\n  have hg₁ : (∀ t, p (g₁ t) = f t) ∧ g₁ 0 = e := by\n    constructor\n    · intro t\n      rfl\n    · exact γ.source\n  have hg₂ : (∀ t, p (g₂ t) = f t) ∧ g₂ 0 = e := by\n    constructor\n    · intro t\n      exact congrFun hdeck (γ t)\n    · calc\n        g₂ 0 = h (γ 0) := rfl\n        _ = h e := congrArg h γ.source\n        _ = e := he\n  have hg : g₁ = g₂ := huniq.unique hg₁ hg₂\n  have hx : γ 1 = h (γ 1) := congrArg (fun g : C(Set.Icc (0 : ℝ) 1, E) => g 1) hg\n  calc\n    h x = h (γ 1) := by rw [γ.target]\n    _ = γ 1 := hx.symm\n    _ = x := γ.target",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "inst._@.proofs.4209456836._hygCtx._hyg.10",
+              "statement": "PathConnectedSpace E"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hp",
+              "statement": "Continuous p"
+            },
+            {
+              "fvar_id": "7",
+              "name": "arc_lifting",
+              "statement": "∀ (f : C(↑(Set.Icc 0 1), B)) (t₀ : ↑(Set.Icc 0 1)) (e₀ : E), p e₀ = f t₀ → ∃! g, (∀ (t : ↑(Set.Icc 0 1)), p (g t) = f t) ∧ g t₀ = e₀"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hdeck",
+              "statement": "p ∘ ⇑h = p"
+            },
+            {
+              "fvar_id": "11",
+              "name": "he",
+              "statement": "h e = e"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "h = Homeomorph.refl E"
+          }
+        },
+        "lean_dependency_sha256": "50ea193405cf855f25c199896c028de33dd56d8cf137f4cc1bb6443fa13e16b0",
+        "kernel_witness_check": {
+          "proof_type": "h = Homeomorph.refl E",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Continuous.comp",
+          "Eq.symm",
+          "ExistsUnique.unique",
+          "Homeomorph.continuous",
+          "Homeomorph.ext",
+          "Path.continuous",
+          "Path.source",
+          "Path.target"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "leanfinder:1",
+          "loogle:13",
+          "loogle:10",
+          "loogle:8",
+          "loogle:4",
+          "loogle:12",
+          "loogle:14",
+          "loogle:3",
+          "loogle:15"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "PathConnectedSpace Joined",
+      "declarations": [
+        "Real.instPathConnectedSpace",
+        "PathConnectedSpace.nonempty",
+        "PathConnectedSpace.connectedSpace",
+        "isPathConnected_univ",
+        "pathConnectedSpace_iff_univ",
+        "PathConnectedSpace.joined",
+        "PathConnectedSpace.somePath",
+        "PathConnectedSpace.mk",
+        "pathConnectedSpace_iff_zerothHomotopy",
+        "Quotient.instPathConnectedSpace"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "path connected space any two points joined path",
+      "declarations": [
+        "Path",
+        "Joined.somePath",
+        "PathConnectedSpace",
+        "PathConnectedSpace.connectedSpace",
+        "Joined",
+        "JoinedIn.joined",
+        "IsPathConnected.joinedIn",
+        "Joined.symm",
+        "joinedIn_univ",
+        "pathConnectedSpace_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Joined.somePath",
+      "declarations": [
+        "Joined.somePath"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Path.toContinuousMap",
+      "declarations": [
+        "Path.toContinuousMap",
+        "Path.source'",
+        "Path.target'",
+        "Path.coe_toContinuousMap",
+        "Path.Homotopy.coeFn_injective",
+        "Path.Homotopy.source",
+        "Path.Homotopy.target",
+        "Path.Homotopy.hcomp_half",
+        "Path.Homotopy.eval_apply",
+        "Path.Homotopy.refl_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Homeomorph.ext",
+      "declarations": [
+        "Homeomorph.ext"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "ContinuousMap.comp",
+      "declarations": [
+        "ContinuousMap.comp",
+        "ContinuousMap.comp_id",
+        "ContinuousMap.id_comp",
+        "ContinuousMap.const_comp",
+        "ContinuousMap.comp_const",
+        "ContinuousMap.comp_assoc",
+        "ContinuousMap.cancel_left",
+        "ContinuousMap.cancel_right",
+        "ContinuousMap.comp_apply",
+        "ContinuousMap.coe_comp"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Homeomorph.comp_continuousMap",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "convert path to continuous map on closed unit interval",
+      "declarations": [
+        "ContinuousMap.attachBound",
+        "Path.coe_toContinuousMap",
+        "ContinuousMap.coe_mk",
+        "Path.ofLine",
+        "Path.instContinuousEvalElemRealUnitInterval",
+        "unitInterval.continuous_sigmoid",
+        "unitInterval",
+        "unitInterval.continuous_symm",
+        "unitInterval.eq_closedBall",
+        "unitInterval.toNNReal_continuous"
+      ],
+      "call_turn": 2,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Path.continuous",
+      "declarations": [
+        "Path.continuous"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Path.continuous_toFun",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Homeomorph.continuous",
+      "declarations": [
+        "Homeomorph.continuous",
+        "Homeomorph.continuousMapCongr_apply",
+        "Homeomorph.continuousMapCongr_symm_apply",
+        "TopologicalSpace.Compacts.equiv_apply",
+        "MeasureTheory.Content.outerMeasure_preimage",
+        "MeasureTheory.Content.innerContent_comap"
+      ],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Homeomorph.toContinuousMap",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "ContinuousMap.ext",
+      "declarations": [
+        "ContinuousMap.ext"
+      ],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "ExistsUnique.unique",
+      "declarations": [
+        "ExistsUnique.unique"
+      ],
+      "call_turn": 11,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Path.source",
+      "declarations": [
+        "Path.source",
+        "IsCoveringMap.liftPath_trans",
+        "Path.subpath_zero_one"
+      ],
+      "call_turn": 11,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Path.target",
+      "declarations": [
+        "Path.target",
+        "Path.subpath_zero_one"
+      ],
+      "call_turn": 11,
+      "result_turn": 19
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 6,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 5,
+    "retrieved_rule_item_count": 8,
+    "retrieval_query_count": 16,
+    "useful_retrieval_event_count": 10,
+    "unused_retrieval_event_count": 6,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 19,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

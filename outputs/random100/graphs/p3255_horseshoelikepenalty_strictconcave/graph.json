@@ -1,0 +1,1209 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3255_horseshoelikepenalty_strictconcave",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3255,
+    "source": "2104.10750",
+    "theorem_name": "horseshoeLikePenalty_strictConcave",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3255",
+    "reconstructed_proof": "../../candidates/p3255_horseshoelikepenalty_strictconcave/proof.lean",
+    "raw_elaboration": "../../candidates/p3255_horseshoelikepenalty_strictconcave/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p3255_horseshoelikepenalty_strictconcave.horseshoeLikePenalty_strictConcave",
+    "verification_call_id": "verify_submission:53",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "35d8c5ea9a37d2b8ec8b339d43d5d2f09b426f320a12ddbb467aa4c09e83f31b",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "c8f65766b8b37730bee466ecca08da47dce00c0dd90f031f2d2ac355098e3a55",
+    "concrete_semantic_topology_sha256": "35d8c5ea9a37d2b8ec8b339d43d5d2f09b426f320a12ddbb467aa4c09e83f31b"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_9c003dbe",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "1",
+      "statement": "0 < a"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let pen_a := fun x => -Real.log (Real.log (1 + a / x ^ 2)); ∀ (x y t : ℝ), x ≠ y → 0 < x ∧ 0 < y ∨ x < 0 ∧ y < 0 → 0 < t → t < 1 → pen_a (t * x + (1 - t) * y) > t * pen_a x + (1 - t) * pen_a y"
+    },
+    {
+      "id": "n_ha_efdb7f9c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.3045274",
+      "statement": "0 < a"
+    },
+    {
+      "id": "n_hcomb_39d618d5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcomb",
+      "lean_fvar_id": "_uniq.3048231",
+      "statement": "t * u + (1 - t) * v = -(t * x + (1 - t) * y)"
+    },
+    {
+      "id": "n_hmain_dca77569",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmain",
+      "lean_fvar_id": "_uniq.3048005",
+      "statement": "t * -log (log (1 + a / (-x) ^ 2)) + (1 - t) * -log (log (1 + a / (-y) ^ 2)) < -log (log (1 + a / (t * -x + (1 - t) * -y) ^ 2))"
+    },
+    {
+      "id": "n_hsc_1a455c33",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsc",
+      "lean_fvar_id": "_uniq.3045572",
+      "statement": "StrictConcaveOn ℝ (Ioi 0) fun x => -log (log (1 + a / x ^ 2))"
+    },
+    {
+      "id": "n_hsqcomb_210bf60a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsqcomb",
+      "lean_fvar_id": "_uniq.3049336",
+      "statement": "(-(t * x + (1 - t) * y)) ^ 2 = (t * x + (1 - t) * y) ^ 2"
+    },
+    {
+      "id": "n_hsqx_525f27dc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsqx",
+      "lean_fvar_id": "_uniq.3049921",
+      "statement": "(-x) ^ 2 = x ^ 2"
+    },
+    {
+      "id": "n_hsqy_32ba3c48",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsqy",
+      "lean_fvar_id": "_uniq.3050479",
+      "statement": "(-y) ^ 2 = y ^ 2"
+    },
+    {
+      "id": "n_hsum_20b54507",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsum",
+      "lean_fvar_id": "_uniq.3046557",
+      "statement": "t + (1 - t) = 1"
+    },
+    {
+      "id": "n_ht1_b8a35eb3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ht1",
+      "lean_fvar_id": "_uniq.3045566",
+      "statement": "t < 1"
+    },
+    {
+      "id": "n_ht_ad0c17c5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ht'",
+      "lean_fvar_id": "_uniq.3045966",
+      "statement": "0 < 1 - t"
+    },
+    {
+      "id": "n_ht_f2c0d766",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ht",
+      "lean_fvar_id": "_uniq.3045563",
+      "statement": "0 < t"
+    },
+    {
+      "id": "n_hu_2bfde7c9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hu",
+      "lean_fvar_id": "_uniq.3046796",
+      "statement": "0 < u"
+    },
+    {
+      "id": "n_huv_da8362b0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "huv",
+      "lean_fvar_id": "_uniq.3047458",
+      "statement": "u ≠ v"
+    },
+    {
+      "id": "n_hv_fce3a511",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hv",
+      "lean_fvar_id": "_uniq.3047194",
+      "statement": "0 < v"
+    },
+    {
+      "id": "n_hx_bbd6573f",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3046681",
+      "statement": "x < 0"
+    },
+    {
+      "id": "n_hxy_84ea857a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.3045557",
+      "statement": "¬x = y"
+    },
+    {
+      "id": "n_hy_bfdca6f7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.3046682",
+      "statement": "y < 0"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hmain",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ht_f2c0d766",
+        "n_hsc_1a455c33",
+        "n_ht_ad0c17c5",
+        "n_hsum_20b54507",
+        "n_hu_2bfde7c9",
+        "n_hv_fce3a511",
+        "n_huv_da8362b0"
+      ],
+      "conclusion": "n_hmain_dca77569",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_549",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hmain := hsc.2 hu hv huv ht ht' hsum",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3045563",
+              "name": "ht",
+              "statement": "0 < t"
+            },
+            {
+              "fvar_id": "_uniq.3045572",
+              "name": "hsc",
+              "statement": "StrictConcaveOn ℝ (Ioi 0) fun x => -log (log (1 + a / x ^ 2))"
+            },
+            {
+              "fvar_id": "_uniq.3045966",
+              "name": "ht'",
+              "statement": "0 < 1 - t"
+            },
+            {
+              "fvar_id": "_uniq.3046557",
+              "name": "hsum",
+              "statement": "t + (1 - t) = 1"
+            },
+            {
+              "fvar_id": "_uniq.3046796",
+              "name": "hu",
+              "statement": "0 < u"
+            },
+            {
+              "fvar_id": "_uniq.3047194",
+              "name": "hv",
+              "statement": "0 < v"
+            },
+            {
+              "fvar_id": "_uniq.3047458",
+              "name": "huv",
+              "statement": "u ≠ v"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3048005",
+            "name": "hmain",
+            "statement": "t * -log (log (1 + a / (-x) ^ 2)) + (1 - t) * -log (log (1 + a / (-y) ^ 2)) < -log (log (1 + a / (t * -x + (1 - t) * -y) ^ 2))"
+          }
+        },
+        "lean_dependency_sha256": "bfa6f2322ae21d752f1cb5076c10de23299b25d700b887bd2ad83b60c36ea973",
+        "kernel_witness_check": {
+          "proof_type": "t • (fun x => -log (log (1 + a / x ^ 2))) u + (1 - t) • (fun x => -log (log (1 + a / x ^ 2))) v <\n  (fun x => -log (log (1 + a / x ^ 2))) (t • u + (1 - t) • v)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hcomb",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hcomb_39d618d5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_550",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcomb : t * u + (1 - t) * v = -(t * x + (1 - t) * y) := by\n      dsimp [u, v]\n      ring",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3048231",
+            "name": "hcomb",
+            "statement": "t * u + (1 - t) * v = -(t * x + (1 - t) * y)"
+          }
+        },
+        "lean_dependency_sha256": "c69041800e6f73f5bf93394a4e0ca7f6e5dfa6094210d9abf97a2c8e3ad21ccb",
+        "kernel_witness_check": {
+          "proof_type": "t * u + (1 - t) * v = -(t * x + (1 - t) * y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hsqcomb",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsqcomb_210bf60a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_551",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsqcomb : (-(t * x + (1 - t) * y)) ^ 2 =\n        (t * x + (1 - t) * y) ^ 2 := by ring",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3049336",
+            "name": "hsqcomb",
+            "statement": "(-(t * x + (1 - t) * y)) ^ 2 = (t * x + (1 - t) * y) ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "8a1e6cee2d0845ea2f4d14d98436f88e3027e37708a43391415024e1c6c5f35e",
+        "kernel_witness_check": {
+          "proof_type": "(-(t * x + (1 - t) * y)) ^ 2 = (t * x + (1 - t) * y) ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hsqx",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsqx_525f27dc",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_552",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsqx : (-x) ^ 2 = x ^ 2 := by ring",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3049921",
+            "name": "hsqx",
+            "statement": "(-x) ^ 2 = x ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "4d69db717680a32845da921e0e694fc748e59c74c5f552dc64479b4722fd3b00",
+        "kernel_witness_check": {
+          "proof_type": "(-x) ^ 2 = x ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hsqy",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsqy_32ba3c48",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_553",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsqy : (-y) ^ 2 = y ^ 2 := by ring\n    dsimp [u, v] at hmain\n    rw [hcomb, hsqcomb, hsqx, hsqy] at hmain",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3050479",
+            "name": "hsqy",
+            "statement": "(-y) ^ 2 = y ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "cf178bd8e0c6e6adb1b1e37a7d91ec53fa2a57c1cc83190d4561bfd0cae6c4d6",
+        "kernel_witness_check": {
+          "proof_type": "(-y) ^ 2 = y ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hsc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_efdb7f9c"
+      ],
+      "conclusion": "n_hsc_1a455c33",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "pen_strictConcaveOn_pos",
+        "items": [
+          "Rollout_p3255_horseshoelikepenalty_strictconcave.pen_strictConcaveOn_pos"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3255_horseshoelikepenalty_strictconcave.pen_strictConcaveOn_pos"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_554",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hsc := pen_strictConcaveOn_pos ha",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3045274",
+              "name": "ha",
+              "statement": "0 < a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3045572",
+            "name": "hsc",
+            "statement": "StrictConcaveOn ℝ (Ioi 0) fun x => -log (log (1 + a / x ^ 2))"
+          }
+        },
+        "lean_dependency_sha256": "b5176eccb8f1c4b97fc08ad2c73d5e7303d9cc21fd4d4ed1635d0b4a24f7154a",
+        "kernel_witness_check": {
+          "proof_type": "StrictConcaveOn ℝ (Ioi 0) fun x => -log (log (1 + a / x ^ 2))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ht1_b8a35eb3"
+      ],
+      "conclusion": "n_ht_ad0c17c5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_555",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3045566",
+              "name": "ht1",
+              "statement": "t < 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3045966",
+            "name": "ht'",
+            "statement": "0 < 1 - t"
+          }
+        },
+        "lean_dependency_sha256": "b91332a8beb010d475ccf2971a10c106ec5a108f31fa7e57ee94b2d01234ab21",
+        "kernel_witness_check": {
+          "proof_type": "0 < 1 - t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hsum",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsum_20b54507",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_556",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hsum : t + (1 - t) = 1 := by ring",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3046557",
+            "name": "hsum",
+            "statement": "t + (1 - t) = 1"
+          }
+        },
+        "lean_dependency_sha256": "07e66f1fe2e2cfcb31250be9ee2fd5f7934d77bbb5c47dd7c68ce1c53f36cd64",
+        "kernel_witness_check": {
+          "proof_type": "t + (1 - t) = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hu",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_bbd6573f"
+      ],
+      "conclusion": "n_hu_2bfde7c9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "linarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_559",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hu : 0 < u := by\n      dsimp [u]\n      linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3046681",
+              "name": "hx",
+              "statement": "x < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3046796",
+            "name": "hu",
+            "statement": "0 < u"
+          }
+        },
+        "lean_dependency_sha256": "dae734e48a953d66f236d083362387cd7550bb7c3aed1793018e8399878bdbfa",
+        "kernel_witness_check": {
+          "proof_type": "0 < u",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hy_bfdca6f7"
+      ],
+      "conclusion": "n_hv_fce3a511",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "linarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_560",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hv : 0 < v := by\n      dsimp [v]\n      linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3046682",
+              "name": "hy",
+              "statement": "y < 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3047194",
+            "name": "hv",
+            "statement": "0 < v"
+          }
+        },
+        "lean_dependency_sha256": "f69b5d097d19c945d81af44410f553f5109f71b76b2af6ff2a64ca23d81af070",
+        "kernel_witness_check": {
+          "proof_type": "0 < v",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_huv",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxy_84ea857a"
+      ],
+      "conclusion": "n_huv_da8362b0",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Not.intro",
+        "items": [
+          "Not.intro"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Not.intro"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_561",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have huv : u ≠ v := by\n      intro huv_eq\n      apply hxy\n      dsimp [u, v] at huv_eq\n      linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3045557",
+              "name": "hxy",
+              "statement": "¬x = y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3047458",
+            "name": "huv",
+            "statement": "u ≠ v"
+          }
+        },
+        "lean_dependency_sha256": "e1f53a59385546783134c76127fe094dad6f50b41e1ce62110e074e721c83cee",
+        "kernel_witness_check": {
+          "proof_type": "u = v → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_9c003dbe"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Not.intro",
+        "items": [
+          "Not.intro"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Not.intro"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "      linarith\n    have hv : 0 < v := by\n      dsimp [v]\n      linarith\n    have huv : u ≠ v := by\n      intro huv_eq\n      apply hxy\n      dsimp [u, v] at huv_eq\n      linarith\n    have hmain := hsc.2 hu hv huv ht ht' hsum\n    have hcomb : t * u + (1 - t) * v = -(t * x + (1 - t) * y) := by\n      dsimp [u, v]\n      ring\n    have hsqcomb : (-(t * x + (1 - t) * y)) ^ 2 =\n        (t * x + (1 - t) * y) ^ 2 := by ring\n    have hsqx : (-x) ^ 2 = x ^ 2 := by ring\n    have hsqy : (-y) ^ 2 = y ^ 2 := by ring\n    dsimp [u, v] at hmain\n    rw [hcomb, hsqcomb, hsqx, hsqy] at hmain\n    exact hmain",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "ha",
+              "statement": "0 < a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let pen_a := fun x => -Real.log (Real.log (1 + a / x ^ 2)); ∀ (x y t : ℝ), x ≠ y → 0 < x ∧ 0 < y ∨ x < 0 ∧ y < 0 → 0 < t → t < 1 → pen_a (t * x + (1 - t) * y) > t * pen_a x + (1 - t) * pen_a y"
+          }
+        },
+        "lean_dependency_sha256": "484c87b4114b9da597fc8766550afdf18432bbdfc218f0951473ce3928fcaef7",
+        "kernel_witness_check": {
+          "proof_type": "let pen_a := fun x => -Real.log (Real.log (1 + a / x ^ 2));\n∀ (x y t : ℝ),\n  x ≠ y → 0 < x ∧ 0 < y ∨ x < 0 ∧ y < 0 → 0 < t → t < 1 → pen_a (t * x + (1 - t) * y) > t * pen_a x + (1 - t) * pen_a y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "strict concave on open set second derivative positive twice differentiable",
+      "declarations": [
+        "StrictConcaveOn",
+        "ConcaveOn.openSegment_subset_strict_hypograph",
+        "StrictConcaveOn.concaveOn",
+        "concaveOn_univ_of_deriv2_nonpos",
+        "DifferentiableOn",
+        "concaveOn_of_deriv2_nonpos",
+        "StrictConcaveOn.lt_on_openSegment",
+        "StrictConcaveOn.lt_on_open_segment'",
+        "concaveOn_of_hasDerivWithinAt2_nonpos",
+        "strictConcaveOn_of_deriv2_neg"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "strict convexity from derivative strictly monotone Real function interval",
+      "declarations": [
+        "StrictConvexOn.strictMonoOn_deriv",
+        "StrictMonoOn.strictConvexOn_of_deriv",
+        "StrictConvexOn.strictMonoOn_derivWithin",
+        "StrictMono.monotone",
+        "unitInterval.sigmoid_monotone",
+        "MonotoneOn.intervalIntegrable",
+        "strictMonoOn_of_hasDerivWithinAt_pos",
+        "StrictMono",
+        "Function.monotone_eval",
+        "Monotone.intervalIntegrable"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "StrictConcaveOn",
+      "declarations": [
+        "StrictConcaveOn",
+        "StrictConcaveOn.congr",
+        "StrictConcaveOn.subset",
+        "StrictConcaveOn.dual",
+        "StrictConvexOn.dual",
+        "StrictConcaveOn.comp",
+        "StrictConcaveOn.comp_strictConvexOn",
+        "StrictConvexOn.comp_strictConcaveOn",
+        "OrderIso.strictConcaveOn_symm",
+        "OrderIso.strictConvexOn_symm"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "strictConcaveOn",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "ConvexOn",
+      "declarations": [
+        "ConvexOn",
+        "convexOn_id",
+        "ConvexOn.congr",
+        "ConvexOn.subset",
+        "convexOn_const",
+        "ConcaveOn.dual",
+        "ConvexOn.dual",
+        "ConcaveOn.comp_convexOn",
+        "ConvexOn.comp",
+        "ConvexOn.comp_concaveOn"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Real.log_log",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "strict convexity log one plus a divided by x squared positive real",
+      "declarations": [
+        "strictConcaveOn_sqrt_mul_log_Ioi",
+        "Real.log_one",
+        "Real.log",
+        "Real.posLog_one",
+        "Real.strictMonoOn_log",
+        "Real.strictConvexOn_mul_log",
+        "strictConvexOn_of_deriv2_pos",
+        "strictConvexOn_of_deriv2_pos'",
+        "Real.strictAntiOn_log",
+        "strictConvexOn_univ_of_deriv2_pos"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "strict convex inverse square positive real",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "NNReal.strictConcaveOn_sqrt",
+        "Real.arsinh_pos_iff",
+        "StrictConvex.convex",
+        "Real.instStrictConvexSpace",
+        "LinearMap.IsPositive.toLinearMap_symm",
+        "ENNReal.one_lt_inv",
+        "StrictConvex",
+        "ConvexCone.positive",
+        "Convex.strictConvex'"
+      ],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "strict convex log positive real second derivative",
+      "declarations": [
+        "strictConvexOn_of_deriv2_pos'",
+        "second_derivative_symmetric",
+        "strictConvexOn_of_deriv2_pos",
+        "Real.strictConvexOn_mul_log",
+        "Real.log",
+        "strictConvexOn_univ_of_deriv2_pos",
+        "Real.convexOn_mul_log",
+        "second_derivative_symmetric_of_eventually_of_real",
+        "strictConcaveOn_of_deriv2_neg",
+        "Convex.second_derivative_within_at_symmetric"
+      ],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "strictConvexOn_of_deriv2_pos",
+      "declarations": [
+        "strictConvexOn_of_deriv2_pos"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Real.log (1 + _)",
+      "declarations": [
+        "Real.le_log_one_add_of_nonneg",
+        "Real.lt_log_one_add_of_pos",
+        "Real.hasSum_log_sub_log_of_abs_lt_one",
+        "Real.hasSum_log_one_add",
+        "Real.hasSum_log_one_add_inv",
+        "Real.tendsto_mul_log_one_add_div_atTop",
+        "Real.tendsto_mul_log_one_add_of_tendsto",
+        "Real.tendsto_nat_mul_log_one_add_of_tendsto",
+        "Real.summable_log_one_add_of_summable"
+      ],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "strictConvexOn _ (fun x => Real.log _)",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "EventuallyEq.deriv_eq",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "(_ =ᶠ[_] _) -> deriv _ _ = deriv _ _",
+      "declarations": [
+        "Filter.EventuallyEq.deriv_eq"
+      ],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "derivative equal if functions eventually equal",
+      "declarations": [
+        "Filter.EventuallyEq.derivWithin_eq_of_mem",
+        "Filter.EventuallyEq.deriv_eq",
+        "Lean.Expr.equal",
+        "Lean.Parser.equalA",
+        "Filter.EventuallyEq.deriv",
+        "Filter.EventuallyEq.iteratedDeriv_eq",
+        "Filter.EventuallyEq.nhdsNE_deriv",
+        "Polynomial.derivative",
+        "Lean.Parser.equal",
+        "LaurentSeries.Cauchy.coeff_eventually_equal"
+      ],
+      "call_turn": 18,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "HasDerivAt.log",
+      "declarations": [
+        "HasDerivAt.log"
+      ],
+      "call_turn": 18,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "deriv.log",
+      "declarations": [
+        "deriv.log"
+      ],
+      "call_turn": 18,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "HasDerivAt.div",
+      "declarations": [
+        "HasDerivAt.div"
+      ],
+      "call_turn": 18,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "hasDerivAt_inv",
+      "declarations": [
+        "hasDerivAt_inv"
+      ],
+      "call_turn": 18,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "hasDerivAt_pow",
+      "declarations": [
+        "hasDerivAt_pow"
+      ],
+      "call_turn": 18,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:31",
+      "tool": "leanfinder",
+      "query": "weighted arithmetic geometric mean two positive real numbers rpow",
+      "declarations": [
+        "Real.geom_mean_le_arith_mean_weighted",
+        "Real.harm_mean_le_geom_mean_weighted",
+        "NNReal.geom_mean_le_arith_mean2_weighted",
+        "Real.geom_mean_le_arith_mean2_weighted",
+        "NNReal.agm",
+        "Real.arith_mean_le_rpow_mean",
+        "Real.geom_mean_eq_arith_mean2_weighted_iff_of_pos",
+        "Real.geom_mean_le_arith_mean3_weighted",
+        "Real.rpow_arith_mean_le_arith_mean_rpow",
+        "NNReal.agmSequences",
+        "Real.geom_mean_eq_arith_mean2_weighted_iff_of_nonneg",
+        "Real.geom_mean_weighted_of_constant",
+        "Real.arith_mean_weighted_of_constant",
+        "NNReal.agm_mul_distrib",
+        "Real.rpowIntegrand"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "leanfinder:32",
+      "tool": "leanfinder",
+      "query": "Jensen inequality weights rpow product two nonnegative reals",
+      "declarations": [
+        "NNReal.geom_mean_le_arith_mean2_weighted",
+        "CompareReals.Q",
+        "Real.geom_mean_le_arith_mean2_weighted",
+        "Real.rpow_arith_mean_le_arith_mean_rpow",
+        "Real.pow_arith_mean_le_arith_mean_pow_of_even",
+        "Real.zpow_arith_mean_le_arith_mean_zpow",
+        "Real.pow_arith_mean_le_arith_mean_pow",
+        "Finset.weightedVSubVSubWeights",
+        "Affine.Simplex.touchpointWeights",
+        "Affine.Simplex.excenterWeights"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "_ * _ + _ * _ ≤ _ ^ _ * _ ^ _",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Real.rpow_add",
+      "declarations": [
+        "Real.rpow_add"
+      ],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Real.log_rpow",
+      "declarations": [
+        "Real.log_rpow"
+      ],
+      "call_turn": 47,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Real.rpow_log",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "Real.geom_mean_le_arith_mean2_weighted",
+      "declarations": [
+        "Real.geom_mean_le_arith_mean2_weighted"
+      ],
+      "call_turn": 47,
+      "result_turn": 54
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 27,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 27,
+    "accepted_helper_count": 5,
+    "rollout_tool_call_count": 54,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

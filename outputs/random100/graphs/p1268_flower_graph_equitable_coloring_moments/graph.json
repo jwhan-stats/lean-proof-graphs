@@ -1,0 +1,1688 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1268_flower_graph_equitable_coloring_moments",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1268,
+    "source": "1801.00468",
+    "theorem_name": "flower_graph_equitable_coloring_moments",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1268",
+    "reconstructed_proof": "../../candidates/p1268_flower_graph_equitable_coloring_moments/proof.lean",
+    "raw_elaboration": "../../candidates/p1268_flower_graph_equitable_coloring_moments/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1268_flower_graph_equitable_coloring_moments.flower_graph_equitable_coloring_moments",
+    "verification_call_id": "verify_submission:157",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "62fc5d51e2f8984904db07fbb0ba470440156ede0fd07187201aad0c3ef5f3f5",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "2127b2429cdb835cc8345da89903124c559453bc0e78e93695736ab868338d3b",
+    "concrete_semantic_topology_sha256": "62fc5d51e2f8984904db07fbb0ba470440156ede0fd07187201aad0c3ef5f3f5"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_heq_ff954862",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "heq",
+      "lean_fvar_id": "7",
+      "statement": "∀ (i j : Fin k), (f.colorClass i).ncard.dist (f.colorClass j).ncard ≤ 1"
+    },
+    {
+      "id": "m_hmin_51f39981",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hmin",
+      "lean_fvar_id": "8",
+      "statement": "∀ ℓ < k, ¬∃ g, Function.Surjective ⇑g ∧ ∀ (i j : Fin ℓ), (g.colorClass i).ncard.dist (g.colorClass j).ncard ≤ 1"
+    },
+    {
+      "id": "m_hn_29ce154b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "2",
+      "statement": "3 ≤ n"
+    },
+    {
+      "id": "m_hsort_5200f8b0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hsort",
+      "lean_fvar_id": "9",
+      "statement": "∀ (i j : Fin k), i ≤ j → (f.colorClass j).ncard ≤ (f.colorClass i).ncard"
+    },
+    {
+      "id": "m_hsurj_1c8147f7",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hsurj",
+      "lean_fvar_id": "6",
+      "statement": "Function.Surjective ⇑f"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let X := fun x => ↑(↑(f x) + 1); let μ := (PMF.uniformOfFintype V).toMeasure; MeasureTheory.integral μ X = (↑n + 1) ^ 2 / (2 * ↑n + 1) ∧ ProbabilityTheory.variance X μ = (↑n ^ 4 + 2 * ↑n ^ 3 + 2 * ↑n ^ 2 + ↑n) / (3 * (2 * ↑n + 1) ^ 2)"
+    },
+    {
+      "id": "n_h2n_71527170",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "h2n",
+      "lean_fvar_id": "10",
+      "statement": "2 ≤ n"
+    },
+    {
+      "id": "n_hk_42e0cee7",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hk",
+      "lean_fvar_id": "13",
+      "statement": "k = n + 1"
+    },
+    {
+      "id": "n_hk_lower_af558159",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hk_lower",
+      "lean_fvar_id": "11",
+      "statement": "n + 1 ≤ k"
+    },
+    {
+      "id": "n_hk_upper_abf8da00",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hk_upper",
+      "lean_fvar_id": "12",
+      "statement": "k ≤ n + 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h2n",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_29ce154b"
+      ],
+      "conclusion": "n_h2n_71527170",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_10",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have h2n : 2 ≤ n := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hn",
+              "statement": "3 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "10",
+            "name": "h2n",
+            "statement": "2 ≤ n"
+          }
+        },
+        "lean_dependency_sha256": "34382239c2d0b42e7176d97d56da16a1837131b2f371f85c802854d25a399f56",
+        "kernel_witness_check": {
+          "proof_type": "2 ≤ n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hk_lower",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hsurj_1c8147f7",
+        "m_heq_ff954862"
+      ],
+      "conclusion": "n_hk_lower_af558159",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "flowerGraph_color_lower",
+        "items": [
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flowerGraph_color_lower"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flowerGraph_color_lower"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_11",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hk_lower : n + 1 ≤ k :=\n    flowerGraph_color_lower f hsurj heq",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hsurj",
+              "statement": "Function.Surjective ⇑f"
+            },
+            {
+              "fvar_id": "7",
+              "name": "heq",
+              "statement": "∀ (i j : Fin k), (f.colorClass i).ncard.dist (f.colorClass j).ncard ≤ 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "11",
+            "name": "hk_lower",
+            "statement": "n + 1 ≤ k"
+          }
+        },
+        "lean_dependency_sha256": "5fefeee22e21e312e61bb2b9ac391d763a87c7536843f62ba448d56d629e6781",
+        "kernel_witness_check": {
+          "proof_type": "n + 1 ≤ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hk_upper",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hmin_51f39981",
+        "n_h2n_71527170"
+      ],
+      "conclusion": "n_hk_upper_abf8da00",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.lt_of_not_ge + flowerPairColoring_equitable + flowerPairColoring_surjective",
+        "items": [
+          "Nat.lt_of_not_ge",
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flowerPairColoring_equitable",
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flowerPairColoring_surjective"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flowerPairColoring_equitable",
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flowerPairColoring_surjective"
+        ],
+        "mathlib_items": [
+          "Nat.lt_of_not_ge"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_12",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hk_upper : k ≤ n + 1 := by\n    by_contra h\n    have hlt : n + 1 < k := Nat.lt_of_not_ge h\n    exact hmin (n + 1) hlt\n      ⟨flowerPairColoring h2n, flowerPairColoring_surjective h2n,\n        flowerPairColoring_equitable h2n⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "8",
+              "name": "hmin",
+              "statement": "∀ ℓ < k, ¬∃ g, Function.Surjective ⇑g ∧ ∀ (i j : Fin ℓ), (g.colorClass i).ncard.dist (g.colorClass j).ncard ≤ 1"
+            },
+            {
+              "fvar_id": "10",
+              "name": "h2n",
+              "statement": "2 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "12",
+            "name": "hk_upper",
+            "statement": "k ≤ n + 1"
+          }
+        },
+        "lean_dependency_sha256": "30bee59dff1749fb85c5ef3b50947c9beced9247d6f1785ad889bbbcf0f1a991",
+        "kernel_witness_check": {
+          "proof_type": "k ≤ n + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hk",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hk_lower_af558159",
+        "n_hk_upper_abf8da00"
+      ],
+      "conclusion": "n_hk_42e0cee7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_antisymm",
+        "items": [
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hk : k = n + 1 := le_antisymm hk_upper hk_lower\n  subst k",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "11",
+              "name": "hk_lower",
+              "statement": "n + 1 ≤ k"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hk_upper",
+              "statement": "k ≤ n + 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "hk",
+            "statement": "k = n + 1"
+          }
+        },
+        "lean_dependency_sha256": "fdc524e9f7bb629014cefdc42a6c19baca37344805fc822b0d8d764cc2bf585b",
+        "kernel_witness_check": {
+          "proof_type": "k = n + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hsurj_1c8147f7",
+        "m_heq_ff954862",
+        "m_hmin_51f39981",
+        "m_hsort_5200f8b0",
+        "n_hk_lower_af558159",
+        "n_hk_upper_abf8da00",
+        "n_hk_42e0cee7"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "flower_graph_moments_of_min",
+        "items": [
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flower_graph_moments_of_min"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1268_flower_graph_equitable_coloring_moments.flower_graph_moments_of_min"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact flower_graph_moments_of_min f hsurj heq hsort",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hsurj",
+              "statement": "Function.Surjective ⇑f"
+            },
+            {
+              "fvar_id": "7",
+              "name": "heq",
+              "statement": "∀ (i j : Fin k), (f.colorClass i).ncard.dist (f.colorClass j).ncard ≤ 1"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hmin",
+              "statement": "∀ ℓ < k, ¬∃ g, Function.Surjective ⇑g ∧ ∀ (i j : Fin ℓ), (g.colorClass i).ncard.dist (g.colorClass j).ncard ≤ 1"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hsort",
+              "statement": "∀ (i j : Fin k), i ≤ j → (f.colorClass j).ncard ≤ (f.colorClass i).ncard"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hk_lower",
+              "statement": "n + 1 ≤ k"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hk_upper",
+              "statement": "k ≤ n + 1"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hk",
+              "statement": "k = n + 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let X := fun x => ↑(↑(f x) + 1); let μ := (PMF.uniformOfFintype V).toMeasure; MeasureTheory.integral μ X = (↑n + 1) ^ 2 / (2 * ↑n + 1) ∧ ProbabilityTheory.variance X μ = (↑n ^ 4 + 2 * ↑n ^ 3 + 2 * ↑n ^ 2 + ↑n) / (3 * (2 * ↑n + 1) ^ 2)"
+          }
+        },
+        "lean_dependency_sha256": "5096d517d64e2c7e383ad09face8f0717530feccb368d8aebf94b73b27320057",
+        "kernel_witness_check": {
+          "proof_type": "let X := fun x => ↑(↑(f x) + 1);\nlet μ := (PMF.uniformOfFintype V).toMeasure;\nMeasureTheory.integral μ X = (↑n + 1) ^ 2 / (2 * ↑n + 1) ∧\n  ProbabilityTheory.variance X μ = (↑n ^ 4 + 2 * ↑n ^ 3 + 2 * ↑n ^ 2 + ↑n) / (3 * (2 * ↑n + 1) ^ 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "SimpleGraph.fromRel",
+      "declarations": [
+        "SimpleGraph.fromRel",
+        "instDecidableRelAdjFromRelOfDecidableEq",
+        "SimpleGraph.fromRel_adj"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "SimpleGraph.Coloring",
+      "declarations": [
+        "SimpleGraph.Coloring",
+        "SimpleGraph.selfColoring",
+        "SimpleGraph.coloringOfIsEmpty",
+        "SimpleGraph.Coloring.ofIsEmpty",
+        "SimpleGraph.CompleteBipartiteGraph.bicoloring",
+        "SimpleGraph.Coloring.colorClass",
+        "SimpleGraph.Coloring.colorClasses",
+        "SimpleGraph.instFintypeColoring",
+        "SimpleGraph.completeMultipartiteGraph.coloring",
+        "SimpleGraph.Coloring.colorClasses_isPartition"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "PMF.uniformOfFintype",
+      "declarations": [
+        "PMF.uniformOfFintype",
+        "PMF.mem_support_uniformOfFintype",
+        "PMF.support_uniformOfFintype",
+        "PMF.uniformOfFintype_apply",
+        "PMF.toOuterMeasure_uniformOfFintype_apply",
+        "PMF.toMeasure_uniformOfFintype_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "ProbabilityTheory.variance",
+      "declarations": [
+        "ProbabilityTheory.variance",
+        "ProbabilityTheory.variance_nonneg",
+        "ProbabilityTheory.variance_dirac",
+        "ProbabilityTheory.variance_fun_neg",
+        "ProbabilityTheory.covariance_self",
+        "ProbabilityTheory.variance_neg",
+        "ProbabilityTheory.variance_zero_measure",
+        "ProbabilityTheory.variance_zero",
+        "ProbabilityTheory.variance_id_map",
+        "ProbabilityTheory.variance_congr"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "(Fintype.card _ = Finset.sum _ fun i => (_.colorClass _).ncard)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "sum cardinalities color classes of graph coloring equals cardinality vertices",
+      "declarations": [
+        "SimpleGraph.Coloring.colorClasses",
+        "SimpleGraph.Coloring.mem_colorClasses",
+        "SimpleGraph.Coloring.colorClasses_finite",
+        "SimpleGraph.Coloring.colorClasses_isPartition",
+        "SimpleGraph.Coloring.colorClass",
+        "SimpleGraph.Colorable.card_le_of_pairwise_adj",
+        "SimpleGraph.Coloring.color_classes_independent",
+        "SimpleGraph.Coloring.card_colorClasses_le",
+        "SimpleGraph.chromaticNumber",
+        "SimpleGraph.IsClique.card_le_of_colorable"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Set.ncard_eq_toFinset_card",
+      "declarations": [
+        "Set.ncard_eq_toFinset_card"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Fintype.card_subtype_compl",
+      "declarations": [
+        "Fintype.card_subtype_compl"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Nat.dist one",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Nat.succ_le_of_lt",
+      "declarations": [
+        "Nat.succ_le_of_lt",
+        "Holor.sum_unitVec_mul_slice"
+      ],
+      "call_turn": 7,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Finset.sum_fiberwise",
+      "declarations": [
+        "Finset.sum_fiberwise"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Finset.card_eq_sum_card_fiberwise",
+      "declarations": [
+        "Finset.card_eq_sum_card_fiberwise"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Finset.card_fiberwise",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Finset.sum_comp",
+      "declarations": [
+        "Finset.sum_comp"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Fintype.card_eq_sum_ones",
+      "declarations": [
+        "Fintype.card_eq_sum_ones"
+      ],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Fintype.sum_fiber",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "Set.toFinset_card",
+      "declarations": [
+        "Set.toFinset_card"
+      ],
+      "call_turn": 21,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Set.ncard_eq_finset_card",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Set.ncard_coe_Finset",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Finset.coe_filter",
+      "declarations": [
+        "Finset.coe_filter"
+      ],
+      "call_turn": 21,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Set.Finite.toFinset_card",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "ProbabilityTheory.evariance",
+      "declarations": [
+        "ProbabilityTheory.evariance",
+        "ProbabilityTheory.evariance_zero_measure",
+        "ProbabilityTheory.evariance_zero",
+        "ProbabilityTheory.evariance_congr",
+        "ProbabilityTheory.evariance_eq_lintegral_ofReal",
+        "ProbabilityTheory.evariance_eq_zero_iff",
+        "ProbabilityTheory.evariance_mul",
+        "ProbabilityTheory.evariance_ne_top",
+        "MeasureTheory.MemLp.evariance_ne_top",
+        "ProbabilityTheory.ofReal_variance"
+      ],
+      "call_turn": 29,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "variance_eq_integral",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "evariance_eq",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "PMF.evariance_eq_sum",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "variance finite uniform PMF sum squared centered values",
+      "declarations": [
+        "PMF.uniformOfFinset",
+        "PMF.support_uniformOfFinset",
+        "PMF.uniformOfFintype",
+        "PMF.ofFintype_apply",
+        "ProbabilityTheory.variance_fun_sum",
+        "PMF.support_uniformOfFintype",
+        "ProbabilityTheory.variance_sum'",
+        "ProbabilityTheory.variance",
+        "ProbabilityTheory.variance_sum",
+        "PMF.mem_support_uniformOfFintype"
+      ],
+      "call_turn": 29,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "(ProbabilityTheory.variance _ _ = ∫ _, (_ - ∫ _, _ ∂_) ^ 2 ∂_)",
+      "declarations": [
+        "ProbabilityTheory.variance_eq_integral"
+      ],
+      "call_turn": 35,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "(ProbabilityTheory.variance _ _ = ∫ _, _ ∂_)",
+      "declarations": [
+        "ProbabilityTheory.variance_eq_integral",
+        "ProbabilityTheory.variance_of_integral_eq_zero"
+      ],
+      "call_turn": 35,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "variance equals integral squared difference from expectation real finite measure",
+      "declarations": [
+        "ProbabilityTheory.variance_eq_integral",
+        "ProbabilityTheory.evariance_eq_lintegral_ofReal",
+        "MeasureTheory.integral",
+        "ProbabilityTheory.",
+        "ProbabilityTheory.variance_sub",
+        "ProbabilityTheory.variance_fun_sub",
+        "MeasureTheory.hasFiniteIntegral_iff_ofReal",
+        "MeasureTheory.hasFiniteIntegral_toReal_iff",
+        "ProbabilityTheory.variance_le_expectation_sq",
+        "PMF.bernoulli_expectation"
+      ],
+      "call_turn": 35,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "ENNReal.toReal_lintegral_ofReal",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "ofReal_toReal",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "lintegral_fintype",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "AEMeasurable _ (PMF.toMeasure _)",
+      "declarations": [],
+      "call_turn": 42,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "aemeasurable_of_finite",
+      "declarations": [],
+      "call_turn": 42,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Measurable.aemeasurable",
+      "declarations": [
+        "Measurable.aemeasurable",
+        "MeasureTheory.ProbabilityMeasure.continuous_map",
+        "MeasureTheory.ProbabilityMeasure.tendsto_map_of_tendsto_of_continuous",
+        "MeasureTheory.ProbabilityMeasure.map_fst_prod",
+        "MeasureTheory.ProbabilityMeasure.map_snd_prod",
+        "MeasureTheory.ProbabilityMeasure.prod_swap",
+        "MeasureTheory.ProbabilityMeasure.map_prod_map"
+      ],
+      "call_turn": 42,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "measurable_of_countable",
+      "declarations": [
+        "measurable_of_countable"
+      ],
+      "call_turn": 42,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "measurable_discrete",
+      "declarations": [],
+      "call_turn": 42,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "Set.ncard_eq_card",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "Set.ncard_univ",
+      "declarations": [
+        "Set.ncard_univ"
+      ],
+      "call_turn": 48,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Nat.card_eq_fintype_card",
+      "declarations": [
+        "Nat.card_eq_fintype_card"
+      ],
+      "call_turn": 48,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "Fintype.card_subtype",
+      "declarations": [
+        "Fintype.card_subtype"
+      ],
+      "call_turn": 48,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Fintype.card_subtype_eq",
+      "declarations": [
+        "Fintype.card_subtype_eq"
+      ],
+      "call_turn": 48,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "completeGraph_adj",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "(SimpleGraph.completeGraph _).Adj _ _ ↔ _ ≠ _",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "finRotate_apply_ne",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "finRotate_ne_self",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "castSucc_ne",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "Fin.castSucc_ne_last",
+      "declarations": [
+        "Fin.castSucc_ne_last"
+      ],
+      "call_turn": 64,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "finRotate",
+      "declarations": [
+        "finRotate",
+        "finRotate_one",
+        "finRotate_zero",
+        "lt_finRotate_iff_ne_neg_one",
+        "finRotate_apply_zero",
+        "finRotate_symm_lt_iff_ne_zero",
+        "finCycle_eq_finRotate_iterate",
+        "finRotate_succ_symm_apply",
+        "coe_finRotate_symm_of_ne_zero",
+        "coe_finRotate"
+      ],
+      "call_turn": 71,
+      "result_turn": 72
+    },
+    {
+      "event_id": "leanfinder:55",
+      "tool": "leanfinder",
+      "query": "finRotate no fixed point finRotate i not equal i",
+      "declarations": [
+        "finRotate_zero",
+        "finRotate_apply",
+        "Fin2.ofFin",
+        "finRotate",
+        "finRotate_last'",
+        "Fin",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "finRotate_of_lt",
+        "sign_finRotate",
+        "Lean.Meta.getFunInfo"
+      ],
+      "call_turn": 71,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Fin.rotate",
+      "declarations": [],
+      "call_turn": 71,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Fin.succ_ne_zero",
+      "declarations": [
+        "Fin.succ_ne_zero"
+      ],
+      "call_turn": 71,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Fin.succ_ne_self",
+      "declarations": [],
+      "call_turn": 71,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Fin.castSucc_injective",
+      "declarations": [
+        "Fin.castSucc_injective",
+        "Fin.coe_of_injective_castSucc_symm"
+      ],
+      "call_turn": 71,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "finRotate support",
+      "declarations": [],
+      "call_turn": 78,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "finRotate fixed",
+      "declarations": [],
+      "call_turn": 78,
+      "result_turn": 80
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "finRotate fixed points cycle support Fin",
+      "declarations": [
+        "finCycle",
+        "Fin.cycleIcc_of_gt",
+        "finRotate",
+        "Equiv.Perm.IsCycleOn.pow_apply_eq",
+        "Equiv.Perm.mem_toCycle_iff_support",
+        "finCycle_eq_finRotate_iterate",
+        "Fin",
+        "support_finRotate",
+        "isCycle_finRotate",
+        "cycleType_finRotate"
+      ],
+      "call_turn": 78,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "finRotate_apply",
+      "declarations": [],
+      "call_turn": 78,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "coe_finRotate",
+      "declarations": [
+        "coe_finRotate"
+      ],
+      "call_turn": 78,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "finRotate_last",
+      "declarations": [
+        "finRotate_last"
+      ],
+      "call_turn": 78,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "Fin.eq_castSucc_of_ne_last",
+      "declarations": [
+        "Fin.eq_castSucc_of_ne_last"
+      ],
+      "call_turn": 87,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Fin.exists_castSucc_eq",
+      "declarations": [
+        "Fin.exists_castSucc_eq"
+      ],
+      "call_turn": 87,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "Fin.lastCases",
+      "declarations": [
+        "Fin.lastCases",
+        "Fin.lastCases_last",
+        "Fin.lastCases_castSucc",
+        "Fin.orderSucc_apply",
+        "Fin.orderSucc_eq"
+      ],
+      "call_turn": 87,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "Fin.last_or_castSucc",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Fin.eq_last_or_exists",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "Fin.ne_last",
+      "declarations": [],
+      "call_turn": 87,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "Set.ncard_pair",
+      "declarations": [
+        "Set.ncard_pair"
+      ],
+      "call_turn": 94,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "Set.ncard_singleton",
+      "declarations": [
+        "Set.ncard_singleton"
+      ],
+      "call_turn": 94,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "Nat.dist_le_one",
+      "declarations": [],
+      "call_turn": 94,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "Nat.dist_eq_zero",
+      "declarations": [
+        "Nat.dist_eq_zero"
+      ],
+      "call_turn": 94,
+      "result_turn": 98
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "Nat.dist_comm",
+      "declarations": [
+        "Nat.dist_comm"
+      ],
+      "call_turn": 94,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "Nat.dist_le_iff",
+      "declarations": [],
+      "call_turn": 94,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "Set.ncard_pos",
+      "declarations": [
+        "Set.ncard_pos"
+      ],
+      "call_turn": 103,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Set.ncard_eq_zero",
+      "declarations": [
+        "Set.ncard_eq_zero"
+      ],
+      "call_turn": 103,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "Set.one_le_ncard",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "Set.Nonempty.ncard_pos",
+      "declarations": [
+        "Set.Nonempty.ncard_pos"
+      ],
+      "call_turn": 103,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "Set.ncard_ne_zero",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "Finset.card_filter_add_card_filter_not",
+      "declarations": [
+        "Finset.card_filter_add_card_filter_not"
+      ],
+      "call_turn": 113,
+      "result_turn": 114
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Finset.card_filter_not",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "Finset.filter_not_card",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Finset.card_eq_one",
+      "declarations": [
+        "Finset.card_eq_one"
+      ],
+      "call_turn": 113,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "Finset.card_le_one",
+      "declarations": [
+        "Finset.card_le_one"
+      ],
+      "call_turn": 113,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Finset.one_lt_card",
+      "declarations": [
+        "Finset.one_lt_card"
+      ],
+      "call_turn": 113,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "Fin.le_last",
+      "declarations": [
+        "Fin.le_last",
+        "Fin.succAbove_castPred_of_lt",
+        "Fin.insertNth_apply_below"
+      ],
+      "call_turn": 120,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "Fin.last_le_iff",
+      "declarations": [
+        "Fin.last_le_iff"
+      ],
+      "call_turn": 120,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "Fin.castSucc_lt_last",
+      "declarations": [
+        "Fin.castSucc_lt_last",
+        "Fin.predAbove_of_le_castSucc",
+        "Fin.castPred_castSucc"
+      ],
+      "call_turn": 120,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "Fin.lt_last_iff_ne_last",
+      "declarations": [
+        "Fin.lt_last_iff_ne_last",
+        "Fin.predAbove_castPred_of_le"
+      ],
+      "call_turn": 120,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "Fin.le_iff_val_le_val",
+      "declarations": [
+        "Fin.le_iff_val_le_val",
+        "SimplexCategory.",
+        "CategoryTheory.CosimplicialObject.",
+        "CategoryTheory.SimplicialObject.",
+        "SSet."
+      ],
+      "call_turn": 120,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Equiv.apply_eq_iff_eq_symm_apply",
+      "declarations": [
+        "Equiv.apply_eq_iff_eq_symm_apply"
+      ],
+      "call_turn": 128,
+      "result_turn": 129
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "Equiv.eq_symm_apply",
+      "declarations": [
+        "Equiv.eq_symm_apply",
+        "AffineBasis.basisOf_reindex"
+      ],
+      "call_turn": 128,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "Equiv.symm_apply_eq",
+      "declarations": [
+        "Equiv.symm_apply_eq"
+      ],
+      "call_turn": 128,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "Equiv.apply_eq_iff_eq",
+      "declarations": [
+        "Equiv.apply_eq_iff_eq"
+      ],
+      "call_turn": 128,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "Equiv.injective.eq_iff",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Finset.card_pos",
+      "declarations": [
+        "Finset.card_pos",
+        "Finset.min'_lt_max'_of_card",
+        "Finset.orderEmbOfFin_zero",
+        "Finset.orderEmbOfFin_last",
+        "Finset.sorted_zero_eq_min'",
+        "Finset.Colex.erase_le_erase_min'"
+      ],
+      "call_turn": 150,
+      "result_turn": 151
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "Finset.Nonempty card_pos",
+      "declarations": [],
+      "call_turn": 150,
+      "result_turn": 152
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "Finset.card_eq_zero",
+      "declarations": [
+        "Finset.card_eq_zero"
+      ],
+      "call_turn": 150,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "Finset.card_ne_zero",
+      "declarations": [
+        "Finset.card_ne_zero"
+      ],
+      "call_turn": 150,
+      "result_turn": 154
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "Fin.sum_univ_castSucc",
+      "declarations": [
+        "Fin.sum_univ_castSucc"
+      ],
+      "call_turn": 167,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "Finset.sum_fin_eq_sum_range",
+      "declarations": [
+        "Finset.sum_fin_eq_sum_range"
+      ],
+      "call_turn": 167,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "Fin.sum_univ_succAbove",
+      "declarations": [
+        "Fin.sum_univ_succAbove"
+      ],
+      "call_turn": 167,
+      "result_turn": 170
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "Finset.sum_fin_succ",
+      "declarations": [],
+      "call_turn": 167,
+      "result_turn": 171
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "Finset.sum_fin_eq_sum_range",
+      "declarations": [
+        "Finset.sum_fin_eq_sum_range"
+      ],
+      "call_turn": 167,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "Fin.sum_univ_eq_sum_range",
+      "declarations": [
+        "Fin.sum_univ_eq_sum_range"
+      ],
+      "call_turn": 167,
+      "result_turn": 173
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "Finset.sum_range_id",
+      "declarations": [
+        "Finset.sum_range_id"
+      ],
+      "call_turn": 174,
+      "result_turn": 175
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "Finset.sum_range_succ",
+      "declarations": [
+        "Finset.sum_range_succ"
+      ],
+      "call_turn": 174,
+      "result_turn": 176
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "Finset.sum_range_add",
+      "declarations": [
+        "Finset.sum_range_add"
+      ],
+      "call_turn": 174,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "Finset.sum_range_const",
+      "declarations": [],
+      "call_turn": 174,
+      "result_turn": 178
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "Finset.sum_range_id_mul_two",
+      "declarations": [
+        "Finset.sum_range_id_mul_two"
+      ],
+      "call_turn": 174,
+      "result_turn": 179
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "Finset.sum_range_sq",
+      "declarations": [],
+      "call_turn": 174,
+      "result_turn": 180
+    },
+    {
+      "event_id": "loogle:134",
+      "tool": "loogle",
+      "query": "(ProbabilityTheory.variance _ _ = ∫ _, _ ^ 2 ∂_ - (∫ _, _ ∂_) ^ 2)",
+      "declarations": [],
+      "call_turn": 181,
+      "result_turn": 182
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "variance_eq_sub",
+      "declarations": [],
+      "call_turn": 181,
+      "result_turn": 183
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "variance_eq_expectation_sq",
+      "declarations": [],
+      "call_turn": 181,
+      "result_turn": 184
+    },
+    {
+      "event_id": "leanfinder:137",
+      "tool": "leanfinder",
+      "query": "variance equals second moment minus square expectation theorem",
+      "declarations": [
+        "ProbabilityTheory.integral_condVar_add_variance_condExp",
+        "ProbabilityTheory.moment",
+        "ProbabilityTheory.variance_le_expectation_sq",
+        "ProbabilityTheory.variance_sub",
+        "ProbabilityTheory.variance_eq_sub",
+        "ProbabilityTheory.variance",
+        "ProbabilityTheory.variance_fun_sub",
+        "ProbabilityTheory.centralMoment_two_eq_variance",
+        "PMF.bernoulli_expectation",
+        "bernstein.variance"
+      ],
+      "call_turn": 181,
+      "result_turn": 185
+    },
+    {
+      "event_id": "loogle:138",
+      "tool": "loogle",
+      "query": "integral_fintype",
+      "declarations": [],
+      "call_turn": 181,
+      "result_turn": 186
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "Integrable.of_finite",
+      "declarations": [],
+      "call_turn": 181,
+      "result_turn": 187
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 10,
+    "selected_hyperedge_count": 5,
+    "main_hyperedge_count": 5,
+    "side_hyperedge_count": 0,
+    "selected_depth": 4,
+    "max_fan_in_all": 7,
+    "max_fan_in_main": 7,
+    "manifest_fact_count": 5,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 115,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 115,
+    "accepted_helper_count": 6,
+    "rollout_tool_call_count": 158,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

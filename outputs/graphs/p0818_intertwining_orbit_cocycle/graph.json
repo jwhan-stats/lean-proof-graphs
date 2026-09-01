@@ -1,0 +1,439 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0818_intertwining_orbit_cocycle",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 818,
+    "source": "math_0408120",
+    "theorem_name": "intertwining_orbit_cocycle",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/818",
+    "reconstructed_proof": "../../candidates/p0818_intertwining_orbit_cocycle/proof.lean",
+    "raw_elaboration": "../../candidates/p0818_intertwining_orbit_cocycle/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0818_intertwining_orbit_cocycle.intertwining_orbit_cocycle",
+    "verification_call_id": "verify_submission:15",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "7c24cee0092f3df02efea7f89fb4a675db6848999deb567605152a521cf9f3f3",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "518bc892b568c7d08d7fdf715ff2be9247d8afbe8f148f07b58c6f85c1427db2",
+    "concrete_semantic_topology_sha256": "7c24cee0092f3df02efea7f89fb4a675db6848999deb567605152a521cf9f3f3"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_0f62feec",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hα₃",
+      "lean_fvar_id": "14",
+      "statement": "∀ (g h : Γ), α g h 1 = 0"
+    },
+    {
+      "id": "m_h_1ca97282",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hα₂",
+      "lean_fvar_id": "13",
+      "statement": "∀ (g h : Γ), α g 1 h = 0"
+    },
+    {
+      "id": "m_h_35b21d59",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hα₁",
+      "lean_fvar_id": "12",
+      "statement": "∀ (g h : Γ), α 1 g h = 0"
+    },
+    {
+      "id": "m_h_cocycle_0e39dc2e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hαcocycle",
+      "lean_fvar_id": "15",
+      "statement": "∀ (g h k l : Γ), g • α h k l - α (g * h) k l + α g (h * k) l - α g h (k * l) + α g h k = 0"
+    },
+    {
+      "id": "m_h_equiv_08bc9465",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hβ'equiv",
+      "lean_fvar_id": "19",
+      "statement": "∀ (g : Γ) (u : A) (i' : Fin n'), β' (g • u) i' = β' u ((ρ' g)⁻¹ i')"
+    },
+    {
+      "id": "m_h_equiv_1c5d0548",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hβequiv",
+      "lean_fvar_id": "18",
+      "statement": "∀ (g : Γ) (u : A) (i : Fin n), β (g • u) i = β u ((ρ g)⁻¹ i)"
+    },
+    {
+      "id": "m_hc_aaf6ef10",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc₂",
+      "lean_fvar_id": "23",
+      "statement": "∀ (g : Γ) (i : Fin n), c g 1 i = 1"
+    },
+    {
+      "id": "m_hc_bcd96f9b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc'₁",
+      "lean_fvar_id": "24",
+      "statement": "∀ (g : Γ) (i' : Fin n'), c' 1 g i' = 1"
+    },
+    {
+      "id": "m_hc_cfc6d9ab",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc'₂",
+      "lean_fvar_id": "25",
+      "statement": "∀ (g : Γ) (i' : Fin n'), c' g 1 i' = 1"
+    },
+    {
+      "id": "m_hc_d3c3b135",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hc₁",
+      "lean_fvar_id": "22",
+      "statement": "∀ (g : Γ) (i : Fin n), c 1 g i = 1"
+    },
+    {
+      "id": "m_hcob_1a014649",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcob'",
+      "lean_fvar_id": "27",
+      "statement": "∀ (g h k : Γ) (i' : Fin n'), c' h k ((ρ' g)⁻¹ i') * (c' (g * h) k i')⁻¹ * c' g (h * k) i' * (c' g h i')⁻¹ = Additive.toMul (β' (α g h k) i')"
+    },
+    {
+      "id": "m_hcob_651e18f5",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcob",
+      "lean_fvar_id": "26",
+      "statement": "∀ (g h k : Γ) (i : Fin n), c h k ((ρ g)⁻¹ i) * (c (g * h) k i)⁻¹ * c g (h * k) i * (c g h i)⁻¹ = Additive.toMul (β (α g h k) i)"
+    },
+    {
+      "id": "m_hintertwine_d4bfa7e6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hintertwine",
+      "lean_fvar_id": "30",
+      "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2"
+    },
+    {
+      "id": "m_hn_c5f577ec",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "7",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "m_hn_f5cee630",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn'",
+      "lean_fvar_id": "8",
+      "statement": "1 ≤ n'"
+    },
+    {
+      "id": "m_ho_2df0b33d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hO",
+      "lean_fvar_id": "29",
+      "statement": "∃ p₀, O = {p | ∃ g, p = ((ρ' g)⁻¹ p₀.1, (ρ g)⁻¹ p₀.2)}"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹; (∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧ (∀ (g h k : Γ) (p : ↑O), c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧ ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ), (∀ (i : Fin n), x 1 i = 1) → (∀ (i' : Fin n'), x' 1 i' = 1) → let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i; let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i'; let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹; ∀ (g h : Γ) (p : ↑O), c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ = z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)"
+    },
+    {
+      "id": "n_h_ea5e2a35",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hβ",
+      "lean_fvar_id": "_uniq.1011235",
+      "statement": "Additive.toMul (β' (α g h k) (↑p).1) = Additive.toMul (β (α g h k) (↑p).2)"
+    },
+    {
+      "id": "n_hintertwine_b41f9284",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hintertwine",
+      "lean_fvar_id": "_uniq.1009184",
+      "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hintertwine_b41f9284"
+      ],
+      "conclusion": "n_h_ea5e2a35",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg",
+        "items": [
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_157",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hβ := congrArg Additive.toMul (hintertwine p.1 p.2 (α g h k))\n    simp [hβ]\n  · intro x x' hx hx' g h p",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1009184",
+              "name": "hintertwine",
+              "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1011235",
+            "name": "hβ",
+            "statement": "Additive.toMul (β' (α g h k) (↑p).1) = Additive.toMul (β (α g h k) (↑p).2)"
+          }
+        },
+        "lean_dependency_sha256": "bc058305b9303a209dcc5aefc2596e6137f2e6cc30ceaa26ac1ecd96d92043f6",
+        "kernel_witness_check": {
+          "proof_type": "Additive.toMul (β' (α g h k) (↑p).1) = Additive.toMul (β (α g h k) (↑p).2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hc_d3c3b135",
+        "m_hc_aaf6ef10",
+        "m_hc_bcd96f9b",
+        "m_hc_cfc6d9ab",
+        "m_hcob_651e18f5",
+        "m_hcob_1a014649",
+        "m_hintertwine_d4bfa7e6"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "coboundary_factor_identity + orbit_factor_identity + congrArg",
+        "items": [
+          "Rollout_p0818_intertwining_orbit_cocycle.coboundary_factor_identity",
+          "Rollout_p0818_intertwining_orbit_cocycle.orbit_factor_identity",
+          "congrArg"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0818_intertwining_orbit_cocycle.coboundary_factor_identity",
+          "Rollout_p0818_intertwining_orbit_cocycle.orbit_factor_identity"
+        ],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨?_, ?_, ?_⟩\n  · intro g p\n    constructor\n    · simp [hc'₁, hc₁]\n    · simp [hc'₂, hc₂]\n  · intro g h k p\n    rw [orbit_factor_identity]\n    rw [hcob' g h k p.1.1, hcob g h k p.1.2]\n    have hβ := congrArg Additive.toMul (hintertwine p.1 p.2 (α g h k))\n    simp [hβ]\n  · intro x x' hx hx' g h p\n    exact coboundary_factor_identity _ _ _ _ _ _ _ _",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "22",
+              "name": "hc₁",
+              "statement": "∀ (g : Γ) (i : Fin n), c 1 g i = 1"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hc₂",
+              "statement": "∀ (g : Γ) (i : Fin n), c g 1 i = 1"
+            },
+            {
+              "fvar_id": "24",
+              "name": "hc'₁",
+              "statement": "∀ (g : Γ) (i' : Fin n'), c' 1 g i' = 1"
+            },
+            {
+              "fvar_id": "25",
+              "name": "hc'₂",
+              "statement": "∀ (g : Γ) (i' : Fin n'), c' g 1 i' = 1"
+            },
+            {
+              "fvar_id": "26",
+              "name": "hcob",
+              "statement": "∀ (g h k : Γ) (i : Fin n), c h k ((ρ g)⁻¹ i) * (c (g * h) k i)⁻¹ * c g (h * k) i * (c g h i)⁻¹ = Additive.toMul (β (α g h k) i)"
+            },
+            {
+              "fvar_id": "27",
+              "name": "hcob'",
+              "statement": "∀ (g h k : Γ) (i' : Fin n'), c' h k ((ρ' g)⁻¹ i') * (c' (g * h) k i')⁻¹ * c' g (h * k) i' * (c' g h i')⁻¹ = Additive.toMul (β' (α g h k) i')"
+            },
+            {
+              "fvar_id": "30",
+              "name": "hintertwine",
+              "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹; (∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧ (∀ (g h k : Γ) (p : ↑O), c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧ ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ), (∀ (i : Fin n), x 1 i = 1) → (∀ (i' : Fin n'), x' 1 i' = 1) → let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i; let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i'; let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹; ∀ (g h : Γ) (p : ↑O), c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ = z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)"
+          }
+        },
+        "lean_dependency_sha256": "1a56f4b7f7088522737dda95f9a46a76259aaee0aad52ea393e831a58ec57e44",
+        "kernel_witness_check": {
+          "proof_type": "let z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹;\n(∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧\n  (∀ (g h k : Γ) (p : ↑O),\n      c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧\n    ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ),\n      (∀ (i : Fin n), x 1 i = 1) →\n        (∀ (i' : Fin n'), x' 1 i' = 1) →\n          let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i;\n          let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i';\n          let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹;\n          ∀ (g h : Γ) (p : ↑O),\n            c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ =\n              z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Additive.ofMul (_ * _) = _",
+      "declarations": [
+        "ofMul_mul"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Additive.ofMul _⁻¹ = _",
+      "declarations": [
+        "ofMul_inv"
+      ],
+      "call_turn": 16,
+      "result_turn": 17
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 8,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 7,
+    "max_fan_in_main": 7,
+    "manifest_fact_count": 7,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 2,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 2,
+    "accepted_helper_count": 2,
+    "rollout_tool_call_count": 16,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

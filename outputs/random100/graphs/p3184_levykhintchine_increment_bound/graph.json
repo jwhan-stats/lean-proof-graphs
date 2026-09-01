@@ -1,0 +1,1877 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3184_levykhintchine_increment_bound",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3184,
+    "source": "1105.2424",
+    "theorem_name": "levyKhintchine_increment_bound",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3184",
+    "reconstructed_proof": "../../candidates/p3184_levykhintchine_increment_bound/proof.lean",
+    "raw_elaboration": "../../candidates/p3184_levykhintchine_increment_bound/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p3184_levykhintchine_increment_bound.levyKhintchine_increment_bound",
+    "verification_call_id": "verify_submission:167",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "23545fecef4f1ff04645c5d928169ac23e01358909956c9b1a0cd1de6e02c090",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "9df22a37da3b09c4f2a7bfe50e9ef0c6223e546fae33f5c343f7a8ea6ecd6a92",
+    "concrete_semantic_topology_sha256": "23545fecef4f1ff04645c5d928169ac23e01358909956c9b1a0cd1de6e02c090"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_2_fc7a30eb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hσ2",
+      "lean_fvar_id": "4",
+      "statement": "0 ≤ σ2"
+    },
+    {
+      "id": "m_h_bf17926f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hΔ",
+      "lean_fvar_id": "5",
+      "statement": "0 ≤ Δ"
+    },
+    {
+      "id": "m_hn2_5eb50068",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn2",
+      "lean_fvar_id": "7",
+      "statement": "MeasureTheory.Integrable (fun x => x ^ 2 * ↑(n x)) MeasureTheory.volume"
+    },
+    {
+      "id": "m_hn_a6959e60",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "6",
+      "statement": "Measurable n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∀ (u : ℝ), ‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((fun u => |b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) u + σ2 * |u|)) ∧ (MeasureTheory.Integrable (fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) MeasureTheory.volume → ∀ (u : ℝ), ‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((|b| + ∫ (v : ℝ), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) + σ2 * |u|))"
+    },
+    {
+      "id": "n_h_2_1e837603",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hσ2",
+      "lean_fvar_id": "_uniq.3589466",
+      "statement": "0 ≤ σ2"
+    },
+    {
+      "id": "n_h_9127ba3a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hΔ",
+      "lean_fvar_id": "_uniq.3589467",
+      "statement": "0 ≤ Δ"
+    },
+    {
+      "id": "n_hfirst_540d0cab",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfirst",
+      "lean_fvar_id": "_uniq.3589560",
+      "statement": "‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((fun u => |b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) u + σ2 * |u|)"
+    },
+    {
+      "id": "n_hhstar_a0a562fb",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hhstar",
+      "lean_fvar_id": "_uniq.3589551",
+      "statement": "Integrable (fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))) volume"
+    },
+    {
+      "id": "n_hinner_aca6fb00",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hinner",
+      "lean_fvar_id": "_uniq.3599987",
+      "statement": "(|b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖) + σ2 * |u| ≤ (|b| + ∫ (v : ℝ), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖) + σ2 * |u|"
+    },
+    {
+      "id": "n_hn2_24a28404",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn2",
+      "lean_fvar_id": "_uniq.3589469",
+      "statement": "Integrable (fun x => x ^ 2 * ↑(n x)) volume"
+    },
+    {
+      "id": "n_houter_nonneg_a05ad519",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "houter_nonneg",
+      "lean_fvar_id": "_uniq.3602884",
+      "statement": "0 ≤ Δ * |u|"
+    },
+    {
+      "id": "n_hseg_be3eec30",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hseg",
+      "lean_fvar_id": "_uniq.3592765",
+      "statement": "∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖ ≤ ∫ (v : ℝ), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hfirst",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2_1e837603",
+        "n_h_9127ba3a",
+        "n_hn2_24a28404"
+      ],
+      "conclusion": "n_hfirst_540d0cab",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "levy_psi_bound_first",
+        "items": [
+          "Rollout_p3184_levykhintchine_increment_bound.levy_psi_bound_first"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3184_levykhintchine_increment_bound.levy_psi_bound_first"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_855",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hfirst := levy_psi_bound_first b σ2 Δ n hσ2 hΔ hn2 u",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3589466",
+              "name": "hσ2",
+              "statement": "0 ≤ σ2"
+            },
+            {
+              "fvar_id": "_uniq.3589467",
+              "name": "hΔ",
+              "statement": "0 ≤ Δ"
+            },
+            {
+              "fvar_id": "_uniq.3589469",
+              "name": "hn2",
+              "statement": "Integrable (fun x => x ^ 2 * ↑(n x)) volume"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3589560",
+            "name": "hfirst",
+            "statement": "‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((fun u => |b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) u + σ2 * |u|)"
+          }
+        },
+        "lean_dependency_sha256": "6f9b0c10192ac22695f43ab2e836eae3d258c903bf4980f1f808e9aaab2a79f0",
+        "kernel_witness_check": {
+          "proof_type": "‖(fun u =>\n          Complex.exp\n            (↑Δ *\n              (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 +\n                ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x))))\n        u -\n      1‖ ≤\n  Δ * |u| *\n    ((fun u =>\n          |b| +\n            ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u),\n              ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖)\n        u +\n      σ2 * |u|)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hseg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hhstar_a0a562fb"
+      ],
+      "conclusion": "n_hseg_be3eec30",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.Integrable.norm + MeasureTheory.setIntegral_le_integral + norm_nonneg",
+        "items": [
+          "MeasureTheory.Integrable.norm",
+          "MeasureTheory.setIntegral_le_integral",
+          "norm_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.Integrable.norm",
+          "MeasureTheory.setIntegral_le_integral",
+          "norm_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_856",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hseg : (∫ v in Set.Icc (min 0 u) (max 0 u),\n        ‖∫ x : ℝ, Complex.exp (Complex.I * (v : ℂ) * (x : ℂ)) *\n          ((x ^ 2 * (n x : ℝ) : ℝ) : ℂ)‖) ≤\n      ∫ v : ℝ,\n        ‖∫ x : ℝ, Complex.exp (Complex.I * (v : ℂ) * (x : ℂ)) *\n          ((x ^ 2 * (n x : ℝ) : ℝ) : ℂ)‖ := by\n    apply MeasureTheory.setIntegral_le_integral\n    · simpa using hhstar.norm\n    · filter_upwards with v\n      exact norm_nonneg _",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3589551",
+              "name": "hhstar",
+              "statement": "Integrable (fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))) volume"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3592765",
+            "name": "hseg",
+            "statement": "∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖ ≤ ∫ (v : ℝ), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖"
+          }
+        },
+        "lean_dependency_sha256": "a5dcaf96bc8312b12c79174ac9f54fc4d70bb85c1e2e5efc31024fa577e04972",
+        "kernel_witness_check": {
+          "proof_type": "∫ (x : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x_1 : ℝ), Complex.exp (Complex.I * ↑x * ↑x_1) * ↑(x_1 ^ 2 * ↑(n x_1))‖ ≤\n  ∫ (x : ℝ), ‖∫ (x_1 : ℝ), Complex.exp (Complex.I * ↑x * ↑x_1) * ↑(x_1 ^ 2 * ↑(n x_1))‖",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasureTheory.Integrable.norm",
+          "MeasureTheory.setIntegral_le_integral",
+          "norm_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:89",
+          "loogle:161",
+          "leanfinder:4",
+          "leanfinder:15"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hinner",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hseg_be3eec30"
+      ],
+      "conclusion": "n_hinner_aca6fb00",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "nlinarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_857",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hinner : |b| + (∫ v in Set.Icc (min 0 u) (max 0 u),\n        ‖∫ x : ℝ, Complex.exp (Complex.I * (v : ℂ) * (x : ℂ)) *\n          ((x ^ 2 * (n x : ℝ) : ℝ) : ℂ)‖) + σ2 * |u| ≤\n      |b| + (∫ v : ℝ,\n        ‖∫ x : ℝ, Complex.exp (Complex.I * (v : ℂ) * (x : ℂ)) *\n          ((x ^ 2 * (n x : ℝ) : ℝ) : ℂ)‖) + σ2 * |u| := by\n    nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3592765",
+              "name": "hseg",
+              "statement": "∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖ ≤ ∫ (v : ℝ), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3599987",
+            "name": "hinner",
+            "statement": "(|b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖) + σ2 * |u| ≤ (|b| + ∫ (v : ℝ), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖) + σ2 * |u|"
+          }
+        },
+        "lean_dependency_sha256": "c8da5af3d0f140f455b1c675165cdd672055223595caecd55d5a0f56e24d8587",
+        "kernel_witness_check": {
+          "proof_type": "(|b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖) +\n    σ2 * |u| ≤\n  (|b| + ∫ (v : ℝ), ‖∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * ↑(x ^ 2 * ↑(n x))‖) + σ2 * |u|",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_houter_nonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_9127ba3a"
+      ],
+      "conclusion": "n_houter_nonneg_a05ad519",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "abs_nonneg + mul_nonneg",
+        "items": [
+          "abs_nonneg",
+          "mul_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "abs_nonneg",
+          "mul_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_858",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have houter_nonneg : 0 ≤ Δ * |u| := mul_nonneg hΔ (abs_nonneg u)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3589467",
+              "name": "hΔ",
+              "statement": "0 ≤ Δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3602884",
+            "name": "houter_nonneg",
+            "statement": "0 ≤ Δ * |u|"
+          }
+        },
+        "lean_dependency_sha256": "912d6bb2970aa9fe363a214f71eaae3925cee2245eeb133566a4e780b95fd79a",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ Δ * |u|",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_2_fc7a30eb",
+        "m_h_bf17926f",
+        "m_hn2_5eb50068"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MeasureTheory.Integrable.norm + MeasureTheory.setIntegral_le_integral + mul_le_mul_of_nonneg_left",
+        "items": [
+          "MeasureTheory.Integrable.norm",
+          "MeasureTheory.setIntegral_le_integral",
+          "mul_le_mul_of_nonneg_left",
+          "norm_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MeasureTheory.Integrable.norm",
+          "MeasureTheory.setIntegral_le_integral",
+          "mul_le_mul_of_nonneg_left",
+          "norm_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact hfirst.trans (mul_le_mul_of_nonneg_left hinner houter_nonneg)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hσ2",
+              "statement": "0 ≤ σ2"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hΔ",
+              "statement": "0 ≤ Δ"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hn2",
+              "statement": "MeasureTheory.Integrable (fun x => x ^ 2 * ↑(n x)) MeasureTheory.volume"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∀ (u : ℝ), ‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((fun u => |b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) u + σ2 * |u|)) ∧ (MeasureTheory.Integrable (fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) MeasureTheory.volume → ∀ (u : ℝ), ‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((|b| + ∫ (v : ℝ), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) + σ2 * |u|))"
+          }
+        },
+        "lean_dependency_sha256": "2664eeff389f62f327a30d51073b71881e001c2e469186baa5433196f8aa05dd",
+        "kernel_witness_check": {
+          "proof_type": "(∀ (u : ℝ),\n    ‖(fun u =>\n              Complex.exp\n                (↑Δ *\n                  (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 +\n                    ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x))))\n            u -\n          1‖ ≤\n      Δ * |u| *\n        ((fun u =>\n              |b| +\n                ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u),\n                  ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖)\n            u +\n          σ2 * |u|)) ∧\n  (MeasureTheory.Integrable (fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x)\n      MeasureTheory.volume →\n    ∀ (u : ℝ),\n      ‖(fun u =>\n                Complex.exp\n                  (↑Δ *\n                    (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 +\n                      ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x))))\n              u -\n            1‖ ≤\n        Δ * |u| *\n          ((|b| +\n              ∫ (v : ℝ), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) +\n            σ2 * |u|))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "MeasureTheory.Integrable.norm",
+          "MeasureTheory.setIntegral_le_integral",
+          "norm_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:89",
+          "loogle:161",
+          "leanfinder:4",
+          "leanfinder:15"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "Lévy Khintchine exponent Fourier transform bound x squared measure exp i u x minus one minus i u x",
+      "declarations": [
+        "CochainComplex.cm5b.I_X",
+        "SchwartzMap.norm_fourier_apply_le_toLp_one",
+        "Fourier.norm_fourierIntegral_le_integral_norm",
+        "Int.ediv_minus_one",
+        "ProbabilityTheory.exists_integrable_exp_sq_of_map_rotation_eq_self'",
+        "Polynomial.cauchyBound_X",
+        "Polynomial.X",
+        "ProbabilityTheory.exists_integrable_exp_sq_of_map_rotation_eq_self_of_isProbabilityMeasure",
+        "ProbabilityTheory.exists_integrable_exp_sq_of_map_rotation_eq_self",
+        "Int.emod_minus_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Integrable (fun x => x ^ 2 * _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "Fourier transform integral e^(i v x) integrable continuous bound norm",
+      "declarations": [
+        "VectorFourier.fourierIntegral_continuous",
+        "VectorFourier.fourierIntegral",
+        "Fourier.norm_fourierIntegral_le_integral_norm",
+        "Real.fourierIntegral_convergent_iff'",
+        "FourierTransformInv",
+        "Real.zero_at_infty_fourierIntegral",
+        "Real.Lp.fourierTransformCLM",
+        "FourierTransform",
+        "FourierTransform.",
+        "Real.fourierIntegral_convergent_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "‖Complex.exp _ - 1‖ ≤ _",
+      "declarations": [
+        "Complex.norm_exp_sub_one_le",
+        "Real.norm_exp_I_mul_ofReal_sub_one_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "norm exp complex minus one bound norm argument nonpositive real part",
+      "declarations": [
+        "Complex.arg",
+        "realPart.norm_le",
+        "Complex.norm_exp",
+        "Complex.abs_re_div_norm_le_one",
+        "Real.norm_exp_I_mul_ofReal_sub_one_le",
+        "Complex.norm_exp_sub_one_le",
+        "Complex.norm_sub_one_sq_eq_of_norm_eq_one",
+        "Complex.norm_nonneg",
+        "Complex.norm_real",
+        "Complex.norm_exp_ofReal"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "fourierIntegral fourierIntegral _ = _",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "Fourier inversion formula integrable Fourier transform real function",
+      "declarations": [
+        "Real.instFourierTransformInv",
+        "MeasureTheory.Integrable.fourier_fourierInv_eq",
+        "Real.instFourierTransform",
+        "Continuous.fourier_fourierInv_eq",
+        "MeasureTheory.Integrable.fourier_inversion",
+        "Real.fourierTransform_toLp",
+        "Continuous.fourier_inversion_inv",
+        "Continuous.fourier_inversion",
+        "Continuous.fourierInv_fourier_eq",
+        "Real.fourierInv_eq",
+        "MeasureTheory.Integrable.fourier_inversion_inv",
+        "MeasureTheory.Integrable.fourierInv_fourier_eq",
+        "fourier",
+        "Real.Lp.fourierTransformCLM",
+        "FourierTransformInv",
+        "FourierTransform",
+        "Real.fourierChar",
+        "Real.fourierIntegralInv_eq'",
+        "Real.Lp.fourierTransform",
+        "Real.Lp.coe_fourierTransform"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Continuous.fourierIntegral",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "inverse Fourier transform Fourier transform equals original integrable",
+      "declarations": [
+        "Real.fourierIntegralInv_eq",
+        "FourierTransform.fourierInv_neg",
+        "FourierTransform.fourierCLM",
+        "Real.fourierChar",
+        "FourierTransform.fourierInv",
+        "MeasureTheory.Integrable.fourierInv_fourier_eq",
+        "MeasureTheory.Integrable.fourier_inversion_inv",
+        "Continuous.fourier_fourierInv_eq",
+        "Continuous.fourierInv_fourier_eq",
+        "Continuous.fourier_inversion_inv",
+        "Continuous.fourier_inversion",
+        "fourier",
+        "FourierTransform.fourier",
+        "MeasureTheory.Integrable.fourier_inversion",
+        "FourierTransform.fourier_sum",
+        "FourierTransform.fourier_neg",
+        "FourierTransform.fourierEquiv",
+        "VectorFourier.fourierIntegral",
+        "FourierTransform",
+        "FourierTransform."
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "integral (Complex.exp (Complex.I * _ * _) - 1) / _ ^ 2",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "integral exp i a x minus one over x squared equals pi abs a",
+      "declarations": [
+        "QuaternionGroup.a_one_pow",
+        "integral_univ_inv_one_add_sq",
+        "Complex.exp_two_pi_mul_I",
+        "integral_mul_cexp_neg_mul_sq",
+        "integral_exp_mul_complex_Iic",
+        "integral_exp_mul_I_eq_sinc",
+        "integral_exp_mul_I_eq_sin",
+        "integral_Iic_inv_one_add_sq",
+        "integral_Ioi_inv_one_add_sq",
+        "CartanMatrix.A_one",
+        "integral_exp_mul_complex_Ioi",
+        "ADEInequality.A'",
+        "euler_sineTerm_tprod",
+        "integral_exp_neg_rpow",
+        "Complex.integral_exp_neg_rpow",
+        "Polynomial.X",
+        "integral_Ioi_cpow_of_lt",
+        "ADEInequality.A"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "principal value integral one minus cosine over x squared",
+      "declarations": [
+        "EulerSine.integral_cos_pow_eq",
+        "Real.pi",
+        "integral_univ_inv_one_add_sq",
+        "integral_cos_pow",
+        "Set.Ioo.one_minus_lt_one",
+        "integral_Ioi_inv_one_add_sq",
+        "integral_inv_one_add_sq",
+        "integral_one_div_one_add_sq",
+        "integral_sin_pow_mul_cos_pow_odd",
+        "Set.Ioo.one_minus_pos",
+        "integral_Iic_inv_one_add_sq",
+        "integral_sin_pow_odd_mul_cos_pow",
+        "unitInterval.one_minus_nonneg",
+        "EulerSine.integral_sin_mul_sin_mul_cos_pow_eq",
+        "AbsoluteValue.LiesOver",
+        "EulerSine.integral_cos_pow_pos",
+        "Int.ediv_minus_one",
+        "unitInterval.one_minus_le_one",
+        "Int.emod_minus_one",
+        "EulerSine.integral_cos_mul_cos_pow_aux"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Real.pi * | _ |",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "Fourier transform absolute value function distribution x inverse square",
+      "declarations": [
+        "TemperedDistribution.fourierTransformInv_apply",
+        "TemperedDistribution.fourierTransformCLM",
+        "TemperedDistribution.fourierTransform_apply",
+        "AbsoluteValue",
+        "Continuous.fourierInv_fourier_eq",
+        "TemperedDistribution.fourierTransformInvCLM",
+        "TemperedDistribution.instFourierTransformInv",
+        "FourierTransform.fourierInv_neg",
+        "fourier",
+        "TemperedDistribution.instFourierTransform",
+        "FourierInvModule",
+        "Continuous.fourier_fourierInv_eq",
+        "TemperedDistribution.fourierTransformCLM_apply",
+        "Continuous.fourier_inversion_inv",
+        "ValueDistribution.proximity",
+        "ValueDistribution.characteristic",
+        "MeasureTheory.Integrable.fourier_inversion",
+        "MeasureTheory.Integrable.fourier_inversion_inv",
+        "MeasureTheory.Integrable.fourierInv_fourier_eq",
+        "ValueDistribution.logCounting"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "integral exp complex divided by x square",
+      "declarations": [
+        "Complex.exp",
+        "DividedPowers.exp",
+        "DividedPowers.exp_add",
+        "integral_mul_cexp_neg_mul_sq",
+        "PowerSeries.Inv_divided_by_X_pow_order",
+        "integral_exp_mul_complex",
+        "integral_exp_mul_complex_Iic",
+        "Lean.Meta.Sym.getRatValue",
+        "integral_exp_mul_I_eq_sinc",
+        "Complex.integral_exp_neg_rpow",
+        "integral_exp_mul_I_eq_sin",
+        "integral_exp_mul_complex_Ioi",
+        "Mathlib.Meta.NormNum.tryNormNum",
+        "PowerSeries.Inv_divided_by_X_pow_order_leftInv",
+        "Complex.instPow",
+        "Complex.cpow_sub",
+        "PowerSeries.Inv_divided_by_X_pow_order_rightInv",
+        "Lean.mkIntPowNat",
+        "DividedPowers.exp_add'",
+        "Lean.Meta.Simp.simpConst"
+      ],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "norm complex exponential z minus one less than norm z real part nonpositive",
+      "declarations": [
+        "Complex.neg_re_eq_norm",
+        "Complex.re_eq_neg_norm",
+        "realPart.norm_le",
+        "Complex.norm_cpow_real",
+        "Complex.normSq",
+        "Complex.norm_exp",
+        "Complex.norm_sub_one_sq_eq_of_norm_eq_one",
+        "Real.norm_exp_I_mul_ofReal_sub_one_le",
+        "Complex.norm_nonneg",
+        "Complex.nnnorm_exp_ofReal_mul_I",
+        "NNReal.rpow_le_one_of_one_le_of_nonpos",
+        "Complex.norm_eq_one_iff",
+        "Complex.nnnorm_exp_I_mul_ofReal",
+        "Complex.norm_exp_ofReal",
+        "Complex.norm_real",
+        "Complex.re_neg_ne_zero_of_one_lt_re",
+        "Complex.norm_exp_ofReal_mul_I",
+        "GaussianFourier.norm_cexp_neg_mul_sq_add_mul_I'",
+        "bernstein.z",
+        "toZ"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "_.re ≤ 0 -> ‖Complex.exp _ - 1‖ ≤ _",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "contraction semigroup complex exponential bound exp minus one Lipschitz nonpositive real part",
+      "declarations": [
+        "Real.exp",
+        "realPart_one",
+        "Complex.norm_exp_sub_one_le",
+        "Complex.lipschitz_equivRealProd",
+        "Complex.exp_bound_sq",
+        "Complex.map_exp_comap_re_atTop",
+        "Complex.norm_exp_sub_one_sub_id_le",
+        "Complex.locally_lipschitz_exp",
+        "ODE.FunSpace.exists_contractingWith_iterate_next",
+        "Real.exp_bound'",
+        "Complex.norm_exp_mul_exp_add_exp_neg_le_of_abs_im_le",
+        "Complex.exp_bound'",
+        "Complex.exp_bound",
+        "Real.exp_bound",
+        "Real.exp_bound_div_one_sub_of_interval",
+        "ContractingWith.fixedPoint_lipschitz_in_map",
+        "Real.lipschitzWith_one_mulExpNegMulSq",
+        "Real.exp_bound_div_one_sub_of_interval'",
+        "Complex.borelCaratheodory",
+        "Differentiable.exists_const_forall_eq_of_bounded"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Complex.exp _ - 1 = _ * ∫ _ in _ .. _, Complex.exp",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "leanfinder:19",
+      "tool": "leanfinder",
+      "query": "complex exp z minus one equals z integral exp t z",
+      "declarations": [
+        "Complex.exp",
+        "circleIntegral.integral_sub_zpow_of_ne",
+        "integral_exp_mul_I_eq_sinc",
+        "Complex.exp_sub_pi_mul_I",
+        "Complex.cpow_sub",
+        "Complex.exp_int_mul",
+        "integral_exp_mul_I_eq_sin",
+        "Complex.exp_eq_exp_re_mul_sin_add_cos",
+        "Complex.log_exp_exists",
+        "Complex.exp_int_mul_two_pi_mul_I",
+        "bernstein.z",
+        "Complex.exp_two_pi_mul_I",
+        "Complex.exp_add_pi_mul_I",
+        "Complex.exp_nat_mul_two_pi_mul_I",
+        "toZ",
+        "toZ_neg",
+        "toZ_nonneg",
+        "toZ_le_toZ",
+        "bernstein.z_zero",
+        "injective_toZ"
+      ],
+      "call_turn": 20,
+      "result_turn": 25
+    },
+    {
+      "event_id": "leanfinder:20",
+      "tool": "leanfinder",
+      "query": "Lipschitz on convex set bound derivative norm",
+      "declarations": [
+        "LipschitzOnWith",
+        "ConvexOn.locallyLipschitzOn_interior",
+        "norm_fderiv_le_of_lipschitzOn",
+        "norm_deriv_le_of_lipschitzOn",
+        "lipschitzWith_of_nnnorm_deriv_le",
+        "ConvexOn.locallyLipschitzOn",
+        "convexOn_univ_norm",
+        "Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le",
+        "ConvexOn.locallyLipschitzOn_iff_continuousOn",
+        "convexOn_norm",
+        "Convex.lipschitzOnWith_of_nnnorm_hasDerivWithin_le",
+        "Convex.lipschitzOnWith_of_nnnorm_fderivWithin_le",
+        "ConvexOn.lipschitzOnWith_of_abs_le",
+        "Convex.exists_nhdsWithin_lipschitzOnWith_of_hasFDerivWithinAt_of_nnnorm_lt",
+        "Convex.lipschitzOnWith_of_nnnorm_derivWithin_le",
+        "Convex.lipschitzOnWith_of_nnnorm_deriv_le",
+        "Convex.lipschitzOnWith_of_nnnorm_fderiv_le",
+        "ConvexOn.locallyLipschitz",
+        "Convex.lipschitz_gauge",
+        "Convex.lipschitzOnWith_of_nnnorm_hasFDerivWithin_le"
+      ],
+      "call_turn": 26,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Convex -> LipschitzOnWith _ _ _",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:22",
+      "tool": "leanfinder",
+      "query": "norm f x minus f y le C norm x y derivative bound convex",
+      "declarations": [
+        "Convex.norm_image_sub_le_of_norm_fderiv_le'",
+        "MeasureTheory.ae_norm_ofReal_f_le_bound",
+        "Convex.norm_image_sub_le_of_norm_hasDerivWithin_le",
+        "Convex.mul_sub_le_image_sub_of_le_deriv",
+        "Convex.image_sub_lt_mul_sub_of_deriv_lt",
+        "Convex.image_sub_le_mul_sub_of_deriv_le",
+        "Convex.norm_image_sub_le_of_norm_deriv_le",
+        "Pell.Solution",
+        "Polynomial.derivative_X_sub_C_sq",
+        "Convex.lipschitzOnWith_of_nnnorm_fderiv_le",
+        "ConvexOn",
+        "Polynomial.derivative_X_add_C",
+        "Convex.mul_sub_lt_image_sub_of_lt_deriv",
+        "Polynomial.derivative_X_sub_C",
+        "Polynomial.derivative_C_mul_X",
+        "ConvexOn.slope_le_of_hasDerivWithinAt",
+        "StrictConvexOn",
+        "Pell.IsFundamental.x_mul_y_le_y_mul_x",
+        "Pell.x_sub_y_dvd_pow",
+        "Polynomial.Bivariate."
+      ],
+      "call_turn": 26,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "lipschitzOnWith _ Complex.exp",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "‖Complex.exp _ - Complex.exp _‖ ≤ _",
+      "declarations": [
+        "Complex.locally_lipschitz_exp"
+      ],
+      "call_turn": 26,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "∫ _ in _ .. _, _ * Complex.exp (_ * _)",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "definite integral x times complex exponential c x formula",
+      "declarations": [
+        "integral_cexp_quadratic",
+        "integral_exp_mul_complex",
+        "integral_mul_cexp_neg_mul_sq",
+        "integral_exp_mul_complex_Ioi",
+        "integral_mul_cpow_one_add_sq",
+        "integral_exp_mul_I_eq_sinc",
+        "integral_exp_mul_I_eq_sin",
+        "integral_exp_mul_complex_Iic",
+        "Polynomial.derivative_X_sub_C",
+        "integral_cpow",
+        "minpoly.eq_X_sub_C",
+        "Polynomial.divX_C",
+        "Polynomial.X_mul_C",
+        "Polynomial.X_pow_mul_C",
+        "Polynomial.X",
+        "Polynomial.splits_X_sub_C",
+        "Polynomial.eval",
+        "Polynomial.separable_X_add_C",
+        "Polynomial.X_ne_C",
+        "minpoly.eq_X_sub_C'"
+      ],
+      "call_turn": 32,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "integral_exp_mul_complex",
+      "declarations": [
+        "integral_exp_mul_complex"
+      ],
+      "call_turn": 32,
+      "result_turn": 35
+    },
+    {
+      "event_id": "leanfinder:28",
+      "tool": "leanfinder",
+      "query": "Taylor integral remainder complex exponential second order",
+      "declarations": [
+        "Complex.cos_bound",
+        "Complex.exp",
+        "Complex.exp_sub_sum_range_isBigO_pow",
+        "taylor_mean_remainder_bound",
+        "Complex.logTaylor",
+        "Complex.sin_bound",
+        "Complex.norm_exp_sub_one_sub_id_le",
+        "AnalyticAt.exists_eq_sum_add_pow_mul",
+        "Complex.exp_sub_sum_range_succ_isLittleO_pow",
+        "Complex.logTaylor_succ",
+        "taylor_integral_remainder_aux",
+        "taylor_integral_remainder",
+        "Complex.exp_bound",
+        "taylor_integral_remainder_of_absolutelyContinuous",
+        "exists_taylor_mean_remainder_bound",
+        "taylor_mean_remainder_lagrange",
+        "Complex.exp_bound'",
+        "taylor_mean_remainder",
+        "taylor_mean_remainder_cauchy",
+        "taylor_mean_remainder_lagrange_iteratedDeriv"
+      ],
+      "call_turn": 32,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "integral (_ - _) * Complex.exp",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "taylor_integral_remainder",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "MeasureTheory.Integrable (fun x => (↑(_ x) : ℂ))",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 47
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "integrable complex of real function",
+      "declarations": [
+        "Complex.ofReal",
+        "Function.Complex.hasTemperateGrowth_ofReal",
+        "GaussianFourier.integrable_cexp_neg_sum_mul_add",
+        "Real.integrable_sinc",
+        "Complex.IsConservativeOn.isExactOn_univ",
+        "intervalIntegral.integrableOn_Ioo_cpow_iff",
+        "ProbabilityTheory.integrable_cexp_mul_of_re_mem_integrableExpSet",
+        "MeasureTheory.Integrable.ofReal",
+        "TorusIntegrable.function_integrable",
+        "TestFunction.integrable",
+        "ProbabilityTheory.integrable_cexp_mul_of_re_mem_interior_integrableExpSet",
+        "CircleIntegrable",
+        "TestFunction.integrable_bilin",
+        "ProbabilityTheory.integrable_rpow_mul_cexp_of_re_mem_interior_integrableExpSet",
+        "Complex.VerticalIntegrable",
+        "ProbabilityTheory.integrable_pow_mul_cexp_of_re_mem_interior_integrableExpSet",
+        "Function.Periodic.intervalIntegrable",
+        "ValueDistribution.Cartan.integrableOn_intervalIntegral_cartanKernel_left",
+        "ValueDistribution.Cartan.integrableOn_intervalIntegral_cartanKernel_right",
+        "BoundedContinuousFunction.integrable"
+      ],
+      "call_turn": 46,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Integrable.ofReal",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "Complex.ofRealCLM.integrable_comp",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "_.integrable Complex.ofRealCLM",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+      "declarations": [
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt"
+      ],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "integral_eq_sub_of_hasDerivAt",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 56
+    },
+    {
+      "event_id": "leanfinder:42",
+      "tool": "leanfinder",
+      "query": "interval integral fundamental theorem calculus HasDerivAt f' equals f b minus f a",
+      "declarations": [
+        "intervalIntegral.integral_deriv_mul_eq_sub_of_hasDerivWithinAt",
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_tendsto",
+        "intervalIntegral.integral_deriv_of_contDiffOn_uIcc",
+        "intervalIntegral.integral_deriv_eq_sub'",
+        "intervalIntegral.integral_eq_sub_of_hasDeriv_right_of_le",
+        "Continuous.deriv_integral",
+        "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+        "intervalIntegral.integral_eq_sub_of_hasDeriv_right",
+        "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+        "intervalIntegral.integral_eq_sub_of_hasDeriv_right_of_le_real",
+        "intervalIntegral",
+        "intervalIntegral.integral_hasDerivAt_of_tendsto_ae_right",
+        "intervalIntegral.integral_hasDerivAt_left",
+        "intervalIntegral.integral_deriv_eq_sub_uIoo",
+        "intervalIntegral.integral_deriv_eq_sub",
+        "intervalIntegral.integral_deriv_comp_mul_deriv",
+        "exists_hasDerivWithinAt_eq_of_gt_of_lt",
+        "exists_hasDerivWithinAt_eq_of_ge_of_le",
+        "exists_hasDerivWithinAt_eq_of_lt_of_gt"
+      ],
+      "call_turn": 54,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_deriv_eq_sub",
+      "declarations": [
+        "intervalIntegral.integral_deriv_eq_sub"
+      ],
+      "call_turn": 54,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "HasDerivAt -> ∫ _ in _ .. _, _ = _ - _",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 59
+    },
+    {
+      "event_id": "leanfinder:56",
+      "tool": "leanfinder",
+      "query": "Fubini interval integral swap integral x interval integral y",
+      "declarations": [
+        "intervalIntegral.integral_comp_smul_deriv'''",
+        "MeasureTheory.setIntegral_prod",
+        "intervalIntegral.integral_undef",
+        "MeasureTheory.integral_prod_swap",
+        "MeasureTheory.intervalIntegral_integral_swap",
+        "intervalIntegral.integral_symm",
+        "intervalIntegral.integral_neg",
+        "intervalIntegral.integral_const",
+        "intervalIntegral.integral_interval_sub_interval_comm'",
+        "intervalIntegral",
+        "MeasureTheory.integral_integral_swap",
+        "MeasureTheory.intervalIntegral_intervalIntegral_swap",
+        "intervalIntegral.integral_interval_sub_interval_comm",
+        "intervalIntegral.integral_indicator",
+        "intervalIntegral.smul_integral_comp_add_mul",
+        "intervalIntegral.integral_add",
+        "intervalIntegral.integral_congr",
+        "intervalIntegral.integral_sub",
+        "intervalIntegral.integral_comp_mul_deriv'"
+      ],
+      "call_turn": 82,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "∫ _, ∫ _ in _ .. _, _ = ∫ _ in _ .. _, ∫ _, _",
+      "declarations": [],
+      "call_turn": 82,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_integral_swap",
+      "declarations": [],
+      "call_turn": 82,
+      "result_turn": 85
+    },
+    {
+      "event_id": "leanfinder:59",
+      "tool": "leanfinder",
+      "query": "integral interval integral commute Fubini Lean",
+      "declarations": [
+        "intervalIntegral.integral_cases",
+        "intervalIntegral.intervalIntegral_conj",
+        "intervalIntegral.integral_symm",
+        "intervalIntegral",
+        "intervalIntegral.intervalIntegral_im",
+        "intervalIntegral.intervalIntegral_re",
+        "MeasureTheory.intervalIntegral_integral_swap",
+        "intervalIntegral.integral_interval_sub_interval_comm'",
+        "MeasureTheory.setIntegral_prod",
+        "MeasureTheory.integral_prod_symm",
+        "MeasureTheory.intervalIntegral_intervalIntegral_swap",
+        "intervalIntegral.integral_indicator",
+        "MeasureTheory.integral_integral_swap",
+        "intervalIntegral.integral_pos",
+        "MeasureTheory.integral_prod",
+        "MeasureTheory.integral_integral",
+        "intervalIntegral.integral_sub",
+        "MeasureTheory.integral_fin_nat_prod_eq_prod",
+        "intervalIntegral.FTCFilter",
+        "intervalIntegral.integral_interval_add_interval_comm"
+      ],
+      "call_turn": 82,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "integral_prod_integral",
+      "declarations": [],
+      "call_turn": 82,
+      "result_turn": 87
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "integrable product of functions f x times g y product measure",
+      "declarations": [
+        "MeasureTheory.setIntegral_prod_mul",
+        "MeasureTheory.SimpleFunc.integrable_pair",
+        "Measure.eq_prod_of_integral_prod_mul_prod_boundedContinuousFunction'",
+        "MeasureTheory.integral_prod_mul",
+        "Measure.eq_prod_of_integral_mul_prod_boundedContinuousFunction'",
+        "MeasureTheory.MeasurePreserving.skew_product",
+        "MeasureTheory.integrable_prod",
+        "MeasureTheory.Integrable.prodMk",
+        "measureSpaceOfInnerProductSpace",
+        "MeasureTheory.lintegral_lintegral_mul",
+        "MeasureTheory.Integrable.mul_prod",
+        "MeasureTheory.Integrable",
+        "MeasureTheory.Integrable.simpleFunc_mul",
+        "MeasureTheory.Integrable.fin_nat_prod",
+        "polynomialFunctions.eq_adjoin_X",
+        "MeasureTheory.Integrable.simpleFunc_mul'",
+        "MeasureTheory.Measure.haar.haarProduct",
+        "ProbabilityTheory.lintegral_mul_eq_lintegral_mul_lintegral_of_indepFun''",
+        "MeasureTheory.Measure.haar.addHaarProduct",
+        "AddMonoid.fG_iff"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "Integrable (Function.uncurry fun _ _ => _ * _)",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "MeasureTheory.Integrable.prod_mul",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 93
+    },
+    {
+      "event_id": "leanfinder:65",
+      "tool": "leanfinder",
+      "query": "Integrable.mul_prod function product measure",
+      "declarations": [
+        "MeasureTheory.Integrable",
+        "MeasureTheory.Integrable.bdd_mul",
+        "MeasureTheory.Integrable.fintype_prod",
+        "MeasureTheory.integrable_prod",
+        "MeasureTheory.Integrable.prodMk",
+        "MeasureTheory.SimpleFunc.integrable_pair",
+        "TestFunction.integrable",
+        "MeasureTheory.Integrable.mul_prod",
+        "MeasureTheory.integrable_prod_iff'",
+        "MeasureTheory.Integrable.fin_nat_prod",
+        "Measure.eq_prod_of_integral_mul_prod_boundedContinuousFunction'",
+        "MeasureTheory.integral_prod_mul",
+        "TorusIntegrable.function_integrable",
+        "MeasureTheory.Integrable.const_mul'",
+        "Measure.eq_prod_of_integral_prod_mul_prod_boundedContinuousFunction'",
+        "MeasureTheory.Integrable.simpleFunc_mul'",
+        "MeasureTheory.Integrable.smul_prod",
+        "MeasureTheory.setIntegral_prod_mul",
+        "MeasureTheory.integrable_prod_iff",
+        "MeasureTheory.lintegral_lintegral_mul"
+      ],
+      "call_turn": 90,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "integrable_prod_mul",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "ContinuousOn.integrableOn_Icc",
+      "declarations": [
+        "ContinuousOn.integrableOn_Icc"
+      ],
+      "call_turn": 96,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Continuous.integrableOn",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 98
+    },
+    {
+      "event_id": "leanfinder:69",
+      "tool": "leanfinder",
+      "query": "continuous function integrable on compact interval Lebesgue",
+      "declarations": [
+        "ContinuousOn.integrableOn_compact'",
+        "ContinuousOn.integrableOn_compact",
+        "ContinuousOn.integrableOn_of_subset_isCompact",
+        "ContinuousOn.intervalIntegrable",
+        "IntervalIntegrable.continuousOn_mul",
+        "IntervalIntegrable.smul_continuousOn",
+        "AbsolutelyContinuousOnInterval.intervalIntegrable_deriv",
+        "Continuous.intervalIntegrable",
+        "MeasureTheory.setLIntegral_lt_top_of_isCompact",
+        "Function.Periodic.intervalIntegrable",
+        "IntervalIntegrable.mul_continuousOn",
+        "IntervalIntegrable.absolutelyContinuousOnInterval_intervalIntegral",
+        "IntervalIntegrable",
+        "MeasureTheory.IntegrableOn.mul_continuousOn_of_subset",
+        "IntervalIntegrable.continuousOn_smul",
+        "CompactlySupportedContinuousMap.integrable",
+        "Continuous.integrable_of_hasCompactSupport",
+        "MeasureTheory.IntegrableOn.mul_continuousOn",
+        "integrable_mulExpNegMulSq_comp_restrict_of_isCompact",
+        "MeasureTheory.IntegrableOn.continuousOn_mul"
+      ],
+      "call_turn": 96,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "IsCompact.integrableOn",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "ContinuousOn.integrableOn_compact",
+      "declarations": [
+        "ContinuousOn.integrableOn_compact"
+      ],
+      "call_turn": 96,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "‖∫ _ in _ .. _, _‖ ≤ ∫ _ in Set.uIoc _ _, _",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 135
+    },
+    {
+      "event_id": "leanfinder:89",
+      "tool": "leanfinder",
+      "query": "norm interval integral bound integral norm unordered interval",
+      "declarations": [
+        "intervalIntegral.integral_cases",
+        "intervalIntegral.norm_intervalIntegral_eq",
+        "intervalIntegral.norm_integral_eq_norm_integral_uIoc",
+        "intervalIntegral.norm_integral_le_integral_norm_uIoc",
+        "intervalIntegral.norm_integral_le_abs_of_norm_le",
+        "intervalIntegral.integral_of_le",
+        "intervalIntegral.norm_integral_le_of_norm_le_const",
+        "intervalIntegral.norm_integral_min_max",
+        "BoxIntegral.norm_integral_le_of_le_const",
+        "intervalIntegral.norm_integral_le_of_norm_le_const_ae",
+        "intervalIntegral.norm_integral_le_of_norm_le",
+        "MeasureTheory.norm_integral_le_of_norm_le",
+        "intervalIntegral",
+        "intervalIntegral.hasSum_intervalIntegral_of_summable_norm",
+        "intervalIntegral.norm_integral_le_abs_integral_norm",
+        "intervalIntegral.norm_integral_le_integral_norm",
+        "intervalIntegral.abs_integral_mono_interval",
+        "IntervalIntegrable.norm",
+        "MeasureTheory.integrableOn_Ioc_of_intervalIntegral_norm_bounded_right",
+        "intervalIntegral.tsum_intervalIntegral_eq_of_summable_norm"
+      ],
+      "call_turn": 134,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "norm_intervalIntegral_le_integral_norm",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "intervalIntegral.norm_integral_le",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "integral_Icc_eq_integral_Ioc",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "‖Complex.exp (Complex.I * _) - 1 - Complex.I * _‖ ≤ _",
+      "declarations": [],
+      "call_turn": 158,
+      "result_turn": 159
+    },
+    {
+      "event_id": "leanfinder:103",
+      "tool": "leanfinder",
+      "query": "norm e^(i x) minus 1 minus i x bound x squared",
+      "declarations": [
+        "Complex.norm_exp_I_mul_ofReal",
+        "Complex.nnnorm_exp_ofReal_mul_I",
+        "Complex.normSq_ofReal_add_I_mul_sqrt_one_sub",
+        "ChainComplex.mk_X_1",
+        "Real.norm_exp_I_mul_ofReal_sub_one_le",
+        "Real.nnnorm_exp_I_mul_ofReal_sub_one_le",
+        "Complex.norm_exp_I_mul_ofReal_sub_one",
+        "Complex.normSq_ofReal_sub_I_mul_sqrt_one_sub",
+        "CochainComplex.mk'_X_1",
+        "Complex.norm_exp_sub_one_le",
+        "ChainComplex.mk'_X_1",
+        "Complex.nnnorm_exp_I_mul_ofReal",
+        "CochainComplex.cm5b.I_X",
+        "Complex.norm_exp_ofReal_mul_I",
+        "Complex.enorm_exp_ofReal_mul_I",
+        "Polynomial.normUnit_X",
+        "CochainComplex.mk_X_1",
+        "Polynomial.cauchyBound_X",
+        "Polynomial.supNorm_X",
+        "Polynomial.X"
+      ],
+      "call_turn": 158,
+      "result_turn": 160
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "Real.norm_exp_I_mul_ofReal_sub_one_sub",
+      "declarations": [],
+      "call_turn": 158,
+      "result_turn": 161
+    },
+    {
+      "event_id": "leanfinder:105",
+      "tool": "leanfinder",
+      "query": "complex exponential purely imaginary Taylor second order bound",
+      "declarations": [
+        "Complex.exp",
+        "Complex.logTaylor_zero",
+        "Complex.cos_bound",
+        "imaginaryPart_imaginaryPart",
+        "Complex.exp_eq_exp_re_mul_sin_add_cos",
+        "Complex.sin_bound",
+        "Complex.logTaylor_succ",
+        "taylor_mean_remainder_bound",
+        "Complex.exp_bound_sq",
+        "Complex.norm_exp_sub_one_sub_id_le",
+        "Complex.logTaylor",
+        "Complex.exp_sub_sum_range_succ_isLittleO_pow",
+        "imaginaryPart",
+        "Complex.norm_exp_sub_one_le",
+        "Complex.norm_exp_sub_sum_le_norm_mul_exp",
+        "exists_taylor_mean_remainder_bound",
+        "Complex.exp_bound'",
+        "Complex.exp_bound",
+        "Complex.norm_log_sub_logTaylor_le",
+        "Real.exp_bound"
+      ],
+      "call_turn": 158,
+      "result_turn": 162
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "Complex.norm_exp_sub_one_sub_id_le",
+      "declarations": [
+        "Complex.norm_exp_sub_one_sub_id_le"
+      ],
+      "call_turn": 158,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "MeasureTheory.Integrable.integral_prod_right",
+      "declarations": [
+        "MeasureTheory.Integrable.integral_prod_right"
+      ],
+      "call_turn": 164,
+      "result_turn": 165
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "Integrable.integral_prod_left",
+      "declarations": [],
+      "call_turn": 164,
+      "result_turn": 166
+    },
+    {
+      "event_id": "leanfinder:109",
+      "tool": "leanfinder",
+      "query": "from integrable on product infer iterated integral function integrable",
+      "declarations": [
+        "MeasureTheory.setIntegral_prod",
+        "CircleIntegrable.fun_mul_of_continuousOn",
+        "MeasureTheory.integral_prod",
+        "integrableOn_cfc'",
+        "MeasureTheory.Integrable.integral_prod_left",
+        "TorusIntegrable.function_integrable",
+        "MeasureTheory.IntegrableOn",
+        "MeasureTheory.integrable_prod",
+        "integrableOn_cfc",
+        "MeasureTheory.Integrable",
+        "MeasureTheory.Integrable.fin_nat_prod",
+        "MeasureTheory.Integrable.prodMk",
+        "MeasureTheory.integral_integral",
+        "TestFunction.integrable",
+        "IntervalIntegrable.absolutelyContinuousOnInterval_intervalIntegral",
+        "BoxIntegral.Integrable",
+        "BoxIntegral.integrable_of_continuousOn",
+        "ProbabilityTheory.integrable_pow_mul_exp_of_integrable_exp_mul"
+      ],
+      "call_turn": 164,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "Integrable.prod_right",
+      "declarations": [],
+      "call_turn": 164,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "Integrable.prod_left",
+      "declarations": [],
+      "call_turn": 164,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Complex.re ∫ _ = ∫ Complex.re _",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 171
+    },
+    {
+      "event_id": "leanfinder:113",
+      "tool": "leanfinder",
+      "query": "real part of Bochner integral equals integral real part",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "integral_re",
+      "declarations": [
+        "integral_re"
+      ],
+      "call_turn": 170,
+      "result_turn": 173
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_re",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 174
+    },
+    {
+      "event_id": "loogle:116",
+      "tool": "loogle",
+      "query": "Complex.reCLM.integral_comp_comm",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 175
+    },
+    {
+      "event_id": "loogle:117",
+      "tool": "loogle",
+      "query": "(Complex.exp (Complex.I * _)).re = Real.cos _",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:118",
+      "tool": "loogle",
+      "query": "Complex.exp_ofReal_mul_I_re",
+      "declarations": [
+        "Complex.exp_ofReal_mul_I_re"
+      ],
+      "call_turn": 176,
+      "result_turn": 178
+    },
+    {
+      "event_id": "leanfinder:119",
+      "tool": "leanfinder",
+      "query": "real part complex exp i real cosine",
+      "declarations": [
+        "Real.exp",
+        "Complex.exp_ofReal_mul_I_re",
+        "Complex.exp_re",
+        "Complex.ofReal_exp",
+        "Complex.exp_ofReal_mul_I_im",
+        "Complex.cos_ofReal_re",
+        "Complex.exp_eq_exp_re_mul_sin_add_cos",
+        "Complex.exp_ofReal_re",
+        "Complex.coe_realPart",
+        "Complex.cos_sub_sin_I",
+        "Complex.norm_exp_ofReal_mul_I",
+        "realPart_I_smul",
+        "Complex.exp_ofReal_mul_I",
+        "Complex.ofReal_cos_ofReal_re",
+        "Complex.enorm_exp_I_mul_ofReal",
+        "Complex.nnnorm_exp_I_mul_ofReal",
+        "Complex.enorm_exp_ofReal_mul_I",
+        "Complex.cos_ofReal_im",
+        "Complex.two_cos",
+        "Complex.exp_ofReal_im"
+      ],
+      "call_turn": 176,
+      "result_turn": 179
+    },
+    {
+      "event_id": "loogle:120",
+      "tool": "loogle",
+      "query": "Complex.re_exp_I",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 180
+    },
+    {
+      "event_id": "loogle:121",
+      "tool": "loogle",
+      "query": "Complex.exp_mul_I_re",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 181
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_nonpos_of_nonpos",
+      "declarations": [],
+      "call_turn": 202,
+      "result_turn": 203
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "integral_nonpos",
+      "declarations": [],
+      "call_turn": 202,
+      "result_turn": 204
+    },
+    {
+      "event_id": "loogle:134",
+      "tool": "loogle",
+      "query": "Integrable.re",
+      "declarations": [],
+      "call_turn": 202,
+      "result_turn": 205
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "MeasureTheory.Integrable.re",
+      "declarations": [
+        "MeasureTheory.Integrable.re"
+      ],
+      "call_turn": 202,
+      "result_turn": 206
+    },
+    {
+      "event_id": "leanfinder:136",
+      "tool": "leanfinder",
+      "query": "integral nonpositive if function nonpositive integrable",
+      "declarations": [
+        "IntervalIntegrable.integral_smul",
+        "MeasureTheory.integral_nonpos",
+        "intervalIntegral.integral_nonneg",
+        "MeasureTheory.integral_nonneg",
+        "MeasureTheory.Integrable",
+        "MeasureTheory.integral_pos_iff_support_of_nonneg",
+        "BoxIntegral.Integrable.neg",
+        "TestFunction.integrable",
+        "BoxIntegral.Integrable",
+        "BoxIntegral.Integrable.hasIntegral",
+        "BoxIntegral.Integrable.mono",
+        "MeasureTheory.ae_nonneg_of_forall_setIntegral_nonneg",
+        "TorusIntegrable.function_integrable",
+        "IntervalIntegrable",
+        "MeasureTheory.integral_pos_iff_support_of_nonneg_ae",
+        "MeasureTheory.integral_nonneg_of_ae",
+        "intervalIntegral.intervalIntegrable_zpow",
+        "intervalIntegral.integral_pos_iff_support_of_nonneg_ae'",
+        "intervalIntegral.integral_pos_iff_support_of_nonneg_ae",
+        "intervalIntegral.intervalIntegrable_sin"
+      ],
+      "call_turn": 202,
+      "result_turn": 207
+    },
+    {
+      "event_id": "loogle:161",
+      "tool": "loogle",
+      "query": "MeasureTheory.setIntegral_le_integral",
+      "declarations": [
+        "MeasureTheory.setIntegral_le_integral"
+      ],
+      "call_turn": 256,
+      "result_turn": 257
+    },
+    {
+      "event_id": "loogle:162",
+      "tool": "loogle",
+      "query": "Integrable -> ∫ _ in _, _ ≤ ∫ _, _",
+      "declarations": [],
+      "call_turn": 256,
+      "result_turn": 258
+    },
+    {
+      "event_id": "leanfinder:163",
+      "tool": "leanfinder",
+      "query": "set integral nonnegative function bounded by integral whole space integrable",
+      "declarations": [
+        "BoundedContinuousFunction.norm_integral_le_mul_norm",
+        "BoundedContinuousFunction.norm_integral_le_norm",
+        "intervalIntegral.integral_nonneg",
+        "MeasureTheory.ae_nonneg_of_forall_setIntegral_nonneg",
+        "MeasureTheory.integral_nonneg",
+        "MeasureTheory.AECover.integrable_of_integral_bounded_of_nonneg_ae",
+        "intervalIntegral",
+        "BoundedContinuousFunction.integral_add_const",
+        "MeasureTheory.ae_nonneg_restrict_of_forall_setIntegral_nonneg_inter",
+        "MeasureTheory.ae_nonneg_restrict_of_forall_setIntegral_nonneg",
+        "BoundedContinuousFunction.lintegral_of_real_lt_top",
+        "BoundedContinuousFunction.isBounded_range_integral",
+        "MeasureTheory.ae_nonneg_of_forall_setIntegral_nonneg_of_sigmaFinite",
+        "BoundedContinuousFunction.integral_const_sub",
+        "BoxIntegral.Integrable",
+        "MeasureTheory.HasFiniteIntegral.of_mem_Icc_of_ne_top",
+        "MeasureTheory.FiniteMeasure.continuous_integral_boundedContinuousFunction",
+        "MeasureTheory.ProbabilityMeasure.continuous_integral_boundedContinuousFunction",
+        "BoundedContinuousFunction.integrable",
+        "MeasureTheory.integral_nonneg_of_ae"
+      ],
+      "call_turn": 256,
+      "result_turn": 259
+    },
+    {
+      "event_id": "loogle:164",
+      "tool": "loogle",
+      "query": "setIntegral_nonneg_le_integral",
+      "declarations": [],
+      "call_turn": 256,
+      "result_turn": 260
+    },
+    {
+      "event_id": "loogle:165",
+      "tool": "loogle",
+      "query": "Integrable.setIntegral_le_integral",
+      "declarations": [],
+      "call_turn": 256,
+      "result_turn": 261
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 91,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 87,
+    "accepted_helper_count": 10,
+    "rollout_tool_call_count": 168,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

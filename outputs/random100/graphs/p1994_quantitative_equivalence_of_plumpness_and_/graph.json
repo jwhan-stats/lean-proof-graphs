@@ -1,0 +1,2168 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1994_quantitative_equivalence_of_plumpness_and_",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1994,
+    "source": "1209.2885",
+    "theorem_name": "quantitative_equivalence_of_plumpness_and_dyadic_plumpness",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1994",
+    "reconstructed_proof": "../../candidates/p1994_quantitative_equivalence_of_plumpness_and_/proof.lean",
+    "raw_elaboration": "../../candidates/p1994_quantitative_equivalence_of_plumpness_and_/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1994_quantitative_equivalence_of_plumpness_and_.quantitative_equivalence_of_plumpness_and_dyadic_plumpness",
+    "verification_call_id": "verify_submission:53",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "a3bfaebfa10bc5c7babc922f77d3b381fa73f1340b54a9db20a291da7b6fa59f",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "eb9bfb88a2f33bf09e724d3ffc3f4ed13cf32c12937b73d08e18e39d95b27690",
+    "concrete_semantic_topology_sha256": "a3bfaebfa10bc5c7babc922f77d3b381fa73f1340b54a9db20a291da7b6fa59f"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∀ (R b : ℝ), 0 < R → 0 < b → b < 1 → (∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E) → ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ), 0 < δ → δ < 1 → 0 < b₀ → b₀ ≤ B₀ → b₀ / B₀ ≤ b → B₀ * δ ^ m ≤ R → ∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) ∧ ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ), 0 < δ → δ < 1 → 0 < b₀ → b₀ ≤ B₀ → (∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) → ∀ (R b : ℝ), 0 < R → 0 < b → b < 1 → b ≤ δ * b₀ / B₀ → R ≤ B₀ * δ ^ (m - 1) → ∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E"
+    },
+    {
+      "id": "n_h1_a38c21e8",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h1",
+      "lean_fvar_id": "_uniq.5139353",
+      "statement": "b * r ≤ b * (B₀ * δ ^ (k - 1))"
+    },
+    {
+      "id": "n_h2_0b9337d5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h2",
+      "lean_fvar_id": "_uniq.5142175",
+      "statement": "b * (B₀ * δ ^ (k - 1)) ≤ δ * b₀ * δ ^ (k - 1)"
+    },
+    {
+      "id": "n_h3_81d58f05",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h3",
+      "lean_fvar_id": "_uniq.5154327",
+      "statement": "δ * b₀ * δ ^ (k - 1) = b₀ * δ ^ k"
+    },
+    {
+      "id": "n_h_0_b315dc12",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hδ0",
+      "lean_fvar_id": "_uniq.5108175",
+      "statement": "0 < δ"
+    },
+    {
+      "id": "n_h_0_d7832e76",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hδ0",
+      "lean_fvar_id": "_uniq.5137751",
+      "statement": "0 < δ"
+    },
+    {
+      "id": "n_h_1_5158d19f",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hδ1",
+      "lean_fvar_id": "_uniq.5108178",
+      "statement": "δ < 1"
+    },
+    {
+      "id": "n_hb_569482a3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hB₀",
+      "lean_fvar_id": "_uniq.5108367",
+      "statement": "0 < B₀"
+    },
+    {
+      "id": "n_hb_790f8a69",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb₀",
+      "lean_fvar_id": "_uniq.5137757",
+      "statement": "0 < b₀"
+    },
+    {
+      "id": "n_hb_7d449b77",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb",
+      "lean_fvar_id": "_uniq.5137775",
+      "statement": "0 < b"
+    },
+    {
+      "id": "n_hb_8c8f4001",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb₀",
+      "lean_fvar_id": "_uniq.5108181",
+      "statement": "0 < b₀"
+    },
+    {
+      "id": "n_hb_a6f7215c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hB₀",
+      "lean_fvar_id": "_uniq.5137960",
+      "statement": "0 < B₀"
+    },
+    {
+      "id": "n_hb_b_340c52a6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb₀B₀",
+      "lean_fvar_id": "_uniq.5108184",
+      "statement": "b₀ ≤ B₀"
+    },
+    {
+      "id": "n_hb_b_e5bcd228",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hb₀B₀",
+      "lean_fvar_id": "_uniq.5137760",
+      "statement": "b₀ ≤ B₀"
+    },
+    {
+      "id": "n_hb_radius_90597949",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb_radius",
+      "lean_fvar_id": "_uniq.5125292",
+      "statement": "b₀ * δ ^ k ≤ b * (B₀ * δ ^ k)"
+    },
+    {
+      "id": "n_hb_radius_9e079529",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb_radius",
+      "lean_fvar_id": "_uniq.5138443",
+      "statement": "b * r ≤ b₀ * δ ^ k"
+    },
+    {
+      "id": "n_hbb_41292ab7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbB",
+      "lean_fvar_id": "_uniq.5138398",
+      "statement": "b * B₀ ≤ δ * b₀"
+    },
+    {
+      "id": "n_hbb_efccfe56",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbB",
+      "lean_fvar_id": "_uniq.5117915",
+      "statement": "b₀ ≤ b * B₀"
+    },
+    {
+      "id": "n_hbratio_9aa45a8e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbratio",
+      "lean_fvar_id": "_uniq.5137781",
+      "statement": "b ≤ δ * b₀ / B₀"
+    },
+    {
+      "id": "n_hk_304a8547",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hk",
+      "lean_fvar_id": "_uniq.5108202",
+      "statement": "m ≤ k"
+    },
+    {
+      "id": "n_hk_high_6d59a90e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hk_high",
+      "lean_fvar_id": "_uniq.5138203",
+      "statement": "r ≤ B₀ * δ ^ (k - 1)"
+    },
+    {
+      "id": "n_hmul_4983cf71",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmul",
+      "lean_fvar_id": "_uniq.5129233",
+      "statement": "b₀ * δ ^ k ≤ b * B₀ * δ ^ k"
+    },
+    {
+      "id": "n_hmul_86abfc11",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmul",
+      "lean_fvar_id": "_uniq.5143006",
+      "statement": "b * B₀ * δ ^ (k - 1) ≤ δ * b₀ * δ ^ (k - 1)"
+    },
+    {
+      "id": "n_hmul_903f67f4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmul",
+      "lean_fvar_id": "_uniq.5117820",
+      "statement": "B₀ * δ ^ k ≤ B₀ * δ ^ m"
+    },
+    {
+      "id": "n_hnonneg_437a4dde",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnonneg",
+      "lean_fvar_id": "_uniq.5140078",
+      "statement": "0 ≤ δ ^ (k - 1)"
+    },
+    {
+      "id": "n_hnonneg_93139472",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnonneg",
+      "lean_fvar_id": "_uniq.5125367",
+      "statement": "0 ≤ δ ^ k"
+    },
+    {
+      "id": "n_hpow_93453da9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpow",
+      "lean_fvar_id": "_uniq.5139439",
+      "statement": "δ * δ ^ (k - 1) = δ ^ k"
+    },
+    {
+      "id": "n_hpow_e5e8245c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpow",
+      "lean_fvar_id": "_uniq.5116935",
+      "statement": "δ ^ k ≤ δ ^ m"
+    },
+    {
+      "id": "n_hr_a17cd063",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hr",
+      "lean_fvar_id": "_uniq.5108499",
+      "statement": "0 < B₀ * δ ^ k"
+    },
+    {
+      "id": "n_hratio_0f80bca0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hratio",
+      "lean_fvar_id": "_uniq.5108187",
+      "statement": "b₀ / B₀ ≤ b"
+    },
+    {
+      "id": "n_hrr_73a3dbeb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrR",
+      "lean_fvar_id": "_uniq.5116967",
+      "statement": "B₀ * δ ^ k ≤ R"
+    },
+    {
+      "id": "n_hrr_f920c4b0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hrR",
+      "lean_fvar_id": "_uniq.5137799",
+      "statement": "r ≤ R"
+    },
+    {
+      "id": "n_hrscale_2902bac3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hRscale",
+      "lean_fvar_id": "_uniq.5137784",
+      "statement": "R ≤ B₀ * δ ^ (m - 1)"
+    },
+    {
+      "id": "n_hrscale_df0fc471",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrscale",
+      "lean_fvar_id": "_uniq.5138136",
+      "statement": "r ≤ B₀ * δ ^ (m - 1)"
+    },
+    {
+      "id": "n_hscale_cb7b2a12",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hscale",
+      "lean_fvar_id": "_uniq.5108190",
+      "statement": "B₀ * δ ^ m ≤ R"
+    },
+    {
+      "id": "n_hx_89cd0810",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.5154695",
+      "statement": "x ∈ Metric.ball z (b * r)"
+    },
+    {
+      "id": "n_hxdy_4659270b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxdy",
+      "lean_fvar_id": "_uniq.5154766",
+      "statement": "x ∈ Metric.ball y (B₀ * δ ^ k) ∩ E"
+    },
+    {
+      "id": "n_hz_84869865",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.5138229",
+      "statement": "Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E"
+    },
+    {
+      "id": "n_this_c407becf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.5117963",
+      "statement": "b₀ ≤ b * B₀"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hmul",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_569482a3",
+        "n_hpow_e5e8245c"
+      ],
+      "conclusion": "n_hmul_903f67f4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_left",
+        "items": [
+          "mul_le_mul_of_nonneg_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1116",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hmul : B₀ * δ ^ k ≤ B₀ * δ ^ m :=\n        mul_le_mul_of_nonneg_left hpow hB₀.le",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108367",
+              "name": "hB₀",
+              "statement": "0 < B₀"
+            },
+            {
+              "fvar_id": "_uniq.5116935",
+              "name": "hpow",
+              "statement": "δ ^ k ≤ δ ^ m"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5117820",
+            "name": "hmul",
+            "statement": "B₀ * δ ^ k ≤ B₀ * δ ^ m"
+          }
+        },
+        "lean_dependency_sha256": "55f1af1b5c78bc8935a1f5a59c6958f9b6ba24621a925e01b27a87796c8e200f",
+        "kernel_witness_check": {
+          "proof_type": "B₀ * δ ^ k ≤ B₀ * δ ^ m",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hratio_0f80bca0",
+        "n_hb_569482a3"
+      ],
+      "conclusion": "n_this_c407becf",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1117",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108187",
+              "name": "hratio",
+              "statement": "b₀ / B₀ ≤ b"
+            },
+            {
+              "fvar_id": "_uniq.5108367",
+              "name": "hB₀",
+              "statement": "0 < B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5117963",
+            "name": "this",
+            "statement": "b₀ ≤ b * B₀"
+          }
+        },
+        "lean_dependency_sha256": "766a8996052d1989e6158f2bc16f61cd07bf6ec169557cd1870596c132e08244",
+        "kernel_witness_check": {
+          "proof_type": "b₀ ≤ b * B₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hnonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_b315dc12"
+      ],
+      "conclusion": "n_hnonneg_93139472",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "positivity",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1118",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hnonneg : 0 ≤ δ ^ k := by positivity",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108175",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5125367",
+            "name": "hnonneg",
+            "statement": "0 ≤ δ ^ k"
+          }
+        },
+        "lean_dependency_sha256": "1a1cd8e5f1f33aa8410bd0aebd4d24db6acc7fdb9dbbc1df2aaaf8c0bacf7b58",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ δ ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hmul",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbb_efccfe56",
+        "n_hnonneg_93139472"
+      ],
+      "conclusion": "n_hmul_4983cf71",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1119",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hmul : B₀ * δ ^ k ≤ B₀ * δ ^ m :=\n        mul_le_mul_of_nonneg_left hpow hB₀.le",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5117915",
+              "name": "hbB",
+              "statement": "b₀ ≤ b * B₀"
+            },
+            {
+              "fvar_id": "_uniq.5125367",
+              "name": "hnonneg",
+              "statement": "0 ≤ δ ^ k"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5129233",
+            "name": "hmul",
+            "statement": "b₀ * δ ^ k ≤ b * B₀ * δ ^ k"
+          }
+        },
+        "lean_dependency_sha256": "8ade823a527620e08604c05beb9bcf9dd0e4eb88d1d3f61c5127b2bbf48d4aa5",
+        "kernel_witness_check": {
+          "proof_type": "b₀ * δ ^ k ≤ b * B₀ * δ ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_8c8f4001",
+        "n_hb_b_340c52a6"
+      ],
+      "conclusion": "n_hb_569482a3",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_lt_of_le",
+        "items": [
+          "lt_of_lt_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_lt_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1120",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hB₀ : 0 < B₀ := lt_of_lt_of_le hb₀ hb₀B₀",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108181",
+              "name": "hb₀",
+              "statement": "0 < b₀"
+            },
+            {
+              "fvar_id": "_uniq.5108184",
+              "name": "hb₀B₀",
+              "statement": "b₀ ≤ B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5108367",
+            "name": "hB₀",
+            "statement": "0 < B₀"
+          }
+        },
+        "lean_dependency_sha256": "57611150e7c4aec4a147af3ea42456878b9063ebd7a7ed2283be80b5237a810d",
+        "kernel_witness_check": {
+          "proof_type": "0 < B₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hr",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_b315dc12",
+        "n_hb_569482a3"
+      ],
+      "conclusion": "n_hr_a17cd063",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "positivity",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1121",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hr : 0 < B₀ * δ ^ k := by positivity",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108175",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.5108367",
+              "name": "hB₀",
+              "statement": "0 < B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5108499",
+            "name": "hr",
+            "statement": "0 < B₀ * δ ^ k"
+          }
+        },
+        "lean_dependency_sha256": "a71ce7338391f24929d49d48ed0ae2ec3e08c69d87763dad05809849efe92b7e",
+        "kernel_witness_check": {
+          "proof_type": "0 < B₀ * δ ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hpow",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_b315dc12",
+        "n_h_1_5158d19f",
+        "n_hk_304a8547"
+      ],
+      "conclusion": "n_hpow_e5e8245c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "zpow_le_zpow_right_of_le_one₀",
+        "items": [
+          "zpow_le_zpow_right_of_le_one₀"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "zpow_le_zpow_right_of_le_one₀"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1122",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpow : δ ^ k ≤ δ ^ m :=\n      zpow_le_zpow_right_of_le_one₀ hδ0 hδ1.le hk",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108175",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.5108178",
+              "name": "hδ1",
+              "statement": "δ < 1"
+            },
+            {
+              "fvar_id": "_uniq.5108202",
+              "name": "hk",
+              "statement": "m ≤ k"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5116935",
+            "name": "hpow",
+            "statement": "δ ^ k ≤ δ ^ m"
+          }
+        },
+        "lean_dependency_sha256": "d241e9ec8dd8e3440bd4e24d9112f33583cae287aeb5b225d7de8f44b8c93e4a",
+        "kernel_witness_check": {
+          "proof_type": "δ ^ k ≤ δ ^ m",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hrr",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hscale_cb7b2a12",
+        "n_hb_569482a3",
+        "n_hpow_e5e8245c"
+      ],
+      "conclusion": "n_hrr_73a3dbeb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_left",
+        "items": [
+          "mul_le_mul_of_nonneg_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1123",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hrR : B₀ * δ ^ k ≤ R := by\n      have hmul : B₀ * δ ^ k ≤ B₀ * δ ^ m :=\n        mul_le_mul_of_nonneg_left hpow hB₀.le\n      exact hmul.trans hscale",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108190",
+              "name": "hscale",
+              "statement": "B₀ * δ ^ m ≤ R"
+            },
+            {
+              "fvar_id": "_uniq.5108367",
+              "name": "hB₀",
+              "statement": "0 < B₀"
+            },
+            {
+              "fvar_id": "_uniq.5116935",
+              "name": "hpow",
+              "statement": "δ ^ k ≤ δ ^ m"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5116967",
+            "name": "hrR",
+            "statement": "B₀ * δ ^ k ≤ R"
+          }
+        },
+        "lean_dependency_sha256": "8d096810320b0cda0594d84448f00cd857a5afc72d68dc7f0479550c4f0e3384",
+        "kernel_witness_check": {
+          "proof_type": "B₀ * δ ^ k ≤ R",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hbb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hratio_0f80bca0",
+        "n_hb_569482a3"
+      ],
+      "conclusion": "n_hbb_efccfe56",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "div_le_iff₀",
+        "items": [
+          "div_le_iff₀"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "div_le_iff₀"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1124",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hbB : b₀ ≤ b * B₀ := by\n      have := (div_le_iff₀ hB₀).1 hratio\n      nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108187",
+              "name": "hratio",
+              "statement": "b₀ / B₀ ≤ b"
+            },
+            {
+              "fvar_id": "_uniq.5108367",
+              "name": "hB₀",
+              "statement": "0 < B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5117915",
+            "name": "hbB",
+            "statement": "b₀ ≤ b * B₀"
+          }
+        },
+        "lean_dependency_sha256": "6eeb383a5e235fed8813d6424970364806d6375865e655dffb8bd39fc2838f14",
+        "kernel_witness_check": {
+          "proof_type": "b₀ ≤ b * B₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hb_radius",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_b315dc12",
+        "n_hbb_efccfe56"
+      ],
+      "conclusion": "n_hb_radius_90597949",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_right",
+        "items": [
+          "mul_le_mul_of_nonneg_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1125",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hb_radius : b₀ * δ ^ k ≤ b * (B₀ * δ ^ k) := by\n      have hnonneg : 0 ≤ δ ^ k := by positivity\n      have hmul := mul_le_mul_of_nonneg_right hbB hnonneg\n      nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5108175",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.5117915",
+              "name": "hbB",
+              "statement": "b₀ ≤ b * B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5125292",
+            "name": "hb_radius",
+            "statement": "b₀ * δ ^ k ≤ b * (B₀ * δ ^ k)"
+          }
+        },
+        "lean_dependency_sha256": "7196f76c2944bcaec87b8eaed19df91b3b97ee2a9c07fc7aac10b94f4245d285",
+        "kernel_witness_check": {
+          "proof_type": "b₀ * δ ^ k ≤ b * (B₀ * δ ^ k)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hmul",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbb_41292ab7",
+        "n_hnonneg_437a4dde"
+      ],
+      "conclusion": "n_hmul_86abfc11",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1126",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hmul : B₀ * δ ^ k ≤ B₀ * δ ^ m :=\n        mul_le_mul_of_nonneg_left hpow hB₀.le",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5138398",
+              "name": "hbB",
+              "statement": "b * B₀ ≤ δ * b₀"
+            },
+            {
+              "fvar_id": "_uniq.5140078",
+              "name": "hnonneg",
+              "statement": "0 ≤ δ ^ (k - 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5143006",
+            "name": "hmul",
+            "statement": "b * B₀ * δ ^ (k - 1) ≤ δ * b₀ * δ ^ (k - 1)"
+          }
+        },
+        "lean_dependency_sha256": "b03bdd4481037af1e7fdef38ee78b806d2847aa8529863bbd1681fb23e91b01c",
+        "kernel_witness_check": {
+          "proof_type": "b * B₀ * δ ^ (k - 1) ≤ δ * b₀ * δ ^ (k - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_h1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_7d449b77",
+        "n_hk_high_6d59a90e"
+      ],
+      "conclusion": "n_h1_a38c21e8",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_left",
+        "items": [
+          "mul_le_mul_of_nonneg_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1127",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h1 : b * r ≤ b * (B₀ * δ ^ (k - 1)) :=\n        mul_le_mul_of_nonneg_left hk_high hb.le",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137775",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "_uniq.5138203",
+              "name": "hk_high",
+              "statement": "r ≤ B₀ * δ ^ (k - 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5139353",
+            "name": "h1",
+            "statement": "b * r ≤ b * (B₀ * δ ^ (k - 1))"
+          }
+        },
+        "lean_dependency_sha256": "0816cac25764b2f85e470c2280355d6b135696188d095cee597a163cc36b5f58",
+        "kernel_witness_check": {
+          "proof_type": "b * r ≤ b * (B₀ * δ ^ (k - 1))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hpow",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_d7832e76"
+      ],
+      "conclusion": "n_hpow_93453da9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1128",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hpow : δ ^ k ≤ δ ^ m :=\n      zpow_le_zpow_right_of_le_one₀ hδ0 hδ1.le hk",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137751",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5139439",
+            "name": "hpow",
+            "statement": "δ * δ ^ (k - 1) = δ ^ k"
+          }
+        },
+        "lean_dependency_sha256": "f34601c2d4b5f48fe49245a1045d88041640918d7f67d9e261339bf39321e577",
+        "kernel_witness_check": {
+          "proof_type": "δ * δ ^ (k - 1) = δ ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hnonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_d7832e76"
+      ],
+      "conclusion": "n_hnonneg_437a4dde",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "positivity",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1129",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hnonneg : 0 ≤ δ ^ k := by positivity",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137751",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5140078",
+            "name": "hnonneg",
+            "statement": "0 ≤ δ ^ (k - 1)"
+          }
+        },
+        "lean_dependency_sha256": "9ca6db1d3c71a57c17d03b3cede909107a73855a3b934b804e99f10efed8be98",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ δ ^ (k - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_h2",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbb_41292ab7",
+        "n_hnonneg_437a4dde"
+      ],
+      "conclusion": "n_h2_0b9337d5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_right",
+        "items": [
+          "mul_le_mul_of_nonneg_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1130",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h2 : b * (B₀ * δ ^ (k - 1)) ≤ δ * b₀ * δ ^ (k - 1) := by\n        have hmul := mul_le_mul_of_nonneg_right hbB hnonneg\n        nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5138398",
+              "name": "hbB",
+              "statement": "b * B₀ ≤ δ * b₀"
+            },
+            {
+              "fvar_id": "_uniq.5140078",
+              "name": "hnonneg",
+              "statement": "0 ≤ δ ^ (k - 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5142175",
+            "name": "h2",
+            "statement": "b * (B₀ * δ ^ (k - 1)) ≤ δ * b₀ * δ ^ (k - 1)"
+          }
+        },
+        "lean_dependency_sha256": "c380fc14a8536333a8a71d4525d8cee4ab798a54ad71c6cea1774d5f3d3bbd10",
+        "kernel_witness_check": {
+          "proof_type": "b * (B₀ * δ ^ (k - 1)) ≤ δ * b₀ * δ ^ (k - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_h3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpow_93453da9"
+      ],
+      "conclusion": "n_h3_81d58f05",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1131",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h3 : δ * b₀ * δ ^ (k - 1) = b₀ * δ ^ k := by\n        calc\n          δ * b₀ * δ ^ (k - 1) = b₀ * (δ * δ ^ (k - 1)) := by ring\n          _ = b₀ * δ ^ k := by rw [hpow]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5139439",
+              "name": "hpow",
+              "statement": "δ * δ ^ (k - 1) = δ ^ k"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5154327",
+            "name": "h3",
+            "statement": "δ * b₀ * δ ^ (k - 1) = b₀ * δ ^ k"
+          }
+        },
+        "lean_dependency_sha256": "1055e28c00351a01c2726a5eb65d617bba78d5574c127df46236f48798b6f3c3",
+        "kernel_witness_check": {
+          "proof_type": "δ * b₀ * δ ^ (k - 1) = b₀ * δ ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_790f8a69",
+        "n_hb_b_e5bcd228"
+      ],
+      "conclusion": "n_hb_a6f7215c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_lt_of_le",
+        "items": [
+          "lt_of_lt_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_lt_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1132",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hB₀ : 0 < B₀ := lt_of_lt_of_le hb₀ hb₀B₀",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137757",
+              "name": "hb₀",
+              "statement": "0 < b₀"
+            },
+            {
+              "fvar_id": "_uniq.5137760",
+              "name": "hb₀B₀",
+              "statement": "b₀ ≤ B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5137960",
+            "name": "hB₀",
+            "statement": "0 < B₀"
+          }
+        },
+        "lean_dependency_sha256": "202476db28cde88e5241beb99c882e5f9586486be20598f83ed08a2f80a6f35e",
+        "kernel_witness_check": {
+          "proof_type": "0 < B₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_hrscale",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrscale_2902bac3",
+        "n_hrr_f920c4b0"
+      ],
+      "conclusion": "n_hrscale_df0fc471",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1133",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hrscale : r ≤ B₀ * δ ^ (m - 1) := hrR.trans hRscale",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137784",
+              "name": "hRscale",
+              "statement": "R ≤ B₀ * δ ^ (m - 1)"
+            },
+            {
+              "fvar_id": "_uniq.5137799",
+              "name": "hrR",
+              "statement": "r ≤ R"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5138136",
+            "name": "hrscale",
+            "statement": "r ≤ B₀ * δ ^ (m - 1)"
+          }
+        },
+        "lean_dependency_sha256": "37e26c60d9317e4c73ca65d5df021a05b8d2a8073de5525e8368392bd8fee97d",
+        "kernel_witness_check": {
+          "proof_type": "r ≤ B₀ * δ ^ (m - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_hbb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbratio_9aa45a8e",
+        "n_hb_a6f7215c"
+      ],
+      "conclusion": "n_hbb_41292ab7",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "nlinarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1134",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hbB : b₀ ≤ b * B₀ := by\n      have := (div_le_iff₀ hB₀).1 hratio\n      nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137781",
+              "name": "hbratio",
+              "statement": "b ≤ δ * b₀ / B₀"
+            },
+            {
+              "fvar_id": "_uniq.5137960",
+              "name": "hB₀",
+              "statement": "0 < B₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5138398",
+            "name": "hbB",
+            "statement": "b * B₀ ≤ δ * b₀"
+          }
+        },
+        "lean_dependency_sha256": "2bcefa4c3109be8a366e1f76c6f6183aa51be3ce6655aec52bcd2bde2e53aa30",
+        "kernel_witness_check": {
+          "proof_type": "b * B₀ ≤ δ * b₀",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_hb_radius",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_0_d7832e76",
+        "n_hb_7d449b77",
+        "n_hk_high_6d59a90e",
+        "n_hbb_41292ab7"
+      ],
+      "conclusion": "n_hb_radius_9e079529",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_right",
+        "items": [
+          "mul_le_mul_of_nonneg_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1135",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hb_radius : b₀ * δ ^ k ≤ b * (B₀ * δ ^ k) := by\n      have hnonneg : 0 ≤ δ ^ k := by positivity\n      have hmul := mul_le_mul_of_nonneg_right hbB hnonneg\n      nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5137751",
+              "name": "hδ0",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.5137775",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "_uniq.5138203",
+              "name": "hk_high",
+              "statement": "r ≤ B₀ * δ ^ (k - 1)"
+            },
+            {
+              "fvar_id": "_uniq.5138398",
+              "name": "hbB",
+              "statement": "b * B₀ ≤ δ * b₀"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5138443",
+            "name": "hb_radius",
+            "statement": "b * r ≤ b₀ * δ ^ k"
+          }
+        },
+        "lean_dependency_sha256": "b449d90fa6759089fc6d7c9f847a46c284bdfdbd9ecd19c5339ee8872330160a",
+        "kernel_witness_check": {
+          "proof_type": "b * r ≤ b₀ * δ ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_021_hxdy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hz_84869865",
+        "n_hb_radius_9e079529",
+        "n_hx_89cd0810"
+      ],
+      "conclusion": "n_hxdy_4659270b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Metric.ball_subset_ball",
+        "items": [
+          "Metric.ball_subset_ball"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Metric.ball_subset_ball"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1136",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hxdy := hz ((Metric.ball_subset_ball hb_radius) hx)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.5138229",
+              "name": "hz",
+              "statement": "Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E"
+            },
+            {
+              "fvar_id": "_uniq.5138443",
+              "name": "hb_radius",
+              "statement": "b * r ≤ b₀ * δ ^ k"
+            },
+            {
+              "fvar_id": "_uniq.5154695",
+              "name": "hx",
+              "statement": "x ∈ Metric.ball z (b * r)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.5154766",
+            "name": "hxdy",
+            "statement": "x ∈ Metric.ball y (B₀ * δ ^ k) ∩ E"
+          }
+        },
+        "lean_dependency_sha256": "3bf6830ba206880c4e90970c1798b360111454aff119cd3d7eecda0d9c285bfd",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ Metric.ball y (B₀ * δ ^ k) ∩ E",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Metric.ball_subset_ball"
+        ],
+        "observed_search_event_ids": [
+          "loogle:49"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Metric.ball_subset_ball + exists_dyadic_level + div_le_iff₀",
+        "items": [
+          "Metric.ball_subset_ball",
+          "Rollout_p1994_quantitative_equivalence_of_plumpness_and_.exists_dyadic_level",
+          "div_le_iff₀",
+          "le_div_iff₀",
+          "lt_of_lt_of_le",
+          "mul_le_mul_of_nonneg_left",
+          "mul_le_mul_of_nonneg_right",
+          "zpow_add₀"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1994_quantitative_equivalence_of_plumpness_and_.exists_dyadic_level"
+        ],
+        "mathlib_items": [
+          "Metric.ball_subset_ball",
+          "div_le_iff₀",
+          "le_div_iff₀",
+          "lt_of_lt_of_le",
+          "mul_le_mul_of_nonneg_left",
+          "mul_le_mul_of_nonneg_right",
+          "zpow_add₀"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale\n    intro y hy k hk\n    have hB₀ : 0 < B₀ := lt_of_lt_of_le hb₀ hb₀B₀\n    have hr : 0 < B₀ * δ ^ k := by positivity\n    have hpow : δ ^ k ≤ δ ^ m :=\n      zpow_le_zpow_right_of_le_one₀ hδ0 hδ1.le hk\n    have hrR : B₀ * δ ^ k ≤ R := by\n      have hmul : B₀ * δ ^ k ≤ B₀ * δ ^ m :=\n        mul_le_mul_of_nonneg_left hpow hB₀.le\n      exact hmul.trans hscale\n    obtain ⟨z, hz⟩ := hplump y hy (B₀ * δ ^ k) hr hrR\n    refine ⟨z, ?_⟩\n    have hbB : b₀ ≤ b * B₀ := by\n      have := (div_le_iff₀ hB₀).1 hratio\n      nlinarith\n    have hb_radius : b₀ * δ ^ k ≤ b * (B₀ * δ ^ k) := by\n      have hnonneg : 0 ≤ δ ^ k := by positivity\n      have hmul := mul_le_mul_of_nonneg_right hbB hnonneg\n      nlinarith\n    exact (Metric.ball_subset_ball hb_radius).trans hz\n  · intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale\n    intro y hy r hr hrR\n    have hB₀ : 0 < B₀ := lt_of_lt_of_le hb₀ hb₀B₀\n    have hrscale : r ≤ B₀ * δ ^ (m - 1) := hrR.trans hRscale\n    obtain ⟨k, hk, hk_low, hk_high⟩ :=\n      exists_dyadic_level m hδ0 hδ1 hB₀ hr hrscale\n    obtain ⟨z, hz⟩ := hdyadic y hy k hk\n    refine ⟨z, ?_⟩\n    have hbB : b * B₀ ≤ δ * b₀ :=\n      (le_div_iff₀ hB₀).1 hbratio\n    have hb_radius : b * r ≤ b₀ * δ ^ k := by\n      have h1 : b * r ≤ b * (B₀ * δ ^ (k - 1)) :=\n        mul_le_mul_of_nonneg_left hk_high hb.le\n      have hpow : δ * δ ^ (k - 1) = δ ^ k := by\n        nth_rewrite 1 [← zpow_one δ]\n        rw [← zpow_add₀ hδ0.ne']\n        congr 1\n        omega\n      have hnonneg : 0 ≤ δ ^ (k - 1) := ",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∀ (R b : ℝ), 0 < R → 0 < b → b < 1 → (∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E) → ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ), 0 < δ → δ < 1 → 0 < b₀ → b₀ ≤ B₀ → b₀ / B₀ ≤ b → B₀ * δ ^ m ≤ R → ∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) ∧ ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ), 0 < δ → δ < 1 → 0 < b₀ → b₀ ≤ B₀ → (∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) → ∀ (R b : ℝ), 0 < R → 0 < b → b < 1 → b ≤ δ * b₀ / B₀ → R ≤ B₀ * δ ^ (m - 1) → ∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E"
+          }
+        },
+        "lean_dependency_sha256": "3c0cd24687664f8d7a3e9f474c813b82cc3e5a54418e0ee9715b4660cf700ec8",
+        "kernel_witness_check": {
+          "proof_type": "(∀ (R b : ℝ),\n    0 < R →\n      0 < b →\n        b < 1 →\n          (∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E) →\n            ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ),\n              0 < δ →\n                δ < 1 →\n                  0 < b₀ →\n                    b₀ ≤ B₀ →\n                      b₀ / B₀ ≤ b →\n                        B₀ * δ ^ m ≤ R →\n                          ∀ y ∈ E,\n                            ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) ∧\n  ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ),\n    0 < δ →\n      δ < 1 →\n        0 < b₀ →\n          b₀ ≤ B₀ →\n            (∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) →\n              ∀ (R b : ℝ),\n                0 < R →\n                  0 < b →\n                    b < 1 →\n                      b ≤ δ * b₀ / B₀ →\n                        R ≤ B₀ * δ ^ (m - 1) →\n                          ∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Metric.ball_subset_ball"
+        ],
+        "observed_search_event_ids": [
+          "loogle:49"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Real.exists_pow",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "tendsto_pow_atTop_nhds_zero_of_lt_one",
+      "declarations": [
+        "tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "exist natural power between t and t divided by base geometric scale real",
+      "declarations": [
+        "StateT",
+        "Lean.Meta.Structural.isInstHPowNat",
+        "Lean.Nat.mkInstNatPow",
+        "DividedPowerAlgebra",
+        "Mathlib.Meta.NormNum.evalPow",
+        "WriterT",
+        "Polynomial.Chebyshev.T",
+        "Polynomial.Chebyshev.T_real_cos",
+        "Polynomial.Chebyshev.roots_T_real",
+        "Polynomial.Chebyshev.T_real_cosh"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "for positive r and delta between zero one exists integer power less than r",
+      "declarations": [
+        "Dyadic.blt",
+        "Int.lt_zpow_succ_log_self",
+        "Submodule.rTensorOne'",
+        "exteriorPower.presentation.relations_R",
+        "dvd_pow_pow_sub_self_of_dvd",
+        "Submodule.rTensorOne",
+        "LinearMap.rTensor",
+        "Localization.r_iff_exists",
+        "exteriorPower.presentation_R",
+        "Mathlib.Meta.NormNum.proveIsNatNNRealRPowIsNNRat"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Int.ceil_le",
+      "declarations": [
+        "Int.ceil_le"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Int.lt_ceil",
+      "declarations": [
+        "Int.lt_ceil"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Int.ceil_lt",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Real.logb_le_logb",
+      "declarations": [
+        "Real.logb_le_logb"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Real.logb_le_iff_le_rpow",
+      "declarations": [
+        "Real.logb_le_iff_le_rpow"
+      ],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Real.rpow_intCast",
+      "declarations": [
+        "Real.rpow_intCast"
+      ],
+      "call_turn": 7,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "exists _ : ℕ, _ ^ _ ≤ _ ∧ _ < _ ^ _",
+      "declarations": [
+        "exists_nat_pow_near"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "∃ n : ℕ, _ ^ n ≤ _ ∧ _ < _ ^ n",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "∃ n : ℕ, _ < _ ^ n",
+      "declarations": [
+        "exists_lt_pow",
+        "pow_unbounded_of_one_lt",
+        "add_one_pow_unbounded_of_pos",
+        "Real.exists_natCast_add_one_lt_pow_of_one_lt",
+        "MulArchimedeanClass.mk_le_mk_iff_lt"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "Int ceil logarithm gives sandwich power inequality",
+      "declarations": [
+        "Lean.Nat.mkInstNatPow",
+        "Nat.pow_lt_of_lt_clog",
+        "Lean.mkIntPowNat",
+        "Int.ceil_congr",
+        "Int.ceil",
+        "Real.le_zpow_of_log_le",
+        "Real.lt_zpow_of_log_lt",
+        "Int.ceil_int",
+        "Int.ceil_mono",
+        "Int.ceil_le_ceil"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "exists natural n such that x^n ≤ y and y < x^(n+1) base greater one",
+      "declarations": [
+        "Lean.mkAndN",
+        "Nat.pow_lt_of_lt_clog",
+        "Real.lt_zpow_of_log_lt",
+        "Real.lt_pow_of_log_lt",
+        "Real.pow_le_of_le_log",
+        "Real.le_zpow_of_log_le",
+        "Computation.thinkN",
+        "ModN",
+        "Lean.Grind.Linarith.Poly.denoteN",
+        "SSet.N"
+      ],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "zpow_add",
+      "declarations": [
+        "zpow_add"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "zpow_natCast",
+      "declarations": [
+        "zpow_natCast",
+        "finEquivZPowers_apply",
+        "zpowersEquivZPowers_apply"
+      ],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "zpow_neg",
+      "declarations": [
+        "zpow_neg"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "zpow_pos_of_pos",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "one_lt_inv",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "div_le_iff₀",
+      "declarations": [
+        "div_le_iff"
+      ],
+      "call_turn": 20,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "(_ < _⁻¹ * _)",
+      "declarations": [
+        "lt_inv_mul_iff_lt",
+        "lt_inv_mul_of_mul_lt",
+        "mul_lt_of_lt_inv_mul",
+        "lt_inv_mul_iff_mul_lt",
+        "mul_inv_lt_inv_mul_iff",
+        "one_lt_inv_mul",
+        "lt_inv_mul_iff",
+        "LiouvilleNumber.remainder_lt'"
+      ],
+      "call_turn": 37,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "(_ * _ < _⁻¹ * _)",
+      "declarations": [
+        "mul_inv_lt_inv_mul_iff"
+      ],
+      "call_turn": 37,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "lt_inv_mul_iff₀",
+      "declarations": [
+        "lt_inv_mul_iff"
+      ],
+      "call_turn": 37,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "mul_lt_iff_lt_div₀",
+      "declarations": [],
+      "call_turn": 37,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "div_lt_iff₀",
+      "declarations": [
+        "div_lt_iff"
+      ],
+      "call_turn": 37,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "inv_mul_le_iff₀",
+      "declarations": [
+        "inv_mul_le_iff"
+      ],
+      "call_turn": 43,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "(_⁻¹ * _ ≤ _)",
+      "declarations": [
+        "inv_mul_le_one_iff",
+        "inv_mul_le_of_le_mul",
+        "inv_mul_le_iff_le_mul",
+        "inv_mul_le_iff_le_mul'",
+        "inv_mul_le_one",
+        "inv_mul_left_le",
+        "inv_mul_le_iff",
+        "inv_mul_le_one_of_le"
+      ],
+      "call_turn": 43,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "mul_inv_le_iff₀",
+      "declarations": [
+        "mul_inv_le_iff"
+      ],
+      "call_turn": 43,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "zpow_add₀",
+      "declarations": [
+        "zpow_add"
+      ],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "_ ≠ 0 → _ ^ (_ + _) = _ ^ _ * _ ^ _",
+      "declarations": [
+        "Rat.zpow_add",
+        "Lean.Grind.Field.zpow_add",
+        "zpow_add",
+        "Submodule.pow_add",
+        "ENNReal.zpow_add",
+        "Complex.cpow_add",
+        "Real.rpow_add_intCast",
+        "Real.rpow_add_natCast",
+        "Real.rpow_add'",
+        "Real.rpow_add_intCast'"
+      ],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "div_le_iff₀'",
+      "declarations": [
+        "div_le_iff"
+      ],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "(_ ≤ _ / _)",
+      "declarations": [
+        "Nat.le_div_iff_mul_le",
+        "Int.ediv_nonneg_iff_of_pos",
+        "Nat.eq_zero_of_le_div_two",
+        "Nat.div_le_div_right",
+        "Nat.mul_le_of_le_div",
+        "Nat.eq_zero_of_le_div",
+        "Nat.one_le_div_iff",
+        "Nat.div_mul_div_le_div",
+        "Nat.mul_div_le_mul_div_assoc",
+        "Nat.div_two_le_of_sub_le_div_two"
+      ],
+      "call_turn": 49,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "le_div_iff₀",
+      "declarations": [
+        "le_div_iff"
+      ],
+      "call_turn": 49,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "zpow_le_zpow_iff_right₀",
+      "declarations": [
+        "zpow_le_zpow_iff_right"
+      ],
+      "call_turn": 59,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "zpow_le_zpow_of_le_one",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "zpow_le_zpow₀",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "zpow_anti₀",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "zpow_le_of_le",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 64
+    },
+    {
+      "event_id": "leanfinder:47",
+      "tool": "leanfinder",
+      "query": "integer powers antitone for real between zero and one",
+      "declarations": [
+        "Real.zero_lt_one",
+        "Lean.Nat.mkInstNatPow",
+        "EReal.exists_between_coe_real",
+        "zpow_right_anti",
+        "zpow_le_zpow_right_of_le_one",
+        "Submonoid.powers_one",
+        "Antitone",
+        "Real.antitone_arccos",
+        "Real.antitone_rpow_of_base_le_one",
+        "NNReal.pow_antitone_exp"
+      ],
+      "call_turn": 59,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "zpow_le_zpow_right_of_le_one₀",
+      "declarations": [
+        "zpow_le_zpow_right_of_le_one"
+      ],
+      "call_turn": 66,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Metric.ball_subset_ball",
+      "declarations": [
+        "Metric.ball_subset_ball"
+      ],
+      "call_turn": 68,
+      "result_turn": 69
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 42,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 41,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 54,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

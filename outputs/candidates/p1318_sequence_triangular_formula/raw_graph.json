@@ -1,0 +1,425 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "manifest": [
+        {
+          "statement": "c 1 = 2",
+          "origin": "manifest",
+          "name": "hc₁",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+          "origin": "manifest",
+          "name": "hc",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "0 < n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "4"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let m := (n + 2) / 2;\nlet t := fun r => r * (r + 1) / 2;\nc n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let m := (n + 2) / 2;\nlet t := fun r => r * (r + 1) / 2;\nc n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Decidable.byContradiction",
+          "Eq.symm",
+          "Eq.trans",
+          "Nat.div_self",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instCanonicallyOrderedAdd",
+          "Nat.instNeZeroSucc",
+          "Nat.instNoMaxOrder",
+          "Nat.instOrderedSub",
+          "Nat.mod_two_eq_zero_or_one",
+          "Nat.zero_div",
+          "Order.lt_two_iff._simp_1",
+          "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_1",
+          "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_2",
+          "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_3",
+          "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_4",
+          "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_5",
+          "Rollout_p1318_sequence_triangular_formula.triangular_pair",
+          "and_self",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "eq_self",
+          "mul_one",
+          "of_eq_true",
+          "one_mul",
+          "one_pow",
+          "tsub_self",
+          "zero_add",
+          "zero_le._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "c 1 = 2",
+            "origin": "local_assumption",
+            "name": "hc₁",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+            "origin": "local_assumption",
+            "name": "hc",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "0 < n",
+            "origin": "local_assumption",
+            "name": "hn",
+            "fvar_id": "4"
+          }
+        ],
+        "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let m := (n + 2) / 2;\nlet t := fun r => r * (r + 1) / 2;\nc n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "n % 2 = 0 ∨ n % 2 = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.mod_two_eq_zero_or_one"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_55",
+      "conclusion": {
+        "statement": "n % 2 = 0 ∨ n % 2 = 1",
+        "origin": "derived",
+        "name": "hmod",
+        "fvar_id": "_uniq.650814"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "n = 2 * k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_2"
+      ],
+      "premises": [
+        {
+          "statement": "n % 2 = 0",
+          "origin": "local_assumption",
+          "name": "heven",
+          "fvar_id": "_uniq.650842"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_56",
+      "conclusion": {
+        "statement": "n = 2 * k",
+        "origin": "derived",
+        "name": "hn_eq",
+        "fvar_id": "_uniq.650933"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(n + 2) / 2 = k + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_3"
+      ],
+      "premises": [
+        {
+          "statement": "n % 2 = 0",
+          "origin": "local_assumption",
+          "name": "heven",
+          "fvar_id": "_uniq.650842"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_57",
+      "conclusion": {
+        "statement": "(n + 2) / 2 = k + 1",
+        "origin": "derived",
+        "name": "hm",
+        "fvar_id": "_uniq.651989"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "c n = 2 * (k + 1) ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+          "origin": "derived",
+          "name": "hrec",
+          "fvar_id": "_uniq.650808"
+        },
+        {
+          "statement": "n = 2 * k",
+          "origin": "derived",
+          "name": "hn_eq",
+          "fvar_id": "_uniq.650933"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_58",
+      "conclusion": {
+        "statement": "c n = 2 * (k + 1) ^ 2",
+        "origin": "derived",
+        "name": "hcn",
+        "fvar_id": "_uniq.654044"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "0 < n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.646929"
+        },
+        {
+          "statement": "¬n = 1",
+          "origin": "local_assumption",
+          "name": "h1",
+          "fvar_id": "_uniq.647000"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_60",
+      "conclusion": {
+        "statement": "0 < k",
+        "origin": "derived",
+        "name": "hk",
+        "fvar_id": "_uniq.649962"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+          "origin": "local_assumption",
+          "name": "hc",
+          "fvar_id": "_uniq.646924"
+        },
+        {
+          "statement": "0 < k",
+          "origin": "derived",
+          "name": "hk",
+          "fvar_id": "_uniq.649962"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_61",
+      "conclusion": {
+        "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+        "origin": "derived",
+        "name": "hrec",
+        "fvar_id": "_uniq.650808"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "n = 2 * k + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_4"
+      ],
+      "premises": [
+        {
+          "statement": "n % 2 = 1",
+          "origin": "local_assumption",
+          "name": "hodd",
+          "fvar_id": "_uniq.650847"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_62",
+      "conclusion": {
+        "statement": "n = 2 * k + 1",
+        "origin": "derived",
+        "name": "hn_eq",
+        "fvar_id": "_uniq.654332"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(n + 2) / 2 = k + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula._proof_5"
+      ],
+      "premises": [
+        {
+          "statement": "n % 2 = 1",
+          "origin": "local_assumption",
+          "name": "hodd",
+          "fvar_id": "_uniq.650847"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_63",
+      "conclusion": {
+        "statement": "(n + 2) / 2 = k + 1",
+        "origin": "derived",
+        "name": "hm",
+        "fvar_id": "_uniq.655396"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "c n = 2 * (k + 1) ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2",
+          "origin": "derived",
+          "name": "hrec",
+          "fvar_id": "_uniq.650808"
+        },
+        {
+          "statement": "n = 2 * k + 1",
+          "origin": "derived",
+          "name": "hn_eq",
+          "fvar_id": "_uniq.654332"
+        }
+      ],
+      "parent": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+      "id": "local_64",
+      "conclusion": {
+        "statement": "c n = 2 * (k + 1) ^ 2",
+        "origin": "derived",
+        "name": "hcn",
+        "fvar_id": "_uniq.657451"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p1318_sequence_triangular_formula",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1318_sequence_triangular_formula.sequence_triangular_formula",
+    "proof_sha256": "94256b8599ca55d28ef24ab5fc82b764a624b7fdfd52212f74a43478178ddd1f"
+  }
+}

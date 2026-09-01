@@ -1,0 +1,23 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hcleared_fe443180" [shape=box, color="#178F82", label="hcleared\n∀ (w' : DirectSum ℂ fun a => Module.Dual ℂ (W a)), ∃ P, (∀ (α : Fin n →₀ ℕ), MvPolynomial.coeff α P = (DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (g α a)) w') ∧ ∀ (z : { z // Function.Injective z }), (∏ i, ∏ j ∈ Finset.Ioi i, (↑z i - ↑z j) ^ p i j) * (f z) w' = (MvPolynomial.eval ↑z) P"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ b, f z = DirectSum.toModule ℂ ℂ ℂ fun a => (Module.Dual.eval ℂ (W a)) (b a)"];
+  "n_hcomponent_cc1f2366" [shape=box, color="#D97706", label="hcomponent\n∀ (a : ℂ) (l : Module.Dual ℂ (W a)), (f z) ((DirectSum.lof ℂ ℂ (fun c => Module.Dual ℂ (W c)) a) l) = l (b a)"];
+  "n_hd_511f4912" [shape=box, color="#D97706", label="hD\nD ≠ 0"];
+  "n_hfinite_g_b9335f94" [shape=box, color="#D97706", label="hfinite_g\n∀ (a : ℂ), {α | g α a ≠ 0}.Finite"];
+  "r_h_001_hfinite_g" [shape=diamond, label="DirectSum.toModule_lof + Finset.finite_toSet + Finsupp.mem_support_iff", color="#D97706"];
+  "m_hcleared_fe443180" -> "r_h_001_hfinite_g";
+  "r_h_001_hfinite_g" -> "n_hfinite_g_b9335f94";
+  "r_h_002_hd" [shape=diamond, label="Finset.mem_Ioi + Finset.prod_ne_zero_iff + Function.Injective.ne", color="#D97706"];
+  "r_h_002_hd" -> "n_hd_511f4912";
+  "r_h_003_hcomponent" [shape=diamond, label="DirectSum.toModule_lof + Finset.sum_congr + Finset.sum_subset", color="#D97706"];
+  "m_hcleared_fe443180" -> "r_h_003_hcomponent";
+  "n_hfinite_g_b9335f94" -> "r_h_003_hcomponent";
+  "n_hd_511f4912" -> "r_h_003_hcomponent";
+  "r_h_003_hcomponent" -> "n_hcomponent_cc1f2366";
+  "r_h_goal" [shape=diamond, label="DirectSum.linearMap_ext + DirectSum.toModule_lof + LinearMap.ext", color="#D97706"];
+  "n_hcomponent_cc1f2366" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,704 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "manifest": [
+        {
+          "statement": "∀ (n : ℕ), Nat.Prime (P n)",
+          "origin": "manifest",
+          "name": "hP_prime",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "∀ (q : ℕ), Nat.Prime q → ∀ (N : ℕ), ∃ n, N ≤ n ∧ P n = q",
+          "origin": "manifest",
+          "name": "hP_recurrent",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "2 ≤ k",
+          "origin": "manifest",
+          "name": "hk",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "(∀ (n : ℕ), ‖z n‖ = 1) ∧ ∀ (n : ℕ), z n = z (n + 1) ^ P n",
+          "origin": "manifest",
+          "name": "hz",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Decidable.byContradiction",
+          "Eq.trans",
+          "Function.iterate_one",
+          "Iff.mp",
+          "Iff.mpr",
+          "Nat.Prime.two_le",
+          "Nat.exists_prime_and_dvd",
+          "Nat.le_of_dvd",
+          "Nat.le_self_pow",
+          "Nat.lt_pow_self",
+          "Nat.lt_succ_self",
+          "Nat.ne_of_gt",
+          "Nat.pow_le_pow_left",
+          "NeZero.charZero_one",
+          "RCLike.charZero_rclike",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.exists_prime_power_order_forward",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point._proof_1",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point._proof_2",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.pow_sub_one_eq_one_of_pow_eq_self",
+          "Rollout_p1494_p_adic_solenoid_only_periodic_point.solenoid_iterate_apply",
+          "congrArg",
+          "congrFun",
+          "congrFun'",
+          "eq_false",
+          "eq_self",
+          "funext",
+          "isOfFinOrder_iff_pow_eq_one",
+          "le_trans",
+          "lt_trans",
+          "norm_zero",
+          "not_false",
+          "not_lt_of_ge",
+          "of_eq_true",
+          "one_pow",
+          "orderOf_eq_one_iff",
+          "orderOf_le_of_pow_eq_one",
+          "orderOf_pos_iff",
+          "zero_ne_one._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (q : ℕ), Nat.Prime q → ∀ (N : ℕ), ∃ n, N ≤ n ∧ P n = q",
+            "origin": "local_assumption",
+            "name": "hP_recurrent",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "2 ≤ k",
+            "origin": "local_assumption",
+            "name": "hk",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "(∀ (n : ℕ), ‖z n‖ = 1) ∧ ∀ (n : ℕ), z n = z (n + 1) ^ P n",
+            "origin": "local_assumption",
+            "name": "hz",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "(fun w n => w n ^ k)^[m] z n = z n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrFun"
+      ],
+      "premises": [
+        {
+          "statement": "(fun w n => w n ^ k)^[m] z = z",
+          "origin": "derived",
+          "name": "hfix",
+          "fvar_id": "_uniq.2138738"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_585",
+      "conclusion": {
+        "statement": "(fun w n => w n ^ k)^[m] z n = z n",
+        "origin": "derived",
+        "name": "hn",
+        "fvar_id": "_uniq.2138819"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖z n‖ = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), ‖z n‖ = 1",
+          "origin": "local_assumption",
+          "name": "hznorm",
+          "fvar_id": "_uniq.2137288"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_586",
+      "conclusion": {
+        "statement": "‖z n‖ = 1",
+        "origin": "derived",
+        "name": "hnorm",
+        "fvar_id": "_uniq.2139063"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "z n = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "NeZero.charZero_one",
+        "RCLike.charZero_rclike",
+        "congrArg",
+        "congrFun'",
+        "eq_false",
+        "norm_zero",
+        "not_false",
+        "zero_ne_one._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), ‖z n‖ = 1",
+          "origin": "local_assumption",
+          "name": "hznorm",
+          "fvar_id": "_uniq.2137288"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_587",
+      "conclusion": {
+        "statement": "z n ≠ 0",
+        "origin": "derived",
+        "name": "hzne",
+        "fvar_id": "_uniq.2139054"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "2 ≤ k ^ m",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.le_self_pow",
+        "Nat.ne_of_gt",
+        "Nat.pow_le_pow_left"
+      ],
+      "premises": [
+        {
+          "statement": "2 ≤ k",
+          "origin": "local_assumption",
+          "name": "hk",
+          "fvar_id": "_uniq.2137254"
+        },
+        {
+          "statement": "0 < m",
+          "origin": "local_assumption",
+          "name": "hm",
+          "fvar_id": "_uniq.2137335"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_588",
+      "conclusion": {
+        "statement": "2 ≤ k ^ m",
+        "origin": "derived",
+        "name": "hKtwo",
+        "fvar_id": "_uniq.2137450"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < k ^ m",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "2 ≤ k ^ m",
+          "origin": "derived",
+          "name": "hKtwo",
+          "fvar_id": "_uniq.2137450"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_589",
+      "conclusion": {
+        "statement": "0 < k ^ m",
+        "origin": "derived",
+        "name": "hKpos",
+        "fvar_id": "_uniq.2138085"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < k ^ m - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point._proof_2"
+      ],
+      "premises": [
+        {
+          "statement": "2 ≤ k ^ m",
+          "origin": "derived",
+          "name": "hKtwo",
+          "fvar_id": "_uniq.2137450"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_590",
+      "conclusion": {
+        "statement": "0 < k ^ m - 1",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.2138325"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Function.IsPeriodicPt (fun w n => w n ^ k) m z",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Function.IsPeriodicPt (fun w n => w n ^ k) m z",
+          "origin": "local_assumption",
+          "name": "hper",
+          "fvar_id": "_uniq.2137336"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_591",
+      "conclusion": {
+        "statement": "(fun w n => w n ^ k)^[m] z = z",
+        "origin": "derived",
+        "name": "hfix",
+        "fvar_id": "_uniq.2138738"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), z n ^ k ^ m = z n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1494_p_adic_solenoid_only_periodic_point.solenoid_iterate_apply",
+        "congrArg",
+        "congrFun"
+      ],
+      "premises": [
+        {
+          "statement": "(fun w n => w n ^ k)^[m] z = z",
+          "origin": "derived",
+          "name": "hfix",
+          "fvar_id": "_uniq.2138738"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_592",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), z n ^ k ^ m = z n",
+        "origin": "derived",
+        "name": "hcoord",
+        "fvar_id": "_uniq.2138796"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "NeZero.charZero_one",
+        "RCLike.charZero_rclike",
+        "Rollout_p1494_p_adic_solenoid_only_periodic_point.pow_sub_one_eq_one_of_pow_eq_self",
+        "congrArg",
+        "congrFun'",
+        "eq_false",
+        "norm_zero",
+        "not_false",
+        "zero_ne_one._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : ℕ), ‖z n‖ = 1",
+          "origin": "local_assumption",
+          "name": "hznorm",
+          "fvar_id": "_uniq.2137288"
+        },
+        {
+          "statement": "0 < k ^ m",
+          "origin": "derived",
+          "name": "hKpos",
+          "fvar_id": "_uniq.2138085"
+        },
+        {
+          "statement": "∀ (n : ℕ), z n ^ k ^ m = z n",
+          "origin": "derived",
+          "name": "hcoord",
+          "fvar_id": "_uniq.2138796"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_593",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1",
+        "origin": "derived",
+        "name": "hroot",
+        "fvar_id": "_uniq.2139000"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "orderOf (z n) = 1 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "orderOf_eq_one_iff"
+      ],
+      "premises": [
+        {
+          "statement": "¬z n = 1",
+          "origin": "local_assumption",
+          "name": "hzn",
+          "fvar_id": "_uniq.2143488"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_594",
+      "conclusion": {
+        "statement": "orderOf (z n) ≠ 1",
+        "origin": "derived",
+        "name": "hord_ne_one",
+        "fvar_id": "_uniq.2143713"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsOfFinOrder (z M)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "isOfFinOrder_iff_pow_eq_one"
+      ],
+      "premises": [
+        {
+          "statement": "0 < k ^ m - 1",
+          "origin": "derived",
+          "name": "ht",
+          "fvar_id": "_uniq.2138325"
+        },
+        {
+          "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1",
+          "origin": "derived",
+          "name": "hroot",
+          "fvar_id": "_uniq.2139000"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_595",
+      "conclusion": {
+        "statement": "IsOfFinOrder (z M)",
+        "origin": "derived",
+        "name": "hfin",
+        "fvar_id": "_uniq.2144423"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < orderOf (z M)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "orderOf_pos_iff"
+      ],
+      "premises": [
+        {
+          "statement": "IsOfFinOrder (z M)",
+          "origin": "derived",
+          "name": "hfin",
+          "fvar_id": "_uniq.2144423"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_596",
+      "conclusion": {
+        "statement": "0 < orderOf (z M)",
+        "origin": "derived",
+        "name": "hordMpos",
+        "fvar_id": "_uniq.2144944"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.le_of_dvd"
+      ],
+      "premises": [
+        {
+          "statement": "r ^ (k ^ m - 1 + 1) ∣ orderOf (z M)",
+          "origin": "local_assumption",
+          "name": "hM",
+          "fvar_id": "_uniq.2144234"
+        },
+        {
+          "statement": "0 < orderOf (z M)",
+          "origin": "derived",
+          "name": "hordMpos",
+          "fvar_id": "_uniq.2144944"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_597",
+      "conclusion": {
+        "statement": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)",
+        "origin": "derived",
+        "name": "hpow_le",
+        "fvar_id": "_uniq.2145100"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "orderOf (z M) ≤ k ^ m - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "orderOf_le_of_pow_eq_one"
+      ],
+      "premises": [
+        {
+          "statement": "0 < k ^ m - 1",
+          "origin": "derived",
+          "name": "ht",
+          "fvar_id": "_uniq.2138325"
+        },
+        {
+          "statement": "∀ (n : ℕ), z n ^ (k ^ m - 1) = 1",
+          "origin": "derived",
+          "name": "hroot",
+          "fvar_id": "_uniq.2139000"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_598",
+      "conclusion": {
+        "statement": "orderOf (z M) ≤ k ^ m - 1",
+        "origin": "derived",
+        "name": "horder_le",
+        "fvar_id": "_uniq.2145352"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "r ^ (k ^ m - 1 + 1) ≤ orderOf (z M)",
+          "origin": "derived",
+          "name": "hpow_le",
+          "fvar_id": "_uniq.2145100"
+        },
+        {
+          "statement": "orderOf (z M) ≤ k ^ m - 1",
+          "origin": "derived",
+          "name": "horder_le",
+          "fvar_id": "_uniq.2145352"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_599",
+      "conclusion": {
+        "statement": "r ^ (k ^ m - 1 + 1) ≤ k ^ m - 1",
+        "origin": "derived",
+        "name": "hpow_le_t",
+        "fvar_id": "_uniq.2145624"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "k ^ m - 1 < r ^ (k ^ m - 1 + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.Prime.two_le",
+        "Nat.lt_pow_self",
+        "Nat.lt_succ_self",
+        "lt_trans"
+      ],
+      "premises": [
+        {
+          "statement": "Nat.Prime r",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.2144146"
+        }
+      ],
+      "parent": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+      "id": "local_600",
+      "conclusion": {
+        "statement": "k ^ m - 1 < r ^ (k ^ m - 1 + 1)",
+        "origin": "derived",
+        "name": "hbig",
+        "fvar_id": "_uniq.2145837"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p1494_p_adic_solenoid_only_periodic_point",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1494_p_adic_solenoid_only_periodic_point.p_adic_solenoid_only_periodic_point",
+    "proof_sha256": "5777737a5a34723c7fc4050338be996e114afef9bbaa06f1900d5a99256822a4"
+  }
+}

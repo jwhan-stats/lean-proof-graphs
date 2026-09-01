@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet S_B := {x | 1 < x ∧ IsIntegral ℤ x ∧ ↑(minpoly ℚ x).natDegree ≤ B ∧ (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧ ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1}; IsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}"];
+  "r_h_goal" [shape=diamond, label="Nat.le_floor + closed_and_isolated_of_finite_inter_Icc_one", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

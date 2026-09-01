@@ -1,0 +1,298 @@
+[
+  {
+    "event_id": "loogle:0",
+    "tool": "loogle",
+    "query": "(_ ≤ _ + _ -> _ ≤ _)",
+    "declarations": [
+      "Nat.le_of_add_le_add_left",
+      "Nat.le_of_add_le_add_right",
+      "Nat.sub_le_of_le_add",
+      "Int.le_of_add_le_add_left",
+      "Int.le_of_add_le_add_right",
+      "Int.sub_left_le_of_le_add",
+      "Int.sub_right_le_of_le_add",
+      "Int.add_le_of_le_neg_add",
+      "Int.neg_add_le_left_of_le_add",
+      "Int.neg_add_le_of_le_add"
+    ],
+    "call_turn": 2,
+    "result_turn": 3
+  },
+  {
+    "event_id": "leanfinder:1",
+    "tool": "leanfinder",
+    "query": "real number inequality if x ≤ y + epsilon for every positive epsilon",
+    "declarations": [
+      "Classical.epsilon",
+      "Classical.epsilon_spec",
+      "Lean.mkNatLE",
+      "Fact.Manifold.instLeReal",
+      "EReal.ge_of_forall_gt_iff_ge",
+      "Hyperreal.epsilon",
+      "ENNReal.le_of_forall_pos_le_add",
+      "Ordinal.epsilon",
+      "NumberField.ComplexEmbedding.IsReal",
+      "NumberField.InfinitePlace.IsReal"
+    ],
+    "call_turn": 2,
+    "result_turn": 4
+  },
+  {
+    "event_id": "loogle:2",
+    "tool": "loogle",
+    "query": "∀ ε > 0, _ ≤ _ + ε → _ ≤ _",
+    "declarations": [],
+    "call_turn": 2,
+    "result_turn": 5
+  },
+  {
+    "event_id": "loogle:3",
+    "tool": "loogle",
+    "query": "le_of_forall_pos_le_add",
+    "declarations": [
+      "le_of_forall_pos_le_add"
+    ],
+    "call_turn": 6,
+    "result_turn": 7
+  },
+  {
+    "event_id": "loogle:4",
+    "tool": "loogle",
+    "query": "(_ ≤ _ + _) → _ ≤ _",
+    "declarations": [
+      "Nat.le_of_add_le_add_left",
+      "Nat.le_of_add_le_add_right",
+      "Nat.sub_le_of_le_add",
+      "Int.le_of_add_le_add_left",
+      "Int.le_of_add_le_add_right",
+      "Int.sub_left_le_of_le_add",
+      "Int.sub_right_le_of_le_add",
+      "Int.add_le_of_le_neg_add",
+      "Int.neg_add_le_left_of_le_add",
+      "Int.neg_add_le_of_le_add"
+    ],
+    "call_turn": 6,
+    "result_turn": 8
+  },
+  {
+    "event_id": "leanfinder:5",
+    "tool": "leanfinder",
+    "query": "Archimedean ordered field epsilon if a is at most b plus every positive epsilon",
+    "declarations": [
+      "Hyperreal.epsilon",
+      "Classical.epsilon",
+      "exists_nat_one_div_lt",
+      "Archimedean",
+      "IsStrictlyPositive",
+      "ConditionallyCompleteLinearOrderedField.to_archimedean",
+      "Ordinal.epsilon",
+      "exists_rat_near",
+      "exists_rat_gt",
+      "Hyperreal.archimedeanClassMk_epsilon_pos"
+    ],
+    "call_turn": 6,
+    "result_turn": 9
+  },
+  {
+    "event_id": "loogle:6",
+    "tool": "loogle",
+    "query": "abs_le",
+    "declarations": [
+      "abs_le"
+    ],
+    "call_turn": 10,
+    "result_turn": 11
+  },
+  {
+    "event_id": "loogle:7",
+    "tool": "loogle",
+    "query": "|_ - _| ≤ _ ↔ _",
+    "declarations": [
+      "abs_sub_nonpos",
+      "abs_sub_le_iff",
+      "Set.mem_Icc_iff_abs_le"
+    ],
+    "call_turn": 10,
+    "result_turn": 12
+  },
+  {
+    "event_id": "loogle:8",
+    "tool": "loogle",
+    "query": "abs_sub_le_iff",
+    "declarations": [
+      "abs_sub_le_iff"
+    ],
+    "call_turn": 10,
+    "result_turn": 13
+  },
+  {
+    "event_id": "loogle:9",
+    "tool": "loogle",
+    "query": "ENNReal.ofReal_le_ofReal",
+    "declarations": [
+      "ENNReal.ofReal_le_ofReal"
+    ],
+    "call_turn": 14,
+    "result_turn": 15
+  },
+  {
+    "event_id": "loogle:10",
+    "tool": "loogle",
+    "query": "ENNReal.ofReal _ ≤ ENNReal.ofReal _",
+    "declarations": [
+      "ENNReal.ofReal_le_ofReal",
+      "ENNReal.ofReal_le_ofReal_iff",
+      "ENNReal.ofReal_le_ofReal_iff'",
+      "MeasureTheory.all_ae_norm_ofReal_F_le_bound",
+      "MeasureTheory.all_ae_ofReal_F_le_bound",
+      "MeasureTheory.ae_norm_ofReal_f_le_bound",
+      "MeasureTheory.all_ae_ofReal_f_le_bound"
+    ],
+    "call_turn": 14,
+    "result_turn": 16
+  },
+  {
+    "event_id": "loogle:11",
+    "tool": "loogle",
+    "query": "ENNReal.ofReal (_ : ℝ) ≤ _",
+    "declarations": [
+      "ENNReal.ofReal_toReal_le",
+      "ENNReal.ofReal_le_ofReal",
+      "ENNReal.ofReal_le_of_le_toReal",
+      "ENNReal.ofReal_le_coe",
+      "ENNReal.ofReal_le_iff_le_toReal",
+      "ENNReal.ofReal_le_natCast",
+      "ENNReal.ofReal_le_ofReal_iff",
+      "ENNReal.ofReal_le_ofReal_iff'",
+      "ENNReal.ofReal_le_one",
+      "ENNReal.ofReal_le_ofNat"
+    ],
+    "call_turn": 14,
+    "result_turn": 17
+  },
+  {
+    "event_id": "loogle:12",
+    "tool": "loogle",
+    "query": "ENNReal.ofReal_coe_nnreal",
+    "declarations": [
+      "ENNReal.ofReal_coe_nnreal"
+    ],
+    "call_turn": 18,
+    "result_turn": 19
+  },
+  {
+    "event_id": "loogle:13",
+    "tool": "loogle",
+    "query": "ENNReal.ofReal ↑_ = ↑_",
+    "declarations": [
+      "ENNReal.ofReal_coe_nnreal",
+      "ENNReal.ofReal_toReal",
+      "ENNReal.ofReal_toReal_eq_iff",
+      "ENNReal.ofReal_zero",
+      "ENNReal.ofReal_natCast",
+      "ENNReal.ofReal_one",
+      "ENNReal.ofReal_ofNat",
+      "ENNReal.ofReal_eq_coe_nnreal",
+      "ENNReal.ofReal_max",
+      "ENNReal.ofReal_min"
+    ],
+    "call_turn": 18,
+    "result_turn": 20
+  },
+  {
+    "event_id": "leanfinder:14",
+    "tool": "leanfinder",
+    "query": "ENNReal coercion NNReal equals ofReal real coercion",
+    "declarations": [
+      "ENNReal.ofReal",
+      "Simps.findCoercionArgs",
+      "Mathlib.Tactic.Linarith.getNNRealToRealArg",
+      "Mathlib.Tactic.Linarith.isNatCoe",
+      "ENNReal.ofReal_coe_nnreal",
+      "Mathlib.Tactic.Linarith.isNNRealtoReal",
+      "Lean.Meta.registerCoercion",
+      "ENNReal.ofReal_eq_coe_nnreal",
+      "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+      "Mathlib.Meta.NormNum.tryNormNum"
+    ],
+    "call_turn": 18,
+    "result_turn": 21
+  },
+  {
+    "event_id": "loogle:15",
+    "tool": "loogle",
+    "query": "sInf_le_iff",
+    "declarations": [
+      "sInf_le_iff"
+    ],
+    "call_turn": 22,
+    "result_turn": 23
+  },
+  {
+    "event_id": "loogle:16",
+    "tool": "loogle",
+    "query": "sInf_le",
+    "declarations": [
+      "sInf_le"
+    ],
+    "call_turn": 22,
+    "result_turn": 24
+  },
+  {
+    "event_id": "loogle:17",
+    "tool": "loogle",
+    "query": "le_sInf",
+    "declarations": [
+      "le_sInf"
+    ],
+    "call_turn": 22,
+    "result_turn": 25
+  },
+  {
+    "event_id": "loogle:18",
+    "tool": "loogle",
+    "query": "sInf_eq_top",
+    "declarations": [
+      "sInf_eq_top"
+    ],
+    "call_turn": 22,
+    "result_turn": 26
+  },
+  {
+    "event_id": "loogle:19",
+    "tool": "loogle",
+    "query": "ENNReal.coe_toNNReal",
+    "declarations": [
+      "ENNReal.coe_toNNReal"
+    ],
+    "call_turn": 27,
+    "result_turn": 28
+  },
+  {
+    "event_id": "loogle:20",
+    "tool": "loogle",
+    "query": "↑_.toNNReal = _",
+    "declarations": [],
+    "call_turn": 27,
+    "result_turn": 29
+  },
+  {
+    "event_id": "loogle:21",
+    "tool": "loogle",
+    "query": "ENNReal.toNNReal",
+    "declarations": [
+      "ENNReal.toNNReal",
+      "ENNReal.toNNReal_coe",
+      "ENNReal.coe_toNNReal_eq_toReal",
+      "ENNReal.toNNReal_toReal_eq",
+      "ENNReal.coe_toNNReal_le_self",
+      "ENNReal.toNNReal_top",
+      "ENNReal.coe_toNNReal",
+      "ENNReal.toNNReal_zero",
+      "ENNReal.toNNReal_natCast_eq_toNNReal",
+      "ENNReal.toNNReal_one"
+    ],
+    "call_turn": 27,
+    "result_turn": 30
+  }
+]

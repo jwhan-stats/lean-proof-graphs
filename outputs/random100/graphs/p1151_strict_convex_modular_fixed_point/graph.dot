@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hcomplete_51a2e963" [shape=box, color="#178F82", label="hcomplete\n∀ (x : ℕ → { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal), 0 < l → Filter.Tendsto (fun p => w l ↑(x p.1) ↑(x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) → ∃ y, Filter.Tendsto (fun n => w l ↑(x n) ↑y) Filter.atTop (nhds 0)"];
+  "m_hcontractive_def63516" [shape=box, color="#178F82", label="hcontractive\n∃ k L, 0 < k ∧ k < 1 ∧ 0 < L ∧ ∀ (x y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }) (l : NNReal), 0 < l → l ≤ L → w (k * l) ↑(T x) ↑(T y) ≤ w l ↑x ↑y"];
+  "m_hconv_a4d9d897" [shape=box, color="#178F82", label="hconv\n∀ (l m : NNReal), 0 < l → 0 < m → ∀ (x y z : X), w (l + m) x y ≤ ↑l / (↑l + ↑m) * w l x z + ↑m / (↑l + ↑m) * w m y z"];
+  "m_hself_cb46eddd" [shape=box, color="#178F82", label="hself\n∀ (l : NNReal), 0 < l → ∀ (x : X), w l x x = 0"];
+  "m_hstrict_564803c6" [shape=box, color="#178F82", label="hstrict\n∀ (x y : X), (∃ l, 0 < l ∧ w l x y = 0) → x = y"];
+  "m_hsymm_616f2944" [shape=box, color="#178F82", label="hsymm\n∀ (l : NNReal), 0 < l → ∀ (x y : X), w l x y = w l y x"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n((∀ (l : NNReal), 0 < l → ∃ x, w l ↑x ↑(T x) < ⊤) → ∃ x, T x = x) ∧ ((∀ (l : NNReal), 0 < l → ∀ (x y : { x // ∃ m, 0 < m ∧ w m x b < ⊤ }), w l ↑x ↑y < ⊤) → ∃ xstar, T xstar = xstar ∧ (∀ (y : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), T y = y → y = xstar) ∧ ∀ (x : { x // ∃ l, 0 < l ∧ w l x b < ⊤ }), ∃ l, 0 < l ∧ Filter.Tendsto (fun n => w l ↑(T^[n] x) ↑xstar) Filter.atTop (nhds 0))"];
+  "r_h_goal" [shape=diamond, label="ENNReal.coe_mul + ENNReal.coe_ne_top + ENNReal.div_self", color="#D97706"];
+  "m_hself_cb46eddd" -> "r_h_goal";
+  "m_hsymm_616f2944" -> "r_h_goal";
+  "m_hstrict_564803c6" -> "r_h_goal";
+  "m_hconv_a4d9d897" -> "r_h_goal";
+  "m_hcomplete_51a2e963" -> "r_h_goal";
+  "m_hcontractive_def63516" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

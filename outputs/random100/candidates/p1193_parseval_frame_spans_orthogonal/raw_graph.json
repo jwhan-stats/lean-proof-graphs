@@ -1,0 +1,1034 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "manifest": [
+        {
+          "statement": "0 < M",
+          "origin": "manifest",
+          "name": "hM",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "0 < N",
+          "origin": "manifest",
+          "name": "hN",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2",
+          "origin": "manifest",
+          "name": "hParseval",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "manifest",
+          "name": "hdisjoint",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "u ∈ Submodule.span ℝ (φ '' I)",
+          "origin": "manifest",
+          "name": "hu",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)",
+          "origin": "manifest",
+          "name": "hv",
+          "fvar_id": "19"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_univ_eq_id_of_parseval"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2",
+              "origin": "local_assumption",
+              "name": "hParseval",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_13",
+          "conclusion": {
+            "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+            "origin": "derived",
+            "name": "hframe",
+            "fvar_id": "13"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (x : E), SI x + SC x = x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+            "congrArg",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+              "origin": "derived",
+              "name": "hframe",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_14",
+          "conclusion": {
+            "statement": "∀ (x : E), SI x + SC x = x",
+            "origin": "derived",
+            "name": "hdecomp",
+            "fvar_id": "14"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ v ∈ B, SI v = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mp",
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+            "Submodule.mem_bot",
+            "Submodule.sub_mem",
+            "congrArg",
+            "eq_sub_of_add_eq",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+              "origin": "local_assumption",
+              "name": "hdisjoint",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (x : E), SI x + SC x = x",
+              "origin": "derived",
+              "name": "hdecomp",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "∀ v ∈ B, SI v = 0",
+            "origin": "derived",
+            "name": "hSI_zero_on_B",
+            "fvar_id": "15"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SI u ∈ A",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "SI u ∈ A",
+            "origin": "derived",
+            "name": "hSIu_A",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SC u ∈ B",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "SC u ∈ B",
+            "origin": "derived",
+            "name": "hSCu_B",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SC u ∈ A",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.sub_mem",
+            "congrArg",
+            "eq_sub_of_add_eq'",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : E), SI x + SC x = x",
+              "origin": "derived",
+              "name": "hdecomp",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "u ∈ Submodule.span ℝ (φ '' I)",
+              "origin": "local_assumption",
+              "name": "hu",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "SI u ∈ A",
+              "origin": "derived",
+              "name": "hSIu_A",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "SC u ∈ A",
+            "origin": "derived",
+            "name": "hSCu_A",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SC u = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mp",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.mem_bot",
+            "congrArg",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+              "origin": "local_assumption",
+              "name": "hdisjoint",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "SC u ∈ B",
+              "origin": "derived",
+              "name": "hSCu_B",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "SC u ∈ A",
+              "origin": "derived",
+              "name": "hSCu_A",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "SC u = 0",
+            "origin": "derived",
+            "name": "hSCu_zero",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SI u = u",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "add_zero",
+            "congrArg",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : E), SI x + SC x = x",
+              "origin": "derived",
+              "name": "hdecomp",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "SC u = 0",
+              "origin": "derived",
+              "name": "hSCu_zero",
+              "fvar_id": "23"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "SI u = u",
+            "origin": "derived",
+            "name": "hSIu",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SI v = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "∀ v ∈ B, SI v = 0",
+              "origin": "derived",
+              "name": "hSI_zero_on_B",
+              "fvar_id": "15"
+            },
+            {
+              "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)",
+              "origin": "local_assumption",
+              "name": "hv",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "SI v = 0",
+            "origin": "derived",
+            "name": "hSIv",
+            "fvar_id": "25"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "inner ℝ u v = 0",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "inner ℝ u v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "PiLp.innerProductSpace._proof_1",
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_isSymmetric",
+          "congrArg",
+          "fact_one_le_two_ennreal",
+          "inner_zero_right"
+        ],
+        "premises": [
+          {
+            "statement": "SI u = u",
+            "origin": "derived",
+            "name": "hSIu",
+            "fvar_id": "24"
+          },
+          {
+            "statement": "SI v = 0",
+            "origin": "derived",
+            "name": "hSIv",
+            "fvar_id": "25"
+          }
+        ],
+        "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "inner ℝ u v = 0",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "(partialFrame φ I + partialFrame φ Iᶜ) x = (partialFrame φ Set.univ) x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_361",
+      "conclusion": {
+        "statement": "(fun T => T x) (partialFrame φ I + partialFrame φ Iᶜ) = (fun T => T x) (partialFrame φ Set.univ)",
+        "origin": "derived",
+        "name": "happ",
+        "fvar_id": "_uniq.1321622"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v = v - SC v",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "eq_sub_of_add_eq",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_362",
+      "conclusion": {
+        "statement": "SI v = v - SC v",
+        "origin": "derived",
+        "name": "hEq",
+        "fvar_id": "_uniq.1327508"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v ∈ A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_363",
+      "conclusion": {
+        "statement": "SI v ∈ A",
+        "origin": "derived",
+        "name": "hSIv_A",
+        "fvar_id": "_uniq.1325598"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC v ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_364",
+      "conclusion": {
+        "statement": "SC v ∈ B",
+        "origin": "derived",
+        "name": "hSCv_B",
+        "fvar_id": "_uniq.1326322"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.sub_mem",
+        "congrArg",
+        "eq_sub_of_add_eq",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        },
+        {
+          "statement": "v ∈ B",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.1325428"
+        },
+        {
+          "statement": "SC v ∈ B",
+          "origin": "derived",
+          "name": "hSCv_B",
+          "fvar_id": "_uniq.1326322"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_365",
+      "conclusion": {
+        "statement": "SI v ∈ B",
+        "origin": "derived",
+        "name": "hSIv_B",
+        "fvar_id": "_uniq.1327115"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v ∈ ⊥",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "PiLp.innerProductSpace._proof_1",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "SI v ∈ A",
+          "origin": "derived",
+          "name": "hSIv_A",
+          "fvar_id": "_uniq.1325598"
+        },
+        {
+          "statement": "SI v ∈ B",
+          "origin": "derived",
+          "name": "hSIv_B",
+          "fvar_id": "_uniq.1327115"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_366",
+      "conclusion": {
+        "statement": "SI v ∈ ⊥",
+        "origin": "derived",
+        "name": "hbot",
+        "fvar_id": "_uniq.1327976"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u = u - SI u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "eq_sub_of_add_eq'",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_367",
+      "conclusion": {
+        "statement": "SC u = u - SI u",
+        "origin": "derived",
+        "name": "hEq",
+        "fvar_id": "_uniq.1331423"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u ∈ ⊥",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "PiLp.innerProductSpace._proof_1",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "SC u ∈ B",
+          "origin": "derived",
+          "name": "hSCu_B",
+          "fvar_id": "_uniq.1330087"
+        },
+        {
+          "statement": "SC u ∈ A",
+          "origin": "derived",
+          "name": "hSCu_A",
+          "fvar_id": "_uniq.1330880"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_368",
+      "conclusion": {
+        "statement": "SC u ∈ ⊥",
+        "origin": "derived",
+        "name": "hbot",
+        "fvar_id": "_uniq.1331814"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI u + SC u = u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_369",
+      "conclusion": {
+        "statement": "SI u + SC u = u",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.1332936"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "partialFrame φ Set.univ = LinearMap.id",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_univ_eq_id_of_parseval"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2",
+          "origin": "local_assumption",
+          "name": "hParseval",
+          "fvar_id": "_uniq.1312754"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_375",
+      "conclusion": {
+        "statement": "partialFrame φ Set.univ = LinearMap.id",
+        "origin": "derived",
+        "name": "hframe",
+        "fvar_id": "_uniq.1318252"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : E), SI x + SC x = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "partialFrame φ Set.univ = LinearMap.id",
+          "origin": "derived",
+          "name": "hframe",
+          "fvar_id": "_uniq.1318252"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_376",
+      "conclusion": {
+        "statement": "∀ (x : E), SI x + SC x = x",
+        "origin": "derived",
+        "name": "hdecomp",
+        "fvar_id": "_uniq.1321263"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ v ∈ B, SI v = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mp",
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "Submodule.mem_bot",
+        "Submodule.sub_mem",
+        "congrArg",
+        "eq_sub_of_add_eq",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_377",
+      "conclusion": {
+        "statement": "∀ v ∈ B, SI v = 0",
+        "origin": "derived",
+        "name": "hSI_zero_on_B",
+        "fvar_id": "_uniq.1325421"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI u ∈ A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_378",
+      "conclusion": {
+        "statement": "SI u ∈ A",
+        "origin": "derived",
+        "name": "hSIu_A",
+        "fvar_id": "_uniq.1329363"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_379",
+      "conclusion": {
+        "statement": "SC u ∈ B",
+        "origin": "derived",
+        "name": "hSCu_B",
+        "fvar_id": "_uniq.1330087"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u ∈ A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.sub_mem",
+        "congrArg",
+        "eq_sub_of_add_eq'",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        },
+        {
+          "statement": "u ∈ Submodule.span ℝ (φ '' I)",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.1329221"
+        },
+        {
+          "statement": "SI u ∈ A",
+          "origin": "derived",
+          "name": "hSIu_A",
+          "fvar_id": "_uniq.1329363"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_380",
+      "conclusion": {
+        "statement": "SC u ∈ A",
+        "origin": "derived",
+        "name": "hSCu_A",
+        "fvar_id": "_uniq.1330880"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mp",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.mem_bot",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "SC u ∈ B",
+          "origin": "derived",
+          "name": "hSCu_B",
+          "fvar_id": "_uniq.1330087"
+        },
+        {
+          "statement": "SC u ∈ A",
+          "origin": "derived",
+          "name": "hSCu_A",
+          "fvar_id": "_uniq.1330880"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_381",
+      "conclusion": {
+        "statement": "SC u = 0",
+        "origin": "derived",
+        "name": "hSCu_zero",
+        "fvar_id": "_uniq.1331558"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI u = u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "add_zero",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        },
+        {
+          "statement": "SC u = 0",
+          "origin": "derived",
+          "name": "hSCu_zero",
+          "fvar_id": "_uniq.1331558"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_382",
+      "conclusion": {
+        "statement": "SI u = u",
+        "origin": "derived",
+        "name": "hSIu",
+        "fvar_id": "_uniq.1332930"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ v ∈ B, SI v = 0",
+          "origin": "derived",
+          "name": "hSI_zero_on_B",
+          "fvar_id": "_uniq.1325421"
+        },
+        {
+          "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.1329227"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_383",
+      "conclusion": {
+        "statement": "SI v = 0",
+        "origin": "derived",
+        "name": "hSIv",
+        "fvar_id": "_uniq.1333278"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_19390104429fa091/proofs.lean",
+    "namespace": "Rollout_p1193_parseval_frame_spans_orthogonal",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+    "proof_sha256": "d37f0247e5dd6f81da3dc490b1a5f73d6adc9f4ddf7a0ebc57ff5cd57ca54d4d"
+  }
+}

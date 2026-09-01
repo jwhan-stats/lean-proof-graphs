@@ -1,0 +1,29 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_4f426a14" [shape=box, color="#178F82", label="hμ\n∀ (n : ℕ) (A : Set ↑(Set.Icc 0 1)), A.OrdConnected → Metric.diam A ≤ Real.rpow 2 (-↑n) → μ A ≤ ENNReal.ofReal (Real.rpow 2 (-(α * ↑n + ↑(f n))))"];
+  "m_h_8c3d8745" [shape=box, color="#178F82", label="hα\n0 ≤ α"];
+  "m_hf_ee7a934a" [shape=box, color="#178F82", label="hf\nSummable fun n => Real.rpow 2 (-↑(f n))"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∫⁻ (x : ↑(Set.Icc 0 1)), ∫⁻ (y : ↑(Set.Icc 0 1)), 1 / ENNReal.ofReal |↑x - ↑y| ^ α ∂μ ∂μ < ⊤"];
+  "n_h_u_91292b61" [shape=box, color="#D97706", label="hμu\nμ Set.univ < ⊤"];
+  "n_hk_ed1b14bf" [shape=box, color="#D97706", label="hK\nK < ⊤"];
+  "n_htsum_a27f9d6e" [shape=box, color="#D97706", label="htsum\n∑' (n : ℕ), ENNReal.ofReal (Real.rpow 2 (-↑(f n))) < ⊤"];
+  "r_h_001_h_u" [shape=diamond, label="proposition_4_9_measure_univ_finite", color="#D97706"];
+  "m_h_4f426a14" -> "r_h_001_h_u";
+  "r_h_001_h_u" -> "n_h_u_91292b61";
+  "r_h_002_htsum" [shape=diamond, label="ENNReal.ofReal_lt_top + ENNReal.ofReal_tsum_of_nonneg + Real.rpow_nonneg", color="#D97706"];
+  "m_hf_ee7a934a" -> "r_h_002_htsum";
+  "r_h_002_htsum" -> "n_htsum_a27f9d6e";
+  "r_h_003_hk" [shape=diamond, label="ENNReal.add_lt_top + ENNReal.mul_lt_top + ENNReal.ofReal_lt_top", color="#D97706"];
+  "n_h_u_91292b61" -> "r_h_003_hk";
+  "n_htsum_a27f9d6e" -> "r_h_003_hk";
+  "r_h_003_hk" -> "n_hk_ed1b14bf";
+  "r_h_goal" [shape=diamond, label="ENNReal.mul_lt_top + MeasureTheory.lintegral_const + MeasureTheory.lintegral_mono", color="#D97706"];
+  "m_h_8c3d8745" -> "r_h_goal";
+  "m_hf_ee7a934a" -> "r_h_goal";
+  "m_h_4f426a14" -> "r_h_goal";
+  "n_h_u_91292b61" -> "r_h_goal";
+  "n_hk_ed1b14bf" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

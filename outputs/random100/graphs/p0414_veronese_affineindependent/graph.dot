@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hrp_4617b290" [shape=box, color="#178F82", label="hrp\nr ≤ p + 1"];
+  "m_hx_4d46edef" [shape=box, color="#178F82", label="hx\nFunction.Injective x"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet I := { ab // (ab.1.sum fun x n => n) ≤ p ∧ (ab.2.sum fun x n => n) ≤ q }; let v := fun z ab => ((↑ab).1.prod fun i n => z i ^ n) * (↑ab).2.prod fun i n => (starRingEnd ℂ) (z i) ^ n; AffineIndependent ℝ fun j => v (x j)"];
+  "r_h_goal" [shape=diamond, label="Complex.ofReal_injective + LinearIndependent.affineIndependent + LinearIndependent.restrict_scalars", color="#D97706"];
+  "m_hrp_4617b290" -> "r_h_goal";
+  "m_hx_4d46edef" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

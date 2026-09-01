@@ -1,0 +1,691 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3210_substochastic_row_update_product",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3210,
+    "source": "1410.4329",
+    "theorem_name": "substochastic_row_update_product",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3210",
+    "reconstructed_proof": "../../candidates/p3210_substochastic_row_update_product/proof.lean",
+    "raw_elaboration": "../../candidates/p3210_substochastic_row_update_product/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+    "verification_call_id": "verify_submission:23",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "db50fe190604d05227612447bcc66f9ea76bc24aec9dacd3acf69bb671db2c27",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "1dd72d768dd522444b5c6be7f486a9e0a644da3f27e8c869b0c17c24680a1421",
+    "concrete_semantic_topology_sha256": "db50fe190604d05227612447bcc66f9ea76bc24aec9dacd3acf69bb671db2c27"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hc_diag_baec282a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hC_diag",
+      "lean_fvar_id": "4",
+      "statement": "∀ (i : Fin N), C i i = 0"
+    },
+    {
+      "id": "m_hc_nonneg_cbcdeb17",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hC_nonneg",
+      "lean_fvar_id": "3",
+      "statement": "∀ (i j : Fin N), 0 ≤ C i j"
+    },
+    {
+      "id": "m_hn_7a4e7471",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hN",
+      "lean_fvar_id": "1",
+      "statement": "1 ≤ N"
+    },
+    {
+      "id": "m_hq_9ed0e118",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hQ",
+      "lean_fvar_id": "9",
+      "statement": "Q = (List.ofFn fun i => Matrix.updateRow 1 i (C i)).reverse.prod"
+    },
+    {
+      "id": "m_hr_9457c974",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hr",
+      "lean_fvar_id": "6",
+      "statement": "IsGreatest (Set.range fun i => ∑ j, C i j) r"
+    },
+    {
+      "id": "m_hr_lt_one_a3a8038f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hr_lt_one",
+      "lean_fvar_id": "7",
+      "statement": "r < 1"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∑ j, Q i j ≤ r"
+    },
+    {
+      "id": "n_hbound_f997550a",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hbound",
+      "lean_fvar_id": "15",
+      "statement": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"
+    },
+    {
+      "id": "n_hi_dfd3962f",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hi",
+      "lean_fvar_id": "14",
+      "statement": "i ∈ idx.reverse"
+    },
+    {
+      "id": "n_hi_idx_1ae69d4d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hi_idx",
+      "lean_fvar_id": "13",
+      "statement": "i ∈ idx"
+    },
+    {
+      "id": "n_hinvariant_b7efd599",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hinvariant",
+      "lean_fvar_id": "12",
+      "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧ ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hinvariant",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hc_nonneg_cbcdeb17",
+        "m_hr_9457c974",
+        "m_hr_lt_one_a3a8038f"
+      ],
+      "conclusion": "n_hinvariant_b7efd599",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "row_update_prod_invariant",
+        "items": [
+          "Rollout_p3210_substochastic_row_update_product.row_update_prod_invariant"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p3210_substochastic_row_update_product.row_update_prod_invariant"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_12",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hinvariant := row_update_prod_invariant N C hC_nonneg r hr hr_lt_one idx.reverse",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hC_nonneg",
+              "statement": "∀ (i j : Fin N), 0 ≤ C i j"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hr",
+              "statement": "IsGreatest (Set.range fun i => ∑ j, C i j) r"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hr_lt_one",
+              "statement": "r < 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "12",
+            "name": "hinvariant",
+            "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧ ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"
+          }
+        },
+        "lean_dependency_sha256": "afc8757c02151d2f95fba504ce9bb6361dd683b2c0822ad3f395061464b507e1",
+        "kernel_witness_check": {
+          "proof_type": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hi_idx",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hi_idx_1ae69d4d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "List.mem_ofFn",
+        "items": [
+          "List.mem_ofFn"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "List.mem_ofFn"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hi_idx : i ∈ idx := by\n    dsimp [idx]\n    exact List.mem_ofFn.mpr ⟨i, rfl⟩",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "hi_idx",
+            "statement": "i ∈ idx"
+          }
+        },
+        "lean_dependency_sha256": "2d631fd2cff0313d90c5bd578056a5d89666aa19b502b236860f028919eec743",
+        "kernel_witness_check": {
+          "proof_type": "i ∈ idx",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "List.mem_ofFn"
+        ],
+        "observed_search_event_ids": [
+          "loogle:17",
+          "loogle:18"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hi",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hi_idx_1ae69d4d"
+      ],
+      "conclusion": "n_hi_dfd3962f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "List.mem_reverse",
+        "items": [
+          "List.mem_reverse"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "List.mem_reverse"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_14",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hi : i ∈ idx.reverse := by\n    exact List.mem_reverse.mpr hi_idx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "13",
+              "name": "hi_idx",
+              "statement": "i ∈ idx"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "14",
+            "name": "hi",
+            "statement": "i ∈ idx.reverse"
+          }
+        },
+        "lean_dependency_sha256": "16bc0a6f7d4401486a58bc2e4e2fc7f67720027ae319dc5aadc24eb426daccc9",
+        "kernel_witness_check": {
+          "proof_type": "i ∈ idx.reverse",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "List.mem_reverse"
+        ],
+        "observed_search_event_ids": [
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hbound",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hinvariant_b7efd599",
+        "n_hi_dfd3962f"
+      ],
+      "conclusion": "n_hbound_f997550a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_15",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hbound := hinvariant.2 i hi\n  rw [hQ]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "12",
+              "name": "hinvariant",
+              "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧ ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hi",
+              "statement": "i ∈ idx.reverse"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "15",
+            "name": "hbound",
+            "statement": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"
+          }
+        },
+        "lean_dependency_sha256": "a7bda5abb9308763563bb70d3efc79fe42dbda1be65a83cb09a8cb30eece7d09",
+        "kernel_witness_check": {
+          "proof_type": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hq_9ed0e118",
+        "n_hbound_f997550a"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "List.map_reverse",
+        "items": [
+          "List.map_reverse"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "List.map_reverse"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  simpa [idx, List.map_reverse] using hbound",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "9",
+              "name": "hQ",
+              "statement": "Q = (List.ofFn fun i => Matrix.updateRow 1 i (C i)).reverse.prod"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hbound",
+              "statement": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∑ j, Q i j ≤ r"
+          }
+        },
+        "lean_dependency_sha256": "95a026c8f0e254fed3ddc947155731add6b1c4b1abb47b3e19142a8152bd27db",
+        "kernel_witness_check": {
+          "proof_type": "∑ j, Q i j ≤ r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "List.map_reverse"
+        ],
+        "observed_search_event_ids": [
+          "loogle:19"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Matrix.updateRow",
+      "declarations": [
+        "Matrix.updateRow",
+        "Matrix.updateRow_eq_self",
+        "Matrix.updateRow_self",
+        "Matrix.updateRow_ne",
+        "Matrix.updateRow_apply",
+        "Matrix.updateCol_transpose",
+        "Matrix.updateRow_transpose",
+        "Matrix.updateRow_idem",
+        "Matrix.diagonal_updateRow_single",
+        "Matrix.map_updateRow"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Matrix.updateRow_apply",
+      "declarations": [
+        "Matrix.updateRow_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Matrix.mul_apply",
+      "declarations": [
+        "Matrix.mul_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "List.reverse_induction",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "matrix multiplication by updateRow updates row of product",
+      "declarations": [
+        "Matrix.mulVec",
+        "Matrix.updateRow",
+        "Matrix.updateCol",
+        "Matrix.updateRow_transpose",
+        "Matrix.updateRow_mulVec",
+        "Matrix.vecMul",
+        "Matrix.map_updateRow",
+        "Matrix.updateRow_comm",
+        "Matrix.updateRow_zero_zero",
+        "Matrix.updateRow_mul"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Matrix.updateRow _ _ _ * _ = _",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "_ * Matrix.updateRow _ _ _ = _",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Matrix.single * _",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Matrix.updateRow_mul",
+      "declarations": [
+        "Matrix.updateRow_mul"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Matrix.vecMul",
+      "declarations": [
+        "Matrix.vecMul",
+        "Matrix.vecMul_injective",
+        "Matrix.mulVec_transpose",
+        "Matrix.vecMul_transpose",
+        "Matrix.ext_iff_vecMul",
+        "Matrix.vecMul_diagonal",
+        "Matrix.isRightRegular_iff_vecMul_injective",
+        "Matrix.vecMul_one",
+        "Matrix.vecMul_injective_of_isUnit",
+        "Matrix.zero_vecMul"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "_ ⬝ᵥ _ = _",
+      "declarations": [
+        "dotProduct_pUnit",
+        "dotProduct_comm",
+        "dotProduct_zero'",
+        "zero_dotProduct'",
+        "dotProduct_one",
+        "dotProduct_zero",
+        "one_dotProduct",
+        "zero_dotProduct",
+        "diagonal_dotProduct",
+        "dotProduct_diagonal"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "unfold matrix vector dot product vecMul apply",
+      "declarations": [
+        "Matrix.vec_dotProduct_vec",
+        "Matrix.mulVec",
+        "Matrix.dotProduct_vecMul_transpose",
+        "dotProduct",
+        "Matrix.dotProduct_mulVec",
+        "Lean.Meta.Tactic.BVDecide.Normalize.Op.mul",
+        "Matrix.dotProduct_vecMul_hadamard",
+        "Matrix.dotProduct_transpose_mulVec",
+        "Lean.Meta.Grind.Arith.Linear.isSMulNatInst",
+        "Lean.Meta.Grind.Arith.Linear.isHSMulNatInst"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "List.mem_ofFn",
+      "declarations": [
+        "List.mem_ofFn"
+      ],
+      "call_turn": 28,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "_ ∈ List.ofFn _",
+      "declarations": [
+        "List.mem_ofFn",
+        "List.forall_mem_ofFn_iff",
+        "List.mem_ofFn'"
+      ],
+      "call_turn": 28,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "List.map_reverse",
+      "declarations": [
+        "List.map_reverse"
+      ],
+      "call_turn": 28,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "_ ∈ List.reverse _",
+      "declarations": [
+        "List.mem_reverse",
+        "List.attachWith_reverse",
+        "List.reverse_attachWith",
+        "List.pmap_reverse",
+        "List.reverse_pmap",
+        "List.attach_reverse",
+        "List.reverse_attach",
+        "List.next_reverse_eq_prev",
+        "List.prev_reverse_eq_next"
+      ],
+      "call_turn": 28,
+      "result_turn": 32
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 9,
+    "selected_hyperedge_count": 5,
+    "main_hyperedge_count": 5,
+    "side_hyperedge_count": 0,
+    "selected_depth": 4,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 16,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 12,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 24,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

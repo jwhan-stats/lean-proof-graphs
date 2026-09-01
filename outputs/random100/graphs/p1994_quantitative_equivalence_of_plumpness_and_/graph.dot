@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∀ (R b : ℝ), 0 < R → 0 < b → b < 1 → (∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E) → ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ), 0 < δ → δ < 1 → 0 < b₀ → b₀ ≤ B₀ → b₀ / B₀ ≤ b → B₀ * δ ^ m ≤ R → ∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) ∧ ∀ (δ : ℝ) (m : ℤ) (b₀ B₀ : ℝ), 0 < δ → δ < 1 → 0 < b₀ → b₀ ≤ B₀ → (∀ y ∈ E, ∀ (k : ℤ), m ≤ k → ∃ z, Metric.ball z (b₀ * δ ^ k) ⊆ Metric.ball y (B₀ * δ ^ k) ∩ E) → ∀ (R b : ℝ), 0 < R → 0 < b → b < 1 → b ≤ δ * b₀ / B₀ → R ≤ B₀ * δ ^ (m - 1) → ∀ y ∈ E, ∀ (r : ℝ), 0 < r → r ≤ R → ∃ z, Metric.ball z (b * r) ⊆ Metric.ball y r ∩ E"];
+  "r_h_goal" [shape=diamond, label="Metric.ball_subset_ball + exists_dyadic_level + div_le_iff₀", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

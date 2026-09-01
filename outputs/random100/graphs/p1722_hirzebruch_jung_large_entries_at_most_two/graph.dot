@@ -1,0 +1,22 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_07dd3993" [shape=box, color="#178F82", label="ha\n∀ (i : Fin n), 2 ≤ a i"];
+  "m_hfrac_4b36d96a" [shape=box, color="#178F82", label="hfrac\nList.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑p / ↑q"];
+  "m_hn_e68719f3" [shape=box, color="#178F82", label="hn\n1 ≤ n"];
+  "m_hp_cafeac24" [shape=box, color="#178F82", label="hp\n0 < p"];
+  "m_hpq_314edf47" [shape=box, color="#178F82", label="hpq\np.Coprime q"];
+  "m_hq_dd009419" [shape=box, color="#178F82", label="hq\n0 < q"];
+  "m_hs_a20c3200" [shape=box, color="#178F82", label="hS\n2 * ↑p / 9 < ∑ i with 3 < a i, ↑(a i - 3)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n{i | 3 < a i}.card ≤ 2"];
+  "r_h_goal" [shape=diamond, label="Eq.symm + List.map_ofFn + List.mem_ofFn", color="#D97706"];
+  "m_hn_e68719f3" -> "r_h_goal";
+  "m_ha_07dd3993" -> "r_h_goal";
+  "m_hp_cafeac24" -> "r_h_goal";
+  "m_hq_dd009419" -> "r_h_goal";
+  "m_hpq_314edf47" -> "r_h_goal";
+  "m_hfrac_4b36d96a" -> "r_h_goal";
+  "m_hs_a20c3200" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

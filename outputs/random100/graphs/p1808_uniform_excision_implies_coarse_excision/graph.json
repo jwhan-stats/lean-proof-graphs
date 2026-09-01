@@ -1,0 +1,2138 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1808_uniform_excision_implies_coarse_excision",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1808,
+    "source": "1706.02164",
+    "theorem_name": "uniform_excision_implies_coarse_excision",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1808",
+    "reconstructed_proof": "../../candidates/p1808_uniform_excision_implies_coarse_excision/proof.lean",
+    "raw_elaboration": "../../candidates/p1808_uniform_excision_implies_coarse_excision/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+    "verification_call_id": "verify_submission:34",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "9943d8a4477aad14cf2e09eabf976b18caee95156b6751314b607bb9d2607bee",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "abd1392700292a133251c2f5fe7fdba00c78f98c28202eca8802db49aabca93d",
+    "concrete_semantic_topology_sha256": "9943d8a4477aad14cf2e09eabf976b18caee95156b6751314b607bb9d2607bee"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hab_bebe44c6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hAB",
+      "lean_fvar_id": "6",
+      "statement": "A ∪ B = Set.univ"
+    },
+    {
+      "id": "m_hcompat_5f52aa04",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcompat",
+      "lean_fvar_id": "7",
+      "statement": "∃ E ∈ uniformity X, E ∈ coarse"
+    },
+    {
+      "id": "m_hex_74546ecc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hex",
+      "lean_fvar_id": "8",
+      "statement": "∃ U ∈ uniformity X, ∃ κ, Monotone κ ∧ (∀ V ∈ uniformity X, ∃ W, ↑W ∈ uniformity X ∧ OrderDual.ofDual (κ (OrderDual.toDual W)) ⊆ V) ∧ ∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)"
+    },
+    {
+      "id": "m_hv_9953181e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hV",
+      "lean_fvar_id": "10",
+      "statement": "V ∈ coarse"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)"
+    },
+    {
+      "id": "n_h_exc_85f004fe",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hκexc",
+      "lean_fvar_id": "_uniq.8975040",
+      "statement": "∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)"
+    },
+    {
+      "id": "n_h_mono_fdcccbaf",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hκmono",
+      "lean_fvar_id": "_uniq.8975021",
+      "statement": "Monotone κ"
+    },
+    {
+      "id": "n_h_we_eb05fdac",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hκWE",
+      "lean_fvar_id": "_uniq.8975092",
+      "statement": "OrderDual.ofDual (κ (OrderDual.toDual WE)) ⊆ E"
+    },
+    {
+      "id": "n_haa_1c35dbbe",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "haA",
+      "lean_fvar_id": "_uniq.8979415",
+      "statement": "a ∈ A"
+    },
+    {
+      "id": "n_hab_728ad616",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hAB",
+      "lean_fvar_id": "_uniq.8974658",
+      "statement": "A ∪ B = Set.univ"
+    },
+    {
+      "id": "n_hab_aed8ea08",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hab₂",
+      "lean_fvar_id": "_uniq.8979910",
+      "statement": "(a, b) ∈ (ueRelPow W n).comp (ueRelPow W n)"
+    },
+    {
+      "id": "n_habn_898ed322",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "habN",
+      "lean_fvar_id": "_uniq.8980104",
+      "statement": "(a, b) ∈ ueRelPow W (n + n)"
+    },
+    {
+      "id": "n_hax_e91f81d0",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hax",
+      "lean_fvar_id": "_uniq.8979416",
+      "statement": "(a, x) ∈ ueRelPow W n"
+    },
+    {
+      "id": "n_hb_boundary_8e9c50c9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb_boundary",
+      "lean_fvar_id": "_uniq.8980363",
+      "statement": "b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B)"
+    },
+    {
+      "id": "n_hbb_6e8b26a7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbB",
+      "lean_fvar_id": "_uniq.8979452",
+      "statement": "b ∈ B"
+    },
+    {
+      "id": "n_hbx_2e100df5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbx",
+      "lean_fvar_id": "_uniq.8979453",
+      "statement": "(b, x) ∈ ueRelPow W n"
+    },
+    {
+      "id": "n_hcb_c0bc68d2",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcb",
+      "lean_fvar_id": "_uniq.8980401",
+      "statement": "(c, b) ∈ K.comp (ueRelPow W (n + n))"
+    },
+    {
+      "id": "n_hcx_9c5f81ba",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcx₂",
+      "lean_fvar_id": "_uniq.8980820",
+      "statement": "(c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n))"
+    },
+    {
+      "id": "n_hcx_ec2bf3c0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcx₁",
+      "lean_fvar_id": "_uniq.8980640",
+      "statement": "(c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n)"
+    },
+    {
+      "id": "n_hduniform_7de4b941",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hDuniform",
+      "lean_fvar_id": "_uniq.8975333",
+      "statement": "D ∈ uniformity X"
+    },
+    {
+      "id": "n_hecoarse_b158d0af",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hEcoarse",
+      "lean_fvar_id": "_uniq.8974947",
+      "statement": "E ∈ uniformCoarse X"
+    },
+    {
+      "id": "n_heuniform_9de18701",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hEuniform",
+      "lean_fvar_id": "_uniq.8974916",
+      "statement": "E ∈ uniformity X"
+    },
+    {
+      "id": "n_hk_subset_e_78306234",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hK_subset_E",
+      "lean_fvar_id": "_uniq.8976621",
+      "statement": "K ⊆ E"
+    },
+    {
+      "id": "n_hkcoarse_0b8a5fb2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hKcoarse",
+      "lean_fvar_id": "_uniq.8977880",
+      "statement": "K ∈ uniformCoarse X"
+    },
+    {
+      "id": "n_hkwe_41719109",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hKWE",
+      "lean_fvar_id": "_uniq.8977554",
+      "statement": "K ⊆ OrderDual.ofDual (κ (OrderDual.toDual WE))"
+    },
+    {
+      "id": "n_hle_9014f076",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hle",
+      "lean_fvar_id": "_uniq.8977090",
+      "statement": "OrderDual.toDual WE ≤ OrderDual.toDual WU"
+    },
+    {
+      "id": "n_hpowcoarse_62455a72",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hPowCoarse",
+      "lean_fvar_id": "_uniq.8978387",
+      "statement": "∀ (m : ℕ), ueRelPow W m ∈ uniformCoarse X"
+    },
+    {
+      "id": "n_htail_3300f1fb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htail",
+      "lean_fvar_id": "_uniq.8987165",
+      "statement": "(ueRelPow W (n + n)).comp (ueRelPow W n) ⊆ ueRelPow W (n + n + n)"
+    },
+    {
+      "id": "n_huuniform_8d5b2e20",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hUuniform",
+      "lean_fvar_id": "_uniq.8974984",
+      "statement": "U ∈ uniformity X"
+    },
+    {
+      "id": "n_hv_6ac0822c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hV",
+      "lean_fvar_id": "_uniq.8974712",
+      "statement": "V ∈ uniformCoarse X"
+    },
+    {
+      "id": "n_hv_generated_w_0fe0fa31",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hV_generated_W",
+      "lean_fvar_id": "_uniq.8978196",
+      "statement": "V ∈ coarseGenerated W"
+    },
+    {
+      "id": "n_hvn_3906480c",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hVn",
+      "lean_fvar_id": "_uniq.8978253",
+      "statement": "V ⊆ ueRelPow W n"
+    },
+    {
+      "id": "n_hw_subset_e_149bf6e9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hW_subset_E",
+      "lean_fvar_id": "_uniq.8975635",
+      "statement": "W ⊆ E"
+    },
+    {
+      "id": "n_hw_subset_u_0bd4adb0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hW_subset_U",
+      "lean_fvar_id": "_uniq.8975601",
+      "statement": "W ⊆ U"
+    },
+    {
+      "id": "n_hw_subset_we_2ac25494",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hW_subset_WE",
+      "lean_fvar_id": "_uniq.8975671",
+      "statement": "W ⊆ ↑WE"
+    },
+    {
+      "id": "n_hwcoarse_4470b267",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWcoarse",
+      "lean_fvar_id": "_uniq.8976149",
+      "statement": "W ∈ uniformCoarse X"
+    },
+    {
+      "id": "n_hweuniform_dd480a79",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hWEuniform",
+      "lean_fvar_id": "_uniq.8975091",
+      "statement": "↑WE ∈ uniformity X"
+    },
+    {
+      "id": "n_hwexc_4c678808",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWexc",
+      "lean_fvar_id": "_uniq.8978024",
+      "statement": "W.image A ∩ W.image B ⊆ K.image (A ∩ B)"
+    },
+    {
+      "id": "n_hwrefl_39f9dd2e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWrefl",
+      "lean_fvar_id": "_uniq.8975830",
+      "statement": "SetRel.id ⊆ W"
+    },
+    {
+      "id": "n_hwsymm_d3e51db5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWsymm",
+      "lean_fvar_id": "_uniq.8975859",
+      "statement": "W.inv ⊆ W"
+    },
+    {
+      "id": "n_hwuniform_b50a7624",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hWuniform",
+      "lean_fvar_id": "_uniq.8975486",
+      "statement": "W ∈ uniformity X"
+    },
+    {
+      "id": "n_hx_983a4d31",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.8979066",
+      "statement": "x ∈ V.image A ∩ V.image B"
+    },
+    {
+      "id": "n_hxa_d0230a3b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxA",
+      "lean_fvar_id": "_uniq.8979226",
+      "statement": "x ∈ (ueRelPow W n).image A"
+    },
+    {
+      "id": "n_hxb_04345c48",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxB",
+      "lean_fvar_id": "_uniq.8979378",
+      "statement": "x ∈ (ueRelPow W n).image B"
+    },
+    {
+      "id": "n_hxb_613375f7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxb",
+      "lean_fvar_id": "_uniq.8979701",
+      "statement": "(x, b) ∈ ueRelPow W n"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hle",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hw_subset_we_2ac25494"
+      ],
+      "conclusion": "n_hle_9014f076",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1596",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hle : OrderDual.toDual WE ≤ OrderDual.toDual WU := by\n      exact hW_subset_WE",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975671",
+              "name": "hW_subset_WE",
+              "statement": "W ⊆ ↑WE"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8977090",
+            "name": "hle",
+            "statement": "OrderDual.toDual WE ≤ OrderDual.toDual WU"
+          }
+        },
+        "lean_dependency_sha256": "9808b0f68538e69d34db85fdbca7da0db440d8064f2aca11f65121ff4e7cff42",
+        "kernel_witness_check": {
+          "proof_type": "W ⊆ ↑WE",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hkwe",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_mono_fdcccbaf",
+        "n_hle_9014f076"
+      ],
+      "conclusion": "n_hkwe_41719109",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1597",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hKWE : K ⊆ OrderDual.ofDual (κ (OrderDual.toDual WE)) := by\n      exact hκmono hle",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975021",
+              "name": "hκmono",
+              "statement": "Monotone κ"
+            },
+            {
+              "fvar_id": "_uniq.8977090",
+              "name": "hle",
+              "statement": "OrderDual.toDual WE ≤ OrderDual.toDual WU"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8977554",
+            "name": "hKWE",
+            "statement": "K ⊆ OrderDual.ofDual (κ (OrderDual.toDual WE))"
+          }
+        },
+        "lean_dependency_sha256": "555647d435002ceb68e1cdef33b6c5c57894ddfe068e243604d9b318bae3b1c4",
+        "kernel_witness_check": {
+          "proof_type": "κ (OrderDual.toDual WE) ≤ κ (OrderDual.toDual WU)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hxa",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hvn_3906480c",
+        "n_hx_983a4d31"
+      ],
+      "conclusion": "n_hxa_d0230a3b",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ueRel_image_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1598",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hxA : x ∈ (ueRelPow W n).image A := ueRel_image_subset hVn A hx.1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8978253",
+              "name": "hVn",
+              "statement": "V ⊆ ueRelPow W n"
+            },
+            {
+              "fvar_id": "_uniq.8979066",
+              "name": "hx",
+              "statement": "x ∈ V.image A ∩ V.image B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8979226",
+            "name": "hxA",
+            "statement": "x ∈ (ueRelPow W n).image A"
+          }
+        },
+        "lean_dependency_sha256": "3bda34f9e841728027571ed4f945f57c8793bae6321179e86321e35b86412b2b",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ (ueRelPow W n).image A",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hxb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hvn_3906480c",
+        "n_hx_983a4d31"
+      ],
+      "conclusion": "n_hxb_04345c48",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ueRel_image_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1599",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hxB : x ∈ (ueRelPow W n).image B := ueRel_image_subset hVn B hx.2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8978253",
+              "name": "hVn",
+              "statement": "V ⊆ ueRelPow W n"
+            },
+            {
+              "fvar_id": "_uniq.8979066",
+              "name": "hx",
+              "statement": "x ∈ V.image A ∩ V.image B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8979378",
+            "name": "hxB",
+            "statement": "x ∈ (ueRelPow W n).image B"
+          }
+        },
+        "lean_dependency_sha256": "a082ee28bdf12cbe62a28921545a42547f6887048e288214a2920083fc23b9e9",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ (ueRelPow W n).image B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hb_boundary",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hab_728ad616",
+        "n_hwrefl_39f9dd2e",
+        "n_hwexc_4c678808",
+        "n_haa_1c35dbbe",
+        "n_hbb_6e8b26a7",
+        "n_habn_898ed322"
+      ],
+      "conclusion": "n_hb_boundary_8e9c50c9",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ue_boundary",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ue_boundary"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ue_boundary"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1600",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hb_boundary : b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B) :=\n      ue_boundary hAB hWrefl hWexc (n + n) haA hbB habN",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8974658",
+              "name": "hAB",
+              "statement": "A ∪ B = Set.univ"
+            },
+            {
+              "fvar_id": "_uniq.8975830",
+              "name": "hWrefl",
+              "statement": "SetRel.id ⊆ W"
+            },
+            {
+              "fvar_id": "_uniq.8978024",
+              "name": "hWexc",
+              "statement": "W.image A ∩ W.image B ⊆ K.image (A ∩ B)"
+            },
+            {
+              "fvar_id": "_uniq.8979415",
+              "name": "haA",
+              "statement": "a ∈ A"
+            },
+            {
+              "fvar_id": "_uniq.8979452",
+              "name": "hbB",
+              "statement": "b ∈ B"
+            },
+            {
+              "fvar_id": "_uniq.8980104",
+              "name": "habN",
+              "statement": "(a, b) ∈ ueRelPow W (n + n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8980363",
+            "name": "hb_boundary",
+            "statement": "b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B)"
+          }
+        },
+        "lean_dependency_sha256": "0cc87add911384c2c5f34e186591fb907b447237cec42887f3b0aaf583fb7df4",
+        "kernel_witness_check": {
+          "proof_type": "b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hduniform",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_heuniform_9de18701",
+        "n_huuniform_8d5b2e20",
+        "n_hweuniform_dd480a79"
+      ],
+      "conclusion": "n_hduniform_7de4b941",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Filter.inter_mem",
+        "items": [
+          "Filter.inter_mem"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Filter.inter_mem"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1604",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hDuniform : D ∈ uniformity X := by\n    exact Filter.inter_mem (Filter.inter_mem hWEuniform hUuniform) hEuniform\n  let W : SetRel X X := D.symmetrize",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8974916",
+              "name": "hEuniform",
+              "statement": "E ∈ uniformity X"
+            },
+            {
+              "fvar_id": "_uniq.8974984",
+              "name": "hUuniform",
+              "statement": "U ∈ uniformity X"
+            },
+            {
+              "fvar_id": "_uniq.8975091",
+              "name": "hWEuniform",
+              "statement": "↑WE ∈ uniformity X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8975333",
+            "name": "hDuniform",
+            "statement": "D ∈ uniformity X"
+          }
+        },
+        "lean_dependency_sha256": "cf522bdddc6e5264d7b59f5c69ca17bf1845ff5b599fa807466fedcd5f397e23",
+        "kernel_witness_check": {
+          "proof_type": "↑WE ∩ U ∩ E ∈ uniformity X",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hwuniform",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hduniform_7de4b941"
+      ],
+      "conclusion": "n_hwuniform_b50a7624",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "symmetrize_mem_uniformity",
+        "items": [
+          "symmetrize_mem_uniformity"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "symmetrize_mem_uniformity"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1606",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hWuniform : W ∈ uniformity X := by\n    exact symmetrize_mem_uniformity hDuniform",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975333",
+              "name": "hDuniform",
+              "statement": "D ∈ uniformity X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8975486",
+            "name": "hWuniform",
+            "statement": "W ∈ uniformity X"
+          }
+        },
+        "lean_dependency_sha256": "139b332508e6f30ea9bedd4d2f4a2cbe3cbb991916eba387fb1b4613c32f4b7b",
+        "kernel_witness_check": {
+          "proof_type": "D.symmetrize ∈ uniformity X",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "symmetrize_mem_uniformity"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:16"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hw_subset_u",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hw_subset_u_0bd4adb0",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1607",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hW_subset_U : W ⊆ U := by\n    intro p hp\n    exact hp.1.1.2",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.8975601",
+            "name": "hW_subset_U",
+            "statement": "W ⊆ U"
+          }
+        },
+        "lean_dependency_sha256": "03819fc3183a4e098ca83674a68b6b764f073eea8d427212ed30aff93d2128ac",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃p : X × X⦄, p ∈ W → p ∈ U",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hw_subset_e",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hw_subset_e_149bf6e9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1608",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hW_subset_E : W ⊆ E := by\n    intro p hp\n    exact hp.1.2",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.8975635",
+            "name": "hW_subset_E",
+            "statement": "W ⊆ E"
+          }
+        },
+        "lean_dependency_sha256": "26088a2deb48e17c907d6862bc0f1a91a91e54c18d9b0e38f1eedf078ef2ae2e",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃p : X × X⦄, p ∈ W → p ∈ E",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hw_subset_we",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hw_subset_we_2ac25494",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1609",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hW_subset_WE : W ⊆ WE.1 := by\n    intro p hp\n    exact hp.1.1.1\n  let WU : {S : SetRel X X // S ⊆ U} := ⟨W, hW_subset_U⟩",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.8975671",
+            "name": "hW_subset_WE",
+            "statement": "W ⊆ ↑WE"
+          }
+        },
+        "lean_dependency_sha256": "35da0b97fa6a0763f4fedeed10f352def46f8199b4f5fc3dde36f8c9b24cd1f4",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃p : X × X⦄, p ∈ W → p ∈ ↑WE",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hwrefl",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hwuniform_b50a7624"
+      ],
+      "conclusion": "n_hwrefl_39f9dd2e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "refl_le_uniformity",
+        "items": [
+          "refl_le_uniformity"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "refl_le_uniformity"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1611",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hWrefl : SetRel.id ⊆ W := refl_le_uniformity hWuniform",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975486",
+              "name": "hWuniform",
+              "statement": "W ∈ uniformity X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8975830",
+            "name": "hWrefl",
+            "statement": "SetRel.id ⊆ W"
+          }
+        },
+        "lean_dependency_sha256": "1c8540e6a71c12c64f9bfa5bc116476fdf849a734e470a36e9850257cae8eef6",
+        "kernel_witness_check": {
+          "proof_type": "W ∈ Filter.principal SetRel.id",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "refl_le_uniformity"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:14"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_012_hwsymm",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hwsymm_d3e51db5",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ueSymmetrize_inv_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueSymmetrize_inv_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueSymmetrize_inv_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1612",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hWsymm : W.inv ⊆ W := by\n    exact ueSymmetrize_inv_subset D",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.8975859",
+            "name": "hWsymm",
+            "statement": "W.inv ⊆ W"
+          }
+        },
+        "lean_dependency_sha256": "5c1f551f48b2b2aedb0089472c1efc809e4aef644eb499bfc5c6157e6047d66c",
+        "kernel_witness_check": {
+          "proof_type": "D.symmetrize.inv ⊆ D.symmetrize",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hwcoarse",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hecoarse_b158d0af",
+        "n_hw_subset_e_149bf6e9"
+      ],
+      "conclusion": "n_hwcoarse_4470b267",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "uniformCoarse_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1613",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hWcoarse : W ∈ uniformCoarse X :=\n    uniformCoarse_subset hEcoarse hW_subset_E\n  let K : SetRel X X := OrderDual.ofDual (κ (OrderDual.toDual WU))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8974947",
+              "name": "hEcoarse",
+              "statement": "E ∈ uniformCoarse X"
+            },
+            {
+              "fvar_id": "_uniq.8975635",
+              "name": "hW_subset_E",
+              "statement": "W ⊆ E"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8976149",
+            "name": "hWcoarse",
+            "statement": "W ∈ uniformCoarse X"
+          }
+        },
+        "lean_dependency_sha256": "a80fe62e8249b8cbe4536bda5183abcb7f28acf916123cc2be86486dec21c618",
+        "kernel_witness_check": {
+          "proof_type": "W ∈ uniformCoarse X",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hk_subset_e",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_mono_fdcccbaf",
+        "n_h_we_eb05fdac",
+        "n_hw_subset_we_2ac25494"
+      ],
+      "conclusion": "n_hk_subset_e_78306234",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1615",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hK_subset_E : K ⊆ E := by\n    have hle : OrderDual.toDual WE ≤ OrderDual.toDual WU := by\n      exact hW_subset_WE\n    have hKWE : K ⊆ OrderDual.ofDual (κ (OrderDual.toDual WE)) := by\n      exact hκmono hle\n    exact hKWE.trans hκWE",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975021",
+              "name": "hκmono",
+              "statement": "Monotone κ"
+            },
+            {
+              "fvar_id": "_uniq.8975092",
+              "name": "hκWE",
+              "statement": "OrderDual.ofDual (κ (OrderDual.toDual WE)) ⊆ E"
+            },
+            {
+              "fvar_id": "_uniq.8975671",
+              "name": "hW_subset_WE",
+              "statement": "W ⊆ ↑WE"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8976621",
+            "name": "hK_subset_E",
+            "statement": "K ⊆ E"
+          }
+        },
+        "lean_dependency_sha256": "c54242a54d0784d41456b9a710768e5bd2333a9507dd8fe1267cde886571cb0f",
+        "kernel_witness_check": {
+          "proof_type": "K ⊆ E",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hkcoarse",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hecoarse_b158d0af",
+        "n_hk_subset_e_78306234"
+      ],
+      "conclusion": "n_hkcoarse_0b8a5fb2",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "uniformCoarse_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1616",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hKcoarse : K ∈ uniformCoarse X :=\n    uniformCoarse_subset hEcoarse hK_subset_E",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8974947",
+              "name": "hEcoarse",
+              "statement": "E ∈ uniformCoarse X"
+            },
+            {
+              "fvar_id": "_uniq.8976621",
+              "name": "hK_subset_E",
+              "statement": "K ⊆ E"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8977880",
+            "name": "hKcoarse",
+            "statement": "K ∈ uniformCoarse X"
+          }
+        },
+        "lean_dependency_sha256": "d5011d7e78fbd12ffa96b539ebd34429e9f21b19ddeaf75553ddd4426d17baad",
+        "kernel_witness_check": {
+          "proof_type": "K ∈ uniformCoarse X",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hwexc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_exc_85f004fe"
+      ],
+      "conclusion": "n_hwexc_4c678808",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1617",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hWexc : W.image A ∩ W.image B ⊆ K.image (A ∩ B) := by\n    exact hκexc WU",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975040",
+              "name": "hκexc",
+              "statement": "∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8978024",
+            "name": "hWexc",
+            "statement": "W.image A ∩ W.image B ⊆ K.image (A ∩ B)"
+          }
+        },
+        "lean_dependency_sha256": "5c40ae9468294cfbd5bfa8ee923e180a13d64858c9b73faeaaffcec8863eaf94",
+        "kernel_witness_check": {
+          "proof_type": "(↑WU).image A ∩ (↑WU).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual WU))).image (A ∩ B)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hv_generated_w",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hv_6ac0822c",
+        "n_hwuniform_b50a7624"
+      ],
+      "conclusion": "n_hv_generated_w_0fe0fa31",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1618",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hV_generated_W : V ∈ coarseGenerated W := hV W hWuniform",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8974712",
+              "name": "hV",
+              "statement": "V ∈ uniformCoarse X"
+            },
+            {
+              "fvar_id": "_uniq.8975486",
+              "name": "hWuniform",
+              "statement": "W ∈ uniformity X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8978196",
+            "name": "hV_generated_W",
+            "statement": "V ∈ coarseGenerated W"
+          }
+        },
+        "lean_dependency_sha256": "e2412fe5a09ce540a99fc78369e10b13ad7b03dc78e3d2509ab3b54ea9565fc4",
+        "kernel_witness_check": {
+          "proof_type": "V ∈ coarseGenerated W",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_hpowcoarse",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hwcoarse_4470b267"
+      ],
+      "conclusion": "n_hpowcoarse_62455a72",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "uniformCoarse_comp + uniformCoarse_id",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_comp",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_id"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_comp",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_id"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1619",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hPowCoarse : ∀ m : ℕ, ueRelPow W m ∈ uniformCoarse X := by\n    intro m\n    induction m with\n    | zero => exact uniformCoarse_id\n    | succ m ih => exact uniformCoarse_comp ih hWcoarse",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8976149",
+              "name": "hWcoarse",
+              "statement": "W ∈ uniformCoarse X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8978387",
+            "name": "hPowCoarse",
+            "statement": "∀ (m : ℕ), ueRelPow W m ∈ uniformCoarse X"
+          }
+        },
+        "lean_dependency_sha256": "68e11263c84c8bd135d6f6d64d555a2a594ee07218eee87011457b27f0a336ef",
+        "kernel_witness_check": {
+          "proof_type": "∀ (m : ℕ), ueRelPow W m ∈ uniformCoarse X",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_hxb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hwsymm_d3e51db5",
+        "n_hbx_2e100df5"
+      ],
+      "conclusion": "n_hxb_613375f7",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ueRelPow_inv_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_inv_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_inv_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1620",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hxb : (x, b) ∈ ueRelPow W n :=\n      ueRelPow_inv_subset hWsymm n hbx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8975859",
+              "name": "hWsymm",
+              "statement": "W.inv ⊆ W"
+            },
+            {
+              "fvar_id": "_uniq.8979453",
+              "name": "hbx",
+              "statement": "(b, x) ∈ ueRelPow W n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8979701",
+            "name": "hxb",
+            "statement": "(x, b) ∈ ueRelPow W n"
+          }
+        },
+        "lean_dependency_sha256": "9068cbb4ee1a7f2af39c169963f476e9cf93ba170b09eacf1e9106d98f690252",
+        "kernel_witness_check": {
+          "proof_type": "(x, b) ∈ ueRelPow W n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_hab",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hax_e91f81d0",
+        "n_hxb_613375f7"
+      ],
+      "conclusion": "n_hab_aed8ea08",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1621",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hab₂ : (a, b) ∈ (ueRelPow W n).comp (ueRelPow W n) := ⟨x, hax, hxb⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8979416",
+              "name": "hax",
+              "statement": "(a, x) ∈ ueRelPow W n"
+            },
+            {
+              "fvar_id": "_uniq.8979701",
+              "name": "hxb",
+              "statement": "(x, b) ∈ ueRelPow W n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8979910",
+            "name": "hab₂",
+            "statement": "(a, b) ∈ (ueRelPow W n).comp (ueRelPow W n)"
+          }
+        },
+        "lean_dependency_sha256": "76daf4b9d74037bf160de259c58d2452793a0f3c782a2500673f010a474a9295",
+        "kernel_witness_check": {
+          "proof_type": "∃ b_1, (a, b_1) ∈ ueRelPow W n ∧ (b_1, b) ∈ ueRelPow W n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_021_habn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hab_aed8ea08"
+      ],
+      "conclusion": "n_habn_898ed322",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ueRelPow_comp_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1622",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have habN : (a, b) ∈ ueRelPow W (n + n) :=\n      ueRelPow_comp_subset W n n hab₂",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8979910",
+              "name": "hab₂",
+              "statement": "(a, b) ∈ (ueRelPow W n).comp (ueRelPow W n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8980104",
+            "name": "habN",
+            "statement": "(a, b) ∈ ueRelPow W (n + n)"
+          }
+        },
+        "lean_dependency_sha256": "8fe91a00fca66b1bc48d7d432e386de5aab105179a5feb4e7dcda062456c4b90",
+        "kernel_witness_check": {
+          "proof_type": "(a, b) ∈ ueRelPow W (n + n)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_022_hcx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbx_2e100df5",
+        "n_hcb_c0bc68d2"
+      ],
+      "conclusion": "n_hcx_ec2bf3c0",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1623",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcx₁ : (c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n) :=\n      ⟨b, hcb, hbx⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8979453",
+              "name": "hbx",
+              "statement": "(b, x) ∈ ueRelPow W n"
+            },
+            {
+              "fvar_id": "_uniq.8980401",
+              "name": "hcb",
+              "statement": "(c, b) ∈ K.comp (ueRelPow W (n + n))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8980640",
+            "name": "hcx₁",
+            "statement": "(c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n)"
+          }
+        },
+        "lean_dependency_sha256": "fb2317d23d7c467ea51ff91b2eaef52540954b26445ef1ab980d9ad6ca48f6c6",
+        "kernel_witness_check": {
+          "proof_type": "∃ b, (c, b) ∈ K.comp (ueRelPow W (n + n)) ∧ (b, x) ∈ ueRelPow W n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_023_hcx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcx_ec2bf3c0"
+      ],
+      "conclusion": "n_hcx_9c5f81ba",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "SetRel.comp_assoc",
+        "items": [
+          "SetRel.comp_assoc"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "SetRel.comp_assoc"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1624",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcx₂ : (c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n)) := by\n      simpa [SetRel.comp_assoc] using hcx₁",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.8980640",
+              "name": "hcx₁",
+              "statement": "(c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.8980820",
+            "name": "hcx₂",
+            "statement": "(c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n))"
+          }
+        },
+        "lean_dependency_sha256": "85ed5aa97614a61b8f4a3fc8b16a7815d75e30ee85bea97aeedcc95b027ccff6",
+        "kernel_witness_check": {
+          "proof_type": "(c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_024_htail",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_htail_3300f1fb",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "ueRelPow_comp_subset",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1625",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have htail : (ueRelPow W (n + n)).comp (ueRelPow W n) ⊆\n        ueRelPow W (n + n + n) := by\n      exact ueRelPow_comp_subset W (n + n) n",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.8987165",
+            "name": "htail",
+            "statement": "(ueRelPow W (n + n)).comp (ueRelPow W n) ⊆ ueRelPow W (n + n + n)"
+          }
+        },
+        "lean_dependency_sha256": "2d5d92e17b0062f5db0a09fe3c0343c9c789d1cc072477f37d89fee258e2af1c",
+        "kernel_witness_check": {
+          "proof_type": "(ueRelPow W (n + n)).comp (ueRelPow W n) ⊆ ueRelPow W (n + n + n)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hab_bebe44c6",
+        "m_hcompat_5f52aa04",
+        "m_hex_74546ecc",
+        "m_hv_9953181e"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "ueRelPow_comp_subset + ueRelPow_inv_subset + ueRel_comp_mono",
+        "items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_inv_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_comp_mono",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ue_boundary",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_comp",
+          "SetRel.comp_assoc",
+          "refl_le_uniformity"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_inv_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_comp_mono",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ue_boundary",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_comp"
+        ],
+        "mathlib_items": [
+          "SetRel.comp_assoc",
+          "refl_le_uniformity"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨K.comp (ueRelPow W (n + n + n)), ?_, ?_⟩\n  · exact uniformCoarse_comp hKcoarse (hPowCoarse (n + n + n))\n  · intro x hx\n    have hxA : x ∈ (ueRelPow W n).image A := ueRel_image_subset hVn A hx.1\n    have hxB : x ∈ (ueRelPow W n).image B := ueRel_image_subset hVn B hx.2\n    rcases hxA with ⟨a, haA, hax⟩\n    rcases hxB with ⟨b, hbB, hbx⟩\n    have hxb : (x, b) ∈ ueRelPow W n :=\n      ueRelPow_inv_subset hWsymm n hbx\n    have hab₂ : (a, b) ∈ (ueRelPow W n).comp (ueRelPow W n) := ⟨x, hax, hxb⟩\n    have habN : (a, b) ∈ ueRelPow W (n + n) :=\n      ueRelPow_comp_subset W n n hab₂\n    have hb_boundary : b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B) :=\n      ue_boundary hAB hWrefl hWexc (n + n) haA hbB habN\n    rcases hb_boundary with ⟨c, hcAB, hcb⟩\n    refine ⟨c, hcAB, ?_⟩\n    have hcx₁ : (c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n) :=\n      ⟨b, hcb, hbx⟩\n    have hcx₂ : (c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n)) := by\n      simpa [SetRel.comp_assoc] using hcx₁\n    have htail : (ueRelPow W (n + n)).comp (ueRelPow W n) ⊆\n        ueRelPow W (n + n + n) := by\n      exact ueRelPow_comp_subset W (n + n) n\n    exact (ueRel_comp_mono (by intro p hp; exact hp) htail) hcx₂",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hAB",
+              "statement": "A ∪ B = Set.univ"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hcompat",
+              "statement": "∃ E ∈ uniformity X, E ∈ coarse"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hex",
+              "statement": "∃ U ∈ uniformity X, ∃ κ, Monotone κ ∧ (∀ V ∈ uniformity X, ∃ W, ↑W ∈ uniformity X ∧ OrderDual.ofDual (κ (OrderDual.toDual W)) ⊆ V) ∧ ∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hV",
+              "statement": "V ∈ coarse"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)"
+          }
+        },
+        "lean_dependency_sha256": "111ea16c3138e6333055ec6cc0ac666eb7513e720e9f59ecccd78c476033d470",
+        "kernel_witness_check": {
+          "proof_type": "∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "refl_le_uniformity"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:14"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "uniform excision coarse excision coarse structure uniform space",
+      "declarations": [
+        "UniformSpace.ofCore",
+        "Pi.uniformSpace",
+        "UniformSpaceCat",
+        "uniformSpace_edist",
+        "Filter.HasBasis.uniformSpace_eq_bot",
+        "EMetricSpace.replaceUniformity",
+        "UniformSpace.ofCoreEq",
+        "UniformSpace.Core.ext",
+        "PseudoEMetricSpace.replaceUniformity",
+        "UniformSpace.ball",
+        "ULift.uniformSpace",
+        "UniformSpace",
+        "UniformFun.uniformSpace",
+        "UniformSpace.Completion.uniformSpace",
+        "Uniformity.",
+        "UniformFun.uniformCore",
+        "UniformSpace.ext",
+        "UniformSpace.Core",
+        "UniformSpace.Completion",
+        "inhabitedUniformSpace"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "coarse excision",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "coarse space generated by uniformity compatible",
+      "declarations": [
+        "UniformSpace.metricSpace",
+        "Filter.HasBasis.uniformSpace_eq_bot",
+        "TopologicalSpace.pseudoMetrizableSpaceUniformity_countably_generated",
+        "EMetric.instIsCountablyGeneratedUniformity",
+        "Topology.WithGeneratedByTopology.instTopologicalSpace",
+        "TopologicalSpace.generatedBy_le",
+        "TopologicalSpace.generatedBy_eq_coinduced",
+        "TopologicalSpace.generatedBy_generatedBy",
+        "uniformity",
+        "TopologicalSpace.generatedBy",
+        "UniformOnFun.isCountablyGenerated_uniformity",
+        "UniformSpace",
+        "Continuous.continuousGeneratedBy",
+        "GeneratedByTopCat",
+        "TopologicalSpace.generatedBy_mono",
+        "instIsCountablyGeneratedProdElemUniformity",
+        "instIsCountablyGeneratedProdSumUniformity",
+        "instIsCountablyGeneratedProdForallUniformityOfCountable",
+        "instIsCountablyGeneratedProdUniformity",
+        "Topology.ContinuousGeneratedBy"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "SetRel.comp",
+      "declarations": [
+        "SetRel.comp",
+        "SetRel.isSymm_comp_inv",
+        "SetRel.isSymm_comp_self",
+        "SetRel.isSymm_inv_comp",
+        "SetRel.comp_id",
+        "SetRel.id_comp",
+        "SetRel.comp_eq_self",
+        "SetRel.IsRefl.comp",
+        "SetRel.comp_subset_self",
+        "SetRel.isTrans_iff_comp_subset_self"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "SetRel.image",
+      "declarations": [
+        "SetRel.image",
+        "SetRel.image_id",
+        "SetRel.image_univ_right",
+        "SetRel.image_univ_left",
+        "SetRel.self_subset_image",
+        "Set.image_eq",
+        "SetRel.image_empty_right",
+        "SetRel.preimage_eq_image",
+        "SetRel.image_inv",
+        "SetRel.preimage_inv"
+      ],
+      "call_turn": 6,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "SetRel.id",
+      "declarations": [
+        "SetRel.id",
+        "SetRel.isSymm_id",
+        "SetRel.isTrans_id",
+        "Function.graph_id",
+        "SetRel.inv_id",
+        "SetRel.core_id",
+        "SetRel.image_id",
+        "SetRel.preimage_id",
+        "SetRel.comp_id",
+        "SetRel.id_comp"
+      ],
+      "call_turn": 6,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "SetRel.inv",
+      "declarations": [
+        "SetRel.inv",
+        "SetRel.inv_id",
+        "SetRel.instIsSymmInv",
+        "SetRel.isSymm_comp_inv",
+        "SetRel.isSymm_inv_comp",
+        "SetRel.inv_eq_self",
+        "SetRel.inv_eq_self_iff",
+        "SetRel.inv_inv",
+        "SetRel.inv_univ",
+        "SetRel.cod_inv"
+      ],
+      "call_turn": 6,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "SetRel.pow",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Rel.pow",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "iterated relational composition power SetRel",
+      "declarations": [
+        "Ordnode.powerset",
+        "SymmetricPower.Rel",
+        "SetRel.image",
+        "CompositionAsSet",
+        "SetRel.comp",
+        "SymmetricPower.Rel.perm",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "CompositionAsSet.length",
+        "Composition.toCompositionAsSet",
+        "CompositionAsSet.blocks",
+        "DividedPowerAlgebra.Rel",
+        "Mathlib.Meta.FunProp.getLambdaTheorems",
+        "Lean.Elab.Tactic.Do.SpecAttr.SpecTheorems.erase",
+        "Lean.Meta.Match.Overlaps.overlapping",
+        "BigOperators.bigOpBindersProd",
+        "Lean.LibrarySuggestions.mepoSelector",
+        "CompositionAsSet.ext",
+        "compositionAsSet_card",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "SetRel.inv"
+      ],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Filter.mem_uniformity",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "symmetric entourage uniformity inv",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "SetRel.id ⊆ _",
+      "declarations": [
+        "SetRel.id_subset",
+        "SetRel.id_subset_iff"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "_ ∈ uniformity _ → SetRel.id ⊆ _",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "every uniform entourage contains diagonal SetRel.id subset",
+      "declarations": [
+        "SetRel.id_subset",
+        "SetRel.id",
+        "SetRel.id_subset_iff",
+        "refl_le_uniformity",
+        "Set.diagonal_subset_iff",
+        "entourageProd_subset",
+        "SetRel.comp",
+        "mem_uniformity_of_eq",
+        "Set.diagonal_eq_univ_iff",
+        "Sym2.diagSet_eq_univ_of_subsingleton"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "uniformity _.symm_mem_uniformity",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "inverse of uniform entourage is uniform SetRel.inv uniformity",
+      "declarations": [
+        "comp_symm_mem_uniformity_sets",
+        "UniformEquiv.symm",
+        "eventually_uniformity_iterate_comp_subset",
+        "nhdset_of_mem_uniformity",
+        "entourageProd_mem_uniformity",
+        "symmetrize_mem_uniformity",
+        "UniformEquiv.setCongr",
+        "IsUniformInducing.isUltraUniformity",
+        "UniformSpace.metrizable_uniformity",
+        "UniformSpace.hausdorff.instDiscreteUniformitySet",
+        "instIsUniformGroupOfDiscreteUniformity",
+        "comp3_mem_uniformity",
+        "Uniformity.",
+        "UniformContinuous",
+        "UniformFun.hasBasis_uniformity_of_basis",
+        "IsUniformInducing.basis_uniformity",
+        "IsUniformEmbedding.discreteUniformity",
+        "DiscreteUniformity.uniformContinuous",
+        "IsUniformGroup.uniformity_countably_generated",
+        "mem_uniformity_of_uniformContinuous_invariant"
+      ],
+      "call_turn": 17,
+      "result_turn": 22
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 17,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 16,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 35,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

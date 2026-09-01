@@ -1,0 +1,1293 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0786_projective_iff_projective_in_thick_subcate",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 786,
+    "source": "1602.07328",
+    "theorem_name": "projective_iff_projective_in_thick_subcategory",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/786",
+    "reconstructed_proof": "../../candidates/p0786_projective_iff_projective_in_thick_subcate/proof.lean",
+    "raw_elaboration": "../../candidates/p0786_projective_iff_projective_in_thick_subcate/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0786_projective_iff_projective_in_thick_subcate.projective_iff_projective_in_thick_subcategory",
+    "verification_call_id": "verify_submission:29",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "0e507526b3dc3c2fe382547187da09f38ad1d12154a2fa062539f87c58d855eb",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "5aab1c67b9cb578cedac1c3f46ca69d2de794b81de335598b72b6e03749ce9eb",
+    "concrete_semantic_topology_sha256": "0e507526b3dc3c2fe382547187da09f38ad1d12154a2fa062539f87c58d855eb"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hproj_7e0df0d1",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hproj",
+      "lean_fvar_id": "7",
+      "statement": "∀ (P : C), CategoryTheory.Projective P → S P"
+    },
+    {
+      "id": "m_hq_fe3b25fd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hQ",
+      "lean_fvar_id": "9",
+      "statement": "S Q"
+    },
+    {
+      "id": "m_hs_15f06698",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hS",
+      "lean_fvar_id": "6",
+      "statement": "∀ (T : CategoryTheory.ShortComplex C), T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)"
+    },
+    {
+      "id": "m_inst___proofs_968698635__11a17f39",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+      "lean_fvar_id": "3",
+      "statement": "CategoryTheory.EnoughProjectives C"
+    },
+    {
+      "id": "m_inst___proofs_968698635__6fae5c42",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.968698635._hygCtx._hyg.14",
+      "lean_fvar_id": "5",
+      "statement": "S.IsStableUnderRetracts"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "CategoryTheory.Projective Q ↔ ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g"
+    },
+    {
+      "id": "n_h_59b8a93a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.1971044",
+      "statement": "∀ (T : ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → IsSplitEpi T.g"
+    },
+    {
+      "id": "n_hproj_6dcb13f6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hproj",
+      "lean_fvar_id": "_uniq.1967917",
+      "statement": "∀ (P : C), Projective P → S P"
+    },
+    {
+      "id": "n_hq_db1e959a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hQ",
+      "lean_fvar_id": "_uniq.1967923",
+      "statement": "S Q"
+    },
+    {
+      "id": "n_hs_5e8ac9b5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hS₂",
+      "lean_fvar_id": "_uniq.1974225",
+      "statement": "S T.X₂"
+    },
+    {
+      "id": "n_hs_d8a70457",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hS₃",
+      "lean_fvar_id": "_uniq.1974335",
+      "statement": "S T.X₃"
+    },
+    {
+      "id": "n_hs_eb07f513",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hS₁",
+      "lean_fvar_id": "_uniq.1974413",
+      "statement": "S T.X₁"
+    },
+    {
+      "id": "n_hs_f4757840",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hS",
+      "lean_fvar_id": "_uniq.1967916",
+      "statement": "∀ (T : ShortComplex C), T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)"
+    },
+    {
+      "id": "n_hsplit_0b46fdf8",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsplitπ",
+      "lean_fvar_id": "_uniq.1975830",
+      "statement": "IsSplitEpi (Projective.π Q)"
+    },
+    {
+      "id": "n_hsplit_31695ab6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsplit",
+      "lean_fvar_id": "_uniq.1975099",
+      "statement": "IsSplitEpi T.g"
+    },
+    {
+      "id": "n_htexact_65b665f7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hTexact",
+      "lean_fvar_id": "_uniq.1973442",
+      "statement": "T.ShortExact"
+    },
+    {
+      "id": "n_htexact_e0040249",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hTexact",
+      "lean_fvar_id": "_uniq.1967954",
+      "statement": "T.ShortExact"
+    },
+    {
+      "id": "n_inst___proofs_968698635__4e8031d1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+      "lean_fvar_id": "_uniq.1967913",
+      "statement": "EnoughProjectives C"
+    },
+    {
+      "id": "n_this_109fc363",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.1976600",
+      "statement": "IsSplitEpi (Projective.π Q)"
+    },
+    {
+      "id": "n_this_371f4af3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.1968686",
+      "statement": "Epi T.g"
+    },
+    {
+      "id": "n_this_94b007ec",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.1972508",
+      "statement": "Mono T.f"
+    },
+    {
+      "id": "n_this_9b848bcb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.1973337",
+      "statement": "Epi T.g"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htexact_e0040249"
+      ],
+      "conclusion": "n_this_371f4af3",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "CategoryTheory.ShortComplex.ShortExact.epi_g",
+        "items": [
+          "CategoryTheory.ShortComplex.ShortExact.epi_g"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "CategoryTheory.ShortComplex.ShortExact.epi_g"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_363",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967954",
+              "name": "hTexact",
+              "statement": "T.ShortExact"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1968686",
+            "name": "this",
+            "statement": "Epi T.g"
+          }
+        },
+        "lean_dependency_sha256": "9d600c717f27c41534027295e594b0f34474e1797fd551c9778afb53874b5825",
+        "kernel_witness_check": {
+          "proof_type": "Epi T.g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "CategoryTheory.ShortComplex.ShortExact.epi_g"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_968698635__4e8031d1"
+      ],
+      "conclusion": "n_this_94b007ec",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_365",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967913",
+              "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+              "statement": "EnoughProjectives C"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1972508",
+            "name": "this",
+            "statement": "Mono T.f"
+          }
+        },
+        "lean_dependency_sha256": "8488df53ad56bdbb99daddd30496a1bbae35e1db05ca644005176462e91b0a13",
+        "kernel_witness_check": {
+          "proof_type": "Mono T.f",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_968698635__4e8031d1"
+      ],
+      "conclusion": "n_this_9b848bcb",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_366",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967913",
+              "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+              "statement": "EnoughProjectives C"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1973337",
+            "name": "this",
+            "statement": "Epi T.g"
+          }
+        },
+        "lean_dependency_sha256": "16057b3eb317ddcaf2a6faac54b3af6245ffab5bf22629ca24e281f824da6866",
+        "kernel_witness_check": {
+          "proof_type": "Epi T.g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_htexact",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_968698635__4e8031d1",
+        "n_this_94b007ec",
+        "n_this_9b848bcb"
+      ],
+      "conclusion": "n_htexact_65b665f7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "CategoryTheory.ShortComplex.kernelSequence_exact",
+        "items": [
+          "CategoryTheory.ShortComplex.kernelSequence_exact"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "CategoryTheory.ShortComplex.kernelSequence_exact"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_367",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hTexact : T.ShortExact := by\n      exact CategoryTheory.ShortComplex.ShortExact.mk\n        (CategoryTheory.ShortComplex.kernelSequence_exact (CategoryTheory.Projective.π Q))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967913",
+              "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+              "statement": "EnoughProjectives C"
+            },
+            {
+              "fvar_id": "_uniq.1972508",
+              "name": "this",
+              "statement": "Mono T.f"
+            },
+            {
+              "fvar_id": "_uniq.1973337",
+              "name": "this",
+              "statement": "Epi T.g"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1973442",
+            "name": "hTexact",
+            "statement": "T.ShortExact"
+          }
+        },
+        "lean_dependency_sha256": "45bf0a2142d39a67426e208f9c6ca936cd11e93ee10a2f20f9ea4a8a0832b7bd",
+        "kernel_witness_check": {
+          "proof_type": "T.ShortExact",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "CategoryTheory.ShortComplex.kernelSequence_exact"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:5",
+          "leanfinder:17"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hs",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_968698635__4e8031d1",
+        "n_hproj_6dcb13f6"
+      ],
+      "conclusion": "n_hs_5e8ac9b5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "CategoryTheory.Projective.projective_over",
+        "items": [
+          "CategoryTheory.Projective.projective_over"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "CategoryTheory.Projective.projective_over"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_368",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hS₂ : S T.X₂ := by\n      exact hproj T.X₂ (by\n        simpa [T] using CategoryTheory.Projective.projective_over Q)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967913",
+              "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+              "statement": "EnoughProjectives C"
+            },
+            {
+              "fvar_id": "_uniq.1967917",
+              "name": "hproj",
+              "statement": "∀ (P : C), Projective P → S P"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1974225",
+            "name": "hS₂",
+            "statement": "S T.X₂"
+          }
+        },
+        "lean_dependency_sha256": "519c0cf77b58648a02be3a29c1e3c4f9493c46b2b2ca7b167a821c7321cf54eb",
+        "kernel_witness_check": {
+          "proof_type": "S T.X₂",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "CategoryTheory.Projective.projective_over"
+        ],
+        "observed_search_event_ids": [
+          "loogle:12",
+          "leanfinder:16"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hs",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_db1e959a"
+      ],
+      "conclusion": "n_hs_d8a70457",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_369",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hS₃ : S T.X₃ := by\n      simpa [T] using hQ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967923",
+              "name": "hQ",
+              "statement": "S Q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1974335",
+            "name": "hS₃",
+            "statement": "S T.X₃"
+          }
+        },
+        "lean_dependency_sha256": "935a62f94d79198cf74c565c364d22b49b2da11bf554bd1db800ea72aed00512",
+        "kernel_witness_check": {
+          "proof_type": "S T.X₃",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hs",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hs_f4757840",
+        "n_htexact_65b665f7",
+        "n_hs_5e8ac9b5",
+        "n_hs_d8a70457"
+      ],
+      "conclusion": "n_hs_eb07f513",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_370",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hS₁ : S T.X₁ :=\n      (hS T hTexact).2.2 ⟨hS₂, hS₃⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1967916",
+              "name": "hS",
+              "statement": "∀ (T : ShortComplex C), T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)"
+            },
+            {
+              "fvar_id": "_uniq.1973442",
+              "name": "hTexact",
+              "statement": "T.ShortExact"
+            },
+            {
+              "fvar_id": "_uniq.1974225",
+              "name": "hS₂",
+              "statement": "S T.X₂"
+            },
+            {
+              "fvar_id": "_uniq.1974335",
+              "name": "hS₃",
+              "statement": "S T.X₃"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1974413",
+            "name": "hS₁",
+            "statement": "S T.X₁"
+          }
+        },
+        "lean_dependency_sha256": "a415f072c10a399de4b4d11eb6659e0d073c484073bfc6186c90c74fd5ae4834",
+        "kernel_witness_check": {
+          "proof_type": "S T.X₁",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hsplit",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_59b8a93a",
+        "n_htexact_65b665f7",
+        "n_hs_5e8ac9b5",
+        "n_hs_eb07f513"
+      ],
+      "conclusion": "n_hsplit_31695ab6",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_371",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsplit : CategoryTheory.IsSplitEpi T.g :=\n      h T (by simp [T]) hS₁ hS₂ hTexact",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1971044",
+              "name": "h",
+              "statement": "∀ (T : ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → IsSplitEpi T.g"
+            },
+            {
+              "fvar_id": "_uniq.1973442",
+              "name": "hTexact",
+              "statement": "T.ShortExact"
+            },
+            {
+              "fvar_id": "_uniq.1974225",
+              "name": "hS₂",
+              "statement": "S T.X₂"
+            },
+            {
+              "fvar_id": "_uniq.1974413",
+              "name": "hS₁",
+              "statement": "S T.X₁"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1975099",
+            "name": "hsplit",
+            "statement": "IsSplitEpi T.g"
+          }
+        },
+        "lean_dependency_sha256": "06080987756829bbaa5661fa9e7da35070484a80755822503888cdcdafd7eaf6",
+        "kernel_witness_check": {
+          "proof_type": "IsSplitEpi T.g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hsplit",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsplit_31695ab6"
+      ],
+      "conclusion": "n_hsplit_0b46fdf8",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_372",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsplitπ : CategoryTheory.IsSplitEpi (CategoryTheory.Projective.π Q) := by\n      simpa [T] using hsplit\n    letI : CategoryTheory.IsSplitEpi (CategoryTheory.Projective.π Q) := hsplitπ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1975099",
+              "name": "hsplit",
+              "statement": "IsSplitEpi T.g"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1975830",
+            "name": "hsplitπ",
+            "statement": "IsSplitEpi (Projective.π Q)"
+          }
+        },
+        "lean_dependency_sha256": "8918cbaed6ffc8e1e5fb4fc6adda6ba2a0a37f062de3d0b3cf519d78450e5b36",
+        "kernel_witness_check": {
+          "proof_type": "IsSplitEpi T.g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsplit_0b46fdf8"
+      ],
+      "conclusion": "n_this_109fc363",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_373",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1975830",
+              "name": "hsplitπ",
+              "statement": "IsSplitEpi (Projective.π Q)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1976600",
+            "name": "this",
+            "statement": "IsSplitEpi (Projective.π Q)"
+          }
+        },
+        "lean_dependency_sha256": "4f93554c845c89b3f79554f0d38f9c5662c6a7ae2827b90334a64bc4555ca9a5",
+        "kernel_witness_check": {
+          "proof_type": "IsSplitEpi (Projective.π Q)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_968698635__11a17f39",
+        "m_hs_15f06698",
+        "m_hproj_7e0df0d1",
+        "m_hq_fe3b25fd"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "CategoryTheory.IsSplitEpi.id + CategoryTheory.IsSplitEpi.mk' + CategoryTheory.Projective.factorThru_comp",
+        "items": [
+          "CategoryTheory.IsSplitEpi.id",
+          "CategoryTheory.IsSplitEpi.mk'",
+          "CategoryTheory.Projective.factorThru_comp",
+          "CategoryTheory.Projective.projective_over",
+          "CategoryTheory.Projective.π_epi",
+          "CategoryTheory.Retract.projective",
+          "CategoryTheory.ShortComplex.ShortExact.epi_g",
+          "CategoryTheory.ShortComplex.kernelSequence_exact"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "CategoryTheory.IsSplitEpi.id",
+          "CategoryTheory.IsSplitEpi.mk'",
+          "CategoryTheory.Projective.factorThru_comp",
+          "CategoryTheory.Projective.projective_over",
+          "CategoryTheory.Projective.π_epi",
+          "CategoryTheory.Retract.projective",
+          "CategoryTheory.ShortComplex.ShortExact.epi_g",
+          "CategoryTheory.ShortComplex.kernelSequence_exact"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro hQproj T hT hS₁ hS₂ hTexact\n    subst Q\n    letI : CategoryTheory.Epi T.g := hTexact.epi_g\n    exact CategoryTheory.IsSplitEpi.mk'\n      ⟨CategoryTheory.Projective.factorThru (𝟙 T.X₃) T.g,\n        CategoryTheory.Projective.factorThru_comp (𝟙 T.X₃) T.g⟩\n  · intro h\n    let T : CategoryTheory.ShortComplex C :=\n      CategoryTheory.ShortComplex.kernelSequence (CategoryTheory.Projective.π Q)\n    haveI : CategoryTheory.Mono T.f := by\n      dsimp [T]\n      infer_instance\n    haveI : CategoryTheory.Epi T.g := by\n      dsimp [T]\n      exact CategoryTheory.Projective.π_epi Q\n    have hTexact : T.ShortExact := by\n      exact CategoryTheory.ShortComplex.ShortExact.mk\n        (CategoryTheory.ShortComplex.kernelSequence_exact (CategoryTheory.Projective.π Q))\n    have hS₂ : S T.X₂ := by\n      exact hproj T.X₂ (by\n        simpa [T] using CategoryTheory.Projective.projective_over Q)\n    have hS₃ : S T.X₃ := by\n      simpa [T] using hQ\n    have hS₁ : S T.X₁ :=\n      (hS T hTexact).2.2 ⟨hS₂, hS₃⟩\n    have hsplit : CategoryTheory.IsSplitEpi T.g :=\n      h T (by simp [T]) hS₁ hS₂ hTexact\n    have hsplitπ : CategoryTheory.IsSplitEpi (CategoryTheory.Projective.π Q) := by\n      simpa [T] using hsplit\n    letI : CategoryTheory.IsSplitEpi (CategoryTheory.Projective.π Q) := hsplitπ\n    exact CategoryTheory.Retract.projective\n      ⟨CategoryTheory.section_ (CategoryTheory.Projective.π Q),\n        CategoryTheory.Projective.π Q,\n        CategoryTheory.IsSplitEpi.id (CategoryTheory.Projective.π Q)⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "inst._@.proofs.968698635._hygCtx._hyg.9",
+              "statement": "CategoryTheory.EnoughProjectives C"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hS",
+              "statement": "∀ (T : CategoryTheory.ShortComplex C), T.ShortExact → (S T.X₁ ∧ S T.X₂ → S T.X₃) ∧ (S T.X₁ ∧ S T.X₃ → S T.X₂) ∧ (S T.X₂ ∧ S T.X₃ → S T.X₁)"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hproj",
+              "statement": "∀ (P : C), CategoryTheory.Projective P → S P"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hQ",
+              "statement": "S Q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "CategoryTheory.Projective Q ↔ ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g"
+          }
+        },
+        "lean_dependency_sha256": "9f9e67e972a7fc4f274b26c2683842898756e56077e3534a49ddbadd00c0c471",
+        "kernel_witness_check": {
+          "proof_type": "CategoryTheory.Projective Q ↔\n  ∀ (T : CategoryTheory.ShortComplex C), T.X₃ = Q → S T.X₁ → S T.X₂ → T.ShortExact → CategoryTheory.IsSplitEpi T.g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "CategoryTheory.IsSplitEpi.id",
+          "CategoryTheory.IsSplitEpi.mk'",
+          "CategoryTheory.Projective.factorThru_comp",
+          "CategoryTheory.Projective.projective_over",
+          "CategoryTheory.Retract.projective",
+          "CategoryTheory.ShortComplex.ShortExact.epi_g",
+          "CategoryTheory.ShortComplex.kernelSequence_exact"
+        ],
+        "observed_search_event_ids": [
+          "loogle:20",
+          "leanfinder:23",
+          "loogle:13",
+          "loogle:14",
+          "loogle:9",
+          "loogle:12",
+          "leanfinder:16",
+          "leanfinder:1",
+          "loogle:3",
+          "leanfinder:5",
+          "leanfinder:17"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "CategoryTheory.ObjectProperty.IsStableUnderRetracts",
+      "declarations": [
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts",
+        "CategoryTheory.ObjectProperty.instIsStableUnderRetractsRetractClosure",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.instIsClosedUnderIsomorphisms",
+        "CategoryTheory.ObjectProperty.instIsStableUnderRetractsBot",
+        "CategoryTheory.ObjectProperty.instIsStableUnderRetractsTop",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.containsZero",
+        "CategoryTheory.ObjectProperty.prop_of_retract",
+        "CategoryTheory.ObjectProperty.retractClosure_eq_self",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.mk",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.of_retract"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "projective object stable under retracts ObjectProperty enough projectives kernel presentation split epimorphism",
+      "declarations": [
+        "CategoryTheory.instIsStableUnderRetractsIsInternallyProjective",
+        "CategoryTheory.ObjectProperty.instIsStableUnderRetractsBot",
+        "CategoryTheory.Retract.projective",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts",
+        "CategoryTheory.ObjectProperty.prop_of_retract",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.of_bicone",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.containsZero",
+        "CategoryTheory.MorphismProperty.IsStableUnderRetracts",
+        "CategoryTheory.ObjectProperty.IsStableUnderRetracts.of_biproduct",
+        "CategoryTheory.ObjectProperty.instIsStableUnderRetractsTop"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "CategoryTheory.Projective -> CategoryTheory.IsSplitEpi",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "CategoryTheory.ShortComplex.ShortExact",
+      "declarations": [
+        "CategoryTheory.ShortComplex.ShortExact",
+        "CategoryTheory.ShortComplex.ShortExact.exact",
+        "CategoryTheory.ShortComplex.Splitting.shortExact",
+        "CategoryTheory.ShortComplex.ShortExact.op",
+        "CategoryTheory.ShortComplex.shortExact_iff_op",
+        "CategoryTheory.ShortComplex.ShortExact.epi_g",
+        "CategoryTheory.ShortComplex.ShortExact.mono_f",
+        "CategoryTheory.ShortComplex.shortExact_of_iso",
+        "CategoryTheory.ShortComplex.shortExact_iff_of_iso",
+        "CategoryTheory.ShortComplex.ShortExact.unop"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "enough projectives epimorphism from projective object",
+      "declarations": [
+        "ModuleCat.enoughProjectives",
+        "Profinite.instEnoughProjectives",
+        "CategoryTheory.Projective.",
+        "CompHaus.instEnoughProjectives",
+        "Rep.instEnoughProjectives",
+        "CategoryTheory.Projective.Type.enoughProjectives",
+        "CategoryTheory.EnoughProjectives",
+        "CategoryTheory.Projective",
+        "CategoryTheory.Projective.of_iso"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "kernel short complex exact sequence abelian category kernel inclusion cokernel",
+      "declarations": [
+        "CategoryTheory.ShortComplex.Exact.isLimitImage'",
+        "CategoryTheory.ShortComplex.Exact.isLimitImage",
+        "CategoryTheory.ShortComplex.kernelSequence_exact",
+        "CategoryTheory.ShortComplex.Exact",
+        "CategoryTheory.ShortComplex.exact_kernel",
+        "CategoryTheory.ShortComplex.kernelSequence",
+        "CategoryTheory.ShortComplex.Exact.isColimitCoimage",
+        "CategoryTheory.kernelCokernelCompSequence_exact",
+        "CategoryTheory.ShortComplex.cokernelSequence_exact",
+        "CategoryTheory.ShortComplex.kernelSequence_X"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "epimorphism to projective object splits split epi",
+      "declarations": [
+        "CochainComplex.isSplitEpi_to_singleFunctor_obj_of_projective",
+        "CategoryTheory.IsSplitEpi",
+        "CategoryTheory.SplitEpiCategory",
+        "Module.Projective.of_split",
+        "CategoryTheory.Projective.of_iso",
+        "Module.Projective.iff_split'",
+        "CategoryTheory.Limits.coconeOfIsSplitEpi_",
+        "CategoryTheory.Projective.factorThru_comp_assoc",
+        "Module.Projective.iff_split",
+        "CategoryTheory.SplitEpi.epi"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "IsSplitEpi _",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "CategoryTheory.Projective.lift",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "CategoryTheory.Projective.factorThru",
+      "declarations": [
+        "CategoryTheory.Projective.factorThru",
+        "CategoryTheory.Projective.factorThru_comp",
+        "CategoryTheory.Projective.factorThru_comp_assoc"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "CategoryTheory.Projective.π",
+      "declarations": [
+        "CategoryTheory.Projective.",
+        "CategoryTheory.ProjectiveResolution.ofComplex_d_1_0",
+        "CategoryTheory.ProjectiveResolution.of_def"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "CategoryTheory.EnoughProjectives.presentation",
+      "declarations": [
+        "CategoryTheory.EnoughProjectives.presentation"
+      ],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "CategoryTheory.Projective.over",
+      "declarations": [
+        "CategoryTheory.Projective.over",
+        "CategoryTheory.Projective.projective_over",
+        "CategoryTheory.Projective.",
+        "CategoryTheory.ProjectiveResolution.ofComplex_d_1_0"
+      ],
+      "call_turn": 16,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "CategoryTheory.IsSplitEpi",
+      "declarations": [
+        "CategoryTheory.IsSplitEpi",
+        "CategoryTheory.IsSplitEpi.epi",
+        "CategoryTheory.IsSplitEpi.mk'",
+        "CategoryTheory.IsSplitEpi.of_iso",
+        "CategoryTheory.IsSplitEpi.exists_splitEpi",
+        "CategoryTheory.IsSplitEpi.mk",
+        "CategoryTheory.isSplitEpi_of_epi",
+        "CategoryTheory.section_",
+        "CategoryTheory.SplitEpiCategory.isSplitEpi_of_epi",
+        "CategoryTheory.SplitEpiCategory.mk"
+      ],
+      "call_turn": 16,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "CategoryTheory.SplitEpi",
+      "declarations": [
+        "CategoryTheory.SplitEpi",
+        "CategoryTheory.IsSplitEpi.mk'",
+        "CategoryTheory.SplitEpi.epi",
+        "CategoryTheory.IsSplitEpi.exists_splitEpi",
+        "CategoryTheory.IsSplitEpi.mk",
+        "CategoryTheory.SplitEpi.section_",
+        "CategoryTheory.SplitEpi.splitMono",
+        "CategoryTheory.SplitMono.splitEpi",
+        "CategoryTheory.IsIso.of_epi_section'",
+        "CategoryTheory.SplitEpi.op"
+      ],
+      "call_turn": 16,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Retract.projective",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "Projective.over object is projective",
+      "declarations": [
+        "IsProjective.iff_projective",
+        "Lean.addProjectionFnInfo",
+        "CategoryTheory.isProjective",
+        "Module.Projective",
+        "CategoryTheory.Projective.projective_over",
+        "Lean.Environment.isProjectionFn",
+        "CategoryTheory.Projective",
+        "CategoryTheory.Projective.over",
+        "CategoryTheory.Projective.of_iso",
+        "ProjectiveSpectrum"
+      ],
+      "call_turn": 16,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "short exact kernel sequence ShortExact morphism epi",
+      "declarations": [
+        "CategoryTheory.ShortComplex.ShortExact.fIsKernel",
+        "CategoryTheory.ShortComplex.kernelSequence_exact",
+        "CategoryTheory.ShortComplex.exact_kernel",
+        "CategoryTheory.ShortComplex.cokernelSequence_exact",
+        "CategoryTheory.ShortComplex.Exact",
+        "CategoryTheory.ShortExact.reflects_shortExact_of_faithful",
+        "CategoryTheory.ShortComplex.Exact.epi_kernelLift",
+        "CategoryTheory.ShortComplex.exact_iff_of_forks",
+        "CategoryTheory.ShortComplex.exact_iff_epi_kernel_lift",
+        "CategoryTheory.ShortComplex.Exact.desc'"
+      ],
+      "call_turn": 16,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "CategoryTheory.section_",
+      "declarations": [
+        "CategoryTheory.section_",
+        "CategoryTheory.section_isSplitMono",
+        "CategoryTheory.IsIso.of_epi_section",
+        "CategoryTheory.IsSplitEpi.id",
+        "CategoryTheory.IsSplitEpi.id_assoc",
+        "CategoryTheory.Limits.coconeOfIsSplitEpi",
+        "CategoryTheory.Limits.isSplitEpiCoequalizes",
+        "CategoryTheory.Limits.coconeOfIsSplitEpi_pt",
+        "CategoryTheory.Limits.coconeOfIsSplitEpi_"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "SplitEpi.id",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "IsSplitEpi.id",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "section composed with split epimorphism identity theorem",
+      "declarations": [
+        "CategoryTheory.Retract.splitEpi_section_",
+        "CategoryTheory.SplitEpi.comp_section_",
+        "CategoryTheory.IsSplitEpi.id",
+        "CategoryTheory.IsSplitMono.id",
+        "CategoryTheory.IsSplitEpi",
+        "CategoryTheory.IsSplitMono.id_assoc",
+        "CategoryTheory.section_isSplitMono",
+        "Std.LawfulIdentity",
+        "CategoryTheory.SplitEpi.epi",
+        "PseudoEpimorphism"
+      ],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Retract.projective",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "ShortComplex.kernelSequence_f",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 33
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 7,
+    "retrieval_query_count": 24,
+    "useful_retrieval_event_count": 11,
+    "unused_retrieval_event_count": 13,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 30,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

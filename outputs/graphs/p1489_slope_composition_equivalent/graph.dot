@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_110d33e6" [shape=box, color="#178F82", label="hββ'\n(Set.range fun n => β n - β' n).Finite"];
+  "m_h_4afd0072" [shape=box, color="#178F82", label="hα'\n(Set.range fun p => α' (p.1 + p.2) - α' p.1 - α' p.2).Finite"];
+  "m_h_5c4da2e2" [shape=box, color="#178F82", label="hβ'\n(Set.range fun p => β' (p.1 + p.2) - β' p.1 - β' p.2).Finite"];
+  "m_h_88a7815b" [shape=box, color="#178F82", label="hα\n(Set.range fun p => α (p.1 + p.2) - α p.1 - α p.2).Finite"];
+  "m_h_c4d93c9e" [shape=box, color="#178F82", label="hβ\n(Set.range fun p => β (p.1 + p.2) - β p.1 - β p.2).Finite"];
+  "m_h_ff125729" [shape=box, color="#178F82", label="hαα'\n(Set.range fun n => α n - α' n).Finite"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(Set.range fun p => α (β (p.1 + p.2)) - α (β p.1) - α (β p.2)).Finite ∧ (Set.range fun p => α' (β' (p.1 + p.2)) - α' (β' p.1) - α' (β' p.2)).Finite ∧ (Set.range fun n => α (β n) - α' (β' n)).Finite"];
+  "r_h_goal" [shape=diamond, label="Set.Finite.image + Set.Finite.prod + Set.Finite.subset", color="#D97706"];
+  "m_h_88a7815b" -> "r_h_goal";
+  "m_h_4afd0072" -> "r_h_goal";
+  "m_h_c4d93c9e" -> "r_h_goal";
+  "m_h_5c4da2e2" -> "r_h_goal";
+  "m_h_ff125729" -> "r_h_goal";
+  "m_h_110d33e6" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

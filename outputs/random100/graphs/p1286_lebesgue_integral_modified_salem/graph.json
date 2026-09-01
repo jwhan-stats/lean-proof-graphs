@@ -1,0 +1,784 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1286_lebesgue_integral_modified_salem",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1286,
+    "source": "2304.07776",
+    "theorem_name": "lebesgue_integral_modified_salem",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1286",
+    "reconstructed_proof": "../../candidates/p1286_lebesgue_integral_modified_salem/proof.lean",
+    "raw_elaboration": "../../candidates/p1286_lebesgue_integral_modified_salem/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+    "verification_call_id": "verify_submission:142",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "c173f2fd3f41805f05c416c106daa252296564e158ccbe52222c879356552a75",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "c3af33f4f3e959aad6141224786c09c3d131b28dc5b91b754599932968914a9e",
+    "concrete_semantic_topology_sha256": "c173f2fd3f41805f05c416c106daa252296564e158ccbe52222c879356552a75"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hp_0e5f8a5f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp₀",
+      "lean_fvar_id": "3",
+      "statement": "p₀ ∈ Set.Ioo 0 1"
+    },
+    {
+      "id": "m_hp_67a38812",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp₁",
+      "lean_fvar_id": "4",
+      "statement": "p₁ ∈ Set.Ioo 0 1"
+    },
+    {
+      "id": "m_hp_97dd7d3d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp₂",
+      "lean_fvar_id": "5",
+      "statement": "p₂ ∈ Set.Ioo 0 1"
+    },
+    {
+      "id": "m_hsum_44f1792b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hsum",
+      "lean_fvar_id": "6",
+      "statement": "p₀ + p₁ + p₂ = 1"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let p := ![p₀, p₁, p₂]; let β := ![0, p₀, p₀ + p₁]; let E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r); let canonical := fun x => Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0); let θ := ![0, 2, 1]; let f := fun x => E fun k => θ (canonical x k); MeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧ ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)"
+    },
+    {
+      "id": "n_hx_2fa4c6ff",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.1006679",
+      "statement": "x ∈ Set.uIoc 0 1"
+    },
+    {
+      "id": "n_hxicc_d7bd8061",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxIcc",
+      "lean_fvar_id": "_uniq.1036287",
+      "statement": "x ∈ Set.Icc 0 1"
+    },
+    {
+      "id": "n_hxioc_f13ba50f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxIoc",
+      "lean_fvar_id": "_uniq.1006939",
+      "statement": "x ∈ Set.Ioc 0 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hxioc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_2fa4c6ff"
+      ],
+      "conclusion": "n_hxioc_f13ba50f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.uIoc_of_le",
+        "items": [
+          "Set.uIoc_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.uIoc_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_293",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hxIoc : x ∈ Set.Ioc (0 : ℝ) 1 := by\n          simpa [Set.uIoc_of_le zero_le_one] using hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1006679",
+              "name": "hx",
+              "statement": "x ∈ Set.uIoc 0 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1006939",
+            "name": "hxIoc",
+            "statement": "x ∈ Set.Ioc 0 1"
+          }
+        },
+        "lean_dependency_sha256": "66ec8b2ce7a8fa1ddac97d2a687ca840d2c3dfbb9bf6135e9bdaefb0bead38a1",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ Set.Ioc 0 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hxicc",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxioc_f13ba50f"
+      ],
+      "conclusion": "n_hxicc_d7bd8061",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_294",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hxIcc : x ∈ Set.Icc (0 : ℝ) 1 := ⟨hxIoc.1.le, hxIoc.2⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1006939",
+              "name": "hxIoc",
+              "statement": "x ∈ Set.Ioc 0 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1036287",
+            "name": "hxIcc",
+            "statement": "x ∈ Set.Icc 0 1"
+          }
+        },
+        "lean_dependency_sha256": "16a6caf6e39fa2de210e13c49abcfe6443b7e21bfee3ad25401ee2b147071a6e",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ x ∧ x ≤ 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_0e5f8a5f",
+        "m_hp_67a38812",
+        "m_hp_97dd7d3d",
+        "m_hsum_44f1792b"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Eq.trans + Filter.Eventually.of_forall + MeasureTheory.IntegrableOn.congr_fun",
+        "items": [
+          "Eq.trans",
+          "Filter.Eventually.of_forall",
+          "MeasureTheory.IntegrableOn.congr_fun",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msF_eq_msG_on",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integrableOn_Icc",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integral_eq",
+          "Set.uIoc_of_le",
+          "intervalIntegral.integral_congr_ae"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1286_lebesgue_integral_modified_salem.msF_eq_msG_on",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integrableOn_Icc",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integral_eq"
+        ],
+        "mathlib_items": [
+          "Eq.trans",
+          "Filter.Eventually.of_forall",
+          "MeasureTheory.IntegrableOn.congr_fun",
+          "Set.uIoc_of_le",
+          "intervalIntegral.integral_congr_ae"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · refine MeasureTheory.IntegrableOn.congr_fun\n      (msG_integrableOn_Icc hp₀ hp₁ hp₂ hsum 0 1) ?_ measurableSet_Icc\n    exact fun x hx ↦ (msF_eq_msG_on hp₀ hp₁ hp₂ hsum hx).symm\n  · trans ∫ x in (0 : ℝ)..1, msG p₀ p₁ p₂ x\n    · apply intervalIntegral.integral_congr_ae\n      exact Filter.Eventually.of_forall fun x hx ↦ by\n        have hxIoc : x ∈ Set.Ioc (0 : ℝ) 1 := by\n          simpa [Set.uIoc_of_le zero_le_one] using hx\n        have hxIcc : x ∈ Set.Icc (0 : ℝ) 1 := ⟨hxIoc.1.le, hxIoc.2⟩\n        exact msF_eq_msG_on hp₀ hp₁ hp₂ hsum hxIcc\n    · exact msG_integral_eq hp₀ hp₁ hp₂ hsum",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hp₀",
+              "statement": "p₀ ∈ Set.Ioo 0 1"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hp₁",
+              "statement": "p₁ ∈ Set.Ioo 0 1"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hp₂",
+              "statement": "p₂ ∈ Set.Ioo 0 1"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hsum",
+              "statement": "p₀ + p₁ + p₂ = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let p := ![p₀, p₁, p₂]; let β := ![0, p₀, p₀ + p₁]; let E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r); let canonical := fun x => Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0); let θ := ![0, 2, 1]; let f := fun x => E fun k => θ (canonical x k); MeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧ ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)"
+          }
+        },
+        "lean_dependency_sha256": "9a10795b1709dc921816efa5b7839102c84a0ce7ac3be3c401205b875a74ed00",
+        "kernel_witness_check": {
+          "proof_type": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "intervalIntegral.integral_congr_ae"
+        ],
+        "observed_search_event_ids": [
+          "loogle:106",
+          "leanfinder:108",
+          "loogle:109"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "Lebesgue integral modified Salem function weighted ternary digits Bernoulli convolution",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "MeasureTheory.IntegrableOn _ (Set.Icc _ _) ∧ (_ = _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "integral over image map under function digits infinite product measure preserving permutation",
+      "declarations": [
+        "MeasureTheory.MeasurePreserving.setIntegral_image_emb",
+        "MeasureTheory.MeasurePreserving",
+        "MeasureTheory.MeasurePreserving.integral_comp",
+        "triple_product_permutation",
+        "measurePreserving_eval_infinitePi",
+        "MeasureTheory.measurePreserving_pi",
+        "MeasureTheory.MeasurePreserving.prod",
+        "MeasureTheory.volume_preserving_pi",
+        "MeasureTheory.QuasiMeasurePreserving.prodMap",
+        "MeasureTheory.Measure.QuasiMeasurePreserving.liminf_preimage_iterate_ae_eq"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_mul_left",
+      "declarations": [
+        "intervalIntegral.integral_comp_mul_left"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_comp_add_right",
+      "declarations": [
+        "intervalIntegral.integral_comp_add_right"
+      ],
+      "call_turn": 6,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "∫ _ in _.._, _ ∘ (_ * _)",
+      "declarations": [],
+      "call_turn": 6,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "interval integral substitution affine map multiply add",
+      "declarations": [
+        "intervalIntegral.integral_comp_sub_div",
+        "intervalIntegral.smul_integral_comp_sub_mul",
+        "intervalIntegral.mul_integral_comp_mul_add",
+        "intervalIntegral",
+        "intervalIntegral.integral_interval_add_Ioi",
+        "intervalIntegral.integral_add",
+        "intervalIntegral.integral_interval_add_Ioi'",
+        "intervalIntegral.inv_mul_integral_comp_sub_div",
+        "intervalIntegral.smul_integral_comp_add_mul",
+        "intervalIntegral.integral_interval_add_interval_comm"
+      ],
+      "call_turn": 6,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Summable.of_nonneg_of_le",
+      "declarations": [
+        "Summable.of_nonneg_of_le"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "summable_geometric",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Summable (_ ^ _)",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "summable comparison nonnegative geometric power less one real",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "NNReal.rpow_le_one_of_one_le_of_nonpos",
+        "NNReal.rpow_le_self_of_le_one",
+        "NNReal.summable_geometric",
+        "Summable",
+        "summable_geometric_of_norm_lt_one",
+        "summable_geometric_of_lt_one",
+        "summable_geometric_two",
+        "summable_geometric_two'",
+        "Mathlib.Meta.NormNum.evalNNRealRPow"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "(∑' n : ℕ, _ n) = _ 0 + ∑' n : ℕ, _ (n + 1)",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "split infinite tsum natural first term plus shifted series",
+      "declarations": [
+        "Mathlib.Tactic.Sat.Parser.parseNat",
+        "ZetaAsymptotics.termTSum",
+        "tsum",
+        "PowerSeries.as_tsum",
+        "ZetaAsymptotics.term_tsum",
+        "FirstOrder.",
+        "PowerSeries.subst_tsum",
+        "Lean.Omega.Coeffs.get",
+        "Tactic.ComputeAsymptotics.MultiseriesExpansion.seq"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "_ = _ + ∑' (n : ℕ), _ (n + 1)",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:30",
+      "tool": "leanfinder",
+      "query": "telescoping infinite sum difference sequence tends to zero hasSum",
+      "declarations": [
+        "HasSum",
+        "HasSum.hasSum_at_zero",
+        "hasSum_zero",
+        "List.sum_range_sub",
+        "ENNReal.tsum_sub",
+        "hasSum_extend_zero",
+        "HasSum.sum_range_add",
+        "HasSum.zero_add",
+        "ZetaAsymptotics.term_tsum",
+        "infinite_sum"
+      ],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "HasSum (fun n => _ n - _ (n + 1))",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "tsum_le_tsum",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Summable.tsum_le_tsum",
+      "declarations": [
+        "Summable.tsum_le_tsum"
+      ],
+      "call_turn": 54,
+      "result_turn": 58
+    },
+    {
+      "event_id": "leanfinder:34",
+      "tool": "leanfinder",
+      "query": "nonnegative summable series tsum bounded if every finite partial sum bounded",
+      "declarations": [
+        "Summable.of_nnnorm_bounded",
+        "summable_of_sum_le",
+        "summable_of_sum_range_le",
+        "tsum_of_nnnorm_bounded",
+        "TotallyBounded",
+        "NNReal.summable_of_sum_range_le",
+        "tsum_of_enorm_bounded",
+        "NNReal.tsum_le_of_sum_range_le",
+        "tsum_of_norm_bounded",
+        "Summable.tsum_sum"
+      ],
+      "call_turn": 59,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Summable -> (∀ n, ∑ _ ∈ Finset.range n, _ ≤ _) -> ∑' _ ≤ _",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "tsum_le_of_sum_le",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 62
+    },
+    {
+      "event_id": "leanfinder:89",
+      "tool": "leanfinder",
+      "query": "measurable pointwise limit sequence measurable functions real",
+      "declarations": [
+        "ENNReal.measurable_of_tendsto",
+        "NNReal.measurable_of_tendsto",
+        "Real.measurable_arcsin",
+        "Real.measurable_cos",
+        "Measurable",
+        "measurable_of_tendsto_metrizable",
+        "Real.measurable_arccos",
+        "Measurable.limsup",
+        "Real.measurable_arctan",
+        "Real.measurableSpace"
+      ],
+      "call_turn": 167,
+      "result_turn": 168
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Measurable (∀ n, Measurable _) -> Tendsto _ atTop (nhds _)",
+      "declarations": [],
+      "call_turn": 167,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "measurable_of_tendsto",
+      "declarations": [],
+      "call_turn": 167,
+      "result_turn": 170
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "MeasureTheory.IntegrableOn.of_bound",
+      "declarations": [
+        "MeasureTheory.IntegrableOn.of_bound"
+      ],
+      "call_turn": 179,
+      "result_turn": 180
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "integrableOn_of_bounded",
+      "declarations": [],
+      "call_turn": 179,
+      "result_turn": 181
+    },
+    {
+      "event_id": "leanfinder:98",
+      "tool": "leanfinder",
+      "query": "measurable bounded function integrable on finite measure set",
+      "declarations": [
+        "MeasureTheory.Measure.integrableOn_of_bounded",
+        "MeasureTheory.IntegrableOn.of_finite",
+        "MeasureTheory.IntegrableOn",
+        "measurableSet_integrable",
+        "MeasureTheory.IntegrableOn.of_bound",
+        "MeasureTheory.HasFiniteIntegral.of_mem_Icc",
+        "MeasureTheory.HasFiniteIntegral.restrict_of_bounded_enorm",
+        "BoundedContinuousFunction.integrable",
+        "MeasureTheory.HasFiniteIntegral.of_bounded",
+        "MeasureTheory.HasFiniteIntegral.of_mem_Icc_of_ne_top"
+      ],
+      "call_turn": 179,
+      "result_turn": 182
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Measurable -> (∀ x ∈ _, ‖_ x‖ ≤ _) -> IntegrableOn _ _",
+      "declarations": [],
+      "call_turn": 179,
+      "result_turn": 183
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "intervalIntegral.integral_congr_ae",
+      "declarations": [
+        "intervalIntegral.integral_congr_ae"
+      ],
+      "call_turn": 196,
+      "result_turn": 197
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "IntervalIntegrable -> _ =ᵐ[_] _ -> ∫ _ in _.._",
+      "declarations": [],
+      "call_turn": 196,
+      "result_turn": 198
+    },
+    {
+      "event_id": "leanfinder:108",
+      "tool": "leanfinder",
+      "query": "interval integral congruent almost everywhere functions",
+      "declarations": [
+        "intervalIntegral.integral_congr_ae",
+        "IntervalIntegrable.congr_ae",
+        "isAlmostIntegral_iff_isIntegral",
+        "IsIntegral.isAlmostIntegral",
+        "IsAlmostIntegral",
+        "intervalIntegral.integral_congr_Ioo_of_le",
+        "IsAlmostIntegral.isIntegral",
+        "intervalIntegral",
+        "intervalIntegrable_congr_ae",
+        "IsAlmostIntegral.coeff"
+      ],
+      "call_turn": 196,
+      "result_turn": 199
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "MeasureTheory.integral_congr_ae",
+      "declarations": [
+        "MeasureTheory.integral_congr_ae"
+      ],
+      "call_turn": 196,
+      "result_turn": 200
+    },
+    {
+      "event_id": "loogle:120",
+      "tool": "loogle",
+      "query": "integral_congr_Ioo",
+      "declarations": [],
+      "call_turn": 221,
+      "result_turn": 222
+    },
+    {
+      "event_id": "loogle:121",
+      "tool": "loogle",
+      "query": "_ ≠ᵐ[volume] _",
+      "declarations": [],
+      "call_turn": 223,
+      "result_turn": 224
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "MeasureTheory.volume_singleton",
+      "declarations": [],
+      "call_turn": 223,
+      "result_turn": 225
+    },
+    {
+      "event_id": "leanfinder:123",
+      "tool": "leanfinder",
+      "query": "almost every real not equal singleton volume",
+      "declarations": [
+        "Real.volume_singleton",
+        "Nat.IsAlmostPrime",
+        "Real.volume_real_ball",
+        "Real.volume_real_Ioc",
+        "Real.volume_real_Ico",
+        "Real.volume_interval",
+        "Real.volume_real_Ioo",
+        "Real.volume_Iic",
+        "Orientation.volumeForm",
+        "Real.volume_pi_closedBall"
+      ],
+      "call_turn": 223,
+      "result_turn": 226
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "∀ᵐ x ∂volume, x ≠ _",
+      "declarations": [],
+      "call_turn": 223,
+      "result_turn": 227
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 37,
+    "useful_retrieval_event_count": 3,
+    "unused_retrieval_event_count": 34,
+    "accepted_helper_count": 28,
+    "rollout_tool_call_count": 143,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

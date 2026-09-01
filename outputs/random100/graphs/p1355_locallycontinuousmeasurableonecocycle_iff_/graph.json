@@ -1,0 +1,964 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1355_locallycontinuousmeasurableonecocycle_iff_",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1355,
+    "source": "1009.4519",
+    "theorem_name": "locallyContinuousMeasurableOneCocycle_iff_continuousCrossedHomomorphism",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1355",
+    "reconstructed_proof": "../../candidates/p1355_locallycontinuousmeasurableonecocycle_iff_/proof.lean",
+    "raw_elaboration": "../../candidates/p1355_locallycontinuousmeasurableonecocycle_iff_/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1355_locallycontinuousmeasurableonecocycle_iff_.locallyContinuousMeasurableOneCocycle_iff_continuousCrossedHomomorphism",
+    "verification_call_id": "verify_submission:24",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "eab7bd635f5869034ed81523c6751d4339c777d86cff6e90df03171b19b7338b",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "2d292777b3ac5d9299b1ac02384b7b6ec5f011bae9607178849f88bd9826d1dc",
+    "concrete_semantic_topology_sha256": "eab7bd635f5869034ed81523c6751d4339c777d86cff6e90df03171b19b7338b"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_inst___proofs_1843747912_07018488",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.10",
+      "lean_fvar_id": "4",
+      "statement": "IsTopologicalGroup G"
+    },
+    {
+      "id": "m_inst___proofs_1843747912_0d5a3f06",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.26",
+      "lean_fvar_id": "9",
+      "statement": "ContinuousSMul G A"
+    },
+    {
+      "id": "m_inst___proofs_1843747912_3e51df51",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.39",
+      "lean_fvar_id": "13",
+      "statement": "BorelSpace A"
+    },
+    {
+      "id": "m_inst___proofs_1843747912_add6b35a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.19",
+      "lean_fvar_id": "7",
+      "statement": "IsTopologicalAddGroup A"
+    },
+    {
+      "id": "m_inst___proofs_1843747912_ee2f0d00",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.33",
+      "lean_fvar_id": "11",
+      "statement": "BorelSpace G"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(Measurable c ∧ (∀ (s t : G), c (s * t) = c s + s • c t) ∧ ∃ U, IsOpen U ∧ 1 ∈ U ∧ ContinuousOn c U) ↔ Continuous c ∧ ∀ (s t : G), c (s * t) = c s + s • c t"
+    },
+    {
+      "id": "n_h1u_bf7e6551",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h1U",
+      "lean_fvar_id": "_uniq.4358510",
+      "statement": "1 ∈ U"
+    },
+    {
+      "id": "n_hc1_43f26c98",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hc1",
+      "lean_fvar_id": "_uniq.4359335",
+      "statement": "ContinuousAt c 1"
+    },
+    {
+      "id": "n_hc1g_cc845286",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hc1g",
+      "lean_fvar_id": "_uniq.4371122",
+      "statement": "ContinuousAt c (g⁻¹ * g)"
+    },
+    {
+      "id": "n_hceq_fa9494b5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hceq",
+      "lean_fvar_id": "_uniq.4364162",
+      "statement": "c = fun x => c g + g • c (g⁻¹ * x)"
+    },
+    {
+      "id": "n_hcoc_07ff48f6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcoc",
+      "lean_fvar_id": "_uniq.4358456",
+      "statement": "∀ (s t : G), c (s * t) = c s + s • c t"
+    },
+    {
+      "id": "n_hcont_79dd63e1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcont",
+      "lean_fvar_id": "_uniq.4359800",
+      "statement": "Continuous c"
+    },
+    {
+      "id": "n_hcu_9037c82e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcU",
+      "lean_fvar_id": "_uniq.4358511",
+      "statement": "ContinuousOn c U"
+    },
+    {
+      "id": "n_hgx_d14e9e8c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hgx",
+      "lean_fvar_id": "_uniq.4370637",
+      "statement": "ContinuousAt (fun x => g⁻¹ * x) g"
+    },
+    {
+      "id": "n_hinner_96e3a64b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hinner",
+      "lean_fvar_id": "_uniq.4372647",
+      "statement": "ContinuousAt (fun x => c (g⁻¹ * x)) g"
+    },
+    {
+      "id": "n_huopen_848fc16b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hUopen",
+      "lean_fvar_id": "_uniq.4358492",
+      "statement": "IsOpen U"
+    },
+    {
+      "id": "n_inst___proofs_1843747912_3062e538",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.26",
+      "lean_fvar_id": "_uniq.4358406",
+      "statement": "ContinuousSMul G A"
+    },
+    {
+      "id": "n_inst___proofs_1843747912_578d4241",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.10",
+      "lean_fvar_id": "_uniq.4358401",
+      "statement": "IsTopologicalGroup G"
+    },
+    {
+      "id": "n_inst___proofs_1843747912_964d9f42",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.1843747912._hygCtx._hyg.19",
+      "lean_fvar_id": "_uniq.4358404",
+      "statement": "IsTopologicalAddGroup A"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hceq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcoc_07ff48f6"
+      ],
+      "conclusion": "n_hceq_fa9494b5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "funext + mul_assoc + mul_inv_cancel",
+        "items": [
+          "funext",
+          "mul_assoc",
+          "mul_inv_cancel",
+          "one_mul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "funext",
+          "mul_assoc",
+          "mul_inv_cancel",
+          "one_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1044",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hceq : c = fun x => c g + g • c (g⁻¹ * x) := by\n        funext x\n        calc\n          c x = c (g * (g⁻¹ * x)) := by\n            congr 1\n            rw [← mul_assoc, mul_inv_cancel, one_mul]\n          _ = c g + g • c (g⁻¹ * x) := hcoc g (g⁻¹ * x)\n      rw [hceq]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4358456",
+              "name": "hcoc",
+              "statement": "∀ (s t : G), c (s * t) = c s + s • c t"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4364162",
+            "name": "hceq",
+            "statement": "c = fun x => c g + g • c (g⁻¹ * x)"
+          }
+        },
+        "lean_dependency_sha256": "3c9b5b536dc1faf607567a817302a3035dd95a809c82b4ef5e7014076e272825",
+        "kernel_witness_check": {
+          "proof_type": "c = fun x => c g + g • c (g⁻¹ * x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hgx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1843747912_578d4241"
+      ],
+      "conclusion": "n_hgx_d14e9e8c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "continuousAt_const + continuousAt_id",
+        "items": [
+          "continuousAt_const",
+          "continuousAt_id"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "continuousAt_const",
+          "continuousAt_id"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1045",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hgx : ContinuousAt (fun x : G => g⁻¹ * x) g :=\n        continuousAt_const.mul continuousAt_id",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4358401",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.10",
+              "statement": "IsTopologicalGroup G"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4370637",
+            "name": "hgx",
+            "statement": "ContinuousAt (fun x => g⁻¹ * x) g"
+          }
+        },
+        "lean_dependency_sha256": "3e092ccc7f5c573477fa865a046cd6df085fac27025d9277d32e0fa505842ff8",
+        "kernel_witness_check": {
+          "proof_type": "ContinuousAt ((fun x => g⁻¹) * fun x => x) g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "continuousAt_const"
+        ],
+        "observed_search_event_ids": [
+          "loogle:12"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hc1g",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hc1_43f26c98"
+      ],
+      "conclusion": "n_hc1g_cc845286",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "inv_mul_cancel",
+        "items": [
+          "inv_mul_cancel"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "inv_mul_cancel"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1046",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hc1g : ContinuousAt c (g⁻¹ * g) := by\n        rw [inv_mul_cancel]\n        exact hc1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4359335",
+              "name": "hc1",
+              "statement": "ContinuousAt c 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4371122",
+            "name": "hc1g",
+            "statement": "ContinuousAt c (g⁻¹ * g)"
+          }
+        },
+        "lean_dependency_sha256": "0a3265f589e7b511f63c3c86eb7a3574fa7651c7eb9e835f1b6951e2b7481689",
+        "kernel_witness_check": {
+          "proof_type": "ContinuousAt c (g⁻¹ * g)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hinner",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hgx_d14e9e8c",
+        "n_hc1g_cc845286"
+      ],
+      "conclusion": "n_hinner_96e3a64b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousAt.comp",
+        "items": [
+          "ContinuousAt.comp"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousAt.comp"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1047",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hinner : ContinuousAt (fun x : G => c (g⁻¹ * x)) g :=\n        ContinuousAt.comp hc1g hgx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4370637",
+              "name": "hgx",
+              "statement": "ContinuousAt (fun x => g⁻¹ * x) g"
+            },
+            {
+              "fvar_id": "_uniq.4371122",
+              "name": "hc1g",
+              "statement": "ContinuousAt c (g⁻¹ * g)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4372647",
+            "name": "hinner",
+            "statement": "ContinuousAt (fun x => c (g⁻¹ * x)) g"
+          }
+        },
+        "lean_dependency_sha256": "7f14c7f0eadf395fbf7a0d828c9eebeacfd971f67eb969a5eb10862556fdb4d9",
+        "kernel_witness_check": {
+          "proof_type": "ContinuousAt (c ∘ HMul.hMul g⁻¹) g",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousAt.comp"
+        ],
+        "observed_search_event_ids": [
+          "loogle:7"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hc1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_huopen_848fc16b",
+        "n_h1u_bf7e6551",
+        "n_hcu_9037c82e"
+      ],
+      "conclusion": "n_hc1_43f26c98",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousOn.continuousAt + IsOpen.mem_nhds",
+        "items": [
+          "ContinuousOn.continuousAt",
+          "IsOpen.mem_nhds"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousOn.continuousAt",
+          "IsOpen.mem_nhds"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1048",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hc1 : ContinuousAt c 1 := hcU.continuousAt (hUopen.mem_nhds h1U)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4358492",
+              "name": "hUopen",
+              "statement": "IsOpen U"
+            },
+            {
+              "fvar_id": "_uniq.4358510",
+              "name": "h1U",
+              "statement": "1 ∈ U"
+            },
+            {
+              "fvar_id": "_uniq.4358511",
+              "name": "hcU",
+              "statement": "ContinuousOn c U"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4359335",
+            "name": "hc1",
+            "statement": "ContinuousAt c 1"
+          }
+        },
+        "lean_dependency_sha256": "ca87a481863e2ff90e9d2a56de8356faf715701771bc42270f24405697584aa8",
+        "kernel_witness_check": {
+          "proof_type": "ContinuousAt c 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousOn.continuousAt",
+          "IsOpen.mem_nhds"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:6"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hcont",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_1843747912_578d4241",
+        "n_inst___proofs_1843747912_964d9f42",
+        "n_inst___proofs_1843747912_3062e538",
+        "n_hcoc_07ff48f6",
+        "n_hc1_43f26c98"
+      ],
+      "conclusion": "n_hcont_79dd63e1",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousAt.add + ContinuousAt.comp + ContinuousAt.const_smul",
+        "items": [
+          "ContinuousAt.add",
+          "ContinuousAt.comp",
+          "ContinuousAt.const_smul",
+          "continuousAt_const",
+          "continuousAt_id",
+          "continuous_iff_continuousAt",
+          "funext",
+          "inv_mul_cancel"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousAt.add",
+          "ContinuousAt.comp",
+          "ContinuousAt.const_smul",
+          "continuousAt_const",
+          "continuousAt_id",
+          "continuous_iff_continuousAt",
+          "funext",
+          "inv_mul_cancel"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1049",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcont : Continuous c := by\n      rw [continuous_iff_continuousAt]\n      intro g\n      have hceq : c = fun x => c g + g • c (g⁻¹ * x) := by\n        funext x\n        calc\n          c x = c (g * (g⁻¹ * x)) := by\n            congr 1\n            rw [← mul_assoc, mul_inv_cancel, one_mul]\n          _ = c g + g • c (g⁻¹ * x) := hcoc g (g⁻¹ * x)\n      rw [hceq]\n      have hgx : ContinuousAt (fun x : G => g⁻¹ * x) g :=\n        continuousAt_const.mul continuousAt_id\n      have hc1g : ContinuousAt c (g⁻¹ * g) := by\n        rw [inv_mul_cancel]\n        exact hc1\n      have hinner : ContinuousAt (fun x : G => c (g⁻¹ * x)) g :=\n        ContinuousAt.comp hc1g hgx\n      exact continuousAt_const.add (hinner.const_smul g)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.4358401",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.10",
+              "statement": "IsTopologicalGroup G"
+            },
+            {
+              "fvar_id": "_uniq.4358404",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.19",
+              "statement": "IsTopologicalAddGroup A"
+            },
+            {
+              "fvar_id": "_uniq.4358406",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.26",
+              "statement": "ContinuousSMul G A"
+            },
+            {
+              "fvar_id": "_uniq.4358456",
+              "name": "hcoc",
+              "statement": "∀ (s t : G), c (s * t) = c s + s • c t"
+            },
+            {
+              "fvar_id": "_uniq.4359335",
+              "name": "hc1",
+              "statement": "ContinuousAt c 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4359800",
+            "name": "hcont",
+            "statement": "Continuous c"
+          }
+        },
+        "lean_dependency_sha256": "5bfffaf7537eed2368e2bd145629130c598feb1704c0c1aab3bef40b0bc515a2",
+        "kernel_witness_check": {
+          "proof_type": "Continuous c",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousAt.add",
+          "ContinuousAt.comp",
+          "ContinuousAt.const_smul",
+          "continuousAt_const"
+        ],
+        "observed_search_event_ids": [
+          "loogle:11",
+          "loogle:7",
+          "loogle:9",
+          "loogle:8",
+          "loogle:12"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1843747912_07018488",
+        "m_inst___proofs_1843747912_add6b35a",
+        "m_inst___proofs_1843747912_0d5a3f06",
+        "m_inst___proofs_1843747912_ee2f0d00",
+        "m_inst___proofs_1843747912_3e51df51"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Continuous.measurable + ContinuousAt.add + ContinuousAt.comp",
+        "items": [
+          "Continuous.measurable",
+          "ContinuousAt.add",
+          "ContinuousAt.comp",
+          "ContinuousAt.const_smul",
+          "ContinuousOn.continuousAt",
+          "IsOpen.mem_nhds",
+          "Set.mem_univ",
+          "continuousAt_const"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Continuous.measurable",
+          "ContinuousAt.add",
+          "ContinuousAt.comp",
+          "ContinuousAt.const_smul",
+          "ContinuousOn.continuousAt",
+          "IsOpen.mem_nhds",
+          "Set.mem_univ",
+          "continuousAt_const"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · rintro ⟨hmeas, hcoc, U, hUopen, h1U, hcU⟩\n    have hc1 : ContinuousAt c 1 := hcU.continuousAt (hUopen.mem_nhds h1U)\n    have hcont : Continuous c := by\n      rw [continuous_iff_continuousAt]\n      intro g\n      have hceq : c = fun x => c g + g • c (g⁻¹ * x) := by\n        funext x\n        calc\n          c x = c (g * (g⁻¹ * x)) := by\n            congr 1\n            rw [← mul_assoc, mul_inv_cancel, one_mul]\n          _ = c g + g • c (g⁻¹ * x) := hcoc g (g⁻¹ * x)\n      rw [hceq]\n      have hgx : ContinuousAt (fun x : G => g⁻¹ * x) g :=\n        continuousAt_const.mul continuousAt_id\n      have hc1g : ContinuousAt c (g⁻¹ * g) := by\n        rw [inv_mul_cancel]\n        exact hc1\n      have hinner : ContinuousAt (fun x : G => c (g⁻¹ * x)) g :=\n        ContinuousAt.comp hc1g hgx\n      exact continuousAt_const.add (hinner.const_smul g)\n    exact ⟨hcont, hcoc⟩\n  · rintro ⟨hcont, hcoc⟩\n    exact ⟨hcont.measurable, hcoc, Set.univ, isOpen_univ, Set.mem_univ 1, hcont.continuousOn⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.10",
+              "statement": "IsTopologicalGroup G"
+            },
+            {
+              "fvar_id": "7",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.19",
+              "statement": "IsTopologicalAddGroup A"
+            },
+            {
+              "fvar_id": "9",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.26",
+              "statement": "ContinuousSMul G A"
+            },
+            {
+              "fvar_id": "11",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.33",
+              "statement": "BorelSpace G"
+            },
+            {
+              "fvar_id": "13",
+              "name": "inst._@.proofs.1843747912._hygCtx._hyg.39",
+              "statement": "BorelSpace A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(Measurable c ∧ (∀ (s t : G), c (s * t) = c s + s • c t) ∧ ∃ U, IsOpen U ∧ 1 ∈ U ∧ ContinuousOn c U) ↔ Continuous c ∧ ∀ (s t : G), c (s * t) = c s + s • c t"
+          }
+        },
+        "lean_dependency_sha256": "e258f33835ae0764f5fb59b81e9c7de5b81839a935e5ea93ff13b21a7fbebfb6",
+        "kernel_witness_check": {
+          "proof_type": "(Measurable c ∧ (∀ (s t : G), c (s * t) = c s + s • c t) ∧ ∃ U, IsOpen U ∧ 1 ∈ U ∧ ContinuousOn c U) ↔\n  Continuous c ∧ ∀ (s t : G), c (s * t) = c s + s • c t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Continuous.measurable",
+          "ContinuousAt.add",
+          "ContinuousAt.comp",
+          "ContinuousAt.const_smul",
+          "ContinuousOn.continuousAt",
+          "IsOpen.mem_nhds",
+          "continuousAt_const"
+        ],
+        "observed_search_event_ids": [
+          "loogle:4",
+          "loogle:11",
+          "loogle:7",
+          "loogle:9",
+          "loogle:8",
+          "loogle:5",
+          "loogle:6",
+          "loogle:12"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "continuous_of_continuousAt_one",
+      "declarations": [
+        "continuous_of_continuousAt_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "(_ → _) (_ * _ = _ + _ • _) Continuous",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "cocycle crossed homomorphism local continuity identity implies continuity topological group",
+      "declarations": [
+        "MonoidHom.uniformContinuous_of_continuousAt_one",
+        "tacticContinuity",
+        "AddUnits.continuous_map",
+        "LibraryNote.continuity_lemma_statement",
+        "attrContinuity",
+        "ContinuousMonoidHom.id",
+        "IsTopologicalAddGroup",
+        "ContinuousMap.uniform_continuity",
+        "IsTopologicalGroup"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "ContinuousOn _ _ -> IsOpen _ -> ContinuousAt _ _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Continuous.measurable",
+      "declarations": [
+        "Continuous.measurable",
+        "MeasureTheory.ProbabilityMeasure.continuous_map",
+        "MeasureTheory.ProbabilityMeasure.tendsto_map_of_tendsto_of_continuous"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "ContinuousOn.continuousAt",
+      "declarations": [
+        "ContinuousOn.continuousAt"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "IsOpen.mem_nhds",
+      "declarations": [
+        "IsOpen.mem_nhds"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "ContinuousAt.comp",
+      "declarations": [
+        "ContinuousAt.comp"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Continuous.const_smul",
+      "declarations": [
+        "Continuous.const_smul"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "ContinuousAt.const_smul",
+      "declarations": [
+        "ContinuousAt.const_smul"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "continuous_const_smul",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "ContinuousAt.add",
+      "declarations": [
+        "ContinuousAt.add"
+      ],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "continuousAt_const",
+      "declarations": [
+        "continuousAt_const"
+      ],
+      "call_turn": 12,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "(_ = _ + _) -> _ = 0",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "add_left_eq_self",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "self_eq_add_left",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "eq_zero_of_add_self",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "if a equals a plus a then a equals zero additive group",
+      "declarations": [
+        "WithBot.unbotA",
+        "Mathlib.Tactic.LinearCombination.eq_rearrange",
+        "neg_add_eq_of_eq_add",
+        "QuaternionGroup.a",
+        "WithTop.untopA",
+        "neg_add_cancel",
+        "add_sub_cancel",
+        "QuaternionGroup.a_zero",
+        "CartanMatrix.A",
+        "ADEInequality.A"
+      ],
+      "call_turn": 18,
+      "result_turn": 23
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 6,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 5,
+    "retrieved_rule_item_count": 7,
+    "retrieval_query_count": 18,
+    "useful_retrieval_event_count": 8,
+    "unused_retrieval_event_count": 10,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 25,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+      "manifest": [
+        {
+          "statement": "2 ≤ N",
+          "origin": "manifest",
+          "name": "hN",
+          "fvar_id": "1"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "0 < N",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.zero_lt_two",
+            "lt_of_lt_of_le"
+          ],
+          "premises": [
+            {
+              "statement": "2 ≤ N",
+              "origin": "local_assumption",
+              "name": "hN",
+              "fvar_id": "1"
+            }
+          ],
+          "parent": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+          "id": "telescope_2",
+          "conclusion": {
+            "statement": "0 < N",
+            "origin": "derived",
+            "name": "hNpos",
+            "fvar_id": "2"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∃ Aut AutN,\n  (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧\n    (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ),\n        ρ ∈ AutN ↔\n          Continuous ⇑ρ ∧\n            Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧\n      ∃ ι μ,\n        (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧\n          (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧\n            (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧\n              Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ Aut AutN,\n  (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧\n    (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ),\n        ρ ∈ AutN ↔\n          Continuous ⇑ρ ∧\n            Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧\n      ∃ ι μ,\n        (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧\n          (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧\n            (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧\n              Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "AlgEquiv.instAlgEquivClass",
+          "AlgEquivClass.toAlgHomClass",
+          "AlgHomClass.toRingHomClass",
+          "And.left",
+          "And.right",
+          "Eq.trans",
+          "MonoidWithZeroHomClass.toMonoidHomClass",
+          "Nat.ne_of_gt",
+          "Nat.zero_lt_two",
+          "PowerSeries.expand_X",
+          "RingHomClass.toMonoidWithZeroHomClass",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.algEquiv_continuous",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.exists_lift_algEquiv_expand",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.image_range_expand_eq_of_lift",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.restrictExpandEquiv_spec",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.restrictExpandMonoidHom_lift",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.rootScaleAlgEquiv_X",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.rootScaleMonoidHom_injective",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.rootScaleMonoidHom_range_eq_restrictExpandMonoidHom_ker",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.rootScaleMonoidHom_range_le_center",
+          "Subtype.ext",
+          "Subtype.property",
+          "congrArg",
+          "congrFun'",
+          "eq_self",
+          "lt_of_lt_of_le",
+          "map_pow",
+          "of_eq_true"
+        ],
+        "premises": [
+          {
+            "statement": "2 ≤ N",
+            "origin": "local_assumption",
+            "name": "hN",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "0 < N",
+            "origin": "derived",
+            "name": "hNpos",
+            "fvar_id": "2"
+          }
+        ],
+        "parent": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ Aut AutN,\n  (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧\n    (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ),\n        ρ ∈ AutN ↔\n          Continuous ⇑ρ ∧\n            Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧\n      ∃ ι μ,\n        (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧\n          (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧\n            (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧\n              Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "Continuous ⇑ρ ∧ Continuous ⇑ρ.symm",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.algEquiv_continuous"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+      "id": "local_1551",
+      "conclusion": {
+        "statement": "Continuous ⇑ρ ∧ Continuous ⇑ρ.symm",
+        "origin": "derived",
+        "name": "hc",
+        "fvar_id": "_uniq.8852811"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "e PowerSeries.X = PowerSeries.X ^ N",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.ne_of_gt",
+        "PowerSeries.expand_X"
+      ],
+      "premises": [
+        {
+          "statement": "0 < N",
+          "origin": "derived",
+          "name": "hNpos",
+          "fvar_id": "_uniq.8852091"
+        }
+      ],
+      "parent": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+      "id": "local_1552",
+      "conclusion": {
+        "statement": "e PowerSeries.X = PowerSeries.X ^ N",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.8904058"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⇑σ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.image_range_expand_eq_of_lift"
+      ],
+      "premises": [
+        {
+          "statement": "0 < N",
+          "origin": "derived",
+          "name": "hNpos",
+          "fvar_id": "_uniq.8852091"
+        },
+        {
+          "statement": "∀ (f : PS), σ ((PowerSeries.expand N ⋯) f) = (PowerSeries.expand N ⋯) (↑y f)",
+          "origin": "local_assumption",
+          "name": "hcomm",
+          "fvar_id": "_uniq.8906307"
+        }
+      ],
+      "parent": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+      "id": "local_1553",
+      "conclusion": {
+        "statement": "⇑σ '' S = S",
+        "origin": "derived",
+        "name": "hmem",
+        "fvar_id": "_uniq.8906405"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < N",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.zero_lt_two",
+        "lt_of_lt_of_le"
+      ],
+      "premises": [
+        {
+          "statement": "2 ≤ N",
+          "origin": "local_assumption",
+          "name": "hN",
+          "fvar_id": "_uniq.8851929"
+        }
+      ],
+      "parent": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+      "id": "local_1554",
+      "conclusion": {
+        "statement": "0 < N",
+        "origin": "derived",
+        "name": "hNpos",
+        "fvar_id": "_uniq.8852091"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p0246_formalpowerseries_automorphism_exact_seque",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+    "proof_sha256": "0dadb5df0ebc9d8016b15add1f3b7228d695024ed2a437558b2f431127081ba9"
+  }
+}

@@ -1,0 +1,4503 @@
+{
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+      "manifest": [
+        {
+          "statement": "p₀ ∈ Set.Ioo 0 1",
+          "origin": "manifest",
+          "name": "hp₀",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "p₁ ∈ Set.Ioo 0 1",
+          "origin": "manifest",
+          "name": "hp₁",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "p₂ ∈ Set.Ioo 0 1",
+          "origin": "manifest",
+          "name": "hp₂",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "p₀ + p₁ + p₂ = 1",
+          "origin": "manifest",
+          "name": "hsum",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "BorelSpace.opensMeasurable",
+          "Eq.symm",
+          "Eq.trans",
+          "Filter.Eventually.of_forall",
+          "HasSolidNorm.orderClosedTopology",
+          "LT.lt.le",
+          "MeasureTheory.IntegrableOn.congr_fun",
+          "MeasureTheory.Measure.instOuterMeasureClass",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "Pi.instNonempty",
+          "Real.borelSpace",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instZeroLEOneClass",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msF_eq_msG_on",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integrableOn_Icc",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integral_eq",
+          "Set.mem_Ioc._simp_1",
+          "Set.uIoc_of_le",
+          "congrArg",
+          "congrFun'",
+          "instHasSolidNormReal",
+          "instNonemptyOfInhabited",
+          "intervalIntegral.integral_congr_ae",
+          "measurableSet_Icc",
+          "of_eq_true",
+          "zero_le_one._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "p₀ ∈ Set.Ioo 0 1",
+            "origin": "local_assumption",
+            "name": "hp₀",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "p₁ ∈ Set.Ioo 0 1",
+            "origin": "local_assumption",
+            "name": "hp₁",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "p₂ ∈ Set.Ioo 0 1",
+            "origin": "local_assumption",
+            "name": "hp₂",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "p₀ + p₁ + p₂ = 1",
+            "origin": "local_assumption",
+            "name": "hsum",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.bounded_degree_unit_circle_conjugates_closed_discrete",
+      "manifest": [
+        {
+          "statement": "0 < B",
+          "origin": "manifest",
+          "name": "hB",
+          "fvar_id": "1"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let S_B :=\n  {x |\n    1 < x ∧\n      IsIntegral ℤ x ∧\n        ↑(minpoly ℚ x).natDegree ≤ B ∧\n          (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧\n            ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1};\nIsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let S_B :=\n  {x |\n    1 < x ∧\n      IsIntegral ℤ x ∧\n        ↑(minpoly ℚ x).natDegree ≤ B ∧\n          (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧\n            ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1};\nIsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Complex.instCharZero",
+          "Nat.le_floor",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.closed_and_isolated_of_finite_inter_Icc_one",
+          "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.finite_algebraic_integer_of_bounded_conjugates_inter_Icc",
+          "Set.Finite.subset"
+        ],
+        "premises": [],
+        "parent": "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.bounded_degree_unit_circle_conjugates_closed_discrete",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let S_B :=\n  {x |\n    1 < x ∧\n      IsIntegral ℤ x ∧\n        ↑(minpoly ℚ x).natDegree ≤ B ∧\n          (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧\n            ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1};\nIsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+      "manifest": [
+        {
+          "statement": "Set.InjOn ξ (Set.Icc 0 d)",
+          "origin": "manifest",
+          "name": "hξ",
+          "fvar_id": "4"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Decidable.byContradiction",
+          "Eq.trans",
+          "Finset.Icc_eq_empty_of_lt",
+          "Finset.prod_Icc_succ_top",
+          "Finset.prod_congr",
+          "Finset.sum_congr",
+          "Finset.sum_range_succ",
+          "Finset.sum_singleton",
+          "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+          "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+          "MonoidHomClass.toOneHomClass",
+          "MonoidWithZeroHomClass.toMonoidHomClass",
+          "Nat.instCanonicallyOrderedAdd",
+          "Nat.instIsOrderedAddMonoid",
+          "Nat.instIsOrderedCancelAddMonoid",
+          "Nat.instNoMaxOrder",
+          "Nat.le_succ",
+          "Nat.le_trans",
+          "Nat.succ_ne_zero",
+          "Ne.symm",
+          "Order.lt_one_iff._simp_1",
+          "RingHom.instRingHomClass",
+          "RingHomClass.toMonoidWithZeroHomClass",
+          "Rollout_p2889_newton_sum_identity.newton_nodal_prod_range_succ",
+          "Rollout_p2889_newton_sum_identity.newton_nodal_prod_range_succ._proof_1",
+          "Rollout_p2889_newton_sum_identity.newton_step_core",
+          "Set.InjOn.mono",
+          "Set.InjOn.ne",
+          "Set.mem_Icc._simp_1",
+          "Std.le_refl._simp_1",
+          "and_self",
+          "congr",
+          "congrArg",
+          "contravariant_lt_of_covariant_le",
+          "contravariant_swap_add_of_contravariant_add",
+          "covariant_swap_add_of_covariant_add",
+          "eq_self",
+          "instIsLeftCancelAddOfAddLeftReflectLE",
+          "instIsRightCancelAddOfAddRightReflectLE",
+          "instReflLe",
+          "inv_one",
+          "le_add_iff_nonneg_left._simp_1",
+          "map_one",
+          "mul_one",
+          "of_eq_true",
+          "sub_ne_zero_of_ne",
+          "zero_add",
+          "zero_le._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "Set.InjOn ξ (Set.Icc 0 d)",
+            "origin": "local_assumption",
+            "name": "hξ",
+            "fvar_id": "4"
+          }
+        ],
+        "parent": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∑ i ∈ Finset.range (d + 1),\n    (∏ j ∈ Finset.range i, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 i, (ξ 0 - ξ j))⁻¹ =\n  (∏ j ∈ Finset.Icc 1 d, (Polynomial.X - Polynomial.C (ξ j))) * Polynomial.C (∏ j ∈ Finset.Icc 1 d, (ξ 0 - ξ j))⁻¹",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "manifest": [
+        {
+          "statement": "0 < M",
+          "origin": "manifest",
+          "name": "hM",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "0 < N",
+          "origin": "manifest",
+          "name": "hN",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2",
+          "origin": "manifest",
+          "name": "hParseval",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "manifest",
+          "name": "hdisjoint",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "u ∈ Submodule.span ℝ (φ '' I)",
+          "origin": "manifest",
+          "name": "hu",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)",
+          "origin": "manifest",
+          "name": "hv",
+          "fvar_id": "19"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_univ_eq_id_of_parseval"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2",
+              "origin": "local_assumption",
+              "name": "hParseval",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_13",
+          "conclusion": {
+            "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+            "origin": "derived",
+            "name": "hframe",
+            "fvar_id": "13"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (x : E), SI x + SC x = x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+            "congrArg",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame φ Set.univ = LinearMap.id",
+              "origin": "derived",
+              "name": "hframe",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_14",
+          "conclusion": {
+            "statement": "∀ (x : E), SI x + SC x = x",
+            "origin": "derived",
+            "name": "hdecomp",
+            "fvar_id": "14"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ v ∈ B, SI v = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mp",
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+            "Submodule.mem_bot",
+            "Submodule.sub_mem",
+            "congrArg",
+            "eq_sub_of_add_eq",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+              "origin": "local_assumption",
+              "name": "hdisjoint",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (x : E), SI x + SC x = x",
+              "origin": "derived",
+              "name": "hdecomp",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "∀ v ∈ B, SI v = 0",
+            "origin": "derived",
+            "name": "hSI_zero_on_B",
+            "fvar_id": "15"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SI u ∈ A",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "SI u ∈ A",
+            "origin": "derived",
+            "name": "hSIu_A",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SC u ∈ B",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "SC u ∈ B",
+            "origin": "derived",
+            "name": "hSCu_B",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SC u ∈ A",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.sub_mem",
+            "congrArg",
+            "eq_sub_of_add_eq'",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : E), SI x + SC x = x",
+              "origin": "derived",
+              "name": "hdecomp",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "u ∈ Submodule.span ℝ (φ '' I)",
+              "origin": "local_assumption",
+              "name": "hu",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "SI u ∈ A",
+              "origin": "derived",
+              "name": "hSIu_A",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "SC u ∈ A",
+            "origin": "derived",
+            "name": "hSCu_A",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SC u = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mp",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.mem_bot",
+            "congrArg",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+              "origin": "local_assumption",
+              "name": "hdisjoint",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "SC u ∈ B",
+              "origin": "derived",
+              "name": "hSCu_B",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "SC u ∈ A",
+              "origin": "derived",
+              "name": "hSCu_A",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "SC u = 0",
+            "origin": "derived",
+            "name": "hSCu_zero",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SI u = u",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "PiLp.innerProductSpace._proof_1",
+            "add_zero",
+            "congrArg",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : E), SI x + SC x = x",
+              "origin": "derived",
+              "name": "hdecomp",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "SC u = 0",
+              "origin": "derived",
+              "name": "hSCu_zero",
+              "fvar_id": "23"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "SI u = u",
+            "origin": "derived",
+            "name": "hSIu",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SI v = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "∀ v ∈ B, SI v = 0",
+              "origin": "derived",
+              "name": "hSI_zero_on_B",
+              "fvar_id": "15"
+            },
+            {
+              "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)",
+              "origin": "local_assumption",
+              "name": "hv",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "SI v = 0",
+            "origin": "derived",
+            "name": "hSIv",
+            "fvar_id": "25"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "inner ℝ u v = 0",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "inner ℝ u v = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "PiLp.innerProductSpace._proof_1",
+          "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_isSymmetric",
+          "congrArg",
+          "fact_one_le_two_ennreal",
+          "inner_zero_right"
+        ],
+        "premises": [
+          {
+            "statement": "SI u = u",
+            "origin": "derived",
+            "name": "hSIu",
+            "fvar_id": "24"
+          },
+          {
+            "statement": "SI v = 0",
+            "origin": "derived",
+            "name": "hSIv",
+            "fvar_id": "25"
+          }
+        ],
+        "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "inner ℝ u v = 0",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p0109_exists_atomic_puiseux_monoid_without_singl.exists_atomic_puiseux_monoid_without_singleton_two_lengths",
+      "manifest": [],
+      "local_edges": [],
+      "goal": {
+        "statement": "∃ M,\n  (∀ (x : ↥M), ∃ l, (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x) ∧\n    ∀ (x : ↥M), {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} ≠ {2}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ M,\n  (∀ (x : ↥M), ∃ l, (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x) ∧\n    ∀ (x : ↥M), {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} ≠ {2}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "Eq.trans",
+          "Mathlib.Meta.NormNum.isNat_eq_false",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Nat.instCharZero",
+          "Set.mem_singleton_iff._simp_1",
+          "Subtype.ext",
+          "Subtype.property",
+          "congrArg",
+          "eq_false",
+          "noConfusion_of_Nat"
+        ],
+        "premises": [],
+        "parent": "Rollout_p0109_exists_atomic_puiseux_monoid_without_singl.exists_atomic_puiseux_monoid_without_singleton_two_lengths",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ M,\n  (∀ (x : ↥M), ∃ l, (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x) ∧\n    ∀ (x : ↥M), {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} ≠ {2}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p1384_scale_prod.scale_prod",
+      "manifest": [
+        {
+          "statement": "IsTopologicalGroup G",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.10",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "LocallyCompactSpace G",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.13",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "TotallyDisconnectedSpace G",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.16",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "IsTopologicalGroup H",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.25",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "LocallyCompactSpace H",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.28",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "TotallyDisconnectedSpace H",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.31",
+          "fvar_id": "11"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "SP.Nonempty",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Prod.instIsTopologicalGroup",
+            "Prod.locallyCompactSpace",
+            "Prod.totallyDisconnectedSpace",
+            "Rollout_p1384_scale_prod.exists_compact_open_subgroup_subset",
+            "Set.mem_univ",
+            "isOpen_univ"
+          ],
+          "premises": [
+            {
+              "statement": "IsTopologicalGroup G",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.10",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "LocallyCompactSpace G",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.13",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "TotallyDisconnectedSpace G",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.16",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "IsTopologicalGroup H",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.25",
+              "fvar_id": "9"
+            },
+            {
+              "statement": "LocallyCompactSpace H",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.28",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "TotallyDisconnectedSpace H",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.31",
+              "fvar_id": "11"
+            }
+          ],
+          "parent": "Rollout_p1384_scale_prod.scale_prod",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "SP.Nonempty",
+            "origin": "derived",
+            "name": "hPne",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SG.Nonempty",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1384_scale_prod.exists_compact_open_subgroup_subset",
+            "Set.mem_univ",
+            "isOpen_univ"
+          ],
+          "premises": [
+            {
+              "statement": "IsTopologicalGroup G",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.10",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "LocallyCompactSpace G",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.13",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "TotallyDisconnectedSpace G",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.16",
+              "fvar_id": "6"
+            }
+          ],
+          "parent": "Rollout_p1384_scale_prod.scale_prod",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "SG.Nonempty",
+            "origin": "derived",
+            "name": "hGne",
+            "fvar_id": "18"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "SH.Nonempty",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1384_scale_prod.exists_compact_open_subgroup_subset",
+            "Set.mem_univ",
+            "isOpen_univ"
+          ],
+          "premises": [
+            {
+              "statement": "IsTopologicalGroup H",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.25",
+              "fvar_id": "9"
+            },
+            {
+              "statement": "LocallyCompactSpace H",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.28",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "TotallyDisconnectedSpace H",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.3934748685._hygCtx._hyg.31",
+              "fvar_id": "11"
+            }
+          ],
+          "parent": "Rollout_p1384_scale_prod.scale_prod",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "SH.Nonempty",
+            "origin": "derived",
+            "name": "hHne",
+            "fvar_id": "19"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "sInf {n | ∃ U, IsCompact ↑U ∧ IsOpen ↑U ∧ n = U.relIndex (Subgroup.map (φ.toMonoidHom.prodMap ψ.toMonoidHom) U)} =\n  sInf {n | ∃ V, IsCompact ↑V ∧ IsOpen ↑V ∧ n = V.relIndex (Subgroup.map φ.toMonoidHom V)} *\n    sInf {n | ∃ W, IsCompact ↑W ∧ IsOpen ↑W ∧ n = W.relIndex (Subgroup.map ψ.toMonoidHom W)}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "sInf {n | ∃ U, IsCompact ↑U ∧ IsOpen ↑U ∧ n = U.relIndex (Subgroup.map (φ.toMonoidHom.prodMap ψ.toMonoidHom) U)} =\n  sInf {n | ∃ V, IsCompact ↑V ∧ IsOpen ↑V ∧ n = V.relIndex (Subgroup.map φ.toMonoidHom V)} *\n    sInf {n | ∃ W, IsCompact ↑W ∧ IsOpen ↑W ∧ n = W.relIndex (Subgroup.map ψ.toMonoidHom W)}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.symm",
+          "IsCompact.prod",
+          "IsOpen.prod",
+          "Nat.sInf_le",
+          "Nat.sInf_mem",
+          "Rollout_p1384_scale_prod.relIndex_prod_map",
+          "Rollout_p1384_scale_prod.scale_prod_lower",
+          "Subgroup.coe_prod",
+          "congrArg",
+          "le_antisymm",
+          "le_csInf"
+        ],
+        "premises": [
+          {
+            "statement": "IsTopologicalGroup G",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3934748685._hygCtx._hyg.10",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "LocallyCompactSpace G",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3934748685._hygCtx._hyg.13",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "TotallyDisconnectedSpace G",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3934748685._hygCtx._hyg.16",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "IsTopologicalGroup H",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3934748685._hygCtx._hyg.25",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "LocallyCompactSpace H",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3934748685._hygCtx._hyg.28",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "TotallyDisconnectedSpace H",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3934748685._hygCtx._hyg.31",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "SP.Nonempty",
+            "origin": "derived",
+            "name": "hPne",
+            "fvar_id": "17"
+          },
+          {
+            "statement": "SG.Nonempty",
+            "origin": "derived",
+            "name": "hGne",
+            "fvar_id": "18"
+          },
+          {
+            "statement": "SH.Nonempty",
+            "origin": "derived",
+            "name": "hHne",
+            "fvar_id": "19"
+          }
+        ],
+        "parent": "Rollout_p1384_scale_prod.scale_prod",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "sInf {n | ∃ U, IsCompact ↑U ∧ IsOpen ↑U ∧ n = U.relIndex (Subgroup.map (φ.toMonoidHom.prodMap ψ.toMonoidHom) U)} =\n  sInf {n | ∃ V, IsCompact ↑V ∧ IsOpen ↑V ∧ n = V.relIndex (Subgroup.map φ.toMonoidHom V)} *\n    sInf {n | ∃ W, IsCompact ↑W ∧ IsOpen ↑W ∧ n = W.relIndex (Subgroup.map ψ.toMonoidHom W)}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "manifest": [
+        {
+          "statement": "0 < a",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "a < b",
+          "origin": "manifest",
+          "name": "hab",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "a.Coprime b",
+          "origin": "manifest",
+          "name": "hab_coprime",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "3 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "B.mulVec v = 0",
+          "origin": "manifest",
+          "name": "hv",
+          "fvar_id": "13"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "NeZero (a + b)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.add_pos_left",
+            "Nat.ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_7",
+          "conclusion": {
+            "statement": "NeZero (a + b)",
+            "origin": "derived",
+            "name": "hNe",
+            "fvar_id": "7"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "B.mulVec v = 0",
+              "origin": "local_assumption",
+              "name": "hv",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_16",
+          "conclusion": {
+            "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+            "origin": "derived",
+            "name": "hv'",
+            "fvar_id": "16"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Mathlib.Tactic.Abel.const_add_termg",
+            "Mathlib.Tactic.Abel.subst_into_addg",
+            "Mathlib.Tactic.Abel.term_add_constg",
+            "Mathlib.Tactic.Abel.term_atomg",
+            "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor",
+            "add_zero",
+            "congrArg",
+            "congrFun",
+            "zero_add"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "a < b",
+              "origin": "local_assumption",
+              "name": "hab",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+              "origin": "derived",
+              "name": "hv'",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+            "origin": "derived",
+            "name": "hrec",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Int.cast_neg",
+            "Int.cast_one",
+            "Int.cast_pow",
+            "RingHom.instRingHomClass",
+            "Rollout_p3019_laurent_circulant_kernel.laurent_neg_one_t_pow_ne",
+            "congrArg",
+            "congrFun'",
+            "eq_intCast"
+          ],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+            "origin": "derived",
+            "name": "ht",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), x r = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "AddGroup.instFGInt",
+            "AddMonoid.fg_of_addGroup_fg",
+            "AddMonoidAlgebra.instIsDomainOfIsCancelAddOfUniqueSums",
+            "AffineAddMonoid.to_twoUniqueSums",
+            "Int.instIsAddTorsionFree",
+            "Int.instIsDomain",
+            "Int.instIsStrictOrderedRing",
+            "IsAffineAddMonoid.toFG",
+            "IsAffineAddMonoid.toIsCancelAdd",
+            "IsOrderedCancelAddMonoid.toIsCancelAdd",
+            "IsStrictOrderedRing.toIsOrderedCancelAddMonoid",
+            "Rollout_p3019_laurent_circulant_kernel.zmod_recur_eq_zero",
+            "TwoUniqueSums.toUniqueSums"
+          ],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+              "origin": "derived",
+              "name": "hrec",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+              "origin": "derived",
+              "name": "ht",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), x r = 0",
+            "origin": "derived",
+            "name": "hx",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "a.Coprime (a + b)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "Nat.coprime_self_add_right"
+          ],
+          "premises": [
+            {
+              "statement": "a.Coprime b",
+              "origin": "local_assumption",
+              "name": "hab_coprime",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "a.Coprime (a + b)",
+            "origin": "derived",
+            "name": "hcop",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Iff.mp",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsNat.to_eq",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_neg",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Abel.subst_into_addg",
+            "Mathlib.Tactic.Abel.subst_into_negg",
+            "Mathlib.Tactic.Abel.term_add_constg",
+            "Mathlib.Tactic.Abel.term_add_termg",
+            "Mathlib.Tactic.Abel.term_atomg",
+            "Mathlib.Tactic.Abel.term_neg",
+            "Mathlib.Tactic.Abel.unfold_sub",
+            "Mathlib.Tactic.Abel.zero_termg",
+            "congrArg",
+            "neg_zero",
+            "sub_eq_zero",
+            "zero_add"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (r : ZMod (a + b)), x r = 0",
+              "origin": "derived",
+              "name": "hx",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+            "origin": "derived",
+            "name": "hwinv",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (i j : ZMod (a + b)), w i = w j",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+          ],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "a.Coprime (a + b)",
+              "origin": "derived",
+              "name": "hcop",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+              "origin": "derived",
+              "name": "hwinv",
+              "fvar_id": "24"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+            "origin": "derived",
+            "name": "hweq",
+            "fvar_id": "25"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mp",
+            "Iff.mpr",
+            "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub",
+            "sub_eq_zero"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+              "origin": "derived",
+              "name": "hweq",
+              "fvar_id": "25"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_26",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+            "origin": "derived",
+            "name": "hvinv",
+            "fvar_id": "26"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "v i = v j",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "v i = v j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+        ],
+        "premises": [
+          {
+            "statement": "NeZero (a + b)",
+            "origin": "derived",
+            "name": "hNe",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "a.Coprime (a + b)",
+            "origin": "derived",
+            "name": "hcop",
+            "fvar_id": "23"
+          },
+          {
+            "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+            "origin": "derived",
+            "name": "hvinv",
+            "fvar_id": "26"
+          }
+        ],
+        "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "v i = v j",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "manifest": [
+        {
+          "statement": "Nonempty X",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3357448525._hygCtx._hyg.3",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "1 ≤ s",
+          "origin": "manifest",
+          "name": "hs",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+          "origin": "manifest",
+          "name": "hd_zero",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "manifest",
+          "name": "hd_symm",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "manifest",
+          "name": "hd_triangle",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ (x : ℕ → X),\n  Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) →\n    ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+          "origin": "manifest",
+          "name": "hcomplete",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "1 < A",
+          "origin": "manifest",
+          "name": "hA",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ (x : ℕ → X) (u : X),\n  Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) →\n    Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "manifest",
+          "name": "hf_continuous",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))",
+          "origin": "manifest",
+          "name": "hcaristi",
+          "fvar_id": "14"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_orbit_tendsto_pair"
+          ],
+          "premises": [
+            {
+              "statement": "1 ≤ s",
+              "origin": "local_assumption",
+              "name": "hs",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+              "origin": "local_assumption",
+              "name": "hd_zero",
+              "fvar_id": "8"
+            },
+            {
+              "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+              "origin": "local_assumption",
+              "name": "hd_symm",
+              "fvar_id": "9"
+            },
+            {
+              "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+              "origin": "local_assumption",
+              "name": "hd_triangle",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "1 < A",
+              "origin": "local_assumption",
+              "name": "hA",
+              "fvar_id": "12"
+            },
+            {
+              "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))",
+              "origin": "local_assumption",
+              "name": "hcaristi",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+            "origin": "derived",
+            "name": "hcauchy",
+            "fvar_id": "17"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "EMetricSpace.metrizableSpace",
+          "Eq.symm",
+          "Eq.trans",
+          "Filter.Tendsto.add",
+          "Filter.Tendsto.comp",
+          "Filter.Tendsto.const_mul",
+          "Filter.atTop_neBot",
+          "Filter.tendsto_add_atTop_nat",
+          "Function.iterate_succ_apply'",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsSemitopologicalRing.toIsSemitopologicalSemiring",
+          "IsSemitopologicalSemiring.toContinuousAdd",
+          "IsSemitopologicalSemiring.toSeparatelyContinuousMul",
+          "IsTopologicalRing.toIsSemitopologicalRing",
+          "MulZeroClass.mul_zero",
+          "NNReal.coe_nonneg",
+          "NNReal.tendsto_coe",
+          "Nat.instStarOrderedRing",
+          "StarOrderedRing.toIsOrderedRing",
+          "TopologicalSpace.t2Space_of_metrizableSpace",
+          "add_zero",
+          "congrArg",
+          "instArchimedeanNat",
+          "instIsDirectedOrder",
+          "instIsTopologicalRingReal",
+          "instNonemptyOfInhabited",
+          "instOrderTopologyReal",
+          "tendsto_const_nhds",
+          "tendsto_nhds_unique",
+          "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+            "origin": "local_assumption",
+            "name": "hd_zero",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+            "origin": "local_assumption",
+            "name": "hd_symm",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+            "origin": "local_assumption",
+            "name": "hd_triangle",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "∀ (x : ℕ → X),\n  Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) →\n    ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+            "origin": "local_assumption",
+            "name": "hcomplete",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "∀ (x : ℕ → X) (u : X),\n  Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) →\n    Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+            "origin": "local_assumption",
+            "name": "hf_continuous",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+            "origin": "derived",
+            "name": "hcauchy",
+            "fvar_id": "17"
+          }
+        ],
+        "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "theorem_name": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "manifest": [
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }), IsOpen (U n)",
+          "origin": "manifest",
+          "name": "hU_open",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "Monotone U",
+          "origin": "manifest",
+          "name": "hU_mono",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "⋃ n, U n = Set.univ",
+          "origin": "manifest",
+          "name": "hU_cover",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "manifest",
+          "name": "hf",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "ConditionallyCompleteLinearOrder.toCompactIccSpace",
+          "Continuous.comp",
+          "ContinuousMap.comp_apply",
+          "ContinuousMap.continuous",
+          "Eq.trans",
+          "Function.compactSpace",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsCompact.union",
+          "Nonempty.map",
+          "Quotient.eq",
+          "Quotient.exists_rep",
+          "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.exists_cover_stage_of_isCompact",
+          "SemilatticeSup.instIsDirectedOrder",
+          "Set.Finite.isCompact._simp_1",
+          "Set.finite_insert._simp_1",
+          "Set.finite_singleton._simp_1",
+          "Set.mem_insert_iff._simp_1",
+          "Set.mem_range._simp_1",
+          "Set.mem_singleton_iff._simp_1",
+          "Set.mem_union._simp_1",
+          "Set.mem_union_left",
+          "Set.mem_union_right",
+          "Set.union_singleton",
+          "Subtype.property",
+          "compactSpace_Icc",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "continuous_subtype_val",
+          "eq_self",
+          "instNonemptyOfInhabited",
+          "instOrderTopologyReal",
+          "isCompact_range",
+          "isCompact_singleton",
+          "le_rfl",
+          "of_eq_true",
+          "or_true",
+          "true_or"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (n : { n // 1 ≤ n }), IsOpen (U n)",
+            "origin": "local_assumption",
+            "name": "hU_open",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "Monotone U",
+            "origin": "local_assumption",
+            "name": "hU_mono",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "⋃ n, U n = Set.univ",
+            "origin": "local_assumption",
+            "name": "hU_cover",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+            "origin": "local_assumption",
+            "name": "hf",
+            "fvar_id": "9"
+          }
+        ],
+        "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "x ∈ Set.Ioc 0 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Real.instZeroLEOneClass",
+        "Set.mem_Ioc._simp_1",
+        "Set.uIoc_of_le",
+        "congrArg",
+        "congrFun'",
+        "of_eq_true",
+        "zero_le_one._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "x ∈ Set.uIoc 0 1",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.1006679"
+        }
+      ],
+      "parent": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+      "id": "local_293",
+      "conclusion": {
+        "statement": "x ∈ Set.Ioc 0 1",
+        "origin": "derived",
+        "name": "hxIoc",
+        "fvar_id": "_uniq.1006939"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ x ∧ x ≤ 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "LT.lt.le"
+      ],
+      "premises": [
+        {
+          "statement": "x ∈ Set.Ioc 0 1",
+          "origin": "derived",
+          "name": "hxIoc",
+          "fvar_id": "_uniq.1006939"
+        }
+      ],
+      "parent": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+      "id": "local_294",
+      "conclusion": {
+        "statement": "x ∈ Set.Icc 0 1",
+        "origin": "derived",
+        "name": "hxIcc",
+        "fvar_id": "_uniq.1036287"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : ℝ), (S_B ∩ Set.Icc (x - 1) (x + 1)).Finite",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Complex.instCharZero",
+        "Nat.le_floor",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.finite_algebraic_integer_of_bounded_conjugates_inter_Icc",
+        "Set.Finite.subset"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.bounded_degree_unit_circle_conjugates_closed_discrete",
+      "id": "local_348",
+      "conclusion": {
+        "statement": "∀ (x : ℝ), (S_B ∩ Set.Icc (x - 1) (x + 1)).Finite",
+        "origin": "derived",
+        "name": "hfin",
+        "fvar_id": "_uniq.1134077"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃x : ℕ⦄, x ∈ Set.Icc 0 d → 0 ≤ x ∧ x ≤ d + 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Nat.le_succ",
+        "Nat.le_trans"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+      "id": "local_351",
+      "conclusion": {
+        "statement": "Set.Icc 0 d ⊆ Set.Icc 0 (d + 1)",
+        "origin": "derived",
+        "name": "hsubset",
+        "fvar_id": "_uniq.1202868"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ξ 0 ≠ ξ (d + 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+        "Nat.instCanonicallyOrderedAdd",
+        "Nat.instIsOrderedAddMonoid",
+        "Nat.instIsOrderedCancelAddMonoid",
+        "Nat.succ_ne_zero",
+        "Ne.symm",
+        "Set.InjOn.ne",
+        "Set.mem_Icc._simp_1",
+        "Std.le_refl._simp_1",
+        "and_self",
+        "congr",
+        "congrArg",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "instReflLe",
+        "le_add_iff_nonneg_left._simp_1",
+        "of_eq_true",
+        "zero_le._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "Set.InjOn ξ (Set.Icc 0 (d + 1))",
+          "origin": "local_assumption",
+          "name": "hξ",
+          "fvar_id": "_uniq.1201615"
+        }
+      ],
+      "parent": "Rollout_p2889_newton_sum_identity.newton_sum_identity",
+      "id": "local_352",
+      "conclusion": {
+        "statement": "ξ 0 ≠ ξ (d + 1)",
+        "origin": "derived",
+        "name": "hne",
+        "fvar_id": "_uniq.1205858"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(partialFrame φ I + partialFrame φ Iᶜ) x = (partialFrame φ Set.univ) x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_361",
+      "conclusion": {
+        "statement": "(fun T => T x) (partialFrame φ I + partialFrame φ Iᶜ) = (fun T => T x) (partialFrame φ Set.univ)",
+        "origin": "derived",
+        "name": "happ",
+        "fvar_id": "_uniq.1321622"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v = v - SC v",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "eq_sub_of_add_eq",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_362",
+      "conclusion": {
+        "statement": "SI v = v - SC v",
+        "origin": "derived",
+        "name": "hEq",
+        "fvar_id": "_uniq.1327508"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v ∈ A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_363",
+      "conclusion": {
+        "statement": "SI v ∈ A",
+        "origin": "derived",
+        "name": "hSIv_A",
+        "fvar_id": "_uniq.1325598"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC v ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_364",
+      "conclusion": {
+        "statement": "SC v ∈ B",
+        "origin": "derived",
+        "name": "hSCv_B",
+        "fvar_id": "_uniq.1326322"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.sub_mem",
+        "congrArg",
+        "eq_sub_of_add_eq",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        },
+        {
+          "statement": "v ∈ B",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.1325428"
+        },
+        {
+          "statement": "SC v ∈ B",
+          "origin": "derived",
+          "name": "hSCv_B",
+          "fvar_id": "_uniq.1326322"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_365",
+      "conclusion": {
+        "statement": "SI v ∈ B",
+        "origin": "derived",
+        "name": "hSIv_B",
+        "fvar_id": "_uniq.1327115"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v ∈ ⊥",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "PiLp.innerProductSpace._proof_1",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "SI v ∈ A",
+          "origin": "derived",
+          "name": "hSIv_A",
+          "fvar_id": "_uniq.1325598"
+        },
+        {
+          "statement": "SI v ∈ B",
+          "origin": "derived",
+          "name": "hSIv_B",
+          "fvar_id": "_uniq.1327115"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_366",
+      "conclusion": {
+        "statement": "SI v ∈ ⊥",
+        "origin": "derived",
+        "name": "hbot",
+        "fvar_id": "_uniq.1327976"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u = u - SI u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "eq_sub_of_add_eq'",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_367",
+      "conclusion": {
+        "statement": "SC u = u - SI u",
+        "origin": "derived",
+        "name": "hEq",
+        "fvar_id": "_uniq.1331423"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u ∈ ⊥",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "PiLp.innerProductSpace._proof_1",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "SC u ∈ B",
+          "origin": "derived",
+          "name": "hSCu_B",
+          "fvar_id": "_uniq.1330087"
+        },
+        {
+          "statement": "SC u ∈ A",
+          "origin": "derived",
+          "name": "hSCu_A",
+          "fvar_id": "_uniq.1330880"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_368",
+      "conclusion": {
+        "statement": "SC u ∈ ⊥",
+        "origin": "derived",
+        "name": "hbot",
+        "fvar_id": "_uniq.1331814"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI u + SC u = u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_369",
+      "conclusion": {
+        "statement": "SI u + SC u = u",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.1332936"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "partialFrame φ Set.univ = LinearMap.id",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_univ_eq_id_of_parseval"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin M)), ∑ i, inner ℝ x (φ i) ^ 2 = ‖x‖ ^ 2",
+          "origin": "local_assumption",
+          "name": "hParseval",
+          "fvar_id": "_uniq.1312754"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_375",
+      "conclusion": {
+        "statement": "partialFrame φ Set.univ = LinearMap.id",
+        "origin": "derived",
+        "name": "hframe",
+        "fvar_id": "_uniq.1318252"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : E), SI x + SC x = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_add_compl",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "partialFrame φ Set.univ = LinearMap.id",
+          "origin": "derived",
+          "name": "hframe",
+          "fvar_id": "_uniq.1318252"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_376",
+      "conclusion": {
+        "statement": "∀ (x : E), SI x + SC x = x",
+        "origin": "derived",
+        "name": "hdecomp",
+        "fvar_id": "_uniq.1321263"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ v ∈ B, SI v = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mp",
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "Submodule.mem_bot",
+        "Submodule.sub_mem",
+        "congrArg",
+        "eq_sub_of_add_eq",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_377",
+      "conclusion": {
+        "statement": "∀ v ∈ B, SI v = 0",
+        "origin": "derived",
+        "name": "hSI_zero_on_B",
+        "fvar_id": "_uniq.1325421"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI u ∈ A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_378",
+      "conclusion": {
+        "statement": "SI u ∈ A",
+        "origin": "derived",
+        "name": "hSIu_A",
+        "fvar_id": "_uniq.1329363"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Rollout_p1193_parseval_frame_spans_orthogonal.partialFrame_mem_span",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_379",
+      "conclusion": {
+        "statement": "SC u ∈ B",
+        "origin": "derived",
+        "name": "hSCu_B",
+        "fvar_id": "_uniq.1330087"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u ∈ A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.sub_mem",
+        "congrArg",
+        "eq_sub_of_add_eq'",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        },
+        {
+          "statement": "u ∈ Submodule.span ℝ (φ '' I)",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.1329221"
+        },
+        {
+          "statement": "SI u ∈ A",
+          "origin": "derived",
+          "name": "hSIu_A",
+          "fvar_id": "_uniq.1329363"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_380",
+      "conclusion": {
+        "statement": "SC u ∈ A",
+        "origin": "derived",
+        "name": "hSCu_A",
+        "fvar_id": "_uniq.1330880"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SC u = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mp",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.mem_bot",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "Submodule.span ℝ (φ '' I) ⊓ Submodule.span ℝ (φ '' Iᶜ) = ⊥",
+          "origin": "local_assumption",
+          "name": "hdisjoint",
+          "fvar_id": "_uniq.1312756"
+        },
+        {
+          "statement": "SC u ∈ B",
+          "origin": "derived",
+          "name": "hSCu_B",
+          "fvar_id": "_uniq.1330087"
+        },
+        {
+          "statement": "SC u ∈ A",
+          "origin": "derived",
+          "name": "hSCu_A",
+          "fvar_id": "_uniq.1330880"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_381",
+      "conclusion": {
+        "statement": "SC u = 0",
+        "origin": "derived",
+        "name": "hSCu_zero",
+        "fvar_id": "_uniq.1331558"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI u = u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "PiLp.innerProductSpace._proof_1",
+        "add_zero",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : E), SI x + SC x = x",
+          "origin": "derived",
+          "name": "hdecomp",
+          "fvar_id": "_uniq.1321263"
+        },
+        {
+          "statement": "SC u = 0",
+          "origin": "derived",
+          "name": "hSCu_zero",
+          "fvar_id": "_uniq.1331558"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_382",
+      "conclusion": {
+        "statement": "SI u = u",
+        "origin": "derived",
+        "name": "hSIu",
+        "fvar_id": "_uniq.1332930"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SI v = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ v ∈ B, SI v = 0",
+          "origin": "derived",
+          "name": "hSI_zero_on_B",
+          "fvar_id": "_uniq.1325421"
+        },
+        {
+          "statement": "v ∈ Submodule.span ℝ (φ '' Iᶜ)",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.1329227"
+        }
+      ],
+      "parent": "Rollout_p1193_parseval_frame_spans_orthogonal.parseval_frame_spans_orthogonal",
+      "id": "local_383",
+      "conclusion": {
+        "statement": "SI v = 0",
+        "origin": "derived",
+        "name": "hSIv",
+        "fvar_id": "_uniq.1333278"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ l, l.length = 0 ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Subtype.ext",
+        "Subtype.property",
+        "noConfusion_of_Nat"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0109_exists_atomic_puiseux_monoid_without_singl.exists_atomic_puiseux_monoid_without_singleton_two_lengths",
+      "id": "local_384",
+      "conclusion": {
+        "statement": "0 ∈ {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x}",
+        "origin": "derived",
+        "name": "h0",
+        "fvar_id": "_uniq.1345490"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ U, IsCompact ↑U ∧ IsOpen ↑U ∧ sInf SG * sInf SH = U.relIndex (Subgroup.map (φ.toMonoidHom.prodMap ψ.toMonoidHom) U)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "IsCompact.prod",
+        "IsOpen.prod",
+        "Rollout_p1384_scale_prod.relIndex_prod_map",
+        "Subgroup.coe_prod",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "IsCompact ↑V",
+          "origin": "local_assumption",
+          "name": "hVc",
+          "fvar_id": "_uniq.2402922"
+        },
+        {
+          "statement": "IsOpen ↑V",
+          "origin": "local_assumption",
+          "name": "hVo",
+          "fvar_id": "_uniq.2402940"
+        },
+        {
+          "statement": "sInf SG = V.relIndex (Subgroup.map φ.toMonoidHom V)",
+          "origin": "local_assumption",
+          "name": "hVmin",
+          "fvar_id": "_uniq.2402941"
+        },
+        {
+          "statement": "IsCompact ↑W",
+          "origin": "local_assumption",
+          "name": "hWc",
+          "fvar_id": "_uniq.2402991"
+        },
+        {
+          "statement": "IsOpen ↑W",
+          "origin": "local_assumption",
+          "name": "hWo",
+          "fvar_id": "_uniq.2403009"
+        },
+        {
+          "statement": "sInf SH = W.relIndex (Subgroup.map ψ.toMonoidHom W)",
+          "origin": "local_assumption",
+          "name": "hWmin",
+          "fvar_id": "_uniq.2403010"
+        }
+      ],
+      "parent": "Rollout_p1384_scale_prod.scale_prod",
+      "id": "local_543",
+      "conclusion": {
+        "statement": "sInf SG * sInf SH ∈ SP",
+        "origin": "derived",
+        "name": "hprod_mem",
+        "fvar_id": "_uniq.2403202"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SP.Nonempty",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Prod.instIsTopologicalGroup",
+        "Prod.locallyCompactSpace",
+        "Prod.totallyDisconnectedSpace",
+        "Rollout_p1384_scale_prod.exists_compact_open_subgroup_subset",
+        "Set.mem_univ",
+        "isOpen_univ"
+      ],
+      "premises": [
+        {
+          "statement": "IsTopologicalGroup G",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.10",
+          "fvar_id": "_uniq.2393040"
+        },
+        {
+          "statement": "LocallyCompactSpace G",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.13",
+          "fvar_id": "_uniq.2393041"
+        },
+        {
+          "statement": "TotallyDisconnectedSpace G",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.16",
+          "fvar_id": "_uniq.2393042"
+        },
+        {
+          "statement": "IsTopologicalGroup H",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.25",
+          "fvar_id": "_uniq.2393045"
+        },
+        {
+          "statement": "LocallyCompactSpace H",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.28",
+          "fvar_id": "_uniq.2393046"
+        },
+        {
+          "statement": "TotallyDisconnectedSpace H",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.31",
+          "fvar_id": "_uniq.2393047"
+        }
+      ],
+      "parent": "Rollout_p1384_scale_prod.scale_prod",
+      "id": "local_547",
+      "conclusion": {
+        "statement": "SP.Nonempty",
+        "origin": "derived",
+        "name": "hPne",
+        "fvar_id": "_uniq.2398156"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SG.Nonempty",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1384_scale_prod.exists_compact_open_subgroup_subset",
+        "Set.mem_univ",
+        "isOpen_univ"
+      ],
+      "premises": [
+        {
+          "statement": "IsTopologicalGroup G",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.10",
+          "fvar_id": "_uniq.2393040"
+        },
+        {
+          "statement": "LocallyCompactSpace G",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.13",
+          "fvar_id": "_uniq.2393041"
+        },
+        {
+          "statement": "TotallyDisconnectedSpace G",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.16",
+          "fvar_id": "_uniq.2393042"
+        }
+      ],
+      "parent": "Rollout_p1384_scale_prod.scale_prod",
+      "id": "local_548",
+      "conclusion": {
+        "statement": "SG.Nonempty",
+        "origin": "derived",
+        "name": "hGne",
+        "fvar_id": "_uniq.2400702"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "SH.Nonempty",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1384_scale_prod.exists_compact_open_subgroup_subset",
+        "Set.mem_univ",
+        "isOpen_univ"
+      ],
+      "premises": [
+        {
+          "statement": "IsTopologicalGroup H",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.25",
+          "fvar_id": "_uniq.2393045"
+        },
+        {
+          "statement": "LocallyCompactSpace H",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.28",
+          "fvar_id": "_uniq.2393046"
+        },
+        {
+          "statement": "TotallyDisconnectedSpace H",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3934748685._hygCtx._hyg.31",
+          "fvar_id": "_uniq.2393047"
+        }
+      ],
+      "parent": "Rollout_p1384_scale_prod.scale_prod",
+      "id": "local_549",
+      "conclusion": {
+        "statement": "SH.Nonempty",
+        "origin": "derived",
+        "name": "hHne",
+        "fvar_id": "_uniq.2401776"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "NeZero (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.add_pos_left",
+        "Nat.ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3172689"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_698",
+      "conclusion": {
+        "statement": "NeZero (a + b)",
+        "origin": "derived",
+        "name": "x._@.proofs.59506494._hygCtx._hyg.30",
+        "fvar_id": "_uniq.3173658"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have t := LaurentPolynomial.C ε * LaurentPolynomial.T 1;\nhave w := fun x => ∑ k ∈ Finset.Ico 1 (a + 1), v (x - ↑k);\n(laurentCirculantB a b ε).mulVec v r = w (r + ↑a) - w r + t * (w (r + ↑a + 1) - w (r + 1))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "a < b",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3178033"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_703",
+      "conclusion": {
+        "statement": "have t := LaurentPolynomial.C ε * LaurentPolynomial.T 1;\nhave w := fun x => ∑ k ∈ Finset.Ico 1 (a + 1), v (x - ↑k);\n(laurentCirculantB a b ε).mulVec v r = w (r + ↑a) - w r + t * (w (r + ↑a + 1) - w (r + 1))",
+        "origin": "derived",
+        "name": "hfac",
+        "fvar_id": "_uniq.3181626"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r + ↑a + 1 = r + 1 + ↑a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Tactic.Abel.const_add_termg",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "add_zero",
+        "zero_add"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_704",
+      "conclusion": {
+        "statement": "r + ↑a + 1 = r + 1 + ↑a",
+        "origin": "derived",
+        "name": "hidx",
+        "fvar_id": "_uniq.3181839"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w (r - ↑a + ↑a) = w (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "sub_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "x (r - ↑a) = 0",
+          "origin": "derived",
+          "name": "hxr",
+          "fvar_id": "_uniq.3194833"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_705",
+      "conclusion": {
+        "statement": "w (r - ↑a + ↑a) = w (r - ↑a)",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.3195130"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r - ↑a + ↑a = r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.to_eq",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_neg",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.subst_into_negg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_add_termg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Mathlib.Tactic.Abel.term_neg",
+        "Mathlib.Tactic.Abel.unfold_sub",
+        "Mathlib.Tactic.Abel.zero_termg",
+        "neg_zero",
+        "zero_add"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_706",
+      "conclusion": {
+        "statement": "r - ↑a + ↑a = r",
+        "origin": "derived",
+        "name": "hidx",
+        "fvar_id": "_uniq.3195587"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x (r - ↑a) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (r : ZMod (a + b)), x r = 0",
+          "origin": "derived",
+          "name": "hx",
+          "fvar_id": "_uniq.3194189"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_707",
+      "conclusion": {
+        "statement": "x (r - ↑a) = 0",
+        "origin": "derived",
+        "name": "hxr",
+        "fvar_id": "_uniq.3194833"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w (r + 1) - w r = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "sub_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+          "origin": "derived",
+          "name": "hweq",
+          "fvar_id": "_uniq.3197026"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_708",
+      "conclusion": {
+        "statement": "w (r + 1) - w r = 0",
+        "origin": "derived",
+        "name": "hdiff",
+        "fvar_id": "_uniq.3197873"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ k ∈ Finset.Ico 1 (a + 1), v (r + 1 - ↑k) - ∑ k ∈ Finset.Ico 1 (a + 1), v (r - ↑k) = v r - v (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_709",
+      "conclusion": {
+        "statement": "∑ k ∈ Finset.Ico 1 (a + 1), v (r + 1 - ↑k) - ∑ k ∈ Finset.Ico 1 (a + 1), v (r - ↑k) = v r - v (r - ↑a)",
+        "origin": "derived",
+        "name": "htel",
+        "fvar_id": "_uniq.3197891"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v r - v (r - ↑a) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm"
+      ],
+      "premises": [
+        {
+          "statement": "w (r + 1) - w r = 0",
+          "origin": "derived",
+          "name": "hdiff",
+          "fvar_id": "_uniq.3197873"
+        },
+        {
+          "statement": "∑ k ∈ Finset.Ico 1 (a + 1), v (r + 1 - ↑k) - ∑ k ∈ Finset.Ico 1 (a + 1), v (r - ↑k) = v r - v (r - ↑a)",
+          "origin": "derived",
+          "name": "htel",
+          "fvar_id": "_uniq.3197891"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_710",
+      "conclusion": {
+        "statement": "v r - v (r - ↑a) = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3198351"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "NeZero (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.add_pos_left",
+        "Nat.ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_711",
+      "conclusion": {
+        "statement": "NeZero (a + b)",
+        "origin": "derived",
+        "name": "hNe",
+        "fvar_id": "_uniq.3178037"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(laurentCirculantB a b ε).mulVec v = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "B.mulVec v = 0",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.3178055"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_716",
+      "conclusion": {
+        "statement": "(laurentCirculantB a b ε).mulVec v = 0",
+        "origin": "derived",
+        "name": "hv'",
+        "fvar_id": "_uniq.3178221"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Tactic.Abel.const_add_termg",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor",
+        "add_zero",
+        "congrArg",
+        "congrFun",
+        "zero_add"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "a < b",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3178033"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "(laurentCirculantB a b ε).mulVec v = 0",
+          "origin": "derived",
+          "name": "hv'",
+          "fvar_id": "_uniq.3178221"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_720",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+        "origin": "derived",
+        "name": "hrec",
+        "fvar_id": "_uniq.3181602"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Int.cast_neg",
+        "Int.cast_one",
+        "Int.cast_pow",
+        "RingHom.instRingHomClass",
+        "Rollout_p3019_laurent_circulant_kernel.laurent_neg_one_t_pow_ne",
+        "congrArg",
+        "congrFun'",
+        "eq_intCast"
+      ],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_721",
+      "conclusion": {
+        "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.3185318"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), x r = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AddGroup.instFGInt",
+        "AddMonoid.fg_of_addGroup_fg",
+        "AddMonoidAlgebra.instIsDomainOfIsCancelAddOfUniqueSums",
+        "AffineAddMonoid.to_twoUniqueSums",
+        "Int.instIsAddTorsionFree",
+        "Int.instIsDomain",
+        "Int.instIsStrictOrderedRing",
+        "IsAffineAddMonoid.toFG",
+        "IsAffineAddMonoid.toIsCancelAdd",
+        "IsOrderedCancelAddMonoid.toIsCancelAdd",
+        "IsStrictOrderedRing.toIsOrderedCancelAddMonoid",
+        "Rollout_p3019_laurent_circulant_kernel.zmod_recur_eq_zero",
+        "TwoUniqueSums.toUniqueSums"
+      ],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+          "origin": "derived",
+          "name": "hrec",
+          "fvar_id": "_uniq.3181602"
+        },
+        {
+          "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+          "origin": "derived",
+          "name": "ht",
+          "fvar_id": "_uniq.3185318"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_722",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), x r = 0",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3194189"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "a.Coprime (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Nat.coprime_self_add_right"
+      ],
+      "premises": [
+        {
+          "statement": "a.Coprime b",
+          "origin": "local_assumption",
+          "name": "hab_coprime",
+          "fvar_id": "_uniq.3178034"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_723",
+      "conclusion": {
+        "statement": "a.Coprime (a + b)",
+        "origin": "derived",
+        "name": "hcop",
+        "fvar_id": "_uniq.3194208"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Iff.mp",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.to_eq",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_neg",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.subst_into_negg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_add_termg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Mathlib.Tactic.Abel.term_neg",
+        "Mathlib.Tactic.Abel.unfold_sub",
+        "Mathlib.Tactic.Abel.zero_termg",
+        "congrArg",
+        "neg_zero",
+        "sub_eq_zero",
+        "zero_add"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (r : ZMod (a + b)), x r = 0",
+          "origin": "derived",
+          "name": "hx",
+          "fvar_id": "_uniq.3194189"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_724",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+        "origin": "derived",
+        "name": "hwinv",
+        "fvar_id": "_uniq.3194769"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i j : ZMod (a + b)), w i = w j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+      ],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "a.Coprime (a + b)",
+          "origin": "derived",
+          "name": "hcop",
+          "fvar_id": "_uniq.3194208"
+        },
+        {
+          "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+          "origin": "derived",
+          "name": "hwinv",
+          "fvar_id": "_uniq.3194769"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_725",
+      "conclusion": {
+        "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+        "origin": "derived",
+        "name": "hweq",
+        "fvar_id": "_uniq.3197026"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mp",
+        "Iff.mpr",
+        "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub",
+        "sub_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+          "origin": "derived",
+          "name": "hweq",
+          "fvar_id": "_uniq.3197026"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_726",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+        "origin": "derived",
+        "name": "hvinv",
+        "fvar_id": "_uniq.3197113"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun a => ↑(d (f (x a), f u))) Filter.atTop (nhds ↑0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hfx",
+          "fvar_id": "_uniq.3546123"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_798",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => ↑(d (f (x n), f u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hfxR",
+        "fvar_id": "_uniq.3548441"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun a => ↑(d (x (a + 1), u))) Filter.atTop (nhds ↑0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (x (n + 1), u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hshift",
+          "fvar_id": "_uniq.3546548"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_799",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => ↑(d (x (n + 1), u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hshiftR",
+        "fvar_id": "_uniq.3548910"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(d (f u, u)) ≤ s * (↑(d (f u, f (x n))) + ↑(d (f (x n), u)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "local_assumption",
+          "name": "hd_triangle",
+          "fvar_id": "_uniq.3543860"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_800",
+      "conclusion": {
+        "statement": "↑(d (f u, u)) ≤ s * (↑(d (f u, f (x n))) + ↑(d (f (x n), u)))",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.3550136"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(d (f u, f (x n))) = ↑(d (f (x n), f u))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "local_assumption",
+          "name": "hd_symm",
+          "fvar_id": "_uniq.3543859"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_801",
+      "conclusion": {
+        "statement": "↑(d (f u, f (x n))) = ↑(d (f (x n), f u))",
+        "origin": "derived",
+        "name": "hsymm1",
+        "fvar_id": "_uniq.3550266"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x (n + 1) = f (x n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Function.iterate_succ_apply'"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_802",
+      "conclusion": {
+        "statement": "x (n + 1) = f (x n)",
+        "origin": "derived",
+        "name": "hrw",
+        "fvar_id": "_uniq.3550328"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 = d (f u, u)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "EMetricSpace.metrizableSpace",
+        "Filter.atTop_neBot",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "tendsto_const_nhds",
+        "tendsto_nhds_unique"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hconst_tendsto",
+          "fvar_id": "_uniq.3552346"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_803",
+      "conclusion": {
+        "statement": "0 = d (f u, u)",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.3554319"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_orbit_tendsto_pair"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ s",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.3543857"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+          "origin": "local_assumption",
+          "name": "hd_zero",
+          "fvar_id": "_uniq.3543858"
+        },
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "local_assumption",
+          "name": "hd_symm",
+          "fvar_id": "_uniq.3543859"
+        },
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "local_assumption",
+          "name": "hd_triangle",
+          "fvar_id": "_uniq.3543860"
+        },
+        {
+          "statement": "1 < A",
+          "origin": "local_assumption",
+          "name": "hA",
+          "fvar_id": "_uniq.3543862"
+        },
+        {
+          "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))",
+          "origin": "local_assumption",
+          "name": "hcaristi",
+          "fvar_id": "_uniq.3543864"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_805",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+        "origin": "derived",
+        "name": "hcauchy",
+        "fvar_id": "_uniq.3544569"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : ℕ → X) (u : X),\n  Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) →\n    Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hf_continuous",
+          "fvar_id": "_uniq.3543863"
+        },
+        {
+          "statement": "Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.3545780"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_806",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hfx",
+        "fvar_id": "_uniq.3546123"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto ((fun n => d (x n, u)) ∘ fun a => a + 1) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Tendsto.comp",
+        "Filter.tendsto_add_atTop_nat"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)",
+          "origin": "local_assumption",
+          "name": "hu",
+          "fvar_id": "_uniq.3545780"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_807",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => d (x (n + 1), u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hshift",
+        "fvar_id": "_uniq.3546548"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x_1 => s * (↑(d (f (x x_1), f u)) + ↑(d (x (x_1 + 1), u)))) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Filter.Tendsto.add",
+        "Filter.Tendsto.const_mul",
+        "Iff.mpr",
+        "IsSemitopologicalRing.toIsSemitopologicalSemiring",
+        "IsSemitopologicalSemiring.toContinuousAdd",
+        "IsSemitopologicalSemiring.toSeparatelyContinuousMul",
+        "IsTopologicalRing.toIsSemitopologicalRing",
+        "MulZeroClass.mul_zero",
+        "NNReal.tendsto_coe",
+        "add_zero",
+        "congrArg",
+        "instIsTopologicalRingReal"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hfx",
+          "fvar_id": "_uniq.3546123"
+        },
+        {
+          "statement": "Filter.Tendsto (fun n => d (x (n + 1), u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hshift",
+          "fvar_id": "_uniq.3546548"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_808",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun n => s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hupper_tendsto",
+        "fvar_id": "_uniq.3548020"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ), ↑(d (f u, u)) ≤ s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Function.iterate_succ_apply'",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), d (x, y) = d (y, x)",
+          "origin": "local_assumption",
+          "name": "hd_symm",
+          "fvar_id": "_uniq.3543859"
+        },
+        {
+          "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))",
+          "origin": "local_assumption",
+          "name": "hd_triangle",
+          "fvar_id": "_uniq.3543860"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_809",
+      "conclusion": {
+        "statement": "∀ (n : ℕ), ↑(d (f u, u)) ≤ s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))",
+        "origin": "derived",
+        "name": "hineq",
+        "fvar_id": "_uniq.3550125"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => ↑(d (f u, u))) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "NNReal.coe_nonneg",
+        "instOrderTopologyReal",
+        "tendsto_const_nhds",
+        "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun n => s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hupper_tendsto",
+          "fvar_id": "_uniq.3548020"
+        },
+        {
+          "statement": "∀ (n : ℕ), ↑(d (f u, u)) ≤ s * (↑(d (f (x n), f u)) + ↑(d (x (n + 1), u)))",
+          "origin": "derived",
+          "name": "hineq",
+          "fvar_id": "_uniq.3550125"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_810",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun x => ↑(d (f u, u))) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hconst_tendsto_real",
+        "fvar_id": "_uniq.3551381"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "NNReal.tendsto_coe"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun x => ↑(d (f u, u))) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hconst_tendsto_real",
+          "fvar_id": "_uniq.3551381"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_811",
+      "conclusion": {
+        "statement": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+        "origin": "derived",
+        "name": "hconst_tendsto",
+        "fvar_id": "_uniq.3552346"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d (f u, u) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "EMetricSpace.metrizableSpace",
+        "Eq.symm",
+        "Filter.atTop_neBot",
+        "Nat.instStarOrderedRing",
+        "StarOrderedRing.toIsOrderedRing",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "instArchimedeanNat",
+        "instIsDirectedOrder",
+        "instNonemptyOfInhabited",
+        "tendsto_const_nhds",
+        "tendsto_nhds_unique"
+      ],
+      "premises": [
+        {
+          "statement": "Filter.Tendsto (fun x => d (f u, u)) Filter.atTop (nhds 0)",
+          "origin": "derived",
+          "name": "hconst_tendsto",
+          "fvar_id": "_uniq.3552346"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_812",
+      "conclusion": {
+        "statement": "d (f u, u) = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3552390"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "f u = u",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y",
+          "origin": "local_assumption",
+          "name": "hd_zero",
+          "fvar_id": "_uniq.3543858"
+        },
+        {
+          "statement": "d (f u, u) = 0",
+          "origin": "derived",
+          "name": "hzero",
+          "fvar_id": "_uniq.3552390"
+        }
+      ],
+      "parent": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+      "id": "local_813",
+      "conclusion": {
+        "statement": "f u = u",
+        "origin": "derived",
+        "name": "hfixed",
+        "fvar_id": "_uniq.3554336"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact {x, y}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.Finite.isCompact._simp_1",
+        "Set.finite_insert._simp_1",
+        "Set.finite_singleton._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_816",
+      "conclusion": {
+        "statement": "IsCompact K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3569644"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_insert_iff._simp_1",
+        "Set.mem_singleton_iff._simp_1",
+        "congr",
+        "congrArg",
+        "eq_self",
+        "of_eq_true",
+        "true_or"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3571468"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_817",
+      "conclusion": {
+        "statement": "x ∈ U n",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3571601"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_insert_iff._simp_1",
+        "Set.mem_singleton_iff._simp_1",
+        "congrArg",
+        "eq_self",
+        "of_eq_true",
+        "or_true"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3571468"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_818",
+      "conclusion": {
+        "statement": "y ∈ U n",
+        "origin": "derived",
+        "name": "hy",
+        "fvar_id": "_uniq.3571965"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3569270"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_822",
+      "conclusion": {
+        "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧",
+        "origin": "derived",
+        "name": "hlocal",
+        "fvar_id": "_uniq.3647232"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⟦x'⟧ = ⟦y'⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Continuous.comp",
+        "ContinuousMap.comp_apply",
+        "ContinuousMap.continuous",
+        "Nonempty.map",
+        "Subtype.property",
+        "congrArg",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.3569155"
+        },
+        {
+          "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧",
+          "origin": "derived",
+          "name": "hlocal",
+          "fvar_id": "_uniq.3647232"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_823",
+      "conclusion": {
+        "statement": "⟦x'⟧ = ⟦y'⟧",
+        "origin": "derived",
+        "name": "hxy_local",
+        "fvar_id": "_uniq.3647253"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty (Path x y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Nonempty.map",
+        "Quotient.eq",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "⟦x'⟧ = ⟦y'⟧",
+          "origin": "derived",
+          "name": "hxy_local",
+          "fvar_id": "_uniq.3647253"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_824",
+      "conclusion": {
+        "statement": "Joined x y",
+        "origin": "derived",
+        "name": "hxy",
+        "fvar_id": "_uniq.3647491"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact (Set.range ⇑↑p)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ConditionallyCompleteLinearOrder.toCompactIccSpace",
+        "ContinuousMap.continuous",
+        "Function.compactSpace",
+        "compactSpace_Icc",
+        "instOrderTopologyReal",
+        "isCompact_range"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_827",
+      "conclusion": {
+        "statement": "IsCompact (Set.range ⇑↑p)",
+        "origin": "derived",
+        "name": "hpK",
+        "fvar_id": "_uniq.3649826"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact (Set.range ⇑↑q)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ConditionallyCompleteLinearOrder.toCompactIccSpace",
+        "ContinuousMap.continuous",
+        "Function.compactSpace",
+        "compactSpace_Icc",
+        "instOrderTopologyReal",
+        "isCompact_range"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_828",
+      "conclusion": {
+        "statement": "IsCompact (Set.range ⇑↑q)",
+        "origin": "derived",
+        "name": "hqK",
+        "fvar_id": "_uniq.3650670"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact K",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsCompact.union",
+        "isCompact_singleton"
+      ],
+      "premises": [
+        {
+          "statement": "IsCompact (Set.range ⇑↑p)",
+          "origin": "derived",
+          "name": "hpK",
+          "fvar_id": "_uniq.3649826"
+        },
+        {
+          "statement": "IsCompact (Set.range ⇑↑q)",
+          "origin": "derived",
+          "name": "hqK",
+          "fvar_id": "_uniq.3650670"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_829",
+      "conclusion": {
+        "statement": "IsCompact K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3650906"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_insert_iff._simp_1",
+        "Set.mem_range._simp_1",
+        "Set.mem_union._simp_1",
+        "Set.union_singleton",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true",
+        "true_or"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3652593"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_830",
+      "conclusion": {
+        "statement": "x ∈ U n",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3652726"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃z : X⦄, z ∈ Set.range ⇑↑p → z ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.mem_union_left"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3652593"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_831",
+      "conclusion": {
+        "statement": "Set.range ⇑↑p ⊆ U n",
+        "origin": "derived",
+        "name": "hp",
+        "fvar_id": "_uniq.3668264"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃z : X⦄, z ∈ Set.range ⇑↑q → z ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.mem_union_left",
+        "Set.mem_union_right"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3652593"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_832",
+      "conclusion": {
+        "statement": "Set.range ⇑↑q ⊆ U n",
+        "origin": "derived",
+        "name": "hq",
+        "fvar_id": "_uniq.3668427"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3648552"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_837",
+      "conclusion": {
+        "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧",
+        "origin": "derived",
+        "name": "hlocal",
+        "fvar_id": "_uniq.3838488"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⟦pU⟧ = ⟦qU⟧",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Continuous.comp",
+        "ContinuousMap.comp_apply",
+        "ContinuousMap.continuous",
+        "Nonempty.map",
+        "Subtype.property",
+        "congrArg",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (n : { n // 1 ≤ n }),\n  let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ };\n  Function.Bijective (Quotient.map ⇑g ⋯) ∧\n    ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)",
+          "origin": "local_assumption",
+          "name": "hf",
+          "fvar_id": "_uniq.3569155"
+        },
+        {
+          "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧",
+          "origin": "derived",
+          "name": "hlocal",
+          "fvar_id": "_uniq.3838488"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_838",
+      "conclusion": {
+        "statement": "⟦pU⟧ = ⟦qU⟧",
+        "origin": "derived",
+        "name": "hpq_local",
+        "fvar_id": "_uniq.3838564"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nonempty ((↑p).HomotopyRel (↑q) (Cube.boundary (Fin (k + 1))))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "Nonempty.map",
+        "Quotient.eq",
+        "continuous_subtype_val"
+      ],
+      "premises": [
+        {
+          "statement": "⟦pU⟧ = ⟦qU⟧",
+          "origin": "derived",
+          "name": "hpq_local",
+          "fvar_id": "_uniq.3838564"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_839",
+      "conclusion": {
+        "statement": "GenLoop.Homotopic p q",
+        "origin": "derived",
+        "name": "hpqX",
+        "fvar_id": "_uniq.3838812"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsCompact {x}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Set.Finite.isCompact._simp_1",
+        "Set.finite_singleton._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_841",
+      "conclusion": {
+        "statement": "IsCompact K",
+        "origin": "derived",
+        "name": "hK",
+        "fvar_id": "_uniq.3840410"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ U n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Set.mem_singleton_iff._simp_1",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "K ⊆ U n",
+          "origin": "local_assumption",
+          "name": "hnK",
+          "fvar_id": "_uniq.3841944"
+        }
+      ],
+      "parent": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+      "id": "local_842",
+      "conclusion": {
+        "statement": "x ∈ U n",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3842077"
+      }
+    }
+  ],
+  "lean_version": "4.29.0",
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ]
+}

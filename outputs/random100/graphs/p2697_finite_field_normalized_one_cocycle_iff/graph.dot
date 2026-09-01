@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_173d84f6" [shape=box, color="#178F82", label="hα\nα ≠ 0"];
+  "m_h_464c541f" [shape=box, color="#178F82", label="hν\norderOf ν = q"];
+  "m_inst___proofs_2502934680_16334da9" [shape=box, color="#178F82", label="inst._@.proofs.2502934680._hygCtx._hyg.11\nFact (Nat.Prime q)"];
+  "m_inst___proofs_2502934680_a3817d3e" [shape=box, color="#178F82", label="inst._@.proofs.2502934680._hygCtx._hyg.8\nFact (Nat.Prime p)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(α 0 = 0 ∧ ∀ (x y : ZMod q), α (x + y) = α x + (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ x.val * α y) ↔ ∃ r, r ≠ 0 ∧ α 0 = 0 ∧ ∀ (x : ZMod q), x ≠ 0 → α x = r * ∑ j ∈ Finset.range x.val, (algebraMap (ZMod p) (GaloisField p 2)) ↑ν ^ j"];
+  "r_h_goal" [shape=diamond, label="Finset.sum_range_add + Finset.sum_range_succ + Nat.le_of_lt", color="#D97706"];
+  "m_inst___proofs_2502934680_a3817d3e" -> "r_h_goal";
+  "m_inst___proofs_2502934680_16334da9" -> "r_h_goal";
+  "m_h_464c541f" -> "r_h_goal";
+  "m_h_173d84f6" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

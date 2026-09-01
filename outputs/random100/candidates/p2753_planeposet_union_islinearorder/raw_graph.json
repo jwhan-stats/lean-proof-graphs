@@ -1,0 +1,783 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "manifest": [
+        {
+          "statement": "Finite P",
+          "origin": "manifest",
+          "name": "inst._@.proofs.71398945._hygCtx._hyg.3",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "IsPartialOrder P leH",
+          "origin": "manifest",
+          "name": "hH",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "IsPartialOrder P leR",
+          "origin": "manifest",
+          "name": "hR",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "manifest",
+          "name": "hcompat",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "IsLinearOrder P fun x y => leH x y ∨ leR x y",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "IsLinearOrder P fun x y => leH x y ∨ leR x y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Iff.mp",
+          "Iff.mpr",
+          "IsPartialOrder.toAntisymm",
+          "IsPartialOrder.toIsPreorder",
+          "IsPreorder.toIsTrans",
+          "IsPreorder.toRefl",
+          "IsTrans.trans",
+          "Std.Antisymm.antisymm",
+          "Std.Refl.refl"
+        ],
+        "premises": [
+          {
+            "statement": "IsPartialOrder P leH",
+            "origin": "local_assumption",
+            "name": "hH",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "IsPartialOrder P leR",
+            "origin": "local_assumption",
+            "name": "hR",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+            "origin": "local_assumption",
+            "name": "hcompat",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "IsLinearOrder P fun x y => leH x y ∨ leR x y",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "leH x y ∨ leH y x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "¬x = y",
+          "origin": "local_assumption",
+          "name": "hxy",
+          "fvar_id": "_uniq.771861"
+        },
+        {
+          "statement": "¬(leR x y ∨ leR y x)",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.771897"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_154",
+      "conclusion": {
+        "statement": "leH x y ∨ leH y x",
+        "origin": "derived",
+        "name": "hh",
+        "fvar_id": "_uniq.771941"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(leR x y ∨ leR y x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "¬x = y",
+          "origin": "local_assumption",
+          "name": "heq",
+          "fvar_id": "_uniq.772218"
+        },
+        {
+          "statement": "leH x y",
+          "origin": "local_assumption",
+          "name": "hxyH",
+          "fvar_id": "_uniq.772239"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_155",
+      "conclusion": {
+        "statement": "¬(leR x y ∨ leR y x)",
+        "origin": "derived",
+        "name": "hnoR",
+        "fvar_id": "_uniq.772291"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(leR x y ∨ leR y x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "¬x = y",
+          "origin": "local_assumption",
+          "name": "heq",
+          "fvar_id": "_uniq.772218"
+        },
+        {
+          "statement": "leH y x",
+          "origin": "local_assumption",
+          "name": "hyxH",
+          "fvar_id": "_uniq.772315"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_156",
+      "conclusion": {
+        "statement": "¬(leR x y ∨ leR y x)",
+        "origin": "derived",
+        "name": "hnoR",
+        "fvar_id": "_uniq.772333"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "leH z y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsPartialOrder.toIsPreorder",
+        "IsPreorder.toIsTrans",
+        "IsTrans.trans"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leH",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.771578"
+        },
+        {
+          "statement": "leH x y",
+          "origin": "local_assumption",
+          "name": "hxyH",
+          "fvar_id": "_uniq.772399"
+        },
+        {
+          "statement": "leH z x",
+          "origin": "local_assumption",
+          "name": "hzxH",
+          "fvar_id": "_uniq.772958"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_157",
+      "conclusion": {
+        "statement": "leH z y",
+        "origin": "derived",
+        "name": "hzyH",
+        "fvar_id": "_uniq.772982"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(leR y z ∨ leR z y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "¬y = z",
+          "origin": "local_assumption",
+          "name": "hyzeq",
+          "fvar_id": "_uniq.772894"
+        },
+        {
+          "statement": "leH z y",
+          "origin": "derived",
+          "name": "hzyH",
+          "fvar_id": "_uniq.772982"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_158",
+      "conclusion": {
+        "statement": "¬(leR y z ∨ leR z y)",
+        "origin": "derived",
+        "name": "hnoR",
+        "fvar_id": "_uniq.772996"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "leR y x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsPartialOrder.toIsPreorder",
+        "IsPreorder.toIsTrans",
+        "IsTrans.trans"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leR",
+          "origin": "local_assumption",
+          "name": "hR",
+          "fvar_id": "_uniq.771579"
+        },
+        {
+          "statement": "leR y z",
+          "origin": "local_assumption",
+          "name": "hyzR",
+          "fvar_id": "_uniq.772428"
+        },
+        {
+          "statement": "leR z x",
+          "origin": "local_assumption",
+          "name": "hzxR",
+          "fvar_id": "_uniq.772963"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_159",
+      "conclusion": {
+        "statement": "leR y x",
+        "origin": "derived",
+        "name": "hyxR",
+        "fvar_id": "_uniq.773020"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(leR x y ∨ leR y x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "leH x y",
+          "origin": "local_assumption",
+          "name": "hxyH",
+          "fvar_id": "_uniq.772399"
+        },
+        {
+          "statement": "¬x = y",
+          "origin": "local_assumption",
+          "name": "hxyeq",
+          "fvar_id": "_uniq.772660"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_160",
+      "conclusion": {
+        "statement": "¬(leR x y ∨ leR y x)",
+        "origin": "derived",
+        "name": "hnoR",
+        "fvar_id": "_uniq.773034"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "leH y x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsPartialOrder.toIsPreorder",
+        "IsPreorder.toIsTrans",
+        "IsTrans.trans"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leH",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.771578"
+        },
+        {
+          "statement": "leH y z",
+          "origin": "local_assumption",
+          "name": "hyzH",
+          "fvar_id": "_uniq.773058"
+        },
+        {
+          "statement": "leH z x",
+          "origin": "local_assumption",
+          "name": "hzxH",
+          "fvar_id": "_uniq.773576"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_161",
+      "conclusion": {
+        "statement": "leH y x",
+        "origin": "derived",
+        "name": "hyxH",
+        "fvar_id": "_uniq.773600"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(leR x y ∨ leR y x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "¬x = y",
+          "origin": "local_assumption",
+          "name": "hxyeq",
+          "fvar_id": "_uniq.773278"
+        },
+        {
+          "statement": "leH y x",
+          "origin": "derived",
+          "name": "hyxH",
+          "fvar_id": "_uniq.773600"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_162",
+      "conclusion": {
+        "statement": "¬(leR x y ∨ leR y x)",
+        "origin": "derived",
+        "name": "hnoR",
+        "fvar_id": "_uniq.773614"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "leR z y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsPartialOrder.toIsPreorder",
+        "IsPreorder.toIsTrans",
+        "IsTrans.trans"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leR",
+          "origin": "local_assumption",
+          "name": "hR",
+          "fvar_id": "_uniq.771579"
+        },
+        {
+          "statement": "leR x y",
+          "origin": "local_assumption",
+          "name": "hxyR",
+          "fvar_id": "_uniq.772404"
+        },
+        {
+          "statement": "leR z x",
+          "origin": "local_assumption",
+          "name": "hzxR",
+          "fvar_id": "_uniq.773581"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_163",
+      "conclusion": {
+        "statement": "leR z y",
+        "origin": "derived",
+        "name": "hzyR",
+        "fvar_id": "_uniq.773638"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(leR y z ∨ leR z y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "leH y z",
+          "origin": "local_assumption",
+          "name": "hyzH",
+          "fvar_id": "_uniq.773058"
+        },
+        {
+          "statement": "¬y = z",
+          "origin": "local_assumption",
+          "name": "hyzeq",
+          "fvar_id": "_uniq.773512"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_164",
+      "conclusion": {
+        "statement": "¬(leR y z ∨ leR z y)",
+        "origin": "derived",
+        "name": "hnoR",
+        "fvar_id": "_uniq.773652"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : P), leH x x ∨ leR x x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsPartialOrder.toIsPreorder",
+        "IsPreorder.toRefl",
+        "Std.Refl.refl"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leH",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.771578"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_166",
+      "conclusion": {
+        "statement": "∀ (x : P), U x x",
+        "origin": "derived",
+        "name": "hreflU",
+        "fvar_id": "_uniq.771608"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x y : P), U x y ∨ U y x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "∀ (x : P), U x x",
+          "origin": "derived",
+          "name": "hreflU",
+          "fvar_id": "_uniq.771608"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_167",
+      "conclusion": {
+        "statement": "∀ (x y : P), U x y ∨ U y x",
+        "origin": "derived",
+        "name": "htotalU",
+        "fvar_id": "_uniq.771639"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x y : P), U x y → U y x → x = y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "IsPartialOrder.toAntisymm",
+        "Std.Antisymm.antisymm"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leH",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.771578"
+        },
+        {
+          "statement": "IsPartialOrder P leR",
+          "origin": "local_assumption",
+          "name": "hR",
+          "fvar_id": "_uniq.771579"
+        },
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_168",
+      "conclusion": {
+        "statement": "∀ (x y : P), U x y → U y x → x = y",
+        "origin": "derived",
+        "name": "hantisymmU",
+        "fvar_id": "_uniq.771990"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x y z : P), U x y → U y z → U x z",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "IsPartialOrder.toIsPreorder",
+        "IsPreorder.toIsTrans",
+        "IsTrans.trans"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder P leH",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.771578"
+        },
+        {
+          "statement": "IsPartialOrder P leR",
+          "origin": "local_assumption",
+          "name": "hR",
+          "fvar_id": "_uniq.771579"
+        },
+        {
+          "statement": "∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))",
+          "origin": "local_assumption",
+          "name": "hcompat",
+          "fvar_id": "_uniq.771580"
+        },
+        {
+          "statement": "∀ (x y : P), U x y ∨ U y x",
+          "origin": "derived",
+          "name": "htotalU",
+          "fvar_id": "_uniq.771639"
+        }
+      ],
+      "parent": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder",
+      "id": "local_169",
+      "conclusion": {
+        "statement": "∀ (x y z : P), U x y → U y z → U x z",
+        "origin": "derived",
+        "name": "htransU",
+        "fvar_id": "_uniq.772364"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p2753_planeposet_union_islinearorder",
+    "proof_sha256": "f47032c34e14a483d358cec8af85aa2ceea28ad2a3d4eba066f481c66d572597",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2753_planeposet_union_islinearorder.planePoset_union_isLinearOrder"
+  }
+}

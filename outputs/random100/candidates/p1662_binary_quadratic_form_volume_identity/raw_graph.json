@@ -1,0 +1,2507 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "manifest": [
+        {
+          "statement": "0 < D",
+          "origin": "manifest",
+          "name": "hDpos",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "¬IsSquare D",
+          "origin": "manifest",
+          "name": "hDnsq",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "D % 4 = 0 ∨ D % 4 = 1",
+          "origin": "manifest",
+          "name": "hDmod",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "b ^ 2 - 4 * a * c = D",
+          "origin": "manifest",
+          "name": "hdisc",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "0 < a",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "c < 0",
+          "origin": "manifest",
+          "name": "hc",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "a + b + c < 0",
+          "origin": "manifest",
+          "name": "hsum",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+          "origin": "manifest",
+          "name": "hlamroot",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "0 < lam",
+          "origin": "manifest",
+          "name": "hlampos",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑b * x + ↑c = 0 → x = lam",
+          "origin": "manifest",
+          "name": "hlamunique",
+          "fvar_id": "15"
+        },
+        {
+          "statement": "↑a * mu ^ 2 + ↑(-2 * a - b) * mu + ↑(a + b + c) = 0",
+          "origin": "manifest",
+          "name": "hmuroot",
+          "fvar_id": "16"
+        },
+        {
+          "statement": "0 < mu",
+          "origin": "manifest",
+          "name": "hmupos",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑(-2 * a - b) * x + ↑(a + b + c) = 0 → x = mu",
+          "origin": "manifest",
+          "name": "hmuunique",
+          "fvar_id": "18"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "0 < ↑a",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Int.cast_lt._simp_1",
+            "Int.cast_zero",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Nat.cast_zero",
+            "NeZero.charZero_one",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instZeroLEOneClass",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "0 < ↑a",
+            "origin": "derived",
+            "name": "hA",
+            "fvar_id": "19"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑c < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Int.cast_lt._simp_1",
+            "Int.cast_zero",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Nat.cast_zero",
+            "NeZero.charZero_one",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instZeroLEOneClass",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "c < 0",
+              "origin": "local_assumption",
+              "name": "hc",
+              "fvar_id": "11"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "↑c < 0",
+            "origin": "derived",
+            "name": "hC",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a + ↑b + ↑c < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Int.cast_add._simp_1",
+            "Int.cast_lt._simp_1",
+            "Int.cast_zero",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "Nat.cast_zero",
+            "NeZero.charZero_one",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instZeroLEOneClass",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [
+            {
+              "statement": "a + b + c < 0",
+              "origin": "local_assumption",
+              "name": "hsum",
+              "fvar_id": "12"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "↑a + ↑b + ↑c < 0",
+            "origin": "derived",
+            "name": "hsumR",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "1 < lam",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+          ],
+          "premises": [
+            {
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+              "origin": "local_assumption",
+              "name": "hlamroot",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "0 < lam",
+              "origin": "local_assumption",
+              "name": "hlampos",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "0 < ↑a",
+              "origin": "derived",
+              "name": "hA",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "↑c < 0",
+              "origin": "derived",
+              "name": "hC",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "↑a + ↑b + ↑c < 0",
+              "origin": "derived",
+              "name": "hsumR",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "1 < lam",
+            "origin": "derived",
+            "name": "hlamgt",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Int.cast_add",
+            "Int.cast_mul",
+            "Int.cast_neg",
+            "Int.cast_ofNat",
+            "Int.cast_sub",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "congr",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [
+            {
+              "statement": "↑a * mu ^ 2 + ↑(-2 * a - b) * mu + ↑(a + b + c) = 0",
+              "origin": "local_assumption",
+              "name": "hmuroot",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+            "origin": "derived",
+            "name": "hmurootR",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_congr",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "↑c < 0",
+              "origin": "derived",
+              "name": "hC",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+            "origin": "derived",
+            "name": "hmu_at_one",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "1 < mu",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+          ],
+          "premises": [
+            {
+              "statement": "0 < mu",
+              "origin": "local_assumption",
+              "name": "hmupos",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "0 < ↑a",
+              "origin": "derived",
+              "name": "hA",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "↑a + ↑b + ↑c < 0",
+              "origin": "derived",
+              "name": "hsumR",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+              "origin": "derived",
+              "name": "hmurootR",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+              "origin": "derived",
+              "name": "hmu_at_one",
+              "fvar_id": "24"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "1 < mu",
+            "origin": "derived",
+            "name": "hmu_gt",
+            "fvar_id": "25"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Int.cast_add",
+            "Int.cast_mul",
+            "Int.cast_neg",
+            "Int.cast_ofNat",
+            "Int.cast_sub",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "congr",
+            "congrArg",
+            "congrFun'"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑(-2 * a - b) * x + ↑(a + b + c) = 0 → x = mu",
+              "origin": "local_assumption",
+              "name": "hmuunique",
+              "fvar_id": "18"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_26",
+          "conclusion": {
+            "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+            "origin": "derived",
+            "name": "hmuunique'",
+            "fvar_id": "26"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "1 - ↑c / (↑a * lam) = mu",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1662_binary_quadratic_form_volume_identity.transformed_root_relation"
+          ],
+          "premises": [
+            {
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+              "origin": "local_assumption",
+              "name": "hlamroot",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "0 < lam",
+              "origin": "local_assumption",
+              "name": "hlampos",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "0 < ↑a",
+              "origin": "derived",
+              "name": "hA",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "↑c < 0",
+              "origin": "derived",
+              "name": "hC",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+              "origin": "derived",
+              "name": "hmuunique'",
+              "fvar_id": "26"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_27",
+          "conclusion": {
+            "statement": "1 - ↑c / (↑a * lam) = mu",
+            "origin": "derived",
+            "name": "hrel",
+            "fvar_id": "27"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "0 < ↑a",
+              "origin": "derived",
+              "name": "hA",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "↑a ≠ 0",
+            "origin": "derived",
+            "name": "hAne",
+            "fvar_id": "28"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "lam ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "0 < lam",
+              "origin": "local_assumption",
+              "name": "hlampos",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_29",
+          "conclusion": {
+            "statement": "lam ≠ 0",
+            "origin": "derived",
+            "name": "hlamne",
+            "fvar_id": "29"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑c ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ne_of_lt"
+          ],
+          "premises": [
+            {
+              "statement": "↑c < 0",
+              "origin": "derived",
+              "name": "hC",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_30",
+          "conclusion": {
+            "statement": "↑c ≠ 0",
+            "origin": "derived",
+            "name": "hCne",
+            "fvar_id": "30"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a + ↑b + ↑c ≠ 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ne_of_lt"
+          ],
+          "premises": [
+            {
+              "statement": "↑a + ↑b + ↑c < 0",
+              "origin": "derived",
+              "name": "hsumR",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_31",
+          "conclusion": {
+            "statement": "↑a + ↑b + ↑c ≠ 0",
+            "origin": "derived",
+            "name": "hsumne",
+            "fvar_id": "31"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "GroupWithZero.toNontrivial",
+            "Iff.mpr",
+            "IsCancelMulZero.toIsLeftCancelMulZero",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_add",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.FieldSimp.NF.atom_eq_eval",
+            "Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div",
+            "Mathlib.Tactic.FieldSimp.NF.cons_ne_zero",
+            "Mathlib.Tactic.FieldSimp.NF.div_eq_eval",
+            "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₁",
+            "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₃",
+            "Mathlib.Tactic.FieldSimp.NF.eval_cons",
+            "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval",
+            "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval_cons_neg",
+            "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons",
+            "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval",
+            "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃",
+            "Mathlib.Tactic.FieldSimp.NF.one_div_eq_eval",
+            "Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst",
+            "Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq",
+            "Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul",
+            "Mathlib.Tactic.FieldSimp.subst_sub",
+            "Mathlib.Tactic.FieldSimp.zpow'_one",
+            "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_congr",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_zero",
+            "NeZero.one",
+            "Not.intro",
+            "Real.instIsOrderedRing",
+            "congrArg",
+            "congr_arg",
+            "congr_arg₂",
+            "div_one",
+            "instIsCancelMulZero",
+            "mul_neg",
+            "mul_one",
+            "neg_eq_zero",
+            "one_mul",
+            "one_ne_zero",
+            "sub_eq_zero_of_eq"
+          ],
+          "premises": [
+            {
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+              "origin": "local_assumption",
+              "name": "hlamroot",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "↑a ≠ 0",
+              "origin": "derived",
+              "name": "hAne",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "lam ≠ 0",
+              "origin": "derived",
+              "name": "hlamne",
+              "fvar_id": "29"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_32",
+          "conclusion": {
+            "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+            "origin": "derived",
+            "name": "hcdiv",
+            "fvar_id": "32"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "mu = lam + 1 + ↑b / ↑a",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.CancelDenoms.add_subst",
+            "Mathlib.Tactic.CancelDenoms.neg_subst",
+            "Mathlib.Tactic.CancelDenoms.sub_subst",
+            "Mathlib.Tactic.Linarith.eq_of_eq_of_eq",
+            "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.without_one_mul",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.div_congr",
+            "Mathlib.Tactic.Ring.div_pf",
+            "Mathlib.Tactic.Ring.inv_mul",
+            "Mathlib.Tactic.Ring.inv_single",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_congr",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_one",
+            "Nat.cast_zero",
+            "Not.intro",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedRing",
+            "congrArg",
+            "neg_eq_zero",
+            "sub_eq_zero_of_eq"
+          ],
+          "premises": [
+            {
+              "statement": "1 - ↑c / (↑a * lam) = mu",
+              "origin": "derived",
+              "name": "hrel",
+              "fvar_id": "27"
+            },
+            {
+              "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+              "origin": "derived",
+              "name": "hcdiv",
+              "fvar_id": "32"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_33",
+          "conclusion": {
+            "statement": "mu = lam + 1 + ↑b / ↑a",
+            "origin": "derived",
+            "name": "hmlin",
+            "fvar_id": "33"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) =\n  ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+          ],
+          "premises": [
+            {
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+              "origin": "local_assumption",
+              "name": "hlamroot",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "0 < lam",
+              "origin": "local_assumption",
+              "name": "hlampos",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "0 < ↑a",
+              "origin": "derived",
+              "name": "hA",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "↑c < 0",
+              "origin": "derived",
+              "name": "hC",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "↑a + ↑b + ↑c < 0",
+              "origin": "derived",
+              "name": "hsumR",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "1 < lam",
+              "origin": "derived",
+              "name": "hlamgt",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_34",
+          "conclusion": {
+            "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) =\n  ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)",
+            "origin": "derived",
+            "name": "hVlam",
+            "fvar_id": "34"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n    ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+          ],
+          "premises": [
+            {
+              "statement": "0 < mu",
+              "origin": "local_assumption",
+              "name": "hmupos",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "0 < ↑a",
+              "origin": "derived",
+              "name": "hA",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "↑a + ↑b + ↑c < 0",
+              "origin": "derived",
+              "name": "hsumR",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+              "origin": "derived",
+              "name": "hmurootR",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+              "origin": "derived",
+              "name": "hmu_at_one",
+              "fvar_id": "24"
+            },
+            {
+              "statement": "1 < mu",
+              "origin": "derived",
+              "name": "hmu_gt",
+              "fvar_id": "25"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_35",
+          "conclusion": {
+            "statement": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n    ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))",
+            "origin": "derived",
+            "name": "hVmu",
+            "fvar_id": "35"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_congr",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc"
+          ],
+          "premises": [],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_36",
+          "conclusion": {
+            "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+            "origin": "derived",
+            "name": "hfmu",
+            "fvar_id": "36"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_sum_from_relation"
+          ],
+          "premises": [
+            {
+              "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+              "origin": "local_assumption",
+              "name": "hlamroot",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "↑a ≠ 0",
+              "origin": "derived",
+              "name": "hAne",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "mu = lam + 1 + ↑b / ↑a",
+              "origin": "derived",
+              "name": "hmlin",
+              "fvar_id": "33"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_37",
+          "conclusion": {
+            "statement": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c",
+            "origin": "derived",
+            "name": "hquad",
+            "fvar_id": "37"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1662_binary_quadratic_form_volume_identity.rational_c_sum_from_relation"
+          ],
+          "premises": [
+            {
+              "statement": "↑a ≠ 0",
+              "origin": "derived",
+              "name": "hAne",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "↑c ≠ 0",
+              "origin": "derived",
+              "name": "hCne",
+              "fvar_id": "30"
+            },
+            {
+              "statement": "mu = lam + 1 + ↑b / ↑a",
+              "origin": "derived",
+              "name": "hmlin",
+              "fvar_id": "33"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_38",
+          "conclusion": {
+            "statement": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c",
+            "origin": "derived",
+            "name": "hrC",
+            "fvar_id": "38"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) =\n  -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p1662_binary_quadratic_form_volume_identity.rational_d_sum_from_relation"
+          ],
+          "premises": [
+            {
+              "statement": "↑a ≠ 0",
+              "origin": "derived",
+              "name": "hAne",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "↑a + ↑b + ↑c ≠ 0",
+              "origin": "derived",
+              "name": "hsumne",
+              "fvar_id": "31"
+            },
+            {
+              "statement": "mu = lam + 1 + ↑b / ↑a",
+              "origin": "derived",
+              "name": "hmlin",
+              "fvar_id": "33"
+            }
+          ],
+          "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+          "id": "telescope_39",
+          "conclusion": {
+            "statement": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) =\n  -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+            "origin": "derived",
+            "name": "hrD",
+            "fvar_id": "39"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) +\n    ↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  4 * ↑a + ↑b + ↑b ^ 2 / ↑a + ↑a * ↑b / ↑c - 2 * ↑c - ↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) +\n    ↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  4 * ↑a + ↑b + ↑b ^ 2 / ↑a + ↑a * ↑b / ↑c - 2 * ↑c - ↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+          "Mathlib.Meta.NormNum.isNat_add",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf",
+          "Mathlib.Tactic.Ring.add_pf_add_gt",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.atom_pf'",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.div_congr",
+          "Mathlib.Tactic.Ring.div_pf",
+          "Mathlib.Tactic.Ring.inv_mul",
+          "Mathlib.Tactic.Ring.inv_single",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_one",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_pow",
+          "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_congr",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.one_pow",
+          "Mathlib.Tactic.Ring.pow_add",
+          "Mathlib.Tactic.Ring.pow_congr",
+          "Mathlib.Tactic.Ring.pow_zero",
+          "Mathlib.Tactic.Ring.single_pow",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "RCLike.charZero_rclike",
+          "congrArg"
+        ],
+        "premises": [
+          {
+            "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) =\n  ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)",
+            "origin": "derived",
+            "name": "hVlam",
+            "fvar_id": "34"
+          },
+          {
+            "statement": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n    ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))",
+            "origin": "derived",
+            "name": "hVmu",
+            "fvar_id": "35"
+          },
+          {
+            "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+            "origin": "derived",
+            "name": "hfmu",
+            "fvar_id": "36"
+          },
+          {
+            "statement": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c",
+            "origin": "derived",
+            "name": "hquad",
+            "fvar_id": "37"
+          },
+          {
+            "statement": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c",
+            "origin": "derived",
+            "name": "hrC",
+            "fvar_id": "38"
+          },
+          {
+            "statement": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) =\n  -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+            "origin": "derived",
+            "name": "hrD",
+            "fvar_id": "39"
+          }
+        ],
+        "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) +\n    ↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  4 * ↑a + ↑b + ↑b ^ 2 / ↑a + ↑a * ↑b / ↑c - 2 * ↑c - ↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1846",
+      "conclusion": {
+        "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.7417053"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n    ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+      ],
+      "premises": [
+        {
+          "statement": "0 < mu",
+          "origin": "local_assumption",
+          "name": "hmupos",
+          "fvar_id": "_uniq.7412402"
+        },
+        {
+          "statement": "0 < ↑a",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.7412498"
+        },
+        {
+          "statement": "↑a + ↑b + ↑c < 0",
+          "origin": "derived",
+          "name": "hsumR",
+          "fvar_id": "_uniq.7414043"
+        },
+        {
+          "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+          "origin": "derived",
+          "name": "hmurootR",
+          "fvar_id": "_uniq.7415781"
+        },
+        {
+          "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+          "origin": "derived",
+          "name": "hmu_at_one",
+          "fvar_id": "_uniq.7416918"
+        },
+        {
+          "statement": "1 < mu",
+          "origin": "derived",
+          "name": "hmu_gt",
+          "fvar_id": "_uniq.7417205"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1847",
+      "conclusion": {
+        "statement": "↑a * mu * (mu - 1) * (1 + 1 / mu ^ 2 + 1 / (mu - 1) ^ 2) =\n  ↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n    ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / (↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c))",
+        "origin": "derived",
+        "name": "hVmu",
+        "fvar_id": "_uniq.7442956"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1848",
+      "conclusion": {
+        "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) = ↑c",
+        "origin": "derived",
+        "name": "hfmu",
+        "fvar_id": "_uniq.7443286"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ↑a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Int.cast_lt._simp_1",
+        "Int.cast_zero",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.cast_zero",
+        "NeZero.charZero_one",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.7412395"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1849",
+      "conclusion": {
+        "statement": "0 < ↑a",
+        "origin": "derived",
+        "name": "hA",
+        "fvar_id": "_uniq.7412498"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑c < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Int.cast_lt._simp_1",
+        "Int.cast_zero",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.cast_zero",
+        "NeZero.charZero_one",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "c < 0",
+          "origin": "local_assumption",
+          "name": "hc",
+          "fvar_id": "_uniq.7412396"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1850",
+      "conclusion": {
+        "statement": "↑c < 0",
+        "origin": "derived",
+        "name": "hC",
+        "fvar_id": "_uniq.7413004"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a + ↑b + ↑c < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Int.cast_add._simp_1",
+        "Int.cast_lt._simp_1",
+        "Int.cast_zero",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.cast_zero",
+        "NeZero.charZero_one",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "a + b + c < 0",
+          "origin": "local_assumption",
+          "name": "hsum",
+          "fvar_id": "_uniq.7412397"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1851",
+      "conclusion": {
+        "statement": "↑a + ↑b + ↑c < 0",
+        "origin": "derived",
+        "name": "hsumR",
+        "fvar_id": "_uniq.7414043"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 < lam",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+      ],
+      "premises": [
+        {
+          "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+          "origin": "local_assumption",
+          "name": "hlamroot",
+          "fvar_id": "_uniq.7412398"
+        },
+        {
+          "statement": "0 < lam",
+          "origin": "local_assumption",
+          "name": "hlampos",
+          "fvar_id": "_uniq.7412399"
+        },
+        {
+          "statement": "0 < ↑a",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.7412498"
+        },
+        {
+          "statement": "↑c < 0",
+          "origin": "derived",
+          "name": "hC",
+          "fvar_id": "_uniq.7413004"
+        },
+        {
+          "statement": "↑a + ↑b + ↑c < 0",
+          "origin": "derived",
+          "name": "hsumR",
+          "fvar_id": "_uniq.7414043"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1852",
+      "conclusion": {
+        "statement": "1 < lam",
+        "origin": "derived",
+        "name": "hlamgt",
+        "fvar_id": "_uniq.7415076"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Int.cast_add",
+        "Int.cast_mul",
+        "Int.cast_neg",
+        "Int.cast_ofNat",
+        "Int.cast_sub",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congr",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "↑a * mu ^ 2 + ↑(-2 * a - b) * mu + ↑(a + b + c) = 0",
+          "origin": "local_assumption",
+          "name": "hmuroot",
+          "fvar_id": "_uniq.7412401"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1853",
+      "conclusion": {
+        "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+        "origin": "derived",
+        "name": "hmurootR",
+        "fvar_id": "_uniq.7415781"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "↑c < 0",
+          "origin": "derived",
+          "name": "hC",
+          "fvar_id": "_uniq.7413004"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1854",
+      "conclusion": {
+        "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+        "origin": "derived",
+        "name": "hmu_at_one",
+        "fvar_id": "_uniq.7416918"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 < mu",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_root_gt_one"
+      ],
+      "premises": [
+        {
+          "statement": "0 < mu",
+          "origin": "local_assumption",
+          "name": "hmupos",
+          "fvar_id": "_uniq.7412402"
+        },
+        {
+          "statement": "0 < ↑a",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.7412498"
+        },
+        {
+          "statement": "↑a + ↑b + ↑c < 0",
+          "origin": "derived",
+          "name": "hsumR",
+          "fvar_id": "_uniq.7414043"
+        },
+        {
+          "statement": "↑a * mu ^ 2 + (-2 * ↑a - ↑b) * mu + (↑a + ↑b + ↑c) = 0",
+          "origin": "derived",
+          "name": "hmurootR",
+          "fvar_id": "_uniq.7415781"
+        },
+        {
+          "statement": "↑a + (-2 * ↑a - ↑b) + (↑a + ↑b + ↑c) < 0",
+          "origin": "derived",
+          "name": "hmu_at_one",
+          "fvar_id": "_uniq.7416918"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1855",
+      "conclusion": {
+        "statement": "1 < mu",
+        "origin": "derived",
+        "name": "hmu_gt",
+        "fvar_id": "_uniq.7417205"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Int.cast_add",
+        "Int.cast_mul",
+        "Int.cast_neg",
+        "Int.cast_ofNat",
+        "Int.cast_sub",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congr",
+        "congrArg",
+        "congrFun'"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + ↑(-2 * a - b) * x + ↑(a + b + c) = 0 → x = mu",
+          "origin": "local_assumption",
+          "name": "hmuunique",
+          "fvar_id": "_uniq.7412403"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1856",
+      "conclusion": {
+        "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+        "origin": "derived",
+        "name": "hmuunique'",
+        "fvar_id": "_uniq.7417909"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 - ↑c / (↑a * lam) = mu",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1662_binary_quadratic_form_volume_identity.transformed_root_relation"
+      ],
+      "premises": [
+        {
+          "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+          "origin": "local_assumption",
+          "name": "hlamroot",
+          "fvar_id": "_uniq.7412398"
+        },
+        {
+          "statement": "0 < lam",
+          "origin": "local_assumption",
+          "name": "hlampos",
+          "fvar_id": "_uniq.7412399"
+        },
+        {
+          "statement": "0 < ↑a",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.7412498"
+        },
+        {
+          "statement": "↑c < 0",
+          "origin": "derived",
+          "name": "hC",
+          "fvar_id": "_uniq.7413004"
+        },
+        {
+          "statement": "∀ (x : ℝ), 0 < x → ↑a * x ^ 2 + (-2 * ↑a - ↑b) * x + (↑a + ↑b + ↑c) = 0 → x = mu",
+          "origin": "derived",
+          "name": "hmuunique'",
+          "fvar_id": "_uniq.7417909"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1857",
+      "conclusion": {
+        "statement": "1 - ↑c / (↑a * lam) = mu",
+        "origin": "derived",
+        "name": "hrel",
+        "fvar_id": "_uniq.7418988"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < ↑a",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.7412498"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1858",
+      "conclusion": {
+        "statement": "↑a ≠ 0",
+        "origin": "derived",
+        "name": "hAne",
+        "fvar_id": "_uniq.7419126"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "lam ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < lam",
+          "origin": "local_assumption",
+          "name": "hlampos",
+          "fvar_id": "_uniq.7412399"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1859",
+      "conclusion": {
+        "statement": "lam ≠ 0",
+        "origin": "derived",
+        "name": "hlamne",
+        "fvar_id": "_uniq.7419261"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑c ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "↑c < 0",
+          "origin": "derived",
+          "name": "hC",
+          "fvar_id": "_uniq.7413004"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1860",
+      "conclusion": {
+        "statement": "↑c ≠ 0",
+        "origin": "derived",
+        "name": "hCne",
+        "fvar_id": "_uniq.7419397"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a + ↑b + ↑c ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "↑a + ↑b + ↑c < 0",
+          "origin": "derived",
+          "name": "hsumR",
+          "fvar_id": "_uniq.7414043"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1861",
+      "conclusion": {
+        "statement": "↑a + ↑b + ↑c ≠ 0",
+        "origin": "derived",
+        "name": "hsumne",
+        "fvar_id": "_uniq.7419561"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "GroupWithZero.toNontrivial",
+        "Iff.mpr",
+        "IsCancelMulZero.toIsLeftCancelMulZero",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.FieldSimp.NF.atom_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div",
+        "Mathlib.Tactic.FieldSimp.NF.cons_ne_zero",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₁",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₃",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval_cons_neg",
+        "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃",
+        "Mathlib.Tactic.FieldSimp.NF.one_div_eq_eval",
+        "Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst",
+        "Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq",
+        "Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul",
+        "Mathlib.Tactic.FieldSimp.subst_sub",
+        "Mathlib.Tactic.FieldSimp.zpow'_one",
+        "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_zero",
+        "NeZero.one",
+        "Not.intro",
+        "Real.instIsOrderedRing",
+        "congrArg",
+        "congr_arg",
+        "congr_arg₂",
+        "div_one",
+        "instIsCancelMulZero",
+        "mul_neg",
+        "mul_one",
+        "neg_eq_zero",
+        "one_mul",
+        "one_ne_zero",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+          "origin": "local_assumption",
+          "name": "hlamroot",
+          "fvar_id": "_uniq.7412398"
+        },
+        {
+          "statement": "↑a ≠ 0",
+          "origin": "derived",
+          "name": "hAne",
+          "fvar_id": "_uniq.7419126"
+        },
+        {
+          "statement": "lam ≠ 0",
+          "origin": "derived",
+          "name": "hlamne",
+          "fvar_id": "_uniq.7419261"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1862",
+      "conclusion": {
+        "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+        "origin": "derived",
+        "name": "hcdiv",
+        "fvar_id": "_uniq.7419628"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "mu = lam + 1 + ↑b / ↑a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.add_subst",
+        "Mathlib.Tactic.CancelDenoms.neg_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.eq_of_eq_of_eq",
+        "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.without_one_mul",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.div_congr",
+        "Mathlib.Tactic.Ring.div_pf",
+        "Mathlib.Tactic.Ring.inv_mul",
+        "Mathlib.Tactic.Ring.inv_single",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Not.intro",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "congrArg",
+        "neg_eq_zero",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "1 - ↑c / (↑a * lam) = mu",
+          "origin": "derived",
+          "name": "hrel",
+          "fvar_id": "_uniq.7418988"
+        },
+        {
+          "statement": "↑c / (↑a * lam) = -(↑b / ↑a) - lam",
+          "origin": "derived",
+          "name": "hcdiv",
+          "fvar_id": "_uniq.7419628"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1863",
+      "conclusion": {
+        "statement": "mu = lam + 1 + ↑b / ↑a",
+        "origin": "derived",
+        "name": "hmlin",
+        "fvar_id": "_uniq.7439721"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) =\n  ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_volume_eq"
+      ],
+      "premises": [
+        {
+          "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+          "origin": "local_assumption",
+          "name": "hlamroot",
+          "fvar_id": "_uniq.7412398"
+        },
+        {
+          "statement": "0 < lam",
+          "origin": "local_assumption",
+          "name": "hlampos",
+          "fvar_id": "_uniq.7412399"
+        },
+        {
+          "statement": "0 < ↑a",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.7412498"
+        },
+        {
+          "statement": "↑c < 0",
+          "origin": "derived",
+          "name": "hC",
+          "fvar_id": "_uniq.7413004"
+        },
+        {
+          "statement": "↑a + ↑b + ↑c < 0",
+          "origin": "derived",
+          "name": "hsumR",
+          "fvar_id": "_uniq.7414043"
+        },
+        {
+          "statement": "1 < lam",
+          "origin": "derived",
+          "name": "hlamgt",
+          "fvar_id": "_uniq.7415076"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1864",
+      "conclusion": {
+        "statement": "↑a * lam * (lam - 1) * (1 + 1 / lam ^ 2 + 1 / (lam - 1) ^ 2) =\n  ↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c)",
+        "origin": "derived",
+        "name": "hVlam",
+        "fvar_id": "_uniq.7442942"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1662_binary_quadratic_form_volume_identity.quadratic_sum_from_relation"
+      ],
+      "premises": [
+        {
+          "statement": "↑a * lam ^ 2 + ↑b * lam + ↑c = 0",
+          "origin": "local_assumption",
+          "name": "hlamroot",
+          "fvar_id": "_uniq.7412398"
+        },
+        {
+          "statement": "↑a ≠ 0",
+          "origin": "derived",
+          "name": "hAne",
+          "fvar_id": "_uniq.7419126"
+        },
+        {
+          "statement": "mu = lam + 1 + ↑b / ↑a",
+          "origin": "derived",
+          "name": "hmlin",
+          "fvar_id": "_uniq.7439721"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1865",
+      "conclusion": {
+        "statement": "↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) = ↑b + ↑b ^ 2 / ↑a - 2 * ↑c",
+        "origin": "derived",
+        "name": "hquad",
+        "fvar_id": "_uniq.7443391"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1662_binary_quadratic_form_volume_identity.rational_c_sum_from_relation"
+      ],
+      "premises": [
+        {
+          "statement": "↑a ≠ 0",
+          "origin": "derived",
+          "name": "hAne",
+          "fvar_id": "_uniq.7419126"
+        },
+        {
+          "statement": "↑c ≠ 0",
+          "origin": "derived",
+          "name": "hCne",
+          "fvar_id": "_uniq.7419397"
+        },
+        {
+          "statement": "mu = lam + 1 + ↑b / ↑a",
+          "origin": "derived",
+          "name": "hmlin",
+          "fvar_id": "_uniq.7439721"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1866",
+      "conclusion": {
+        "statement": "↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c = ↑a * ↑b / ↑c",
+        "origin": "derived",
+        "name": "hrC",
+        "fvar_id": "_uniq.7443408"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) =\n  -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1662_binary_quadratic_form_volume_identity.rational_d_sum_from_relation"
+      ],
+      "premises": [
+        {
+          "statement": "↑a ≠ 0",
+          "origin": "derived",
+          "name": "hAne",
+          "fvar_id": "_uniq.7419126"
+        },
+        {
+          "statement": "↑a + ↑b + ↑c ≠ 0",
+          "origin": "derived",
+          "name": "hsumne",
+          "fvar_id": "_uniq.7419561"
+        },
+        {
+          "statement": "mu = lam + 1 + ↑b / ↑a",
+          "origin": "derived",
+          "name": "hmlin",
+          "fvar_id": "_uniq.7439721"
+        }
+      ],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1867",
+      "conclusion": {
+        "statement": "-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c) =\n  -↑a * (2 * ↑a + ↑b) / (↑a + ↑b + ↑c)",
+        "origin": "derived",
+        "name": "hrD",
+        "fvar_id": "_uniq.7443429"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) +\n    (↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n      ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / ↑c) =\n  ↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) + 4 * ↑a + (↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c) +\n    (-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.atom_pf'",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.div_congr",
+        "Mathlib.Tactic.Ring.div_pf",
+        "Mathlib.Tactic.Ring.inv_mul",
+        "Mathlib.Tactic.Ring.inv_single",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity",
+      "id": "local_1868",
+      "conclusion": {
+        "statement": "↑a * (lam ^ 2 - lam) + 2 * ↑a + ↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) +\n    (↑a * (mu ^ 2 - mu) + 2 * ↑a + ↑a * (↑a * mu + (-2 * ↑a - ↑b)) / (↑a + ↑b + ↑c) -\n      ↑a * (↑a * mu + ↑a + (-2 * ↑a - ↑b)) / ↑c) =\n  ↑a * (lam ^ 2 - lam) + ↑a * (mu ^ 2 - mu) + 4 * ↑a + (↑a * (↑a * lam + ↑b) / ↑c - ↑a * (↑a * mu - ↑a - ↑b) / ↑c) +\n    (-↑a * (↑a * lam + ↑a + ↑b) / (↑a + ↑b + ↑c) + ↑a * (↑a * mu - 2 * ↑a - ↑b) / (↑a + ↑b + ↑c))",
+        "origin": "derived",
+        "name": "harrange",
+        "fvar_id": "_uniq.7448260"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p1662_binary_quadratic_form_volume_identity",
+    "proof_sha256": "21afe756275a961c4381bc5359a7ca8d9972574331648a2f3086e58cfa9305f8",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1662_binary_quadratic_form_volume_identity.binary_quadratic_form_volume_identity"
+  }
+}

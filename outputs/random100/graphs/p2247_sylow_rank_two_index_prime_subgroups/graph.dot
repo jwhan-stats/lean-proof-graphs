@@ -1,0 +1,37 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hind_fd555e00" [shape=box, color="#178F82", label="hind\nSubgroup.zpowers x ⊓ Subgroup.zpowers y = ⊥"];
+  "m_hp_cd01ef90" [shape=box, color="#178F82", label="hp\nNat.Prime p"];
+  "m_hspan_79695e3b" [shape=box, color="#178F82", label="hspan\nSubgroup.zpowers x ⊔ Subgroup.zpowers y = ⊤"];
+  "m_hu_bb5cc4bd" [shape=box, color="#178F82", label="hu\n0 < u"];
+  "m_huv_37a779ed" [shape=box, color="#178F82", label="huv\nv ≤ u"];
+  "m_hv_c9d5e870" [shape=box, color="#178F82", label="hv\n0 < v"];
+  "m_hx_2c104564" [shape=box, color="#178F82", label="hx\norderOf x = p ^ u"];
+  "m_hy_4ad03fd3" [shape=box, color="#178F82", label="hy\norderOf y = p ^ v"];
+  "m_inst___proofs_4000124397_672d90ac" [shape=box, color="#178F82", label="inst._@.proofs.4000124397._hygCtx._hyg.6\nFinite A"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nE = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1)) ∧ (u = 1 ∧ v = 1 → ∀ (U : Subgroup ↥↑P), U.index = p ↔ U ≤ E ∧ Nat.card ↥U = p) ∧ (v = 1 ∧ 1 < u → N.index = p ∧ E ≤ N ∧ (∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U → U = N) ∧ Nonempty (↥N ≃* Multiplicative (ZMod (p ^ (u - 1))) × Multiplicative (ZMod p)) ∧ Nat.card { U // U.index = p ∧ U ≠ N } = p ∧ ∀ (U : Subgroup ↥↑P), U.index = p → U ≠ N → IsCyclic ↥U ∧ Nat.card ↥U = p ^ u ∧ U ⊓ E = Subgroup.zpowers (x ^ p ^ (u - 1))) ∧ (1 < v → ∀ (U : Subgroup ↥↑P), U.index = p → E ≤ U)"];
+  "n_he_d61e16ca" [shape=box, color="#D97706", label="hE\nE = Subgroup.zpowers (x ^ p ^ (u - 1)) ⊔ Subgroup.zpowers (y ^ p ^ (v - 1))"];
+  "r_h_001_he" [shape=diamond, label="pow_ker_eq_zpowers_sup", color="#D97706"];
+  "m_hp_cd01ef90" -> "r_h_001_he";
+  "m_hu_bb5cc4bd" -> "r_h_001_he";
+  "m_hv_c9d5e870" -> "r_h_001_he";
+  "m_hx_2c104564" -> "r_h_001_he";
+  "m_hy_4ad03fd3" -> "r_h_001_he";
+  "m_hspan_79695e3b" -> "r_h_001_he";
+  "m_hind_fd555e00" -> "r_h_001_he";
+  "r_h_001_he" -> "n_he_d61e16ca";
+  "r_h_goal" [shape=diamond, label="Eq.symm + Eq.trans + N_index_mem_unique_v1", color="#D97706"];
+  "m_inst___proofs_4000124397_672d90ac" -> "r_h_goal";
+  "m_hp_cd01ef90" -> "r_h_goal";
+  "m_hu_bb5cc4bd" -> "r_h_goal";
+  "m_hv_c9d5e870" -> "r_h_goal";
+  "m_huv_37a779ed" -> "r_h_goal";
+  "m_hx_2c104564" -> "r_h_goal";
+  "m_hy_4ad03fd3" -> "r_h_goal";
+  "m_hspan_79695e3b" -> "r_h_goal";
+  "m_hind_fd555e00" -> "r_h_goal";
+  "n_he_d61e16ca" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

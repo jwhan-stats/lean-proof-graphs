@@ -1,0 +1,378 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2404_abelian_surjective_add_id_star_commute",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2404,
+    "source": "math_0608589",
+    "theorem_name": "abelian_surjective_add_id_star_commute",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2404",
+    "reconstructed_proof": "../../candidates/p2404_abelian_surjective_add_id_star_commute/proof.lean",
+    "raw_elaboration": "../../candidates/p2404_abelian_surjective_add_id_star_commute/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2404_abelian_surjective_add_id_star_commute.abelian_surjective_add_id_star_commute",
+    "verification_call_id": "verify_submission:6",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "69f2cf3836ce8fc06e2967a6e32e72fdd62ebbb926a939b0967eab84873aa4af",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "110fadbbaa1ab0bb205c999d9e2c706c9173fed8c9398922df582804b0a3bdbc",
+    "concrete_semantic_topology_sha256": "69f2cf3836ce8fc06e2967a6e32e72fdd62ebbb926a939b0967eab84873aa4af"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_0b9e7069",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hφ",
+      "lean_fvar_id": "3",
+      "statement": "Function.Surjective ⇑φ"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(Function.Commute ⇑φ fun a => φ a + a) ∧ ∀ (x y : A), (fun a => φ a + a) x = φ y → ∃! z, φ z = x ∧ (fun a => φ a + a) z = y"
+    },
+    {
+      "id": "n_hxy_9d591137",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.620553",
+      "statement": "(fun a => φ a + a) x = φ y"
+    },
+    {
+      "id": "n_hxy_a12e1f57",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxy'",
+      "lean_fvar_id": "_uniq.620633",
+      "statement": "ψ x = φ y"
+    },
+    {
+      "id": "n_hz_4cd45322",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzψ",
+      "lean_fvar_id": "_uniq.631618",
+      "statement": "ψ z = y"
+    },
+    {
+      "id": "n_hz_6dcb35be",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.631606",
+      "statement": "φ z = x ∧ (fun a => φ a + a) z = y"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hxy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxy_9d591137"
+      ],
+      "conclusion": "n_hxy_a12e1f57",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_35",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.620553",
+              "name": "hxy",
+              "statement": "(fun a => φ a + a) x = φ y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.620633",
+            "name": "hxy'",
+            "statement": "ψ x = φ y"
+          }
+        },
+        "lean_dependency_sha256": "6d3ba62da81bf0a208630e46d165f0e7c23ad55ef0ff54cdec7f7c4ab8a69379",
+        "kernel_witness_check": {
+          "proof_type": "(fun a => φ a + a) x = φ y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hz",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hz_6dcb35be"
+      ],
+      "conclusion": "n_hz_4cd45322",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_36",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hzψ : ψ z = y := hz.2\n      calc\n        z = ψ z - φ z := by\n          dsimp [ψ]\n          abel\n        _ = y - x := by rw [hzψ, hz.1]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.631606",
+              "name": "hz",
+              "statement": "φ z = x ∧ (fun a => φ a + a) z = y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.631618",
+            "name": "hzψ",
+            "statement": "ψ z = y"
+          }
+        },
+        "lean_dependency_sha256": "9d9545a86ba37c5f549e42b49c4da466c3b86139f6a400703237dd67482bd2d2",
+        "kernel_witness_check": {
+          "proof_type": "(fun a => φ a + a) z = y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "AddMonoidHom.map_sub + Eq.symm + add_comm",
+        "items": [
+          "AddMonoidHom.map_sub",
+          "Eq.symm",
+          "add_comm",
+          "congr",
+          "map_add"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "AddMonoidHom.map_sub",
+          "Eq.symm",
+          "add_comm",
+          "congr",
+          "map_add"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro a\n    change φ (ψ a) = ψ (φ a)\n    dsimp [ψ]\n    simp [map_add, add_comm]\n  · intro x y hxy\n    have hxy' : ψ x = φ y := hxy\n    refine ⟨y - x, ?_, ?_⟩\n    · constructor\n      · calc\n          φ (y - x) = φ y - φ x := AddMonoidHom.map_sub φ y x\n          _ = ψ x - φ x := by rw [← hxy']\n          _ = x := by\n            dsimp [ψ]\n            abel\n      · calc\n          ψ (y - x) = φ (y - x) + (y - x) := rfl\n          _ = x + (y - x) := by\n            congr 1\n            calc\n              φ (y - x) = φ y - φ x := AddMonoidHom.map_sub φ y x\n              _ = ψ x - φ x := by rw [← hxy']\n              _ = x := by\n                dsimp [ψ]\n                abel\n          _ = y := by abel\n    · intro z hz\n      have hzψ : ψ z = y := hz.2\n      calc\n        z = ψ z - φ z := by\n          dsimp [ψ]\n          abel\n        _ = y - x := by rw [hzψ, hz.1]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(Function.Commute ⇑φ fun a => φ a + a) ∧ ∀ (x y : A), (fun a => φ a + a) x = φ y → ∃! z, φ z = x ∧ (fun a => φ a + a) z = y"
+          }
+        },
+        "lean_dependency_sha256": "ceb2727eeedfc34191a3125c3a6385259321e66de705da179906a5377a66f722",
+        "kernel_witness_check": {
+          "proof_type": "(Function.Commute ⇑φ fun a => φ a + a) ∧\n  ∀ (x y : A), (fun a => φ a + a) x = φ y → ∃! z, φ z = x ∧ (fun a => φ a + a) z = y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "AddMonoidHom.map_sub",
+          "Eq.symm",
+          "map_add"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3",
+          "loogle:0",
+          "loogle:1",
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Function.Commute",
+      "declarations": [
+        "Function.Commute",
+        "Function.Commute.refl",
+        "Function.Commute.id_left",
+        "Function.Commute.id_right",
+        "Function.Commute.symm",
+        "Function.Commute.semiconj",
+        "Function.Semiconj.commute",
+        "Function.Commute.option_map",
+        "Function.Commute.comp_left",
+        "Function.Commute.comp_right"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Function.Commute _ _",
+      "declarations": [
+        "Function.Commute.refl",
+        "Function.Commute.id_left",
+        "Function.Commute.id_right",
+        "Function.Commute.symm",
+        "Function.Commute.semiconj",
+        "Function.Semiconj.commute",
+        "Function.Commute.option_map",
+        "Function.Commute.comp_left",
+        "Function.Commute.comp_right",
+        "Function.Commute.iterate_self"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "AddMonoidHom.map_add",
+      "declarations": [
+        "AddMonoidHom.map_add",
+        "AddCon.comap_eq",
+        "AddCon.comapQuotientEquivOfSurj",
+        "AddCon.comapQuotientEquiv",
+        "AddCon.comapQuotientEquivOfSurj_mk",
+        "AddCon.comapQuotientEquivOfSurj_symm_mk",
+        "AddCon.comapQuotientEquivOfSurj_symm_mk'",
+        "CategoryTheory.Discrete.addMonoidalFunctor_"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "AddMonoidHom.map_sub",
+      "declarations": [
+        "AddMonoidHom.map_sub"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 4,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 0,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 7,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

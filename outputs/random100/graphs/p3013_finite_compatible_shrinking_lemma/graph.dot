@@ -1,0 +1,20 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ho_ddf3bbbb" [shape=box, color="#178F82", label="hO\nIsOpen O"];
+  "m_hw_ee1fa910" [shape=box, color="#178F82", label="hW\n∀ (K : Set (Fin N)), K.Nonempty → IsOpen (W K) ∧ W K ⊆ O ∧ W K ∩ Z = ⋂ i ∈ K, Zi i"];
+  "m_hzclosed_2254ac76" [shape=box, color="#178F82", label="hZclosed\nIsClosed (Subtype.val ⁻¹' Z)"];
+  "m_hzi_open_056024c6" [shape=box, color="#178F82", label="hZi_open\n∀ (i : Fin N), IsOpen (Subtype.val ⁻¹' Zi i)"];
+  "m_hzi_subset_dae9bc26" [shape=box, color="#178F82", label="hZi_subset\n∀ (i : Fin N), Zi i ⊆ Z"];
+  "m_hzo_14bd54ef" [shape=box, color="#178F82", label="hZO\nZ ⊆ O"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ U, (∀ (K : Set (Fin N)), K.Nonempty → IsOpen (U K) ∧ U K ⊆ W K ∧ U K ∩ Z = ⋂ i ∈ K, Zi i) ∧ ∀ (J K : Set (Fin N)), J.Nonempty → K.Nonempty → U J ∩ U K = U (J ∪ K)"];
+  "r_h_goal" [shape=diamond, label="Eq.trans + Set.Finite.isOpen_biInter + Set.ext", color="#D97706"];
+  "m_ho_ddf3bbbb" -> "r_h_goal";
+  "m_hzo_14bd54ef" -> "r_h_goal";
+  "m_hzclosed_2254ac76" -> "r_h_goal";
+  "m_hzi_subset_dae9bc26" -> "r_h_goal";
+  "m_hzi_open_056024c6" -> "r_h_goal";
+  "m_hw_ee1fa910" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

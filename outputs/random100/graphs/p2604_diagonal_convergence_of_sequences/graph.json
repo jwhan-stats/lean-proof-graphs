@@ -1,0 +1,1543 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2604_diagonal_convergence_of_sequences",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2604,
+    "source": "2101.00906",
+    "theorem_name": "diagonal_convergence_of_sequences",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2604",
+    "reconstructed_proof": "../../candidates/p2604_diagonal_convergence_of_sequences/proof.lean",
+    "raw_elaboration": "../../candidates/p2604_diagonal_convergence_of_sequences/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2604_diagonal_convergence_of_sequences.diagonal_convergence_of_sequences",
+    "verification_call_id": "verify_submission:28",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "0ff276ec76b1c7c532c4ef3a31097c406441d22822053baef5f3bd4ccd2808d6",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "44c7fa825b0ba6d8de237c479d04956ef42b176527fb60029e22efd4bee1e4a1",
+    "concrete_semantic_topology_sha256": "0ff276ec76b1c7c532c4ef3a31097c406441d22822053baef5f3bd4ccd2808d6"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_e5ace275",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "5",
+      "statement": "∀ (m : ℕ), Filter.Tendsto (a m) Filter.atTop (nhds (aInf m))"
+    },
+    {
+      "id": "m_hinf_5761d1ae",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hInf",
+      "lean_fvar_id": "6",
+      "statement": "Filter.Tendsto aInf Filter.atTop (nhds aInfInf)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ b, Monotone b ∧ Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)"
+    },
+    {
+      "id": "n_h_7b0453f4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hε",
+      "lean_fvar_id": "_uniq.3507929",
+      "statement": "ε > 0"
+    },
+    {
+      "id": "n_ha0n_510404cf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hA0n",
+      "lean_fvar_id": "_uniq.3518046",
+      "statement": "A 0 ≤ n"
+    },
+    {
+      "id": "n_habn_3bb90945",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hAbn",
+      "lean_fvar_id": "_uniq.3518055",
+      "statement": "A (b n) ≤ n"
+    },
+    {
+      "id": "n_hbmono_69577e95",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbmono",
+      "lean_fvar_id": "_uniq.3505835",
+      "statement": "Monotone b"
+    },
+    {
+      "id": "n_hbn_ge_b21905d3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbn_ge",
+      "lean_fvar_id": "_uniq.3518294",
+      "statement": "max K L ≤ b n"
+    },
+    {
+      "id": "n_hbtop_47137071",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hbtop",
+      "lean_fvar_id": "_uniq.3506560",
+      "statement": "Tendsto b atTop atTop"
+    },
+    {
+      "id": "n_hcast_1108b894",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcast",
+      "lean_fvar_id": "_uniq.3520683",
+      "statement": "↑K + 1 ≤ ↑(b n) + 1"
+    },
+    {
+      "id": "n_hfirst_1ce16478",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfirst'",
+      "lean_fvar_id": "_uniq.3522611",
+      "statement": "dist (a (b n) n) (aInf (b n)) < ε / 2"
+    },
+    {
+      "id": "n_hfirst_a90f5d1b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfirst",
+      "lean_fvar_id": "_uniq.3520538",
+      "statement": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)"
+    },
+    {
+      "id": "n_hk_703103a1",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hK",
+      "lean_fvar_id": "_uniq.3511988",
+      "statement": "1 / (↑K + 1) < ε / 2"
+    },
+    {
+      "id": "n_hkb_794f885d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hKb",
+      "lean_fvar_id": "_uniq.3518485",
+      "statement": "K ≤ b n"
+    },
+    {
+      "id": "n_hl_1b5830f9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hL",
+      "lean_fvar_id": "_uniq.3516873",
+      "statement": "∀ n ≥ L, dist (aInf n) aInfInf < ε / 2"
+    },
+    {
+      "id": "n_hlb_f19a1e91",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hLb",
+      "lean_fvar_id": "_uniq.3518676",
+      "statement": "L ≤ b n"
+    },
+    {
+      "id": "n_hmem_f979e384",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmem",
+      "lean_fvar_id": "_uniq.3518905",
+      "statement": "b n ∈ Finset.range (b n + 1)"
+    },
+    {
+      "id": "n_hn_94692aba",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hN",
+      "lean_fvar_id": "_uniq.3505126",
+      "statement": "∀ (m k n : ℕ), n ≥ N m k → dist (a m n) (aInf m) < 1 / (↑k + 1)"
+    },
+    {
+      "id": "n_hn_f459ae20",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.3517836",
+      "statement": "n ≥ max (A 0) Nb"
+    },
+    {
+      "id": "n_hna_c1d2a03c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hNA",
+      "lean_fvar_id": "_uniq.3518685",
+      "statement": "N (b n) (b n) ≤ A (b n)"
+    },
+    {
+      "id": "n_hnb_879abaf9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hNb",
+      "lean_fvar_id": "_uniq.3517682",
+      "statement": "∀ (a : ℕ), Nb ≤ a → max K L ≤ b a"
+    },
+    {
+      "id": "n_hrec_365b001f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrec",
+      "lean_fvar_id": "_uniq.3522346",
+      "statement": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)"
+    },
+    {
+      "id": "n_hs_3002797e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hs",
+      "lean_fvar_id": "_uniq.3519825",
+      "statement": "(fun k => N (b n) k) (b n) ≤ (Finset.range (b n + 1)).sup fun k => N (b n) k"
+    },
+    {
+      "id": "n_hsecond_5f036a20",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsecond",
+      "lean_fvar_id": "_uniq.3522663",
+      "statement": "dist (aInf (b n)) aInfInf < ε / 2"
+    },
+    {
+      "id": "n_this_8ed83164",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3508068",
+      "statement": "0 < ε / 2"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_7b0453f4"
+      ],
+      "conclusion": "n_this_8ed83164",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_793",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3507929",
+              "name": "hε",
+              "statement": "ε > 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3508068",
+            "name": "this",
+            "statement": "0 < ε / 2"
+          }
+        },
+        "lean_dependency_sha256": "6d8a22f41375e64020f3449ccd412f75aff605f12bca225ad87efa03ac5fea96",
+        "kernel_witness_check": {
+          "proof_type": "0 < ε / 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hmem",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hmem_f979e384",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_794",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hmem : b n ∈ Finset.range (b n + 1) := by simp",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3518905",
+            "name": "hmem",
+            "statement": "b n ∈ Finset.range (b n + 1)"
+          }
+        },
+        "lean_dependency_sha256": "0bf04a102e6eb477945ee708089c8cdaac86f9616408863fb801b5d7ce6403dd",
+        "kernel_witness_check": {
+          "proof_type": "b n ∈ Finset.range (b n + 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hs",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hmem_f979e384"
+      ],
+      "conclusion": "n_hs_3002797e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.le_sup",
+        "items": [
+          "Finset.le_sup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.le_sup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_795",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hs := Finset.le_sup (s := Finset.range (b n + 1))\n      (f := fun k => N (b n) k) hmem\n    dsimp [A]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3518905",
+              "name": "hmem",
+              "statement": "b n ∈ Finset.range (b n + 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3519825",
+            "name": "hs",
+            "statement": "(fun k => N (b n) k) (b n) ≤ (Finset.range (b n + 1)).sup fun k => N (b n) k"
+          }
+        },
+        "lean_dependency_sha256": "2047245f77516922c0f9fba8edb1bb5d7248ccc43ff54592712d61f9e49af92e",
+        "kernel_witness_check": {
+          "proof_type": "N (b n) (b n) ≤ (Finset.range (b n + 1)).sup fun k => N (b n) k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.le_sup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:6",
+          "loogle:7"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hbmono",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hbmono_69577e95",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.findGreatest_mono_left + Nat.findGreatest_mono_right + le_trans",
+        "items": [
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_798",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbmono : Monotone b := by\n    intro m n hmn\n    dsimp [b]\n    calc\n      Nat.findGreatest (fun k => A k ≤ m) m\n          ≤ Nat.findGreatest (fun k => A k ≤ m) n :=\n        Nat.findGreatest_mono_right (fun k => A k ≤ m) hmn\n      _ ≤ Nat.findGreatest (fun k => A k ≤ n) n :=\n        Nat.findGreatest_mono_left (fun k hk => le_trans hk hmn) n",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3505835",
+            "name": "hbmono",
+            "statement": "Monotone b"
+          }
+        },
+        "lean_dependency_sha256": "b9e1addbe59c5ad1f7d3992198e22e8bb41a6029931006ac918f089f0d1f0b42",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃m n : ℕ⦄, m ≤ n → b m ≤ b n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hbtop",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbmono_69577e95"
+      ],
+      "conclusion": "n_hbtop_47137071",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Filter.tendsto_atTop_atTop_iff_of_monotone + Nat.le_findGreatest + le_max_left",
+        "items": [
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Nat.le_findGreatest",
+          "le_max_left",
+          "le_rfl"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Nat.le_findGreatest",
+          "le_max_left",
+          "le_rfl"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_799",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbtop : Filter.Tendsto b Filter.atTop Filter.atTop := by\n    rw [Filter.tendsto_atTop_atTop_iff_of_monotone hbmono]\n    intro m\n    refine ⟨A m, ?_⟩\n    dsimp [b]\n    exact Nat.le_findGreatest (P := fun k => A k ≤ A m) (le_max_left _ _) le_rfl",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3505835",
+              "name": "hbmono",
+              "statement": "Monotone b"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3506560",
+            "name": "hbtop",
+            "statement": "Tendsto b atTop atTop"
+          }
+        },
+        "lean_dependency_sha256": "dde36a61b5937187408467a4b99d2737cbdd41fe0ac837e4c2ec58ac00bfd925",
+        "kernel_witness_check": {
+          "proof_type": "Tendsto b atTop atTop",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Nat.le_findGreatest"
+        ],
+        "observed_search_event_ids": [
+          "loogle:15",
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_ha0n",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_f459ae20"
+      ],
+      "conclusion": "n_ha0n_510404cf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_max_left + le_trans",
+        "items": [
+          "le_max_left",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_max_left",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_800",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hA0n : A 0 ≤ n := le_trans (le_max_left _ _) hn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3517836",
+              "name": "hn",
+              "statement": "n ≥ max (A 0) Nb"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3518046",
+            "name": "hA0n",
+            "statement": "A 0 ≤ n"
+          }
+        },
+        "lean_dependency_sha256": "67a541323444e929b5675cc9d917ee21e546f852225a7d71f86add4c7d70b2de",
+        "kernel_witness_check": {
+          "proof_type": "A 0 ≤ n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_habn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha0n_510404cf"
+      ],
+      "conclusion": "n_habn_3bb90945",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.findGreatest_spec + Nat.zero_le",
+        "items": [
+          "Nat.findGreatest_spec",
+          "Nat.zero_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.findGreatest_spec",
+          "Nat.zero_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_801",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hAbn : A (b n) ≤ n := by\n    dsimp [b]\n    exact Nat.findGreatest_spec (P := fun m => A m ≤ n) (Nat.zero_le n) hA0n",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3518046",
+              "name": "hA0n",
+              "statement": "A 0 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3518055",
+            "name": "hAbn",
+            "statement": "A (b n) ≤ n"
+          }
+        },
+        "lean_dependency_sha256": "ad6d30838c36868960c005a8a231dfe2658ae06eef49f7aaa4de08b7c7266587",
+        "kernel_witness_check": {
+          "proof_type": "A (b n) ≤ n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.findGreatest_spec"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hbn_ge",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnb_879abaf9",
+        "n_hn_f459ae20"
+      ],
+      "conclusion": "n_hbn_ge_b21905d3",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_max_right + le_trans",
+        "items": [
+          "le_max_right",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_max_right",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_802",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hbn_ge : max K L ≤ b n := hNb n (le_trans (le_max_right _ _) hn)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3517682",
+              "name": "hNb",
+              "statement": "∀ (a : ℕ), Nb ≤ a → max K L ≤ b a"
+            },
+            {
+              "fvar_id": "_uniq.3517836",
+              "name": "hn",
+              "statement": "n ≥ max (A 0) Nb"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3518294",
+            "name": "hbn_ge",
+            "statement": "max K L ≤ b n"
+          }
+        },
+        "lean_dependency_sha256": "06a23a50229e7b46cb24fd8a90b7748fd270006ef45e6692b8b445991cb483a0",
+        "kernel_witness_check": {
+          "proof_type": "max K L ≤ b n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hkb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbn_ge_b21905d3"
+      ],
+      "conclusion": "n_hkb_794f885d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_max_left + le_trans",
+        "items": [
+          "le_max_left",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_max_left",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_803",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hKb : K ≤ b n := le_trans (le_max_left _ _) hbn_ge",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3518294",
+              "name": "hbn_ge",
+              "statement": "max K L ≤ b n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3518485",
+            "name": "hKb",
+            "statement": "K ≤ b n"
+          }
+        },
+        "lean_dependency_sha256": "eeb2dc747bb24ea252346f7e52ce6ca8275d74235640f4e04380aee04e41b26c",
+        "kernel_witness_check": {
+          "proof_type": "K ≤ b n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hlb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hbn_ge_b21905d3"
+      ],
+      "conclusion": "n_hlb_f19a1e91",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_max_right + le_trans",
+        "items": [
+          "le_max_right",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_max_right",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_804",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hLb : L ≤ b n := le_trans (le_max_right _ _) hbn_ge",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3518294",
+              "name": "hbn_ge",
+              "statement": "max K L ≤ b n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3518676",
+            "name": "hLb",
+            "statement": "L ≤ b n"
+          }
+        },
+        "lean_dependency_sha256": "1c18257d9346a03707ba4343e9b933cd8ed946fdd20645cf00513d17d87c9b16",
+        "kernel_witness_check": {
+          "proof_type": "L ≤ b n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hna",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hna_c1d2a03c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.le_sup + le_max_right + le_trans",
+        "items": [
+          "Finset.le_sup",
+          "le_max_right",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.le_sup",
+          "le_max_right",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_805",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hNA : N (b n) (b n) ≤ A (b n) := by\n    have hmem : b n ∈ Finset.range (b n + 1) := by simp\n    have hs := Finset.le_sup (s := Finset.range (b n + 1))\n      (f := fun k => N (b n) k) hmem\n    dsimp [A]\n    exact le_trans hs (le_max_right _ _)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3518685",
+            "name": "hNA",
+            "statement": "N (b n) (b n) ≤ A (b n)"
+          }
+        },
+        "lean_dependency_sha256": "96784696e69fc1392ab8e707772343773822d37718f1f410847766716daf3666",
+        "kernel_witness_check": {
+          "proof_type": "N (b n) (b n) ≤ A (b n)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.le_sup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:6",
+          "loogle:7"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_012_hfirst",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_94692aba",
+        "n_habn_3bb90945",
+        "n_hna_c1d2a03c"
+      ],
+      "conclusion": "n_hfirst_a90f5d1b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_trans",
+        "items": [
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_806",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hfirst : dist (a (b n) n) (aInf (b n)) < 1 / ((b n : ℝ) + 1) :=\n    hN (b n) (b n) n (le_trans hNA hAbn)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3505126",
+              "name": "hN",
+              "statement": "∀ (m k n : ℕ), n ≥ N m k → dist (a m n) (aInf m) < 1 / (↑k + 1)"
+            },
+            {
+              "fvar_id": "_uniq.3518055",
+              "name": "hAbn",
+              "statement": "A (b n) ≤ n"
+            },
+            {
+              "fvar_id": "_uniq.3518685",
+              "name": "hNA",
+              "statement": "N (b n) (b n) ≤ A (b n)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3520538",
+            "name": "hfirst",
+            "statement": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)"
+          }
+        },
+        "lean_dependency_sha256": "2974233b2f8c248a7c2dc628784c0d958ce5daae84efc16d0f29d68237759547",
+        "kernel_witness_check": {
+          "proof_type": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hcast",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hkb_794f885d"
+      ],
+      "conclusion": "n_hcast_1108b894",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.succ_le_succ",
+        "items": [
+          "Nat.succ_le_succ"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.succ_le_succ"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_807",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcast : (K : ℝ) + 1 ≤ (b n : ℝ) + 1 := by\n    exact_mod_cast Nat.succ_le_succ hKb",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3518485",
+              "name": "hKb",
+              "statement": "K ≤ b n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3520683",
+            "name": "hcast",
+            "statement": "↑K + 1 ≤ ↑(b n) + 1"
+          }
+        },
+        "lean_dependency_sha256": "f0b615cf1dbdee725de7d87156f859ad0555243eba9abc10615536eaa4ecfe21",
+        "kernel_witness_check": {
+          "proof_type": "↑K + 1 ≤ ↑(b n) + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hrec",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcast_1108b894"
+      ],
+      "conclusion": "n_hrec_365b001f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.cast_add_one_pos + one_div_le_one_div_of_le",
+        "items": [
+          "Nat.cast_add_one_pos",
+          "one_div_le_one_div_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.cast_add_one_pos",
+          "one_div_le_one_div_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_808",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hrec : 1 / ((b n : ℝ) + 1) ≤ 1 / ((K : ℝ) + 1) :=\n    one_div_le_one_div_of_le (Nat.cast_add_one_pos K) hcast",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3520683",
+              "name": "hcast",
+              "statement": "↑K + 1 ≤ ↑(b n) + 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3522346",
+            "name": "hrec",
+            "statement": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)"
+          }
+        },
+        "lean_dependency_sha256": "e67b27ed427a3e32c608cbe26d6036b343d32d09353636e9f6d8eafb390cc649",
+        "kernel_witness_check": {
+          "proof_type": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.cast_add_one_pos",
+          "one_div_le_one_div_of_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:8",
+          "loogle:19"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_015_hfirst",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_703103a1",
+        "n_hfirst_a90f5d1b",
+        "n_hrec_365b001f"
+      ],
+      "conclusion": "n_hfirst_1ce16478",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_809",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3511988",
+              "name": "hK",
+              "statement": "1 / (↑K + 1) < ε / 2"
+            },
+            {
+              "fvar_id": "_uniq.3520538",
+              "name": "hfirst",
+              "statement": "dist (a (b n) n) (aInf (b n)) < 1 / (↑(b n) + 1)"
+            },
+            {
+              "fvar_id": "_uniq.3522346",
+              "name": "hrec",
+              "statement": "1 / (↑(b n) + 1) ≤ 1 / (↑K + 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3522611",
+            "name": "hfirst'",
+            "statement": "dist (a (b n) n) (aInf (b n)) < ε / 2"
+          }
+        },
+        "lean_dependency_sha256": "c23f4784c09247ec32fe6e159fd563983e3e00ef9738b79f29f02078c54e9f4c",
+        "kernel_witness_check": {
+          "proof_type": "dist (a (b n) n) (aInf (b n)) < ε / 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hsecond",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hl_1b5830f9",
+        "n_hlb_f19a1e91"
+      ],
+      "conclusion": "n_hsecond_5f036a20",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_810",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hsecond : dist (aInf (b n)) aInfInf < ε / 2 := hL (b n) hLb\n  calc\n    dist (a (b n) n) aInfInf\n        ≤ dist (a (b n) n) (aInf (b n)) + dist (aInf (b n)) aInfInf :=\n      dist_triangle _ _ _\n    _ < ε / 2 + ε / 2 := add_lt_add hfirst' hsecond\n    _ = ε := by ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3516873",
+              "name": "hL",
+              "statement": "∀ n ≥ L, dist (aInf n) aInfInf < ε / 2"
+            },
+            {
+              "fvar_id": "_uniq.3518676",
+              "name": "hLb",
+              "statement": "L ≤ b n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3522663",
+            "name": "hsecond",
+            "statement": "dist (aInf (b n)) aInfInf < ε / 2"
+          }
+        },
+        "lean_dependency_sha256": "5da3f661b1c2771ab124d1f6ebf336b7428bcd3b9dbbfe3a173ffa85d7367c3c",
+        "kernel_witness_check": {
+          "proof_type": "dist (aInf (b n)) aInfInf < ε / 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_e5ace275",
+        "m_hinf_5761d1ae"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Filter.tendsto_atTop_atTop + Filter.tendsto_atTop_atTop_iff_of_monotone + Finset.le_sup",
+        "items": [
+          "Filter.tendsto_atTop_atTop",
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Finset.le_sup",
+          "Metric.tendsto_atTop",
+          "Nat.cast_add_one_pos",
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right",
+          "Nat.findGreatest_spec"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Filter.tendsto_atTop_atTop",
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Finset.le_sup",
+          "Metric.tendsto_atTop",
+          "Nat.cast_add_one_pos",
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right",
+          "Nat.findGreatest_spec"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨max (A 0) Nb, ?_⟩\n  intro n hn\n  have hA0n : A 0 ≤ n := le_trans (le_max_left _ _) hn\n  have hAbn : A (b n) ≤ n := by\n    dsimp [b]\n    exact Nat.findGreatest_spec (P := fun m => A m ≤ n) (Nat.zero_le n) hA0n\n  have hbn_ge : max K L ≤ b n := hNb n (le_trans (le_max_right _ _) hn)\n  have hKb : K ≤ b n := le_trans (le_max_left _ _) hbn_ge\n  have hLb : L ≤ b n := le_trans (le_max_right _ _) hbn_ge\n  have hNA : N (b n) (b n) ≤ A (b n) := by\n    have hmem : b n ∈ Finset.range (b n + 1) := by simp\n    have hs := Finset.le_sup (s := Finset.range (b n + 1))\n      (f := fun k => N (b n) k) hmem\n    dsimp [A]\n    exact le_trans hs (le_max_right _ _)\n  have hfirst : dist (a (b n) n) (aInf (b n)) < 1 / ((b n : ℝ) + 1) :=\n    hN (b n) (b n) n (le_trans hNA hAbn)\n  have hcast : (K : ℝ) + 1 ≤ (b n : ℝ) + 1 := by\n    exact_mod_cast Nat.succ_le_succ hKb\n  have hrec : 1 / ((b n : ℝ) + 1) ≤ 1 / ((K : ℝ) + 1) :=\n    one_div_le_one_div_of_le (Nat.cast_add_one_pos K) hcast\n  have hfirst' : dist (a (b n) n) (aInf (b n)) < ε / 2 :=\n    lt_trans (lt_of_lt_of_le hfirst hrec) hK\n  have hsecond : dist (aInf (b n)) aInfInf < ε / 2 := hL (b n) hLb\n  calc\n    dist (a (b n) n) aInfInf\n        ≤ dist (a (b n) n) (aInf (b n)) + dist (aInf (b n)) aInfInf :=\n      dist_triangle _ _ _\n    _ < ε / 2 + ε / 2 := add_lt_add hfirst' hsecond\n    _ = ε := by ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "ha",
+              "statement": "∀ (m : ℕ), Filter.Tendsto (a m) Filter.atTop (nhds (aInf m))"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hInf",
+              "statement": "Filter.Tendsto aInf Filter.atTop (nhds aInfInf)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ b, Monotone b ∧ Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)"
+          }
+        },
+        "lean_dependency_sha256": "d47be4de64db6368b38b1a18ae3629c3bd88a9161d8202603bcc3ea47add41c9",
+        "kernel_witness_check": {
+          "proof_type": "∃ b,\n  Monotone b ∧\n    Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Filter.tendsto_atTop_atTop",
+          "Filter.tendsto_atTop_atTop_iff_of_monotone",
+          "Finset.le_sup",
+          "Metric.tendsto_atTop",
+          "Nat.cast_add_one_pos",
+          "Nat.findGreatest_mono_left",
+          "Nat.findGreatest_mono_right",
+          "Nat.findGreatest_spec"
+        ],
+        "observed_search_event_ids": [
+          "loogle:15",
+          "loogle:6",
+          "loogle:7",
+          "loogle:0",
+          "loogle:8",
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Metric.tendsto_atTop",
+      "declarations": [
+        "Metric.tendsto_atTop"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Nat.findGreatest",
+      "declarations": [
+        "Nat.findGreatest",
+        "Nat.findGreatest_le",
+        "Nat.findGreatest_eq",
+        "Nat.findGreatest_spec",
+        "Nat.findGreatest_zero",
+        "Nat.le_findGreatest",
+        "Nat.findGreatest_is_greatest",
+        "Nat.findGreatest_mono_right",
+        "Nat.findGreatest_of_ne_zero",
+        "Nat.findGreatest_mono_left"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "dist_triangle",
+      "declarations": [
+        "Metric.toUniformSpace_eq",
+        "dist_triangle"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "tendsto_const_nhds.add",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Tendsto.comp",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "tendsto_inverse_atTop_nhds_zero_nat",
+      "declarations": [
+        "tendsto_inverse_atTop_nhds_zero_nat"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Finset.le_sup",
+      "declarations": [
+        "Finset.le_sup"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "(_ ≤ Finset.sup _ _)",
+      "declarations": [
+        "Finset.exists_sup_ge",
+        "Finset.le_sup",
+        "Finset.sup_mono",
+        "Finset.le_sup_of_le",
+        "Finset.sup_mono_fun",
+        "Finset.le_sup_dite_pos",
+        "Finset.le_sup_dite_neg",
+        "Finset.le_sup_iff",
+        "Finset.SupIndep.le_sup_iff",
+        "CompleteLattice.isCompactElement_iff_exists_le_iSup_of_le_iSup"
+      ],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Nat.cast_add_one_pos",
+      "declarations": [
+        "Nat.cast_add_one_pos"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "one_div_pos",
+      "declarations": [
+        "one_div_pos",
+        "ENNReal.orderIsoRpow_symm_apply",
+        "NNReal.orderIsoRpow_symm_eq"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "exists_nat_one_div_lt",
+      "declarations": [
+        "exists_nat_one_div_lt"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "one_div_lt_one_div",
+      "declarations": [
+        "one_div_lt_one_div"
+      ],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Nat.cast_le",
+      "declarations": [
+        "Nat.cast_le"
+      ],
+      "call_turn": 9,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "dist_nonneg",
+      "declarations": [
+        "dist_nonneg"
+      ],
+      "call_turn": 9,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "tendsto_atTop_atTop",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Filter.Tendsto _ Filter.atTop Filter.atTop ↔ ∀ _, ∃ _, _",
+      "declarations": [
+        "Filter.tendsto_atTop_atTop_iff_of_monotone",
+        "Monotone.tendsto_atTop_atTop_iff",
+        "Filter.tendsto_atTop_atTop"
+      ],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "tendsto_atTop_mono",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Monotone.tendsto_atTop",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "tendsto_atTop.2",
+      "declarations": [],
+      "call_turn": 18,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "one_div_le_one_div_of_le",
+      "declarations": [
+        "one_div_le_one_div_of_le"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "one_div_le_one_div",
+      "declarations": [
+        "one_div_le_one_div"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "inv_le_inv_of_le₀",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "inv_le_inv₀",
+      "declarations": [
+        "inv_le_inv"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "div_le_div₀",
+      "declarations": [
+        "div_le_div"
+      ],
+      "call_turn": 24,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Nat.cast_add_one_le",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 30
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 8,
+    "retrieval_query_count": 25,
+    "useful_retrieval_event_count": 6,
+    "unused_retrieval_event_count": 19,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 29,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

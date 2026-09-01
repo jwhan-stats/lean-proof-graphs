@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_inner_994ce2cd" [shape=box, color="#178F82", label="h_inner\nb * a * b = b"];
+  "m_h_left_dcdb13f4" [shape=box, color="#178F82", label="h_left\n(Set.range fun y => y * b) = Set.range fun y => y * d"];
+  "m_h_right_a68e1f01" [shape=box, color="#178F82", label="h_right\n(Set.range fun y => b * y) = Set.range fun y => d * y"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n↑r * b * ↑s⁻¹ * (↑s * a * ↑r⁻¹) * (↑r * b * ↑s⁻¹) = ↑r * b * ↑s⁻¹ ∧ ((Set.range fun y => ↑r * b * ↑s⁻¹ * y) = Set.range fun y => ↑r * d * ↑s⁻¹ * y) ∧ (Set.range fun y => y * (↑r * b * ↑s⁻¹)) = Set.range fun y => y * (↑r * d * ↑s⁻¹)"];
+  "r_h_goal" [shape=diamond, label="Rollout_p1180_inversealong_units.leftIdeal_eq_of_units + Rollout_p1180_inversealong_units.rightIdeal_eq_of_units + mul_assoc", color="#D97706"];
+  "m_h_inner_994ce2cd" -> "r_h_goal";
+  "m_h_right_a68e1f01" -> "r_h_goal";
+  "m_h_left_dcdb13f4" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

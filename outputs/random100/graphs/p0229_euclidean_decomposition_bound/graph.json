@@ -1,0 +1,435 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0229_euclidean_decomposition_bound",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 229,
+    "source": "1908.02803",
+    "theorem_name": "euclidean_decomposition_bound",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/229",
+    "reconstructed_proof": "../../candidates/p0229_euclidean_decomposition_bound/proof.lean",
+    "raw_elaboration": "../../candidates/p0229_euclidean_decomposition_bound/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0229_euclidean_decomposition_bound.euclidean_decomposition_bound",
+    "verification_call_id": "verify_submission:12",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "60d8d4e289aa2948542a900b0644473c2588737e01bfa65a0a429d00fc12a92b",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "09b91c32a3470256eb31ca1045764c67b1bf9fcc17849d949cd85a5f352983a4",
+    "concrete_semantic_topology_sha256": "60d8d4e289aa2948542a900b0644473c2588737e01bfa65a0a429d00fc12a92b"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_he_726a5071",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "he",
+      "lean_fvar_id": "4",
+      "statement": "0 < e"
+    },
+    {
+      "id": "m_hep_36f0e95b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hep",
+      "lean_fvar_id": "7",
+      "statement": "e ≤ p + 1"
+    },
+    {
+      "id": "m_hn_37bb62fc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "3",
+      "statement": "0 < n"
+    },
+    {
+      "id": "m_hp_64f06c50",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp",
+      "lean_fvar_id": "5",
+      "statement": "Nat.Prime p"
+    },
+    {
+      "id": "m_hsize_c54fbb9f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hsize",
+      "lean_fvar_id": "6",
+      "statement": "4 * p ^ 2 ≤ n + 2"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ d, ∃ f < p, n + 2 = p * d + f + e ∧ d ≥ e + f + (2 * p - 2)"
+    },
+    {
+      "id": "n_hp0_4f060ed6",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hp0",
+      "lean_fvar_id": "8",
+      "statement": "0 < p"
+    },
+    {
+      "id": "n_hp2_764e0c79",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hp2",
+      "lean_fvar_id": "9",
+      "statement": "2 ≤ p"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hp0",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_64f06c50"
+      ],
+      "conclusion": "n_hp0_4f060ed6",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_8",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hp0 : 0 < p := hp.pos",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hp",
+              "statement": "Nat.Prime p"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "8",
+            "name": "hp0",
+            "statement": "0 < p"
+          }
+        },
+        "lean_dependency_sha256": "726cbea7f89957760b7468bd86205e6732346fd8adfe8b64c411705621bdc10c",
+        "kernel_witness_check": {
+          "proof_type": "0 < p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hp2",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_64f06c50"
+      ],
+      "conclusion": "n_hp2_764e0c79",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.Prime.two_le",
+        "items": [
+          "Nat.Prime.two_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.Prime.two_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_9",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hp2 : 2 ≤ p := hp.two_le",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hp",
+              "statement": "Nat.Prime p"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "9",
+            "name": "hp2",
+            "statement": "2 ≤ p"
+          }
+        },
+        "lean_dependency_sha256": "f5e5ee7e5852cbec0f8a6237606d03ddd0fa41fe1a4db000fcb19c3684216d93",
+        "kernel_witness_check": {
+          "proof_type": "2 ≤ p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.Prime.two_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_64f06c50",
+        "m_hsize_c54fbb9f",
+        "m_hep_36f0e95b",
+        "n_hp0_4f060ed6",
+        "n_hp2_764e0c79"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.div_add_mod + Nat.exists_eq_add_of_le + Nat.le_div_iff_mul_le",
+        "items": [
+          "Nat.div_add_mod",
+          "Nat.exists_eq_add_of_le",
+          "Nat.le_div_iff_mul_le",
+          "Nat.le_sub_iff_add_le",
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.div_add_mod",
+          "Nat.exists_eq_add_of_le",
+          "Nat.le_div_iff_mul_le",
+          "Nat.le_sub_iff_add_le",
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact le_trans htarget hd4",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hp",
+              "statement": "Nat.Prime p"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hsize",
+              "statement": "4 * p ^ 2 ≤ n + 2"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hep",
+              "statement": "e ≤ p + 1"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hp0",
+              "statement": "0 < p"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hp2",
+              "statement": "2 ≤ p"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ d, ∃ f < p, n + 2 = p * d + f + e ∧ d ≥ e + f + (2 * p - 2)"
+          }
+        },
+        "lean_dependency_sha256": "418cb19883cc0146072ea75eebd11a01a67c2bf8c8aecc2a837ba84a734b270d",
+        "kernel_witness_check": {
+          "proof_type": "∃ d, ∃ f < p, n + 2 = p * d + f + e ∧ d ≥ e + f + (2 * p - 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.div_add_mod",
+          "Nat.exists_eq_add_of_le",
+          "Nat.le_div_iff_mul_le",
+          "Nat.le_sub_iff_add_le"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "loogle:7",
+          "loogle:0",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Nat.le_div_iff_mul_le",
+      "declarations": [
+        "Nat.le_div_iff_mul_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Nat.div_add_mod",
+      "declarations": [
+        "Nat.div_add_mod"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Nat.Prime.two_le",
+      "declarations": [
+        "Nat.Prime.two_le",
+        "Nat.properDivisors_prime_pow",
+        "Nat.divisors_prime_pow"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Nat.le_sub_iff_add_le",
+      "declarations": [
+        "Nat.le_sub_iff_add_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Nat.mul_le_mul_left",
+      "declarations": [
+        "Nat.mul_le_mul_left",
+        "List.ofFn_mul'"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Nat.exists_eq_add_of_le",
+      "declarations": [
+        "Nat.exists_eq_add_of_le"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 6,
+    "selected_hyperedge_count": 3,
+    "main_hyperedge_count": 3,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 5,
+    "max_fan_in_main": 5,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 5,
+    "retrieval_query_count": 6,
+    "useful_retrieval_event_count": 5,
+    "unused_retrieval_event_count": 1,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 13,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

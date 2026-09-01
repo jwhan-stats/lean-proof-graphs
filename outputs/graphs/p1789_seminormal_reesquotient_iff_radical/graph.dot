@@ -1,0 +1,21 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_e6afa0f5" [shape=box, color="#178F82", label="hA\n(∀ (a b : A), a ^ 2 = b ^ 2 → a ^ 3 = b ^ 3 → a = b) ∧ ∀ (x y : A), x ^ 3 = y ^ 2 → ∃ z, x = z ^ 2 ∧ y = z ^ 3"];
+  "m_hi_zero_b37256e2" [shape=box, color="#178F82", label="hI_zero\n0 ∈ I"];
+  "m_hq_fiber_f85ac2cf" [shape=box, color="#178F82", label="hq_fiber\n∀ (a b : A), q a = q b ↔ a = b ∨ a ∈ I ∧ b ∈ I"];
+  "m_hq_surjective_fa17ffc3" [shape=box, color="#178F82", label="hq_surjective\nFunction.Surjective ⇑q"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n((∀ (a b : B), a ^ 2 = b ^ 2 → a ^ 3 = b ^ 3 → a = b) ∧ ∀ (x y : B), x ^ 3 = y ^ 2 → ∃ z, x = z ^ 2 ∧ y = z ^ 3) ↔ ∀ (a : A), (∃ n, 1 ≤ n ∧ a ^ n ∈ I) → a ∈ I"];
+  "n_qzero_45095b35" [shape=box, color="#D97706", label="qzero\n∀ (a : A), q a = 0 ↔ a ∈ I"];
+  "r_h_001_qzero" [shape=diamond, label="proof_term_composition", color="#D97706"];
+  "m_hi_zero_b37256e2" -> "r_h_001_qzero";
+  "m_hq_fiber_f85ac2cf" -> "r_h_001_qzero";
+  "r_h_001_qzero" -> "n_qzero_45095b35";
+  "r_h_goal" [shape=diamond, label="pow_eq_zero_of_reduced + SemigroupIdeal.mul_mem + map_pow", color="#D97706"];
+  "m_ha_e6afa0f5" -> "r_h_goal";
+  "m_hq_surjective_fa17ffc3" -> "r_h_goal";
+  "m_hq_fiber_f85ac2cf" -> "r_h_goal";
+  "n_qzero_45095b35" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

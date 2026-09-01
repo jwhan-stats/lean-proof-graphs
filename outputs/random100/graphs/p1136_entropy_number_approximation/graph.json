@@ -1,0 +1,3047 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1136_entropy_number_approximation",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1136,
+    "source": "1002.1377",
+    "theorem_name": "entropy_number_approximation",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1136",
+    "reconstructed_proof": "../../candidates/p1136_entropy_number_approximation/proof.lean",
+    "raw_elaboration": "../../candidates/p1136_entropy_number_approximation/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+    "verification_call_id": "verify_submission:130",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "35962ed6d9b2ce9c224f8534f09d23127dfd835d3adaae568e40c6c6429a2704",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "45103f725ea45d5b0574b71aeadb3eaea1f9663512a6bd65d9ab4a67d218f5ab",
+    "concrete_semantic_topology_sha256": "35962ed6d9b2ce9c224f8534f09d23127dfd835d3adaae568e40c6c6429a2704"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hn_3b365836",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "14",
+      "statement": "0 < n"
+    },
+    {
+      "id": "m_inst___proofs_4179854831_0958dc12",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.4179854831._hygCtx._hyg.26",
+      "lean_fvar_id": "10",
+      "statement": "Nonempty Γ"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let e := fun k T => ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε; e (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤ (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖"
+    },
+    {
+      "id": "n_h_35962758",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hε",
+      "lean_fvar_id": "_uniq.3642890",
+      "statement": "0 < ε"
+    },
+    {
+      "id": "n_h_379be288",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.3650678",
+      "statement": "A + B + ε = 0"
+    },
+    {
+      "id": "n_h_96a87ed5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hγ",
+      "lean_fvar_id": "_uniq.3663833",
+      "statement": "ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η"
+    },
+    {
+      "id": "n_h_ne_d25e9cbf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hηne",
+      "lean_fvar_id": "_uniq.3646690",
+      "statement": "η ≠ 0"
+    },
+    {
+      "id": "n_h_pos_f204a526",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hηpos",
+      "lean_fvar_id": "_uniq.3646201",
+      "statement": "0 < η"
+    },
+    {
+      "id": "n_h_top_6c90c9fe",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hεtop",
+      "lean_fvar_id": "_uniq.3643172",
+      "statement": "¬ε = ⊤"
+    },
+    {
+      "id": "n_h_zero_caedb5ee",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hεzero",
+      "lean_fvar_id": "_uniq.3651035",
+      "statement": "ε = 0"
+    },
+    {
+      "id": "n_ha_75d1cd06",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hA",
+      "lean_fvar_id": "_uniq.3645404",
+      "statement": "A ≠ ⊤"
+    },
+    {
+      "id": "n_happrox_8f3505da",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "happrox",
+      "lean_fvar_id": "_uniq.3664796",
+      "statement": "edist (V x) ((Vγ γ) x) < B + η"
+    },
+    {
+      "id": "n_hb_4b4d833c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hB",
+      "lean_fvar_id": "_uniq.3645708",
+      "statement": "B ≠ ⊤"
+    },
+    {
+      "id": "n_hb_le_1948ff44",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb_le",
+      "lean_fvar_id": "_uniq.3661697",
+      "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B"
+    },
+    {
+      "id": "n_hb_lt_577c7c9b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb_lt",
+      "lean_fvar_id": "_uniq.3663752",
+      "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η"
+    },
+    {
+      "id": "n_hccard_f69226b5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hCcard",
+      "lean_fvar_id": "_uniq.3649749",
+      "statement": "∀ (γ : Γ), (C γ).encard ≤ ↑(2 ^ (n - 1))"
+    },
+    {
+      "id": "n_hccover_6da2f511",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hCcover",
+      "lean_fvar_id": "_uniq.3649744",
+      "statement": "∀ (γ : Γ), Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) (C γ)"
+    },
+    {
+      "id": "n_hcover_c2a49f8d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcover",
+      "lean_fvar_id": "_uniq.3649679",
+      "statement": "∀ (γ : Γ), ∃ C, Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) C ∧ C.encard ≤ ↑(2 ^ (n - 1))"
+    },
+    {
+      "id": "n_hcunion_3ddb47fc",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hCunion",
+      "lean_fvar_id": "_uniq.3669706",
+      "statement": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))"
+    },
+    {
+      "id": "n_hinner_269d6374",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hinner",
+      "lean_fvar_id": "_uniq.3662256",
+      "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖"
+    },
+    {
+      "id": "n_hle_660c8cf6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hle",
+      "lean_fvar_id": "_uniq.3648471",
+      "statement": "e n (Vγ γ) ≤ A"
+    },
+    {
+      "id": "n_hn_1db7da1e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.3636443",
+      "statement": "0 < n"
+    },
+    {
+      "id": "n_hnum_9b5246c6",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnum",
+      "lean_fvar_id": "_uniq.3679607",
+      "statement": "Metric.externalCoveringNumber R (⇑V '' Metric.closedBall 0 1) ≤ 2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1)"
+    },
+    {
+      "id": "n_hr_coe_63036edb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hR_coe",
+      "lean_fvar_id": "_uniq.3651391",
+      "statement": "↑R = A + B + ε"
+    },
+    {
+      "id": "n_hrad_124d61c5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrad",
+      "lean_fvar_id": "_uniq.3648421",
+      "statement": "∀ (γ : Γ), ∃ r, 0 < r ∧ Metric.externalCoveringNumber r (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1)) ∧ ↑r < A + η"
+    },
+    {
+      "id": "n_hrcov_c47baacb",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hrcov",
+      "lean_fvar_id": "_uniq.3648663",
+      "statement": "∀ (γ : Γ), Metric.externalCoveringNumber (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1))"
+    },
+    {
+      "id": "n_hrlt_ed0acd1e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hrlt",
+      "lean_fvar_id": "_uniq.3648668",
+      "statement": "∀ (γ : Γ), ↑(r γ) < A + η"
+    },
+    {
+      "id": "n_hrpos_7b657584",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hRpos",
+      "lean_fvar_id": "_uniq.3651299",
+      "statement": "0 < R"
+    },
+    {
+      "id": "n_hsum_7246bbb4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsum",
+      "lean_fvar_id": "_uniq.3665435",
+      "statement": "B + η + (A + η) = A + B + ε"
+    },
+    {
+      "id": "n_htarget_top_f64a8ae6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htarget_top",
+      "lean_fvar_id": "_uniq.3650570",
+      "statement": "A + B + ε ≠ ⊤"
+    },
+    {
+      "id": "n_htarget_zero_6c79ad1f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htarget_zero",
+      "lean_fvar_id": "_uniq.3650674",
+      "statement": "A + B + ε ≠ 0"
+    },
+    {
+      "id": "n_htop_9e5aec12",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "htop",
+      "lean_fvar_id": "_uniq.3641757",
+      "statement": "¬A + B = ⊤"
+    },
+    {
+      "id": "n_hvcover_7f8d9309",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hVcover",
+      "lean_fvar_id": "_uniq.3651534",
+      "statement": "Metric.IsCover R (⇑V '' Metric.closedBall 0 1) (⋃ γ, C γ)"
+    },
+    {
+      "id": "n_hx_96d97445",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3651589",
+      "statement": "x ∈ Metric.closedBall 0 1"
+    },
+    {
+      "id": "n_hxnorm_54e5f746",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxnorm",
+      "lean_fvar_id": "_uniq.3651758",
+      "statement": "‖x‖ ≤ 1"
+    },
+    {
+      "id": "n_hy_2df60897",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyγ",
+      "lean_fvar_id": "_uniq.3664603",
+      "statement": "(Vγ γ) x ∈ ⇑(Vγ γ) '' Metric.closedBall 0 1"
+    },
+    {
+      "id": "n_hz_c00cda3d",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.3664661",
+      "statement": "((Vγ γ) x, z) ∈ {(x, y) | edist x y ≤ ↑(r γ)}"
+    },
+    {
+      "id": "n_hzlt_c4f5591c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzlt",
+      "lean_fvar_id": "_uniq.3668249",
+      "statement": "edist (V x) z < ↑R"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hle",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hle_660c8cf6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_iSup",
+        "items": [
+          "le_iSup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_169",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hle : e n (Vγ γ) ≤ A := by\n      exact le_iSup (fun γ : Γ => e n (Vγ γ)) γ",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3648471",
+            "name": "hle",
+            "statement": "e n (Vγ γ) ≤ A"
+          }
+        },
+        "lean_dependency_sha256": "1c4555811bd330e76c077b66c9835f76f2c0072ab48bd40619c9eb390492fcab",
+        "kernel_witness_check": {
+          "proof_type": "e n (Vγ γ) ≤ ⨆ γ, e n (Vγ γ)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "le_iSup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_hrad",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_75d1cd06",
+        "n_h_ne_d25e9cbf"
+      ],
+      "conclusion": "n_hrad_124d61c5",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "ENNReal.lt_add_right + exists_covering_radius_lt_of_iInf_lt' + le_iSup",
+        "items": [
+          "ENNReal.lt_add_right",
+          "Rollout_p1136_entropy_number_approximation.exists_covering_radius_lt_of_iInf_lt'",
+          "le_iSup",
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1136_entropy_number_approximation.exists_covering_radius_lt_of_iInf_lt'"
+        ],
+        "mathlib_items": [
+          "ENNReal.lt_add_right",
+          "le_iSup",
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_170",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hrad : ∀ γ : Γ, ∃ r : NNReal, 0 < r ∧\n      Metric.externalCoveringNumber r (Vγ γ '' Metric.closedBall (0 : X) 1) ≤\n        ((2 ^ (n - 1) : ℕ) : ℕ∞) ∧\n      (r : ENNReal) < A + η := by\n    intro γ\n    apply exists_covering_radius_lt_of_iInf_lt'\n    have hle : e n (Vγ γ) ≤ A := by\n      exact le_iSup (fun γ : Γ => e n (Vγ γ)) γ\n    exact lt_of_le_of_lt hle (ENNReal.lt_add_right hA hηne)\n  choose r hrpos hrcov hrlt using hrad",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3645404",
+              "name": "hA",
+              "statement": "A ≠ ⊤"
+            },
+            {
+              "fvar_id": "_uniq.3646690",
+              "name": "hηne",
+              "statement": "η ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3648421",
+            "name": "hrad",
+            "statement": "∀ (γ : Γ), ∃ r, 0 < r ∧ Metric.externalCoveringNumber r (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1)) ∧ ↑r < A + η"
+          }
+        },
+        "lean_dependency_sha256": "cef9df98c7f707507fc7e71a32873058a492d06133ed9750cc2810e892ed2234",
+        "kernel_witness_check": {
+          "proof_type": "∀ (γ : Γ), ∃ ε, 0 < ε ∧ Metric.externalCoveringNumber ε (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1)) ∧ ↑ε < A + η",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.lt_add_right",
+          "le_iSup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:77",
+          "loogle:70",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hcover",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrcov_c47baacb"
+      ],
+      "conclusion": "n_hcover_c2a49f8d",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "exists_isCover_encard_le_of_externalCoveringNumber_le",
+        "items": [
+          "Rollout_p1136_entropy_number_approximation.exists_isCover_encard_le_of_externalCoveringNumber_le"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1136_entropy_number_approximation.exists_isCover_encard_le_of_externalCoveringNumber_le"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_171",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcover : ∀ γ : Γ, ∃ C : Set Y,\n      Metric.IsCover (r γ) (Vγ γ '' Metric.closedBall (0 : X) 1) C ∧\n      C.encard ≤ ((2 ^ (n - 1) : ℕ) : ℕ∞) := by\n    intro γ\n    exact exists_isCover_encard_le_of_externalCoveringNumber_le (hrcov γ)\n  choose C hCcover hCcard using hcover",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3648663",
+              "name": "hrcov",
+              "statement": "∀ (γ : Γ), Metric.externalCoveringNumber (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3649679",
+            "name": "hcover",
+            "statement": "∀ (γ : Γ), ∃ C, Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) C ∧ C.encard ≤ ↑(2 ^ (n - 1))"
+          }
+        },
+        "lean_dependency_sha256": "d96b73ab635633ae50b123fd965154a28d5bc07003227d32a7c502d06e97704d",
+        "kernel_witness_check": {
+          "proof_type": "∀ (γ : Γ), ∃ C, Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) C ∧ C.encard ≤ ↑(2 ^ (n - 1))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_h_zero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_379be288"
+      ],
+      "conclusion": "n_h_zero_caedb5ee",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_eq_zero",
+        "items": [
+          "add_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_172",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hεzero : ε = 0 := (add_eq_zero.mp h).2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3650678",
+              "name": "h",
+              "statement": "A + B + ε = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3651035",
+            "name": "hεzero",
+            "statement": "ε = 0"
+          }
+        },
+        "lean_dependency_sha256": "355e02dda76157e4ce50b7f41080c6efb93bc8f87c2f55a6f08ed41b59c9069e",
+        "kernel_witness_check": {
+          "proof_type": "ε = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hinner",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxnorm_54e5f746"
+      ],
+      "conclusion": "n_hinner_269d6374",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_iSup",
+        "items": [
+          "le_iSup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_173",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hinner : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) ≤\n          ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖ := by\n        exact le_iSup\n          (fun _ : ‖x‖ ≤ 1 => ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) hxnorm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3651758",
+              "name": "hxnorm",
+              "statement": "‖x‖ ≤ 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3662256",
+            "name": "hinner",
+            "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖"
+          }
+        },
+        "lean_dependency_sha256": "0ce11f5234f9e0423cdec46b4d3b1d2138d3e4c225a3a03db3ea1f78a5411363",
+        "kernel_witness_check": {
+          "proof_type": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "le_iSup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hxnorm",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_96d97445"
+      ],
+      "conclusion": "n_hxnorm_54e5f746",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dist_eq_norm",
+        "items": [
+          "dist_eq_norm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dist_eq_norm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_174",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hxnorm : ‖x‖ ≤ 1 := by\n      simpa [Metric.mem_closedBall, dist_eq_norm] using hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3651589",
+              "name": "hx",
+              "statement": "x ∈ Metric.closedBall 0 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3651758",
+            "name": "hxnorm",
+            "statement": "‖x‖ ≤ 1"
+          }
+        },
+        "lean_dependency_sha256": "c4ee413755da8a3065cb64a0bb2d133d5ddd746425020e442e1a680cf4a7625b",
+        "kernel_witness_check": {
+          "proof_type": "‖x‖ ≤ 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "dist_eq_norm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:46"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hb_le",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxnorm_54e5f746"
+      ],
+      "conclusion": "n_hb_le_1948ff44",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_iSup",
+        "items": [
+          "le_iSup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_175",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hb_le : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) ≤ B := by\n      have hinner : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) ≤\n          ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖ := by\n        exact le_iSup\n          (fun _ : ‖x‖ ≤ 1 => ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) hxnorm\n      exact hinner.trans\n        (le_iSup\n          (fun x : X => ⨆ (_ : ‖x‖ ≤ 1),\n            ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) x)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3651758",
+              "name": "hxnorm",
+              "statement": "‖x‖ ≤ 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3661697",
+            "name": "hb_le",
+            "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B"
+          }
+        },
+        "lean_dependency_sha256": "236f5b491dc3aead910057580a903efb341ac65357b799f638d3ba2a3abff30b",
+        "kernel_witness_check": {
+          "proof_type": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "le_iSup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hb_lt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_4b4d833c",
+        "n_h_ne_d25e9cbf",
+        "n_hb_le_1948ff44"
+      ],
+      "conclusion": "n_hb_lt_577c7c9b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.lt_add_right + lt_of_le_of_lt",
+        "items": [
+          "ENNReal.lt_add_right",
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.lt_add_right",
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_176",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hb_lt : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) < B + η :=\n      lt_of_le_of_lt hb_le (ENNReal.lt_add_right hB hηne)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3645708",
+              "name": "hB",
+              "statement": "B ≠ ⊤"
+            },
+            {
+              "fvar_id": "_uniq.3646690",
+              "name": "hηne",
+              "statement": "η ≠ 0"
+            },
+            {
+              "fvar_id": "_uniq.3661697",
+              "name": "hb_le",
+              "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3663752",
+            "name": "hb_lt",
+            "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η"
+          }
+        },
+        "lean_dependency_sha256": "47c0ad823be4c5fd4d1d47d08fca6c87ae1cf3b9b573f41c90cd4630519ece4e",
+        "kernel_witness_check": {
+          "proof_type": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.lt_add_right"
+        ],
+        "observed_search_event_ids": [
+          "loogle:77",
+          "loogle:70"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_009_hy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_96d97445"
+      ],
+      "conclusion": "n_hy_2df60897",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_177",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hyγ : Vγ γ x ∈ Vγ γ '' Metric.closedBall (0 : X) 1 := ⟨x, hx, rfl⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3651589",
+              "name": "hx",
+              "statement": "x ∈ Metric.closedBall 0 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3664603",
+            "name": "hyγ",
+            "statement": "(Vγ γ) x ∈ ⇑(Vγ γ) '' Metric.closedBall 0 1"
+          }
+        },
+        "lean_dependency_sha256": "8576b7cf9688852b4d19406fbc902505684e66827d2e2609694cd74ec01a652c",
+        "kernel_witness_check": {
+          "proof_type": "∃ a ∈ Metric.closedBall 0 1, (Vγ γ) a = (Vγ γ) x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_happrox",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_96a87ed5"
+      ],
+      "conclusion": "n_happrox_8f3505da",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dist_eq_norm + edist_dist",
+        "items": [
+          "dist_eq_norm",
+          "edist_dist"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dist_eq_norm",
+          "edist_dist"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_178",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have happrox : edist (V x) (Vγ γ x) < B + η := by\n      rw [edist_dist, dist_eq_norm]\n      exact hγ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3663833",
+              "name": "hγ",
+              "statement": "ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3664796",
+            "name": "happrox",
+            "statement": "edist (V x) ((Vγ γ) x) < B + η"
+          }
+        },
+        "lean_dependency_sha256": "6363fc30e8b12beaa156aa436db5e84275a25b56aaa1937ea29b43aaefa62beb",
+        "kernel_witness_check": {
+          "proof_type": "edist (V x) ((Vγ γ) x) < B + η",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "dist_eq_norm",
+          "edist_dist"
+        ],
+        "observed_search_event_ids": [
+          "loogle:46",
+          "loogle:44",
+          "loogle:45"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_011_hsum",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsum_7246bbb4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.add_halves + add_assoc + add_comm",
+        "items": [
+          "ENNReal.add_halves",
+          "add_assoc",
+          "add_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.add_halves",
+          "add_assoc",
+          "add_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_179",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsum : (B + η) + (A + η) = A + B + ε := by\n      calc\n        (B + η) + (A + η) = B + (η + (A + η)) := by rw [add_assoc]\n        _ = B + (A + (η + η)) := by\n          congr 1\n          calc\n            η + (A + η) = (η + A) + η := by rw [← add_assoc]\n            _ = (A + η) + η := by rw [add_comm η A]\n            _ = A + (η + η) := by rw [add_assoc]\n        _ = B + A + (η + η) := by rw [← add_assoc]\n        _ = A + B + (η + η) := by rw [add_comm B A]\n        _ = A + B + ε := by rw [ENNReal.add_halves]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3665435",
+            "name": "hsum",
+            "statement": "B + η + (A + η) = A + B + ε"
+          }
+        },
+        "lean_dependency_sha256": "caf267402e88d00a7934042ce2bb9460be0d10cfe8d1f209bc5157879bf912ef",
+        "kernel_witness_check": {
+          "proof_type": "B + η + (A + η) = A + B + ε",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.add_halves"
+        ],
+        "observed_search_event_ids": [
+          "loogle:99",
+          "loogle:98"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_012_hzlt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrlt_ed0acd1e",
+        "n_hr_coe_63036edb",
+        "n_hz_c00cda3d",
+        "n_happrox_8f3505da",
+        "n_hsum_7246bbb4"
+      ],
+      "conclusion": "n_hzlt_c4f5591c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.add_lt_add + PseudoEMetricSpace.edist_triangle + lt_of_le_of_lt",
+        "items": [
+          "ENNReal.add_lt_add",
+          "PseudoEMetricSpace.edist_triangle",
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.add_lt_add",
+          "PseudoEMetricSpace.edist_triangle",
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_180",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hzlt : edist (V x) z < (R : ENNReal) := by\n      calc\n        edist (V x) z ≤ edist (V x) (Vγ γ x) + edist (Vγ γ x) z :=\n          edist_triangle _ _ _\n        _ < (B + η) + (A + η) :=\n          ENNReal.add_lt_add happrox (lt_of_le_of_lt hz (hrlt γ))\n        _ = A + B + ε := hsum\n        _ = (R : ENNReal) := hR_coe.symm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3648668",
+              "name": "hrlt",
+              "statement": "∀ (γ : Γ), ↑(r γ) < A + η"
+            },
+            {
+              "fvar_id": "_uniq.3651391",
+              "name": "hR_coe",
+              "statement": "↑R = A + B + ε"
+            },
+            {
+              "fvar_id": "_uniq.3664661",
+              "name": "hz",
+              "statement": "((Vγ γ) x, z) ∈ {(x, y) | edist x y ≤ ↑(r γ)}"
+            },
+            {
+              "fvar_id": "_uniq.3664796",
+              "name": "happrox",
+              "statement": "edist (V x) ((Vγ γ) x) < B + η"
+            },
+            {
+              "fvar_id": "_uniq.3665435",
+              "name": "hsum",
+              "statement": "B + η + (A + η) = A + B + ε"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3668249",
+            "name": "hzlt",
+            "statement": "edist (V x) z < ↑R"
+          }
+        },
+        "lean_dependency_sha256": "d6f278fc1fe04d2b5c3ec34fe05976851ae92b685865435adae47776988953be",
+        "kernel_witness_check": {
+          "proof_type": "edist (V x) z < ↑R",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.add_lt_add"
+        ],
+        "observed_search_event_ids": [
+          "loogle:122"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_013_ha",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htop_9e5aec12"
+      ],
+      "conclusion": "n_ha_75d1cd06",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp + apply + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_184",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hA : A ≠ ⊤ := by\n    intro h\n    apply htop\n    rw [h]\n    simp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3641757",
+              "name": "htop",
+              "statement": "¬A + B = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3645404",
+            "name": "hA",
+            "statement": "A ≠ ⊤"
+          }
+        },
+        "lean_dependency_sha256": "46d21c8380195d2e87eb983ac7ebee4c5f9eb95c93040235799ec3babf2b7dd3",
+        "kernel_witness_check": {
+          "proof_type": "A = ⊤ → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htop_9e5aec12"
+      ],
+      "conclusion": "n_hb_4b4d833c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp + apply + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_185",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hB : B ≠ ⊤ := by\n    intro h\n    apply htop\n    rw [h]\n    simp\n  let η : ENNReal := ε / 2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3641757",
+              "name": "htop",
+              "statement": "¬A + B = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3645708",
+            "name": "hB",
+            "statement": "B ≠ ⊤"
+          }
+        },
+        "lean_dependency_sha256": "9d0ff939cdb42ea4f509deffa00298c67e75cf4f6b453fd840daceeff936e3b5",
+        "kernel_witness_check": {
+          "proof_type": "B = ⊤ → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_h_pos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_35962758"
+      ],
+      "conclusion": "n_h_pos_f204a526",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.div_pos + ne_of_gt",
+        "items": [
+          "ENNReal.div_pos",
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.div_pos",
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_187",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hηpos : 0 < η := ENNReal.div_pos (ne_of_gt hε) (by norm_num)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3642890",
+              "name": "hε",
+              "statement": "0 < ε"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3646201",
+            "name": "hηpos",
+            "statement": "0 < η"
+          }
+        },
+        "lean_dependency_sha256": "60f70876f5e640f7c8e4dca46447c4601923a8b356af51a7ce422eaeab66d1df",
+        "kernel_witness_check": {
+          "proof_type": "0 < ε / 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.div_pos"
+        ],
+        "observed_search_event_ids": [
+          "loogle:87",
+          "loogle:86"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_016_h_ne",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_pos_f204a526"
+      ],
+      "conclusion": "n_h_ne_d25e9cbf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ne_of_gt",
+        "items": [
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_188",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hηne : η ≠ 0 := ne_of_gt hηpos",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3646201",
+              "name": "hηpos",
+              "statement": "0 < η"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3646690",
+            "name": "hηne",
+            "statement": "η ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "6522daf97b23b5e310f7acb652f61fe5afed35b2b124d6505af68b8e26aab95b",
+        "kernel_witness_check": {
+          "proof_type": "η ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_htarget_top",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htop_9e5aec12",
+        "n_h_top_6c90c9fe"
+      ],
+      "conclusion": "n_htarget_top_f64a8ae6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.add_ne_top",
+        "items": [
+          "ENNReal.add_ne_top"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.add_ne_top"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_189",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htarget_top : A + B + ε ≠ ⊤ := by\n    rw [ENNReal.add_ne_top]\n    exact ⟨htop, hεtop⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3641757",
+              "name": "htop",
+              "statement": "¬A + B = ⊤"
+            },
+            {
+              "fvar_id": "_uniq.3643172",
+              "name": "hεtop",
+              "statement": "¬ε = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3650570",
+            "name": "htarget_top",
+            "statement": "A + B + ε ≠ ⊤"
+          }
+        },
+        "lean_dependency_sha256": "5b4c61f25baa087152b1d3eac065e55cc39f3cf062c1d31bfad2f5247af1bcf9",
+        "kernel_witness_check": {
+          "proof_type": "A + B + ε ≠ ⊤",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.add_ne_top"
+        ],
+        "observed_search_event_ids": [
+          "loogle:96"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_018_htarget_zero",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_35962758"
+      ],
+      "conclusion": "n_htarget_zero_6c79ad1f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_eq_zero + ne_of_gt",
+        "items": [
+          "add_eq_zero",
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_eq_zero",
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_190",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htarget_zero : A + B + ε ≠ 0 := by\n    intro h\n    have hεzero : ε = 0 := (add_eq_zero.mp h).2\n    exact (ne_of_gt hε) hεzero\n  let R : NNReal := (A + B + ε).toNNReal",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3642890",
+              "name": "hε",
+              "statement": "0 < ε"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3650674",
+            "name": "htarget_zero",
+            "statement": "A + B + ε ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "d4adcae2a21875a4911405d5f18858d6d47459ab9f9f4436b8a5deffcf43cb17",
+        "kernel_witness_check": {
+          "proof_type": "A + B + ε = 0 → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_hrpos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htarget_top_f64a8ae6",
+        "n_htarget_zero_6c79ad1f"
+      ],
+      "conclusion": "n_hrpos_7b657584",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.toNNReal_pos",
+        "items": [
+          "ENNReal.toNNReal_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.toNNReal_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_192",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hRpos : 0 < R := ENNReal.toNNReal_pos htarget_zero htarget_top",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3650570",
+              "name": "htarget_top",
+              "statement": "A + B + ε ≠ ⊤"
+            },
+            {
+              "fvar_id": "_uniq.3650674",
+              "name": "htarget_zero",
+              "statement": "A + B + ε ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3651299",
+            "name": "hRpos",
+            "statement": "0 < R"
+          }
+        },
+        "lean_dependency_sha256": "f3566c0b9ac9419d765c58bcf3d14e31c50ea0fa4c586ef5443eea2c4c9658dc",
+        "kernel_witness_check": {
+          "proof_type": "0 < (A + B + ε).toNNReal",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.toNNReal_pos"
+        ],
+        "observed_search_event_ids": [
+          "loogle:94",
+          "loogle:116"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_020_hr_coe",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htarget_top_f64a8ae6"
+      ],
+      "conclusion": "n_hr_coe_63036edb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.coe_toNNReal",
+        "items": [
+          "ENNReal.coe_toNNReal"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.coe_toNNReal"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_193",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hR_coe : (R : ENNReal) = A + B + ε := ENNReal.coe_toNNReal htarget_top",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3650570",
+              "name": "htarget_top",
+              "statement": "A + B + ε ≠ ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3651391",
+            "name": "hR_coe",
+            "statement": "↑R = A + B + ε"
+          }
+        },
+        "lean_dependency_sha256": "05447ac1324b7f2a7076c2d916132effc0ff966b6b3fff32b4d12ada0bc6074b",
+        "kernel_witness_check": {
+          "proof_type": "↑(A + B + ε).toNNReal = A + B + ε",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.coe_toNNReal"
+        ],
+        "observed_search_event_ids": [
+          "loogle:92",
+          "loogle:93"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_021_hvcover",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_4b4d833c",
+        "n_h_ne_d25e9cbf",
+        "n_hrlt_ed0acd1e",
+        "n_hccover_6da2f511",
+        "n_hr_coe_63036edb"
+      ],
+      "conclusion": "n_hvcover_7f8d9309",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.add_halves + ENNReal.add_lt_add + ENNReal.lt_add_right",
+        "items": [
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.lt_add_right",
+          "add_assoc",
+          "dist_eq_norm",
+          "edist_dist",
+          "iInf_lt_iff",
+          "le_iSup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.lt_add_right",
+          "add_assoc",
+          "dist_eq_norm",
+          "edist_dist",
+          "iInf_lt_iff",
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_194",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hVcover : Metric.IsCover R (V '' Metric.closedBall (0 : X) 1)\n      (⋃ γ : Γ, C γ) := by\n    intro y hy\n    rcases hy with ⟨x, hx, rfl⟩\n    have hxnorm : ‖x‖ ≤ 1 := by\n      simpa [Metric.mem_closedBall, dist_eq_norm] using hx\n    have hb_le : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) ≤ B := by\n      have hinner : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) ≤\n          ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖ := by\n        exact le_iSup\n          (fun _ : ‖x‖ ≤ 1 => ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) hxnorm\n      exact hinner.trans\n        (le_iSup\n          (fun x : X => ⨆ (_ : ‖x‖ ≤ 1),\n            ⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) x)\n    have hb_lt : (⨅ γ : Γ, ENNReal.ofReal ‖V x - Vγ γ x‖) < B + η :=\n      lt_of_le_of_lt hb_le (ENNReal.lt_add_right hB hηne)\n    rcases iInf_lt_iff.mp hb_lt with ⟨γ, hγ⟩\n    have hyγ : Vγ γ x ∈ Vγ γ '' Metric.closedBall (0 : X) 1 := ⟨x, hx, rfl⟩\n    rcases hCcover γ hyγ with ⟨z, hzC, hz⟩\n    have happrox : edist (V x) (Vγ γ x) < B + η := by\n      rw [edist_dist, dist_eq_norm]\n      exact hγ\n    have hsum : (B + η) + (A + η) = A + B + ε := by\n      calc\n        (B + η) + (A + η) = B + (η + (A + η)) := by rw [add_assoc]\n",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3645708",
+              "name": "hB",
+              "statement": "B ≠ ⊤"
+            },
+            {
+              "fvar_id": "_uniq.3646690",
+              "name": "hηne",
+              "statement": "η ≠ 0"
+            },
+            {
+              "fvar_id": "_uniq.3648668",
+              "name": "hrlt",
+              "statement": "∀ (γ : Γ), ↑(r γ) < A + η"
+            },
+            {
+              "fvar_id": "_uniq.3649744",
+              "name": "hCcover",
+              "statement": "∀ (γ : Γ), Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) (C γ)"
+            },
+            {
+              "fvar_id": "_uniq.3651391",
+              "name": "hR_coe",
+              "statement": "↑R = A + B + ε"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3651534",
+            "name": "hVcover",
+            "statement": "Metric.IsCover R (⇑V '' Metric.closedBall 0 1) (⋃ γ, C γ)"
+          }
+        },
+        "lean_dependency_sha256": "106e80cb92cee1b733f7314d9d80c7f99627f6aef8d6fb47550fc7ff27e13644",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃y : Y⦄, y ∈ ⇑V '' Metric.closedBall 0 1 → ∃ y_1 ∈ ⋃ γ, C γ, (y, y_1) ∈ {(x, y) | edist x y ≤ ↑R}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.lt_add_right",
+          "dist_eq_norm",
+          "edist_dist",
+          "iInf_lt_iff",
+          "le_iSup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:99",
+          "loogle:98",
+          "loogle:122",
+          "loogle:77",
+          "loogle:70",
+          "loogle:46",
+          "loogle:44",
+          "loogle:45",
+          "loogle:18",
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_022_hcunion",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hn_1db7da1e",
+        "n_hccard_f69226b5"
+      ],
+      "conclusion": "n_hcunion_3ddb47fc",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Finset.card_univ + Finset.sum_le_card_nsmul + card_mul_two_pow_pred_le_pow",
+        "items": [
+          "Finset.card_univ",
+          "Finset.sum_le_card_nsmul",
+          "Rollout_p1136_entropy_number_approximation.card_mul_two_pow_pred_le_pow",
+          "Set.encard_iUnion_le_of_fintype",
+          "nsmul_eq_mul"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1136_entropy_number_approximation.card_mul_two_pow_pred_le_pow"
+        ],
+        "mathlib_items": [
+          "Finset.card_univ",
+          "Finset.sum_le_card_nsmul",
+          "Set.encard_iUnion_le_of_fintype",
+          "nsmul_eq_mul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_195",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hCunion : (⋃ γ : Γ, C γ).encard ≤\n      ((2 ^ (n + Nat.log 2 (Fintype.card Γ)) : ℕ) : ℕ∞) := by\n    calc\n      (⋃ γ : Γ, C γ).encard ≤ ∑ γ : Γ, (C γ).encard :=\n        Set.encard_iUnion_le_of_fintype C\n      _ ≤ Finset.univ.card • ((2 ^ (n - 1) : ℕ) : ℕ∞) := by\n        exact Finset.sum_le_card_nsmul Finset.univ (fun γ : Γ => (C γ).encard)\n          ((2 ^ (n - 1) : ℕ) : ℕ∞) (by intro γ _; exact hCcard γ)\n      _ = (Fintype.card Γ : ℕ∞) * ((2 ^ (n - 1) : ℕ) : ℕ∞) := by\n        rw [Finset.card_univ, nsmul_eq_mul]\n      _ ≤ ((2 ^ (n + Nat.log 2 (Fintype.card Γ)) : ℕ) : ℕ∞) :=\n        card_mul_two_pow_pred_le_pow hn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3636443",
+              "name": "hn",
+              "statement": "0 < n"
+            },
+            {
+              "fvar_id": "_uniq.3649749",
+              "name": "hCcard",
+              "statement": "∀ (γ : Γ), (C γ).encard ≤ ↑(2 ^ (n - 1))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3669706",
+            "name": "hCunion",
+            "statement": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))"
+          }
+        },
+        "lean_dependency_sha256": "a6b675184f5dce956f6d56e93a17d83e433fbb5657216d90aae379322bfed779",
+        "kernel_witness_check": {
+          "proof_type": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.card_univ",
+          "Finset.sum_le_card_nsmul",
+          "Set.encard_iUnion_le_of_fintype",
+          "nsmul_eq_mul"
+        ],
+        "observed_search_event_ids": [
+          "loogle:68",
+          "loogle:62",
+          "leanfinder:58",
+          "loogle:66"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_023_hnum",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hvcover_7f8d9309",
+        "n_hcunion_3ddb47fc"
+      ],
+      "conclusion": "n_hnum_9b5246c6",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Metric.IsCover.externalCoveringNumber_le_encard",
+        "items": [
+          "Metric.IsCover.externalCoveringNumber_le_encard"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Metric.IsCover.externalCoveringNumber_le_encard"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_196",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hnum : Metric.externalCoveringNumber R (V '' Metric.closedBall (0 : X) 1) ≤\n      (2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1) : ℕ∞) := by\n    calc\n      Metric.externalCoveringNumber R (V '' Metric.closedBall (0 : X) 1) ≤\n          (⋃ γ : Γ, C γ).encard :=\n        Metric.IsCover.externalCoveringNumber_le_encard hVcover\n      _ ≤ ((2 ^ (n + Nat.log 2 (Fintype.card Γ)) : ℕ) : ℕ∞) := hCunion\n      _ = (2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1) : ℕ∞) := rfl\n  calc\n    e (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤ (R : ENNReal) := by\n      exact iInf_covering_radius_le hRpos hnum\n    _ = A + B + ε := hR_coe",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3651534",
+              "name": "hVcover",
+              "statement": "Metric.IsCover R (⇑V '' Metric.closedBall 0 1) (⋃ γ, C γ)"
+            },
+            {
+              "fvar_id": "_uniq.3669706",
+              "name": "hCunion",
+              "statement": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3679607",
+            "name": "hnum",
+            "statement": "Metric.externalCoveringNumber R (⇑V '' Metric.closedBall 0 1) ≤ 2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1)"
+          }
+        },
+        "lean_dependency_sha256": "4564a9e32b48e76a5d2e796c8d574698551074f1934b274c4070a3e6a1075a40",
+        "kernel_witness_check": {
+          "proof_type": "Metric.externalCoveringNumber R (⇑V '' Metric.closedBall 0 1) ≤ 2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Metric.IsCover.externalCoveringNumber_le_encard"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0",
+          "loogle:2",
+          "leanfinder:22"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_hn_3b365836"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.add_halves + ENNReal.add_lt_add + ENNReal.add_ne_top",
+        "items": [
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.add_ne_top",
+          "ENNReal.coe_toNNReal",
+          "ENNReal.div_pos",
+          "ENNReal.lt_add_right",
+          "ENNReal.toNNReal_pos",
+          "Finset.card_univ"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.add_ne_top",
+          "ENNReal.coe_toNNReal",
+          "ENNReal.div_pos",
+          "ENNReal.lt_add_right",
+          "ENNReal.toNNReal_pos",
+          "Finset.card_univ"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine le_of_forall_pos_le_add ?_\n  intro ε hε\n  by_cases hεtop : ε = ⊤\n  · rw [hεtop]\n    simp\n  have hA : A ≠ ⊤ := by\n    intro h\n    apply htop\n    rw [h]\n    simp\n  have hB : B ≠ ⊤ := by\n    intro h\n    apply htop\n    rw [h]\n    simp\n  let η : ENNReal := ε / 2\n  have hηpos : 0 < η := ENNReal.div_pos (ne_of_gt hε) (by norm_num)\n  have hηne : η ≠ 0 := ne_of_gt hηpos\n  have hrad : ∀ γ : Γ, ∃ r : NNReal, 0 < r ∧\n      Metric.externalCoveringNumber r (Vγ γ '' Metric.closedBall (0 : X) 1) ≤\n        ((2 ^ (n - 1) : ℕ) : ℕ∞) ∧\n      (r : ENNReal) < A + η := by\n    intro γ\n    apply exists_covering_radius_lt_of_iInf_lt'\n    have hle : e n (Vγ γ) ≤ A := by\n      exact le_iSup (fun γ : Γ => e n (Vγ γ)) γ\n    exact lt_of_le_of_lt hle (ENNReal.lt_add_right hA hηne)\n  choose r hrpos hrcov hrlt using hrad\n  have hcover : ∀ γ : Γ, ∃ C : Set Y,\n      Metric.IsCover (r γ) (Vγ γ '' Metric.closedBall (0 : X) 1) C ∧\n      C.encard ≤ ((2 ^ (n - 1) : ℕ) : ℕ∞) := by\n    intro γ\n    exact exists_isCover_encard_le_of_externalCoveringNumber_le (hrcov γ)\n  choose C hCcover hCcard using hcover\n  have htarget_top : A + B + ε ≠ ⊤ := by\n    rw [ENNReal.add_ne_top]\n    exact ⟨htop, hεtop⟩\n  have htarget_zero : A + B + ε ≠ 0 := by\n    intro h\n    have hεzero : ε = 0 := (add_eq_zero.mp h).2\n    exact (ne_of_gt hε) hεzero\n  let R : NNReal := (A + B + ε).toNNReal\n  have hRpos : 0 < R := ENNReal.toNNReal_pos htarget_zero htarget_top\n  have hR_coe : (R : ENNReal) = A + B + ε := ENNReal.coe_toNNReal htarget_top\n  have hVcover : Metric.IsCover R (V '' Metric.closedBall (0 : X) 1)\n      (⋃ γ : Γ, C γ) := by\n ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "14",
+              "name": "hn",
+              "statement": "0 < n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let e := fun k T => ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε; e (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤ (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖"
+          }
+        },
+        "lean_dependency_sha256": "6615fa37c016460aa34440007cc4a2806fd00b3ca51d89019dd298e8c4ce1152",
+        "kernel_witness_check": {
+          "proof_type": "let e := fun k T =>\n  ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε;\ne (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤\n  (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.add_ne_top",
+          "ENNReal.coe_toNNReal",
+          "ENNReal.div_pos",
+          "ENNReal.lt_add_right",
+          "ENNReal.toNNReal_pos",
+          "Finset.card_univ"
+        ],
+        "observed_search_event_ids": [
+          "loogle:99",
+          "loogle:98",
+          "loogle:122",
+          "loogle:96",
+          "loogle:92",
+          "loogle:93",
+          "loogle:87",
+          "loogle:86",
+          "loogle:77",
+          "loogle:70",
+          "loogle:94",
+          "loogle:116",
+          "loogle:68"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Metric.externalCoveringNumber",
+      "declarations": [
+        "Metric.externalCoveringNumber",
+        "Metric.externalCoveringNumber_le_encard_self",
+        "Metric.externalCoveringNumber_le_coveringNumber",
+        "Metric.externalCoveringNumber_zero",
+        "Metric.IsCover.externalCoveringNumber_le_encard",
+        "Metric.externalCoveringNumber_singleton",
+        "Metric.externalCoveringNumber_mono_set",
+        "Metric.externalCoveringNumber_anti",
+        "Metric.externalCoveringNumber_empty",
+        "Metric.externalCoveringNumber_pos_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "external covering number metric set cover balls ENNReal infimum",
+      "declarations": [
+        "Metric.externalCoveringNumber_anti",
+        "Metric.externalCoveringNumber_zero",
+        "Metric.externalCoveringNumber",
+        "Metric.minimalCover",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "Metric.externalCoveringNumber_singleton",
+        "Metric.externalCoveringNumber_mono_set",
+        "Metric.IsCover",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Meta.Grind.CheckCoverageResult.missing"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Metric.externalCoveringNumber _ _ ≤ _",
+      "declarations": [
+        "Metric.externalCoveringNumber_le_encard_self",
+        "Metric.externalCoveringNumber_le_coveringNumber",
+        "Metric.IsCover.externalCoveringNumber_le_encard",
+        "Metric.externalCoveringNumber_mono_set",
+        "Metric.externalCoveringNumber_anti",
+        "Metric.externalCoveringNumber_le_one_of_ediam_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "⨆ (_ : _) (_ : _), _",
+      "declarations": [
+        "lt_biSup_iff",
+        "iSup_iSup_eq_left",
+        "iSup_iSup_eq_right",
+        "biSup_const",
+        "iSup_and",
+        "sSup_eq_iSup",
+        "biSup_congr",
+        "iSup_subtype",
+        "iSup_prod",
+        "le_iSup"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Metric.IsCover",
+      "declarations": [
+        "Metric.IsCover",
+        "Metric.IsCover.refl",
+        "Metric.IsCover.rfl",
+        "Metric.IsCover.empty",
+        "Metric.IsCover.nonempty",
+        "Metric.isCover_empty_right",
+        "Metric.isCover_zero",
+        "Metric.IsCover.anti",
+        "Metric.IsCover.mono",
+        "Metric.IsCover.mono_radius"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Set.encard_iUnion_le",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Set.encard_union_le",
+      "declarations": [
+        "Set.encard_union_le"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Set.encard_biUnion_le",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Nat.log_le_iff_le_pow",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Nat.lt_pow_succ_log_self",
+      "declarations": [
+        "Nat.lt_pow_succ_log_self"
+      ],
+      "call_turn": 7,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Nat.pow_succ_log_le",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Nat.log_le_self",
+      "declarations": [
+        "Nat.log_le_self"
+      ],
+      "call_turn": 7,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "le_of_forall_gt_le",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "le_of_forall_lt_le",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "le_of_forall_pos_le_add",
+      "declarations": [
+        "le_of_forall_pos_le_add"
+      ],
+      "call_turn": 16,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "iInf_le_of_le",
+      "declarations": [
+        "iInf_le_of_le"
+      ],
+      "call_turn": 16,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "ENNReal.exists_lt_of_iInf_lt",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "exists_lt_of_iInf_lt",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "iInf_lt_iff",
+      "declarations": [
+        "iInf_lt_iff"
+      ],
+      "call_turn": 16,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "lt_iInf_iff",
+      "declarations": [
+        "lt_iInf_iff"
+      ],
+      "call_turn": 16,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "externalCoveringNumber union",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "coveringNumber union",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 27
+    },
+    {
+      "event_id": "leanfinder:22",
+      "tool": "leanfinder",
+      "query": "external covering number of union bounded by sum of external covering numbers",
+      "declarations": [
+        "Metric.coveringNumber_two_mul_le_externalCoveringNumber",
+        "Metric.coveringNumber",
+        "IsCoveringMapOn",
+        "Metric.IsCover.externalCoveringNumber_le_encard",
+        "Metric.externalCoveringNumber_anti",
+        "Metric.externalCoveringNumber",
+        "Metric.externalCoveringNumber_le_encard_self",
+        "Metric.externalCoveringNumber_empty",
+        "Metric.externalCoveringNumber_le_coveringNumber",
+        "IsCoveringMap"
+      ],
+      "call_turn": 25,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "IsCover iUnion",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Metric.IsCover.union",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Metric.IsCover biUnion",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Metric.externalCoveringNumber _ (_ ∪ _)",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "coveringNumber_iUnion",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "ENat iInf exists",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:30",
+      "tool": "leanfinder",
+      "query": "extended natural numbers infimum attained if bounded above exists index",
+      "declarations": [
+        "ENat.iInf_coe_eq_top",
+        "ENat.iInf_coe_lt_top",
+        "ENat.iInf_coe_ne_top",
+        "ENat.exists_eq_iInf",
+        "BddAbove.isBounded_inter",
+        "ENat.iInf_eq_coe_iff",
+        "BddAbove.isBounded",
+        "forall_exists_index",
+        "Composition.index_exists",
+        "BddAbove"
+      ],
+      "call_turn": 36,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "ENat.iInf",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "iInf (_ : _) = _ ENat",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "ENat.exists",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "sInf_le_iff ENat",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "iInf_le_iff ENat",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "ENat.sInf",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "ENat.lt_add_one_iff",
+      "declarations": [
+        "ENat.lt_add_one_iff"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "_ < _ + 1 ↔ _ ≤ _ ENat",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "ENat.lt_succ_iff",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "WithTop.lt_succ_iff",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Nat.cast_lt_add_one_iff",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 52
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "ENat a less than b plus one iff a less equal b",
+      "declarations": [
+        "Lean.Meta.Structural.isInstLTInt",
+        "Dyadic.blt",
+        "Nat.blt",
+        "Lean.mkIntLT",
+        "compareOfLessAndEq",
+        "Lean.Parser.equalA",
+        "Lean.Meta.mkLT",
+        "Lean.Meta.mkLe",
+        "Ordering.isLT",
+        "dvd_c_of_prime_of_dvd_a_of_dvd_b_of_FLT"
+      ],
+      "call_turn": 47,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "edist _ _ = ENNReal.ofReal (dist _ _)",
+      "declarations": [
+        "edist_dist",
+        "MeasureTheory.Lp.edist_dist"
+      ],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal (dist _ _)",
+      "declarations": [
+        "PseudoMetricSpace.edist_dist",
+        "edist_dist",
+        "PseudoMetricSpace.mk",
+        "MeasureTheory.Lp.edist_dist"
+      ],
+      "call_turn": 54,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "dist_eq_norm",
+      "declarations": [
+        "dist_eq_norm"
+      ],
+      "call_turn": 54,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "edist_triangle",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_add",
+      "declarations": [
+        "ENNReal.ofReal_add"
+      ],
+      "call_turn": 54,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "ENNReal.coe_add",
+      "declarations": [
+        "ENNReal.coe_add"
+      ],
+      "call_turn": 54,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_norm",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_le_iff",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "encard_iUnion",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "encard_biUnion",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "Set.encard_iUnion₂_le",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Set.encard_sUnion_le",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Set.Finite.encard_iUnion_le",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 70
+    },
+    {
+      "event_id": "leanfinder:58",
+      "tool": "leanfinder",
+      "query": "encard union finite family less than sum cardinals",
+      "declarations": [
+        "Set.encard",
+        "Set.encard_iUnion_le_of_fintype",
+        "Set.encard_iUnion_le_of_finite",
+        "Set.ncard_iUnion_le_of_finite",
+        "Cardinal.mk_biUnion_le_of_le",
+        "Finset.card_biUnion_le",
+        "Set.encard_iUnion_of_finite",
+        "Set.Finite.encard_biUnion",
+        "Cardinal.sum_lt_lift_of_isRegular",
+        "Cardinal.sum_le_lift_mk_mul_iSup_lift"
+      ],
+      "call_turn": 65,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Set.encard_le_sum",
+      "declarations": [],
+      "call_turn": 65,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Set.encard_insert_le",
+      "declarations": [
+        "Set.encard_insert_le"
+      ],
+      "call_turn": 65,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "Finset.sum_le_card_nsmul",
+      "declarations": [
+        "Finset.sum_le_card_nsmul"
+      ],
+      "call_turn": 76,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "Finset.sum_le_sum",
+      "declarations": [
+        "Finset.sum_le_sum"
+      ],
+      "call_turn": 76,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "Finset.sum_const",
+      "declarations": [
+        "Finset.sum_const"
+      ],
+      "call_turn": 76,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "Finset.card_nsmul",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "nsmul_eq_mul",
+      "declarations": [
+        "nsmul_eq_mul"
+      ],
+      "call_turn": 76,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "ENat nsmul",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Finset.card_univ",
+      "declarations": [
+        "Finset.card_univ"
+      ],
+      "call_turn": 76,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "ENat.lt_add_one",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "_ < _ + 1 ENat",
+      "declarations": [
+        "Nat.lt_add_one",
+        "Nat.add_pos_right",
+        "Nat.div_rec_fuel_lemma",
+        "Nat.lt_add_left",
+        "Nat.lt_add_right",
+        "Nat.add_one_pos",
+        "Nat.le_of_lt_add_one",
+        "Nat.lt_add_of_pos_left",
+        "Nat.lt_add_of_pos_right",
+        "Nat.lt_add_one_of_le"
+      ],
+      "call_turn": 84,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "lt_add_one",
+      "declarations": [
+        "lt_add_one",
+        "Ordinal.IsFundamentalSeq.add_one"
+      ],
+      "call_turn": 84,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "ENat.coe_ne_top",
+      "declarations": [
+        "ENat.coe_ne_top"
+      ],
+      "call_turn": 84,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "ENat.coe_ne_top _",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "ENNReal.lt_add_right",
+      "declarations": [
+        "ENNReal.lt_add_right"
+      ],
+      "call_turn": 96,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "_ < _ + _ ENNReal",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 98
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "lt_add_of_pos_right",
+      "declarations": [
+        "lt_add_of_pos_right",
+        "fourierCoeff_liftIco_eq",
+        "fourierCoeff_liftIoc_eq"
+      ],
+      "call_turn": 96,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "ENNReal.add_lt_top",
+      "declarations": [
+        "ENNReal.add_lt_top"
+      ],
+      "call_turn": 96,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "ENNReal.add_eq_top",
+      "declarations": [
+        "ENNReal.add_eq_top"
+      ],
+      "call_turn": 96,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "ENNReal.ne_top_iff",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "ENNReal.lt_top",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "top_ne_coe ENNReal",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "half_pos",
+      "declarations": [
+        "half_pos"
+      ],
+      "call_turn": 105,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "div_pos",
+      "declarations": [
+        "div_pos"
+      ],
+      "call_turn": 105,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "ENNReal.div_pos",
+      "declarations": [
+        "ENNReal.div_pos"
+      ],
+      "call_turn": 105,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "one_half_pos",
+      "declarations": [
+        "one_half_pos"
+      ],
+      "call_turn": 105,
+      "result_turn": 109
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "ENNReal.div_ne_zero",
+      "declarations": [
+        "ENNReal.div_ne_zero"
+      ],
+      "call_turn": 105,
+      "result_turn": 110
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "ENNReal.half",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 111
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "two_ne_zero ENNReal",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "ENNReal.coe_toNNReal",
+      "declarations": [
+        "ENNReal.coe_toNNReal"
+      ],
+      "call_turn": 113,
+      "result_turn": 114
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "ENNReal.toNNReal",
+      "declarations": [
+        "ENNReal.toNNReal",
+        "ENNReal.toNNReal_coe",
+        "ENNReal.coe_toNNReal_eq_toReal",
+        "ENNReal.toNNReal_toReal_eq",
+        "ENNReal.coe_toNNReal_le_self",
+        "ENNReal.toNNReal_top",
+        "ENNReal.coe_toNNReal",
+        "ENNReal.toNNReal_zero",
+        "ENNReal.toNNReal_natCast_eq_toNNReal",
+        "ENNReal.toNNReal_one"
+      ],
+      "call_turn": 113,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "ENNReal.toNNReal_pos",
+      "declarations": [
+        "ENNReal.toNNReal_pos"
+      ],
+      "call_turn": 113,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "ENNReal.coe_toReal",
+      "declarations": [
+        "ENNReal.coe_toReal"
+      ],
+      "call_turn": 113,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "ENNReal.add_ne_top",
+      "declarations": [
+        "ENNReal.add_ne_top",
+        "MeasureTheory.condExpIndL1Fin_disjoint_union"
+      ],
+      "call_turn": 113,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "ENNReal.coe_ne_top",
+      "declarations": [
+        "ENNReal.coe_ne_top"
+      ],
+      "call_turn": 113,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "add_halves",
+      "declarations": [
+        "add_halves"
+      ],
+      "call_turn": 120,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "ENNReal.add_halves",
+      "declarations": [
+        "ENNReal.add_halves"
+      ],
+      "call_turn": 120,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "_ / 2 + _ / 2 = _ ENNReal",
+      "declarations": [],
+      "call_turn": 120,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "ENNReal.div_two_add_div_two",
+      "declarations": [],
+      "call_turn": 120,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "two_mul_div_two",
+      "declarations": [],
+      "call_turn": 120,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "add_self_div_two",
+      "declarations": [
+        "add_self_div_two"
+      ],
+      "call_turn": 120,
+      "result_turn": 126
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "ENNReal.div_ne_top",
+      "declarations": [
+        "ENNReal.div_ne_top"
+      ],
+      "call_turn": 133,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "ENNReal.div_lt_top",
+      "declarations": [
+        "ENNReal.div_lt_top"
+      ],
+      "call_turn": 133,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "ENNReal.div_eq_top",
+      "declarations": [
+        "ENNReal.div_eq_top"
+      ],
+      "call_turn": 133,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "ENNReal.div_ne_top_iff",
+      "declarations": [],
+      "call_turn": 133,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "ENNReal.div_top",
+      "declarations": [
+        "ENNReal.div_top"
+      ],
+      "call_turn": 133,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "top_div",
+      "declarations": [],
+      "call_turn": 133,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "div_top",
+      "declarations": [],
+      "call_turn": 133,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "ENNReal.add_eq_zero",
+      "declarations": [],
+      "call_turn": 141,
+      "result_turn": 142
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "add_eq_zero ENNReal",
+      "declarations": [],
+      "call_turn": 141,
+      "result_turn": 143
+    },
+    {
+      "event_id": "loogle:116",
+      "tool": "loogle",
+      "query": "ENNReal.toNNReal_pos",
+      "declarations": [
+        "ENNReal.toNNReal_pos"
+      ],
+      "call_turn": 141,
+      "result_turn": 144
+    },
+    {
+      "event_id": "loogle:117",
+      "tool": "loogle",
+      "query": "le_add_left",
+      "declarations": [
+        "le_add_left"
+      ],
+      "call_turn": 141,
+      "result_turn": 145
+    },
+    {
+      "event_id": "loogle:118",
+      "tool": "loogle",
+      "query": "le_add_right",
+      "declarations": [
+        "le_add_right"
+      ],
+      "call_turn": 141,
+      "result_turn": 146
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "ENNReal.add_lt_add",
+      "declarations": [
+        "ENNReal.add_lt_add"
+      ],
+      "call_turn": 153,
+      "result_turn": 154
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "add_lt_add ENNReal",
+      "declarations": [],
+      "call_turn": 153,
+      "result_turn": 155
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "_ + _ < _ + _ ENNReal",
+      "declarations": [],
+      "call_turn": 153,
+      "result_turn": 156
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "ENNReal.add_lt_add_left",
+      "declarations": [
+        "ENNReal.add_lt_add_left"
+      ],
+      "call_turn": 153,
+      "result_turn": 157
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "ENNReal.add_lt_add_right",
+      "declarations": [
+        "ENNReal.add_lt_add_right"
+      ],
+      "call_turn": 153,
+      "result_turn": 158
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 0,
+    "side_hyperedge_count": 1,
+    "selected_depth": 1,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 8,
+    "retrieval_query_count": 114,
+    "useful_retrieval_event_count": 13,
+    "unused_retrieval_event_count": 101,
+    "accepted_helper_count": 5,
+    "rollout_tool_call_count": 131,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

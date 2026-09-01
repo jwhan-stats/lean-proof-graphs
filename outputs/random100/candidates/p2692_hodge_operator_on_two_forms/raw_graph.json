@@ -1,0 +1,361 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+      "manifest": [
+        {
+          "statement": "q ≠ 0",
+          "origin": "manifest",
+          "name": "hq0",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "q ^ 2 ≠ 1",
+          "origin": "manifest",
+          "name": "hq_one",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "q ^ 2 ≠ -1",
+          "origin": "manifest",
+          "name": "hq_neg_one",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "star e_ab = -e_ab + (2 * μ) • e_bd ∧\n  star e_ac = e_ac ∧\n    star e_ad = (1 / (1 + q ^ 2)) • (2 • e_bc - (q ^ 2 * μ) • e_ad) ∧\n      star e_bc = (q ^ 2 / (1 + q ^ 2)) • (2 • e_ad + μ • e_bc) ∧ star e_bd = e_bd ∧ star e_cd = -e_cd",
+          "origin": "manifest",
+          "name": "h",
+          "fvar_id": "16"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "star ∘ₗ star = LinearMap.id ∧\n  (star - LinearMap.id).ker = Submodule.span ℂ {e_bd, e_ac, e_ad + e_bc} ∧\n    (star + LinearMap.id).ker = Submodule.span ℂ {e_cd, e_ab - μ • e_bd, e_ad - (q ^ 2)⁻¹ • e_bc} ∧\n      Module.finrank ℂ ↥(star - LinearMap.id).ker = 3 ∧ Module.finrank ℂ ↥(star + LinearMap.id).ker = 3",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "star ∘ₗ star = LinearMap.id ∧\n  (star - LinearMap.id).ker = Submodule.span ℂ {e_bd, e_ac, e_ad + e_bc} ∧\n    (star + LinearMap.id).ker = Submodule.span ℂ {e_cd, e_ab - μ • e_bd, e_ad - (q ^ 2)⁻¹ • e_bc} ∧\n      Module.finrank ℂ ↥(star - LinearMap.id).ker = 3 ∧ Module.finrank ℂ ↥(star + LinearMap.id).ker = 3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "RingHomCompTriple.ids",
+          "Rollout_p2692_hodge_operator_on_two_forms.hodge_finrank_antidual_span",
+          "Rollout_p2692_hodge_operator_on_two_forms.hodge_finrank_selfdual_span",
+          "Rollout_p2692_hodge_operator_on_two_forms.hodge_ker_antidual",
+          "Rollout_p2692_hodge_operator_on_two_forms.hodge_ker_selfdual",
+          "Rollout_p2692_hodge_operator_on_two_forms.hodge_star_square",
+          "congrArg"
+        ],
+        "premises": [
+          {
+            "statement": "q ≠ 0",
+            "origin": "local_assumption",
+            "name": "hq0",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "q ^ 2 ≠ -1",
+            "origin": "local_assumption",
+            "name": "hq_neg_one",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "star e_ab = -e_ab + (2 * μ) • e_bd ∧\n  star e_ac = e_ac ∧\n    star e_ad = (1 / (1 + q ^ 2)) • (2 • e_bc - (q ^ 2 * μ) • e_ad) ∧\n      star e_bc = (q ^ 2 / (1 + q ^ 2)) • (2 • e_ad + μ • e_bc) ∧ star e_bd = e_bd ∧ star e_cd = -e_cd",
+            "origin": "local_assumption",
+            "name": "h",
+            "fvar_id": "16"
+          }
+        ],
+        "parent": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "star ∘ₗ star = LinearMap.id ∧\n  (star - LinearMap.id).ker = Submodule.span ℂ {e_bd, e_ac, e_ad + e_bc} ∧\n    (star + LinearMap.id).ker = Submodule.span ℂ {e_cd, e_ab - μ • e_bd, e_ad - (q ^ 2)⁻¹ • e_bc} ∧\n      Module.finrank ℂ ↥(star - LinearMap.id).ker = 3 ∧ Module.finrank ℂ ↥(star + LinearMap.id).ker = 3",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "μ = μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [],
+      "parent": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+      "id": "local_70",
+      "conclusion": {
+        "statement": "μ = 1 - (q ^ 2)⁻¹",
+        "origin": "derived",
+        "name": "hμ",
+        "fvar_id": "_uniq.3276875"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "star ∘ₗ star = LinearMap.id",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2692_hodge_operator_on_two_forms.hodge_star_square"
+      ],
+      "premises": [
+        {
+          "statement": "q ≠ 0",
+          "origin": "local_assumption",
+          "name": "hq0",
+          "fvar_id": "_uniq.3276147"
+        },
+        {
+          "statement": "q ^ 2 ≠ -1",
+          "origin": "local_assumption",
+          "name": "hq_neg_one",
+          "fvar_id": "_uniq.3276149"
+        },
+        {
+          "statement": "star e_ab = -e_ab + (2 * μ) • e_bd",
+          "origin": "local_assumption",
+          "name": "h0",
+          "fvar_id": "_uniq.3276199"
+        },
+        {
+          "statement": "star e_ac = e_ac",
+          "origin": "local_assumption",
+          "name": "h1",
+          "fvar_id": "_uniq.3276217"
+        },
+        {
+          "statement": "star e_ad = (1 / (1 + q ^ 2)) • (2 • e_bc - (q ^ 2 * μ) • e_ad)",
+          "origin": "local_assumption",
+          "name": "h2",
+          "fvar_id": "_uniq.3276235"
+        },
+        {
+          "statement": "star e_bc = (q ^ 2 / (1 + q ^ 2)) • (2 • e_ad + μ • e_bc)",
+          "origin": "local_assumption",
+          "name": "h3",
+          "fvar_id": "_uniq.3276253"
+        },
+        {
+          "statement": "star e_bd = e_bd",
+          "origin": "local_assumption",
+          "name": "h4",
+          "fvar_id": "_uniq.3276271"
+        },
+        {
+          "statement": "star e_cd = -e_cd",
+          "origin": "local_assumption",
+          "name": "h5",
+          "fvar_id": "_uniq.3276272"
+        },
+        {
+          "statement": "μ = 1 - (q ^ 2)⁻¹",
+          "origin": "derived",
+          "name": "hμ",
+          "fvar_id": "_uniq.3276875"
+        }
+      ],
+      "parent": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+      "id": "local_71",
+      "conclusion": {
+        "statement": "star ∘ₗ star = LinearMap.id",
+        "origin": "derived",
+        "name": "hsquare",
+        "fvar_id": "_uniq.3279948"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(star - LinearMap.id).ker = Submodule.span ℂ {b 4, b 1, b 2 + b 3}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2692_hodge_operator_on_two_forms.hodge_ker_selfdual"
+      ],
+      "premises": [
+        {
+          "statement": "q ≠ 0",
+          "origin": "local_assumption",
+          "name": "hq0",
+          "fvar_id": "_uniq.3276147"
+        },
+        {
+          "statement": "q ^ 2 ≠ -1",
+          "origin": "local_assumption",
+          "name": "hq_neg_one",
+          "fvar_id": "_uniq.3276149"
+        },
+        {
+          "statement": "star e_ab = -e_ab + (2 * μ) • e_bd",
+          "origin": "local_assumption",
+          "name": "h0",
+          "fvar_id": "_uniq.3276199"
+        },
+        {
+          "statement": "star e_ac = e_ac",
+          "origin": "local_assumption",
+          "name": "h1",
+          "fvar_id": "_uniq.3276217"
+        },
+        {
+          "statement": "star e_ad = (1 / (1 + q ^ 2)) • (2 • e_bc - (q ^ 2 * μ) • e_ad)",
+          "origin": "local_assumption",
+          "name": "h2",
+          "fvar_id": "_uniq.3276235"
+        },
+        {
+          "statement": "star e_bc = (q ^ 2 / (1 + q ^ 2)) • (2 • e_ad + μ • e_bc)",
+          "origin": "local_assumption",
+          "name": "h3",
+          "fvar_id": "_uniq.3276253"
+        },
+        {
+          "statement": "star e_bd = e_bd",
+          "origin": "local_assumption",
+          "name": "h4",
+          "fvar_id": "_uniq.3276271"
+        },
+        {
+          "statement": "star e_cd = -e_cd",
+          "origin": "local_assumption",
+          "name": "h5",
+          "fvar_id": "_uniq.3276272"
+        },
+        {
+          "statement": "μ = 1 - (q ^ 2)⁻¹",
+          "origin": "derived",
+          "name": "hμ",
+          "fvar_id": "_uniq.3276875"
+        }
+      ],
+      "parent": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+      "id": "local_72",
+      "conclusion": {
+        "statement": "(star - LinearMap.id).ker = Submodule.span ℂ {b 4, b 1, b 2 + b 3}",
+        "origin": "derived",
+        "name": "hker_sd",
+        "fvar_id": "_uniq.3319857"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(star + LinearMap.id).ker = Submodule.span ℂ {b 5, b 0 - μ • b 4, b 2 - (q ^ 2)⁻¹ • b 3}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2692_hodge_operator_on_two_forms.hodge_ker_antidual"
+      ],
+      "premises": [
+        {
+          "statement": "q ≠ 0",
+          "origin": "local_assumption",
+          "name": "hq0",
+          "fvar_id": "_uniq.3276147"
+        },
+        {
+          "statement": "q ^ 2 ≠ -1",
+          "origin": "local_assumption",
+          "name": "hq_neg_one",
+          "fvar_id": "_uniq.3276149"
+        },
+        {
+          "statement": "star e_ab = -e_ab + (2 * μ) • e_bd",
+          "origin": "local_assumption",
+          "name": "h0",
+          "fvar_id": "_uniq.3276199"
+        },
+        {
+          "statement": "star e_ac = e_ac",
+          "origin": "local_assumption",
+          "name": "h1",
+          "fvar_id": "_uniq.3276217"
+        },
+        {
+          "statement": "star e_ad = (1 / (1 + q ^ 2)) • (2 • e_bc - (q ^ 2 * μ) • e_ad)",
+          "origin": "local_assumption",
+          "name": "h2",
+          "fvar_id": "_uniq.3276235"
+        },
+        {
+          "statement": "star e_bc = (q ^ 2 / (1 + q ^ 2)) • (2 • e_ad + μ • e_bc)",
+          "origin": "local_assumption",
+          "name": "h3",
+          "fvar_id": "_uniq.3276253"
+        },
+        {
+          "statement": "star e_bd = e_bd",
+          "origin": "local_assumption",
+          "name": "h4",
+          "fvar_id": "_uniq.3276271"
+        },
+        {
+          "statement": "star e_cd = -e_cd",
+          "origin": "local_assumption",
+          "name": "h5",
+          "fvar_id": "_uniq.3276272"
+        },
+        {
+          "statement": "μ = 1 - (q ^ 2)⁻¹",
+          "origin": "derived",
+          "name": "hμ",
+          "fvar_id": "_uniq.3276875"
+        }
+      ],
+      "parent": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+      "id": "local_73",
+      "conclusion": {
+        "statement": "(star + LinearMap.id).ker = Submodule.span ℂ {b 5, b 0 - μ • b 4, b 2 - (q ^ 2)⁻¹ • b 3}",
+        "origin": "derived",
+        "name": "hker_ad",
+        "fvar_id": "_uniq.3372155"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p2692_hodge_operator_on_two_forms",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2692_hodge_operator_on_two_forms.hodge_operator_on_two_forms",
+    "proof_sha256": "511cf31754ce326f82da01a926e538b38691d9f621de1a88c78b35f35f930c0f"
+  }
+}

@@ -1,0 +1,438 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "manifest": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "manifest",
+          "name": "hB",
+          "fvar_id": "3"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let Q := { x // x ∉ B } ⊕ Unit;\nlet r := fun x y =>\n  match x, y with\n  | Sum.inr val, Sum.inr val_1 => True\n  | Sum.inr val, Sum.inl y => ∃ b ∈ B, b ≤ ↑y\n  | Sum.inl x, Sum.inr val => ∃ b ∈ B, ↑x ≤ b\n  | Sum.inl x, Sum.inl y => ↑x ≤ ↑y ∨ ∃ b ∈ B, ∃ b' ∈ B, ↑x ≤ b ∧ b' ≤ ↑y;\nIsPartialOrder Q r ↔ B.OrdConnected",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let Q := { x // x ∉ B } ⊕ Unit;\nlet r := fun x y =>\n  match x, y with\n  | Sum.inr val, Sum.inr val_1 => True\n  | Sum.inr val, Sum.inl y => ∃ b ∈ B, b ≤ ↑y\n  | Sum.inl x, Sum.inr val => ∃ b ∈ B, ↑x ≤ b\n  | Sum.inl x, Sum.inl y => ↑x ≤ ↑y ∨ ∃ b ∈ B, ∃ b' ∈ B, ↑x ≤ b ∧ b' ≤ ↑y;\nIsPartialOrder Q r ↔ B.OrdConnected",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Classical.byContradiction",
+          "Eq.symm",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsPartialOrder.toAntisymm",
+          "Set.OrdConnected.out'",
+          "Set.mem_Icc",
+          "Std.Antisymm.antisymm",
+          "Subtype.ext",
+          "Subtype.property",
+          "congrArg",
+          "le_antisymm",
+          "le_rfl",
+          "le_trans",
+          "noConfusion_of_Nat"
+        ],
+        "premises": [
+          {
+            "statement": "B.Nonempty",
+            "origin": "local_assumption",
+            "name": "hB",
+            "fvar_id": "3"
+          }
+        ],
+        "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let Q := { x // x ∉ B } ⊕ Unit;\nlet r := fun x y =>\n  match x, y with\n  | Sum.inr val, Sum.inr val_1 => True\n  | Sum.inr val, Sum.inl y => ∃ b ∈ B, b ≤ ↑y\n  | Sum.inl x, Sum.inr val => ∃ b ∈ B, ↑x ≤ b\n  | Sum.inl x, Sum.inl y => ↑x ≤ ↑y ∨ ∃ b ∈ B, ∃ b' ∈ B, ↑x ≤ b ∧ b' ≤ ↑y;\nIsPartialOrder Q r ↔ B.OrdConnected",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "∃ b ∈ B, b ≤ ↑zq",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "x ∈ B",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.4484804"
+        },
+        {
+          "statement": "x ≤ z",
+          "origin": "local_assumption",
+          "name": "hxz",
+          "fvar_id": "_uniq.4484940"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_374",
+      "conclusion": {
+        "statement": "r (Sum.inr ()) (Sum.inl zq)",
+        "origin": "derived",
+        "name": "hstar_z",
+        "fvar_id": "_uniq.4485860"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ b ∈ B, ↑zq ≤ b",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "y ∈ B",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.4484810"
+        },
+        {
+          "statement": "z ≤ y",
+          "origin": "local_assumption",
+          "name": "hzy",
+          "fvar_id": "_uniq.4484941"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_375",
+      "conclusion": {
+        "statement": "r (Sum.inl zq) (Sum.inr ())",
+        "origin": "derived",
+        "name": "hz_star",
+        "fvar_id": "_uniq.4485986"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Sum.inr () = Sum.inl zq",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsPartialOrder.toAntisymm",
+        "Std.Antisymm.antisymm"
+      ],
+      "premises": [
+        {
+          "statement": "IsPartialOrder Q r",
+          "origin": "local_assumption",
+          "name": "hpo",
+          "fvar_id": "_uniq.4484689"
+        },
+        {
+          "statement": "r (Sum.inr ()) (Sum.inl zq)",
+          "origin": "derived",
+          "name": "hstar_z",
+          "fvar_id": "_uniq.4485860"
+        },
+        {
+          "statement": "r (Sum.inl zq) (Sum.inr ())",
+          "origin": "derived",
+          "name": "hz_star",
+          "fvar_id": "_uniq.4485986"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_376",
+      "conclusion": {
+        "statement": "Sum.inr () = Sum.inl zq",
+        "origin": "derived",
+        "name": "heq",
+        "fvar_id": "_uniq.4486178"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B.Nonempty",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "B.Nonempty",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.4484055"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_379",
+      "conclusion": {
+        "statement": "B.Nonempty",
+        "origin": "derived",
+        "name": "x._@.proofs.4233258197._hygCtx._hyg.534",
+        "fvar_id": "_uniq.4484677"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ {x y z : P}, x ∈ B → y ∈ B → x ≤ z → z ≤ y → z ∈ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Set.OrdConnected.out'",
+        "Set.mem_Icc"
+      ],
+      "premises": [
+        {
+          "statement": "B.OrdConnected",
+          "origin": "local_assumption",
+          "name": "hconn",
+          "fvar_id": "_uniq.4486223"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_380",
+      "conclusion": {
+        "statement": "∀ {x y z : P}, x ∈ B → y ∈ B → x ≤ z → z ≤ y → z ∈ B",
+        "origin": "derived",
+        "name": "hconvex",
+        "fvar_id": "_uniq.4486628"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (q : Q), r q q",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "le_rfl"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_381",
+      "conclusion": {
+        "statement": "∀ (q : Q), r q q",
+        "origin": "derived",
+        "name": "hrefl",
+        "fvar_id": "_uniq.4486797"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (a b c : Q), r a b → r b c → r a c",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "le_trans"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_382",
+      "conclusion": {
+        "statement": "∀ (a b c : Q), r a b → r b c → r a c",
+        "origin": "derived",
+        "name": "htrans",
+        "fvar_id": "_uniq.4487113"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (a b : Q), r a b → r b a → a = b",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Subtype.ext",
+        "Subtype.property",
+        "congrArg",
+        "le_antisymm",
+        "le_trans"
+      ],
+      "premises": [
+        {
+          "statement": "∀ {x y z : P}, x ∈ B → y ∈ B → x ≤ z → z ≤ y → z ∈ B",
+          "origin": "derived",
+          "name": "hconvex",
+          "fvar_id": "_uniq.4486628"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_383",
+      "conclusion": {
+        "statement": "∀ (a b : Q), r a b → r b a → a = b",
+        "origin": "derived",
+        "name": "hanti",
+        "fvar_id": "_uniq.4491265"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Std.Refl r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (q : Q), r q q",
+          "origin": "derived",
+          "name": "hrefl",
+          "fvar_id": "_uniq.4486797"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_384",
+      "conclusion": {
+        "statement": "Std.Refl r",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.4493289"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsTrans Q r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (a b c : Q), r a b → r b c → r a c",
+          "origin": "derived",
+          "name": "htrans",
+          "fvar_id": "_uniq.4487113"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_385",
+      "conclusion": {
+        "statement": "IsTrans Q r",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.4493361"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "IsPreorder Q r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Std.Refl r",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.4493289"
+        },
+        {
+          "statement": "IsTrans Q r",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.4493361"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_386",
+      "conclusion": {
+        "statement": "IsPreorder Q r",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.4493562"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Std.Antisymm r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (a b : Q), r a b → r b a → a = b",
+          "origin": "derived",
+          "name": "hanti",
+          "fvar_id": "_uniq.4491265"
+        }
+      ],
+      "parent": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+      "id": "local_387",
+      "conclusion": {
+        "statement": "Std.Antisymm r",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.4493622"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0644_collapse_set_partialorder_iff_ordconnected.collapse_set_partialOrder_iff_ordConnected",
+    "proof_sha256": "1ae4cbda6d10f64039fa677ac0ee6fdd29c359f93ee7843f458ca49eb3b79ed2"
+  }
+}

@@ -1,0 +1,2584 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1461_directed_closure_singleton_iff_chain_closu",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1461,
+    "source": "2003.07737",
+    "theorem_name": "directed_closure_singleton_iff_chain_closure_singleton",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1461",
+    "reconstructed_proof": "../../candidates/p1461_directed_closure_singleton_iff_chain_closu/proof.lean",
+    "raw_elaboration": "../../candidates/p1461_directed_closure_singleton_iff_chain_closu/raw_graph.json",
+    "batch_export_theorem_name": "directed_closure_singleton_iff_chain_closure_singleton",
+    "verification_call_id": "verify_submission:254",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "802c35783f6009a5c5c37cffb5c7f6daf1d69d7d6c18bf81c1aa855e0a067907",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "60dab99e764e80906ffa7ee58a185cbe0087d18bfdc5c82112ec9085d03fa1a2",
+    "concrete_semantic_topology_sha256": "802c35783f6009a5c5c37cffb5c7f6daf1d69d7d6c18bf81c1aa855e0a067907"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_inst___proof_2120908755__0f438d0a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proof.2120908755._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "T0Space X"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∀ (D : Set X), D.Nonempty → DirectedOn LE.le D → ∃! x, closure D = closure {x}) ↔ ∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}"
+    },
+    {
+      "id": "n_h_bf2adc8d",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.128963",
+      "statement": "∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}"
+    },
+    {
+      "id": "n_hddir_977b8fe7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hDdir",
+      "lean_fvar_id": "_uniq.128975",
+      "statement": "DirectedOn LE.le D"
+    },
+    {
+      "id": "n_hdne_a4039dee",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hDne",
+      "lean_fvar_id": "_uniq.128972",
+      "statement": "D.Nonempty"
+    },
+    {
+      "id": "n_hex_7ef49d78",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hex",
+      "lean_fvar_id": "_uniq.129070",
+      "statement": "∃ x, closure D = closure {x}"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hex",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_bf2adc8d",
+        "n_hdne_a4039dee",
+        "n_hddir_977b8fe7"
+      ],
+      "conclusion": "n_hex_7ef49d78",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "exists_closure_singleton_of_chain",
+        "items": [
+          "exists_closure_singleton_of_chain"
+        ],
+        "rollout_helper_items": [
+          "exists_closure_singleton_of_chain"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_83",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hex : ∃ x : X, closure D = closure ({x} : Set X) := by\n      apply exists_closure_singleton_of_chain _ D hDne hDdir\n      intro C hCne hCchain\n      exact (h C hCne hCchain).exists",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.128963",
+              "name": "h",
+              "statement": "∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}"
+            },
+            {
+              "fvar_id": "_uniq.128972",
+              "name": "hDne",
+              "statement": "D.Nonempty"
+            },
+            {
+              "fvar_id": "_uniq.128975",
+              "name": "hDdir",
+              "statement": "DirectedOn LE.le D"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.129070",
+            "name": "hex",
+            "statement": "∃ x, closure D = closure {x}"
+          }
+        },
+        "lean_dependency_sha256": "96fca3aa6da0aecbffd726e3b91b3ee21d59c892543f135f92dde1074e056f1e",
+        "kernel_witness_check": {
+          "proof_type": "∃ x, closure D = closure {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_inst___proof_2120908755__0f438d0a"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Inseparable.eq + IsChain.directedOn + exists_closure_singleton_of_chain",
+        "items": [
+          "Inseparable.eq",
+          "IsChain.directedOn",
+          "exists_closure_singleton_of_chain",
+          "inseparable_iff_closure_eq"
+        ],
+        "rollout_helper_items": [
+          "exists_closure_singleton_of_chain"
+        ],
+        "mathlib_items": [
+          "Inseparable.eq",
+          "IsChain.directedOn",
+          "inseparable_iff_closure_eq"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro h C hCne hCchain\n    exact h C hCne hCchain.directedOn\n  · intro h D hDne hDdir\n    have hex : ∃ x : X, closure D = closure ({x} : Set X) := by\n      apply exists_closure_singleton_of_chain _ D hDne hDdir\n      intro C hCne hCchain\n      exact (h C hCne hCchain).exists\n    rcases hex with ⟨x, hx⟩\n    refine ⟨x, hx, ?_⟩\n    intro y hy\n    apply Inseparable.eq\n    apply (inseparable_iff_closure_eq).mpr\n    rw [← hx]\n    exact hy.symm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proof.2120908755._hygCtx._hyg.6",
+              "statement": "T0Space X"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∀ (D : Set X), D.Nonempty → DirectedOn LE.le D → ∃! x, closure D = closure {x}) ↔ ∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}"
+          }
+        },
+        "lean_dependency_sha256": "dce00ca3babe6c5ca98b5c01ea82fb1df0c3303282d3136efa2471737e6fb5e0",
+        "kernel_witness_check": {
+          "proof_type": "(∀ (D : Set X), D.Nonempty → DirectedOn LE.le D → ∃! x, closure D = closure {x}) ↔\n  ∀ (C : Set X), C.Nonempty → IsChain LE.le C → ∃! x, closure C = closure {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Inseparable.eq",
+          "IsChain.directedOn",
+          "inseparable_iff_closure_eq"
+        ],
+        "observed_search_event_ids": [
+          "loogle:140",
+          "leanfinder:143",
+          "loogle:101",
+          "leanfinder:3",
+          "loogle:14",
+          "leanfinder:52",
+          "leanfinder:74",
+          "leanfinder:75",
+          "leanfinder:82",
+          "leanfinder:84",
+          "leanfinder:88",
+          "leanfinder:8",
+          "leanfinder:136",
+          "loogle:0",
+          "loogle:142"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "closure ({_} : Set _)",
+      "declarations": [
+        "IsClosed.mem_iff_closure_subset",
+        "closure_singleton_eq_Iic",
+        "Specializes.mem_closure",
+        "specializes_iff_mem_closure",
+        "specializingMap_iff_stableUnderSpecialization_image_singleton",
+        "inseparable_iff_closure_eq",
+        "Specializes.closure_subset",
+        "specializes_iff_closure_subset",
+        "specializingMap_iff_isClosed_image_closure_singleton",
+        "SpecializingMap.closure_singleton_subset"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "specializationPreorder",
+      "declarations": [
+        "specializationPreorder",
+        "closure_singleton_eq_Iic",
+        "Continuous.specialization_monotone"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "closure singleton specialization order lower set principal ideal",
+      "declarations": [
+        "Order.Ideal.principal",
+        "Order.Ideal.principal_toLowerSet",
+        "lowerClosure_singleton",
+        "Topology.IsLowerSet.closure_singleton",
+        "WithTop.Iic_coe",
+        "Order.Iic_succ",
+        "lowerClosure",
+        "Lean.Elab.Tactic.Do.SpecAttr.mkSpecTheoremFromStx",
+        "dirSupInacc_Iic",
+        "Order.Ideal.lower"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "chain supremum implies directed supremum Zorn lemma directed chain complete partial order",
+      "declarations": [
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "exists_maximal_of_chains_bounded",
+        "ChainCompletePartialOrder",
+        "DirectedOn",
+        "zorn_le",
+        "OmegaCompletePartialOrder.",
+        "ChainCompletePartialOrder.bot",
+        "IsChain.directedOn",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "IsChain.directed"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "ChainCompletePartialOrder DirectedOn ∃!",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "ChainCompletePartialOrder DirectedSet",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "(_ : ChainCompletePartialOrder _) -> DirectedOn _ _ -> IsLUB _ _",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "chain complete partial order every directed set has supremum",
+      "declarations": [
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "ChainCompletePartialOrder",
+        "DirectedOn.csSup_le",
+        "CompletePartialOrder.ofLubOfDirected",
+        "DirectedOn.isLUB_sSup",
+        "PartialOrder",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "ChainCompletePartialOrder.bot",
+        "OmegaCompletePartialOrder.Chain",
+        "instConditionallyCompletePartialOrderSup"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "every nonempty chain has lub then directed set has least upper bound",
+      "declarations": [
+        "isLUB_hasSum",
+        "IsLUB",
+        "Lean.Order.csup_le",
+        "IsLeast.directedOn",
+        "exists_maximal_of_nonempty_chains_bounded",
+        "isLUB_hasProd",
+        "Directed.isLUB_ciSup",
+        "isLUB_hasProd'",
+        "isLUB_hasSum'",
+        "DirectedOn.isLUB_csSup"
+      ],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "directed subset chain same closure topology specialization order",
+      "declarations": [
+        "Specializes",
+        "DirectedOn",
+        "OrderTopology",
+        "StableUnderSpecialization",
+        "Union_closure_singleton_eq_iff",
+        "closure_singleton_eq_Iic",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "specializationOrder",
+        "IsChain.directed",
+        "TopologicalSpace.IrreducibleCloseds.orderIsoSubtype"
+      ],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "directed set contains chain with same closure topological space",
+      "declarations": [
+        "ChainClosure",
+        "subsingleton_closure",
+        "Topology.WithLowerSet.instTopologicalSpace",
+        "IsChain.directed",
+        "Topology.WithUpperSet.instTopologicalSpace",
+        "closure",
+        "Topology.IsLowerSet.closure_eq_upperClosure",
+        "IsCompact.nonempty_sInter_of_directed_nonempty_isCompact_isClosed",
+        "Topology.delabClosure",
+        "TopologicalSpace.Closeds.closure"
+      ],
+      "call_turn": 13,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> ∃ _, IsChain _ _ ∧ closure _ = closure _",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "DirectedOn (specializationPreorder _).le",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "directed complete iff chain complete closure topology sober T0",
+      "declarations": [
+        "ChainCompletePartialOrder",
+        "IsComplete.isClosed",
+        "completeIntegralClosure",
+        "CompleteSpace",
+        "Topology.IsScott.closure_singleton",
+        "mem_completeIntegralClosure",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "completeIntegralClosure_eq_integralClosure",
+        "Topology.IsScott.instT0Space",
+        "Topology.scottHausdorff"
+      ],
+      "call_turn": 13,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "IsChain.directedOn",
+      "declarations": [
+        "IsChain.directedOn"
+      ],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "IsGreatest.unique",
+      "declarations": [
+        "IsGreatest.unique"
+      ],
+      "call_turn": 19,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "exists_maximal_of_chains_bounded",
+      "declarations": [
+        "exists_maximal_of_chains_bounded"
+      ],
+      "call_turn": 19,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "zorn_le",
+      "declarations": [
+        "zorn_le"
+      ],
+      "call_turn": 19,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "Zorn maximal subset satisfying predicate chain union upper bound",
+      "declarations": [
+        "zorn_le",
+        "zorn_subset",
+        "zorn_subset_nonempty",
+        "exists_maximal_of_chains_bounded",
+        "union_upperBounds_subset_upperBounds_inter",
+        "Matroid.ExistsMaximalSubsetProperty",
+        "Maximal",
+        "exists_maximal_of_nonempty_chains_bounded",
+        "exists_compact_surjective_zorn_subset"
+      ],
+      "call_turn": 19,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "zorn_subset",
+      "declarations": [
+        "zorn_subset"
+      ],
+      "call_turn": 25,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Maximal",
+      "declarations": [
+        "Maximal",
+        "Maximal.prop",
+        "Maximal.le_of_ge",
+        "DirectedOn.maximal_iff_isGreatest",
+        "maximal_iff_isGreatest",
+        "DirectedOn.le_of_maximal",
+        "setOf_maximal_antichain",
+        "IsAntichain.maximal_mem_iff",
+        "IsAntichain.eq_setOf_maximal",
+        "Finset.maximal_iff_forall_insert"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "closure of directed set is irreducible topological space specialization",
+      "declarations": [
+        "IsPreirreducible.subset_irreducible",
+        "IsIrreducible.closure",
+        "TopologicalSpace.IsTopologicalBasis",
+        "IsIrreducible",
+        "TopologicalSpace.IrreducibleCloseds",
+        "TopologicalSpace.IrreducibleCloseds.instSetLike",
+        "TopologicalSpace.IrreducibleCloseds.isClosed",
+        "TopologicalSpace",
+        "TopologicalSpace.IrreducibleCloseds.isIrreducible",
+        "TopologicalSpace.IrreducibleCloseds.orderIsoSubtype"
+      ],
+      "call_turn": 29,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> IsIrreducible (closure _)",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "IsIrreducible (closure _)",
+      "declarations": [
+        "IsIrreducible.closure",
+        "isIrreducible_iff_closure"
+      ],
+      "call_turn": 29,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "isIrreducible_closure",
+      "declarations": [],
+      "call_turn": 29,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:25",
+      "tool": "leanfinder",
+      "query": "directed set closure irreducible closed topological",
+      "declarations": [
+        "TopologicalSpace.IrreducibleCloseds.coe_mk",
+        "IsIrreducible.closure",
+        "closure",
+        "TopologicalSpace.IrreducibleCloseds.isClosed",
+        "IsPreirreducible.closure",
+        "TopologicalSpace.IrreducibleCloseds.orderIsoSubtype",
+        "Submonoid.isClosed_topologicalClosure",
+        "Subgroup.isClosed_topologicalClosure",
+        "Subring.isClosed_topologicalClosure",
+        "TopologicalSpace.NoetherianSpace.exists_finite_set_isClosed_irreducible"
+      ],
+      "call_turn": 29,
+      "result_turn": 34
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "irreducible set specialization order directed",
+      "declarations": [
+        "Specialization.instPartialOrder",
+        "Specialization.rec",
+        "DirectedOn",
+        "Lean.Elab.Tactic.Do.SpecAttr.SpecTheorems.erase",
+        "Specialization",
+        "orderIsoSpecializationWithUpperSetTopology",
+        "specializationOrder",
+        "Lean.Elab.Tactic.Do.Internal.SpecAttr.SpecTheorems.isErased",
+        "IsDirectedOrder",
+        "Lean.Elab.Tactic.Do.SpecAttr.mkSpecTheoremFromStx"
+      ],
+      "call_turn": 35,
+      "result_turn": 36
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "directed specialization preorder irreducible subset topology",
+      "declarations": [
+        "IsPreirreducible.subset_irreducible",
+        "Specialization.instPreorder",
+        "Preorder",
+        "WithTopology.instPreorder",
+        "Preorder.topology",
+        "Set.Subsingleton.isPreirreducible",
+        "Specialization",
+        "orderIsoSpecializationWithUpperSetTopology",
+        "specializationPreorder",
+        "induced_topology_eq_preorder"
+      ],
+      "call_turn": 35,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> IsIrreducible _",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "IsIrreducible _ -> DirectedOn _ _",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "IsIrreducible specializationPreorder",
+      "declarations": [
+        "isIrreducible_irreducibleComponent",
+        "IrreducibleSpace.isIrreducible_univ",
+        "IsIrreducible.nonempty",
+        "IsIrreducible.isPreirreducible",
+        "isIrreducible_singleton",
+        "IsIrreducible.closure",
+        "isIrreducible_iff_closure",
+        "irreducibleSpace_def",
+        "IsIrreducible.of_subtype",
+        "Subtype.irreducibleSpace"
+      ],
+      "call_turn": 35,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "IsOpen _ -> _ ⤳ _ -> _ ∈ _ -> _ ∈ _",
+      "declarations": [
+        "Specializes.mem_open"
+      ],
+      "call_turn": 41,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Specializes _ _ -> IsOpen _ -> _ ∈ _ -> _ ∈ _",
+      "declarations": [
+        "Specializes.mem_open"
+      ],
+      "call_turn": 41,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "_ ≤ _ -> IsOpen _ -> _ ∈ _ -> _ ∈ _",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 44
+    },
+    {
+      "event_id": "leanfinder:34",
+      "tool": "leanfinder",
+      "query": "open sets upper sets specialization preorder",
+      "declarations": [
+        "AbsConvexOpenSets.coe_convex",
+        "Topology.IsUpperSet.specializes_iff_le",
+        "Specialization.instPreorder",
+        "Topology.WithUpper.instTopologicalSpace",
+        "AbsConvexOpenSets",
+        "specializationPreorder",
+        "isOpen_iff_forall_specializes",
+        "Topology.instIsUpperSetWithUpperSet",
+        "Filter.smallSets",
+        "Set.Ioi"
+      ],
+      "call_turn": 41,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "isOpen_iff_specialization",
+      "declarations": [],
+      "call_turn": 41,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "specializationPreorder _ .le _ _ ↔ _ ⤳ _",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "specializes_iff",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "specializationOrder",
+      "declarations": [
+        "specializationOrder",
+        "irreducibleSetEquivPoints"
+      ],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "leanfinder:39",
+      "tool": "leanfinder",
+      "query": "specialization preorder le iff specializes",
+      "declarations": [
+        "PrimeSpectrum.le_iff_specializes",
+        "Specialization.instPreorder",
+        "Specialization.toEquiv_le_toEquiv",
+        "Filter.specializes_iff_le",
+        "specializationPreorder",
+        "Specializes",
+        "Specialization",
+        "Specialization.ofEquiv_specializes_ofEquiv",
+        "Lean.Elab.Tactic.Do.Internal.SpecAttr.SpecTheorems.isErased",
+        "Lean.Elab.Tactic.Do.SpecAttr.mkSpecTheoremFromStx"
+      ],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "IsChain.sUnion",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "IsChain (⋃₀ _)",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "IsChain _ _ -> IsChain _ _ -> _ ⊆ _",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 59
+    },
+    {
+      "event_id": "leanfinder:45",
+      "tool": "leanfinder",
+      "query": "union of chain of sets is chain relation",
+      "declarations": [
+        "ChainClosure.union",
+        "IsChain.pairwise_sUnion",
+        "IsConnected.biUnion_of_chain",
+        "IsPreconnected.iUnion_of_chain",
+        "IsChain.mono",
+        "IsChain.pairwise_iUnion",
+        "isChain_union",
+        "IsConnected.iUnion_of_chain",
+        "IsPreconnected.biUnion_of_chain",
+        "isChain_of_trichotomous"
+      ],
+      "call_turn": 56,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "isChain_sUnion",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "IsChain.pairwise_sUnion",
+      "declarations": [
+        "IsChain.pairwise_sUnion"
+      ],
+      "call_turn": 62,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> ∃ _, IsLUB _ _",
+      "declarations": [],
+      "call_turn": 66,
+      "result_turn": 67
+    },
+    {
+      "event_id": "leanfinder:50",
+      "tool": "leanfinder",
+      "query": "Markowsky theorem chain complete directed complete poset",
+      "declarations": [
+        "CompleteSpace",
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "ChainCompletePartialOrder",
+        "OmegaCompletePartialOrder.Chain",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary",
+        "OmegaCompletePartialOrder.",
+        "ChainCompletePartialOrder.bot",
+        "CompleteLattice",
+        "OmegaCompletePartialOrder.Chain.directed"
+      ],
+      "call_turn": 68,
+      "result_turn": 69
+    },
+    {
+      "event_id": "leanfinder:51",
+      "tool": "leanfinder",
+      "query": "chain complete poset directed complete theorem",
+      "declarations": [
+        "Lean.Meta.toPartialOrder",
+        "ChainCompletePartialOrder",
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "OmegaCompletePartialOrder.Chain",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "CompleteLattice",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "instConditionallyCompletePartialOrderSup",
+        "ChainCompletePartialOrder.bot"
+      ],
+      "call_turn": 68,
+      "result_turn": 70
+    },
+    {
+      "event_id": "leanfinder:52",
+      "tool": "leanfinder",
+      "query": "Bourbaki Witt chain complete directed supremum",
+      "declarations": [
+        "WittVector",
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "Prod.",
+        "DirectedOn",
+        "OmegaCompletePartialOrder.",
+        "Directed",
+        "IsChain.directedOn",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "OmegaCompletePartialOrder.Chain.map",
+        "IsChain.directed"
+      ],
+      "call_turn": 68,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "ChainCompletePartialOrder",
+      "declarations": [
+        "ChainCompletePartialOrder",
+        "ChainCompletePartialOrder.instOfCompleteLattice",
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "ChainCompletePartialOrder.toPartialOrder",
+        "ChainCompletePartialOrder.IsExtremePt",
+        "ChainCompletePartialOrder.bot",
+        "ChainCompletePartialOrder.IsAdmissible",
+        "ChainCompletePartialOrder.cSup",
+        "ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary",
+        "ChainCompletePartialOrder.IsAdmissible.base_isLeast"
+      ],
+      "call_turn": 68,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "CompletePartialOrder ChainCompletePartialOrder",
+      "declarations": [],
+      "call_turn": 68,
+      "result_turn": 73
+    },
+    {
+      "event_id": "leanfinder:55",
+      "tool": "leanfinder",
+      "query": "quasi sober chain closure directed set generic point",
+      "declarations": [
+        "IsIrreducible.closure_genericPoint",
+        "genericPoint_closure",
+        "DirectedOn",
+        "IsIrreducible.genericPoint",
+        "R1Space.quasiSober",
+        "IsIrreducible.isGenericPoint_genericPoint_closure",
+        "isGenericPoint_closure",
+        "QuasiSober",
+        "IsIrreducible.genericPoint_closure_eq",
+        "quasiSober_iff"
+      ],
+      "call_turn": 74,
+      "result_turn": 75
+    },
+    {
+      "event_id": "leanfinder:56",
+      "tool": "leanfinder",
+      "query": "sober space chain irreducible closure singleton specialization",
+      "declarations": [
+        "ChainClosure",
+        "Lean.Elab.Tactic.Do.SpecAttr.SpecTheorems.erase",
+        "TopologicalSpace.IrreducibleCloseds.singleton",
+        "StableUnderSpecialization",
+        "IrreducibleSpace",
+        "TopologicalSpace.IrreducibleCloseds.singleton_injective",
+        "Lean.Elab.Tactic.Do.Internal.SpecAttr.SpecTheorems.isErased",
+        "Irreducible",
+        "Lean.Elab.Tactic.Do.SpecAttr.mkSpecTheoremFromStx",
+        "IsIrreducible"
+      ],
+      "call_turn": 74,
+      "result_turn": 76
+    },
+    {
+      "event_id": "leanfinder:57",
+      "tool": "leanfinder",
+      "query": "T0 space every directed set closure singleton sober",
+      "declarations": [
+        "coe_irreducibleEquivPoints_symm_apply",
+        "IsComplete.isClosed",
+        "closure_singleton",
+        "TopologicalSpace.Closeds.coe_eq_singleton_of_isAtom",
+        "irreducibleSetEquivPoints",
+        "QuasiSober",
+        "T1Space",
+        "directedOn_singleton",
+        "Directed",
+        "totallySeparatedSpace_of_t0_of_basis_clopen"
+      ],
+      "call_turn": 74,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "QuasiSober IsChain",
+      "declarations": [
+        "R1Space.quasiSober",
+        "genericPoint",
+        "IsIrreducible.genericPoint",
+        "genericPoints.closure",
+        "genericPoints.ofComponent",
+        "genericPoint_spec",
+        "genericPoint_specializes",
+        "Topology.IsClosedEmbedding.quasiSober",
+        "Topology.IsOpenEmbedding.quasiSober",
+        "genericPoints.component_surjective"
+      ],
+      "call_turn": 74,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "QuasiSober DirectedOn",
+      "declarations": [
+        "R1Space.quasiSober",
+        "genericPoint",
+        "IsIrreducible.genericPoint",
+        "genericPoints.closure",
+        "genericPoints.ofComponent",
+        "genericPoint_spec",
+        "genericPoint_specializes",
+        "Topology.IsClosedEmbedding.quasiSober",
+        "Topology.IsOpenEmbedding.quasiSober",
+        "genericPoints.component_surjective"
+      ],
+      "call_turn": 74,
+      "result_turn": 79
+    },
+    {
+      "event_id": "leanfinder:60",
+      "tool": "leanfinder",
+      "query": "d-space topology directed set convergence specialization order chain complete",
+      "declarations": [
+        "CompleteSpace",
+        "specializationOrder",
+        "ChainCompletePartialOrder",
+        "UniformConvergenceCLM.completeSpace",
+        "orderIsoSpecializationWithUpperSetTopology",
+        "tendsto_order",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "Topology.scottHausdorff",
+        "Topology.IsScottHausdorff",
+        "ContinuousMap.tendsto_of_monotone_of_pointwise"
+      ],
+      "call_turn": 80,
+      "result_turn": 81
+    },
+    {
+      "event_id": "leanfinder:61",
+      "tool": "leanfinder",
+      "query": "monotone convergence space directed subset supremum specialization",
+      "declarations": [
+        "Monotone.directed_le",
+        "MeasureTheory.lintegral_iSup_directed_of_measurable",
+        "Finset.isDirected_subset",
+        "SupConvergenceClass",
+        "Specialization",
+        "Monotone.ge_of_tendsto",
+        "Monotone.directed_ge",
+        "Monotone",
+        "MeasureTheory.lintegral_iSup_directed",
+        "Continuous.specialization_monotone"
+      ],
+      "call_turn": 80,
+      "result_turn": 82
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "directed complete topological space specialization order",
+      "declarations": [
+        "OrderTopology.to_orderClosedTopology",
+        "specializationOrder",
+        "TopologicalSpace.Opens.CompleteCopy",
+        "TopologicalSpace.Closeds.instCompleteSpace",
+        "TopologicalSpace.instCompleteLattice",
+        "TopologicalSpace",
+        "compactSpace_of_completeLinearOrder",
+        "homeoWithUpperSetTopologyorderIso",
+        "TopologicalSpace.Compacts.instCompleteSpace",
+        "ordered_connected_space"
+      ],
+      "call_turn": 80,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "DirectedOn (fun x1 x2 => x1 ⤳ x2)",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "IsChain (fun x1 x2 => x1 ⤳ x2) closure",
+      "declarations": [],
+      "call_turn": 80,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "ChainClosure _ Set.univ",
+      "declarations": [],
+      "call_turn": 88,
+      "result_turn": 89
+    },
+    {
+      "event_id": "leanfinder:67",
+      "tool": "leanfinder",
+      "query": "Iwasawa lemma directed poset union smaller directed subsets cardinal",
+      "declarations": [
+        "DirectedOn",
+        "CategoryTheory.CardinalFilteredPoset.instIsDirectedOrderSubtypeSetCarrierObjPartOrdEmbIsCardinalFilteredWithTopPropSetWithTop",
+        "directedOn_union_iff",
+        "IsCompact.nonempty_iInter_of_directed_nonempty_isCompact_isClosed",
+        "Directed",
+        "Directed.measure_iUnion",
+        "Sum.lex_wf",
+        "Finset.kruskal_katona",
+        "Directed.convex_iUnion",
+        "IsCompact.nonempty_sInter_of_directed_nonempty_isCompact_isClosed"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "leanfinder:68",
+      "tool": "leanfinder",
+      "query": "every directed set union of chain of directed subsets smaller cardinality",
+      "declarations": [
+        "DirectedOn",
+        "directed_of",
+        "DirectedOn.exists_mem_subset_of_finite_of_subset_sUnion",
+        "DirectedOn.exists_mem_subset_of_finset_subset_biUnion",
+        "orthonormal_sUnion_of_directed",
+        "orthonormal_iUnion_of_directed",
+        "IsCompact.nonempty_iInter_of_directed_nonempty_isCompact_isClosed",
+        "IsCompact.nonempty_sInter_of_directed_nonempty_isCompact_isClosed",
+        "IsChain.directed",
+        "directedOn_or_directedOn_of_union'"
+      ],
+      "call_turn": 90,
+      "result_turn": 92
+    },
+    {
+      "event_id": "leanfinder:69",
+      "tool": "leanfinder",
+      "query": "directed set decomposition cardinal induction chain complete",
+      "declarations": [
+        "DirectedOn",
+        "Cardinal.inductionOn",
+        "Mathlib.Tactic.Order.Graph.findSCCs",
+        "Set.chainHeight",
+        "Directed",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "Lean.SCC.scc",
+        "HallMarriageTheorem.hall_hard_inductive",
+        "IsChain.directed"
+      ],
+      "call_turn": 90,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> ∃ _, IsChain _ _ ∧ _ = ⋃ _",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Cardinal DirectedOn",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "SupConvergenceClass",
+      "declarations": [
+        "SupConvergenceClass",
+        "OrderDual.infConvergenceClass",
+        "OrderDual.supConvergenceClass",
+        "Pi.supConvergenceClass'",
+        "Pi.supConvergenceClass",
+        "Prod.supConvergenceClass",
+        "LinearOrder.supConvergenceClass",
+        "tendsto_atBot_isLUB",
+        "tendsto_atTop_isLUB",
+        "tendsto_atBot_ciSup"
+      ],
+      "call_turn": 96,
+      "result_turn": 97
+    },
+    {
+      "event_id": "leanfinder:73",
+      "tool": "leanfinder",
+      "query": "directed closure equals chain closure T0 topological space theorem",
+      "declarations": [
+        "Topology.closure_of",
+        "ChainClosure",
+        "closure_lowerClosure_comm_pi",
+        "closure",
+        "TopologicalSpace.mkOfClosure",
+        "closure_closure",
+        "TopologicalSpace.Closeds.closure_le",
+        "TopologicalSpace.Closeds.closure",
+        "TopologicalSpace.vietoris.specializes_closure",
+        "Topology.delabClosure"
+      ],
+      "call_turn": 98,
+      "result_turn": 99
+    },
+    {
+      "event_id": "leanfinder:74",
+      "tool": "leanfinder",
+      "query": "every directed subset chain closure equivalent topology",
+      "declarations": [
+        "ChainClosure",
+        "ChainClosure.isChain",
+        "Topology.IsLowerSet.closure_eq_upperClosure",
+        "Topology.IsScott.dirSupClosed_of_isClosed",
+        "ChainClosure.succ",
+        "closure",
+        "Topology.scottHausdorff",
+        "IsChain.directedOn",
+        "IsCompact.nonempty_sInter_of_directed_nonempty_isCompact_isClosed",
+        "IsChain.directed"
+      ],
+      "call_turn": 98,
+      "result_turn": 100
+    },
+    {
+      "event_id": "leanfinder:75",
+      "tool": "leanfinder",
+      "query": "T0 chain directed closure unique point",
+      "declarations": [
+        "ChainClosure",
+        "ChainClosure.isChain",
+        "ChainClosure.succ_fixpoint",
+        "DirectedOn",
+        "IsChain.directedOn",
+        "Lean.Meta.tryURefl",
+        "chainClosure_maxChain",
+        "Lean.Meta.Grind.useFunCC",
+        "ChainClosure.total",
+        "IsChain.directed"
+      ],
+      "call_turn": 98,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "closure _ = closure {_} -> DirectedOn",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "IsChain _ _ -> closure _ = closure {_}",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "IsChain _ _ ↔ DirectedOn _ _",
+      "declarations": [],
+      "call_turn": 106,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ ↔ IsChain",
+      "declarations": [
+        "directedOn_univ_iff",
+        "directedOn_image",
+        "directedOn_onFun_iff",
+        "directedOn_iff_isCodirectedOrder",
+        "directedOn_iff_isDirectedOrder",
+        "directedOn_iff_directed"
+      ],
+      "call_turn": 106,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "directed chain iff",
+      "declarations": [],
+      "call_turn": 106,
+      "result_turn": 109
+    },
+    {
+      "event_id": "leanfinder:82",
+      "tool": "leanfinder",
+      "query": "directed iff chain supremum closure theorem topology",
+      "declarations": [
+        "ChainClosure",
+        "DirectedOn",
+        "csSup_mem_closure",
+        "ChainClosure.succ_fixpoint_iff",
+        "sSup_mem_closure",
+        "Topology.IsScott.dirSupClosed_of_isClosed",
+        "chainClosure_empty",
+        "IsChain.directedOn",
+        "TopologicalSpace.Closeds.instContinuousSup",
+        "IsChain.directed"
+      ],
+      "call_turn": 106,
+      "result_turn": 110
+    },
+    {
+      "event_id": "leanfinder:83",
+      "tool": "leanfinder",
+      "query": "chain condition directed condition equivalent T0 specialization closure singleton",
+      "declarations": [
+        "ChainClosure",
+        "Lean.Elab.Tactic.Do.SpecAttr.SpecTheorems.erase",
+        "Lean.Elab.Tactic.Do.Internal.SpecAttr.SpecTheorems.isErased",
+        "RankCondition",
+        "StrongRankCondition",
+        "NormalizerCondition",
+        "Lean.Meta.tryURefl",
+        "Lean.Elab.Tactic.Omega.Justification.tidy",
+        "Lean.Elab.Tactic.Do.SpecAttr.mkSpecTheoremFromStx",
+        "WellFoundedLT.antitone_chain_condition"
+      ],
+      "call_turn": 106,
+      "result_turn": 111
+    },
+    {
+      "event_id": "leanfinder:84",
+      "tool": "leanfinder",
+      "query": "well-filtered d-space chain complete topology directed",
+      "declarations": [
+        "Diffeology.dTopology",
+        "CompleteSpace",
+        "WellFounded.list_chain'",
+        "ordered_connected_space",
+        "Diffeology.instIsDTopologyCompatible",
+        "IsChain.directedOn",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "Topology.IsScottHausdorff",
+        "Topology.scottHausdorff",
+        "IsChain.directed"
+      ],
+      "call_turn": 112,
+      "result_turn": 113
+    },
+    {
+      "event_id": "leanfinder:85",
+      "tool": "leanfinder",
+      "query": "d-space iff chain complete T0 topology",
+      "declarations": [
+        "IsComplete.isClosed",
+        "CompleteSpace",
+        "ChainCompletePartialOrder",
+        "UniformSpace.Completion.isDenseEmbedding_coe",
+        "completeSpace_ulift_iff",
+        "Topology.scottHausdorff",
+        "Topology.IsScottHausdorff",
+        "totallySeparatedSpace_of_t0_of_basis_clopen",
+        "completeSpace_iff_ultrafilter",
+        "UniformSpace.Completion.instNontrivialOfT0Space"
+      ],
+      "call_turn": 112,
+      "result_turn": 114
+    },
+    {
+      "event_id": "leanfinder:86",
+      "tool": "leanfinder",
+      "query": "topological directed completeness chain completeness specialization",
+      "declarations": [
+        "Lean.Server.RequestHandlerCompleteness",
+        "Lean.Server.RequestHandlerCompleteness.complete",
+        "ChainCompletePartialOrder.instOmegaCompletePartialOrder",
+        "DirSupClosed.compl",
+        "WithTop.conditionallyCompleteLattice",
+        "Lean.Server.RequestHandlerCompleteness.partial",
+        "DirectedOn",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "IsChain.directed",
+        "instConditionallyCompletePartialOrderSup"
+      ],
+      "call_turn": 112,
+      "result_turn": 115
+    },
+    {
+      "event_id": "leanfinder:87",
+      "tool": "leanfinder",
+      "query": "sobrification directed chains closure",
+      "declarations": [
+        "ChainClosure",
+        "ChainClosure.succ",
+        "List.lex_chains",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "List.chains",
+        "groupHomology.chainsIso",
+        "DirectedOn",
+        "Lean.Meta.tryURefl",
+        "Directed",
+        "List.IsChain.imp_head"
+      ],
+      "call_turn": 112,
+      "result_turn": 116
+    },
+    {
+      "event_id": "leanfinder:88",
+      "tool": "leanfinder",
+      "query": "Rudin lemma directed chain topology",
+      "declarations": [
+        "Topology.scottHausdorff",
+        "DirectedOn",
+        "ShrinkingLemma.PartialRefinement.chainSup",
+        "IsChain.directedOn",
+        "exists_continuous_zero_one_of_isClosed",
+        "ContinuousMap.tendsto_of_monotone_of_pointwise",
+        "OmegaCompletePartialOrder.Chain.directed",
+        "exists_bounded_zero_one_of_closed",
+        "IsChain.directed",
+        "Monotone.tendstoUniformly_of_forall_tendsto"
+      ],
+      "call_turn": 112,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "scottHausdorff",
+      "declarations": [],
+      "call_turn": 118,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Topology.scottHausdorff",
+      "declarations": [
+        "Topology.scottHausdorff",
+        "Topology.instIsScottHausdorff",
+        "Topology.IsScottHausdorff.mk",
+        "Topology.IsScottHausdorff.topology_eq",
+        "Topology.IsScottHausdorff.topology_eq_scottHausdorff",
+        "Topology.scottHausdorff_le_lower",
+        "Topology.scottHausdorff_le_scott",
+        "Topology.IsLower.scottHausdorff_le",
+        "Topology.IsScott.scottHausdorff_le",
+        "Topology.IsScott.isOpen_iff_isUpperSet_and_scottHausdorff_open"
+      ],
+      "call_turn": 120,
+      "result_turn": 121
+    },
+    {
+      "event_id": "leanfinder:91",
+      "tool": "leanfinder",
+      "query": "infinite set union chain smaller cardinality subsets",
+      "declarations": [
+        "Set.Infinite.biUnion",
+        "Set.encard_iUnion_le_of_finite",
+        "Set.Infinite",
+        "Set.Infinite.iUnion",
+        "Cardinal.mk_biUnion_le_of_le",
+        "hasCardinalLT_union",
+        "Set.sUnion_mono_subsets",
+        "Cardinal.mk_biUnion_le_of_le_lift",
+        "Set.infinite_union",
+        "Set.infinite_iUnion"
+      ],
+      "call_turn": 122,
+      "result_turn": 123
+    },
+    {
+      "event_id": "leanfinder:92",
+      "tool": "leanfinder",
+      "query": "cardinal cover by increasing sequence smaller cardinality",
+      "declarations": [
+        "Cardinal.lift",
+        "Cardinal.iSup_sequence_lt_omega1",
+        "Cardinal.mk_biUnion_le_of_le",
+        "Cardinal",
+        "Set.tacticTo_encard_tac",
+        "Cardinal.mk_le_of_countable_eventually_mem",
+        "Cardinal.mk_subtype_le_of_countable_eventually_mem_aux",
+        "injective_of_increasing",
+        "Cardinal.sum_lt_prod",
+        "Cardinal.increasing_cantorFunction"
+      ],
+      "call_turn": 122,
+      "result_turn": 124
+    },
+    {
+      "event_id": "leanfinder:93",
+      "tool": "leanfinder",
+      "query": "well ordered initial segments cardinality less than cardinal",
+      "declarations": [
+        "Field.Emb.Cardinal.wellOrderedBasis",
+        "Cardinal.ord",
+        "Cardinal.mk_Iio_toType_ord_lt",
+        "Cardinal.card_typein_toType_lt",
+        "Cardinal",
+        "Cardinal.mk_Iic_lt",
+        "Cardinal.card_typein_lt",
+        "WellQuasiOrdered",
+        "Ordinal.card_typein",
+        "Set.PartiallyWellOrderedOn"
+      ],
+      "call_turn": 122,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "Cardinal.mk _ -> ∃ _ : Set _, _ < Cardinal.mk _",
+      "declarations": [],
+      "call_turn": 122,
+      "result_turn": 126
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "Ordinal.card",
+      "declarations": [
+        "Ordinal.card",
+        "Cardinal.card_surjective",
+        "Ordinal.card_omega0",
+        "Ordinal.card_univ",
+        "Cardinal.card_ord",
+        "Cardinal.mk_toType",
+        "Ordinal.lift_card",
+        "Cardinal.gc_ord_card",
+        "Cardinal.gciOrdCard",
+        "Cardinal.ord_card_le"
+      ],
+      "call_turn": 122,
+      "result_turn": 127
+    },
+    {
+      "event_id": "loogle:96",
+      "tool": "loogle",
+      "query": "Cardinal.eq.mp",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 129
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "Cardinal.mk_congr",
+      "declarations": [
+        "Cardinal.mk_congr"
+      ],
+      "call_turn": 128,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "Cardinal.ord.toType",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Cardinal.mk_toType",
+      "declarations": [
+        "Cardinal.mk_toType"
+      ],
+      "call_turn": 128,
+      "result_turn": 132
+    },
+    {
+      "event_id": "leanfinder:100",
+      "tool": "leanfinder",
+      "query": "equivalence type cardinal ord toType cardinal equality",
+      "declarations": [
+        "Lean.Meta.matchEqHEq",
+        "Cardinal.isEquivalent",
+        "Cardinal.ord",
+        "Fintype.card_congr'",
+        "Cardinal.type_cardinal",
+        "Cardinal.toNat_congr",
+        "Cardinal.mk_ord_toType",
+        "Cardinal.ord_le_type",
+        "Cardinal.mk_toType",
+        "Cardinal.mk_Iio_ord_toType"
+      ],
+      "call_turn": 128,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "Cardinal.mk _ = Cardinal.mk _ ↔ Nonempty (_ ≃ _)",
+      "declarations": [
+        "Cardinal.eq"
+      ],
+      "call_turn": 134,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "Cardinal.mk (Finset _)",
+      "declarations": [
+        "Cardinal.mk_finset_of_fintype",
+        "Cardinal.mk_finset_of_infinite"
+      ],
+      "call_turn": 138,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "Cardinal.mk_finset",
+      "declarations": [],
+      "call_turn": 138,
+      "result_turn": 140
+    },
+    {
+      "event_id": "leanfinder:105",
+      "tool": "leanfinder",
+      "query": "cardinality of Finset type infinite cardinal",
+      "declarations": [
+        "Cardinal.mk_finset_of_infinite",
+        "Set.Finite.card_toFinset",
+        "Cardinal.mk_coe_finset",
+        "Fintype.card",
+        "Cardinal.type_cardinal",
+        "Cardinal.mk_finset_of_fintype",
+        "Cardinal.mk_compl_finset_of_infinite",
+        "Infinite",
+        "Cardinal.infinite_pigeonhole",
+        "Cardinal.infinite_iff"
+      ],
+      "call_turn": 138,
+      "result_turn": 141
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "Cardinal.mk_iUnion",
+      "declarations": [],
+      "call_turn": 138,
+      "result_turn": 142
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "Cardinal.mk_union",
+      "declarations": [],
+      "call_turn": 138,
+      "result_turn": 143
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "Cardinal.mk_sum",
+      "declarations": [
+        "Cardinal.mk_sum"
+      ],
+      "call_turn": 144,
+      "result_turn": 145
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "_ + _ < _ Cardinal",
+      "declarations": [],
+      "call_turn": 144,
+      "result_turn": 146
+    },
+    {
+      "event_id": "loogle:110",
+      "tool": "loogle",
+      "query": "Cardinal.add_lt",
+      "declarations": [],
+      "call_turn": 144,
+      "result_turn": 147
+    },
+    {
+      "event_id": "loogle:111",
+      "tool": "loogle",
+      "query": "Cardinal.max",
+      "declarations": [],
+      "call_turn": 144,
+      "result_turn": 148
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Cardinal.mk_le_of_surjective",
+      "declarations": [
+        "Cardinal.mk_le_of_surjective"
+      ],
+      "call_turn": 144,
+      "result_turn": 149
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "WellFounded Cardinal",
+      "declarations": [
+        "WellFoundedRelation.wf",
+        "WellFoundedRelation.mk",
+        "WellFounded.apply",
+        "WellFounded.intro",
+        "WellFounded.transGen",
+        "WellFounded.wrap",
+        "InvImage.wf",
+        "Subrelation.wf",
+        "WellFounded.fix",
+        "WellFounded.induction"
+      ],
+      "call_turn": 150,
+      "result_turn": 151
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "Cardinal.lt_wf",
+      "declarations": [
+        "Cardinal.lt_wf"
+      ],
+      "call_turn": 150,
+      "result_turn": 152
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "WellFoundedLT Cardinal",
+      "declarations": [
+        "Cardinal.instWellFoundedLT"
+      ],
+      "call_turn": 150,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:116",
+      "tool": "loogle",
+      "query": "Cardinal.induction",
+      "declarations": [],
+      "call_turn": 150,
+      "result_turn": 154
+    },
+    {
+      "event_id": "loogle:117",
+      "tool": "loogle",
+      "query": "Cardinal.inductionOn",
+      "declarations": [
+        "Cardinal.inductionOn"
+      ],
+      "call_turn": 150,
+      "result_turn": 155
+    },
+    {
+      "event_id": "loogle:118",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> ∀ _ : Finset _, _ ⊆ _ -> ∃ _ ∈ _, ∀ _ ∈ _, _ _ _",
+      "declarations": [],
+      "call_turn": 156,
+      "result_turn": 157
+    },
+    {
+      "event_id": "loogle:119",
+      "tool": "loogle",
+      "query": "DirectedOn.exists",
+      "declarations": [],
+      "call_turn": 156,
+      "result_turn": 158
+    },
+    {
+      "event_id": "leanfinder:120",
+      "tool": "leanfinder",
+      "query": "directed set finite subset common upper bound finset",
+      "declarations": [
+        "Set.Finite.toFinset",
+        "Set.Finite.subset_toFinset",
+        "Finset.sup_le_of_le_directed",
+        "Set.Finite.toFinset_subset",
+        "Finset.exists_le",
+        "Set.Finite.toFinset_subset_toFinset",
+        "Finset.le_inf_of_directed_le",
+        "Set.exists_upper_bound_image",
+        "Directed.finite_set_le",
+        "Finset.isDirected_subset"
+      ],
+      "call_turn": 156,
+      "result_turn": 159
+    },
+    {
+      "event_id": "loogle:121",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> BddAbove _",
+      "declarations": [],
+      "call_turn": 156,
+      "result_turn": 160
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> (Finset _)",
+      "declarations": [],
+      "call_turn": 156,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "Cardinal.mk _ < Cardinal.aleph0",
+      "declarations": [
+        "Cardinal.lt_aleph0_of_finite",
+        "Cardinal.mk_lt_aleph0",
+        "Cardinal.lt_aleph0_iff_finite",
+        "Cardinal.mk_lt_aleph0_iff",
+        "Cardinal.lt_aleph0_iff_fintype",
+        "Set.Finite.lt_aleph0",
+        "Cardinal.lt_aleph0_iff_set_finite",
+        "Cardinal.finset_card_lt_aleph0",
+        "Cardinal.lt_aleph0_iff_subtype_finite",
+        "LinearIndependent.lt_aleph0_of_finite"
+      ],
+      "call_turn": 162,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "Cardinal.mk_lt_aleph0",
+      "declarations": [
+        "Cardinal.mk_lt_aleph0"
+      ],
+      "call_turn": 162,
+      "result_turn": 164
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "Finite _ -> Cardinal.mk _ < Cardinal.aleph0",
+      "declarations": [
+        "Cardinal.lt_aleph0_of_finite",
+        "Cardinal.mk_lt_aleph0",
+        "cardinal_lt_aleph0_of_finiteDimensional"
+      ],
+      "call_turn": 162,
+      "result_turn": 165
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "Cardinal.lt_aleph0_iff_finite",
+      "declarations": [
+        "Cardinal.lt_aleph0_iff_finite"
+      ],
+      "call_turn": 162,
+      "result_turn": 166
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "Cardinal.aleph0_le_iff_infinite",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 167
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "Cardinal.add_eq_self",
+      "declarations": [
+        "Cardinal.add_eq_self"
+      ],
+      "call_turn": 168,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "Cardinal.add_eq_max",
+      "declarations": [
+        "Cardinal.add_eq_max"
+      ],
+      "call_turn": 168,
+      "result_turn": 170
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "Cardinal.add_eq",
+      "declarations": [],
+      "call_turn": 168,
+      "result_turn": 171
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "Cardinal.aleph0_le _ -> _ + _ = _",
+      "declarations": [],
+      "call_turn": 168,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "Cardinal.add_one_le",
+      "declarations": [],
+      "call_turn": 168,
+      "result_turn": 173
+    },
+    {
+      "event_id": "loogle:134",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> Set.Finite _ -> IsGreatest _ _",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "Set.Finite DirectedOn.exists",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 178
+    },
+    {
+      "event_id": "leanfinder:136",
+      "tool": "leanfinder",
+      "query": "finite directed set has greatest element",
+      "declarations": [
+        "Std.ExtTreeSet.getLE",
+        "Set.finite_range_findGreatest",
+        "IsGreatest.directedOn",
+        "Fin2.last",
+        "DirectedOn.maximal_iff_isGreatest",
+        "Set.Finite",
+        "ArchimedeanClass.FiniteElement",
+        "Finset.induction_on_max",
+        "Directed.finite_set_le",
+        "instFintypeWithBot"
+      ],
+      "call_turn": 176,
+      "result_turn": 179
+    },
+    {
+      "event_id": "loogle:137",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> ∃ _, ∀ _ ∈ _, _ _ _",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 180
+    },
+    {
+      "event_id": "loogle:138",
+      "tool": "loogle",
+      "query": "Finite.exists_maximal_wrt",
+      "declarations": [],
+      "call_turn": 176,
+      "result_turn": 181
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "Inseparable _ _ -> _ = _",
+      "declarations": [
+        "Inseparable.nhds_eq",
+        "SeparationQuotient.lift",
+        "SeparationQuotient.lift_mk",
+        "SeparationQuotient.lift_comp_mk",
+        "SeparationQuotient.continuous_lift",
+        "SeparationQuotient.continuousAt_lift",
+        "SeparationQuotient.tendsto_lift_nhds_mk",
+        "SeparationQuotient.continuousOn_lift"
+      ],
+      "call_turn": 182,
+      "result_turn": 183
+    },
+    {
+      "event_id": "loogle:140",
+      "tool": "loogle",
+      "query": "Inseparable.eq",
+      "declarations": [
+        "Inseparable.eq"
+      ],
+      "call_turn": 182,
+      "result_turn": 184
+    },
+    {
+      "event_id": "loogle:141",
+      "tool": "loogle",
+      "query": "T0Space Inseparable",
+      "declarations": [
+        "specializationOrder",
+        "T1Space.t0Space",
+        "SeparationQuotient.instT0Space",
+        "instT1SpaceOfT0SpaceOfR0Space",
+        "ULift.instT0Space",
+        "nhds_injective",
+        "t0Space_iff_nhds_injective",
+        "t1Space_iff_t0Space_and_r0Space",
+        "inseparable_eq_eq",
+        "Subtype.t0Space"
+      ],
+      "call_turn": 182,
+      "result_turn": 185
+    },
+    {
+      "event_id": "loogle:142",
+      "tool": "loogle",
+      "query": "inseparable_iff_closure_eq",
+      "declarations": [
+        "inseparable_iff_closure_eq"
+      ],
+      "call_turn": 182,
+      "result_turn": 186
+    },
+    {
+      "event_id": "leanfinder:143",
+      "tool": "leanfinder",
+      "query": "T0 inseparable points equal",
+      "declarations": [
+        "Inseparable.of_eq",
+        "inseparable_iff_eq",
+        "Inseparable.eq",
+        "Lean.Expr.equal",
+        "Inseparable",
+        "IsGenericPoint.inseparable",
+        "inseparable_iff_closure_eq",
+        "not_inseparable_iff_exists_open",
+        "Lean.Parser.equal",
+        "totallySeparatedSpace_of_t0_of_basis_clopen"
+      ],
+      "call_turn": 182,
+      "result_turn": 187
+    },
+    {
+      "event_id": "leanfinder:152",
+      "tool": "leanfinder",
+      "query": "smallest directed superset of a set cardinality",
+      "declarations": [
+        "Std.TreeSet.Raw.getGE",
+        "Std.ExtTreeSet.getGE",
+        "Std.TreeSet.Raw.getGT",
+        "Std.ExtTreeSet.getGT",
+        "superset_of_eq",
+        "DirectedOn",
+        "Superset",
+        "Std.ExtTreeSet.min",
+        "Set.directed_accumulate",
+        "Set.indicator_eq_self_of_superset"
+      ],
+      "call_turn": 204,
+      "result_turn": 205
+    },
+    {
+      "event_id": "leanfinder:153",
+      "tool": "leanfinder",
+      "query": "directed closure subset finite upper bounds",
+      "declarations": [
+        "IsClosed.upperClosure_pi",
+        "Set.Finite.upperClosure",
+        "subset_upperBounds_mul",
+        "upperBounds",
+        "upperBounds_closure",
+        "upperBounds_supClosure",
+        "upperBounds_lowerClosure",
+        "BddBelow.of_upperClosure",
+        "lowerBounds_upperClosure",
+        "bddBelow_upperClosure"
+      ],
+      "call_turn": 204,
+      "result_turn": 206
+    },
+    {
+      "event_id": "loogle:154",
+      "tool": "loogle",
+      "query": "DirectedOn _ _ -> ∃ _, _ ⊆ _ ∧ DirectedOn _ _ ∧ Cardinal.mk _",
+      "declarations": [],
+      "call_turn": 204,
+      "result_turn": 207
+    },
+    {
+      "event_id": "loogle:155",
+      "tool": "loogle",
+      "query": "Finset _ ⊕ Finset _ Cardinal",
+      "declarations": [],
+      "call_turn": 204,
+      "result_turn": 208
+    },
+    {
+      "event_id": "leanfinder:156",
+      "tool": "leanfinder",
+      "query": "closure under finite suprema cardinal less kappa directed set",
+      "declarations": [
+        "Set.Finite",
+        "CategoryTheory.CardinalFilteredPoset.instIsDirectedOrderSubtypeSetCarrierObjPartOrdEmbIsCardinalFilteredWithTopPropSetWithTop",
+        "Cardinal.sSup_lt_of_lt_cof_ord",
+        "Set.Finite.supClosure",
+        "Set.Finite.infClosure",
+        "Set.Finite.lowerClosure",
+        "Directed.finite_set_le",
+        "DirSupInacc.of_inter_subset",
+        "Set.Finite.latticeClosure",
+        "IsCompact.nonempty_sInter_of_directed_nonempty_isCompact_isClosed"
+      ],
+      "call_turn": 204,
+      "result_turn": 209
+    },
+    {
+      "event_id": "loogle:157",
+      "tool": "loogle",
+      "query": "Cardinal.mk WType",
+      "declarations": [
+        "Cardinal.mk_nat",
+        "Cardinal.outMkEquiv",
+        "Cardinal.inductionOn",
+        "Cardinal.mk_out",
+        "Cardinal.mk_uLift",
+        "Cardinal.mk_empty",
+        "Cardinal.mk_pempty",
+        "Cardinal.mk_punit",
+        "Cardinal.mk_unit",
+        "Cardinal.lift_mk_fin"
+      ],
+      "call_turn": 210,
+      "result_turn": 211
+    },
+    {
+      "event_id": "leanfinder:158",
+      "tool": "leanfinder",
+      "query": "cardinality WType finite branching",
+      "declarations": [
+        "WType.Nat",
+        "Finite",
+        "Set.Finite",
+        "WType.cardinalMk_le_max_aleph0_of_finite'",
+        "WType.cardinalMk_le_max_aleph0_of_finite",
+        "WType.cardinalMk_le_of_le'",
+        "WType.cardinalMk_le_of_le",
+        "WType",
+        "WType.elim",
+        "WType.cardinalMk_eq_sum"
+      ],
+      "call_turn": 210,
+      "result_turn": 212
+    },
+    {
+      "event_id": "leanfinder:159",
+      "tool": "leanfinder",
+      "query": "cardinality rose tree finite tree type",
+      "declarations": [
+        "Algebra.FiniteType",
+        "Lean.Expr.ProdTree.getType",
+        "WType.cardinalMk_le_max_aleph0_of_finite",
+        "Lean.Expr.ProdTree.type",
+        "Fintype.card",
+        "WType.cardinalMk_eq_sum_lift",
+        "FintypeCat.Skeleton.len",
+        "WType.cardinalMk_eq_sum",
+        "Tree",
+        "instCoeSortRootedTreeType"
+      ],
+      "call_turn": 210,
+      "result_turn": 213
+    },
+    {
+      "event_id": "loogle:160",
+      "tool": "loogle",
+      "query": "WType Cardinal",
+      "declarations": [
+        "instInhabitedWTypeUnitEmpty",
+        "WType.instIsEmpty",
+        "WType.depth",
+        "WType.mk",
+        "WType.ofSigma",
+        "WType.toSigma",
+        "WType.elim",
+        "WType.equivSigma",
+        "WType.infinite_of_nonempty_of_isEmpty",
+        "WType.instEncodable"
+      ],
+      "call_turn": 210,
+      "result_turn": 214
+    },
+    {
+      "event_id": "loogle:161",
+      "tool": "loogle",
+      "query": "Cardinal.mk_list",
+      "declarations": [],
+      "call_turn": 210,
+      "result_turn": 215
+    },
+    {
+      "event_id": "loogle:163",
+      "tool": "loogle",
+      "query": "Cardinal.mk (_ ⊕ _) ≤ max",
+      "declarations": [],
+      "call_turn": 218,
+      "result_turn": 219
+    },
+    {
+      "event_id": "loogle:164",
+      "tool": "loogle",
+      "query": "Cardinal.mk_sum_le",
+      "declarations": [],
+      "call_turn": 218,
+      "result_turn": 220
+    },
+    {
+      "event_id": "loogle:165",
+      "tool": "loogle",
+      "query": "Cardinal.add_le_max",
+      "declarations": [
+        "Cardinal.add_le_max"
+      ],
+      "call_turn": 218,
+      "result_turn": 221
+    },
+    {
+      "event_id": "loogle:166",
+      "tool": "loogle",
+      "query": "Cardinal.add_le",
+      "declarations": [],
+      "call_turn": 218,
+      "result_turn": 222
+    },
+    {
+      "event_id": "loogle:167",
+      "tool": "loogle",
+      "query": "Cardinal.mk_le_max",
+      "declarations": [],
+      "call_turn": 218,
+      "result_turn": 223
+    },
+    {
+      "event_id": "loogle:174",
+      "tool": "loogle",
+      "query": "1 ≤ Cardinal.aleph0",
+      "declarations": [
+        "Cardinal.one_le_aleph0"
+      ],
+      "call_turn": 236,
+      "result_turn": 237
+    },
+    {
+      "event_id": "loogle:175",
+      "tool": "loogle",
+      "query": "Cardinal.one_le_aleph0",
+      "declarations": [
+        "Cardinal.one_le_aleph0"
+      ],
+      "call_turn": 236,
+      "result_turn": 238
+    },
+    {
+      "event_id": "loogle:176",
+      "tool": "loogle",
+      "query": "max 1 Cardinal.aleph0",
+      "declarations": [],
+      "call_turn": 236,
+      "result_turn": 239
+    },
+    {
+      "event_id": "loogle:177",
+      "tool": "loogle",
+      "query": "Cardinal.natCast_le_aleph0",
+      "declarations": [
+        "Cardinal.natCast_le_aleph0"
+      ],
+      "call_turn": 236,
+      "result_turn": 240
+    },
+    {
+      "event_id": "loogle:178",
+      "tool": "loogle",
+      "query": "Cardinal.aleph0_pos",
+      "declarations": [
+        "Cardinal.aleph0_pos"
+      ],
+      "call_turn": 236,
+      "result_turn": 241
+    },
+    {
+      "event_id": "loogle:184",
+      "tool": "loogle",
+      "query": "Set.Countable ∃ Function.Surjective",
+      "declarations": [],
+      "call_turn": 252,
+      "result_turn": 253
+    },
+    {
+      "event_id": "loogle:185",
+      "tool": "loogle",
+      "query": "Countable.exists_surjective",
+      "declarations": [],
+      "call_turn": 252,
+      "result_turn": 254
+    },
+    {
+      "event_id": "loogle:186",
+      "tool": "loogle",
+      "query": "Set.Countable.exists",
+      "declarations": [],
+      "call_turn": 252,
+      "result_turn": 255
+    },
+    {
+      "event_id": "leanfinder:187",
+      "tool": "leanfinder",
+      "query": "countable set enumeration surjective natural numbers",
+      "declarations": [
+        "Set.Countable",
+        "Nat.nth_injective",
+        "Set.Countable.exists_surjective",
+        "Function.Surjective.countable",
+        "Set.Countable.exists_eq_range",
+        "countable_iff_exists_surjective",
+        "Set.countable_iff_exists_surjective",
+        "uncountable_iff_forall_not_surjective",
+        "not_surjective_countable_uncountable",
+        "Finpartition.exists_enumeration"
+      ],
+      "call_turn": 252,
+      "result_turn": 256
+    },
+    {
+      "event_id": "loogle:188",
+      "tool": "loogle",
+      "query": "Encodable (Subtype _) Countable",
+      "declarations": [],
+      "call_turn": 252,
+      "result_turn": 257
+    },
+    {
+      "event_id": "loogle:189",
+      "tool": "loogle",
+      "query": "Monotone _ ↔ ∀ _, _ ≤ _",
+      "declarations": [
+        "Fin.monotone_iff_le_succ"
+      ],
+      "call_turn": 258,
+      "result_turn": 259
+    },
+    {
+      "event_id": "loogle:190",
+      "tool": "loogle",
+      "query": "monotone_nat_of_le_succ",
+      "declarations": [
+        "monotone_nat_of_le_succ"
+      ],
+      "call_turn": 258,
+      "result_turn": 260
+    },
+    {
+      "event_id": "loogle:191",
+      "tool": "loogle",
+      "query": "Monotone (fun n : ℕ => _)",
+      "declarations": [
+        "Nat.pow_self_mono",
+        "converges_of_monotone_of_bounded",
+        "monotone_nat_of_le_succ",
+        "monotone_add_nat_iff_monotoneOn_nat_Ici",
+        "Monotone.ne_of_lt_of_lt_nat",
+        "monotone_add_nat_of_le_succ",
+        "Nat.stabilises_of_monotone",
+        "nsmul_left_monotone",
+        "pow_right_monotone",
+        "pow_right_mono"
+      ],
+      "call_turn": 258,
+      "result_turn": 261
+    },
+    {
+      "event_id": "loogle:192",
+      "tool": "loogle",
+      "query": "Nat.le_induction Monotone",
+      "declarations": [],
+      "call_turn": 258,
+      "result_turn": 262
+    },
+    {
+      "event_id": "loogle:193",
+      "tool": "loogle",
+      "query": "monotone_of_le_succ",
+      "declarations": [
+        "monotone_of_le_succ"
+      ],
+      "call_turn": 258,
+      "result_turn": 263
+    },
+    {
+      "event_id": "loogle:201",
+      "tool": "loogle",
+      "query": "Subtype.coe_le_coe",
+      "declarations": [
+        "Subtype.coe_le_coe"
+      ],
+      "call_turn": 278,
+      "result_turn": 279
+    },
+    {
+      "event_id": "loogle:216",
+      "tool": "loogle",
+      "query": "Set.Countable Cardinal.mk _ ≤ Cardinal.aleph0",
+      "declarations": [],
+      "call_turn": 308,
+      "result_turn": 309
+    },
+    {
+      "event_id": "loogle:217",
+      "tool": "loogle",
+      "query": "Set.countable_iff_cardinal_le_aleph0",
+      "declarations": [],
+      "call_turn": 308,
+      "result_turn": 310
+    },
+    {
+      "event_id": "loogle:218",
+      "tool": "loogle",
+      "query": "Cardinal.aleph0 < Cardinal.mk _ Set.Countable",
+      "declarations": [],
+      "call_turn": 308,
+      "result_turn": 311
+    },
+    {
+      "event_id": "loogle:219",
+      "tool": "loogle",
+      "query": "Set.Countable Cardinal.aleph0",
+      "declarations": [
+        "Set.countable_univ",
+        "Set.countable_empty",
+        "Set.countable_univ_iff",
+        "Set.not_countable_univ",
+        "Set.Countable.of_subsingleton",
+        "Set.enumerateCountable",
+        "Set.not_countable_univ_iff",
+        "Set.Finite.countable",
+        "Set.Subsingleton.countable",
+        "Countable.to_set"
+      ],
+      "call_turn": 308,
+      "result_turn": 312
+    },
+    {
+      "event_id": "leanfinder:220",
+      "tool": "leanfinder",
+      "query": "set countable cardinal mk at most aleph0",
+      "declarations": [
+        "Cardinal.aleph0_lt_univ",
+        "Cardinal.aleph0",
+        "Cardinal.aleph0_le_mk",
+        "Cardinal.countable_iff_lt_aleph_one",
+        "Cardinal.aleph0_le_continuum",
+        "Cardinal.le_aleph0_iff_set_countable",
+        "Cardinal.aleph0_lt_mk",
+        "Cardinal.mk_le_aleph0",
+        "Set.Countable.le_aleph0",
+        "Cardinal.mk_eq_aleph0"
+      ],
+      "call_turn": 308,
+      "result_turn": 313
+    },
+    {
+      "event_id": "loogle:222",
+      "tool": "loogle",
+      "query": "mk_Iic_lt",
+      "declarations": [],
+      "call_turn": 316,
+      "result_turn": 317
+    },
+    {
+      "event_id": "loogle:225",
+      "tool": "loogle",
+      "query": "WType.map",
+      "declarations": [],
+      "call_turn": 322,
+      "result_turn": 323
+    },
+    {
+      "event_id": "leanfinder:226",
+      "tool": "leanfinder",
+      "query": "map WType labels and children",
+      "declarations": [
+        "Lean.labelExtensionMapRef",
+        "Lean.Elab.InlayHintLabelPart.toLspInlayHintLabelPart",
+        "PFunctor.M.children",
+        "Lean.Lsp.instFromJsonInlayHintLabel",
+        "WType.Nat",
+        "PFunctor.W.children",
+        "Std.DTreeMap.Raw.Const.unitOfList",
+        "WType",
+        "PFunctor.Approx.children'",
+        "And"
+      ],
+      "call_turn": 322,
+      "result_turn": 324
+    },
+    {
+      "event_id": "loogle:227",
+      "tool": "loogle",
+      "query": "WType.rec map",
+      "declarations": [],
+      "call_turn": 322,
+      "result_turn": 325
+    },
+    {
+      "event_id": "loogle:228",
+      "tool": "loogle",
+      "query": "WType.bind",
+      "declarations": [],
+      "call_turn": 322,
+      "result_turn": 326
+    },
+    {
+      "event_id": "loogle:229",
+      "tool": "loogle",
+      "query": "WType.equiv",
+      "declarations": [],
+      "call_turn": 322,
+      "result_turn": 327
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 0,
+    "side_hyperedge_count": 1,
+    "selected_depth": 1,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 179,
+    "useful_retrieval_event_count": 15,
+    "unused_retrieval_event_count": 164,
+    "accepted_helper_count": 11,
+    "rollout_tool_call_count": 255,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

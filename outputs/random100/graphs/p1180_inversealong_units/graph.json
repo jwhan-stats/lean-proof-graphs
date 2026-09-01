@@ -1,0 +1,224 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1180_inversealong_units",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1180,
+    "source": "1509.04251",
+    "theorem_name": "inverseAlong_units",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1180",
+    "reconstructed_proof": "../../candidates/p1180_inversealong_units/proof.lean",
+    "raw_elaboration": "../../candidates/p1180_inversealong_units/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1180_inversealong_units.inverseAlong_units",
+    "verification_call_id": "verify_submission:6",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "14da5c37624322edd95e16aea21e85ecc3ac5185160255fc6420240c3d494907",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "ae45536ab0d9576fd9251a15f37f7bc9a4d5dc70a192985cddee23e0b9edd792",
+    "concrete_semantic_topology_sha256": "14da5c37624322edd95e16aea21e85ecc3ac5185160255fc6420240c3d494907"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_inner_994ce2cd",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_inner",
+      "lean_fvar_id": "7",
+      "statement": "b * a * b = b"
+    },
+    {
+      "id": "m_h_left_dcdb13f4",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_left",
+      "lean_fvar_id": "9",
+      "statement": "(Set.range fun y => y * b) = Set.range fun y => y * d"
+    },
+    {
+      "id": "m_h_right_a68e1f01",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "h_right",
+      "lean_fvar_id": "8",
+      "statement": "(Set.range fun y => b * y) = Set.range fun y => d * y"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "↑r * b * ↑s⁻¹ * (↑s * a * ↑r⁻¹) * (↑r * b * ↑s⁻¹) = ↑r * b * ↑s⁻¹ ∧ ((Set.range fun y => ↑r * b * ↑s⁻¹ * y) = Set.range fun y => ↑r * d * ↑s⁻¹ * y) ∧ (Set.range fun y => y * (↑r * b * ↑s⁻¹)) = Set.range fun y => y * (↑r * d * ↑s⁻¹)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_inner_994ce2cd",
+        "m_h_right_a68e1f01",
+        "m_h_left_dcdb13f4"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rollout_p1180_inversealong_units.leftIdeal_eq_of_units + Rollout_p1180_inversealong_units.rightIdeal_eq_of_units + mul_assoc",
+        "items": [
+          "Rollout_p1180_inversealong_units.leftIdeal_eq_of_units",
+          "Rollout_p1180_inversealong_units.rightIdeal_eq_of_units",
+          "mul_assoc"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rollout_p1180_inversealong_units.leftIdeal_eq_of_units",
+          "Rollout_p1180_inversealong_units.rightIdeal_eq_of_units",
+          "mul_assoc"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨?_, ?_, ?_⟩\n  · calc\n      ((r : R) * b * ((s⁻¹ : Rˣ) : R)) *\n          ((s : R) * a * ((r⁻¹ : Rˣ) : R)) *\n          ((r : R) * b * ((s⁻¹ : Rˣ) : R))\n          = (r : R) * (b * a * b) * ((s⁻¹ : Rˣ) : R) := by\n            simp [mul_assoc]\n      _ = (r : R) * b * ((s⁻¹ : Rˣ) : R) := by\n            simp [h_inner, mul_assoc]\n  · exact rightIdeal_eq_of_units r s⁻¹ h_right\n  · exact leftIdeal_eq_of_units r s⁻¹ h_left",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "h_inner",
+              "statement": "b * a * b = b"
+            },
+            {
+              "fvar_id": "8",
+              "name": "h_right",
+              "statement": "(Set.range fun y => b * y) = Set.range fun y => d * y"
+            },
+            {
+              "fvar_id": "9",
+              "name": "h_left",
+              "statement": "(Set.range fun y => y * b) = Set.range fun y => y * d"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "↑r * b * ↑s⁻¹ * (↑s * a * ↑r⁻¹) * (↑r * b * ↑s⁻¹) = ↑r * b * ↑s⁻¹ ∧ ((Set.range fun y => ↑r * b * ↑s⁻¹ * y) = Set.range fun y => ↑r * d * ↑s⁻¹ * y) ∧ (Set.range fun y => y * (↑r * b * ↑s⁻¹)) = Set.range fun y => y * (↑r * d * ↑s⁻¹)"
+          }
+        },
+        "lean_dependency_sha256": "9d28e95a7b71796bafb8687fedc4fe5f47a2b1fa4f67262977c9ec34d821c3bb",
+        "kernel_witness_check": {
+          "proof_type": "↑r * b * ↑s⁻¹ * (↑s * a * ↑r⁻¹) * (↑r * b * ↑s⁻¹) = ↑r * b * ↑s⁻¹ ∧\n  ((Set.range fun y => ↑r * b * ↑s⁻¹ * y) = Set.range fun y => ↑r * d * ↑s⁻¹ * y) ∧\n    (Set.range fun y => y * (↑r * b * ↑s⁻¹)) = Set.range fun y => y * (↑r * d * ↑s⁻¹)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "(_ = _) → _ ⊆ _",
+      "declarations": [
+        "subset_of_eq_of_subset",
+        "subset_of_subset_of_eq",
+        "Eq.trans_subset",
+        "HasSubset.subset.trans_eq",
+        "subset_of_eq",
+        "superset_of_eq",
+        "Eq.subset",
+        "Eq.subset'",
+        "Eq.superset",
+        "Function.mulSupport_comp_subset"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 1,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 1,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 7,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

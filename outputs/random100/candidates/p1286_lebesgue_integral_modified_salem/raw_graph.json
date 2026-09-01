@@ -1,0 +1,224 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+      "manifest": [
+        {
+          "statement": "p₀ ∈ Set.Ioo 0 1",
+          "origin": "manifest",
+          "name": "hp₀",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "p₁ ∈ Set.Ioo 0 1",
+          "origin": "manifest",
+          "name": "hp₁",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "p₂ ∈ Set.Ioo 0 1",
+          "origin": "manifest",
+          "name": "hp₂",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "p₀ + p₁ + p₂ = 1",
+          "origin": "manifest",
+          "name": "hsum",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "BorelSpace.opensMeasurable",
+          "Eq.symm",
+          "Eq.trans",
+          "Filter.Eventually.of_forall",
+          "HasSolidNorm.orderClosedTopology",
+          "LT.lt.le",
+          "MeasureTheory.IntegrableOn.congr_fun",
+          "MeasureTheory.Measure.instOuterMeasureClass",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "Pi.instNonempty",
+          "Real.borelSpace",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instZeroLEOneClass",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msF_eq_msG_on",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integrableOn_Icc",
+          "Rollout_p1286_lebesgue_integral_modified_salem.msG_integral_eq",
+          "Set.mem_Ioc._simp_1",
+          "Set.uIoc_of_le",
+          "congrArg",
+          "congrFun'",
+          "instHasSolidNormReal",
+          "instNonemptyOfInhabited",
+          "intervalIntegral.integral_congr_ae",
+          "measurableSet_Icc",
+          "of_eq_true",
+          "zero_le_one._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "p₀ ∈ Set.Ioo 0 1",
+            "origin": "local_assumption",
+            "name": "hp₀",
+            "fvar_id": "3"
+          },
+          {
+            "statement": "p₁ ∈ Set.Ioo 0 1",
+            "origin": "local_assumption",
+            "name": "hp₁",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "p₂ ∈ Set.Ioo 0 1",
+            "origin": "local_assumption",
+            "name": "hp₂",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "p₀ + p₁ + p₂ = 1",
+            "origin": "local_assumption",
+            "name": "hsum",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let p := ![p₀, p₁, p₂];\nlet β := ![0, p₀, p₀ + p₁];\nlet E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r);\nlet canonical := fun x =>\n  Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0);\nlet θ := ![0, 2, 1];\nlet f := fun x => E fun k => θ (canonical x k);\nMeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧\n  ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "x ∈ Set.Ioc 0 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Real.instZeroLEOneClass",
+        "Set.mem_Ioc._simp_1",
+        "Set.uIoc_of_le",
+        "congrArg",
+        "congrFun'",
+        "of_eq_true",
+        "zero_le_one._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "x ∈ Set.uIoc 0 1",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.1006679"
+        }
+      ],
+      "parent": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+      "id": "local_293",
+      "conclusion": {
+        "statement": "x ∈ Set.Ioc 0 1",
+        "origin": "derived",
+        "name": "hxIoc",
+        "fvar_id": "_uniq.1006939"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ x ∧ x ≤ 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "LT.lt.le"
+      ],
+      "premises": [
+        {
+          "statement": "x ∈ Set.Ioc 0 1",
+          "origin": "derived",
+          "name": "hxIoc",
+          "fvar_id": "_uniq.1006939"
+        }
+      ],
+      "parent": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+      "id": "local_294",
+      "conclusion": {
+        "statement": "x ∈ Set.Icc 0 1",
+        "origin": "derived",
+        "name": "hxIcc",
+        "fvar_id": "_uniq.1036287"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_19390104429fa091/proofs.lean",
+    "namespace": "Rollout_p1286_lebesgue_integral_modified_salem",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1286_lebesgue_integral_modified_salem.lebesgue_integral_modified_salem",
+    "proof_sha256": "55a2ceea55db23b81b327bd46bf5a5fdb2fa82204952dc164ee7a4d0c21391b9"
+  }
+}

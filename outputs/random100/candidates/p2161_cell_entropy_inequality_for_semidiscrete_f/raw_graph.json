@@ -1,0 +1,521 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+      "manifest": [
+        {
+          "statement": "0 < V",
+          "origin": "manifest",
+          "name": "hV",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ r ∈ N, 0 ≤ A r",
+          "origin": "manifest",
+          "name": "hA",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ r ∈ N, 0 < δ r",
+          "origin": "manifest",
+          "name": "hδ",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "∀ r ∈ N, 0 ≤ ε r",
+          "origin": "manifest",
+          "name": "hε",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "0 < T",
+          "origin": "manifest",
+          "name": "hT",
+          "fvar_id": "16"
+        },
+        {
+          "statement": "∀ r ∈ N, (H r).PosSemidef",
+          "origin": "manifest",
+          "name": "hH",
+          "fvar_id": "18"
+        },
+        {
+          "statement": "dρSdt = 1 / V * ∑ r ∈ N, A r * (-D r + g r + entropyProduction r)",
+          "origin": "manifest",
+          "name": "hd",
+          "fvar_id": "26"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ r ∈ N, 0 ≤ ε r * Δq r ⬝ᵥ (H r).mulVec (Δq r) / (2 * T * δ r)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsOrderedRing.toPosMulMono",
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "LT.lt.le",
+            "Mathlib.Meta.NormNum.instAtLeastTwo",
+            "Mathlib.Meta.NormNum.isNat_lt_true",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Matrix.PosSemidef.dotProduct_mulVec_nonneg",
+            "Nat.cast_zero",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Pi.instTrivialStarForall",
+            "PosMulReflectLE.toPosMulReflectLT",
+            "PosMulStrictMono.toPosMulReflectLE",
+            "RCLike.charZero_rclike",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "TrivialStar.star_trivial",
+            "congrArg",
+            "congrFun'",
+            "div_nonneg",
+            "instTrivialStarReal",
+            "mul_nonneg",
+            "mul_pos"
+          ],
+          "premises": [
+            {
+              "statement": "∀ r ∈ N, 0 < δ r",
+              "origin": "local_assumption",
+              "name": "hδ",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "∀ r ∈ N, 0 ≤ ε r",
+              "origin": "local_assumption",
+              "name": "hε",
+              "fvar_id": "12"
+            },
+            {
+              "statement": "0 < T",
+              "origin": "local_assumption",
+              "name": "hT",
+              "fvar_id": "16"
+            },
+            {
+              "statement": "∀ r ∈ N, (H r).PosSemidef",
+              "origin": "local_assumption",
+              "name": "hH",
+              "fvar_id": "18"
+            }
+          ],
+          "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+          "id": "telescope_27",
+          "conclusion": {
+            "statement": "∀ r ∈ N, 0 ≤ entropyProduction r",
+            "origin": "derived",
+            "name": "hprod",
+            "fvar_id": "27"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ r ∈ N, A r * (-D r + g r + entropyProduction r) =\n  -∑ r ∈ N, A r * D r + ∑ r ∈ N, A r * g r + ∑ r ∈ N, A r * entropyProduction r",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Distrib.leftDistribClass",
+            "Eq.trans",
+            "Finset.sum_add_distrib",
+            "Finset.sum_congr",
+            "Finset.sum_neg_distrib",
+            "congrArg",
+            "congrFun'",
+            "mul_add",
+            "mul_neg"
+          ],
+          "premises": [],
+          "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "∑ r ∈ N, A r * (-D r + g r + entropyProduction r) =\n  -∑ r ∈ N, A r * D r + ∑ r ∈ N, A r * g r + ∑ r ∈ N, A r * entropyProduction r",
+            "origin": "derived",
+            "name": "hsum",
+            "fvar_id": "28"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "dρSdt + 1 / V * ∑ r ∈ N, A r * D r - 1 / V * ∑ r ∈ N, A r * g r ≥ 0",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "dρSdt + 1 / V * ∑ r ∈ N, A r * D r - 1 / V * ∑ r ∈ N, A r * g r ≥ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Finset.sum_nonneg",
+          "Iff.mpr",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedRing.toPosMulMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "LT.lt.le",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.div_congr",
+          "Mathlib.Tactic.Ring.div_pf",
+          "Mathlib.Tactic.Ring.inv_mul",
+          "Mathlib.Tactic.Ring.inv_single",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_congr",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Nat.cast_one",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "congrArg",
+          "mul_nonneg",
+          "one_div_nonneg"
+        ],
+        "premises": [
+          {
+            "statement": "0 < V",
+            "origin": "local_assumption",
+            "name": "hV",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∀ r ∈ N, 0 ≤ A r",
+            "origin": "local_assumption",
+            "name": "hA",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "dρSdt = 1 / V * ∑ r ∈ N, A r * (-D r + g r + entropyProduction r)",
+            "origin": "local_assumption",
+            "name": "hd",
+            "fvar_id": "26"
+          },
+          {
+            "statement": "∀ r ∈ N, 0 ≤ entropyProduction r",
+            "origin": "derived",
+            "name": "hprod",
+            "fvar_id": "27"
+          },
+          {
+            "statement": "∑ r ∈ N, A r * (-D r + g r + entropyProduction r) =\n  -∑ r ∈ N, A r * D r + ∑ r ∈ N, A r * g r + ∑ r ∈ N, A r * entropyProduction r",
+            "origin": "derived",
+            "name": "hsum",
+            "fvar_id": "28"
+          }
+        ],
+        "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "dρSdt + 1 / V * ∑ r ∈ N, A r * D r - 1 / V * ∑ r ∈ N, A r * g r ≥ 0",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ Δq r ⬝ᵥ (H r).mulVec (Δq r)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.PosSemidef.dotProduct_mulVec_nonneg",
+        "Pi.instTrivialStarForall",
+        "TrivialStar.star_trivial",
+        "congrArg",
+        "congrFun'",
+        "instTrivialStarReal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ r ∈ N, (H r).PosSemidef",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.2020"
+        },
+        {
+          "statement": "r ∈ N",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.2266"
+        }
+      ],
+      "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+      "id": "local_3",
+      "conclusion": {
+        "statement": "0 ≤ Δq r ⬝ᵥ (H r).mulVec (Δq r)",
+        "origin": "derived",
+        "name": "hquad",
+        "fvar_id": "_uniq.2435"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < 2 * T * δ r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "mul_pos"
+      ],
+      "premises": [
+        {
+          "statement": "∀ r ∈ N, 0 < δ r",
+          "origin": "local_assumption",
+          "name": "hδ",
+          "fvar_id": "_uniq.2013"
+        },
+        {
+          "statement": "0 < T",
+          "origin": "local_assumption",
+          "name": "hT",
+          "fvar_id": "_uniq.2018"
+        },
+        {
+          "statement": "r ∈ N",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.2266"
+        }
+      ],
+      "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+      "id": "local_4",
+      "conclusion": {
+        "statement": "0 < 2 * T * δ r",
+        "origin": "derived",
+        "name": "hden",
+        "fvar_id": "_uniq.14242"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ r ∈ N, 0 ≤ ε r * Δq r ⬝ᵥ (H r).mulVec (Δq r) / (2 * T * δ r)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedRing.toPosMulMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "LT.lt.le",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Matrix.PosSemidef.dotProduct_mulVec_nonneg",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Pi.instTrivialStarForall",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "TrivialStar.star_trivial",
+        "congrArg",
+        "congrFun'",
+        "div_nonneg",
+        "instTrivialStarReal",
+        "mul_nonneg",
+        "mul_pos"
+      ],
+      "premises": [
+        {
+          "statement": "∀ r ∈ N, 0 < δ r",
+          "origin": "local_assumption",
+          "name": "hδ",
+          "fvar_id": "_uniq.2013"
+        },
+        {
+          "statement": "∀ r ∈ N, 0 ≤ ε r",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.2014"
+        },
+        {
+          "statement": "0 < T",
+          "origin": "local_assumption",
+          "name": "hT",
+          "fvar_id": "_uniq.2018"
+        },
+        {
+          "statement": "∀ r ∈ N, (H r).PosSemidef",
+          "origin": "local_assumption",
+          "name": "hH",
+          "fvar_id": "_uniq.2020"
+        }
+      ],
+      "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+      "id": "local_8",
+      "conclusion": {
+        "statement": "∀ r ∈ N, 0 ≤ entropyProduction r",
+        "origin": "derived",
+        "name": "hprod",
+        "fvar_id": "_uniq.2255"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ r ∈ N, A r * (-D r + g r + entropyProduction r) =\n  -∑ r ∈ N, A r * D r + ∑ r ∈ N, A r * g r + ∑ r ∈ N, A r * entropyProduction r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Distrib.leftDistribClass",
+        "Eq.trans",
+        "Finset.sum_add_distrib",
+        "Finset.sum_congr",
+        "Finset.sum_neg_distrib",
+        "congrArg",
+        "congrFun'",
+        "mul_add",
+        "mul_neg"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+      "id": "local_9",
+      "conclusion": {
+        "statement": "∑ r ∈ N, A r * (-D r + g r + entropyProduction r) =\n  -∑ r ∈ N, A r * D r + ∑ r ∈ N, A r * g r + ∑ r ∈ N, A r * entropyProduction r",
+        "origin": "derived",
+        "name": "hsum",
+        "fvar_id": "_uniq.15829"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2161_cell_entropy_inequality_for_semidiscrete_f.cell_entropy_inequality_for_semidiscrete_finite_volume_scheme",
+    "proof_sha256": "51d19a450c3431ccfe4246259fec55054226e7b688f918b56dd1693199bf62d5"
+  }
+}

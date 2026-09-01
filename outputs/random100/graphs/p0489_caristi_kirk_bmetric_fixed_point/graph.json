@@ -1,0 +1,834 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0489_caristi_kirk_bmetric_fixed_point",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 489,
+    "source": "1512.03968",
+    "theorem_name": "caristi_kirk_bMetric_fixed_point",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/489",
+    "reconstructed_proof": "../../candidates/p0489_caristi_kirk_bmetric_fixed_point/proof.lean",
+    "raw_elaboration": "../../candidates/p0489_caristi_kirk_bmetric_fixed_point/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_kirk_bMetric_fixed_point",
+    "verification_call_id": "verify_submission:82",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "e3c506562155440bc52f1df77609cd5aa3e4eb91c6122edfd93871c94b5cd418",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "6c0fccf0c2867681d3910f392fe83ebd572d8a71a77887b04a36d2c5355725ec",
+    "concrete_semantic_topology_sha256": "e3c506562155440bc52f1df77609cd5aa3e4eb91c6122edfd93871c94b5cd418"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_549de3fb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hA",
+      "lean_fvar_id": "12",
+      "statement": "1 < A"
+    },
+    {
+      "id": "m_hcaristi_7b80ca2c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcaristi",
+      "lean_fvar_id": "14",
+      "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))"
+    },
+    {
+      "id": "m_hcomplete_03c8d718",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcomplete",
+      "lean_fvar_id": "11",
+      "statement": "∀ (x : ℕ → X), Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) → ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)"
+    },
+    {
+      "id": "m_hd_symm_c59ca14f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hd_symm",
+      "lean_fvar_id": "9",
+      "statement": "∀ (x y : X), d (x, y) = d (y, x)"
+    },
+    {
+      "id": "m_hd_triangle_ae5e54fe",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hd_triangle",
+      "lean_fvar_id": "10",
+      "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))"
+    },
+    {
+      "id": "m_hd_zero_1c7e1118",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hd_zero",
+      "lean_fvar_id": "8",
+      "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y"
+    },
+    {
+      "id": "m_hf_continuous_4dff4d41",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf_continuous",
+      "lean_fvar_id": "13",
+      "statement": "∀ (x : ℕ → X) (u : X), Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) → Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)"
+    },
+    {
+      "id": "m_hs_16dd729e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hs",
+      "lean_fvar_id": "7",
+      "statement": "1 ≤ s"
+    },
+    {
+      "id": "m_inst___proofs_3357448525_cb0924a2",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.3357448525._hygCtx._hyg.3",
+      "lean_fvar_id": "1",
+      "statement": "Nonempty X"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)"
+    },
+    {
+      "id": "n_hcauchy_d70449d0",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hcauchy",
+      "lean_fvar_id": "17",
+      "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hcauchy",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hs_16dd729e",
+        "m_hd_zero_1c7e1118",
+        "m_hd_symm_c59ca14f",
+        "m_hd_triangle_ae5e54fe",
+        "m_ha_549de3fb",
+        "m_hcaristi_7b80ca2c"
+      ],
+      "conclusion": "n_hcauchy_d70449d0",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "caristi_orbit_tendsto_pair",
+        "items": [
+          "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_orbit_tendsto_pair"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0489_caristi_kirk_bmetric_fixed_point.caristi_orbit_tendsto_pair"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_17",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hcauchy :\n      Filter.Tendsto (fun p : ℕ × ℕ => d (x p.1, x p.2))\n        (Filter.atTop ×ˢ Filter.atTop) (nhds 0) := by\n    simpa [x] using caristi_orbit_tendsto_pair X s d Φ f A hs hd_zero hd_symm\n      hd_triangle hA hcaristi x₀",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hs",
+              "statement": "1 ≤ s"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hd_zero",
+              "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hd_symm",
+              "statement": "∀ (x y : X), d (x, y) = d (y, x)"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hd_triangle",
+              "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hA",
+              "statement": "1 < A"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hcaristi",
+              "statement": "∀ (x : X), ↑(d (x, f x)) ≤ ↑(Φ x) - A * ↑(Φ (f x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "17",
+            "name": "hcauchy",
+            "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)"
+          }
+        },
+        "lean_dependency_sha256": "0d735fb0c9101585c80e909bad57cd0373774a330dd2a0aa78c2325b9527278b",
+        "kernel_witness_check": {
+          "proof_type": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hd_zero_1c7e1118",
+        "m_hd_symm_c59ca14f",
+        "m_hd_triangle_ae5e54fe",
+        "m_hcomplete_03c8d718",
+        "m_hf_continuous_4dff4d41",
+        "n_hcauchy_d70449d0"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa + exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact ⟨u, hfixed, by simpa [x] using hu⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "8",
+              "name": "hd_zero",
+              "statement": "∀ (x y : X), d (x, y) = 0 ↔ x = y"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hd_symm",
+              "statement": "∀ (x y : X), d (x, y) = d (y, x)"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hd_triangle",
+              "statement": "∀ (x y z : X), ↑(d (x, y)) ≤ s * (↑(d (x, z)) + ↑(d (z, y)))"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hcomplete",
+              "statement": "∀ (x : ℕ → X), Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0) → ∃ u, Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0)"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hf_continuous",
+              "statement": "∀ (x : ℕ → X) (u : X), Filter.Tendsto (fun n => d (x n, u)) Filter.atTop (nhds 0) → Filter.Tendsto (fun n => d (f (x n), f u)) Filter.atTop (nhds 0)"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hcauchy",
+              "statement": "Filter.Tendsto (fun p => d (x p.1, x p.2)) (Filter.atTop ×ˢ Filter.atTop) (nhds 0)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)"
+          }
+        },
+        "lean_dependency_sha256": "4f0d619131263c78ab1f695ee2450b94f3805bb44690dcfe862adb6f556809e2",
+        "kernel_witness_check": {
+          "proof_type": "∃ u, f u = u ∧ Filter.Tendsto (fun n => d (f^[n] x₀, u)) Filter.atTop (nhds 0)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "Caristi fixed point theorem complete metric space",
+      "declarations": [
+        "Metric.Sigma.completeSpace",
+        "ContractingWith.fixedPoint",
+        "ContractingWith.exists_fixedPoint'",
+        "ContractingWith.exists_fixedPoint",
+        "CompleteSpace",
+        "exists_mem_uIcc_isFixedPt",
+        "fixedPoints.completeLattice",
+        "TopologicalSpace.complete_completelyMetrizableMetric",
+        "ContractingWith.efixedPoint_isFixedPt'",
+        "ContractingWith.fixedPoint_lipschitz_in_map"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "b-metric relaxed triangle fixed point theorem Caristi Kirk",
+      "declarations": [
+        "exists_mem_uIcc_isFixedPt",
+        "PseudoMetric.triangle",
+        "Metric.Sigma.dist_triangle",
+        "ContractingWith.exists_fixedPoint'",
+        "Metric.hausdorffEDist_triangle",
+        "ContractingWith.exists_fixedPoint",
+        "Tactic.ComputeAsymptotics.Seq.exists_fixed_point_of_contractible",
+        "ContractingWith.fixedPoint",
+        "Function.fixedPoints",
+        "ContractingWith.fixedPoint_lipschitz_in_map"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Filter.Tendsto (fun n => _) Filter.atTop (nhds 0)",
+      "declarations": [
+        "tendsto_tsum_compl_atTop_zero",
+        "Summable.tendsto_atTop_zero",
+        "tendsto_sum_nat_add",
+        "tendsto_inv_atTop_zero",
+        "tendsto_zpow_atTop_zero",
+        "tendsto_pow_neg_atTop",
+        "tendsto_const_mul_zpow_atTop_zero",
+        "cauchySeq_iff_tendsto_dist_atTop_0",
+        "cauchySeq_of_le_tendsto_0'",
+        "cauchySeq_iff_le_tendsto_0"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "b-metric space summable powers sequence Cauchy Frink metrization theorem",
+      "declarations": [
+        "TopologicalSpace.metrizableSpace_of_t3_secondCountable",
+        "cauchySeq_of_summable_dist",
+        "cauchySeq_of_edist_le_of_summable",
+        "AdicCompletion.AdicCauchySequence",
+        "KuratowskiEmbedding.exists_isometric_embedding",
+        "Metric.cauchySeq_iff",
+        "MetricSpace",
+        "Metric.cauchy_iff",
+        "Metric.exists_subseq_summable_dist_of_cauchySeq",
+        "tendsto_subseq_of_bounded"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "quasi metric chain inequality infimum chains metric comparison power p",
+      "declarations": [
+        "Real.Lp_add_le_tsum_of_nonneg'",
+        "Metric.ball",
+        "Metric.ediam",
+        "Metric.cthickening",
+        "PseudoMetric",
+        "Metric.diam",
+        "Metric.eball",
+        "NNReal.rpow_add_rpow_le",
+        "MetricSpace",
+        "dist_le_Ico_sum_of_dist_le"
+      ],
+      "call_turn": 6,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "Aoki Rolewicz theorem quasi norm Lean",
+      "declarations": [
+        "Lean.Meta.Grind.EMatchTheoremConstraint",
+        "Lean.Meta.Grind.EMatchTheoremKind",
+        "Lean.Parser.Command.theorem",
+        "Lean.Meta.CongrTheorem",
+        "Lean.TheoremVal",
+        "Lean.Meta.SimpTheorem",
+        "Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.norm",
+        "Lean.Meta.Grind.Arith.Linear.getLawfulOrderLTInst",
+        "Mathlib.Meta.FunProp.getLambdaTheorems",
+        "Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.norm"
+      ],
+      "call_turn": 6,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "(_ ≤ _ * (_ + _)) -> CauchySeq _",
+      "declarations": [],
+      "call_turn": 6,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "Frink metrization theorem uniform space countable basis Lean mathlib",
+      "declarations": [
+        "UniformSpace.hasBasis_nhds",
+        "TopologicalSpace.metrizableSpace_of_t3_secondCountable",
+        "TopologicalSpace.encodableCountableBasis",
+        "Filter.HasBasis.lebesgue_number_lemma_nhdsWithin",
+        "Metric.uniformity_basis_dist_inv_nat_pos",
+        "Metric.uniformity_basis_dist_le_inv_nat_pos",
+        "UniformSpace.metrizable_uniformity",
+        "Filter.HasBasis.uniformSpace_eq_bot",
+        "TopologicalSpace.countable_countableBasis",
+        "UniformSpace.firstCountableTopology",
+        "TopologicalSpace.countableBasis",
+        "UniformSpace.has_seq_basis",
+        "Filter.HasBasis.lebesgue_number_lemma_nhds",
+        "UniformSpace.hasBasis_symmetric",
+        "UniformSpace.secondCountable_of_separable",
+        "Filter.HasBasis.lebesgue_number_lemma",
+        "UniformSpace",
+        "TopologicalSpace.exists_countable_basis",
+        "TopologicalSpace.isBasis_countableBasis",
+        "Filter.HasBasis.lebesgue_number_lemma_nhds'"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "quasi-metric metrization theorem chain distance Lean",
+      "declarations": [
+        "Lean.Meta.Grind.EMatchTheoremKind",
+        "Lean.Doc.manual.getArgs",
+        "ChainComplex.quasiIso_iff_of_projective",
+        "Lean.Order.chain",
+        "ChainComplex.quasiIsoAt",
+        "PseudoMetricSpace.ofPreNNDist",
+        "PseudoMetricSpace",
+        "WithLp.nndist_fst_le",
+        "KuratowskiEmbedding.exists_isometric_embedding",
+        "MetricSpace",
+        "MeasureTheory.levyProkhorovDist",
+        "Metric.instMetricSpaceGlueSpace",
+        "PiLp.pseudoMetricSpaceToPi",
+        "Lean.Meta.CongrTheorem",
+        "Isometry.isClosedEmbedding",
+        "Lean.TheoremVal",
+        "MeasureTheory.LevyProkhorov.instPseudoMetricSpaceFiniteMeasure",
+        "Lean.EditDistance.levenshtein",
+        "Metric.inductivePremetric",
+        "Lean.Meta.Ext.ExtTheorem"
+      ],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Aoki",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Rolewicz",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Frink",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "PseudoMetricSpace.ofPreNNDist _ _ _ -> _ ≤ dist _ _",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "\"PseudoMetricSpace.ofPreNNDist\" lower bound pre-distance chain",
+      "declarations": [
+        "PseudoMetricSpace.dist_ofPreNNDist",
+        "PseudoMetricSpace.dist_ofPreNNDist_le",
+        "pseudoMetricSpacePi",
+        "Lean.EditDistance.levenshtein",
+        "PseudoMetric.coe_mk",
+        "PseudoMetricSpace.le_two_mul_dist_ofPreNNDist",
+        "WithLp.edist_fst_le",
+        "WithLp.nndist_fst_le",
+        "Metric.inductiveLimitDist_eq_dist",
+        "Metric.inductiveLimitDist",
+        "PseudoMetricSpace.ofPreNNDist",
+        "PairReduction.iSup_edist_pairSet",
+        "UniformSpace.pseudoMetricSpace",
+        "PseudoMetricSpace",
+        "PseudoMetricSpace.toNNDist",
+        "Real.pseudoMetricSpace",
+        "PseudoMetricSpace.ext",
+        "Subtype.pseudoMetricSpace",
+        "WithLp.nndist_snd_le",
+        "Metric.glueDist"
+      ],
+      "call_turn": 21,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Filter.Tendsto _ (Filter.atTop ×ˢ Filter.atTop) (nhds 0) ↔ ∀ ε > 0, ∃ N, ∀ _ ≥ N, ∀ _ ≥ N, _",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Summable (_ * _ ^ _)",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "summable_geometric_of_lt_one",
+      "declarations": [
+        "summable_geometric_of_lt_one"
+      ],
+      "call_turn": 31,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "summable geometric sequence constant times power ratio less than one real",
+      "declarations": [
+        "aux_hasSum_of_le_geometric",
+        "le_geom",
+        "geom_sum_Ico_le_of_lt_one",
+        "geom_lt",
+        "Summable",
+        "IsCauSeq.geo_series_const",
+        "summable_geometric_of_lt_one",
+        "summable_geometric_two",
+        "summable_geometric_two'",
+        "lt_geom"
+      ],
+      "call_turn": 31,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Summable fun n => _ * _ ^ n",
+      "declarations": [
+        "summable_choose_mul_geometric_of_norm_lt_one",
+        "summable_descFactorial_mul_geometric_of_norm_lt_one",
+        "summable_pow_mul_geometric_of_norm_lt_one",
+        "summable_powerSeries_of_norm_lt_one",
+        "summable_powerSeries_of_norm_lt",
+        "FormalMultilinearSeries.radius_eq_top_of_summable_norm",
+        "FormalMultilinearSeries.radius_eq_top_iff_summable_norm",
+        "FormalMultilinearSeries.le_radius_of_summable",
+        "FormalMultilinearSeries.le_radius_of_summable_norm",
+        "FormalMultilinearSeries.summable_norm_mul_pow"
+      ],
+      "call_turn": 31,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "0 < _ -> _ ^ (1 / _) < 1",
+      "declarations": [],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Real.rpow_lt_one",
+      "declarations": [
+        "Real.rpow_lt_one"
+      ],
+      "call_turn": 36,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "NNReal.rpow_le_rpow",
+      "declarations": [
+        "NNReal.rpow_le_rpow"
+      ],
+      "call_turn": 36,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "NNReal.coe_rpow",
+      "declarations": [
+        "NNReal.coe_rpow"
+      ],
+      "call_turn": 36,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Summable _ -> (∀ _, _ ≤ _) -> Summable _",
+      "declarations": [
+        "NNReal.summable_of_le",
+        "Summable.of_nonneg_of_le",
+        "Summable.of_norm_bounded",
+        "Summable.of_nnnorm_bounded",
+        "Real.summable_mul_of_Lp_Lq_of_nonneg",
+        "Real.summable_Lr_of_Lp_Lq_of_nonneg",
+        "Real.summable_Lp_add_of_nonneg"
+      ],
+      "call_turn": 75,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "max _ _ ^ _ = max (_ ^ _) (_ ^ _)",
+      "declarations": [
+        "Real.rpow_max",
+        "ENNReal.max_rpow"
+      ],
+      "call_turn": 77,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "NNReal.max_rpow",
+      "declarations": [],
+      "call_turn": 77,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "Real.rpow_max",
+      "declarations": [
+        "Real.rpow_max"
+      ],
+      "call_turn": 77,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "max_map _ _ _ monotone",
+      "declarations": [],
+      "call_turn": 77,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "∑ _ ∈ Finset.Ico _ _, _ ≤ ∑' _, _",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Finset.sum_le_tsum",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Summable.sum_le_tsum",
+      "declarations": [
+        "Summable.sum_le_tsum"
+      ],
+      "call_turn": 84,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "sum_le_tsum _ _ (Summable _)",
+      "declarations": [],
+      "call_turn": 84,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "Summable fun k => _ (k + _)",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "Summable.comp_injective _ _ Nat.add_right_injective",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Summable.nat_add",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "summable_nat_add_iff",
+      "declarations": [
+        "summable_nat_add_iff"
+      ],
+      "call_turn": 89,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Ici _ ∈ Filter.atTop",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 99
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 10,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 6,
+    "manifest_fact_count": 8,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 37,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 37,
+    "accepted_helper_count": 3,
+    "rollout_tool_call_count": 83,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

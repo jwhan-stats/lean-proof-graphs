@@ -1,0 +1,1677 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "manifest": [
+        {
+          "statement": "2 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "0 < β",
+          "origin": "manifest",
+          "name": "hβ",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "1 < p",
+          "origin": "manifest",
+          "name": "hp",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "0 < lam",
+          "origin": "manifest",
+          "name": "hlam",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "ContDiffOn ℝ 2 f (Set.Icc 0 β)",
+          "origin": "manifest",
+          "name": "hf",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "f 0 = 0",
+          "origin": "manifest",
+          "name": "hf0",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "derivWithin f (Set.Icc 0 β) 0 = 1",
+          "origin": "manifest",
+          "name": "hf'0",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t",
+          "origin": "manifest",
+          "name": "hfpos",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "ContDiffOn ℝ 1 T (Set.Icc 0 β)",
+          "origin": "manifest",
+          "name": "hT",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "ContDiffOn ℝ 1 Φ (Set.Icc 0 β)",
+          "origin": "manifest",
+          "name": "hΦ",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "∀ t ∈ Set.Ioo 0 β, deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0",
+          "origin": "manifest",
+          "name": "hODE",
+          "fvar_id": "18"
+        },
+        {
+          "statement": "∀ t ∈ Set.Ioo 0 β, 0 < T t",
+          "origin": "manifest",
+          "name": "hTpos",
+          "fvar_id": "19"
+        },
+        {
+          "statement": "t ∈ Set.Ioc 0 β",
+          "origin": "manifest",
+          "name": "ht",
+          "fvar_id": "27"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "∀ (s : ℝ), ψ s < 0 ↔ s < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_neg_iff",
+            "congrArg",
+            "congrFun'",
+            "funext",
+            "ite_congr"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "∀ (s : ℝ), ψ s < 0 ↔ s < 0",
+            "origin": "derived",
+            "name": "hψneg_iff",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_pos_iff",
+            "congrArg",
+            "congrFun'",
+            "funext",
+            "ite_congr"
+          ],
+          "premises": [],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+            "origin": "derived",
+            "name": "hψpos_iff",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left",
+            "And.right",
+            "Iff.mpr",
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "LinearOrderedSemiField.toDenselyOrdered",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.lt_of_lt_of_eq",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_zero",
+            "PosMulReflectLE.toPosMulReflectLT",
+            "PosMulStrictMono.toPosMulReflectLE",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "Real.instNontrivial",
+            "Real.instZeroLEOneClass",
+            "congrArg",
+            "instNoMaxOrderOfNontrivial",
+            "instNoMinOrderOfNontrivial",
+            "instOrderTopologyReal",
+            "interior_Icc",
+            "le_of_lt",
+            "lt_of_not_ge",
+            "mul_pos",
+            "pow_pos",
+            "sub_eq_zero_of_eq"
+          ],
+          "premises": [
+            {
+              "statement": "0 < lam",
+              "origin": "local_assumption",
+              "name": "hlam",
+              "fvar_id": "9"
+            },
+            {
+              "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t",
+              "origin": "local_assumption",
+              "name": "hfpos",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "∀ t ∈ Set.Ioo 0 β, deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0",
+              "origin": "local_assumption",
+              "name": "hODE",
+              "fvar_id": "18"
+            },
+            {
+              "statement": "∀ t ∈ Set.Ioo 0 β, 0 < T t",
+              "origin": "local_assumption",
+              "name": "hTpos",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+              "origin": "derived",
+              "name": "hψpos_iff",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+            "origin": "derived",
+            "name": "hderivneg",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "StrictAntiOn Φ (Set.Icc 0 β)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Algebra.to_smulCommClass",
+            "ContDiffOn.continuousOn",
+            "IsOrderedModule.toPosSMulMono",
+            "IsScalarTower.right",
+            "RCLike.instStarModuleReal",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instStarOrderedRing",
+            "convex_Icc",
+            "instIsOrderedModule",
+            "strictAntiOn_of_deriv_neg"
+          ],
+          "premises": [
+            {
+              "statement": "ContDiffOn ℝ 1 Φ (Set.Icc 0 β)",
+              "origin": "local_assumption",
+              "name": "hΦ",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+              "origin": "derived",
+              "name": "hderivneg",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "StrictAntiOn Φ (Set.Icc 0 β)",
+            "origin": "derived",
+            "name": "hanti",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "n - 1 = 0 → False",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution._proof_1"
+          ],
+          "premises": [
+            {
+              "statement": "2 ≤ n",
+              "origin": "local_assumption",
+              "name": "hn",
+              "fvar_id": "6"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "n - 1 ≠ 0",
+            "origin": "derived",
+            "name": "hn1",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Φ 0 = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "MulZeroClass.zero_mul",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "of_eq_true",
+            "zero_pow"
+          ],
+          "premises": [
+            {
+              "statement": "f 0 = 0",
+              "origin": "local_assumption",
+              "name": "hf0",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "n - 1 ≠ 0",
+              "origin": "derived",
+              "name": "hn1",
+              "fvar_id": "24"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "Φ 0 = 0",
+            "origin": "derived",
+            "name": "hΦ0",
+            "fvar_id": "25"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < t",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left"
+          ],
+          "premises": [
+            {
+              "statement": "t ∈ Set.Ioc 0 β",
+              "origin": "local_assumption",
+              "name": "ht",
+              "fvar_id": "27"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "0 < t",
+            "origin": "derived",
+            "name": "htpos",
+            "fvar_id": "28"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "t ≤ β",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.right"
+          ],
+          "premises": [
+            {
+              "statement": "t ∈ Set.Ioc 0 β",
+              "origin": "local_assumption",
+              "name": "ht",
+              "fvar_id": "27"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_29",
+          "conclusion": {
+            "statement": "t ≤ β",
+            "origin": "derived",
+            "name": "htβ",
+            "fvar_id": "29"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ 0 ∧ 0 ≤ β",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "le_of_lt",
+            "le_rfl"
+          ],
+          "premises": [
+            {
+              "statement": "0 < β",
+              "origin": "local_assumption",
+              "name": "hβ",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_30",
+          "conclusion": {
+            "statement": "0 ∈ Set.Icc 0 β",
+            "origin": "derived",
+            "name": "hmem0",
+            "fvar_id": "30"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ t ∧ t ≤ β",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "le_of_lt"
+          ],
+          "premises": [
+            {
+              "statement": "0 < t",
+              "origin": "derived",
+              "name": "htpos",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "t ≤ β",
+              "origin": "derived",
+              "name": "htβ",
+              "fvar_id": "29"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_31",
+          "conclusion": {
+            "statement": "t ∈ Set.Icc 0 β",
+            "origin": "derived",
+            "name": "hmemt",
+            "fvar_id": "31"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Φ t < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "StrictAntiOn Φ (Set.Icc 0 β)",
+              "origin": "derived",
+              "name": "hanti",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "Φ 0 = 0",
+              "origin": "derived",
+              "name": "hΦ0",
+              "fvar_id": "25"
+            },
+            {
+              "statement": "0 < t",
+              "origin": "derived",
+              "name": "htpos",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "0 ∈ Set.Icc 0 β",
+              "origin": "derived",
+              "name": "hmem0",
+              "fvar_id": "30"
+            },
+            {
+              "statement": "t ∈ Set.Icc 0 β",
+              "origin": "derived",
+              "name": "hmemt",
+              "fvar_id": "31"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_32",
+          "conclusion": {
+            "statement": "Φ t < 0",
+            "origin": "derived",
+            "name": "hΦt_neg",
+            "fvar_id": "32"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Φ t < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "Φ t < 0",
+              "origin": "derived",
+              "name": "hΦt_neg",
+              "fvar_id": "32"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_33",
+          "conclusion": {
+            "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+            "origin": "derived",
+            "name": "hprod_neg",
+            "fvar_id": "33"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < f t",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t",
+              "origin": "local_assumption",
+              "name": "hfpos",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "0 < t",
+              "origin": "derived",
+              "name": "htpos",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "t ≤ β",
+              "origin": "derived",
+              "name": "htβ",
+              "fvar_id": "29"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_34",
+          "conclusion": {
+            "statement": "0 < f t",
+            "origin": "derived",
+            "name": "hf_t",
+            "fvar_id": "34"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < f t ^ (n - 1)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "Real.instIsStrictOrderedRing",
+            "Real.instZeroLEOneClass",
+            "pow_pos"
+          ],
+          "premises": [
+            {
+              "statement": "0 < f t",
+              "origin": "derived",
+              "name": "hf_t",
+              "fvar_id": "34"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_35",
+          "conclusion": {
+            "statement": "0 < f t ^ (n - 1)",
+            "origin": "derived",
+            "name": "hpow",
+            "fvar_id": "35"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mp",
+            "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "IsStrictOrderedRing.toMulPosStrictMono",
+            "IsStrictOrderedRing.toPosMulStrictMono",
+            "LT.lt.le",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "Real.instIsStrictOrderedRing",
+            "contravariant_lt_of_covariant_le",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "mul_neg_iff",
+            "not_lt_of_ge"
+          ],
+          "premises": [
+            {
+              "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+              "origin": "derived",
+              "name": "hprod_neg",
+              "fvar_id": "33"
+            },
+            {
+              "statement": "0 < f t ^ (n - 1)",
+              "origin": "derived",
+              "name": "hpow",
+              "fvar_id": "35"
+            }
+          ],
+          "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+          "id": "telescope_36",
+          "conclusion": {
+            "statement": "ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+            "origin": "derived",
+            "name": "hψderiv_neg",
+            "fvar_id": "36"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "derivWithin T (Set.Icc 0 β) t < 0",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "derivWithin T (Set.Icc 0 β) t < 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Iff.mp"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (s : ℝ), ψ s < 0 ↔ s < 0",
+            "origin": "derived",
+            "name": "hψneg_iff",
+            "fvar_id": "20"
+          },
+          {
+            "statement": "ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+            "origin": "derived",
+            "name": "hψderiv_neg",
+            "fvar_id": "36"
+          }
+        ],
+        "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "derivWithin T (Set.Icc 0 β) t < 0",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 < f t",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "le_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t",
+          "origin": "local_assumption",
+          "name": "hfpos",
+          "fvar_id": "_uniq.3274688"
+        },
+        {
+          "statement": "t ∈ Set.Ioo 0 β",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3289830"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_699",
+      "conclusion": {
+        "statement": "0 < f t",
+        "origin": "derived",
+        "name": "hf_t",
+        "fvar_id": "_uniq.3289988"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < f t ^ (n - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "Real.instZeroLEOneClass",
+        "pow_pos"
+      ],
+      "premises": [
+        {
+          "statement": "0 < f t",
+          "origin": "derived",
+          "name": "hf_t",
+          "fvar_id": "_uniq.3289988"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_700",
+      "conclusion": {
+        "statement": "0 < f t ^ (n - 1)",
+        "origin": "derived",
+        "name": "hpow",
+        "fvar_id": "_uniq.3290230"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ψ (T t)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr"
+      ],
+      "premises": [
+        {
+          "statement": "∀ t ∈ Set.Ioo 0 β, 0 < T t",
+          "origin": "local_assumption",
+          "name": "hTpos",
+          "fvar_id": "_uniq.3274705"
+        },
+        {
+          "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+          "origin": "derived",
+          "name": "hψpos_iff",
+          "fvar_id": "_uniq.3276943"
+        },
+        {
+          "statement": "t ∈ Set.Ioo 0 β",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3289830"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_701",
+      "conclusion": {
+        "statement": "0 < ψ (T t)",
+        "origin": "derived",
+        "name": "hψT",
+        "fvar_id": "_uniq.3290285"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < lam * f t ^ (n - 1) * ψ (T t)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "mul_pos"
+      ],
+      "premises": [
+        {
+          "statement": "0 < lam",
+          "origin": "local_assumption",
+          "name": "hlam",
+          "fvar_id": "_uniq.3274684"
+        },
+        {
+          "statement": "0 < f t ^ (n - 1)",
+          "origin": "derived",
+          "name": "hpow",
+          "fvar_id": "_uniq.3290230"
+        },
+        {
+          "statement": "0 < ψ (T t)",
+          "origin": "derived",
+          "name": "hψT",
+          "fvar_id": "_uniq.3290285"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_702",
+      "conclusion": {
+        "statement": "0 < lam * f t ^ (n - 1) * ψ (T t)",
+        "origin": "derived",
+        "name": "hflux",
+        "fvar_id": "_uniq.3290848"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ t ∈ Set.Ioo 0 β, deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0",
+          "origin": "local_assumption",
+          "name": "hODE",
+          "fvar_id": "_uniq.3274702"
+        },
+        {
+          "statement": "t ∈ Set.Ioo 0 β",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3289830"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_703",
+      "conclusion": {
+        "statement": "deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0",
+        "origin": "derived",
+        "name": "heq",
+        "fvar_id": "_uniq.3290854"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ^ (n - 1) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "zero_pow"
+      ],
+      "premises": [
+        {
+          "statement": "n - 1 ≠ 0",
+          "origin": "derived",
+          "name": "hn1",
+          "fvar_id": "_uniq.3297990"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_704",
+      "conclusion": {
+        "statement": "0 ^ (n - 1) = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3298408"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Φ t < Φ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "StrictAntiOn Φ (Set.Icc 0 β)",
+          "origin": "derived",
+          "name": "hanti",
+          "fvar_id": "_uniq.3297858"
+        },
+        {
+          "statement": "0 < t",
+          "origin": "derived",
+          "name": "htpos",
+          "fvar_id": "_uniq.3309873"
+        },
+        {
+          "statement": "0 ∈ Set.Icc 0 β",
+          "origin": "derived",
+          "name": "hmem0",
+          "fvar_id": "_uniq.3310329"
+        },
+        {
+          "statement": "t ∈ Set.Icc 0 β",
+          "origin": "derived",
+          "name": "hmemt",
+          "fvar_id": "_uniq.3310662"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_705",
+      "conclusion": {
+        "statement": "Φ t < Φ 0",
+        "origin": "derived",
+        "name": "hlt",
+        "fvar_id": "_uniq.3310717"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < f t ^ (n - 1) ∧ ψ (derivWithin T (Set.Icc 0 β) t) < 0 ∨ f t ^ (n - 1) < 0 ∧ 0 < ψ (derivWithin T (Set.Icc 0 β) t)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "contravariant_lt_of_covariant_le",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "mul_neg_iff"
+      ],
+      "premises": [
+        {
+          "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+          "origin": "derived",
+          "name": "hprod_neg",
+          "fvar_id": "_uniq.3312528"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_706",
+      "conclusion": {
+        "statement": "0 < f t ^ (n - 1) ∧ ψ (derivWithin T (Set.Icc 0 β) t) < 0 ∨ f t ^ (n - 1) < 0 ∧ 0 < ψ (derivWithin T (Set.Icc 0 β) t)",
+        "origin": "derived",
+        "name": "hmul",
+        "fvar_id": "_uniq.3340004"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (s : ℝ), ψ s < 0 ↔ s < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_neg_iff",
+        "congrArg",
+        "congrFun'",
+        "funext",
+        "ite_congr"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_709",
+      "conclusion": {
+        "statement": "∀ (s : ℝ), ψ s < 0 ↔ s < 0",
+        "origin": "derived",
+        "name": "hψneg_iff",
+        "fvar_id": "_uniq.3274799"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Rollout_p0971_derivwithin_neg_of_positive_solution.signed_ppower_pos_iff",
+        "congrArg",
+        "congrFun'",
+        "funext",
+        "ite_congr"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_710",
+      "conclusion": {
+        "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+        "origin": "derived",
+        "name": "hψpos_iff",
+        "fvar_id": "_uniq.3276943"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Iff.mpr",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "LinearOrderedSemiField.toDenselyOrdered",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.lt_of_lt_of_eq",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_zero",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instNontrivial",
+        "Real.instZeroLEOneClass",
+        "congrArg",
+        "instNoMaxOrderOfNontrivial",
+        "instNoMinOrderOfNontrivial",
+        "instOrderTopologyReal",
+        "interior_Icc",
+        "le_of_lt",
+        "lt_of_not_ge",
+        "mul_pos",
+        "pow_pos",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "0 < lam",
+          "origin": "local_assumption",
+          "name": "hlam",
+          "fvar_id": "_uniq.3274684"
+        },
+        {
+          "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t",
+          "origin": "local_assumption",
+          "name": "hfpos",
+          "fvar_id": "_uniq.3274688"
+        },
+        {
+          "statement": "∀ t ∈ Set.Ioo 0 β, deriv Φ t + lam * f t ^ (n - 1) * ψ (T t) = 0",
+          "origin": "local_assumption",
+          "name": "hODE",
+          "fvar_id": "_uniq.3274702"
+        },
+        {
+          "statement": "∀ t ∈ Set.Ioo 0 β, 0 < T t",
+          "origin": "local_assumption",
+          "name": "hTpos",
+          "fvar_id": "_uniq.3274705"
+        },
+        {
+          "statement": "∀ (s : ℝ), 0 < ψ s ↔ 0 < s",
+          "origin": "derived",
+          "name": "hψpos_iff",
+          "fvar_id": "_uniq.3276943"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_711",
+      "conclusion": {
+        "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+        "origin": "derived",
+        "name": "hderivneg",
+        "fvar_id": "_uniq.3288658"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "StrictAntiOn Φ (Set.Icc 0 β)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "ContDiffOn.continuousOn",
+        "IsOrderedModule.toPosSMulMono",
+        "IsScalarTower.right",
+        "RCLike.instStarModuleReal",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instStarOrderedRing",
+        "convex_Icc",
+        "instIsOrderedModule",
+        "strictAntiOn_of_deriv_neg"
+      ],
+      "premises": [
+        {
+          "statement": "ContDiffOn ℝ 1 Φ (Set.Icc 0 β)",
+          "origin": "local_assumption",
+          "name": "hΦ",
+          "fvar_id": "_uniq.3274699"
+        },
+        {
+          "statement": "∀ t ∈ interior (Set.Icc 0 β), deriv Φ t < 0",
+          "origin": "derived",
+          "name": "hderivneg",
+          "fvar_id": "_uniq.3288658"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_712",
+      "conclusion": {
+        "statement": "StrictAntiOn Φ (Set.Icc 0 β)",
+        "origin": "derived",
+        "name": "hanti",
+        "fvar_id": "_uniq.3297858"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "n - 1 = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "2 ≤ n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.3274681"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_713",
+      "conclusion": {
+        "statement": "n - 1 ≠ 0",
+        "origin": "derived",
+        "name": "hn1",
+        "fvar_id": "_uniq.3297990"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Φ 0 = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "MulZeroClass.zero_mul",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true",
+        "zero_pow"
+      ],
+      "premises": [
+        {
+          "statement": "f 0 = 0",
+          "origin": "local_assumption",
+          "name": "hf0",
+          "fvar_id": "_uniq.3274686"
+        },
+        {
+          "statement": "n - 1 ≠ 0",
+          "origin": "derived",
+          "name": "hn1",
+          "fvar_id": "_uniq.3297990"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_714",
+      "conclusion": {
+        "statement": "Φ 0 = 0",
+        "origin": "derived",
+        "name": "hΦ0",
+        "fvar_id": "_uniq.3298197"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < t",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left"
+      ],
+      "premises": [
+        {
+          "statement": "t ∈ Set.Ioc 0 β",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3309816"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_715",
+      "conclusion": {
+        "statement": "0 < t",
+        "origin": "derived",
+        "name": "htpos",
+        "fvar_id": "_uniq.3309873"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "t ≤ β",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "t ∈ Set.Ioc 0 β",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3309816"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_716",
+      "conclusion": {
+        "statement": "t ≤ β",
+        "origin": "derived",
+        "name": "htβ",
+        "fvar_id": "_uniq.3309886"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ 0 ∧ 0 ≤ β",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_of_lt",
+        "le_rfl"
+      ],
+      "premises": [
+        {
+          "statement": "0 < β",
+          "origin": "local_assumption",
+          "name": "hβ",
+          "fvar_id": "_uniq.3274682"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_717",
+      "conclusion": {
+        "statement": "0 ∈ Set.Icc 0 β",
+        "origin": "derived",
+        "name": "hmem0",
+        "fvar_id": "_uniq.3310329"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ t ∧ t ≤ β",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < t",
+          "origin": "derived",
+          "name": "htpos",
+          "fvar_id": "_uniq.3309873"
+        },
+        {
+          "statement": "t ≤ β",
+          "origin": "derived",
+          "name": "htβ",
+          "fvar_id": "_uniq.3309886"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_718",
+      "conclusion": {
+        "statement": "t ∈ Set.Icc 0 β",
+        "origin": "derived",
+        "name": "hmemt",
+        "fvar_id": "_uniq.3310662"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Φ t < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "StrictAntiOn Φ (Set.Icc 0 β)",
+          "origin": "derived",
+          "name": "hanti",
+          "fvar_id": "_uniq.3297858"
+        },
+        {
+          "statement": "Φ 0 = 0",
+          "origin": "derived",
+          "name": "hΦ0",
+          "fvar_id": "_uniq.3298197"
+        },
+        {
+          "statement": "0 < t",
+          "origin": "derived",
+          "name": "htpos",
+          "fvar_id": "_uniq.3309873"
+        },
+        {
+          "statement": "0 ∈ Set.Icc 0 β",
+          "origin": "derived",
+          "name": "hmem0",
+          "fvar_id": "_uniq.3310329"
+        },
+        {
+          "statement": "t ∈ Set.Icc 0 β",
+          "origin": "derived",
+          "name": "hmemt",
+          "fvar_id": "_uniq.3310662"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_719",
+      "conclusion": {
+        "statement": "Φ t < 0",
+        "origin": "derived",
+        "name": "hΦt_neg",
+        "fvar_id": "_uniq.3310703"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Φ t < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Φ t < 0",
+          "origin": "derived",
+          "name": "hΦt_neg",
+          "fvar_id": "_uniq.3310703"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_720",
+      "conclusion": {
+        "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+        "origin": "derived",
+        "name": "hprod_neg",
+        "fvar_id": "_uniq.3312528"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < f t",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ t ∈ Set.Ioc 0 β, 0 < f t",
+          "origin": "local_assumption",
+          "name": "hfpos",
+          "fvar_id": "_uniq.3274688"
+        },
+        {
+          "statement": "0 < t",
+          "origin": "derived",
+          "name": "htpos",
+          "fvar_id": "_uniq.3309873"
+        },
+        {
+          "statement": "t ≤ β",
+          "origin": "derived",
+          "name": "htβ",
+          "fvar_id": "_uniq.3309886"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_721",
+      "conclusion": {
+        "statement": "0 < f t",
+        "origin": "derived",
+        "name": "hf_t",
+        "fvar_id": "_uniq.3337892"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < f t ^ (n - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "Real.instZeroLEOneClass",
+        "pow_pos"
+      ],
+      "premises": [
+        {
+          "statement": "0 < f t",
+          "origin": "derived",
+          "name": "hf_t",
+          "fvar_id": "_uniq.3337892"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_722",
+      "conclusion": {
+        "statement": "0 < f t ^ (n - 1)",
+        "origin": "derived",
+        "name": "hpow",
+        "fvar_id": "_uniq.3338094"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "LT.lt.le",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsStrictOrderedRing",
+        "contravariant_lt_of_covariant_le",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "mul_neg_iff",
+        "not_lt_of_ge"
+      ],
+      "premises": [
+        {
+          "statement": "f t ^ (n - 1) * ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+          "origin": "derived",
+          "name": "hprod_neg",
+          "fvar_id": "_uniq.3312528"
+        },
+        {
+          "statement": "0 < f t ^ (n - 1)",
+          "origin": "derived",
+          "name": "hpow",
+          "fvar_id": "_uniq.3338094"
+        }
+      ],
+      "parent": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+      "id": "local_723",
+      "conclusion": {
+        "statement": "ψ (derivWithin T (Set.Icc 0 β) t) < 0",
+        "origin": "derived",
+        "name": "hψderiv_neg",
+        "fvar_id": "_uniq.3339617"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p0971_derivwithin_neg_of_positive_solution",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0971_derivwithin_neg_of_positive_solution.derivWithin_neg_of_positive_solution",
+    "proof_sha256": "2cbeb4b491b5982f77e7c068f9d677e932ef9c1cb0b9222481bd34e0cf1ff4ce"
+  }
+}

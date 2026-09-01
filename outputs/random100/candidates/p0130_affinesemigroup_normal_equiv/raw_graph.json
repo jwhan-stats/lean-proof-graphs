@@ -1,0 +1,312 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_equiv",
+      "manifest": [
+        {
+          "statement": "1 ≤ d",
+          "origin": "manifest",
+          "name": "hd",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "S.FG",
+          "origin": "manifest",
+          "name": "hSfg",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (i : Fin d), a i ∈ S",
+          "origin": "manifest",
+          "name": "haS",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "LinearIndependent ℝ fun i j => ↑(a i j)",
+          "origin": "manifest",
+          "name": "haLI",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (x : Fin d → ℝ),\n  x ∈ ConvexCone.hull ℝ ((fun u j => ↑(u j)) '' ↑S) ↔ ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)",
+          "origin": "manifest",
+          "name": "hcone",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∀ (i : Fin d), ∀ u ∈ S, u ≠ 0 → (∃ r, 0 ≤ r ∧ (fun j => ↑(u j)) = r • fun j => ↑(a i j)) → ∀ (j : Fin d), a i j ≤ u j",
+          "origin": "manifest",
+          "name": "hminray",
+          "fvar_id": "8"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let natToInt := fun u j => ↑(u j);\nlet natToReal := fun u j => ↑(u j);\nlet intToReal := fun u j => ↑(u j);\nlet C := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet relintC := {x | ∃ c, (∀ (i : Fin d), 0 < c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet fundamentalParallelepiped := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i ∧ c i < 1) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet apery := {w | w ∈ S ∧ ∀ (i : Fin d), ¬∃ s ∈ S, w = s + a i};\nlet leS := fun u v => ∃ s ∈ S, v = u + s;\nlet maximalApery := fun m => m ∈ apery ∧ ∀ w ∈ apery, leS m w → leS w m;\nlet QF := {f | ∃ m, maximalApery m ∧ f = natToInt m - ∑ i, natToInt (a i)};\nlet G := {z | ∃ u ∈ S, ∃ v ∈ S, z = natToInt u - natToInt v};\nlet normal := natToInt '' ↑S = G ∩ {z | intToReal z ∈ C};\nlet condition2 := ∀ f ∈ QF, -f ∈ natToInt '' ↑S ∧ intToReal (-f) ∈ relintC;\nlet condition3 := ∀ f ∈ QF, intToReal (-f) ∈ relintC;\nlet condition4 := ∀ w ∈ apery, natToReal w ∈ fundamentalParallelepiped;\n(normal ↔ condition2) ∧ (normal ↔ condition3) ∧ (normal ↔ condition4)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let natToInt := fun u j => ↑(u j);\nlet natToReal := fun u j => ↑(u j);\nlet intToReal := fun u j => ↑(u j);\nlet C := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet relintC := {x | ∃ c, (∀ (i : Fin d), 0 < c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet fundamentalParallelepiped := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i ∧ c i < 1) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet apery := {w | w ∈ S ∧ ∀ (i : Fin d), ¬∃ s ∈ S, w = s + a i};\nlet leS := fun u v => ∃ s ∈ S, v = u + s;\nlet maximalApery := fun m => m ∈ apery ∧ ∀ w ∈ apery, leS m w → leS w m;\nlet QF := {f | ∃ m, maximalApery m ∧ f = natToInt m - ∑ i, natToInt (a i)};\nlet G := {z | ∃ u ∈ S, ∃ v ∈ S, z = natToInt u - natToInt v};\nlet normal := natToInt '' ↑S = G ∩ {z | intToReal z ∈ C};\nlet condition2 := ∀ f ∈ QF, -f ∈ natToInt '' ↑S ∧ intToReal (-f) ∈ relintC;\nlet condition3 := ∀ f ∈ QF, intToReal (-f) ∈ relintC;\nlet condition4 := ∀ w ∈ apery, natToReal w ∈ fundamentalParallelepiped;\n(normal ↔ condition2) ∧ (normal ↔ condition3) ∧ (normal ↔ condition4)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.right",
+          "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_condition3_implies_condition4",
+          "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_condition4_implies_normal",
+          "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_implies_condition2",
+          "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_implies_condition4"
+        ],
+        "premises": [
+          {
+            "statement": "1 ≤ d",
+            "origin": "local_assumption",
+            "name": "hd",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "∀ (i : Fin d), a i ∈ S",
+            "origin": "local_assumption",
+            "name": "haS",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "LinearIndependent ℝ fun i j => ↑(a i j)",
+            "origin": "local_assumption",
+            "name": "haLI",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∀ (x : Fin d → ℝ),\n  x ∈ ConvexCone.hull ℝ ((fun u j => ↑(u j)) '' ↑S) ↔ ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)",
+            "origin": "local_assumption",
+            "name": "hcone",
+            "fvar_id": "7"
+          }
+        ],
+        "parent": "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_equiv",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let natToInt := fun u j => ↑(u j);\nlet natToReal := fun u j => ↑(u j);\nlet intToReal := fun u j => ↑(u j);\nlet C := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet relintC := {x | ∃ c, (∀ (i : Fin d), 0 < c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet fundamentalParallelepiped := {x | ∃ c, (∀ (i : Fin d), 0 ≤ c i ∧ c i < 1) ∧ x = ∑ i, c i • fun j => ↑(a i j)};\nlet apery := {w | w ∈ S ∧ ∀ (i : Fin d), ¬∃ s ∈ S, w = s + a i};\nlet leS := fun u v => ∃ s ∈ S, v = u + s;\nlet maximalApery := fun m => m ∈ apery ∧ ∀ w ∈ apery, leS m w → leS w m;\nlet QF := {f | ∃ m, maximalApery m ∧ f = natToInt m - ∑ i, natToInt (a i)};\nlet G := {z | ∃ u ∈ S, ∃ v ∈ S, z = natToInt u - natToInt v};\nlet normal := natToInt '' ↑S = G ∩ {z | intToReal z ∈ C};\nlet condition2 := ∀ f ∈ QF, -f ∈ natToInt '' ↑S ∧ intToReal (-f) ∈ relintC;\nlet condition3 := ∀ f ∈ QF, intToReal (-f) ∈ relintC;\nlet condition4 := ∀ w ∈ apery, natToReal w ∈ fundamentalParallelepiped;\n(normal ↔ condition2) ∧ (normal ↔ condition3) ∧ (normal ↔ condition4)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "affineSemigroupCondition3 d S a → affineSemigroupCondition4 d S a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_condition3_implies_condition4"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ d",
+          "origin": "local_assumption",
+          "name": "hd",
+          "fvar_id": "_uniq.8348127"
+        },
+        {
+          "statement": "∀ (i : Fin d), a i ∈ S",
+          "origin": "local_assumption",
+          "name": "haS",
+          "fvar_id": "_uniq.8348131"
+        },
+        {
+          "statement": "LinearIndependent ℝ fun i j => ↑(a i j)",
+          "origin": "local_assumption",
+          "name": "haLI",
+          "fvar_id": "_uniq.8348132"
+        },
+        {
+          "statement": "∀ (x : Fin d → ℝ),\n  x ∈ ConvexCone.hull ℝ ((fun u j => ↑(u j)) '' ↑S) ↔ ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)",
+          "origin": "local_assumption",
+          "name": "hcone",
+          "fvar_id": "_uniq.8348133"
+        }
+      ],
+      "parent": "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_equiv",
+      "id": "local_1657",
+      "conclusion": {
+        "statement": "affineSemigroupCondition3 d S a → affineSemigroupCondition4 d S a",
+        "origin": "derived",
+        "name": "h34",
+        "fvar_id": "_uniq.8348251"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "affineSemigroupCondition4 d S a → affineSemigroupNormal d S a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_condition4_implies_normal"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ d",
+          "origin": "local_assumption",
+          "name": "hd",
+          "fvar_id": "_uniq.8348127"
+        },
+        {
+          "statement": "∀ (i : Fin d), a i ∈ S",
+          "origin": "local_assumption",
+          "name": "haS",
+          "fvar_id": "_uniq.8348131"
+        },
+        {
+          "statement": "LinearIndependent ℝ fun i j => ↑(a i j)",
+          "origin": "local_assumption",
+          "name": "haLI",
+          "fvar_id": "_uniq.8348132"
+        },
+        {
+          "statement": "∀ (x : Fin d → ℝ),\n  x ∈ ConvexCone.hull ℝ ((fun u j => ↑(u j)) '' ↑S) ↔ ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)",
+          "origin": "local_assumption",
+          "name": "hcone",
+          "fvar_id": "_uniq.8348133"
+        }
+      ],
+      "parent": "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_equiv",
+      "id": "local_1658",
+      "conclusion": {
+        "statement": "affineSemigroupCondition4 d S a → affineSemigroupNormal d S a",
+        "origin": "derived",
+        "name": "h4N",
+        "fvar_id": "_uniq.8348285"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "affineSemigroupNormal d S a → affineSemigroupCondition2 d S a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_implies_condition2"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ d",
+          "origin": "local_assumption",
+          "name": "hd",
+          "fvar_id": "_uniq.8348127"
+        },
+        {
+          "statement": "∀ (i : Fin d), a i ∈ S",
+          "origin": "local_assumption",
+          "name": "haS",
+          "fvar_id": "_uniq.8348131"
+        },
+        {
+          "statement": "LinearIndependent ℝ fun i j => ↑(a i j)",
+          "origin": "local_assumption",
+          "name": "haLI",
+          "fvar_id": "_uniq.8348132"
+        },
+        {
+          "statement": "∀ (x : Fin d → ℝ),\n  x ∈ ConvexCone.hull ℝ ((fun u j => ↑(u j)) '' ↑S) ↔ ∃ c, (∀ (i : Fin d), 0 ≤ c i) ∧ x = ∑ i, c i • fun j => ↑(a i j)",
+          "origin": "local_assumption",
+          "name": "hcone",
+          "fvar_id": "_uniq.8348133"
+        }
+      ],
+      "parent": "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_equiv",
+      "id": "local_1659",
+      "conclusion": {
+        "statement": "affineSemigroupNormal d S a → affineSemigroupCondition2 d S a",
+        "origin": "derived",
+        "name": "hN2",
+        "fvar_id": "_uniq.8348308"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p0130_affinesemigroup_normal_equiv",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0130_affinesemigroup_normal_equiv.affineSemigroup_normal_equiv",
+    "proof_sha256": "cb7233a68a6118393aa37b189778a13ecbed506886a57b9eae26129aa1a45739"
+  }
+}

@@ -1,0 +1,3015 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1078_khexpansive_iff_separating_and_isopen_fixe",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1078,
+    "source": "1801.08461",
+    "theorem_name": "khExpansive_iff_separating_and_isOpen_fixedPoints",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1078",
+    "reconstructed_proof": "../../candidates/p1078_khexpansive_iff_separating_and_isopen_fixe/proof.lean",
+    "raw_elaboration": "../../candidates/p1078_khexpansive_iff_separating_and_isopen_fixe/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+    "verification_call_id": "verify_submission:76",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "1d21a2c271cc6d89ca8dd8b3bb2cfd8d6957cb59c12c94472e01d3e82f68c8b9",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "89860a71426a3627d8bce9715f2aa2418fb8fca350282e50b214ea93256164fb",
+    "concrete_semantic_topology_sha256": "1d21a2c271cc6d89ca8dd8b3bb2cfd8d6957cb59c12c94472e01d3e82f68c8b9"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hadd_525ce465",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hadd",
+      "lean_fvar_id": "6",
+      "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))"
+    },
+    {
+      "id": "m_hcont_a03afd8f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcont",
+      "lean_fvar_id": "4",
+      "statement": "Continuous φ"
+    },
+    {
+      "id": "m_hzero_c2708664",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hzero",
+      "lean_fvar_id": "5",
+      "statement": "∀ (x : Λ), φ (0, x) = x"
+    },
+    {
+      "id": "m_inst___proofs_3640889310_673a1dd1",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "CompactSpace Λ"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∃ δ, 0 < δ ∧ ∀ (x y : Λ) (s : ℝ → ℝ), Continuous s → s 0 = 0 → ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) → y ∈ Set.range fun t => φ (t, x)) ↔ (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧ IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_h0_c31cd43c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h0",
+      "lean_fvar_id": "_uniq.3240291",
+      "statement": "dist (φ (t, x)) (φ (s t, y)) < δ"
+    },
+    {
+      "id": "n_h0_cf6edb60",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h0",
+      "lean_fvar_id": "_uniq.3239817",
+      "statement": "dist (φ (t, x)) (φ (s t, x)) < δ"
+    },
+    {
+      "id": "n_h0_f833c0b6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h0",
+      "lean_fvar_id": "_uniq.3236613",
+      "statement": "dist (φ (0, x)) (φ (s 0, y)) < δ"
+    },
+    {
+      "id": "n_h2__lt_3e993487",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h2δ_lt_α",
+      "lean_fvar_id": "_uniq.3232572",
+      "statement": "2 * δ < α"
+    },
+    {
+      "id": "n_h_2532182a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hδ",
+      "lean_fvar_id": "_uniq.3200442",
+      "statement": "0 < δ"
+    },
+    {
+      "id": "n_h_2737d129",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hτ",
+      "lean_fvar_id": "_uniq.3213863",
+      "statement": "0 < τ"
+    },
+    {
+      "id": "n_h_2b8bcd65",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ",
+      "lean_fvar_id": "_uniq.3214567",
+      "statement": "0 < δ"
+    },
+    {
+      "id": "n_h_4e7ccc49",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hα",
+      "lean_fvar_id": "_uniq.3213723",
+      "statement": "0 < α"
+    },
+    {
+      "id": "n_h__le__3_a9357c20",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ_le_α3",
+      "lean_fvar_id": "_uniq.3226372",
+      "statement": "δ ≤ α / 3"
+    },
+    {
+      "id": "n_h__le_e2_40ba358a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ_le_e2",
+      "lean_fvar_id": "_uniq.3226804",
+      "statement": "δ ≤ e / 2"
+    },
+    {
+      "id": "n_h__le_r2_915a27c9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ_le_r2",
+      "lean_fvar_id": "_uniq.3227203",
+      "statement": "δ ≤ r / 2"
+    },
+    {
+      "id": "n_h__lt_dd607793",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ_lt_α",
+      "lean_fvar_id": "_uniq.3230739",
+      "statement": "δ < α"
+    },
+    {
+      "id": "n_h__lt_e_efc58440",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ_lt_e",
+      "lean_fvar_id": "_uniq.3227377",
+      "statement": "δ < e"
+    },
+    {
+      "id": "n_h__lt_r_a677f05b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hδ_lt_r",
+      "lean_fvar_id": "_uniq.3229045",
+      "statement": "δ < r"
+    },
+    {
+      "id": "n_ha_bceba135",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hA",
+      "lean_fvar_id": "_uniq.3239809",
+      "statement": "dist (φ (q, x)) (φ (t, x)) < δ"
+    },
+    {
+      "id": "n_hadd_27adb1ca",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hadd",
+      "lean_fvar_id": "_uniq.3200377",
+      "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))"
+    },
+    {
+      "id": "n_hb_90705fb1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hB",
+      "lean_fvar_id": "_uniq.3240283",
+      "statement": "dist (φ (t, x)) (φ (q, y)) < δ"
+    },
+    {
+      "id": "n_hcond_85ae89b3",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcond",
+      "lean_fvar_id": "_uniq.3235876",
+      "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+    },
+    {
+      "id": "n_hdis_baf98206",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hdis",
+      "lean_fvar_id": "_uniq.3213882",
+      "statement": "∀ x ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, e ≤ dist (φ (τ, x)) x ∧ e ≤ dist (φ (-τ, x)) x"
+    },
+    {
+      "id": "n_he_2c035dc2",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "he",
+      "lean_fvar_id": "_uniq.3213881",
+      "statement": "0 < e"
+    },
+    {
+      "id": "n_hk_3a5a9b2a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hK",
+      "lean_fvar_id": "_uniq.3200443",
+      "statement": "∀ (x y : Λ) (s : ℝ → ℝ), Continuous s → s 0 = 0 → ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) → y ∈ Set.range fun t => φ (t, x)"
+    },
+    {
+      "id": "n_hle_e3fb3327",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hle",
+      "lean_fvar_id": "_uniq.3232756",
+      "statement": "2 * δ ≤ 2 * (α / 3)"
+    },
+    {
+      "id": "n_horb_0161ae12",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "horb",
+      "lean_fvar_id": "_uniq.3207602",
+      "statement": "y ∈ Set.range fun t => φ (t, x)"
+    },
+    {
+      "id": "n_hr_18e86e76",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hr",
+      "lean_fvar_id": "_uniq.3213963",
+      "statement": "0 < r"
+    },
+    {
+      "id": "n_hrdist_0fb9f4ba",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hrdist",
+      "lean_fvar_id": "_uniq.3213964",
+      "statement": "∀ x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}, ∀ z ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, r < dist x z"
+    },
+    {
+      "id": "n_hrlt_36e5258e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrlt",
+      "lean_fvar_id": "_uniq.3239175",
+      "statement": "r < dist x y"
+    },
+    {
+      "id": "n_hs0_6721d63f",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hs0",
+      "lean_fvar_id": "_uniq.3235873",
+      "statement": "s 0 = 0"
+    },
+    {
+      "id": "n_hs_d2c07fe2",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hs",
+      "lean_fvar_id": "_uniq.3235870",
+      "statement": "Continuous s"
+    },
+    {
+      "id": "n_hsub_ca0f5e1d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsub",
+      "lean_fvar_id": "_uniq.3207159",
+      "statement": "Metric.ball x δ ⊆ {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_hsurj_3dcaf63a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsurj",
+      "lean_fvar_id": "_uniq.3239756",
+      "statement": "Function.Surjective s"
+    },
+    {
+      "id": "n_hsy_38df6592",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsy",
+      "lean_fvar_id": "_uniq.3236642",
+      "statement": "φ (s 0, y) = y"
+    },
+    {
+      "id": "n_ht_cc810361",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ht",
+      "lean_fvar_id": "_uniq.3239790",
+      "statement": "s t = q"
+    },
+    {
+      "id": "n_hx0_bdba243e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx0",
+      "lean_fvar_id": "_uniq.3236627",
+      "statement": "φ (0, x) = x"
+    },
+    {
+      "id": "n_hx_13b9e160",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3206910",
+      "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_hxf_5fe1f09a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxF",
+      "lean_fvar_id": "_uniq.3236418",
+      "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_hxf_c5e86e04",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxF",
+      "lean_fvar_id": "_uniq.3236425",
+      "statement": "x ∉ {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_hxt_db484503",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxt",
+      "lean_fvar_id": "_uniq.3213346",
+      "statement": "φ (t, x) = x"
+    },
+    {
+      "id": "n_hxt_e46f86a9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxt",
+      "lean_fvar_id": "_uniq.3208109",
+      "statement": "φ (t, x) = x"
+    },
+    {
+      "id": "n_hxy_44b9851b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.3236589",
+      "statement": "dist x y < δ"
+    },
+    {
+      "id": "n_hy_4fe039c5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hy'",
+      "lean_fvar_id": "_uniq.3207328",
+      "statement": "dist x y < δ"
+    },
+    {
+      "id": "n_hy_c1ec29c6",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.3207166",
+      "statement": "y ∈ Metric.ball x δ"
+    },
+    {
+      "id": "n_hyc_bbe3943b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hyC",
+      "lean_fvar_id": "_uniq.3239012",
+      "statement": "y ∉ {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_hyf_19d36659",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hyF",
+      "lean_fvar_id": "_uniq.3237791",
+      "statement": "y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+    },
+    {
+      "id": "n_hzero_dc8616ef",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hzero",
+      "lean_fvar_id": "_uniq.3200376",
+      "statement": "∀ (x : Λ), φ (0, x) = x"
+    },
+    {
+      "id": "n_inst___proofs_3640889310_59b87858",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+      "lean_fvar_id": "_uniq.3200373",
+      "statement": "CompactSpace Λ"
+    },
+    {
+      "id": "n_this_1bf7ed97",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3239285",
+      "statement": "dist x y < r"
+    },
+    {
+      "id": "n_this_4e617da2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3227438",
+      "statement": "e / 2 < e"
+    },
+    {
+      "id": "n_this_52709041",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3230838",
+      "statement": "α / 3 < α"
+    },
+    {
+      "id": "n_this_5c6bbe2f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3233822",
+      "statement": "2 * (α / 3) < α"
+    },
+    {
+      "id": "n_this_7e792762",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3229144",
+      "statement": "r / 2 < r"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hxt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_13b9e160"
+      ],
+      "conclusion": "n_hxt_e46f86a9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_660",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3206910",
+              "name": "hx",
+              "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3208109",
+            "name": "hxt",
+            "statement": "φ (t, x) = x"
+          }
+        },
+        "lean_dependency_sha256": "066b01784055e92731e1d2089de81148b705c525b7196366eef769a067a4c106",
+        "kernel_witness_check": {
+          "proof_type": "φ (t, x) = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hxt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_13b9e160"
+      ],
+      "conclusion": "n_hxt_db484503",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_661",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3206910",
+              "name": "hx",
+              "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3213346",
+            "name": "hxt",
+            "statement": "φ (t, x) = x"
+          }
+        },
+        "lean_dependency_sha256": "78ad9aea2a4f2a3a823159e1c258b22ce0928a87abce528d8fa7e65d7201645e",
+        "kernel_witness_check": {
+          "proof_type": "φ (t, x) = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_horb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_dc8616ef",
+        "n_h_2532182a",
+        "n_hk_3a5a9b2a",
+        "n_hx_13b9e160",
+        "n_hy_4fe039c5"
+      ],
+      "conclusion": "n_horb_0161ae12",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "continuous_const",
+        "items": [
+          "continuous_const"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "continuous_const"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_662",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have horb : y ∈ Set.range (fun t : ℝ => φ (t, x)) := by\n          apply hK x y (fun _ : ℝ => 0) continuous_const rfl\n          constructor\n          · intro t\n            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]\n            simpa using hδ\n          · intro t\n            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]\n            exact hy'",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3200376",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            },
+            {
+              "fvar_id": "_uniq.3200442",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3200443",
+              "name": "hK",
+              "statement": "∀ (x y : Λ) (s : ℝ → ℝ), Continuous s → s 0 = 0 → ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) → y ∈ Set.range fun t => φ (t, x)"
+            },
+            {
+              "fvar_id": "_uniq.3206910",
+              "name": "hx",
+              "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            },
+            {
+              "fvar_id": "_uniq.3207328",
+              "name": "hy'",
+              "statement": "dist x y < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3207602",
+            "name": "horb",
+            "statement": "y ∈ Set.range fun t => φ (t, x)"
+          }
+        },
+        "lean_dependency_sha256": "8bb5e39a76b22e2247ab8d35d2844dcd6811d6f3b43c59880c907417bde62782",
+        "kernel_witness_check": {
+          "proof_type": "y ∈ Set.range fun t => φ (t, x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hy_c1ec29c6"
+      ],
+      "conclusion": "n_hy_4fe039c5",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_663",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3207166",
+              "name": "hy",
+              "statement": "y ∈ Metric.ball x δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3207328",
+            "name": "hy'",
+            "statement": "dist x y < δ"
+          }
+        },
+        "lean_dependency_sha256": "7e1700115f88191c547dd5076bb43923587fedf427bb39680572e0c8e562514d",
+        "kernel_witness_check": {
+          "proof_type": "dist x y < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hsub",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_dc8616ef",
+        "n_h_2532182a",
+        "n_hk_3a5a9b2a",
+        "n_hx_13b9e160"
+      ],
+      "conclusion": "n_hsub_ca0f5e1d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "continuous_const + dist_comm",
+        "items": [
+          "continuous_const",
+          "dist_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "continuous_const",
+          "dist_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_664",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hsub : Metric.ball x δ ⊆ {x : Λ | ∀ t : ℝ, φ (t, x) = x} := by\n        intro y hy\n        have hy' : dist x y < δ := by\n          rw [dist_comm]\n          exact hy\n        have horb : y ∈ Set.range (fun t : ℝ => φ (t, x)) := by\n          apply hK x y (fun _ : ℝ => 0) continuous_const rfl\n          constructor\n          · intro t\n            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]\n            simpa using hδ\n          · intro t\n            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]\n            exact hy'\n        rcases horb with ⟨t, rfl⟩\n        change ∀ u : ℝ, φ (u, φ (t, x)) = φ (t, x)\n        rw [hx t]\n        exact hx",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3200376",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            },
+            {
+              "fvar_id": "_uniq.3200442",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3200443",
+              "name": "hK",
+              "statement": "∀ (x y : Λ) (s : ℝ → ℝ), Continuous s → s 0 = 0 → ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) → y ∈ Set.range fun t => φ (t, x)"
+            },
+            {
+              "fvar_id": "_uniq.3206910",
+              "name": "hx",
+              "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3207159",
+            "name": "hsub",
+            "statement": "Metric.ball x δ ⊆ {x | ∀ (t : ℝ), φ (t, x) = x}"
+          }
+        },
+        "lean_dependency_sha256": "d9a31a25bb19fe9f467c7300b6f9ac699127849fcfc9ba020412641f7b800d4f",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃y : Λ⦄, y ∈ Metric.ball x δ → y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le_e2_40ba358a"
+      ],
+      "conclusion": "n_this_4e617da2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_665",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3226804",
+              "name": "hδ_le_e2",
+              "statement": "δ ≤ e / 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3227438",
+            "name": "this",
+            "statement": "e / 2 < e"
+          }
+        },
+        "lean_dependency_sha256": "1ee80228fea2d33ee8f8f2b7d8558ee6c25d82e29ef14ab53c38f25c99f2c323",
+        "kernel_witness_check": {
+          "proof_type": "e / 2 < e",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le_r2_915a27c9"
+      ],
+      "conclusion": "n_this_7e792762",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_666",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3227203",
+              "name": "hδ_le_r2",
+              "statement": "δ ≤ r / 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3229144",
+            "name": "this",
+            "statement": "r / 2 < r"
+          }
+        },
+        "lean_dependency_sha256": "25e4e2e8024d1b40e768788ae95fab6dac25c2ccb69dc5a8feeb9d3bc02d6a10",
+        "kernel_witness_check": {
+          "proof_type": "r / 2 < r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le__3_a9357c20"
+      ],
+      "conclusion": "n_this_52709041",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_667",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3226372",
+              "name": "hδ_le_α3",
+              "statement": "δ ≤ α / 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3230838",
+            "name": "this",
+            "statement": "α / 3 < α"
+          }
+        },
+        "lean_dependency_sha256": "e7055e1871165dfe1062674fcef1b825f526709092db477fadbdfdc45c9f5dbc",
+        "kernel_witness_check": {
+          "proof_type": "α / 3 < α",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hle",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__le__3_a9357c20"
+      ],
+      "conclusion": "n_hle_e3fb3327",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_le_mul_of_nonneg_left",
+        "items": [
+          "mul_le_mul_of_nonneg_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_le_mul_of_nonneg_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_668",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hle : 2 * δ ≤ 2 * (α / 3) := by\n        exact mul_le_mul_of_nonneg_left hδ_le_α3 (by norm_num)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3226372",
+              "name": "hδ_le_α3",
+              "statement": "δ ≤ α / 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3232756",
+            "name": "hle",
+            "statement": "2 * δ ≤ 2 * (α / 3)"
+          }
+        },
+        "lean_dependency_sha256": "982d599ca9ce6c532cb273741a292cd657b61b88ae43f086c74a7374849eb792",
+        "kernel_witness_check": {
+          "proof_type": "2 * δ ≤ 2 * (α / 3)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le__3_a9357c20"
+      ],
+      "conclusion": "n_this_5c6bbe2f",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_669",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3226372",
+              "name": "hδ_le_α3",
+              "statement": "δ ≤ α / 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3233822",
+            "name": "this",
+            "statement": "2 * (α / 3) < α"
+          }
+        },
+        "lean_dependency_sha256": "5cf34fc4f57ad77c593c327a45281aebab42a7668d208b6b3254c1f8c6d0dcc5",
+        "kernel_witness_check": {
+          "proof_type": "2 * (α / 3) < α",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_h0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcond_85ae89b3"
+      ],
+      "conclusion": "n_h0_f833c0b6",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_670",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have h0 := hcond.2 0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3236613",
+            "name": "h0",
+            "statement": "dist (φ (0, x)) (φ (s 0, y)) < δ"
+          }
+        },
+        "lean_dependency_sha256": "61daebfdb123acefcb2a3cd573fc7e2268cf6ae6c7ac20f5224f54edd4f30f31",
+        "kernel_witness_check": {
+          "proof_type": "dist (φ (0, x)) (φ (s 0, y)) < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hx0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_dc8616ef"
+      ],
+      "conclusion": "n_hx0_bdba243e",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_671",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hx0 : φ (0, x) = x := hzero x",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3200376",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3236627",
+            "name": "hx0",
+            "statement": "φ (0, x) = x"
+          }
+        },
+        "lean_dependency_sha256": "805c0e74687a54cf9da3593d07902cc483f80a6b134eeab69f3c6f078e774599",
+        "kernel_witness_check": {
+          "proof_type": "φ (0, x) = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hsy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_dc8616ef",
+        "n_hs0_6721d63f"
+      ],
+      "conclusion": "n_hsy_38df6592",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_672",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hsy : φ (s 0, y) = y := by\n          rw [hs0, hzero]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3200376",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            },
+            {
+              "fvar_id": "_uniq.3235873",
+              "name": "hs0",
+              "statement": "s 0 = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3236642",
+            "name": "hsy",
+            "statement": "φ (s 0, y) = y"
+          }
+        },
+        "lean_dependency_sha256": "7eada272fb25686177b334711e5131a65f62c2ae1c56e82213b7e51d85d48a28",
+        "kernel_witness_check": {
+          "proof_type": "φ (s 0, y) = y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hrlt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrdist_0fb9f4ba",
+        "n_hxf_5fe1f09a",
+        "n_hyc_bbe3943b"
+      ],
+      "conclusion": "n_hrlt_36e5258e",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_673",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hrlt : r < dist x y := hrdist x hxF y hyC",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3213964",
+              "name": "hrdist",
+              "statement": "∀ x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}, ∀ z ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, r < dist x z"
+            },
+            {
+              "fvar_id": "_uniq.3236418",
+              "name": "hxF",
+              "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            },
+            {
+              "fvar_id": "_uniq.3239012",
+              "name": "hyC",
+              "statement": "y ∉ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3239175",
+            "name": "hrlt",
+            "statement": "r < dist x y"
+          }
+        },
+        "lean_dependency_sha256": "8a2508733d92cfef763e218ced6e4a3d29fc6931b4b9271e4861102a35c3127d",
+        "kernel_witness_check": {
+          "proof_type": "r < dist x y",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h__lt_r_a677f05b",
+        "n_hxy_44b9851b"
+      ],
+      "conclusion": "n_this_1bf7ed97",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_674",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3229045",
+              "name": "hδ_lt_r",
+              "statement": "δ < r"
+            },
+            {
+              "fvar_id": "_uniq.3236589",
+              "name": "hxy",
+              "statement": "dist x y < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3239285",
+            "name": "this",
+            "statement": "dist x y < r"
+          }
+        },
+        "lean_dependency_sha256": "4bf0ff40f83ab52103e13c27fca57b1e035949d8308bcaeaeeb094768bdcc305",
+        "kernel_witness_check": {
+          "proof_type": "dist x y < r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_016_hxy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hzero_dc8616ef",
+        "n_hs0_6721d63f",
+        "n_hcond_85ae89b3"
+      ],
+      "conclusion": "n_hxy_44b9851b",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_675",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3200376",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            },
+            {
+              "fvar_id": "_uniq.3235873",
+              "name": "hs0",
+              "statement": "s 0 = 0"
+            },
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3236589",
+            "name": "hxy",
+            "statement": "dist x y < δ"
+          }
+        },
+        "lean_dependency_sha256": "07a33c6b3a73acce575b8017eb87d49b88069a0da039c0a00bb6a08965f9533b",
+        "kernel_witness_check": {
+          "proof_type": "dist x y < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hyf",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hrdist_0fb9f4ba",
+        "n_h__lt_r_a677f05b",
+        "n_hxf_5fe1f09a",
+        "n_hxy_44b9851b"
+      ],
+      "conclusion": "n_hyf_19d36659",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_of_lt + lt_trans + not_lt_of_ge",
+        "items": [
+          "le_of_lt",
+          "lt_trans",
+          "not_lt_of_ge"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_of_lt",
+          "lt_trans",
+          "not_lt_of_ge"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_676",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hyF : y ∈ {x : Λ | ∀ t : ℝ, φ (t, x) = x} := by\n        by_contra hyC\n        have hrlt : r < dist x y := hrdist x hxF y hyC\n        have : dist x y < r := lt_trans hxy hδ_lt_r\n        exact (not_lt_of_ge (le_of_lt hrlt)) this",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3213964",
+              "name": "hrdist",
+              "statement": "∀ x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}, ∀ z ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, r < dist x z"
+            },
+            {
+              "fvar_id": "_uniq.3229045",
+              "name": "hδ_lt_r",
+              "statement": "δ < r"
+            },
+            {
+              "fvar_id": "_uniq.3236418",
+              "name": "hxF",
+              "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            },
+            {
+              "fvar_id": "_uniq.3236589",
+              "name": "hxy",
+              "statement": "dist x y < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3237791",
+            "name": "hyF",
+            "statement": "y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}"
+          }
+        },
+        "lean_dependency_sha256": "90c02829a2f98b4e743055badebb2d41aa52c912f3db22a9d117704c7da7ca66",
+        "kernel_witness_check": {
+          "proof_type": "y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_h0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcond_85ae89b3"
+      ],
+      "conclusion": "n_h0_cf6edb60",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_677",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have h0 := hcond.2 0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3239817",
+            "name": "h0",
+            "statement": "dist (φ (t, x)) (φ (s t, x)) < δ"
+          }
+        },
+        "lean_dependency_sha256": "44eee23b10ba2e6b82e261f29c6febd022b7f6fdbd5434fa2e74f938df828803",
+        "kernel_witness_check": {
+          "proof_type": "dist (φ (t, x)) (φ (s t, x)) < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_019_h0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcond_85ae89b3"
+      ],
+      "conclusion": "n_h0_c31cd43c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_678",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have h0 := hcond.2 0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3240291",
+            "name": "h0",
+            "statement": "dist (φ (t, x)) (φ (s t, y)) < δ"
+          }
+        },
+        "lean_dependency_sha256": "7a5c80fa4ddc4830daa807e9dd19a15078642f5f06ee350c531cb7b1defda60e",
+        "kernel_witness_check": {
+          "proof_type": "dist (φ (t, x)) (φ (s t, y)) < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_4e7ccc49",
+        "n_he_2c035dc2",
+        "n_hr_18e86e76"
+      ],
+      "conclusion": "n_h_2b8bcd65",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_min",
+        "items": [
+          "lt_min"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_min"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_680",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ : 0 < δ := by\n      dsimp [δ]\n      exact lt_min (lt_min (by positivity) (by positivity)) (by positivity)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3213723",
+              "name": "hα",
+              "statement": "0 < α"
+            },
+            {
+              "fvar_id": "_uniq.3213881",
+              "name": "he",
+              "statement": "0 < e"
+            },
+            {
+              "fvar_id": "_uniq.3213963",
+              "name": "hr",
+              "statement": "0 < r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3214567",
+            "name": "hδ",
+            "statement": "0 < δ"
+          }
+        },
+        "lean_dependency_sha256": "a97faa6847cf6570fa6fd8ac29eed8c069d832629897ed1e05ac7bd1f8f495fc",
+        "kernel_witness_check": {
+          "proof_type": "0 < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_021_h__le__3",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_h__le__3_a9357c20",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_trans + min_le_left",
+        "items": [
+          "le_trans",
+          "min_le_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_trans",
+          "min_le_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_681",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ_le_α3 : δ ≤ α / 3 := by\n      dsimp [δ]\n      exact le_trans (min_le_left _ _) (min_le_left _ _)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3226372",
+            "name": "hδ_le_α3",
+            "statement": "δ ≤ α / 3"
+          }
+        },
+        "lean_dependency_sha256": "bb5a5807b99b8b882440b589802c5226190a408ff4a553cec44e3ffdd83fd98f",
+        "kernel_witness_check": {
+          "proof_type": "δ ≤ α / 3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_022_h__le_e2",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_h__le_e2_40ba358a",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_trans + min_le_left + min_le_right",
+        "items": [
+          "le_trans",
+          "min_le_left",
+          "min_le_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_trans",
+          "min_le_left",
+          "min_le_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_682",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ_le_e2 : δ ≤ e / 2 := by\n      dsimp [δ]\n      exact le_trans (min_le_left _ _) (min_le_right _ _)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3226804",
+            "name": "hδ_le_e2",
+            "statement": "δ ≤ e / 2"
+          }
+        },
+        "lean_dependency_sha256": "1c134b8afd472a76c69945d8f0dcf46dfec6a77d0f3b2f4bcf9db2783a35e390",
+        "kernel_witness_check": {
+          "proof_type": "δ ≤ e / 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_023_h__le_r2",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_h__le_r2_915a27c9",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "min_le_right",
+        "items": [
+          "min_le_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "min_le_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_683",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ_le_r2 : δ ≤ r / 2 := by\n      dsimp [δ]\n      exact min_le_right _ _",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3227203",
+            "name": "hδ_le_r2",
+            "statement": "δ ≤ r / 2"
+          }
+        },
+        "lean_dependency_sha256": "3fee2548df90862f18fdfa08cf5f31b73561f04b821e1cafb5602ef92f6a429e",
+        "kernel_witness_check": {
+          "proof_type": "δ ≤ r / 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_024_h__lt_e",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le_e2_40ba358a"
+      ],
+      "conclusion": "n_h__lt_e_efc58440",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_le_of_lt",
+        "items": [
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_684",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ_lt_e : δ < e := by\n      have : e / 2 < e := by linarith\n      exact lt_of_le_of_lt hδ_le_e2 this",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3226804",
+              "name": "hδ_le_e2",
+              "statement": "δ ≤ e / 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3227377",
+            "name": "hδ_lt_e",
+            "statement": "δ < e"
+          }
+        },
+        "lean_dependency_sha256": "c24b913d8a3ca1545853dc69f6c38c74f862c15f7e1e58b884b816cdf7a1df0a",
+        "kernel_witness_check": {
+          "proof_type": "δ < e",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_025_h__lt_r",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le_r2_915a27c9"
+      ],
+      "conclusion": "n_h__lt_r_a677f05b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_le_of_lt",
+        "items": [
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_685",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ_lt_r : δ < r := by\n      have : r / 2 < r := by linarith\n      exact lt_of_le_of_lt hδ_le_r2 this",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3227203",
+              "name": "hδ_le_r2",
+              "statement": "δ ≤ r / 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3229045",
+            "name": "hδ_lt_r",
+            "statement": "δ < r"
+          }
+        },
+        "lean_dependency_sha256": "fdcbe55875487019d8a0914cc6686e917b848967c60abb9dfa005afd46f5cf09",
+        "kernel_witness_check": {
+          "proof_type": "δ < r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_026_h__lt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le__3_a9357c20"
+      ],
+      "conclusion": "n_h__lt_dd607793",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_le_of_lt",
+        "items": [
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_686",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hδ_lt_α : δ < α := by\n      have : α / 3 < α := by linarith\n      exact lt_of_le_of_lt hδ_le_α3 this",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3226372",
+              "name": "hδ_le_α3",
+              "statement": "δ ≤ α / 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3230739",
+            "name": "hδ_lt_α",
+            "statement": "δ < α"
+          }
+        },
+        "lean_dependency_sha256": "c7c6a95a89fa0a4d48ac0a91892db8e15b3e9b5a64c176afac3bded7fb2ebf1c",
+        "kernel_witness_check": {
+          "proof_type": "δ < α",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_027_h2__lt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2b8bcd65",
+        "n_h__le__3_a9357c20"
+      ],
+      "conclusion": "n_h2__lt_3e993487",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_le_of_lt + mul_le_mul_of_nonneg_left",
+        "items": [
+          "lt_of_le_of_lt",
+          "mul_le_mul_of_nonneg_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_le_of_lt",
+          "mul_le_mul_of_nonneg_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_687",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have h2δ_lt_α : 2 * δ < α := by\n      have hle : 2 * δ ≤ 2 * (α / 3) := by\n        exact mul_le_mul_of_nonneg_left hδ_le_α3 (by norm_num)\n      have : 2 * (α / 3) < α := by linarith\n      exact lt_of_le_of_lt hle this",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3214567",
+              "name": "hδ",
+              "statement": "0 < δ"
+            },
+            {
+              "fvar_id": "_uniq.3226372",
+              "name": "hδ_le_α3",
+              "statement": "δ ≤ α / 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3232572",
+            "name": "h2δ_lt_α",
+            "statement": "2 * δ < α"
+          }
+        },
+        "lean_dependency_sha256": "aef10b64d1aece124a4f3e2a708829bd25729e528784fcae105425baf676b876",
+        "kernel_witness_check": {
+          "proof_type": "2 * δ < α",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_028_hsurj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_inst___proofs_3640889310_59b87858",
+        "n_hzero_dc8616ef",
+        "n_hadd_27adb1ca",
+        "n_h_2737d129",
+        "n_hdis_baf98206",
+        "n_h__lt_e_efc58440",
+        "n_hs_d2c07fe2",
+        "n_hs0_6721d63f",
+        "n_hcond_85ae89b3",
+        "n_hxf_c5e86e04"
+      ],
+      "conclusion": "n_hsurj_3dcaf63a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_688",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3200373",
+              "name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+              "statement": "CompactSpace Λ"
+            },
+            {
+              "fvar_id": "_uniq.3200376",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            },
+            {
+              "fvar_id": "_uniq.3200377",
+              "name": "hadd",
+              "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))"
+            },
+            {
+              "fvar_id": "_uniq.3213863",
+              "name": "hτ",
+              "statement": "0 < τ"
+            },
+            {
+              "fvar_id": "_uniq.3213882",
+              "name": "hdis",
+              "statement": "∀ x ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, e ≤ dist (φ (τ, x)) x ∧ e ≤ dist (φ (-τ, x)) x"
+            },
+            {
+              "fvar_id": "_uniq.3227377",
+              "name": "hδ_lt_e",
+              "statement": "δ < e"
+            },
+            {
+              "fvar_id": "_uniq.3235870",
+              "name": "hs",
+              "statement": "Continuous s"
+            },
+            {
+              "fvar_id": "_uniq.3235873",
+              "name": "hs0",
+              "statement": "s 0 = 0"
+            },
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            },
+            {
+              "fvar_id": "_uniq.3236425",
+              "name": "hxF",
+              "statement": "x ∉ {x | ∀ (t : ℝ), φ (t, x) = x}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3239756",
+            "name": "hsurj",
+            "statement": "Function.Surjective s"
+          }
+        },
+        "lean_dependency_sha256": "e4889df6d9c5731490e7235f211a58948bf9ddeb75f4eaa77098679223fd11d7",
+        "kernel_witness_check": {
+          "proof_type": "Function.Surjective s",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_029_ha",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcond_85ae89b3",
+        "n_ht_cc810361"
+      ],
+      "conclusion": "n_ha_bceba135",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dist_comm",
+        "items": [
+          "dist_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dist_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_689",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hA : dist (φ (q, x)) (φ (t, x)) < δ := by\n        have h0 := hcond.1 t\n        rw [ht] at h0\n        rwa [dist_comm] at h0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            },
+            {
+              "fvar_id": "_uniq.3239790",
+              "name": "ht",
+              "statement": "s t = q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3239809",
+            "name": "hA",
+            "statement": "dist (φ (q, x)) (φ (t, x)) < δ"
+          }
+        },
+        "lean_dependency_sha256": "d179bd5ef6c55d5ee2403989beccc95d100c76196ae18326800b6b356ba92b8f",
+        "kernel_witness_check": {
+          "proof_type": "dist (φ (q, x)) (φ (t, x)) < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_030_hb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcond_85ae89b3",
+        "n_ht_cc810361"
+      ],
+      "conclusion": "n_hb_90705fb1",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_690",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hB : dist (φ (t, x)) (φ (q, y)) < δ := by\n        have h0 := hcond.2 t\n        rwa [ht] at h0\n      calc\n        dist (φ (q, x)) (φ (q, y))\n            ≤ dist (φ (q, x)) (φ (t, x)) + dist (φ (t, x)) (φ (q, y)) :=\n              dist_triangle _ _ _\n        _ < δ + δ := add_lt_add hA hB\n        _ = 2 * δ := by ring\n        _ < α := h2δ_lt_α",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3235876",
+              "name": "hcond",
+              "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ"
+            },
+            {
+              "fvar_id": "_uniq.3239790",
+              "name": "ht",
+              "statement": "s t = q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3240283",
+            "name": "hB",
+            "statement": "dist (φ (t, x)) (φ (q, y)) < δ"
+          }
+        },
+        "lean_dependency_sha256": "e8bd981a8eb0068cfd782fe5ddb72dd751b800073220b6e0424accb7383dc933",
+        "kernel_witness_check": {
+          "proof_type": "dist (φ (t, x)) (φ (q, y)) < δ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_3640889310_673a1dd1",
+        "m_hcont_a03afd8f",
+        "m_hzero_c2708664",
+        "m_hadd_525ce465"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Metric.isOpen_ball + Metric.mem_ball_self + exists_pos_fixed_nonfixed_dist",
+        "items": [
+          "Metric.isOpen_ball",
+          "Metric.mem_ball_self",
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.exists_pos_fixed_nonfixed_dist",
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.exists_pos_flow_displacement_of_isOpen_fixed",
+          "continuous_const",
+          "continuous_id",
+          "dist_comm",
+          "isOpen_iff_forall_mem_open"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.exists_pos_fixed_nonfixed_dist",
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.exists_pos_flow_displacement_of_isOpen_fixed"
+        ],
+        "mathlib_items": [
+          "Metric.isOpen_ball",
+          "Metric.mem_ball_self",
+          "continuous_const",
+          "continuous_id",
+          "dist_comm",
+          "isOpen_iff_forall_mem_open"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro h\n    rcases h with ⟨δ, hδ, hK⟩\n    constructor\n    · refine ⟨δ, hδ, ?_⟩\n      intro x y hxy\n      apply hK x y (fun t : ℝ => t) continuous_id rfl\n      constructor\n      · intro t\n        simpa using hδ\n      · exact hxy\n    · rw [isOpen_iff_forall_mem_open]\n      intro x hx\n      have hsub : Metric.ball x δ ⊆ {x : Λ | ∀ t : ℝ, φ (t, x) = x} := by\n        intro y hy\n        have hy' : dist x y < δ := by\n          rw [dist_comm]\n          exact hy\n        have horb : y ∈ Set.range (fun t : ℝ => φ (t, x)) := by\n          apply hK x y (fun _ : ℝ => 0) continuous_const rfl\n          constructor\n          · intro t\n            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]\n            simpa using hδ\n          · intro t\n            have hxt : φ (t, x) = x := hx t\n            rw [hxt, hzero]\n            exact hy'\n        rcases horb with ⟨t, rfl⟩\n        change ∀ u : ℝ, φ (u, φ (t, x)) = φ (t, x)\n        rw [hx t]\n        exact hx\n      exact ⟨Metric.ball x δ, hsub, Metric.isOpen_ball, Metric.mem_ball_self hδ⟩\n  · intro h\n    rcases h with ⟨⟨α, hα, hsep⟩, hfix⟩\n    rcases exists_pos_flow_displacement_of_isOpen_fixed φ hcont hzero hadd hfix with\n      ⟨τ, e, hτ, he, hdis⟩\n    rcases exists_pos_fixed_nonfixed_dist φ hcont hfix with ⟨r, hr, hrdist⟩\n    let δ : ℝ := min (min (α / 3) (e / 2)) (r / 2)\n    have hδ : 0 < δ := by\n      dsimp [δ]\n      exact lt_min (lt_min (by positivity) (by positivity)) (by positivity)\n    have hδ_le_α3 : δ ≤ α / 3 := by\n      dsimp [δ]\n      exact le_trans (min_le_left _ _) (min_le_left _ _)\n    have hδ_le_e2 : δ ≤ e",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+              "statement": "CompactSpace Λ"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hcont",
+              "statement": "Continuous φ"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hzero",
+              "statement": "∀ (x : Λ), φ (0, x) = x"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hadd",
+              "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∃ δ, 0 < δ ∧ ∀ (x y : Λ) (s : ℝ → ℝ), Continuous s → s 0 = 0 → ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) → y ∈ Set.range fun t => φ (t, x)) ↔ (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧ IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}"
+          }
+        },
+        "lean_dependency_sha256": "068c101731fdff042f8daeeac4ef69bd84aa2c384322a0cdcfc8242e74891887",
+        "kernel_witness_check": {
+          "proof_type": "(∃ δ,\n    0 < δ ∧\n      ∀ (x y : Λ) (s : ℝ → ℝ),\n        Continuous s →\n          s 0 = 0 →\n            ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) →\n              y ∈ Set.range fun t => φ (t, x)) ↔\n  (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧\n    IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "isOpen_iff_forall_mem_open"
+        ],
+        "observed_search_event_ids": [
+          "loogle:6"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "KH expansive flow separating fixed points open theorem",
+      "declarations": [
+        "MulAction.fixedPoints",
+        "Function.fixedPoints",
+        "FixedPoints.smul",
+        "FixedPoints.submonoid",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor",
+        "FixedPoints.subfield",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "ChainCompletePartialOrder.nonempty_fixedPoints_of_inflationary",
+        "FixedPoints.subalgebra",
+        "FixedPoints.subgroup"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "separating flow expansive fixed points finite compact metric space continuous reparameterization",
+      "declarations": [
+        "Finite.compactSpace",
+        "MulAction.fixedPoints",
+        "Continuous.flow",
+        "FixedPoints.smul",
+        "ContractingWith.edist_efixedPoint_lt_top'",
+        "Flow.continuous",
+        "Function.fixedPoints",
+        "CompactSpace",
+        "Metric.sphere.compactSpace",
+        "Path.coe_reparam",
+        "ContractingWith.efixedPoint_eq_of_edist_lt_top'",
+        "FixedPoints.subfield",
+        "Path.reparam",
+        "ContractingWith.fixedPoint_lipschitz_in_map",
+        "ContractingWith.efixedPoint_eq_of_edist_lt_top",
+        "MetricSpace",
+        "FixedPoints.normal",
+        "Path.refl_reparam",
+        "FixedPoints.subalgebra",
+        "Metric.isUniformEmbedding_iff'"
+      ],
+      "call_turn": 4,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "separating",
+      "declarations": [],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "path lifting covering map continuous lift real line circle",
+      "declarations": [
+        "IsCoveringMap.liftPath_zero",
+        "CircleDeg1Lift.map_add_int",
+        "Real.circleMap.continuous",
+        "CircleDeg1Lift.forall_map_sub_of_Icc",
+        "CircleDeg1Lift.continuous_pow",
+        "Circle.path",
+        "CircleDeg1Lift.unitsHasCoeToFun",
+        "CircleDeg1Lift.monotone",
+        "circleMap",
+        "IsCoveringMap.liftPath_lifts",
+        "Real.circleAverage",
+        "IsCoveringMap.exists_path_lifts",
+        "IsCoveringMap.liftPath",
+        "IsCoveringMap.map_liftPathQuotient",
+        "IsCoveringMap.liftPath_const",
+        "IsCoveringMap.liftPath_trans",
+        "IsCoveringMap.eq_liftPath_iff",
+        "IsCoveringMap.eq_liftPath_iff'",
+        "IsCoveringMap.liftPathQuotient",
+        "IsCoveringMap.existsUnique_continuousMap_lifts"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "\"IsOpen\" \"Set.range\" \"Continuous s\" \"s 0 = 0\" flow dist",
+      "declarations": [
+        "Lean.Meta.Tactic.TryThis.SuggestionStyle.value",
+        "Mathlib.Meta.FunProp.",
+        "Rand",
+        "Set.sUnion",
+        "Set.sInter",
+        "RingHom.rangeS",
+        "Lean.Parser.Tactic.Grind.finishTrace",
+        "Lean.Parser.Command.docs_to_verso",
+        "tryAtEachStepGrindSuggestions",
+        "Set.sUnion_range",
+        "Set.inv_Ioo_0_right",
+        "Lean.Meta.Grind.SolverExtension.getTerm",
+        "Lean.Environment.setExporting",
+        "Set.inv_Ioo_0_left",
+        "tendsto_iff_edist_tendsto_0",
+        "List.range'_0",
+        "Lean.Meta.getFunInfoNArgs",
+        "Lean.Syntax.ofRange",
+        "NNReal.",
+        "Lean.Meta.getFunInfo",
+        "Set.sInter_range",
+        "Real.dist_0_eq_abs",
+        "ENNReal.",
+        "sInf_range",
+        "setOf_isOpen_sSup",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "Lean.isLevelMVarAssigned",
+        "Lean.Meta.Match.Overlaps.overlapping",
+        "MvPolynomial.vars_0",
+        "Lean.Meta.Grind.Arith.Cutsat.propagateNonlinearTerm",
+        "Lean.Meta.RefinedDiscrTree.format",
+        "Lean.Elab.Tactic.Grind.getGoals",
+        "Set.Finite.isOpen_sInter",
+        "isOpen_sInter",
+        "isOpen_sUnion",
+        "SkewPolynomial.C_0",
+        "sSup_range",
+        "Lean.Widget.GetInteractiveDiagnosticsParams",
+        "Polynomial.C_0",
+        "MvPolynomial.C_0",
+        "Lean.Elab.Do.ContInfoRef.toContInfo",
+        "Lean.Meta.Simp.simpConst",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Lsp.FoldingRangeParams",
+        "Multiset.recOn_0",
+        "CalcPanel.rpc",
+        "Lean.CollectLevelParams.State.collect",
+        "CalcPanel",
+        "Std.Time.PlainDateTime.withMinutes"
+      ],
+      "call_turn": 10,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "isOpen_iff_forall_mem_open",
+      "declarations": [
+        "isOpen_iff_forall_mem_open"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "expansive dynamical system flow metric compact separating",
+      "declarations": [
+        "Flow.id",
+        "Flow",
+        "Flow.restrict",
+        "Metric.sphere.compactSpace",
+        "Flow.reverse",
+        "Dynamics.IsDynCoverOf.coverEntropyEntourage_le_log_card_div",
+        "isCompactSystem_isCompact",
+        "Continuous.flow",
+        "Flow.orbit",
+        "isCompactSystem_insert_empty_iff",
+        "Metric.IsCover.isCompact",
+        "Metric.Snowflaking",
+        "Metric.PiNatEmbed.isUniformEmbedding_embed",
+        "Dynamics.coverMincard",
+        "isCompactSystem_insert_univ_iff",
+        "IsCompactSystem.of_IsEmpty",
+        "IsCompactSystem",
+        "Metric.Snowflaking.image_toSnowflaking_emetricBall",
+        "Metric.separableSpaceInductiveLimit_of_separableSpace",
+        "isCompactSystem_isCompact_isClosed",
+        "Dynamics.coverMincard_finite_of_isCompact_uniformContinuous",
+        "IsCompactSystem.mono",
+        "IsCompact",
+        "Metric.ball",
+        "Metric.eball",
+        "IsPiSystem",
+        "Metric.IsCover.isCompact_closure",
+        "IsCompactSystem.insert_univ",
+        "IsCompactSystem.insert_empty",
+        "Flow.ext",
+        "Flow.continuous",
+        "LinearMap.SeparatingLeft",
+        "Dynamics.le_coverMincard_image",
+        "Metric.Snowflaking.toSnowflaking",
+        "Isometry.isClosedEmbedding",
+        "Dynamics.coverEntropy_image_of_comap",
+        "Dynamics.exists_isDynCoverOf_of_isCompact_uniformContinuous",
+        "Metric.IsSeparated.image_antilipschitz",
+        "Dynamics.exists_isDynCoverOf_of_isCompact_invariant",
+        "Metric.isUniformEmbedding_iff'",
+        "LinearMap.SeparatingRight",
+        "Metric.Snowflaking.instPseudoEMetricSpace",
+        "HasCountableSeparatingOn",
+        "IsometryEquiv.dimH_univ",
+        "Dynamics.dynEntourage",
+        "KuratowskiEmbedding.exists_isometric_embedding",
+        "MeasureTheory.Conservative.ae_frequently_mem_of_mem_nhds",
+        "Metric.Snowflaking.homeomorph_apply",
+        "MeasureTheory.addHaar_image_le_mul_of_det_lt",
+        "Flow.IsSemiconjugacy"
+      ],
+      "call_turn": 16,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "fixed point free separating flows are expansive compact metric theorem",
+      "declarations": [
+        "MonoidHom.FixedPointFree",
+        "Metric.AreSeparated",
+        "blimsup_cthickening_mul_ae_eq",
+        "Metric.AreSeparated.comm",
+        "Isometry.isClosedEmbedding",
+        "KuratowskiEmbedding.exists_isometric_embedding",
+        "Metric.isUniformEmbedding_iff'",
+        "Metric.AreSeparated.disjoint",
+        "Metric.AreSeparated.symm",
+        "ContractingWith.fixedPoint_lipschitz_in_map"
+      ],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "Bebutov flow local section regular point continuous flow theorem",
+      "declarations": [
+        "Flow.id",
+        "Bundle.zeroSection",
+        "IsLocalRing.closedPoint",
+        "Flow",
+        "OnePoint",
+        "IsRegularLocalRing",
+        "Flow.continuous",
+        "Flow.restrict",
+        "Flow.continuous_toFun",
+        "Continuous.flow",
+        "Flow.orbit",
+        "IsPicardLindelof.exists_forall_mem_closedBall_eq_hasDerivWithinAt_continuousOn",
+        "IsPicardLindelof.exists_forall_mem_closedBall_eq_forall_mem_Icc_hasDerivWithinAt",
+        "ODE_solution_unique_of_eventually",
+        "Flow.ext",
+        "ContDiffAt.exists_forall_mem_closedBall_exists_eq_forall_mem_Ioo_hasDerivAt",
+        "ContDiffAt.exists_eventually_eq_hasDerivAt",
+        "OnePoint.infty",
+        "IsPicardLindelof.exists_forall_mem_closedBall_eq_hasDerivWithinAt_lipschitzOnWith",
+        "Flow.IsSemiconjugacy"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "IsClosed.isCompact",
+      "declarations": [
+        "IsClosed.isCompact"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "IsCompact.tendsto_subseq",
+      "declarations": [
+        "IsCompact.tendsto_subseq"
+      ],
+      "call_turn": 26,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "round (_ / _)",
+      "declarations": [
+        "abs_sub_round_div_natCast_eq",
+        "Rat.IsRat.isInt_round",
+        "GaussianInt.div_def"
+      ],
+      "call_turn": 28,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "abs (_ - round _) ≤ _",
+      "declarations": [],
+      "call_turn": 30,
+      "result_turn": 31
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "real round nearest integer abs sub round bound one half",
+      "declarations": [
+        "FP.ofRat",
+        "round_one",
+        "round_eq_div",
+        "round",
+        "Dyadic.roundDown",
+        "abs_sub_round_eq_min",
+        "Real.exists_nat_abs_mul_sub_round_le",
+        "round_add_one",
+        "round_sub_ofNat",
+        "round_two_inv",
+        "sub_half_lt_round",
+        "Float.round",
+        "round_sub_natCast",
+        "round_sub_one",
+        "round_le",
+        "FP.RMode.NE",
+        "round_le_add_half",
+        "round_sub_intCast",
+        "Float32.round",
+        "abs_sub_round"
+      ],
+      "call_turn": 32,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "IsCompact.exists_forall_le",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 35
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "positive continuous function on compact set has positive lower bound",
+      "declarations": [
+        "LowerSemicontinuousOn.bddBelow_of_isCompact",
+        "ContinuousMap.neg_norm_le_apply",
+        "NNRealRMK.le_rieszMeasure_of_isCompact_tsupport_subset",
+        "Continuous.bddBelow_range_of_hasCompactSupport",
+        "HasCompactSupport.exists_bound_of_continuous",
+        "Continuous.exists_forall_le_of_hasCompactSupport",
+        "Continuous.bddBelow_range_of_hasCompactMulSupport",
+        "IsCompact.bddBelow_image",
+        "IsCompact.exists_forall_le'",
+        "ContinuousLinearMap.IsPositive",
+        "IsCompact.exists_bound_of_continuousOn'",
+        "LSeries.positive",
+        "IsStrictlyPositive",
+        "PositiveLinearMap",
+        "LinearMap.IsPositive",
+        "IsCompact.bddBelow",
+        "IsCompact.exists_bound_of_continuousOn",
+        "TopologicalSpace.PositiveCompacts.isCompact",
+        "ArithmeticFunction.LSeries_positive",
+        "ArithmeticFunction.LSeries_positive_of_differentiable_of_eqOn"
+      ],
+      "call_turn": 36,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "IsCompact.exists_forall_le'",
+      "declarations": [
+        "IsCompact.exists_forall_le'"
+      ],
+      "call_turn": 38,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "intermediate_value_Icc",
+      "declarations": [
+        "intermediate_value_Icc"
+      ],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "intermediate_value_Icc'",
+      "declarations": [
+        "intermediate_value_Icc'"
+      ],
+      "call_turn": 42,
+      "result_turn": 43
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "positive distance between disjoint compact and closed sets metric space",
+      "declarations": [
+        "Metric.closedBall",
+        "Metric.closedBall_disjoint_ball",
+        "Metric.AreSeparated.disjoint",
+        "Metric.closedBall_disjoint_closedBall",
+        "Metric.exists_pos_forall_lt_edist",
+        "Metric.sphere.compactSpace",
+        "Metric.isCompact_of_isClosed_isBounded",
+        "disjoint_closedBall_ball_iff",
+        "Disjoint.exists_thickenings",
+        "PrespectralSpace.exists_isCompact_and_isOpen_between",
+        "SeparatedNhds.of_isCompact_isCompact_isClosed",
+        "Disjoint.exists_cthickenings",
+        "disjoint_ball_closedBall_iff",
+        "Metric.ball_disjoint_closedBall",
+        "EMetric.exists_pos_forall_lt_edist",
+        "exists_compact_closed_between",
+        "exists_open_between_and_isCompact_closure",
+        "TopologicalSpace.PositiveCompacts.isCompact",
+        "Disjoint.exists_uniform_thickening",
+        "exists_compact_between"
+      ],
+      "call_turn": 44,
+      "result_turn": 45
+    },
+    {
+      "event_id": "leanfinder:22",
+      "tool": "leanfinder",
+      "query": "exists positive dist compact closed disjoint Metric.dist sets",
+      "declarations": [
+        "Metric.infEDist",
+        "Metric.AreSeparated.disjoint",
+        "Metric.exists_pos_forall_lt_edist",
+        "Disjoint.exists_thickenings",
+        "Metric.isClosed_of_pairwise_le_dist",
+        "Disjoint.exists_cthickenings",
+        "Metric.Sigma.dist",
+        "Metric.glueDist",
+        "Metric.infDist",
+        "Metric.disjoint_closedBall_of_lt_infDist",
+        "Metric.Sum.dist",
+        "disjoint_closedBall_ball_iff",
+        "disjoint_ball_closedBall_iff",
+        "Disjoint.exists_uniform_thickening",
+        "Metric.disjoint_ball_infDist",
+        "Metric.exists_dist_lt_of_hausdorffDist_lt",
+        "EMetric.exists_pos_forall_lt_edist",
+        "Metric.hausdorffDist",
+        "Metric.exists_dist_lt_of_hausdorffDist_lt'",
+        "Set.Finite.relatively_discrete"
+      ],
+      "call_turn": 46,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Metric.exists_pos_forall_lt_edist",
+      "declarations": [
+        "Metric.exists_pos_forall_lt_edist"
+      ],
+      "call_turn": 48,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "edist_dist",
+      "declarations": [
+        "edist_dist"
+      ],
+      "call_turn": 50,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_lt_ofReal_iff",
+      "declarations": [
+        "ENNReal.ofReal_lt_ofReal_iff"
+      ],
+      "call_turn": 52,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "tendsto_one_div_add_atTop_nhds_zero_nat",
+      "declarations": [
+        "tendsto_one_div_add_atTop_nhds_zero_nat"
+      ],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "squeeze_zero",
+      "declarations": [
+        "squeeze_zero"
+      ],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "tendsto_zero_of_abs_tendsto_zero",
+      "declarations": [],
+      "call_turn": 58,
+      "result_turn": 59
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "tendsto absolute value to zero implies tendsto to zero real",
+      "declarations": [
+        "tendsto_abs_nhdsNE_zero",
+        "tendsto_zero_iff_abs_tendsto_zero",
+        "AbsoluteValue.toMonoidWithZeroHom",
+        "AbsoluteValue",
+        "AbsoluteValue.tendsto_div_one_add_pow_nhds_zero",
+        "tendsto_norm_atTop_atTop",
+        "EReal.toReal",
+        "AbsoluteValue.tendsto_div_one_add_pow_nhds_one",
+        "ENNReal.tendsto_toReal_zero_iff",
+        "ENNReal.tendsto_toReal"
+      ],
+      "call_turn": 60,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "tendsto_iff_dist_tendsto_zero",
+      "declarations": [
+        "tendsto_iff_dist_tendsto_zero"
+      ],
+      "call_turn": 62,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Tendsto.prodMk_nhds",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Tendsto.prodMk",
+      "declarations": [],
+      "call_turn": 66,
+      "result_turn": 67
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "tendsto pair to product nhds Tendsto.prod_mk",
+      "declarations": [
+        "Lean.Expr.prod",
+        "Prod",
+        "Filter.Tendsto.prodMk_nhds",
+        "Filter.Tendsto.prodMk",
+        "Filter.Tendsto.prodMap_nhds",
+        "Lean.Meta.mkPProdMk",
+        "Lean.Expr.ProdTree.pack",
+        "Lean.Meta.mkProdN",
+        "TendstoUniformly.prodMk",
+        "tendsto_nhds"
+      ],
+      "call_turn": 68,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "tendsto_nhds_unique",
+      "declarations": [
+        "tendsto_nhds_unique"
+      ],
+      "call_turn": 70,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "tendsto_zero_iff_abs_tendsto_zero",
+      "declarations": [
+        "tendsto_zero_iff_abs_tendsto_zero"
+      ],
+      "call_turn": 84,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "isClosed_eq",
+      "declarations": [
+        "isClosed_eq"
+      ],
+      "call_turn": 120,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "setOf_forall",
+      "declarations": [],
+      "call_turn": 122,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "disjoint_compl_left",
+      "declarations": [
+        "disjoint_compl_left"
+      ],
+      "call_turn": 124,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal",
+      "declarations": [
+        "ENNReal.ofReal",
+        "ENNReal.coe_nnreal_eq",
+        "ENNReal.ofNNReal_toNNReal",
+        "ENNReal.ofReal_coe_nnreal",
+        "ENNReal.ofReal_ne_top",
+        "ENNReal.top_ne_ofReal",
+        "ENNReal.ofReal_toReal_le",
+        "ENNReal.ofReal_lt_top",
+        "ENNReal.ofReal_toReal",
+        "ENNReal.ofReal_toReal_eq_iff"
+      ],
+      "call_turn": 134,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "eq_or_eq_neg_of_abs_eq",
+      "declarations": [
+        "eq_or_eq_neg_of_abs_eq"
+      ],
+      "call_turn": 142,
+      "result_turn": 143
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 39,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 38,
+    "accepted_helper_count": 7,
+    "rollout_tool_call_count": 77,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

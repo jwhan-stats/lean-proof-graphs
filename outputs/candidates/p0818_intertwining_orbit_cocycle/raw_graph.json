@@ -1,0 +1,262 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0818_intertwining_orbit_cocycle.intertwining_orbit_cocycle",
+      "manifest": [
+        {
+          "statement": "1 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "1 ≤ n'",
+          "origin": "manifest",
+          "name": "hn'",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (g h : Γ), α 1 g h = 0",
+          "origin": "manifest",
+          "name": "hα₁",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "∀ (g h : Γ), α g 1 h = 0",
+          "origin": "manifest",
+          "name": "hα₂",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (g h : Γ), α g h 1 = 0",
+          "origin": "manifest",
+          "name": "hα₃",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (g h k l : Γ), g • α h k l - α (g * h) k l + α g (h * k) l - α g h (k * l) + α g h k = 0",
+          "origin": "manifest",
+          "name": "hαcocycle",
+          "fvar_id": "15"
+        },
+        {
+          "statement": "∀ (g : Γ) (u : A) (i : Fin n), β (g • u) i = β u ((ρ g)⁻¹ i)",
+          "origin": "manifest",
+          "name": "hβequiv",
+          "fvar_id": "18"
+        },
+        {
+          "statement": "∀ (g : Γ) (u : A) (i' : Fin n'), β' (g • u) i' = β' u ((ρ' g)⁻¹ i')",
+          "origin": "manifest",
+          "name": "hβ'equiv",
+          "fvar_id": "19"
+        },
+        {
+          "statement": "∀ (g : Γ) (i : Fin n), c 1 g i = 1",
+          "origin": "manifest",
+          "name": "hc₁",
+          "fvar_id": "22"
+        },
+        {
+          "statement": "∀ (g : Γ) (i : Fin n), c g 1 i = 1",
+          "origin": "manifest",
+          "name": "hc₂",
+          "fvar_id": "23"
+        },
+        {
+          "statement": "∀ (g : Γ) (i' : Fin n'), c' 1 g i' = 1",
+          "origin": "manifest",
+          "name": "hc'₁",
+          "fvar_id": "24"
+        },
+        {
+          "statement": "∀ (g : Γ) (i' : Fin n'), c' g 1 i' = 1",
+          "origin": "manifest",
+          "name": "hc'₂",
+          "fvar_id": "25"
+        },
+        {
+          "statement": "∀ (g h k : Γ) (i : Fin n),\n  c h k ((ρ g)⁻¹ i) * (c (g * h) k i)⁻¹ * c g (h * k) i * (c g h i)⁻¹ = Additive.toMul (β (α g h k) i)",
+          "origin": "manifest",
+          "name": "hcob",
+          "fvar_id": "26"
+        },
+        {
+          "statement": "∀ (g h k : Γ) (i' : Fin n'),\n  c' h k ((ρ' g)⁻¹ i') * (c' (g * h) k i')⁻¹ * c' g (h * k) i' * (c' g h i')⁻¹ = Additive.toMul (β' (α g h k) i')",
+          "origin": "manifest",
+          "name": "hcob'",
+          "fvar_id": "27"
+        },
+        {
+          "statement": "∃ p₀, O = {p | ∃ g, p = ((ρ' g)⁻¹ p₀.1, (ρ g)⁻¹ p₀.2)}",
+          "origin": "manifest",
+          "name": "hO",
+          "fvar_id": "29"
+        },
+        {
+          "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2",
+          "origin": "manifest",
+          "name": "hintertwine",
+          "fvar_id": "30"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹;\n(∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧\n  (∀ (g h k : Γ) (p : ↑O),\n      c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧\n    ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ),\n      (∀ (i : Fin n), x 1 i = 1) →\n        (∀ (i' : Fin n'), x' 1 i' = 1) →\n          let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i;\n          let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i';\n          let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹;\n          ∀ (g h : Γ) (p : ↑O),\n            c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ =\n              z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹;\n(∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧\n  (∀ (g h k : Γ) (p : ↑O),\n      c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧\n    ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ),\n      (∀ (i : Fin n), x 1 i = 1) →\n        (∀ (i' : Fin n'), x' 1 i' = 1) →\n          let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i;\n          let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i';\n          let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹;\n          ∀ (g h : Γ) (p : ↑O),\n            c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ =\n              z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.trans",
+          "Rollout_p0818_intertwining_orbit_cocycle.coboundary_factor_identity",
+          "Rollout_p0818_intertwining_orbit_cocycle.orbit_factor_identity",
+          "Subtype.property",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "eq_self",
+          "inv_one",
+          "mul_inv_cancel",
+          "mul_one",
+          "of_eq_true"
+        ],
+        "premises": [
+          {
+            "statement": "∀ (g : Γ) (i : Fin n), c 1 g i = 1",
+            "origin": "local_assumption",
+            "name": "hc₁",
+            "fvar_id": "22"
+          },
+          {
+            "statement": "∀ (g : Γ) (i : Fin n), c g 1 i = 1",
+            "origin": "local_assumption",
+            "name": "hc₂",
+            "fvar_id": "23"
+          },
+          {
+            "statement": "∀ (g : Γ) (i' : Fin n'), c' 1 g i' = 1",
+            "origin": "local_assumption",
+            "name": "hc'₁",
+            "fvar_id": "24"
+          },
+          {
+            "statement": "∀ (g : Γ) (i' : Fin n'), c' g 1 i' = 1",
+            "origin": "local_assumption",
+            "name": "hc'₂",
+            "fvar_id": "25"
+          },
+          {
+            "statement": "∀ (g h k : Γ) (i : Fin n),\n  c h k ((ρ g)⁻¹ i) * (c (g * h) k i)⁻¹ * c g (h * k) i * (c g h i)⁻¹ = Additive.toMul (β (α g h k) i)",
+            "origin": "local_assumption",
+            "name": "hcob",
+            "fvar_id": "26"
+          },
+          {
+            "statement": "∀ (g h k : Γ) (i' : Fin n'),\n  c' h k ((ρ' g)⁻¹ i') * (c' (g * h) k i')⁻¹ * c' g (h * k) i' * (c' g h i')⁻¹ = Additive.toMul (β' (α g h k) i')",
+            "origin": "local_assumption",
+            "name": "hcob'",
+            "fvar_id": "27"
+          },
+          {
+            "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2",
+            "origin": "local_assumption",
+            "name": "hintertwine",
+            "fvar_id": "30"
+          }
+        ],
+        "parent": "Rollout_p0818_intertwining_orbit_cocycle.intertwining_orbit_cocycle",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let z := fun g h p => c' g h (↑p).1 * (c g h (↑p).2)⁻¹;\n(∀ (g : Γ) (p : ↑O), z 1 g p = 1 ∧ z g 1 p = 1) ∧\n  (∀ (g h k : Γ) (p : ↑O),\n      c' h k ((ρ' g)⁻¹ (↑p).1) * (c h k ((ρ g)⁻¹ (↑p).2))⁻¹ * (z (g * h) k p)⁻¹ * z g (h * k) p * (z g h p)⁻¹ = 1) ∧\n    ∀ (x : Γ → Fin n → ℂˣ) (x' : Γ → Fin n' → ℂˣ),\n      (∀ (i : Fin n), x 1 i = 1) →\n        (∀ (i' : Fin n'), x' 1 i' = 1) →\n          let δx := fun g h i => x h ((ρ g)⁻¹ i) * (x (g * h) i)⁻¹ * x g i;\n          let δx' := fun g h i' => x' h ((ρ' g)⁻¹ i') * (x' (g * h) i')⁻¹ * x' g i';\n          let y := fun g p => x' g (↑p).1 * (x g (↑p).2)⁻¹;\n          ∀ (g h : Γ) (p : ↑O),\n            c' g h (↑p).1 * δx' g h (↑p).1 * (c g h (↑p).2 * δx g h (↑p).2)⁻¹ =\n              z g h p * (x' h ((ρ' g)⁻¹ (↑p).1) * (x h ((ρ g)⁻¹ (↑p).2))⁻¹ * (y (g * h) p)⁻¹ * y g p)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "Additive.toMul (β' (α g h k) (↑p).1) = Additive.toMul (β (α g h k) (↑p).2)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Subtype.property",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ p ∈ O, ∀ (u : A), β' u p.1 = β u p.2",
+          "origin": "local_assumption",
+          "name": "hintertwine",
+          "fvar_id": "_uniq.1009184"
+        }
+      ],
+      "parent": "Rollout_p0818_intertwining_orbit_cocycle.intertwining_orbit_cocycle",
+      "id": "local_157",
+      "conclusion": {
+        "statement": "Additive.toMul (β' (α g h k) (↑p).1) = Additive.toMul (β (α g h k) (↑p).2)",
+        "origin": "derived",
+        "name": "hβ",
+        "fvar_id": "_uniq.1011235"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p0818_intertwining_orbit_cocycle",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0818_intertwining_orbit_cocycle.intertwining_orbit_cocycle",
+    "proof_sha256": "9be86f99c61a6854a7b02c50afff54eb32bfd23a779654cc953a427e092b96ec"
+  }
+}

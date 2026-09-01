@@ -1,0 +1,225 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1925_exists_coloring_increasing_pairs",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1925,
+    "source": "2107.05136",
+    "theorem_name": "exists_coloring_increasing_pairs",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1925",
+    "reconstructed_proof": "../../candidates/p1925_exists_coloring_increasing_pairs/proof.lean",
+    "raw_elaboration": "../../candidates/p1925_exists_coloring_increasing_pairs/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1925_exists_coloring_increasing_pairs.exists_coloring_increasing_pairs",
+    "verification_call_id": "verify_submission:2",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "3f6427c70203b3e4c6d2749063d02e365dd26f2c1c125c6c882c4d8315e787fc",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "8edc60095990e740de4800b836520db10bcd0f3288307c0836bb6a845c325160",
+    "concrete_semantic_topology_sha256": "3f6427c70203b3e4c6d2749063d02e365dd26f2c1c125c6c882c4d8315e787fc"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ c, (∀ (n m : ℕ), n < m → c (n, m) < m) ∧ ∀ (n k : ℕ) (B : Set ℕ), B.Infinite → ∃ m ∈ B, n < m ∧ k ≤ c (n, m)"
+    },
+    {
+      "id": "n_this_48da2a54",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.952",
+      "statement": "k ≤ max n k"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_this",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_this_48da2a54",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_0",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.952",
+            "name": "this",
+            "statement": "k ≤ max n k"
+          }
+        },
+        "lean_dependency_sha256": "0f9da5cbe2bda3ed35851ed489df1ef376359dde6bac45dab48aac1c3907624a",
+        "kernel_witness_check": {
+          "proof_type": "k ≤ max n k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.le_max_left + Nat.le_max_right + Set.Infinite.exists_gt",
+        "items": [
+          "Nat.le_max_left",
+          "Nat.le_max_right",
+          "Set.Infinite.exists_gt",
+          "lt_of_le_of_lt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.le_max_left",
+          "Nat.le_max_right",
+          "Set.Infinite.exists_gt",
+          "lt_of_le_of_lt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro n m h\n    show m - 1 < m\n    omega\n  · intro n k B hB\n    obtain ⟨m, hmB, hm⟩ := hB.exists_gt (max n k)\n    refine ⟨m, hmB, lt_of_le_of_lt (Nat.le_max_left n k) hm, ?_⟩\n    show k ≤ m - 1\n    have := Nat.le_max_right n k\n    omega",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ c, (∀ (n m : ℕ), n < m → c (n, m) < m) ∧ ∀ (n k : ℕ) (B : Set ℕ), B.Infinite → ∃ m ∈ B, n < m ∧ k ≤ c (n, m)"
+          }
+        },
+        "lean_dependency_sha256": "9b12bc3a87df95f2dde9099a412fc9a62580c23fdc0bcb7edd353bfe44805c3d",
+        "kernel_witness_check": {
+          "proof_type": "∃ c, (∀ (n m : ℕ), n < m → c (n, m) < m) ∧ ∀ (n k : ℕ) (B : Set ℕ), B.Infinite → ∃ m ∈ B, n < m ∧ k ≤ c (n, m)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.Infinite.exists_gt"
+        ],
+        "observed_search_event_ids": [
+          "loogle:0"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Set.Infinite.exists_gt",
+      "declarations": [
+        "Set.Infinite.exists_gt"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 1,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 0,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 3,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

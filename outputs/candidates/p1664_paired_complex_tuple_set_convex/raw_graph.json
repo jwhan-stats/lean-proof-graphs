@@ -1,0 +1,353 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "manifest": [
+        {
+          "statement": "0 < l",
+          "origin": "manifest",
+          "name": "hl",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "0 < m",
+          "origin": "manifest",
+          "name": "hm",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "Function.Involutive σ",
+          "origin": "manifest",
+          "name": "hσ_involutive",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ (i : Fin (l + m)), σ i ≠ i",
+          "origin": "manifest",
+          "name": "hσ_fixedPointFree",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "ζ ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+          "origin": "manifest",
+          "name": "hζ",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "η ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+          "origin": "manifest",
+          "name": "hη",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "0 ≤ a",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "0 ≤ b",
+          "origin": "manifest",
+          "name": "hb",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "a + b = 1",
+          "origin": "manifest",
+          "name": "hab",
+          "fvar_id": "15"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "(∀ (i : Fin (l + m)), (a • ζ + b • η) i = (a • ζ + b • η) (σ i)) ∧\n  (∀ (i : Fin (l + m)), 0 < ((a • ζ + b • η) i).re) ∧\n    (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, (a • ζ + b • η) k).im) ∧\n      (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, (a • ζ + b • η) k).im < 0) ∧\n        ∑ k with ↑k < l, (a • ζ + b • η) k = ∑ k with l ≤ ↑k, (a • ζ + b • η) k",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∀ (i : Fin (l + m)), (a • ζ + b • η) i = (a • ζ + b • η) (σ i)) ∧\n  (∀ (i : Fin (l + m)), 0 < ((a • ζ + b • η) i).re) ∧\n    (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, (a • ζ + b • η) k).im) ∧\n      (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, (a • ζ + b • η) k).im < 0) ∧\n        ∑ k with ↑k < l, (a • ζ + b • η) k = ∑ k with l ≤ ↑k, (a • ζ + b • η) k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Complex.im_sum",
+          "Eq.symm",
+          "Eq.trans",
+          "Finset.mul_sum",
+          "Finset.sum_add_distrib",
+          "Finset.sum_congr",
+          "MulZeroClass.zero_mul",
+          "Rollout_p1664_paired_complex_tuple_set_convex.strict_combination_neg",
+          "Rollout_p1664_paired_complex_tuple_set_convex.strict_combination_pos",
+          "add_zero",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "eq_self",
+          "of_eq_true",
+          "sub_zero"
+        ],
+        "premises": [
+          {
+            "statement": "ζ ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+            "origin": "local_assumption",
+            "name": "hζ",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "η ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+            "origin": "local_assumption",
+            "name": "hη",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "0 ≤ a",
+            "origin": "local_assumption",
+            "name": "ha",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "0 ≤ b",
+            "origin": "local_assumption",
+            "name": "hb",
+            "fvar_id": "14"
+          },
+          {
+            "statement": "a + b = 1",
+            "origin": "local_assumption",
+            "name": "hab",
+            "fvar_id": "15"
+          }
+        ],
+        "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∀ (i : Fin (l + m)), (a • ζ + b • η) i = (a • ζ + b • η) (σ i)) ∧\n  (∀ (i : Fin (l + m)), 0 < ((a • ζ + b • η) i).re) ∧\n    (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, (a • ζ + b • η) k).im) ∧\n      (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, (a • ζ + b • η) k).im < 0) ∧\n        ∑ k with ↑k < l, (a • ζ + b • η) k = ∑ k with l ≤ ↑k, (a • ζ + b • η) k",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "ζ i = ζ (σ i)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left"
+      ],
+      "premises": [
+        {
+          "statement": "ζ ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+          "origin": "local_assumption",
+          "name": "hζ",
+          "fvar_id": "_uniq.670769"
+        }
+      ],
+      "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "id": "local_68",
+      "conclusion": {
+        "statement": "ζ i = ζ (σ i)",
+        "origin": "derived",
+        "name": "hzi",
+        "fvar_id": "_uniq.670810"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "η i = η (σ i)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left"
+      ],
+      "premises": [
+        {
+          "statement": "η ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+          "origin": "local_assumption",
+          "name": "hη",
+          "fvar_id": "_uniq.670775"
+        }
+      ],
+      "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "id": "local_69",
+      "conclusion": {
+        "statement": "η i = η (σ i)",
+        "origin": "derived",
+        "name": "hei",
+        "fvar_id": "_uniq.670819"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "ζ ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+          "origin": "local_assumption",
+          "name": "hζ",
+          "fvar_id": "_uniq.670769"
+        }
+      ],
+      "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "id": "local_70",
+      "conclusion": {
+        "statement": "∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k",
+        "origin": "derived",
+        "name": "hzsum",
+        "fvar_id": "_uniq.733120"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ k with ↑k < l, η k = ∑ k with l ≤ ↑k, η k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "η ∈\n  {ζ |\n    (∀ (i : Fin (l + m)), ζ i = ζ (σ i)) ∧\n      (∀ (i : Fin (l + m)), 0 < (ζ i).re) ∧\n        (∀ (i : ℕ), 1 ≤ i → i < l → 0 < (∑ k with ↑k < i, ζ k).im) ∧\n          (∀ (j : ℕ), 1 ≤ j → j < m → (∑ k with l ≤ ↑k ∧ ↑k < l + j, ζ k).im < 0) ∧\n            ∑ k with ↑k < l, ζ k = ∑ k with l ≤ ↑k, ζ k}",
+          "origin": "local_assumption",
+          "name": "hη",
+          "fvar_id": "_uniq.670775"
+        }
+      ],
+      "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "id": "local_71",
+      "conclusion": {
+        "statement": "∑ k with ↑k < l, η k = ∑ k with l ≤ ↑k, η k",
+        "origin": "derived",
+        "name": "hηsum",
+        "fvar_id": "_uniq.733134"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ k with ↑k < l, (a • ζ + b • η) k = ↑a * ∑ k with ↑k < l, ζ k + ↑b * ∑ k with ↑k < l, η k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.mul_sum",
+        "Finset.sum_add_distrib",
+        "Finset.sum_congr",
+        "congr",
+        "congrArg",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "id": "local_72",
+      "conclusion": {
+        "statement": "∑ k with ↑k < l, (a • ζ + b • η) k = ↑a * ∑ k with ↑k < l, ζ k + ↑b * ∑ k with ↑k < l, η k",
+        "origin": "derived",
+        "name": "hleft",
+        "fvar_id": "_uniq.736090"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ k with l ≤ ↑k, (a • ζ + b • η) k = ↑a * ∑ k with l ≤ ↑k, ζ k + ↑b * ∑ k with l ≤ ↑k, η k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Finset.mul_sum",
+        "Finset.sum_add_distrib",
+        "Finset.sum_congr",
+        "congr",
+        "congrArg",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+      "id": "local_73",
+      "conclusion": {
+        "statement": "∑ k with l ≤ ↑k, (a • ζ + b • η) k = ↑a * ∑ k with l ≤ ↑k, ζ k + ↑b * ∑ k with l ≤ ↑k, η k",
+        "origin": "derived",
+        "name": "hright",
+        "fvar_id": "_uniq.751874"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p1664_paired_complex_tuple_set_convex",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1664_paired_complex_tuple_set_convex.paired_complex_tuple_set_convex",
+    "proof_sha256": "3a40aae3bbd5d18b0cace7dde1732824229edf593609c335fcbdcc29088f16e5"
+  }
+}

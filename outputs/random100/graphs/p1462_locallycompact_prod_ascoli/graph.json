@@ -1,0 +1,856 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1462_locallycompact_prod_ascoli",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1462,
+    "source": "2004.00075",
+    "theorem_name": "locallyCompact_prod_ascoli",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1462",
+    "reconstructed_proof": "../../candidates/p1462_locallycompact_prod_ascoli/proof.lean",
+    "raw_elaboration": "../../candidates/p1462_locallycompact_prod_ascoli/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1462_locallycompact_prod_ascoli.locallyCompact_prod_ascoli",
+    "verification_call_id": "verify_submission:51",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "2ae746cbc6be46666faafa2b65013d41608ef6d88274e4b722e55de0f80ebd1f",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "c04cb727fa9ee8afa42aeb2fb1ddb7258c69ff426fd3fd8c38db96d85aaeddc2",
+    "concrete_semantic_topology_sha256": "2ae746cbc6be46666faafa2b65013d41608ef6d88274e4b722e55de0f80ebd1f"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hk_54f4d6a9",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hK",
+      "lean_fvar_id": "9",
+      "statement": "IsCompact K"
+    },
+    {
+      "id": "m_hx_983cbb6c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hX",
+      "lean_fvar_id": "7",
+      "statement": "∀ (K : Set C(X, ℝ)), IsCompact K → Continuous fun p => ↑p.1 p.2"
+    },
+    {
+      "id": "m_inst___proofs_2729584061_2aefb827",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.2729584061._hygCtx._hyg.7",
+      "lean_fvar_id": "3",
+      "statement": "T35Space Z"
+    },
+    {
+      "id": "m_inst___proofs_2729584061_8b1e803e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.2729584061._hygCtx._hyg.10",
+      "lean_fvar_id": "4",
+      "statement": "LocallyCompactSpace Z"
+    },
+    {
+      "id": "m_inst___proofs_2729584061_a6888cda",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "inst._@.proofs.2729584061._hygCtx._hyg.16",
+      "lean_fvar_id": "6",
+      "statement": "T35Space X"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "Continuous fun p => ↑p.1 p.2"
+    },
+    {
+      "id": "n_h_018e27c2",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hΦ",
+      "lean_fvar_id": "11",
+      "statement": "Continuous Φ"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_2729584061_8b1e803e"
+      ],
+      "conclusion": "n_h_018e27c2",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "continuous_sectionMap_real",
+        "items": [
+          "Rollout_p1462_locallycompact_prod_ascoli.continuous_sectionMap_real"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1462_locallycompact_prod_ascoli.continuous_sectionMap_real"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_11",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hΦ : Continuous Φ := continuous_sectionMap_real Z X\n  rw [continuous_iff_continuousAt]\n  rintro ⟨f, ⟨z, x⟩⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "inst._@.proofs.2729584061._hygCtx._hyg.10",
+              "statement": "LocallyCompactSpace Z"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "11",
+            "name": "hΦ",
+            "statement": "Continuous Φ"
+          }
+        },
+        "lean_dependency_sha256": "fe4baacd4e4301fca615b6cc0b74bc317957018942bc33d77888d9e5b2bfd9f6",
+        "kernel_witness_check": {
+          "proof_type": "Continuous fun p => { toFun := fun x => p.1 (p.2, x), continuous_toFun := ⋯ }",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_2729584061_8b1e803e",
+        "m_hx_983cbb6c",
+        "m_hk_54f4d6a9",
+        "n_h_018e27c2"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Continuous.comp + Continuous.continuousAt + Continuous.prodMk",
+        "items": [
+          "Continuous.comp",
+          "Continuous.continuousAt",
+          "Continuous.prodMk",
+          "IsOpen.isOpenEmbedding_subtypeVal",
+          "Topology.IsOpenEmbedding.continuousAt_iff",
+          "continuous_iff_continuousAt",
+          "exists_compact_subset"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Continuous.comp",
+          "Continuous.continuousAt",
+          "Continuous.prodMk",
+          "IsOpen.isOpenEmbedding_subtypeVal",
+          "Topology.IsOpenEmbedding.continuousAt_iff",
+          "continuous_iff_continuousAt",
+          "exists_compact_subset"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact (hS.isOpenEmbedding_subtypeVal.continuousAt_iff (x := ps)).mp\n    (hloc'.continuousAt (x := ps))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "inst._@.proofs.2729584061._hygCtx._hyg.10",
+              "statement": "LocallyCompactSpace Z"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hX",
+              "statement": "∀ (K : Set C(X, ℝ)), IsCompact K → Continuous fun p => ↑p.1 p.2"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hK",
+              "statement": "IsCompact K"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hΦ",
+              "statement": "Continuous Φ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "Continuous fun p => ↑p.1 p.2"
+          }
+        },
+        "lean_dependency_sha256": "6176efff08643202903b80e19432e6649368449377f91c923ec43d22460f4700",
+        "kernel_witness_check": {
+          "proof_type": "Continuous fun p => ↑p.1 p.2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Continuous.comp",
+          "Continuous.continuousAt",
+          "Continuous.prodMk",
+          "IsOpen.isOpenEmbedding_subtypeVal",
+          "Topology.IsOpenEmbedding.continuousAt_iff",
+          "continuous_iff_continuousAt",
+          "exists_compact_subset"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:25",
+          "leanfinder:21",
+          "loogle:33",
+          "leanfinder:43",
+          "loogle:24",
+          "loogle:22",
+          "leanfinder:14"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "ContinuousMap.curry",
+      "declarations": [
+        "ContinuousMap.curry",
+        "ContinuousMap.continuous_curry",
+        "ContinuousMap.curry_apply",
+        "GenLoop.currySum_apply_coe",
+        "GenLoop.toLoop_apply_coe"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "continuous map curry compact open topology product locally compact",
+      "declarations": [
+        "ContinuousMap.compactOpen_eq",
+        "IsCompact",
+        "ContinuousMap.compactOpen",
+        "Homeomorph.curry",
+        "ContinuousMap.uncurry",
+        "ContinuousMap.instContinuousMulOfLocallyCompactSpace",
+        "Topology.IsOpenEmbedding.locallyCompactSpace",
+        "ContinuousMap.continuous_curry",
+        "ContinuousMap.continuous_comp'",
+        "ContinuousMap.continuous_compactOpen"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "C((_ × _), _) ≃ C(_, C(_, _))",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "evaluation map compact subset continuous maps compact open topology",
+      "declarations": [
+        "TopologicalSpace.CompactOpens.toCompacts_map",
+        "ContinuousMap.compactOpen_eq",
+        "ContinuousMap.compactOpen_le_induced",
+        "ContinuousMap.compactOpen",
+        "ContinuousMap.nhds_compactOpen",
+        "IsCompact",
+        "ContinuousMap.isOpen_setOf_mapsTo",
+        "ContinuousMap.eventually_mapsTo",
+        "ContinuousMap.continuous_compactOpen",
+        "ContinuousMap.tendsto_nhds_compactOpen"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "Ascoli space locally compact product Ascoli",
+      "declarations": [
+        "Function.locallyCompactSpace",
+        "Pi.locallyCompactSpace_of_finite",
+        "ArzelaAscoli.isCompact_of_equicontinuous",
+        "Pi.locallyCompactSpace",
+        "Prod.locallyCompactSpace",
+        "LocallyCompactSpace",
+        "ArzelaAscoli.isCompact_closure_of_isClosedEmbedding",
+        "BoundedContinuousFunction.arzela_ascoli",
+        "ArzelaAscoli.compactSpace_of_closed_inducing'",
+        "ArzelaAscoli.compactSpace_of_isClosedEmbedding"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "ascoli",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "k-space product locally compact compact open evaluation",
+      "declarations": [
+        "WeaklyLocallyCompactSpace.locallyCompactSpace",
+        "Pi.compactSpace",
+        "Pi.locallyCompactSpace",
+        "ContinuousMap.ker_evalStarAlgHom_eq_closure_adjoin_id",
+        "Prod.locallyCompactSpace",
+        "instCompactSpaceProd",
+        "IsOpen.locallyCompactSpace",
+        "LocallyCompactSpace",
+        "CompactSpace",
+        "WeaklyLocallyCompactSpace"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "Tychonoff space Stone Cech compactification continuous map extension real functions",
+      "declarations": [
+        "stoneCechExtend",
+        "isDenseEmbedding_stoneCechUnit",
+        "continuous_stoneCechUnit",
+        "continuous_stoneCechExtend",
+        "stoneCechUnit",
+        "ContinuousMap.realToRCLike",
+        "StoneCech",
+        "preStoneCechExtend_extends",
+        "TietzeExtension",
+        "Algebra.Extension.CotangentSpace.map"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "KSpace",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "CompactlyGeneratedSpace",
+      "declarations": [
+        "CompactlyGeneratedSpace",
+        "to_compactlyCoherentSpace",
+        "instCompactlyGeneratedSpaceOfWeaklyLocallyCompactSpace",
+        "of_compactlyCoherentSpace_of_t2",
+        "instCompactlyGeneratedSpaceSigma",
+        "CompactlyGeneratedSpace.isClosed",
+        "CompactlyGeneratedSpace.isOpen",
+        "compactlyGeneratedSpace_of_coinduced",
+        "compactlyGeneratedSpace_of_isClosed_of_t2",
+        "CompactlyGeneratedSpace.isClosed_iff_of_t2"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "compactly generated k-space product locally compact",
+      "declarations": [
+        "TopologicalSpace.compactlyGenerated",
+        "instCompactlyGeneratedSpaceOfWeaklyLocallyCompactSpace",
+        "CompactlyGeneratedSpace",
+        "CompactlyGenerated",
+        "Pi.locallyCompactSpace",
+        "Pi.compactSpace",
+        "CompactlyCoherentSpace.of_weaklyLocallyCompactSpace",
+        "LocallyCompactSpace",
+        "RestrictedProduct.instWeaklyLocallyCompactSpacePrincipalOfFactLeFilterCofiniteOfCompactSpaceElem",
+        "RestrictedProduct.weaklyLocallyCompactSpace_of_principal"
+      ],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "compactly generated space evaluation compact open continuous",
+      "declarations": [
+        "compactlyGeneratedSpace_of_continuous_maps",
+        "CompactlyGeneratedSpace",
+        "CompactlyGeneratedSpace.isOpen",
+        "uCompactlyGeneratedSpace_of_isOpen",
+        "CompactlyGeneratedSpace.isOpen'",
+        "CompactSpace",
+        "compactlyGeneratedSpace_of_isOpen",
+        "uCompactlyGeneratedSpace_of_continuous_maps",
+        "uCompactlyGeneratedSpace_of_isClosed",
+        "continuous_from_compactlyGeneratedSpace"
+      ],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "locally compact exists compact neighborhood contained in open set",
+      "declarations": [
+        "IsOpen.exists_lt_isCompact",
+        "IsCompact.exists_isOpen_closure_subset",
+        "IsCompact",
+        "exists_compact_between",
+        "compact_exists_isClopen_in_isOpen",
+        "exists_compact_closed_between",
+        "exists_compact_subset",
+        "exists_mem_nhdsSet_isCompact_mapsTo",
+        "IsOpen.locallyCompactSpace",
+        "exists_idempotent_in_compact_subsemigroup"
+      ],
+      "call_turn": 21,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "LocallyCompactSpace _ -> _ ∈ 𝓝 _ -> ∃ _, IsCompact _",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "IsCompact _ ∧ _ ∈ 𝓝 _ ∧ _ ⊆ _",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "exists_compact",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "ContinuousOn _ _ -> Continuous _",
+      "declarations": [
+        "ContinuousOn.restrict",
+        "ContinuousOn.comp_continuous",
+        "ContinuousOn.mapsToRestrict",
+        "continuous_piecewise",
+        "continuous_if",
+        "continuous_if'",
+        "continuous_if_le",
+        "ContinuousOn.continuous_of_mulTSupport_subset",
+        "ContinuousOn.continuous_of_tsupport_subset",
+        "ContinuousMap.continuous_mkD_restrict_of_uncurry"
+      ],
+      "call_turn": 26,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "ContinuousAt _ _ -> Continuous _",
+      "declarations": [
+        "continuous_of_continuousAt_one",
+        "continuous_of_continuousAt_zero",
+        "Seminorm.continuous_of_continuousAt_zero"
+      ],
+      "call_turn": 26,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:20",
+      "tool": "leanfinder",
+      "query": "function continuous if continuous on a family of open sets covering space",
+      "declarations": [
+        "ContinuousOn.if",
+        "IsCoveringMapOn.continuousOn",
+        "ContinuousOn",
+        "ContinuousOn.if'",
+        "ContinuousMap.uniformSpace_eq_iInf_precomp_of_cover",
+        "UniformOnFun.isClosed_setOf_continuous",
+        "WithBot.continuousOn_unbotA",
+        "continuousOn_open_iff",
+        "continuous_of_continuousOn_iUnion_of_isOpen",
+        "LocallyFinite.continuous'"
+      ],
+      "call_turn": 26,
+      "result_turn": 29
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "continuous at restriction open neighborhood continuous map subtype",
+      "declarations": [
+        "Continuous.subtype_map",
+        "IsOpenMap.map_nhds_eq",
+        "ContinuousAt",
+        "ContinuousOpenMap",
+        "ContinuousMap.continuousAt",
+        "Topology.IsOpenMap.isStrictMap",
+        "continuousAt_subtype_val",
+        "TopologicalSpace.IsOpenCover.isOpenMap_iff_restrictPreimage",
+        "ContinuousMap.eventually_mapsTo",
+        "map_continuousAt"
+      ],
+      "call_turn": 26,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Continuous _ ↔ ∀ _, ContinuousAt _ _",
+      "declarations": [
+        "continuous_iff_continuousAt"
+      ],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "IsOpenMap _ -> ContinuousAt (_ ∘ _) _ -> ContinuousAt _ _",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "ContinuousAt (_ ∘ _) _ ↔ ContinuousAt _ _",
+      "declarations": [
+        "Topology.IsOpenEmbedding.continuousAt_iff",
+        "Topology.IsInducing.continuousAt_iff'",
+        "Homeomorph.comp_continuousAt_iff",
+        "Homeomorph.comp_continuousAt_iff'",
+        "IsOpenQuotientMap.continuousAt_comp_iff"
+      ],
+      "call_turn": 33,
+      "result_turn": 35
+    },
+    {
+      "event_id": "leanfinder:25",
+      "tool": "leanfinder",
+      "query": "open map continuous at composition iff continuous at",
+      "declarations": [
+        "ContinuousOpenMap.comp",
+        "ContinuousAt.comp",
+        "ContinuousMap.continuousAt",
+        "Continuous.continuousAt",
+        "ContinuousAt",
+        "ContinuousAt.compCM",
+        "Continuous.comp'",
+        "Continuous.compCM",
+        "map_continuousAt",
+        "continuous_iff_continuousAt"
+      ],
+      "call_turn": 33,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "IsOpenMap.continuousAt",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 37
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "compact set point product neighborhood open contains product neighborhood tube lemma",
+      "declarations": [
+        "pi_Ico_mem_nhds",
+        "pi_Icc_mem_nhds",
+        "generalized_tube_lemma",
+        "pi_Ioo_mem_nhds",
+        "generalized_tube_lemma_left",
+        "TensorProduct",
+        "generalized_tube_lemma'",
+        "generalized_tube_lemma_right",
+        "dotProduct",
+        "pi_Ioc_mem_nhds'"
+      ],
+      "call_turn": 38,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "IsCompact _ -> IsOpen _ -> _ ×ˢ _ ⊆ _ -> ∃ _, IsOpen _",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "IsCompact.exists_",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 41
+    },
+    {
+      "event_id": "leanfinder:30",
+      "tool": "leanfinder",
+      "query": "generalized tube lemma compact product topological space",
+      "declarations": [
+        "generalized_tube_lemma",
+        "TopologicalSpace.CompactOpens",
+        "generalized_tube_lemma'",
+        "TopologicalSpace.CompactOpens.instGeneralizedBooleanAlgebra",
+        "instCompactSpaceProd",
+        "generalized_tube_lemma_left",
+        "Pi.compactSpace",
+        "TopologicalSpace",
+        "generalized_tube_lemma_right",
+        "instT35SpaceForall"
+      ],
+      "call_turn": 38,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Continuous fun _ => (_, _)",
+      "declarations": [
+        "Continuous.prodMk_left",
+        "Continuous.prodMk_right",
+        "Continuous.prodMk",
+        "continuous_prodMk"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Continuous (Prod.mk _)",
+      "declarations": [
+        "Continuous.prodMk_right"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "continuous_prod_mk",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Continuous.prod_mk",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "IsOpenEmbedding.subtypeVal",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "isOpenEmbedding_subtypeVal",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "IsOpen _ -> IsOpenEmbedding Subtype.val",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "IsInducing.subtypeVal",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 60
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "open subset subtype inclusion open embedding",
+      "declarations": [
+        "IsOpen.isOpenMap_inclusion",
+        "TopologicalSpace.Opens.isOpenEmbedding'",
+        "Topology.IsOpenEmbedding.inclusion",
+        "IsOpen.isOpenEmbedding_subtypeVal",
+        "RestrictedProduct.isOpenEmbedding_inclusion_principal",
+        "IsOpenMap.subtype_map",
+        "openSegment_subset_segment",
+        "Topology.IsOpenEmbedding",
+        "Set.image_subtype_val_Iic_Iio",
+        "Set.image_subtype_val_Ici_Ioi"
+      ],
+      "call_turn": 61,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Topology.IsOpenEmbedding",
+      "declarations": [
+        "Topology.IsOpenEmbedding",
+        "Topology.IsOpenEmbedding.toIsEmbedding",
+        "Topology.IsOpenEmbedding.isOpen_range",
+        "Topology.IsOpenEmbedding.mk",
+        "Topology.isOpenEmbedding_iff",
+        "Topology.IsOpenEmbedding.id",
+        "Topology.IsOpenEmbedding.of_isEmpty",
+        "Topology.IsOpenEmbedding.continuous",
+        "Topology.IsOpenEmbedding.isEmbedding",
+        "Topology.IsOpenEmbedding.isInducing"
+      ],
+      "call_turn": 61,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "IsOpenEmbedding Subtype.val",
+      "declarations": [],
+      "call_turn": 61,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "OpenEmbedding.subtype",
+      "declarations": [],
+      "call_turn": 61,
+      "result_turn": 65
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 7,
+    "retrieval_query_count": 41,
+    "useful_retrieval_event_count": 7,
+    "unused_retrieval_event_count": 34,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 52,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

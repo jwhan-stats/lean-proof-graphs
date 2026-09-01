@@ -1,0 +1,10 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hn_3b365836" [shape=box, color="#178F82", label="hn\n0 < n"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet e := fun k T => ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε; e (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤ (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖"];
+  "r_h_goal" [shape=diamond, label="ENNReal.add_halves + ENNReal.add_lt_add + ENNReal.add_ne_top", color="#D97706"];
+  "m_hn_3b365836" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

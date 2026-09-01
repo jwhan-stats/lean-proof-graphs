@@ -1,0 +1,265 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1763_basel_series",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1763,
+    "source": "math_0506415",
+    "theorem_name": "basel_series",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1763",
+    "reconstructed_proof": "../../candidates/p1763_basel_series/proof.lean",
+    "raw_elaboration": "../../candidates/p1763_basel_series/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1763_basel_series.basel_series",
+    "verification_call_id": "verify_submission:7",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "2f0bedcf54f8c11e6853d12d594dd879fa3f5a8a0457c32c42442f518da051ce",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "27d6e2a31af617b052a5a45c12af67acb6f5cd97d1f50e11f9f56af379cee3cf",
+    "concrete_semantic_topology_sha256": "2f0bedcf54f8c11e6853d12d594dd879fa3f5a8a0457c32c42442f518da051ce"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"
+    },
+    {
+      "id": "n_h_7d33d1e8",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "h",
+      "lean_fvar_id": "0",
+      "statement": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_h_7d33d1e8",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "hasSum_nat_add_iff + hasSum_zeta_two",
+        "items": [
+          "hasSum_nat_add_iff",
+          "hasSum_zeta_two"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "hasSum_nat_add_iff",
+          "hasSum_zeta_two"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_0",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have h := (hasSum_nat_add_iff (f := fun n : ℕ => (1 : ℝ) / (n : ℝ) ^ 2) (g := Real.pi ^ 2 / 6) 1).mpr (by\n    simpa using hasSum_zeta_two)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "0",
+            "name": "h",
+            "statement": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"
+          }
+        },
+        "lean_dependency_sha256": "870db9ef54318d2efc3ff4ee54ca096008561828c3eff486ca7d7671525ba05a",
+        "kernel_witness_check": {
+          "proof_type": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "hasSum_zeta_two"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "leanfinder:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_h_7d33d1e8"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  simpa using h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "0",
+              "name": "h",
+              "statement": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)"
+          }
+        },
+        "lean_dependency_sha256": "4f6b8b7ce677c9ea0af264eed40905bc3e9fc17486daf4e3da828de1e539eba2",
+        "kernel_witness_check": {
+          "proof_type": "HasSum (fun n => 1 / ↑(n + 1) ^ 2) (Real.pi ^ 2 / 6)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "HasSum (fun n : ℕ => 1 / ((n + 1 : ℕ) : ℝ) ^ 2)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Real.pi ^ 2 / 6",
+      "declarations": [
+        "hasSum_zeta_two"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "Basel problem series reciprocal squares HasSum pi squared over six",
+      "declarations": [
+        "HasSum",
+        "hasSum_zeta_two",
+        "Real.sin_pi_div_six",
+        "hasSum_zeta_four",
+        "Real.cos_pi_div_six",
+        "Real.tan_pi_div_six",
+        "hasSum_pi_single",
+        "Nat.sum_four_squares",
+        "Fin.sum_univ_six",
+        "Pi.hasSum"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "summable 1 / _ ^ 2 Real.pi",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 4,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 2,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 8,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

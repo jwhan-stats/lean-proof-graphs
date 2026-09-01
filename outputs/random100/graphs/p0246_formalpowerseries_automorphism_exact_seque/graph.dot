@@ -1,0 +1,15 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hn_bb6a88ff" [shape=box, color="#178F82", label="hN\n2 ≤ N"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ Aut AutN, (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧ (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ AutN ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧ ∃ ι μ, (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧ (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧ (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧ Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN"];
+  "n_hnpos_a2ed0faf" [shape=box, color="#D97706", label="hNpos\n0 < N"];
+  "r_h_001_hnpos" [shape=diamond, label="proof_term_composition", color="#D97706"];
+  "m_hn_bb6a88ff" -> "r_h_001_hnpos";
+  "r_h_001_hnpos" -> "n_hnpos_a2ed0faf";
+  "r_h_goal" [shape=diamond, label="Nat.ne_of_gt + PowerSeries.expand_X + algEquiv_continuous", color="#D97706"];
+  "m_hn_bb6a88ff" -> "r_h_goal";
+  "n_hnpos_a2ed0faf" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_triangle_02f01459" [shape=box, color="#178F82", label="h_triangle\n∀ (A B C : { A // A.Finite }), (↑B).Nonempty → δ ⟨↑A ∪ ↑C, ⋯⟩ ≤ δ ⟨↑A ∪ ↑B, ⋯⟩ + δ ⟨↑B ∪ ↑C, ⋯⟩"];
+  "m_h_zero_48613167" [shape=box, color="#178F82", label="h_zero\n∀ (A : { A // A.Finite }), δ A = 0 ↔ (↑A).Subsingleton"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∃ m, ∀ (x y : X), dist x y = δ ⟨{x, y}, ⋯⟩) ∧ (∀ (A B : { A // A.Finite }), ↑A ⊆ ↑B → δ A ≤ δ B) ∧ ∀ (A B : { A // A.Finite }), (↑A ∩ ↑B).Nonempty → δ ⟨↑A ∪ ↑B, ⋯⟩ ≤ δ A + δ B"];
+  "r_h_goal" [shape=diamond, label="Rollout_p1971_finite_diversity_induces_metric.finite_diversity_mono + Rollout_p1971_finite_diversity_induces_metric.finite_diversity_pair_eq + Rollout_p1971_finite_diversity_induces_metric.finite_diversity_union_le", color="#D97706"];
+  "m_h_zero_48613167" -> "r_h_goal";
+  "m_h_triangle_02f01459" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

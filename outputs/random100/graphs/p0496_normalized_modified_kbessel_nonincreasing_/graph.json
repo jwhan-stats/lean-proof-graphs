@@ -1,0 +1,1319 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0496_normalized_modified_kbessel_nonincreasing_",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 496,
+    "source": "1611.07499",
+    "theorem_name": "normalized_modified_kBessel_nonincreasing_logConvex",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/496",
+    "reconstructed_proof": "../../candidates/p0496_normalized_modified_kbessel_nonincreasing_/proof.lean",
+    "raw_elaboration": "../../candidates/p0496_normalized_modified_kbessel_nonincreasing_/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.normalized_modified_kBessel_nonincreasing_logConvex",
+    "verification_call_id": "verify_submission:113",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "76e85da9bebe4ed58125c383835dd52ecbe6599bc93f9169392c1b938160e0ad",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "777d3d517d451ef8111c522e80b000064370d046d340bceb94f10fa5fce59070",
+    "concrete_semantic_topology_sha256": "76e85da9bebe4ed58125c383835dd52ecbe6599bc93f9169392c1b938160e0ad"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hk_f1bdabff",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hk",
+      "lean_fvar_id": "2",
+      "statement": "0 < k"
+    },
+    {
+      "id": "m_hx_a8401f9d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "3",
+      "statement": "0 < x"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let Γk := fun z => k ^ (z / k - 1) * Real.Gamma (z / k); let 𝓘 := fun ν => ∑' (r : ℕ), Γk (ν + k) / (Γk (↑r * k + ν + k) * 4 ^ r * ↑r.factorial) * x ^ (2 * r); (∀ ⦃ν μ : ℝ⦄, -k < ν → ν ≤ μ → 𝓘 μ ≤ 𝓘 ν) ∧ ∀ ⦃ν₁ ν₂ α : ℝ⦄, -k < ν₁ → -k < ν₂ → 0 ≤ α → α ≤ 1 → 𝓘 (α * ν₁ + (1 - α) * ν₂) ≤ 𝓘 ν₁ ^ α * 𝓘 ν₂ ^ (1 - α)"
+    },
+    {
+      "id": "n_h_0_9f39f5bd",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hα0",
+      "lean_fvar_id": "_uniq.3857994",
+      "statement": "¬α = 0"
+    },
+    {
+      "id": "n_h_1_e105aedf",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hα1",
+      "lean_fvar_id": "_uniq.3868829",
+      "statement": "¬α = 1"
+    },
+    {
+      "id": "n_h_30628070",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hν₁",
+      "lean_fvar_id": "_uniq.3856978",
+      "statement": "-k < ν₁"
+    },
+    {
+      "id": "n_h_6eac4852",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hμ",
+      "lean_fvar_id": "_uniq.3856083",
+      "statement": "-k < μ"
+    },
+    {
+      "id": "n_h_77835282",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hν₂",
+      "lean_fvar_id": "_uniq.3856981",
+      "statement": "-k < ν₂"
+    },
+    {
+      "id": "n_h_8608bbe4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hν",
+      "lean_fvar_id": "_uniq.3855962",
+      "statement": "-k < ν"
+    },
+    {
+      "id": "n_h_b00639d9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hα",
+      "lean_fvar_id": "_uniq.3856984",
+      "statement": "0 ≤ α"
+    },
+    {
+      "id": "n_h_efadddd7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hνμ",
+      "lean_fvar_id": "_uniq.3855965",
+      "statement": "ν ≤ μ"
+    },
+    {
+      "id": "n_h_fb4ff26d",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hα₁",
+      "lean_fvar_id": "_uniq.3856987",
+      "statement": "α ≤ 1"
+    },
+    {
+      "id": "n_h_lt_9ddb4ac5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hαlt",
+      "lean_fvar_id": "_uniq.3880456",
+      "statement": "α < 1"
+    },
+    {
+      "id": "n_h_pos_d99ee893",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hαpos",
+      "lean_fvar_id": "_uniq.3880019",
+      "statement": "0 < α"
+    },
+    {
+      "id": "n_hk_352e0ca7",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hk",
+      "lean_fvar_id": "_uniq.3855841",
+      "statement": "0 < k"
+    },
+    {
+      "id": "n_hmid_e57338d7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmid",
+      "lean_fvar_id": "_uniq.3880651",
+      "statement": "-k < α * ν₁ + (1 - α) * ν₂"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_8608bbe4",
+        "n_h_efadddd7"
+      ],
+      "conclusion": "n_h_6eac4852",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_lt_of_le",
+        "items": [
+          "lt_of_lt_of_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_lt_of_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_988",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hμ : -k < μ := lt_of_lt_of_le hν hνμ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3855962",
+              "name": "hν",
+              "statement": "-k < ν"
+            },
+            {
+              "fvar_id": "_uniq.3855965",
+              "name": "hνμ",
+              "statement": "ν ≤ μ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3856083",
+            "name": "hμ",
+            "statement": "-k < μ"
+          }
+        },
+        "lean_dependency_sha256": "71b5a681e5d56fc9ac500018881feddc509c50d5c15327a1747e662aa86af426",
+        "kernel_witness_check": {
+          "proof_type": "-k < μ",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_h_pos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_b00639d9",
+        "n_h_0_9f39f5bd"
+      ],
+      "conclusion": "n_h_pos_d99ee893",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_990",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3856984",
+              "name": "hα",
+              "statement": "0 ≤ α"
+            },
+            {
+              "fvar_id": "_uniq.3857994",
+              "name": "hα0",
+              "statement": "¬α = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3880019",
+            "name": "hαpos",
+            "statement": "0 < α"
+          }
+        },
+        "lean_dependency_sha256": "12ec56e5d5b9687ae84ff6e3590256cef59ba8e8c5ebe3a3ed89d702bbd36577",
+        "kernel_witness_check": {
+          "proof_type": "0 < α",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_h_lt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_fb4ff26d",
+        "n_h_1_e105aedf"
+      ],
+      "conclusion": "n_h_lt_9ddb4ac5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_of_le_of_ne",
+        "items": [
+          "lt_of_le_of_ne"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_of_le_of_ne"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_991",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hαlt : α < 1 := lt_of_le_of_ne hα₁ hα1",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3856987",
+              "name": "hα₁",
+              "statement": "α ≤ 1"
+            },
+            {
+              "fvar_id": "_uniq.3868829",
+              "name": "hα1",
+              "statement": "¬α = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3880456",
+            "name": "hαlt",
+            "statement": "α < 1"
+          }
+        },
+        "lean_dependency_sha256": "723c1619f537e73079293559ff423d1dae421445110fb8ec91ede0e5a4273092",
+        "kernel_witness_check": {
+          "proof_type": "α < 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hmid",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_352e0ca7",
+        "n_h_30628070",
+        "n_h_77835282",
+        "n_h_b00639d9",
+        "n_h_fb4ff26d"
+      ],
+      "conclusion": "n_hmid_e57338d7",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "kBessel_convexCombo_gt",
+        "items": [
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_convexCombo_gt"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_convexCombo_gt"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_992",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hmid : -k < α * ν₁ + (1 - α) * ν₂ :=\n          kBessel_convexCombo_gt hk hν₁ hν₂ hα hα₁",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3855841",
+              "name": "hk",
+              "statement": "0 < k"
+            },
+            {
+              "fvar_id": "_uniq.3856978",
+              "name": "hν₁",
+              "statement": "-k < ν₁"
+            },
+            {
+              "fvar_id": "_uniq.3856981",
+              "name": "hν₂",
+              "statement": "-k < ν₂"
+            },
+            {
+              "fvar_id": "_uniq.3856984",
+              "name": "hα",
+              "statement": "0 ≤ α"
+            },
+            {
+              "fvar_id": "_uniq.3856987",
+              "name": "hα₁",
+              "statement": "α ≤ 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3880651",
+            "name": "hmid",
+            "statement": "-k < α * ν₁ + (1 - α) * ν₂"
+          }
+        },
+        "lean_dependency_sha256": "90c330820e30b983dd8d2d9913b50a94826d86e327281d523a2281b0274ee975",
+        "kernel_witness_check": {
+          "proof_type": "-k < α * ν₁ + (1 - α) * ν₂",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hk_f1bdabff",
+        "m_hx_a8401f9d"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Ne.symm + kBessel_convexCombo_gt + kBessel_term_antitone",
+        "items": [
+          "Ne.symm",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_convexCombo_gt",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_term_antitone",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_term_logConvex",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_term_nonneg",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.summable_kBessel_term",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.tsum_logConvex_of_pointwise",
+          "Summable.tsum_le_tsum"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_convexCombo_gt",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_term_antitone",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_term_logConvex",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.kBessel_term_nonneg",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.summable_kBessel_term",
+          "Rollout_p0496_normalized_modified_kbessel_nonincreasing_.tsum_logConvex_of_pointwise"
+        ],
+        "mathlib_items": [
+          "Ne.symm",
+          "Summable.tsum_le_tsum"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · intro ν μ hν hνμ\n    have hμ : -k < μ := lt_of_lt_of_le hν hνμ\n    exact Summable.tsum_le_tsum\n      (fun r => kBessel_term_antitone hk hx.le hν hνμ r)\n      (summable_kBessel_term hk hx.le hμ)\n      (summable_kBessel_term hk hx.le hν)\n  · intro ν₁ ν₂ α hν₁ hν₂ hα hα₁\n    let t : ℝ → ℕ → ℝ := fun ν r =>\n      (k ^ ((ν + k) / k - 1) * Real.Gamma ((ν + k) / k)) /\n        ((k ^ (((r : ℝ) * k + ν + k) / k - 1) *\n          Real.Gamma (((r : ℝ) * k + ν + k) / k)) *\n          (4 : ℝ) ^ r * (r.factorial : ℝ)) * x ^ (2 * r)\n    change (∑' r : ℕ, t (α * ν₁ + (1 - α) * ν₂) r) ≤\n      (∑' r : ℕ, t ν₁ r) ^ α * (∑' r : ℕ, t ν₂ r) ^ (1 - α)\n    by_cases hα0 : α = 0\n    · subst α\n      simp [t]\n    · by_cases hα1 : α = 1\n      · subst α\n        simp [t]\n      · have hαpos : 0 < α := lt_of_le_of_ne hα (Ne.symm hα0)\n        have hαlt : α < 1 := lt_of_le_of_ne hα₁ hα1\n        have hmid : -k < α * ν₁ + (1 - α) * ν₂ :=\n          kBessel_convexCombo_gt hk hν₁ hν₂ hα hα₁\n        exact tsum_logConvex_of_pointwise (t := t) hαpos hαlt\n          (summable_kBessel_term hk hx.le hmid)\n          (summable_kBessel_term hk hx.le hν₁)\n          (summable_kBessel_term hk hx.le hν₂)\n          (fun r => kBessel_term_nonneg hk hx.le hmid r)\n          (fun r => kBessel_term_nonneg hk hx.le hν₁ r)\n          (fun r => kBessel_term_nonneg hk hx.le hν₂ r)\n          (fun r => kBessel_term_logConvex hk hx hν₁ hν₂ hα hα₁ r)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hk",
+              "statement": "0 < k"
+            },
+            {
+              "fvar_id": "3",
+              "name": "hx",
+              "statement": "0 < x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let Γk := fun z => k ^ (z / k - 1) * Real.Gamma (z / k); let 𝓘 := fun ν => ∑' (r : ℕ), Γk (ν + k) / (Γk (↑r * k + ν + k) * 4 ^ r * ↑r.factorial) * x ^ (2 * r); (∀ ⦃ν μ : ℝ⦄, -k < ν → ν ≤ μ → 𝓘 μ ≤ 𝓘 ν) ∧ ∀ ⦃ν₁ ν₂ α : ℝ⦄, -k < ν₁ → -k < ν₂ → 0 ≤ α → α ≤ 1 → 𝓘 (α * ν₁ + (1 - α) * ν₂) ≤ 𝓘 ν₁ ^ α * 𝓘 ν₂ ^ (1 - α)"
+          }
+        },
+        "lean_dependency_sha256": "d6101de0bc498dd5b3d8bdd5732a416c4b92213c1bfe7f86a06239a9c9617cce",
+        "kernel_witness_check": {
+          "proof_type": "let Γk := fun z => k ^ (z / k - 1) * Real.Gamma (z / k);\nlet 𝓘 := fun ν => ∑' (r : ℕ), Γk (ν + k) / (Γk (↑r * k + ν + k) * 4 ^ r * ↑r.factorial) * x ^ (2 * r);\n(∀ ⦃ν μ : ℝ⦄, -k < ν → ν ≤ μ → 𝓘 μ ≤ 𝓘 ν) ∧\n  ∀ ⦃ν₁ ν₂ α : ℝ⦄, -k < ν₁ → -k < ν₂ → 0 ≤ α → α ≤ 1 → 𝓘 (α * ν₁ + (1 - α) * ν₂) ≤ 𝓘 ν₁ ^ α * 𝓘 ν₂ ^ (1 - α)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Summable.tsum_le_tsum"
+        ],
+        "observed_search_event_ids": [
+          "loogle:26"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "LogConvex",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "log convex infinite sum",
+      "declarations": [
+        "tsum",
+        "infinite_sum",
+        "convex_multiset_sum",
+        "convex_sum",
+        "Real.Lp_add_le_tsum_of_nonneg'",
+        "ConcaveOn.le_map_sum",
+        "convexHull_sum",
+        "convex_list_sum",
+        "ConvexOn.map_sum_le",
+        "Convex.sum_mem"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "Hölder inequality tsum weighted sum powers",
+      "declarations": [
+        "tsum",
+        "DividedPowers.dpow_sum",
+        "NNReal.Lr_rpow_le_Lp_mul_Lq",
+        "NNReal.inner_le_weight_mul_Lp",
+        "tsum_eq_sum'",
+        "Real.Lr_rpow_le_Lp_mul_Lq_of_nonneg",
+        "Real.inner_le_Lp_mul_Lq_hasSum_of_nonneg",
+        "tsum_eq_sum",
+        "Summable.tsum_sum",
+        "DividedPowers.dpow_sum'"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "(_ ≤ _) ∧ LogConvex",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "tsum (_ ^ _) ≤ (tsum _) ^ _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Real.Gamma (_ + 1)",
+      "declarations": [
+        "Real.Gamma_nat_eq_factorial",
+        "Real.Gamma_add_one",
+        "integral_exp_neg_rpow",
+        "Complex.integral_exp_neg_rpow",
+        "integral_exp_neg_mul_rpow",
+        "Complex.integral_exp_neg_mul_rpow",
+        "MeasureTheory.volume_sum_rpow_lt_one",
+        "MeasureTheory.measure_unitBall_eq_integral_div_gamma",
+        "Complex.volume_sum_rpow_lt_one",
+        "MeasureTheory.volume_sum_rpow_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "_ ^ _ * _ ^ _ ≤ _ * _ + _ * _",
+      "declarations": [
+        "Real.geom_mean_le_arith_mean2_weighted",
+        "NNReal.geom_mean_le_arith_mean2_weighted"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "geom_mean",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "weighted arithmetic geometric mean inequality two nonnegative real numbers rpow",
+      "declarations": [
+        "Real.geom_mean_le_arith_mean4_weighted",
+        "NNReal.geom_mean_le_arith_mean2_weighted",
+        "Real.arith_mean_le_rpow_mean",
+        "NNReal.agm",
+        "Real.rpow_arith_mean_le_arith_mean_rpow",
+        "Real.harm_mean_le_geom_mean_weighted",
+        "Real.geom_mean_le_arith_mean2_weighted",
+        "NNReal.agmSequences",
+        "Real.geom_mean_le_arith_mean3_weighted",
+        "Real.geom_mean_weighted_of_constant"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "(_ ^ _ * _ ^ (1 - _) ≤ _)",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Real.rpow_natCast",
+      "declarations": [
+        "Real.rpow_natCast"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Summable (_ ^ _ / _)",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "summable (_ / Nat.factorial _)",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "summable power divided by factorial exponential series",
+      "declarations": [
+        "HasSum.rexp",
+        "PowerSeries.summable_subst",
+        "PowerSeries.Inv_divided_by_X_pow_order",
+        "Real.exp_approx_end",
+        "Real.summable_pow_mul_exp_neg_nat_mul",
+        "PowerSeries.exp_pow_sum",
+        "PowerSeries",
+        "PowerSeries.Unit_of_divided_by_X_pow_order",
+        "PowerSeries.Inv_divided_by_X_pow_order_leftInv",
+        "PowerSeries.Inv_divided_by_X_pow_order_rightInv"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Summable fun n => _ ^ n / n.factorial",
+      "declarations": [
+        "Real.summable_pow_div_factorial",
+        "NormedSpace.expSeries_div_summable",
+        "NormedSpace.expSeries_div_summable_of_mem_ball"
+      ],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "summable_pow_div_factorial",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "expSeries",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "HasSum (_ ^ _ / Nat.factorial _)",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Summable.of_nonneg_of_le",
+      "declarations": [
+        "Summable.of_nonneg_of_le"
+      ],
+      "call_turn": 17,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "0 < Real.Gamma _",
+      "declarations": [
+        "Real.Gamma_pos_of_pos"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Real.Gamma_pos",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "Euler gamma positive on positive real",
+      "declarations": [
+        "Mathlib.Meta.Positivity.evalGamma",
+        "LSeries.positive",
+        "Complex.GammaIntegral",
+        "Real.Gamma",
+        "Real.convexOn_Gamma",
+        "Real.Gamma_pos_of_pos",
+        "ProperCone.positive",
+        "Complex.Gamma_ne_zero_of_re_pos",
+        "Positive.Subtype.inv",
+        "Complex.Gamma"
+      ],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Real.Gamma _ ≠ 0",
+      "declarations": [
+        "Real.Gamma_ne_zero"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Real.rpow_add",
+      "declarations": [
+        "Real.rpow_add"
+      ],
+      "call_turn": 24,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Real.rpow_mul",
+      "declarations": [
+        "Real.rpow_mul"
+      ],
+      "call_turn": 24,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Summable.tsum_le_tsum",
+      "declarations": [
+        "Summable.tsum_le_tsum"
+      ],
+      "call_turn": 33,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "tsum_le_tsum",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "HasSum (_ ^ _) (_ ^ _)",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "Summable.hasSum",
+      "declarations": [
+        "Summable.hasSum"
+      ],
+      "call_turn": 33,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "Summable.hasSum_iff",
+      "declarations": [
+        "Summable.hasSum_iff"
+      ],
+      "call_turn": 33,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "tsum_nonneg",
+      "declarations": [
+        "tsum_nonneg",
+        "NNReal.coe_tsum_of_nonneg"
+      ],
+      "call_turn": 33,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "HasSum.rpow",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Summable.rpow",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 42
+    },
+    {
+      "event_id": "leanfinder:34",
+      "tool": "leanfinder",
+      "query": "HasSum real power nonnegative",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "HasSum",
+        "Real.hasSum_cosh",
+        "Real.hasSum_cos",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "Real.hasSum_sin",
+        "Real.hasSum_sinh",
+        "Mathlib.Meta.Positivity.bestResult",
+        "Lean.Meta.Structural.isInstAddNat",
+        "Real.hasSum_arctan"
+      ],
+      "call_turn": 40,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "HasSum.congr",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Real.rpow_rpow_inv",
+      "declarations": [
+        "Real.rpow_rpow_inv"
+      ],
+      "call_turn": 40,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "Real.rpow_inv_rpow",
+      "declarations": [
+        "Real.rpow_inv_rpow"
+      ],
+      "call_turn": 40,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "risingFactorial",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "leanfinder:40",
+      "tool": "leanfinder",
+      "query": "real rising factorial product gamma",
+      "declarations": [
+        "Real.Gamma_nat_eq_factorial",
+        "Real.Gamma",
+        "Finset.prod_range_add_one_eq_factorial",
+        "Finset.prod_Ico_id_eq_factorial",
+        "Complex.Gamma_nat_eq_factorial",
+        "Real.Gamma_ofNat_eq_factorial",
+        "Nat.factorialBinarySplitting",
+        "Mathlib.Meta.NormNum.asc_factorial_aux",
+        "Mathlib.Meta.NormNum.evalNatFactorial",
+        "Nat.factorial"
+      ],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "Real.Gamma (_ + Nat.cast _)",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Gamma (_ + _) = Gamma _ * _",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "ascPochhammer",
+      "declarations": [
+        "ascPochhammer",
+        "ascPochhammer_nat_eq_ascFactorial",
+        "ascPochhammer_one",
+        "ascPochhammer_zero",
+        "monic_ascPochhammer",
+        "ascPochhammer_map",
+        "ascPochhammer_nat_eq_descFactorial",
+        "ascPochhammer_natDegree",
+        "ascPochhammer_eval",
+        "ascPochhammer_eval_one"
+      ],
+      "call_turn": 49,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "pochhammer",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "_ / _ ≤ _ / _",
+      "declarations": [
+        "Nat.div_le_div_right",
+        "Nat.div_mul_div_le_div",
+        "Nat.div_le_div_of_mul_le_mul",
+        "Nat.div_le_div_left",
+        "Nat.div_add_le_right",
+        "Nat.div_le_div",
+        "Int.ediv_le_ediv",
+        "Int.ediv_le_ediv_iff_of_dvd_of_neg_of_neg",
+        "Int.ediv_le_ediv_iff_of_dvd_of_neg_of_pos",
+        "Int.ediv_le_ediv_iff_of_dvd_of_pos_of_neg"
+      ],
+      "call_turn": 86,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "(_ ≤ _ -> _ / _ ≤ _ / _)",
+      "declarations": [
+        "Nat.div_le_div_right",
+        "Nat.div_le_div_of_mul_le_mul",
+        "Nat.div_le_div_left",
+        "Nat.div_le_div",
+        "Int.ediv_le_ediv",
+        "div_le_div_right'",
+        "div_le_div_left'",
+        "div_le_div''",
+        "div_le_div_of_nonneg_right",
+        "le_mul_div_mul_right"
+      ],
+      "call_turn": 86,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "1 ≤ _.factorial",
+      "declarations": [],
+      "call_turn": 104,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Nat.factorial_pos",
+      "declarations": [
+        "Nat.factorial_pos"
+      ],
+      "call_turn": 104,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "Nat.factorial_ne_zero",
+      "declarations": [
+        "Nat.factorial_ne_zero"
+      ],
+      "call_turn": 104,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "Nat.succ_le_of_lt Nat.factorial_pos",
+      "declarations": [],
+      "call_turn": 104,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "Real.rpow_prod",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 114
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "∏ _ in _, _ ^ _",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "(∏ _ in _, _) ^ _ = ∏ _ in _, _ ^ _",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "Real.rpow_mul",
+      "declarations": [
+        "Real.rpow_mul"
+      ],
+      "call_turn": 113,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "Real.mul_rpow",
+      "declarations": [
+        "Real.mul_rpow"
+      ],
+      "call_turn": 113,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Real.rpow_inv_le_inv",
+      "declarations": [],
+      "call_turn": 113,
+      "result_turn": 119
+    },
+    {
+      "event_id": "leanfinder:82",
+      "tool": "leanfinder",
+      "query": "product rpow Finset product of real powers equals power of product",
+      "declarations": [
+        "Lean.Nat.mkInstNatPow",
+        "Real.rpow_mul",
+        "TensorProduct",
+        "Lean.mkIntPowNat",
+        "Lean.mkNatPow",
+        "Finset.product",
+        "Finset.product_subset_product",
+        "Finset.filter_product",
+        "dotProduct",
+        "Finset.disjoint_product"
+      ],
+      "call_turn": 120,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "Finset.prod_rpow",
+      "declarations": [],
+      "call_turn": 120,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "rpow_prod",
+      "declarations": [],
+      "call_turn": 120,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "prod (_ ^ _) = (_) ^ _",
+      "declarations": [],
+      "call_turn": 120,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "Real.rpow_le_rpow",
+      "declarations": [
+        "Real.rpow_le_rpow"
+      ],
+      "call_turn": 120,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "Real.rpow_le_rpow_of_exponent_le",
+      "declarations": [
+        "Real.rpow_le_rpow_of_exponent_le"
+      ],
+      "call_turn": 120,
+      "result_turn": 126
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "Real.div_rpow",
+      "declarations": [
+        "Real.div_rpow"
+      ],
+      "call_turn": 129,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "(_ / _) ^ _ = _ ^ _ / _ ^ _",
+      "declarations": [
+        "Nat.div_pow",
+        "div_zpow",
+        "div_pow",
+        "EuclideanDomain.div_pow",
+        "Real.div_rpow",
+        "NNReal.div_rpow",
+        "ENNReal.div_rpow_of_nonneg"
+      ],
+      "call_turn": 129,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Real.rpow_add_of_pos",
+      "declarations": [],
+      "call_turn": 129,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "0 ≤ _ ^ _",
+      "declarations": [
+        "Int.sq_nonnneg",
+        "Int.pow_nonneg",
+        "Int.pow_nonneg_of_even",
+        "System.Platform.two_pow_numBits_nonneg",
+        "Rat.pow_nonneg",
+        "Rat.zpow_nonneg",
+        "Lean.Grind.OrderedRing.sq_nonneg",
+        "pow_succ_nonneg",
+        "pow_nonneg",
+        "zpow_nonneg"
+      ],
+      "call_turn": 134,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:105",
+      "tool": "loogle",
+      "query": "HolderConjugate",
+      "declarations": [],
+      "call_turn": 158,
+      "result_turn": 159
+    },
+    {
+      "event_id": "leanfinder:107",
+      "tool": "leanfinder",
+      "query": "HolderConjugate reciprocal exponents one over alpha one over one minus alpha",
+      "declarations": [
+        "ENNReal.HolderConjugate.top_one",
+        "ENNReal.HolderConjugate",
+        "ENNReal.HolderConjugate.one_top",
+        "ENNReal.HolderConjugate.inv_one_sub_inv",
+        "NNReal.HolderConjugate",
+        "Lean.Meta.Grind.Arith.Linear.isHSMulNatInst",
+        "NNReal.holderConjugate_one_div",
+        "Real.holderConjugate_one_div",
+        "Real.HolderConjugate",
+        "Lean.mkIntPowNat"
+      ],
+      "call_turn": 158,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "_.HolderConjugate _",
+      "declarations": [],
+      "call_turn": 158,
+      "result_turn": 162
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 68,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 67,
+    "accepted_helper_count": 11,
+    "rollout_tool_call_count": 114,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

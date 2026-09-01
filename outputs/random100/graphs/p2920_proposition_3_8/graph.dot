@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet κ := fun x ρ => if ρ.parts.Nodup then (-Polynomial.X) ^ ρ.parts.toFinset.card else 0; let ε := fun a => ∑ s, if h : ∑ i, ↑(s i) = a then ∑ p, ∏ i, κ (↑(s i)) (p i) else 0; let pp := fun a => ∑ s, if h : ∑ i, ↑(s i) = a then ∑ ρ, (1 - Polynomial.X) ^ ∑ i, (ρ i).parts.toFinset.card else 0; let ε₁ := fun a => Polynomial.eval 1 (ε a); ε k = ∑ r ∈ Finset.range (k + 1), Polynomial.C (ε₁ r) * pp (k - r)"];
+  "r_h_goal" [shape=diamond, label="pp_eq_conv", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

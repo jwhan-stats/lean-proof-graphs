@@ -1,0 +1,456 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0925_tanh_ge_one_sub_exp_neg",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 925,
+    "source": "2209.07782",
+    "theorem_name": "tanh_ge_one_sub_exp_neg",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/925",
+    "reconstructed_proof": "../../candidates/p0925_tanh_ge_one_sub_exp_neg/proof.lean",
+    "raw_elaboration": "../../candidates/p0925_tanh_ge_one_sub_exp_neg/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0925_tanh_ge_one_sub_exp_neg.tanh_ge_one_sub_exp_neg",
+    "verification_call_id": "verify_submission:12",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "c31c7ef38ac30d758d597727d77d1f890e731380163812056eec74da2d1acdf6",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "30b09b83f7995c54b4bbed9aa26781c2bbe9718d2f7d7f192716288b102ad6b6",
+    "concrete_semantic_topology_sha256": "c31c7ef38ac30d758d597727d77d1f890e731380163812056eec74da2d1acdf6"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hx_969e17e5",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx",
+      "lean_fvar_id": "1",
+      "statement": "0 ≤ x"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "Real.tanh x ≥ 1 - Real.exp (-x)"
+    },
+    {
+      "id": "n_ht1_97c26e79",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ht1",
+      "lean_fvar_id": "_uniq.10950",
+      "statement": "1 ≤ t"
+    },
+    {
+      "id": "n_ht_bfa8d490",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ht",
+      "lean_fvar_id": "_uniq.10890",
+      "statement": "0 < t"
+    },
+    {
+      "id": "n_hx_95742fcc",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.10577",
+      "statement": "0 ≤ x"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_ht",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_ht_bfa8d490",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.exp_pos",
+        "items": [
+          "Real.exp_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.exp_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_3",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have ht : 0 < t := by\n    dsimp [t]\n    exact Real.exp_pos x",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.10890",
+            "name": "ht",
+            "statement": "0 < t"
+          }
+        },
+        "lean_dependency_sha256": "546dad614aa06abc3a419434d55e2e9bb1a6c147b022850444a90d249ff71e41",
+        "kernel_witness_check": {
+          "proof_type": "0 < t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.exp_pos"
+        ],
+        "observed_search_event_ids": [
+          "loogle:6"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_ht1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_95742fcc"
+      ],
+      "conclusion": "n_ht1_97c26e79",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.one_le_exp",
+        "items": [
+          "Real.one_le_exp"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.one_le_exp"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_4",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have ht1 : 1 ≤ t := by\n    dsimp [t]\n    exact Real.one_le_exp hx\n  field_simp [ht.ne']\n  ring_nf\n  nlinarith [sq_nonneg (t - 1)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.10577",
+              "name": "hx",
+              "statement": "0 ≤ x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.10950",
+            "name": "ht1",
+            "statement": "1 ≤ t"
+          }
+        },
+        "lean_dependency_sha256": "3215bd7c5372e467a014a8a4bd1ecd81e60423562a80fd9233e5ea8b8403f71f",
+        "kernel_witness_check": {
+          "proof_type": "1 ≤ t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.one_le_exp"
+        ],
+        "observed_search_event_ids": [
+          "loogle:8"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hx_969e17e5"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.exp_neg + Real.exp_pos + Real.one_le_exp",
+        "items": [
+          "Real.exp_neg",
+          "Real.exp_pos",
+          "Real.one_le_exp",
+          "Real.tanh_eq",
+          "sq_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.exp_neg",
+          "Real.exp_pos",
+          "Real.one_le_exp",
+          "Real.tanh_eq",
+          "sq_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  nlinarith [sq_nonneg (t - 1)]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hx",
+              "statement": "0 ≤ x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "Real.tanh x ≥ 1 - Real.exp (-x)"
+          }
+        },
+        "lean_dependency_sha256": "23b4deb3a536364e20d909782ad90eeea64e4535296a2626da5fdad3b2791d97",
+        "kernel_witness_check": {
+          "proof_type": "Real.tanh x ≥ 1 - Real.exp (-x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.exp_neg",
+          "Real.exp_pos",
+          "Real.one_le_exp",
+          "Real.tanh_eq",
+          "sq_nonneg"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:6",
+          "loogle:8",
+          "leanfinder:1",
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Real.tanh",
+      "declarations": [
+        "Real.tanh",
+        "Complex.ofReal_tanh",
+        "Complex.tanh_ofReal_re",
+        "Real.tanh_lt_one",
+        "Real.tanh_neg",
+        "Real.neg_one_lt_tanh",
+        "Real.tanh_zero",
+        "Real.abs_tanh_lt_one",
+        "Real.tanh_eq_sinh_div_cosh",
+        "Real.tanh_sq_lt_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "real hyperbolic tangent exponential formula tanh exp",
+      "declarations": [
+        "Real.tanh",
+        "Real.artanh_tanh",
+        "Real.exp_mul_le_cosh_add_mul_sinh",
+        "Real.tanh_eq_sinh_div_cosh",
+        "Real.exp_artanh",
+        "Real.tanh_arcosh",
+        "Real.exp",
+        "Complex.tanh_eq_sinh_div_cosh",
+        "Real.tanh_eq",
+        "Real.tanh_injective"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Real.tanh _ =",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "(_ ^ 2) / (_ ^ 2 + _)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "sq_nonneg",
+      "declarations": [
+        "sq_nonneg",
+        "ProbabilityTheory.gaussianReal_map_div_const",
+        "ProbabilityTheory.gaussianReal_map_const_mul",
+        "ProbabilityTheory.gaussianReal_map_mul_const",
+        "ProbabilityTheory.gaussianReal_div_const",
+        "ProbabilityTheory.gaussianReal_const_mul",
+        "ProbabilityTheory.gaussianReal_mul_const",
+        "ProbabilityTheory.gaussianPDFReal_inv_mul",
+        "ProbabilityTheory.gaussianPDFReal_mul",
+        "ProbabilityTheory.HasSubgaussianMGF.const_mul"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Real.exp_neg",
+      "declarations": [
+        "Real.exp_neg"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Real.exp_pos",
+      "declarations": [
+        "Real.exp_pos",
+        "UpperHalfPlane.isometry_vertical_line"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "one_le_exp",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Real.one_le_exp",
+      "declarations": [
+        "Real.one_le_exp"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "div_nonneg",
+      "declarations": [
+        "div_nonneg",
+        "Nonneg.mk_div_mk"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "sub_nonneg",
+      "declarations": [
+        "sub_nonneg"
+      ],
+      "call_turn": 8,
+      "result_turn": 14
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 2,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 1,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 5,
+    "retrieval_query_count": 11,
+    "useful_retrieval_event_count": 5,
+    "unused_retrieval_event_count": 6,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 13,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

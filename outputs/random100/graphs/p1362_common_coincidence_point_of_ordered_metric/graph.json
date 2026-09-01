@@ -1,0 +1,1312 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1362_common_coincidence_point_of_ordered_metric",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1362,
+    "source": "1102.5493",
+    "theorem_name": "common_coincidence_point_of_ordered_metric_contraction",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1362",
+    "reconstructed_proof": "../../candidates/p1362_common_coincidence_point_of_ordered_metric/proof.lean",
+    "raw_elaboration": "../../candidates/p1362_common_coincidence_point_of_ordered_metric/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1362_common_coincidence_point_of_ordered_metric.common_coincidence_point_of_ordered_metric_contraction",
+    "verification_call_id": "verify_submission:103",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "78e4ae4bf05249dce38e5d4dbc12c701bc55911baceeacadef29b6de62e91336",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "d481fd2ad3c4af057a773a54e4f497c91adb6aeb51f48664cbc1b0e6888580e0",
+    "concrete_semantic_topology_sha256": "78e4ae4bf05249dce38e5d4dbc12c701bc55911baceeacadef29b6de62e91336"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h__lt_one_0407c278",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hβ_lt_one",
+      "lean_fvar_id": "15",
+      "statement": "∀ (t : NNReal), β t < 1"
+    },
+    {
+      "id": "m_h__zero_44bf7eb4",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hβ_zero",
+      "lean_fvar_id": "16",
+      "statement": "∀ (t : ℕ → NNReal), Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1) → Filter.Tendsto t Filter.atTop (nhds 0)"
+    },
+    {
+      "id": "m_hcontract_b314132a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcontract",
+      "lean_fvar_id": "17",
+      "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)"
+    },
+    {
+      "id": "m_hf_range_bf0e6776",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf_range",
+      "lean_fvar_id": "10",
+      "statement": "Set.range f ⊆ Set.range H"
+    },
+    {
+      "id": "m_hfg_inc_0415394c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hfg_inc",
+      "lean_fvar_id": "13",
+      "statement": "∀ (x y : X), H y = f x → f x ≤ g y"
+    },
+    {
+      "id": "m_hg_range_b364dd77",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hg_range",
+      "lean_fvar_id": "11",
+      "statement": "Set.range g ⊆ Set.range H"
+    },
+    {
+      "id": "m_hgf_inc_bd110485",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hgf_inc",
+      "lean_fvar_id": "14",
+      "statement": "∀ (x y : X), H y = g x → g x ≤ f y"
+    },
+    {
+      "id": "m_hh_closed_b64914b2",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hH_closed",
+      "lean_fvar_id": "12",
+      "statement": "IsClosed (Set.range H)"
+    },
+    {
+      "id": "m_hregular_c52dc82b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hregular",
+      "lean_fvar_id": "9",
+      "statement": "∀ (z : ℕ → X) (a : X), Monotone z → Filter.Tendsto z Filter.atTop (nhds a) → ∀ (n : ℕ), z n ≤ a"
+    },
+    {
+      "id": "m_inst___proofs_697528154__0b54fd7d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.697528154._hygCtx._hyg.12",
+      "lean_fvar_id": "4",
+      "statement": "CompleteSpace X"
+    },
+    {
+      "id": "m_inst___proofs_697528154__cb0924a2",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.697528154._hygCtx._hyg.3",
+      "lean_fvar_id": "1",
+      "statement": "Nonempty X"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ u, f u = g u ∧ g u = H u"
+    },
+    {
+      "id": "n_hf_eq_g_2d77887b",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hf_eq_g",
+      "lean_fvar_id": "18",
+      "statement": "∀ (x : X), f x = g x"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hf_eq_g",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hcontract_b314132a"
+      ],
+      "conclusion": "n_hf_eq_g_2d77887b",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "MulZeroClass.mul_zero + le_antisymm + le_rfl",
+        "items": [
+          "MulZeroClass.mul_zero",
+          "le_antisymm",
+          "le_rfl",
+          "nndist_eq_zero",
+          "nndist_self",
+          "zero_le"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "MulZeroClass.mul_zero",
+          "le_antisymm",
+          "le_rfl",
+          "nndist_eq_zero",
+          "nndist_self",
+          "zero_le"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_18",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hf_eq_g : ∀ x, f x = g x := by\n    intro x\n    have hle := hcontract x x (Or.inl le_rfl)\n    rw [nndist_self, mul_zero] at hle\n    have hzero : nndist (f x) (g x) = 0 := le_antisymm hle (zero_le _)\n    exact nndist_eq_zero.mp hzero",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hcontract",
+              "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "18",
+            "name": "hf_eq_g",
+            "statement": "∀ (x : X), f x = g x"
+          }
+        },
+        "lean_dependency_sha256": "67e109cd396d4e5dfa46f27cb789d49a703382951719b5012c24fb2a955cd0c6",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : X), f x = g x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "nndist_eq_zero"
+        ],
+        "observed_search_event_ids": [
+          "loogle:98"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_697528154__cb0924a2",
+        "m_inst___proofs_697528154__0b54fd7d",
+        "m_hregular_c52dc82b",
+        "m_hf_range_bf0e6776",
+        "m_hh_closed_b64914b2",
+        "m_hfg_inc_0415394c",
+        "m_h__lt_one_0407c278",
+        "m_h__zero_44bf7eb4",
+        "m_hcontract_b314132a",
+        "n_hf_eq_g_2d77887b"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "CauchySeq.tendsto_limUnder + Filter.Tendsto.congr' + Filter.Tendsto.nndist",
+        "items": [
+          "CauchySeq.tendsto_limUnder",
+          "Filter.Tendsto.congr'",
+          "Filter.Tendsto.nndist",
+          "Filter.tendsto_add_atTop_nat",
+          "IsClosed.mem_of_tendsto",
+          "NNReal.tendsto_coe",
+          "dist_nndist",
+          "monotone_nat_of_le_succ"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "CauchySeq.tendsto_limUnder",
+          "Filter.Tendsto.congr'",
+          "Filter.Tendsto.nndist",
+          "Filter.tendsto_add_atTop_nat",
+          "IsClosed.mem_of_tendsto",
+          "NNReal.tendsto_coe",
+          "dist_nndist",
+          "monotone_nat_of_le_succ"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact ⟨u, hf_eq_g u, by\n    rw [← hf_eq_g u]\n    exact hfu_eq_Hu⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "inst._@.proofs.697528154._hygCtx._hyg.3",
+              "statement": "Nonempty X"
+            },
+            {
+              "fvar_id": "4",
+              "name": "inst._@.proofs.697528154._hygCtx._hyg.12",
+              "statement": "CompleteSpace X"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hregular",
+              "statement": "∀ (z : ℕ → X) (a : X), Monotone z → Filter.Tendsto z Filter.atTop (nhds a) → ∀ (n : ℕ), z n ≤ a"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hf_range",
+              "statement": "Set.range f ⊆ Set.range H"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hH_closed",
+              "statement": "IsClosed (Set.range H)"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hfg_inc",
+              "statement": "∀ (x y : X), H y = f x → f x ≤ g y"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hβ_lt_one",
+              "statement": "∀ (t : NNReal), β t < 1"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hβ_zero",
+              "statement": "∀ (t : ℕ → NNReal), Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1) → Filter.Tendsto t Filter.atTop (nhds 0)"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hcontract",
+              "statement": "∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)"
+            },
+            {
+              "fvar_id": "18",
+              "name": "hf_eq_g",
+              "statement": "∀ (x : X), f x = g x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ u, f u = g u ∧ g u = H u"
+          }
+        },
+        "lean_dependency_sha256": "0185aa2e578d83984bb037267256ed041c89b5d9ab0adf74e2bf9f3d65b39265",
+        "kernel_witness_check": {
+          "proof_type": "∃ u, f u = g u ∧ g u = H u",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "CauchySeq.tendsto_limUnder",
+          "Filter.Tendsto.congr'",
+          "Filter.Tendsto.nndist",
+          "Filter.tendsto_add_atTop_nat",
+          "IsClosed.mem_of_tendsto",
+          "NNReal.tendsto_coe",
+          "dist_nndist",
+          "monotone_nat_of_le_succ"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2",
+          "loogle:81",
+          "leanfinder:96",
+          "leanfinder:50",
+          "loogle:90",
+          "leanfinder:91",
+          "loogle:46",
+          "loogle:64",
+          "loogle:88"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1)",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "Geraghty contraction beta function Cauchy sequence ordered metric space fixed point",
+      "declarations": [
+        "ContractingWith.fixedPoint",
+        "Function.exists_fixed_point_of_surjective",
+        "AdicCompletion.AdicCauchySequence",
+        "ContractingWith.exists_fixedPoint",
+        "Tactic.ComputeAsymptotics.Seq.exists_fixed_point_of_contractible",
+        "ContractingWith.fixedPoint_lipschitz_in_map",
+        "Metric.cauchySeq_iff'",
+        "Metric.cauchySeq_iff",
+        "MetricSpace",
+        "Metric.cauchy_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "CauchySeq _ → Filter.Tendsto _ Filter.atTop (nhds _)",
+      "declarations": [
+        "tendsto_nhds_of_cauchySeq_of_subseq",
+        "CauchySeq.tendsto_limUnder",
+        "ContinuousLinearMap.tendsto_of_tendsto_pointwise_of_cauchySeq",
+        "lp.tendsto_lp_of_tendsto_pi"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "prove sequence is Cauchy if distances between consecutive terms tend to zero and are decreasing",
+      "declarations": [
+        "AdicCompletion.AdicCauchySequence.map_zero",
+        "AdicCompletion.AdicCauchySequence.zero_apply",
+        "CauchySeq",
+        "AdicCompletion.AdicCauchySequence.instZero",
+        "AdicCompletion.AdicCauchySequence",
+        "cauchySeq_of_le_geometric",
+        "cauchySeq_of_dist_le_of_summable",
+        "IsCauSeq.cauchy",
+        "exists_open_between_and_isCompact_closure"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "cauchySeq_of_le_tendsto",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "Cauchy sequence by contradiction contraction beta tends to one implies distance tends zero",
+      "declarations": [
+        "Classical.byContradiction",
+        "CauchySeq",
+        "ArithmeticFunction.tendsTo_eulerProduct_of_tendsTo",
+        "by_contradiction",
+        "Decidable.byContradiction",
+        "cauchySeq_of_le_tendsto_0'",
+        "cauchySeq_of_le_tendsto_0",
+        "cauchySeq_of_le_geometric",
+        "edist_le_of_edist_le_geometric_of_tendsto",
+        "Real.mk_near_of_forall_near"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "if a sequence is not Cauchy there exist subsequences with distance bounded below epsilon",
+      "declarations": [
+        "CauchySeq",
+        "IsCauSeq.cauchy",
+        "Bornology.IsBounded.bddBelow",
+        "cauchySeq_of_le_tendsto_0",
+        "BddBelow.isBounded_inter",
+        "Metric.exists_subseq_bounded_of_cauchySeq",
+        "BddBelow.isBounded",
+        "IsCoercive.bounded_below",
+        "CauchySeq.subseq_mem"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "¬ CauchySeq _ → ∃ ε, 0 < ε ∧ _",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "not_cauchySeq_iff",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Metric.cauchySeq_iff",
+      "declarations": [
+        "Metric.cauchySeq_iff"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Filter.Tendsto _ Filter.atTop (nhds 0) → Tendsto (fun n => _ * _) _ _",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "CauchySeq ↔ ∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, _",
+      "declarations": [
+        "Metric.cauchySeq_iff",
+        "Metric.uniformCauchySeqOn_iff"
+      ],
+      "call_turn": 15,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "∃ m n, _ ≤ m ∧ _ ≤ n ∧ ε ≤ dist (_ m) (_ n)",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "characterization of not Cauchy sequence metric epsilon exists arbitrarily large indices",
+      "declarations": [
+        "Metric.cauchy_iff",
+        "CauchySeq",
+        "EMetric.cauchySeq_iff'",
+        "IsCauSeq.cauchy",
+        "EMetric.cauchySeq_iff_le_tendsto_0",
+        "Hindman.exists_FS_of_large",
+        "CauSeq.cauchy",
+        "Hindman.exists_FP_of_large",
+        "Metric.exists_subseq_bounded_of_cauchySeq",
+        "Metric.exists_subseq_summable_dist_of_cauchySeq"
+      ],
+      "call_turn": 15,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "StrictMono _ → Filter.Tendsto _ Filter.atTop Filter.atTop",
+      "declarations": [
+        "StrictMono.tendsto_atTop"
+      ],
+      "call_turn": 15,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Nat.exists_lt_of_",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "least natural number satisfying predicate minimal property",
+      "declarations": [
+        "Nat.find_spec",
+        "Nat.find",
+        "Nat.find_min",
+        "Minimal",
+        "Nat.nth",
+        "IsLeast",
+        "IsLeast.minimal",
+        "DirectedOn.minimal_iff_isLeast",
+        "IsLeast.minimal_iff",
+        "minimal_iff_isLeast"
+      ],
+      "call_turn": 15,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Nat.find _ _",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Nat.find_spec",
+      "declarations": [
+        "Nat.find_spec"
+      ],
+      "call_turn": 15,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "(∀ n, _ n < _ (n + 1)) → StrictMono _",
+      "declarations": [],
+      "call_turn": 28,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "strictMono_nat_of_lt_succ",
+      "declarations": [
+        "strictMono_nat_of_lt_succ"
+      ],
+      "call_turn": 28,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Monotone (fun n => _ (n + 1))",
+      "declarations": [],
+      "call_turn": 28,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "StrictMono _ → _ < _",
+      "declarations": [
+        "StrictMono.imp",
+        "Function.Commute.iterate_pos_lt_of_map_lt",
+        "Function.Commute.iterate_pos_lt_of_map_lt'",
+        "Ordinal.iterate_lt_nfp"
+      ],
+      "call_turn": 28,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Nat.sub_add_cancel",
+      "declarations": [
+        "Nat.sub_add_cancel"
+      ],
+      "call_turn": 28,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "dist _ _ ≤ dist _ _ + dist _ _",
+      "declarations": [
+        "dist_triangle",
+        "dist_triangle_left",
+        "dist_triangle_right",
+        "PseudoMetricSpace.dist_triangle",
+        "dist_dist_dist_le",
+        "PseudoMetricSpace.mk",
+        "dist_div_div_le",
+        "dist_sub_sub_le",
+        "dist_add_add_le",
+        "dist_mul_mul_le"
+      ],
+      "call_turn": 28,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "add_lt_add_right",
+      "declarations": [
+        "add_lt_add_right"
+      ],
+      "call_turn": 37,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "add_lt_add_left",
+      "declarations": [
+        "add_lt_add_left"
+      ],
+      "call_turn": 39,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Antitone _ → Filter.Tendsto _ Filter.atTop (nhds _)",
+      "declarations": [
+        "tendsto_atTop_isGLB",
+        "tendsto_atTop_ciInf",
+        "tendsto_atTop_iInf",
+        "MeasureTheory.tendsto_measure_iInter_atTop",
+        "MeasureTheory.tendsto_setIntegral_of_antitone",
+        "Antitone.tendsto_setIntegral",
+        "MeasureTheory.addContent_iUnion_eq_sum_of_tendsto_zero",
+        "MeasureTheory.VectorMeasure.tendsto_vectorMeasure_iInter_atTop_nat",
+        "ProbabilityTheory.IsRatCondKernelCDFAux.tendsto_integral_of_antitone",
+        "ProbabilityTheory.IsRatCondKernelCDFAux.mk"
+      ],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Monotone _ → Filter.Tendsto _ Filter.atTop (nhds (iSup _))",
+      "declarations": [
+        "tendsto_atTop_ciSup",
+        "tendsto_atTop_iSup"
+      ],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "leanfinder:36",
+      "tool": "leanfinder",
+      "query": "monotone bounded real sequence converges to supremum",
+      "declarations": [
+        "Real.cauSeq_converges",
+        "converges_of_monotone_of_bounded",
+        "Real.tendsto_of_bddAbove_monotone",
+        "Real.isLUB_of_tendsto_monotoneOn_bddAbove_nat_Ici",
+        "Real.tendsto_atTop_csSup_of_monotoneOn_bddAbove_nat_Ici",
+        "Real.toNNReal_monotone",
+        "ultrafilter_converges_iff",
+        "Real.tendsto_of_bddBelow_antitone",
+        "le_monotonicSequenceLimit",
+        "Monotone"
+      ],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "tendsto_atTop_ciInf",
+      "declarations": [
+        "tendsto_atTop_ciInf"
+      ],
+      "call_turn": 49,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "tendsto_atTop_iInf",
+      "declarations": [
+        "tendsto_atTop_iInf"
+      ],
+      "call_turn": 49,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "Antitone.tendsto",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Monotone.tendsto",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "(∀ n, _ (n + 1) ≤ _ n) → Antitone _",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "antitone_nat_of_succ_le",
+      "declarations": [
+        "antitone_nat_of_succ_le"
+      ],
+      "call_turn": 57,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "Monotone (fun n => _ (n + 1))",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Filter.Tendsto (fun n => _ (n + 1)) Filter.atTop (nhds _)",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "tendsto_add_atTop_nat",
+      "declarations": [],
+      "call_turn": 57,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "NNReal.tendsto_coe",
+      "declarations": [
+        "NNReal.tendsto_coe"
+      ],
+      "call_turn": 57,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "Tendsto (fun n : ℕ => n + _) atTop atTop",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Tendsto Nat.succ atTop atTop",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "tendsto_atTop_add_const_right",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 67
+    },
+    {
+      "event_id": "leanfinder:50",
+      "tool": "leanfinder",
+      "query": "natural sequence n plus constant tends to atTop",
+      "declarations": [
+        "ArithmeticFunction.tendsTo_eulerProduct_of_tendsTo",
+        "Filter.atTop",
+        "Ideal.Filtration.top_N",
+        "StrictMono.tendsto_atTop",
+        "Filter.tendsto_add_atTop_nat",
+        "Real.tendsto_log_nat_add_one_sub_log",
+        "Filter.Tendsto.atTop_of_const_add",
+        "Filter.tendsto_sub_atTop_nat",
+        "naturalParameterization",
+        "SSet.S.toN"
+      ],
+      "call_turn": 64,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Tendsto.div",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Filter.Tendsto _ _ (nhds (_ / _))",
+      "declarations": [
+        "Filter.Tendsto.div'",
+        "Filter.Tendsto.const_div'",
+        "Filter.Tendsto.div_const'",
+        "Filter.tendsto_const_div_iff",
+        "Filter.tendsto_const_div_iff'",
+        "Filter.tendsto_div_const_iff'",
+        "Filter.tendsto_div_const_iff",
+        "Filter.Tendsto.div_const",
+        "Filter.Tendsto.div",
+        "ENNReal.Tendsto.const_div"
+      ],
+      "call_turn": 70,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "tendsto_of_tendsto_of_tendsto_of_le_of_le",
+      "declarations": [
+        "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+      ],
+      "call_turn": 72,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "ciInf_le",
+      "declarations": [
+        "ciInf_le"
+      ],
+      "call_turn": 76,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "le_ciInf",
+      "declarations": [
+        "le_ciInf"
+      ],
+      "call_turn": 76,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "csInf_le",
+      "declarations": [
+        "csInf_le"
+      ],
+      "call_turn": 76,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "iInf _ ≤ _",
+      "declarations": [
+        "iInf_le_iff",
+        "iInf_le",
+        "iInf_const_mono",
+        "iInf_le_iSup",
+        "iInf_le_of_le",
+        "le_iInf_comp",
+        "iInf",
+        "iInf_le_iInf",
+        "iInf_mono",
+        "iInf_mono'"
+      ],
+      "call_turn": 76,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "NNReal.instConditionallyComplete",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "tendsto_nhds_unique",
+      "declarations": [
+        "tendsto_nhds_unique"
+      ],
+      "call_turn": 84,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "dist _ _ = ↑(nndist _ _)",
+      "declarations": [
+        "dist_nndist"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "nndist_eq_nndist",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Tendsto (fun n => nndist (_ n) (_ n)) _ (nhds 0)",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "tendsto_iff_dist_tendsto_zero",
+      "declarations": [
+        "tendsto_iff_dist_tendsto_zero"
+      ],
+      "call_turn": 90,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Tendsto.sub",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "dist_dist_dist_le",
+      "declarations": [
+        "dist_dist_dist_le"
+      ],
+      "call_turn": 90,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "Tendsto _ _ (nhds _) → Tendsto (fun n => dist (_ n) (_ n)) _ (nhds 0) → Tendsto _ _ (nhds _)",
+      "declarations": [],
+      "call_turn": 97,
+      "result_turn": 98
+    },
+    {
+      "event_id": "leanfinder:71",
+      "tool": "leanfinder",
+      "query": "if distance between two sequences tends to zero and one converges then the other converges same limit",
+      "declarations": [
+        "CauSeq.LimZero",
+        "Tactic.ComputeAsymptotics.Seq.dist_le_half_iff",
+        "converges_of_monotone_of_bounded",
+        "Real.cauSeq_converges",
+        "AndThen",
+        "NNReal.agmSequences",
+        "NNReal.tendsto_dist_agmSequences_atTop_zero",
+        "CauSeq.limZero_sub_rev",
+        "CauSeq.sub_limZero",
+        "ultrafilter_converges_iff"
+      ],
+      "call_turn": 97,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "tendsto_of_dist_tendsto_zero",
+      "declarations": [],
+      "call_turn": 97,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "tendsto_iff_dist_tendsto_zero",
+      "declarations": [
+        "tendsto_iff_dist_tendsto_zero"
+      ],
+      "call_turn": 97,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "Tendsto (fun n => dist (_ n) (_ n)) Filter.atTop (nhds 0)",
+      "declarations": [],
+      "call_turn": 97,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "squeeze_zero",
+      "declarations": [
+        "squeeze_zero"
+      ],
+      "call_turn": 97,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "abs_sub_le_iff",
+      "declarations": [
+        "abs_sub_le_iff"
+      ],
+      "call_turn": 104,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "abs_le.mp",
+      "declarations": [],
+      "call_turn": 104,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "sub_le_iff_le_add",
+      "declarations": [
+        "sub_le_iff_le_add"
+      ],
+      "call_turn": 104,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "Real.dist_eq",
+      "declarations": [
+        "Real.dist_eq"
+      ],
+      "call_turn": 104,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Filter.Tendsto.congr'",
+      "declarations": [
+        "Filter.Tendsto.congr'"
+      ],
+      "call_turn": 111,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "monotone_nat_of_le_succ",
+      "declarations": [
+        "monotone_nat_of_le_succ"
+      ],
+      "call_turn": 125,
+      "result_turn": 126
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "IsClosed _ → Filter.Tendsto _ _ (nhds _) → (∀ n, _ n ∈ _) → _ ∈ _",
+      "declarations": [],
+      "call_turn": 127,
+      "result_turn": 128
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "IsClosed.mem_of_tendsto",
+      "declarations": [
+        "IsClosed.mem_of_tendsto"
+      ],
+      "call_turn": 127,
+      "result_turn": 129
+    },
+    {
+      "event_id": "leanfinder:91",
+      "tool": "leanfinder",
+      "query": "closed set contains limit of sequence eventually in set",
+      "declarations": [
+        "setOf",
+        "Filter.Frequently.mem_of_closed",
+        "IsClosed.mem_of_tendsto",
+        "Std.TreeSet.contains",
+        "isClosed_setOf_clusterPt",
+        "monotonicSequenceLimit",
+        "EventuallyMeasurableSet",
+        "tendsto_subseq_of_frequently_bounded",
+        "cantorSequence_mem_cantorSet",
+        "MeasurableSet.eventuallyMeasurableSet"
+      ],
+      "call_turn": 127,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "tendsto_nhds_unique",
+      "declarations": [
+        "tendsto_nhds_unique"
+      ],
+      "call_turn": 127,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "nndist _ _ ≤ _ → Filter.Tendsto _ _ (nhds 0)",
+      "declarations": [],
+      "call_turn": 127,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "tendsto_iff_nndist_tendsto_zero",
+      "declarations": [],
+      "call_turn": 133,
+      "result_turn": 134
+    },
+    {
+      "event_id": "loogle:95",
+      "tool": "loogle",
+      "query": "Filter.Tendsto _ _ (nhds _) ↔ Filter.Tendsto (fun _ => nndist _ _) _ (nhds 0)",
+      "declarations": [],
+      "call_turn": 133,
+      "result_turn": 135
+    },
+    {
+      "event_id": "leanfinder:96",
+      "tool": "leanfinder",
+      "query": "convergence metric sequence equivalent nonnegative distance tends zero NNReal",
+      "declarations": [
+        "PiNat.eq_of_dist_eq_zero",
+        "NNReal",
+        "NNReal.tendsto_atTop_zero_of_summable",
+        "Mathlib.Meta.Positivity.Strictness.nonnegative",
+        "instMetricSpaceNNReal",
+        "ENNReal.tendsto_toReal_zero_iff",
+        "NNReal.tendsto_dist_agmSequences_atTop_zero",
+        "Metric.emetric_ball_nnreal",
+        "Filter.Tendsto.nndist",
+        "Asymptotics.IsEquivalent"
+      ],
+      "call_turn": 133,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "tendsto_of_tendsto_of_tendsto_of_le_of_le",
+      "declarations": [
+        "tendsto_of_tendsto_of_tendsto_of_le_of_le"
+      ],
+      "call_turn": 133,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "nndist_eq_zero",
+      "declarations": [
+        "nndist_eq_zero"
+      ],
+      "call_turn": 133,
+      "result_turn": 138
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 11,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 10,
+    "max_fan_in_main": 10,
+    "manifest_fact_count": 9,
+    "retrieved_rule_item_count": 9,
+    "retrieval_query_count": 81,
+    "useful_retrieval_event_count": 10,
+    "unused_retrieval_event_count": 71,
+    "accepted_helper_count": 4,
+    "rollout_tool_call_count": 104,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

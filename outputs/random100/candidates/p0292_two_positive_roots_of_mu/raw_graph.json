@@ -1,0 +1,1120 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "manifest": [
+        {
+          "statement": "4 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "0 < M",
+          "origin": "manifest",
+          "name": "hM",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "0 < Λ",
+          "origin": "manifest",
+          "name": "hΛ",
+          "fvar_id": "5"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let lam := 2 * Λ / ((↑n - 2) * (↑n - 1));\nlet mu := fun r => 1 - 2 * M / r ^ (n - 3) - lam * r ^ 2;\nM ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1) →\n  ∃ r_minus r_plus,\n    0 < r_minus ∧\n      r_minus < r_plus ∧ mu r_minus = 0 ∧ mu r_plus = 0 ∧ ∀ (r : ℝ), 0 < r → mu r = 0 → r = r_minus ∨ r = r_plus",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let lam := 2 * Λ / ((↑n - 2) * (↑n - 1));\nlet mu := fun r => 1 - 2 * M / r ^ (n - 3) - lam * r ^ 2;\nM ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1) →\n  ∃ r_minus r_plus,\n    0 < r_minus ∧\n      r_minus < r_plus ∧ mu r_minus = 0 ∧ mu r_plus = 0 ∧ ∀ (r : ℝ), 0 < r → mu r = 0 → r = r_minus ∨ r = r_plus",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Decidable.byContradiction",
+          "Eq.symm",
+          "Eq.trans",
+          "Iff.mpr",
+          "Int.cast_inj._simp_1",
+          "Int.cast_le._simp_1",
+          "Int.cast_natCast",
+          "Int.cast_ofNat",
+          "Int.cast_sub._simp_1",
+          "Int.toNat_of_nonneg",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNat_add",
+          "Mathlib.Meta.NormNum.isNat_lt_true",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Meta.Positivity.pos_of_isNat",
+          "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+          "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+          "Mathlib.Tactic.Linarith.mul_neg",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Linarith.zero_lt_one",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_gt",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_congr",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Nat.cast_one",
+          "Nat.cast_zero",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "NeZero.charZero_one",
+          "Not.intro",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instNontrivial",
+          "Real.instZeroLEOneClass",
+          "Rollout_p0292_two_positive_roots_of_mu.hump_to_mu_nat",
+          "Rollout_p0292_two_positive_roots_of_mu.mu_to_hump_nat",
+          "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu._proof_1",
+          "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu._proof_2",
+          "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu._proof_3",
+          "Rollout_p0292_two_positive_roots_of_mu.two_roots_hump",
+          "congrArg",
+          "div_pos",
+          "eq_of_heq",
+          "instNeZeroNatHAdd_1",
+          "lt_of_not_ge",
+          "lt_trans",
+          "mul_pos",
+          "neg_eq_zero",
+          "neg_neg_of_pos",
+          "sub_eq_zero_of_eq",
+          "zpow_natCast"
+        ],
+        "premises": [
+          {
+            "statement": "4 ≤ n",
+            "origin": "local_assumption",
+            "name": "hn",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "0 < M",
+            "origin": "local_assumption",
+            "name": "hM",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "0 < Λ",
+            "origin": "local_assumption",
+            "name": "hΛ",
+            "fvar_id": "5"
+          }
+        ],
+        "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let lam := 2 * Λ / ((↑n - 2) * (↑n - 1));\nlet mu := fun r => 1 - 2 * M / r ^ (n - 3) - lam * r ^ 2;\nM ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1) →\n  ∃ r_minus r_plus,\n    0 < r_minus ∧\n      r_minus < r_plus ∧ mu r_minus = 0 ∧ mu r_plus = 0 ∧ ∀ (r : ℝ), 0 < r → mu r = 0 → r = r_minus ∨ r = r_plus",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "2 * Λ / ((↑n - 2) * (↑n - 1)) = 2 * Λ / ((↑n - 2) * (↑n - 1))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_120",
+      "conclusion": {
+        "statement": "2 * Λ / ((↑n - 2) * (↑n - 1)) = lam",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.745398"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑↑(k + 2) = ↑(n - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "↑(k + 2) = n - 1",
+          "origin": "derived",
+          "name": "hk2_int",
+          "fvar_id": "_uniq.749542"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_137",
+      "conclusion": {
+        "statement": "(fun z => ↑z) ↑(k + 2) = (fun z => ↑z) (n - 1)",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.749982"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "4 ≤ ↑n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Int.cast_le._simp_1",
+        "Int.cast_ofNat",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "NeZero.charZero_one",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instZeroLEOneClass",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "4 ≤ n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.745016"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_138",
+      "conclusion": {
+        "statement": "4 ≤ ↑n",
+        "origin": "derived",
+        "name": "hnR",
+        "fvar_id": "_uniq.754555"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ↑n - 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Linarith.zero_lt_one",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge",
+        "neg_neg_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "4 ≤ ↑n",
+          "origin": "derived",
+          "name": "hnR",
+          "fvar_id": "_uniq.754555"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_139",
+      "conclusion": {
+        "statement": "0 < ↑n - 2",
+        "origin": "derived",
+        "name": "hn2",
+        "fvar_id": "_uniq.755097"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ↑n - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Linarith.zero_lt_one",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge",
+        "neg_neg_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "4 ≤ ↑n",
+          "origin": "derived",
+          "name": "hnR",
+          "fvar_id": "_uniq.754555"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_140",
+      "conclusion": {
+        "statement": "0 < ↑n - 1",
+        "origin": "derived",
+        "name": "hn1",
+        "fvar_id": "_uniq.756922"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < (↑n - 2) * (↑n - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsStrictOrderedRing",
+        "mul_pos"
+      ],
+      "premises": [
+        {
+          "statement": "0 < ↑n - 2",
+          "origin": "derived",
+          "name": "hn2",
+          "fvar_id": "_uniq.755097"
+        },
+        {
+          "statement": "0 < ↑n - 1",
+          "origin": "derived",
+          "name": "hn1",
+          "fvar_id": "_uniq.756922"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_141",
+      "conclusion": {
+        "statement": "0 < (↑n - 2) * (↑n - 1)",
+        "origin": "derived",
+        "name": "hden",
+        "fvar_id": "_uniq.759143"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ n - 3",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "4 ≤ n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.745016"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_145",
+      "conclusion": {
+        "statement": "0 ≤ n - 3",
+        "origin": "derived",
+        "name": "hk_nonneg",
+        "fvar_id": "_uniq.746456"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑k = n - 3",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Int.toNat_of_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ n - 3",
+          "origin": "derived",
+          "name": "hk_nonneg",
+          "fvar_id": "_uniq.746456"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_146",
+      "conclusion": {
+        "statement": "↑k = n - 3",
+        "origin": "derived",
+        "name": "hk_int",
+        "fvar_id": "_uniq.746634"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu._proof_2"
+      ],
+      "premises": [
+        {
+          "statement": "4 ≤ n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.745016"
+        },
+        {
+          "statement": "↑k = n - 3",
+          "origin": "derived",
+          "name": "hk_int",
+          "fvar_id": "_uniq.746634"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_147",
+      "conclusion": {
+        "statement": "0 < k",
+        "origin": "derived",
+        "name": "hk",
+        "fvar_id": "_uniq.746888"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑k = ↑n - ↑3",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Int.cast_inj._simp_1",
+        "Int.cast_natCast",
+        "Int.cast_ofNat",
+        "Int.cast_sub._simp_1",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "↑k = n - 3",
+          "origin": "derived",
+          "name": "hk_int",
+          "fvar_id": "_uniq.746634"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_148",
+      "conclusion": {
+        "statement": "↑k = ↑n - 3",
+        "origin": "derived",
+        "name": "hkR",
+        "fvar_id": "_uniq.747124"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(k + 2) = n - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu._proof_3"
+      ],
+      "premises": [
+        {
+          "statement": "↑k = n - 3",
+          "origin": "derived",
+          "name": "hk_int",
+          "fvar_id": "_uniq.746634"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_149",
+      "conclusion": {
+        "statement": "↑(k + 2) = n - 1",
+        "origin": "derived",
+        "name": "hk2_int",
+        "fvar_id": "_uniq.749542"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑k + 2 = ↑n - 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Not.intro",
+        "Real.instIsOrderedRing",
+        "congrArg",
+        "neg_eq_zero",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "↑k = ↑n - 3",
+          "origin": "derived",
+          "name": "hkR",
+          "fvar_id": "_uniq.747124"
+        },
+        {
+          "statement": "↑(k + 2) = n - 1",
+          "origin": "derived",
+          "name": "hk2_int",
+          "fvar_id": "_uniq.749542"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_150",
+      "conclusion": {
+        "statement": "↑k + 2 = ↑n - 1",
+        "origin": "derived",
+        "name": "hk2R",
+        "fvar_id": "_uniq.749937"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < lam",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Int.cast_le._simp_1",
+        "Int.cast_ofNat",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Meta.Positivity.pos_of_isNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Linarith.zero_lt_one",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "NeZero.charZero_one",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instNontrivial",
+        "Real.instZeroLEOneClass",
+        "congrArg",
+        "div_pos",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge",
+        "mul_pos",
+        "neg_neg_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "4 ≤ n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.745016"
+        },
+        {
+          "statement": "0 < Λ",
+          "origin": "local_assumption",
+          "name": "hΛ",
+          "fvar_id": "_uniq.745020"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_151",
+      "conclusion": {
+        "statement": "0 < lam",
+        "origin": "derived",
+        "name": "hlam",
+        "fvar_id": "_uniq.754439"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "M ^ 2 * lam ^ k < ↑k ^ k / (↑k + 2) ^ (k + 2)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg",
+        "eq_of_heq",
+        "zpow_natCast"
+      ],
+      "premises": [
+        {
+          "statement": "M ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1)",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.746348"
+        },
+        {
+          "statement": "↑k = n - 3",
+          "origin": "derived",
+          "name": "hk_int",
+          "fvar_id": "_uniq.746634"
+        },
+        {
+          "statement": "↑k = ↑n - 3",
+          "origin": "derived",
+          "name": "hkR",
+          "fvar_id": "_uniq.747124"
+        },
+        {
+          "statement": "↑(k + 2) = n - 1",
+          "origin": "derived",
+          "name": "hk2_int",
+          "fvar_id": "_uniq.749542"
+        },
+        {
+          "statement": "↑k + 2 = ↑n - 1",
+          "origin": "derived",
+          "name": "hk2R",
+          "fvar_id": "_uniq.749937"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_152",
+      "conclusion": {
+        "statement": "M ^ 2 * lam ^ k < ↑k ^ k / (↑k + 2) ^ (k + 2)",
+        "origin": "derived",
+        "name": "hcond_nat",
+        "fvar_id": "_uniq.768505"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ℝ), r ^ (n - 3) = r ^ k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg",
+        "zpow_natCast"
+      ],
+      "premises": [
+        {
+          "statement": "↑k = n - 3",
+          "origin": "derived",
+          "name": "hk_int",
+          "fvar_id": "_uniq.746634"
+        }
+      ],
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_153",
+      "conclusion": {
+        "statement": "∀ (r : ℝ), r ^ (n - 3) = r ^ k",
+        "origin": "derived",
+        "name": "hpowcast",
+        "fvar_id": "_uniq.771206"
+      }
+    }
+  ],
+  "excluded_local_bindings": [
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_121",
+      "fvar_id": "_uniq.745424",
+      "candidate_type": "?_mvar.745419",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_122",
+      "fvar_id": "_uniq.745433",
+      "candidate_type": "?_mvar.745428",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_123",
+      "fvar_id": "_uniq.745442",
+      "candidate_type": "?_mvar.745437",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_124",
+      "fvar_id": "_uniq.745451",
+      "candidate_type": "?_mvar.745446",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_125",
+      "fvar_id": "_uniq.745460",
+      "candidate_type": "?_mvar.745455",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_126",
+      "fvar_id": "_uniq.745469",
+      "candidate_type": "?_mvar.745464",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_127",
+      "fvar_id": "_uniq.745478",
+      "candidate_type": "?_mvar.745473",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_128",
+      "fvar_id": "_uniq.746265",
+      "candidate_type": "?_mvar.746260",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_129",
+      "fvar_id": "_uniq.746277",
+      "candidate_type": "?_mvar.746272",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_130",
+      "fvar_id": "_uniq.746287",
+      "candidate_type": "?_mvar.746282",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_131",
+      "fvar_id": "_uniq.746297",
+      "candidate_type": "?_mvar.746292",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_132",
+      "fvar_id": "_uniq.746307",
+      "candidate_type": "?_mvar.746302",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_133",
+      "fvar_id": "_uniq.746317",
+      "candidate_type": "?_mvar.746312",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_134",
+      "fvar_id": "_uniq.746327",
+      "candidate_type": "?_mvar.746322",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_135",
+      "fvar_id": "_uniq.746337",
+      "candidate_type": "?_mvar.746332",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+      "id": "local_136",
+      "fvar_id": "_uniq.746347",
+      "candidate_type": "?_mvar.746342",
+      "binding_name": "this"
+    }
+  ],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p0292_two_positive_roots_of_mu",
+    "proof_sha256": "9ba3a700a3689acbebad016432a5db700a757f0410ce62eb406116fb0ea54f2f",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu"
+  }
+}

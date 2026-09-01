@@ -1,0 +1,31 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h__lt_one_0407c278" [shape=box, color="#178F82", label="hβ_lt_one\n∀ (t : NNReal), β t < 1"];
+  "m_h__zero_44bf7eb4" [shape=box, color="#178F82", label="hβ_zero\n∀ (t : ℕ → NNReal), Filter.Tendsto (fun n => β (t n)) Filter.atTop (nhds 1) → Filter.Tendsto t Filter.atTop (nhds 0)"];
+  "m_hcontract_b314132a" [shape=box, color="#178F82", label="hcontract\n∀ (x y : X), H x ≤ H y ∨ H y ≤ H x → nndist (f x) (g y) ≤ β (nndist (H x) (H y)) * nndist (H x) (H y)"];
+  "m_hf_range_bf0e6776" [shape=box, color="#178F82", label="hf_range\nSet.range f ⊆ Set.range H"];
+  "m_hfg_inc_0415394c" [shape=box, color="#178F82", label="hfg_inc\n∀ (x y : X), H y = f x → f x ≤ g y"];
+  "m_hh_closed_b64914b2" [shape=box, color="#178F82", label="hH_closed\nIsClosed (Set.range H)"];
+  "m_hregular_c52dc82b" [shape=box, color="#178F82", label="hregular\n∀ (z : ℕ → X) (a : X), Monotone z → Filter.Tendsto z Filter.atTop (nhds a) → ∀ (n : ℕ), z n ≤ a"];
+  "m_inst___proofs_697528154__0b54fd7d" [shape=box, color="#178F82", label="inst._@.proofs.697528154._hygCtx._hyg.12\nCompleteSpace X"];
+  "m_inst___proofs_697528154__cb0924a2" [shape=box, color="#178F82", label="inst._@.proofs.697528154._hygCtx._hyg.3\nNonempty X"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ u, f u = g u ∧ g u = H u"];
+  "n_hf_eq_g_2d77887b" [shape=box, color="#D97706", label="hf_eq_g\n∀ (x : X), f x = g x"];
+  "r_h_001_hf_eq_g" [shape=diamond, label="MulZeroClass.mul_zero + le_antisymm + le_rfl", color="#D97706"];
+  "m_hcontract_b314132a" -> "r_h_001_hf_eq_g";
+  "r_h_001_hf_eq_g" -> "n_hf_eq_g_2d77887b";
+  "r_h_goal" [shape=diamond, label="CauchySeq.tendsto_limUnder + Filter.Tendsto.congr' + Filter.Tendsto.nndist", color="#D97706"];
+  "m_inst___proofs_697528154__cb0924a2" -> "r_h_goal";
+  "m_inst___proofs_697528154__0b54fd7d" -> "r_h_goal";
+  "m_hregular_c52dc82b" -> "r_h_goal";
+  "m_hf_range_bf0e6776" -> "r_h_goal";
+  "m_hh_closed_b64914b2" -> "r_h_goal";
+  "m_hfg_inc_0415394c" -> "r_h_goal";
+  "m_h__lt_one_0407c278" -> "r_h_goal";
+  "m_h__zero_44bf7eb4" -> "r_h_goal";
+  "m_hcontract_b314132a" -> "r_h_goal";
+  "n_hf_eq_g_2d77887b" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

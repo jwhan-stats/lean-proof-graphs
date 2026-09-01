@@ -1,0 +1,627 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0390_linfty_eq_erosion_distance",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 390,
+    "source": "1710.01577",
+    "theorem_name": "linfty_eq_erosion_distance",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/390",
+    "reconstructed_proof": "../../candidates/p0390_linfty_eq_erosion_distance/proof.lean",
+    "raw_elaboration": "../../candidates/p0390_linfty_eq_erosion_distance/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0390_linfty_eq_erosion_distance.linfty_eq_erosion_distance",
+    "verification_call_id": "verify_submission:25",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "7169e0ab7d33b8a0fb0a4a39cd644007ca5765397d525bbf754de2f861f69f8d",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "125e9738ca4dd417aaaf633e437a424efe6500d2d1cb208367664c8af0266aae",
+    "concrete_semantic_topology_sha256": "7169e0ab7d33b8a0fb0a4a39cd644007ca5765397d525bbf754de2f861f69f8d"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "⨆ x, ENNReal.ofReal |f x - g x| = sInf {d | ∃ ε, d = ↑ε ∧ ∀ (a b : ℝ), a < b → g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)}"
+    },
+    {
+      "id": "n_he_e7dec4f5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hE",
+      "lean_fvar_id": "_uniq.779611",
+      "statement": "∀ (a b : ℝ), a < b → g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)"
+    },
+    {
+      "id": "n_hl_7db0a4fd",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hL",
+      "lean_fvar_id": "_uniq.780097",
+      "statement": "¬L = ⊤"
+    },
+    {
+      "id": "n_hx_c46772d1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.779800",
+      "statement": "|f x - g x| ≤ ↑ε"
+    },
+    {
+      "id": "n_hxe_9be7cb18",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxE",
+      "lean_fvar_id": "_uniq.780813",
+      "statement": "ENNReal.ofReal |f x - g x| ≤ ↑L.toNNReal"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_he_e7dec4f5"
+      ],
+      "conclusion": "n_hx_c46772d1",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "erosion_iff_pointwise",
+        "items": [
+          "Rollout_p0390_linfty_eq_erosion_distance.erosion_iff_pointwise"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0390_linfty_eq_erosion_distance.erosion_iff_pointwise"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_78",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hx : |f x - g x| ≤ (ε : ℝ) :=\n      (erosion_iff_pointwise f g ε).mp hE x\n    rw [← ENNReal.ofReal_coe_nnreal]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.779611",
+              "name": "hE",
+              "statement": "∀ (a b : ℝ), a < b → g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.779800",
+            "name": "hx",
+            "statement": "|f x - g x| ≤ ↑ε"
+          }
+        },
+        "lean_dependency_sha256": "635e67288c90bfc7c5881873995168c579baee69000d718732ee62509bb609df",
+        "kernel_witness_check": {
+          "proof_type": "|f x - g x| ≤ ↑ε",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hxe",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hl_7db0a4fd"
+      ],
+      "conclusion": "n_hxe_9be7cb18",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ENNReal.coe_toNNReal + le_iSup",
+        "items": [
+          "ENNReal.coe_toNNReal",
+          "le_iSup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ENNReal.coe_toNNReal",
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_81",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hxE : ENNReal.ofReal |f x - g x| ≤ (L.toNNReal : ENNReal) := by\n        rw [ENNReal.coe_toNNReal hL]\n        exact le_iSup (fun x : X => ENNReal.ofReal |f x - g x|) x",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.780097",
+              "name": "hL",
+              "statement": "¬L = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.780813",
+            "name": "hxE",
+            "statement": "ENNReal.ofReal |f x - g x| ≤ ↑L.toNNReal"
+          }
+        },
+        "lean_dependency_sha256": "ea6f3bb72fa2a63ff3008d43efcbec8cbff9d66fadd41610cc32e834b1afc40a",
+        "kernel_witness_check": {
+          "proof_type": "ENNReal.ofReal |f x - g x| ≤ ↑L.toNNReal",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.coe_toNNReal"
+        ],
+        "observed_search_event_ids": [
+          "loogle:19",
+          "loogle:21"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "ENNReal.coe_toNNReal + ENNReal.ofReal_coe_nnreal + ENNReal.ofReal_le_coe",
+        "items": [
+          "ENNReal.coe_toNNReal",
+          "ENNReal.ofReal_coe_nnreal",
+          "ENNReal.ofReal_le_coe",
+          "ENNReal.ofReal_le_ofReal",
+          "Rollout_p0390_linfty_eq_erosion_distance.erosion_iff_pointwise",
+          "iSup_le",
+          "le_antisymm",
+          "le_iSup"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0390_linfty_eq_erosion_distance.erosion_iff_pointwise"
+        ],
+        "mathlib_items": [
+          "ENNReal.coe_toNNReal",
+          "ENNReal.ofReal_coe_nnreal",
+          "ENNReal.ofReal_le_coe",
+          "ENNReal.ofReal_le_ofReal",
+          "iSup_le",
+          "le_antisymm",
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  apply le_antisymm\n  · apply le_sInf\n    intro d hd\n    rcases hd with ⟨ε, rfl, hE⟩\n    apply iSup_le\n    intro x\n    have hx : |f x - g x| ≤ (ε : ℝ) :=\n      (erosion_iff_pointwise f g ε).mp hE x\n    rw [← ENNReal.ofReal_coe_nnreal]\n    exact ENNReal.ofReal_le_ofReal hx\n  · by_cases hL : L = ⊤\n    · rw [hL]\n      exact le_top\n    · apply sInf_le\n      refine ⟨L.toNNReal, (ENNReal.coe_toNNReal hL).symm, ?_⟩\n      apply (erosion_iff_pointwise f g L.toNNReal).mpr\n      intro x\n      have hxE : ENNReal.ofReal |f x - g x| ≤ (L.toNNReal : ENNReal) := by\n        rw [ENNReal.coe_toNNReal hL]\n        exact le_iSup (fun x : X => ENNReal.ofReal |f x - g x|) x\n      exact (ENNReal.ofReal_le_coe.mp hxE)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "⨆ x, ENNReal.ofReal |f x - g x| = sInf {d | ∃ ε, d = ↑ε ∧ ∀ (a b : ℝ), a < b → g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)}"
+          }
+        },
+        "lean_dependency_sha256": "edc218a524c536a3883975c9767d8812d11d74c8e88a3d644e306213707c8edd",
+        "kernel_witness_check": {
+          "proof_type": "⨆ x, ENNReal.ofReal |f x - g x| =\n  sInf\n    {d |\n      ∃ ε,\n        d = ↑ε ∧\n          ∀ (a b : ℝ),\n            a < b →\n              g ⁻¹' Set.Icc a b ⊆ f ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε) ∧ f ⁻¹' Set.Icc a b ⊆ g ⁻¹' Set.Icc (a - ↑ε) (b + ↑ε)}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ENNReal.coe_toNNReal",
+          "ENNReal.ofReal_coe_nnreal",
+          "ENNReal.ofReal_le_coe",
+          "ENNReal.ofReal_le_ofReal"
+        ],
+        "observed_search_event_ids": [
+          "loogle:19",
+          "loogle:21",
+          "loogle:12",
+          "loogle:13",
+          "leanfinder:14",
+          "loogle:11",
+          "loogle:9",
+          "loogle:10"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "(_ ≤ _ + _ -> _ ≤ _)",
+      "declarations": [
+        "Nat.le_of_add_le_add_left",
+        "Nat.le_of_add_le_add_right",
+        "Nat.sub_le_of_le_add",
+        "Int.le_of_add_le_add_left",
+        "Int.le_of_add_le_add_right",
+        "Int.sub_left_le_of_le_add",
+        "Int.sub_right_le_of_le_add",
+        "Int.add_le_of_le_neg_add",
+        "Int.neg_add_le_left_of_le_add",
+        "Int.neg_add_le_of_le_add"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "real number inequality if x ≤ y + epsilon for every positive epsilon",
+      "declarations": [
+        "Classical.epsilon",
+        "Classical.epsilon_spec",
+        "Lean.mkNatLE",
+        "Fact.Manifold.instLeReal",
+        "EReal.ge_of_forall_gt_iff_ge",
+        "Hyperreal.epsilon",
+        "ENNReal.le_of_forall_pos_le_add",
+        "Ordinal.epsilon",
+        "NumberField.ComplexEmbedding.IsReal",
+        "NumberField.InfinitePlace.IsReal"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "∀ ε > 0, _ ≤ _ + ε → _ ≤ _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "le_of_forall_pos_le_add",
+      "declarations": [
+        "le_of_forall_pos_le_add"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "(_ ≤ _ + _) → _ ≤ _",
+      "declarations": [
+        "Nat.le_of_add_le_add_left",
+        "Nat.le_of_add_le_add_right",
+        "Nat.sub_le_of_le_add",
+        "Int.le_of_add_le_add_left",
+        "Int.le_of_add_le_add_right",
+        "Int.sub_left_le_of_le_add",
+        "Int.sub_right_le_of_le_add",
+        "Int.add_le_of_le_neg_add",
+        "Int.neg_add_le_left_of_le_add",
+        "Int.neg_add_le_of_le_add"
+      ],
+      "call_turn": 6,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "Archimedean ordered field epsilon if a is at most b plus every positive epsilon",
+      "declarations": [
+        "Hyperreal.epsilon",
+        "Classical.epsilon",
+        "exists_nat_one_div_lt",
+        "Archimedean",
+        "IsStrictlyPositive",
+        "ConditionallyCompleteLinearOrderedField.to_archimedean",
+        "Ordinal.epsilon",
+        "exists_rat_near",
+        "exists_rat_gt",
+        "Hyperreal.archimedeanClassMk_epsilon_pos"
+      ],
+      "call_turn": 6,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "abs_le",
+      "declarations": [
+        "abs_le"
+      ],
+      "call_turn": 10,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "|_ - _| ≤ _ ↔ _",
+      "declarations": [
+        "abs_sub_nonpos",
+        "abs_sub_le_iff",
+        "Set.mem_Icc_iff_abs_le"
+      ],
+      "call_turn": 10,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "abs_sub_le_iff",
+      "declarations": [
+        "abs_sub_le_iff"
+      ],
+      "call_turn": 10,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_le_ofReal",
+      "declarations": [
+        "ENNReal.ofReal_le_ofReal"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal _ ≤ ENNReal.ofReal _",
+      "declarations": [
+        "ENNReal.ofReal_le_ofReal",
+        "ENNReal.ofReal_le_ofReal_iff",
+        "ENNReal.ofReal_le_ofReal_iff'",
+        "MeasureTheory.all_ae_norm_ofReal_F_le_bound",
+        "MeasureTheory.all_ae_ofReal_F_le_bound",
+        "MeasureTheory.ae_norm_ofReal_f_le_bound",
+        "MeasureTheory.all_ae_ofReal_f_le_bound"
+      ],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal (_ : ℝ) ≤ _",
+      "declarations": [
+        "ENNReal.ofReal_toReal_le",
+        "ENNReal.ofReal_le_ofReal",
+        "ENNReal.ofReal_le_of_le_toReal",
+        "ENNReal.ofReal_le_coe",
+        "ENNReal.ofReal_le_iff_le_toReal",
+        "ENNReal.ofReal_le_natCast",
+        "ENNReal.ofReal_le_ofReal_iff",
+        "ENNReal.ofReal_le_ofReal_iff'",
+        "ENNReal.ofReal_le_one",
+        "ENNReal.ofReal_le_ofNat"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal_coe_nnreal",
+      "declarations": [
+        "ENNReal.ofReal_coe_nnreal"
+      ],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "ENNReal.ofReal ↑_ = ↑_",
+      "declarations": [
+        "ENNReal.ofReal_coe_nnreal",
+        "ENNReal.ofReal_toReal",
+        "ENNReal.ofReal_toReal_eq_iff",
+        "ENNReal.ofReal_zero",
+        "ENNReal.ofReal_natCast",
+        "ENNReal.ofReal_one",
+        "ENNReal.ofReal_ofNat",
+        "ENNReal.ofReal_eq_coe_nnreal",
+        "ENNReal.ofReal_max",
+        "ENNReal.ofReal_min"
+      ],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "ENNReal coercion NNReal equals ofReal real coercion",
+      "declarations": [
+        "ENNReal.ofReal",
+        "Simps.findCoercionArgs",
+        "Mathlib.Tactic.Linarith.getNNRealToRealArg",
+        "Mathlib.Tactic.Linarith.isNatCoe",
+        "ENNReal.ofReal_coe_nnreal",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "Lean.Meta.registerCoercion",
+        "ENNReal.ofReal_eq_coe_nnreal",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "Mathlib.Meta.NormNum.tryNormNum"
+      ],
+      "call_turn": 18,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "sInf_le_iff",
+      "declarations": [
+        "sInf_le_iff"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "sInf_le",
+      "declarations": [
+        "sInf_le"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "le_sInf",
+      "declarations": [
+        "le_sInf"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "sInf_eq_top",
+      "declarations": [
+        "sInf_eq_top"
+      ],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "ENNReal.coe_toNNReal",
+      "declarations": [
+        "ENNReal.coe_toNNReal"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "↑_.toNNReal = _",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "ENNReal.toNNReal",
+      "declarations": [
+        "ENNReal.toNNReal",
+        "ENNReal.toNNReal_coe",
+        "ENNReal.coe_toNNReal_eq_toReal",
+        "ENNReal.toNNReal_toReal_eq",
+        "ENNReal.coe_toNNReal_le_self",
+        "ENNReal.toNNReal_top",
+        "ENNReal.coe_toNNReal",
+        "ENNReal.toNNReal_zero",
+        "ENNReal.toNNReal_natCast_eq_toNNReal",
+        "ENNReal.toNNReal_one"
+      ],
+      "call_turn": 27,
+      "result_turn": 30
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 4,
+    "retrieval_query_count": 22,
+    "useful_retrieval_event_count": 8,
+    "unused_retrieval_event_count": 14,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 26,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

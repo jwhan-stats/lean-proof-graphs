@@ -1,0 +1,1253 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "manifest": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "0 < m",
+          "origin": "manifest",
+          "name": "hm",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "q ∈ Set.Icc 0 1",
+          "origin": "manifest",
+          "name": "hq",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∀ (i : Fin m), Measurable (P i)",
+          "origin": "manifest",
+          "name": "hP_measurable",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "ProbabilityTheory.iIndepFun P μ",
+          "origin": "manifest",
+          "name": "hP_independent",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "∀ (s : Finset (Fin m)), MeasurableSet (S ⁻¹' {s})",
+          "origin": "manifest",
+          "name": "hS_measurable",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "∀ (i : Fin m) (x y : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n  (∀ (j : Fin m), j ≠ i → x j = y j) → i ∈ S x → i ∈ S y → (S x).card = (S y).card",
+          "origin": "manifest",
+          "name": "hS_simple",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (i : Fin m) (α : ℝ), Measurable (C i α)",
+          "origin": "manifest",
+          "name": "hC_measurable",
+          "fvar_id": "16"
+        },
+        {
+          "statement": "∀ (i : Fin m) (α : ℝ) (p : Fin (n i) → ↑(Set.Icc 0 1)), 0 ≤ C i α p",
+          "origin": "manifest",
+          "name": "hC_nonnegative",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "(Set.range fun z => C z.fst z.snd.1 z.snd.2).Countable",
+          "origin": "manifest",
+          "name": "hC_countable",
+          "fvar_id": "18"
+        },
+        {
+          "statement": "∀ (i : Fin m), ∀ α ∈ Set.Icc 0 1, MeasureTheory.Integrable (fun ω => C i α (P i ω)) μ ∧ ∫ (ω : Ω), C i α (P i ω) ∂μ ≤ α",
+          "origin": "manifest",
+          "name": "hC_valid",
+          "fvar_id": "19"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "Measurable F",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "measurable_pi_lambda"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (i : Fin m), Measurable (P i)",
+              "origin": "local_assumption",
+              "name": "hP_measurable",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "Measurable F",
+            "origin": "derived",
+            "name": "hF_measurable",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Measurable (Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.totalContribution m q n S C)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "MeasurableSpace.measurableSet_top._simp_1",
+            "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.totalContribution_measurable",
+            "of_eq_true"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (s : Finset (Fin m)), MeasurableSet (S ⁻¹' {s})",
+              "origin": "local_assumption",
+              "name": "hS_measurable",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "∀ (i : Fin m) (α : ℝ), Measurable (C i α)",
+              "origin": "local_assumption",
+              "name": "hC_measurable",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "Measurable Y",
+            "origin": "derived",
+            "name": "hY_measurable",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Measurable (Y ∘ F)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Measurable.comp"
+          ],
+          "premises": [
+            {
+              "statement": "Measurable F",
+              "origin": "derived",
+              "name": "hF_measurable",
+              "fvar_id": "22"
+            },
+            {
+              "statement": "Measurable Y",
+              "origin": "derived",
+              "name": "hY_measurable",
+              "fvar_id": "23"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "Measurable fun ω => Y (F ω)",
+            "origin": "derived",
+            "name": "hYF_measurable",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ᵐ (x : Ω) ∂μ, 0 x ≤ (fun ω => Y (F ω)) x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Filter.Eventually.of_forall",
+            "MeasureTheory.Measure.instOuterMeasureClass",
+            "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.totalContribution_nonneg"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (i : Fin m) (α : ℝ) (p : Fin (n i) → ↑(Set.Icc 0 1)), 0 ≤ C i α p",
+              "origin": "local_assumption",
+              "name": "hC_nonnegative",
+              "fvar_id": "17"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "0 ≤ᵐ[μ] fun ω => Y (F ω)",
+            "origin": "derived",
+            "name": "hY_nonneg",
+            "fvar_id": "25"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∫ (a : Ω), Y (F a) ∂μ = (∫⁻ (a : Ω), ENNReal.ofReal (Y (F a)) ∂μ).toReal",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "BorelSpace.opensMeasurable",
+            "Measurable.aestronglyMeasurable",
+            "MeasureTheory.integral_eq_lintegral_of_nonneg_ae",
+            "PseudoEMetricSpace.pseudoMetrizableSpace",
+            "Real.borelSpace",
+            "instSecondCountableTopologyReal"
+          ],
+          "premises": [
+            {
+              "statement": "Measurable fun ω => Y (F ω)",
+              "origin": "derived",
+              "name": "hYF_measurable",
+              "fvar_id": "24"
+            },
+            {
+              "statement": "0 ≤ᵐ[μ] fun ω => Y (F ω)",
+              "origin": "derived",
+              "name": "hY_nonneg",
+              "fvar_id": "25"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_26",
+          "conclusion": {
+            "statement": "∫ (ω : Ω), Y (F ω) ∂μ = (∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ).toReal",
+            "origin": "derived",
+            "name": "hintegral_eq",
+            "fvar_id": "26"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(fun ω =>\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card) =\n  fun ω => Y (F ω)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.selectedAverage_eq_totalContribution",
+            "funext"
+          ],
+          "premises": [],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_27",
+          "conclusion": {
+            "statement": "(fun ω =>\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card) =\n  fun ω => Y (F ω)",
+            "origin": "derived",
+            "name": "hfun",
+            "fvar_id": "27"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Measurable.aemeasurable",
+            "MeasureTheory.Measure.isProbabilityMeasure_map"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.IsProbabilityMeasure μ",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "∀ (i : Fin m), Measurable (P i)",
+              "origin": "local_assumption",
+              "name": "hP_measurable",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+            "origin": "derived",
+            "name": "hνprob",
+            "fvar_id": "28"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "MeasureTheory.Measure.map (fun ω i => P i ω) μ =\n  MeasureTheory.Measure.infinitePi fun i => MeasureTheory.Measure.map (P i) μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mp",
+            "ProbabilityTheory.iIndepFun_iff_map_fun_eq_infinitePi_map"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.IsProbabilityMeasure μ",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "∀ (i : Fin m), Measurable (P i)",
+              "origin": "local_assumption",
+              "name": "hP_measurable",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "ProbabilityTheory.iIndepFun P μ",
+              "origin": "local_assumption",
+              "name": "hP_independent",
+              "fvar_id": "11"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_29",
+          "conclusion": {
+            "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.infinitePi fun j => MeasureTheory.Measure.map (P j) μ",
+            "origin": "derived",
+            "name": "hjoint_infinite",
+            "fvar_id": "29"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "MeasureTheory.Measure.infinitePi_eq_pi"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+              "origin": "derived",
+              "name": "hνprob",
+              "fvar_id": "28"
+            },
+            {
+              "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.infinitePi fun j => MeasureTheory.Measure.map (P j) μ",
+              "origin": "derived",
+              "name": "hjoint_infinite",
+              "fvar_id": "29"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_30",
+          "conclusion": {
+            "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+            "origin": "derived",
+            "name": "hjoint",
+            "fvar_id": "30"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Measurable (ENNReal.ofReal ∘ Y)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ENNReal.measurable_ofReal",
+            "Measurable.comp"
+          ],
+          "premises": [
+            {
+              "statement": "Measurable Y",
+              "origin": "derived",
+              "name": "hY_measurable",
+              "fvar_id": "23"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_31",
+          "conclusion": {
+            "statement": "Measurable fun x => ENNReal.ofReal (Y x)",
+            "origin": "derived",
+            "name": "hYenn_measurable",
+            "fvar_id": "31"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∫⁻ (a : Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.PTuple m n),\n    ENNReal.ofReal (Y a) ∂MeasureTheory.Measure.map F μ =\n  ∫⁻ (a : Ω), ENNReal.ofReal (Y (F a)) ∂μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "MeasureTheory.lintegral_map"
+          ],
+          "premises": [
+            {
+              "statement": "Measurable F",
+              "origin": "derived",
+              "name": "hF_measurable",
+              "fvar_id": "22"
+            },
+            {
+              "statement": "Measurable fun x => ENNReal.ofReal (Y x)",
+              "origin": "derived",
+              "name": "hYenn_measurable",
+              "fvar_id": "31"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_32",
+          "conclusion": {
+            "statement": "∫⁻ (x : Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.PTuple m n),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.map F μ =\n  ∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ",
+            "origin": "derived",
+            "name": "hlintegral_map",
+            "fvar_id": "32"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ =\n  ∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "congrArg"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+              "origin": "derived",
+              "name": "hjoint",
+              "fvar_id": "30"
+            },
+            {
+              "statement": "∫⁻ (x : Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.PTuple m n),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.map F μ =\n  ∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ",
+              "origin": "derived",
+              "name": "hlintegral_map",
+              "fvar_id": "32"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_33",
+          "conclusion": {
+            "statement": "∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ =\n  ∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+            "origin": "derived",
+            "name": "hlintegral_source_pi",
+            "fvar_id": "33"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal\n      (Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.totalContribution m q n S C\n        x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ) ≤\n  ENNReal.ofReal q",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.lintegral_totalContribution_le"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.IsProbabilityMeasure μ",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "0 < m",
+              "origin": "local_assumption",
+              "name": "hm",
+              "fvar_id": "5"
+            },
+            {
+              "statement": "q ∈ Set.Icc 0 1",
+              "origin": "local_assumption",
+              "name": "hq",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (i : Fin m), Measurable (P i)",
+              "origin": "local_assumption",
+              "name": "hP_measurable",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "∀ (s : Finset (Fin m)), MeasurableSet (S ⁻¹' {s})",
+              "origin": "local_assumption",
+              "name": "hS_measurable",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "∀ (i : Fin m) (x y : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n  (∀ (j : Fin m), j ≠ i → x j = y j) → i ∈ S x → i ∈ S y → (S x).card = (S y).card",
+              "origin": "local_assumption",
+              "name": "hS_simple",
+              "fvar_id": "14"
+            },
+            {
+              "statement": "∀ (i : Fin m) (α : ℝ), Measurable (C i α)",
+              "origin": "local_assumption",
+              "name": "hC_measurable",
+              "fvar_id": "16"
+            },
+            {
+              "statement": "∀ (i : Fin m) (α : ℝ) (p : Fin (n i) → ↑(Set.Icc 0 1)), 0 ≤ C i α p",
+              "origin": "local_assumption",
+              "name": "hC_nonnegative",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "∀ (i : Fin m), ∀ α ∈ Set.Icc 0 1, MeasureTheory.Integrable (fun ω => C i α (P i ω)) μ ∧ ∫ (ω : Ω), C i α (P i ω) ∂μ ≤ α",
+              "origin": "local_assumption",
+              "name": "hC_valid",
+              "fvar_id": "19"
+            }
+          ],
+          "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+          "id": "telescope_34",
+          "conclusion": {
+            "statement": "(∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ) ≤\n  ENNReal.ofReal q",
+            "origin": "derived",
+            "name": "hpi_bound",
+            "fvar_id": "34"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∫ (ω : Ω),\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card ∂μ ≤\n  q",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∫ (ω : Ω),\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card ∂μ ≤\n  q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "ENNReal.ofReal_ne_top",
+          "ENNReal.toReal_mono",
+          "ENNReal.toReal_ofReal",
+          "Iff.mp",
+          "Set.mem_Icc",
+          "congrArg"
+        ],
+        "premises": [
+          {
+            "statement": "q ∈ Set.Icc 0 1",
+            "origin": "local_assumption",
+            "name": "hq",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "∫ (ω : Ω), Y (F ω) ∂μ = (∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ).toReal",
+            "origin": "derived",
+            "name": "hintegral_eq",
+            "fvar_id": "26"
+          },
+          {
+            "statement": "(fun ω =>\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card) =\n  fun ω => Y (F ω)",
+            "origin": "derived",
+            "name": "hfun",
+            "fvar_id": "27"
+          },
+          {
+            "statement": "∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ =\n  ∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+            "origin": "derived",
+            "name": "hlintegral_source_pi",
+            "fvar_id": "33"
+          },
+          {
+            "statement": "(∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ) ≤\n  ENNReal.ofReal q",
+            "origin": "derived",
+            "name": "hpi_bound",
+            "fvar_id": "34"
+          }
+        ],
+        "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∫ (ω : Ω),\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card ∂μ ≤\n  q",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "MeasurableSingletonClass (Finset (Fin m))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MeasurableSpace.measurableSet_top._simp_1",
+        "of_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1461",
+      "conclusion": {
+        "statement": "MeasurableSingletonClass (Finset (Fin m))",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.7487458"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Measurable F",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "measurable_pi_lambda"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin m), Measurable (P i)",
+          "origin": "local_assumption",
+          "name": "hP_measurable",
+          "fvar_id": "_uniq.7487116"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1464",
+      "conclusion": {
+        "statement": "Measurable F",
+        "origin": "derived",
+        "name": "hF_measurable",
+        "fvar_id": "_uniq.7487723"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Measurable (SimpleSelectionAdjustedControl.totalContribution m q n S C)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.totalContribution_measurable"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (s : Finset (Fin m)), MeasurableSet (S ⁻¹' {s})",
+          "origin": "local_assumption",
+          "name": "hS_measurable",
+          "fvar_id": "_uniq.7487119"
+        },
+        {
+          "statement": "∀ (i : Fin m) (α : ℝ), Measurable (C i α)",
+          "origin": "local_assumption",
+          "name": "hC_measurable",
+          "fvar_id": "_uniq.7487122"
+        },
+        {
+          "statement": "MeasurableSingletonClass (Finset (Fin m))",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.7487458"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1465",
+      "conclusion": {
+        "statement": "Measurable Y",
+        "origin": "derived",
+        "name": "hY_measurable",
+        "fvar_id": "_uniq.7488014"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Measurable (Y ∘ F)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Measurable.comp"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable F",
+          "origin": "derived",
+          "name": "hF_measurable",
+          "fvar_id": "_uniq.7487723"
+        },
+        {
+          "statement": "Measurable Y",
+          "origin": "derived",
+          "name": "hY_measurable",
+          "fvar_id": "_uniq.7488014"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1466",
+      "conclusion": {
+        "statement": "Measurable fun ω => Y (F ω)",
+        "origin": "derived",
+        "name": "hYF_measurable",
+        "fvar_id": "_uniq.7488258"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ᵐ (x : Ω) ∂μ, 0 x ≤ (fun ω => Y (F ω)) x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.Eventually.of_forall",
+        "MeasureTheory.Measure.instOuterMeasureClass",
+        "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.totalContribution_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin m) (α : ℝ) (p : Fin (n i) → ↑(Set.Icc 0 1)), 0 ≤ C i α p",
+          "origin": "local_assumption",
+          "name": "hC_nonnegative",
+          "fvar_id": "_uniq.7487123"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1467",
+      "conclusion": {
+        "statement": "0 ≤ᵐ[μ] fun ω => Y (F ω)",
+        "origin": "derived",
+        "name": "hY_nonneg",
+        "fvar_id": "_uniq.7489516"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∫ (a : Ω), Y (F a) ∂μ = (∫⁻ (a : Ω), ENNReal.ofReal (Y (F a)) ∂μ).toReal",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "Measurable.aestronglyMeasurable",
+        "MeasureTheory.integral_eq_lintegral_of_nonneg_ae",
+        "PseudoEMetricSpace.pseudoMetrizableSpace",
+        "Real.borelSpace",
+        "instSecondCountableTopologyReal"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable fun ω => Y (F ω)",
+          "origin": "derived",
+          "name": "hYF_measurable",
+          "fvar_id": "_uniq.7488258"
+        },
+        {
+          "statement": "0 ≤ᵐ[μ] fun ω => Y (F ω)",
+          "origin": "derived",
+          "name": "hY_nonneg",
+          "fvar_id": "_uniq.7489516"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1468",
+      "conclusion": {
+        "statement": "∫ (ω : Ω), Y (F ω) ∂μ = (∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ).toReal",
+        "origin": "derived",
+        "name": "hintegral_eq",
+        "fvar_id": "_uniq.7489594"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(fun ω =>\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card) =\n  fun ω => Y (F ω)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.selectedAverage_eq_totalContribution",
+        "funext"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1469",
+      "conclusion": {
+        "statement": "(fun ω =>\n    if (S fun i => P i ω).card = 0 then 0\n    else (∑ i ∈ S fun j => P j ω, C i (↑(S fun j => P j ω).card * q / ↑m) (P i ω)) / ↑(S fun j => P j ω).card) =\n  fun ω => Y (F ω)",
+        "origin": "derived",
+        "name": "hfun",
+        "fvar_id": "_uniq.7490092"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Measurable.aemeasurable",
+        "MeasureTheory.Measure.isProbabilityMeasure_map"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+          "fvar_id": "_uniq.7487109"
+        },
+        {
+          "statement": "∀ (i : Fin m), Measurable (P i)",
+          "origin": "local_assumption",
+          "name": "hP_measurable",
+          "fvar_id": "_uniq.7487116"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1470",
+      "conclusion": {
+        "statement": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+        "origin": "derived",
+        "name": "hνprob",
+        "fvar_id": "_uniq.7490352"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+          "origin": "derived",
+          "name": "hνprob",
+          "fvar_id": "_uniq.7490352"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1471",
+      "conclusion": {
+        "statement": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.7490689"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasureTheory.Measure.map (fun ω i => P i ω) μ =\n  MeasureTheory.Measure.infinitePi fun i => MeasureTheory.Measure.map (P i) μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "ProbabilityTheory.iIndepFun_iff_map_fun_eq_infinitePi_map"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+          "fvar_id": "_uniq.7487109"
+        },
+        {
+          "statement": "∀ (i : Fin m), Measurable (P i)",
+          "origin": "local_assumption",
+          "name": "hP_measurable",
+          "fvar_id": "_uniq.7487116"
+        },
+        {
+          "statement": "ProbabilityTheory.iIndepFun P μ",
+          "origin": "local_assumption",
+          "name": "hP_independent",
+          "fvar_id": "_uniq.7487117"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1472",
+      "conclusion": {
+        "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.infinitePi fun j => MeasureTheory.Measure.map (P j) μ",
+        "origin": "derived",
+        "name": "hjoint_infinite",
+        "fvar_id": "_uniq.7490943"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MeasureTheory.Measure.infinitePi_eq_pi"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (j : Fin m), MeasureTheory.IsProbabilityMeasure (MeasureTheory.Measure.map (P j) μ)",
+          "origin": "derived",
+          "name": "this",
+          "fvar_id": "_uniq.7490689"
+        },
+        {
+          "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.infinitePi fun j => MeasureTheory.Measure.map (P j) μ",
+          "origin": "derived",
+          "name": "hjoint_infinite",
+          "fvar_id": "_uniq.7490943"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1473",
+      "conclusion": {
+        "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+        "origin": "derived",
+        "name": "hjoint",
+        "fvar_id": "_uniq.7491318"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Measurable (ENNReal.ofReal ∘ Y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.measurable_ofReal",
+        "Measurable.comp"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable Y",
+          "origin": "derived",
+          "name": "hY_measurable",
+          "fvar_id": "_uniq.7488014"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1474",
+      "conclusion": {
+        "statement": "Measurable fun x => ENNReal.ofReal (Y x)",
+        "origin": "derived",
+        "name": "hYenn_measurable",
+        "fvar_id": "_uniq.7492296"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∫⁻ (a : SimpleSelectionAdjustedControl.PTuple m n), ENNReal.ofReal (Y a) ∂MeasureTheory.Measure.map F μ =\n  ∫⁻ (a : Ω), ENNReal.ofReal (Y (F a)) ∂μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "MeasureTheory.lintegral_map"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable F",
+          "origin": "derived",
+          "name": "hF_measurable",
+          "fvar_id": "_uniq.7487723"
+        },
+        {
+          "statement": "Measurable fun x => ENNReal.ofReal (Y x)",
+          "origin": "derived",
+          "name": "hYenn_measurable",
+          "fvar_id": "_uniq.7492296"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1475",
+      "conclusion": {
+        "statement": "∫⁻ (x : SimpleSelectionAdjustedControl.PTuple m n), ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.map F μ =\n  ∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ",
+        "origin": "derived",
+        "name": "hlintegral_map",
+        "fvar_id": "_uniq.7492444"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ =\n  ∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.Measure.map F μ = MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+          "origin": "derived",
+          "name": "hjoint",
+          "fvar_id": "_uniq.7491318"
+        },
+        {
+          "statement": "∫⁻ (x : SimpleSelectionAdjustedControl.PTuple m n), ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.map F μ =\n  ∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ",
+          "origin": "derived",
+          "name": "hlintegral_map",
+          "fvar_id": "_uniq.7492444"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1476",
+      "conclusion": {
+        "statement": "∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ =\n  ∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+        "origin": "derived",
+        "name": "hlintegral_source_pi",
+        "fvar_id": "_uniq.7493115"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal\n      (SimpleSelectionAdjustedControl.totalContribution m q n S C\n        x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ) ≤\n  ENNReal.ofReal q",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3186_simple_selection_adjusted_control.SimpleSelectionAdjustedControl.lintegral_totalContribution_le"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.72374644._hygCtx._hyg.8",
+          "fvar_id": "_uniq.7487109"
+        },
+        {
+          "statement": "0 < m",
+          "origin": "local_assumption",
+          "name": "hm",
+          "fvar_id": "_uniq.7487111"
+        },
+        {
+          "statement": "q ∈ Set.Icc 0 1",
+          "origin": "local_assumption",
+          "name": "hq",
+          "fvar_id": "_uniq.7487113"
+        },
+        {
+          "statement": "∀ (i : Fin m), Measurable (P i)",
+          "origin": "local_assumption",
+          "name": "hP_measurable",
+          "fvar_id": "_uniq.7487116"
+        },
+        {
+          "statement": "∀ (s : Finset (Fin m)), MeasurableSet (S ⁻¹' {s})",
+          "origin": "local_assumption",
+          "name": "hS_measurable",
+          "fvar_id": "_uniq.7487119"
+        },
+        {
+          "statement": "∀ (i : Fin m) (x y : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n  (∀ (j : Fin m), j ≠ i → x j = y j) → i ∈ S x → i ∈ S y → (S x).card = (S y).card",
+          "origin": "local_assumption",
+          "name": "hS_simple",
+          "fvar_id": "_uniq.7487120"
+        },
+        {
+          "statement": "∀ (i : Fin m) (α : ℝ), Measurable (C i α)",
+          "origin": "local_assumption",
+          "name": "hC_measurable",
+          "fvar_id": "_uniq.7487122"
+        },
+        {
+          "statement": "∀ (i : Fin m) (α : ℝ) (p : Fin (n i) → ↑(Set.Icc 0 1)), 0 ≤ C i α p",
+          "origin": "local_assumption",
+          "name": "hC_nonnegative",
+          "fvar_id": "_uniq.7487123"
+        },
+        {
+          "statement": "∀ (i : Fin m), ∀ α ∈ Set.Icc 0 1, MeasureTheory.Integrable (fun ω => C i α (P i ω)) μ ∧ ∫ (ω : Ω), C i α (P i ω) ∂μ ≤ α",
+          "origin": "local_assumption",
+          "name": "hC_valid",
+          "fvar_id": "_uniq.7487125"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1477",
+      "conclusion": {
+        "statement": "(∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ) ≤\n  ENNReal.ofReal q",
+        "origin": "derived",
+        "name": "hpi_bound",
+        "fvar_id": "_uniq.7493762"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ).toReal ≤ q",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.ofReal_ne_top",
+        "ENNReal.toReal_mono",
+        "ENNReal.toReal_ofReal",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ =\n  ∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ",
+          "origin": "derived",
+          "name": "hlintegral_source_pi",
+          "fvar_id": "_uniq.7493115"
+        },
+        {
+          "statement": "(∫⁻ (x : (i : Fin m) → Fin (n i) → ↑(Set.Icc 0 1)),\n    ENNReal.ofReal (Y x) ∂MeasureTheory.Measure.pi fun j => MeasureTheory.Measure.map (P j) μ) ≤\n  ENNReal.ofReal q",
+          "origin": "derived",
+          "name": "hpi_bound",
+          "fvar_id": "_uniq.7493762"
+        },
+        {
+          "statement": "0 ≤ q",
+          "origin": "local_assumption",
+          "name": "hq0",
+          "fvar_id": "_uniq.7493990"
+        }
+      ],
+      "parent": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+      "id": "local_1478",
+      "conclusion": {
+        "statement": "(∫⁻ (ω : Ω), ENNReal.ofReal (Y (F ω)) ∂μ).toReal ≤ q",
+        "origin": "derived",
+        "name": "htoReal_bound",
+        "fvar_id": "_uniq.7494016"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:81:5: warning: unused variable `hd_free`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:83:17: warning: unused variable `hA_meas`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:84:5: warning: unused variable `hA_inv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:87:5: warning: unused variable `hμA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:411:33: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:461:8: warning: unused variable `C₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:463:8: warning: unused variable `C₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:741:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:905:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1246:12: warning: Try `simp at hlower` instead of `simpa using hlower`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1411:27: warning: Try `simp at hsingle` instead of `simpa using hsingle`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1698:5: warning: unused variable `hWzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1785:29: warning: Try `simp at ht` instead of `simpa using ht`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1993:32: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1967:16: warning: 'calc\n  (∑ j ∈ Finset.range q, 2 / S * (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) =\n      2 / S * (∑ j ∈ Finset.range q, (((B.filter fun m => m.1 ∣ j + 1).card : ℝ))) :=\n    by rw [← Finset.mul_sum]\n  _ = 2 / S * ((q : ℝ) * S) := by rw [hsum_d_card]' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:1977:12: warning: 'congr 1' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:2846:5: warning: unused variable `hP_prime`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3073:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3116:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3190:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3279:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3285:7: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3353:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3368:9: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:35: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3407:48: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3414:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3420:11: warning: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3603:47: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:34: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3604:53: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3611:27: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3672:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3673:58: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3688:31: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3691:10: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3744:24: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3794:12: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3965:27: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:3985:35: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4224:5: warning: unused variable `hpq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:4703:5: warning: unused variable `hq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5563:4: warning: Try this: intro R b hR hb hb1 hplump δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hratio hscale y hy k hk\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5583:4: warning: Try this: intro δ m b₀ B₀ hδ0 hδ1 hb₀ hb₀B₀ hdyadic R b hR hb hb1 hbratio hRscale y hy r hr hrR\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:5859:46: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:6525:6: warning: `Real.exp_lt_exp_of_lt` has been deprecated: Use `Real.exp_strictMono` instead\n\nNote: The updated constant has a different type:\n  StrictMono Real.exp\ninstead of\n  ∀ {x y : ℝ}, x < y → Real.exp x < Real.exp y\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7041:5: warning: unused variable `hC_countable`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7313:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7250:13: warning: unused variable `hd`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7253:5: warning: unused variable `haLI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:7401:6: warning: This simp argument is unused:\n  affineSemigroupNatToReal\n\nHint: Omit it from the simp argument list.\n  simp [affineSemigroupIntToReal, affineSemigroupNatToInt, a̵f̵f̵i̵n̵e̵S̵e̵m̵i̵g̵r̵o̵u̵p̵N̵a̵t̵T̵o̵R̵e̵a̵l̵,̵ ̵q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8203:36: warning: unused variable `hSfg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean:8214:5: warning: unused variable `hminray`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_bdc778a7d850e81d/proofs.lean",
+    "namespace": "Rollout_p3186_simple_selection_adjusted_control",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p3186_simple_selection_adjusted_control.simple_selection_adjusted_control",
+    "proof_sha256": "5035cc1119a29234c5660e64d79be03567d38c84028b5ff846fcd5905bdc0460"
+  }
+}

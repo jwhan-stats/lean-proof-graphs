@@ -1,0 +1,32 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hc_nonneg_cbcdeb17" [shape=box, color="#178F82", label="hC_nonneg\n∀ (i j : Fin N), 0 ≤ C i j"];
+  "m_hq_9ed0e118" [shape=box, color="#178F82", label="hQ\nQ = (List.ofFn fun i => Matrix.updateRow 1 i (C i)).reverse.prod"];
+  "m_hr_9457c974" [shape=box, color="#178F82", label="hr\nIsGreatest (Set.range fun i => ∑ j, C i j) r"];
+  "m_hr_lt_one_a3a8038f" [shape=box, color="#178F82", label="hr_lt_one\nr < 1"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∑ j, Q i j ≤ r"];
+  "n_hbound_f997550a" [shape=box, color="#D97706", label="hbound\n∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"];
+  "n_hi_dfd3962f" [shape=box, color="#D97706", label="hi\ni ∈ idx.reverse"];
+  "n_hi_idx_1ae69d4d" [shape=box, color="#D97706", label="hi_idx\ni ∈ idx"];
+  "n_hinvariant_b7efd599" [shape=box, color="#D97706", label="hinvariant\n(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧ ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r"];
+  "r_h_001_hinvariant" [shape=diamond, label="row_update_prod_invariant", color="#D97706"];
+  "m_hc_nonneg_cbcdeb17" -> "r_h_001_hinvariant";
+  "m_hr_9457c974" -> "r_h_001_hinvariant";
+  "m_hr_lt_one_a3a8038f" -> "r_h_001_hinvariant";
+  "r_h_001_hinvariant" -> "n_hinvariant_b7efd599";
+  "r_h_002_hi_idx" [shape=diamond, label="List.mem_ofFn", color="#D97706"];
+  "r_h_002_hi_idx" -> "n_hi_idx_1ae69d4d";
+  "r_h_003_hi" [shape=diamond, label="List.mem_reverse", color="#D97706"];
+  "n_hi_idx_1ae69d4d" -> "r_h_003_hi";
+  "r_h_003_hi" -> "n_hi_dfd3962f";
+  "r_h_004_hbound" [shape=diamond, label="rw", color="#D97706"];
+  "n_hinvariant_b7efd599" -> "r_h_004_hbound";
+  "n_hi_dfd3962f" -> "r_h_004_hbound";
+  "r_h_004_hbound" -> "n_hbound_f997550a";
+  "r_h_goal" [shape=diamond, label="List.map_reverse", color="#D97706"];
+  "m_hq_9ed0e118" -> "r_h_goal";
+  "n_hbound_f997550a" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

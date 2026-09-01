@@ -1,0 +1,2179 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3112_connected_nodal_domain_of_leading_eigenvec",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3112,
+    "source": "1502.01139",
+    "theorem_name": "connected_nodal_domain_of_leading_eigenvector",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3112",
+    "reconstructed_proof": "../../candidates/p3112_connected_nodal_domain_of_leading_eigenvec/proof.lean",
+    "raw_elaboration": "../../candidates/p3112_connected_nodal_domain_of_leading_eigenvec/raw_graph.json",
+    "batch_export_theorem_name": "connected_nodal_domain_of_leading_eigenvector",
+    "verification_call_id": "verify_submission:239",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "c39b7c8c6116dc2fd9aec5c5f12c8be8cfbb66665a78d6ee1e6b4f19fc34ca34",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "4d2f5fe09036db715a7a88f06c15ee0eab141b46d32f99467431a262d4e7d405",
+    "concrete_semantic_topology_sha256": "c39b7c8c6116dc2fd9aec5c5f12c8be8cfbb66665a78d6ee1e6b4f19fc34ca34"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_1a588aff",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hσ",
+      "lean_fvar_id": "16",
+      "statement": "0 < σ"
+    },
+    {
+      "id": "m_ha_nonneg_fc49930b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hA_nonneg",
+      "lean_fvar_id": "11",
+      "statement": "∀ (i j : Fin n), 0 ≤ A i j"
+    },
+    {
+      "id": "m_ha_symm_4a6bfd06",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hA_symm",
+      "lean_fvar_id": "10",
+      "statement": "A.IsSymm"
+    },
+    {
+      "id": "m_hg_conn_1a3d4f01",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hG_conn",
+      "lean_fvar_id": "12",
+      "statement": "(SimpleGraph.fromRel fun i j => 0 < A i j).Connected"
+    },
+    {
+      "id": "m_hl_largest_bc3f460f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hl_largest",
+      "lean_fvar_id": "23",
+      "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l"
+    },
+    {
+      "id": "m_hm_largest_264e2495",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hm_largest",
+      "lean_fvar_id": "19",
+      "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m"
+    },
+    {
+      "id": "m_hn_e68719f3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "m_hv_nonneg_eaa460ba",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hv_nonneg",
+      "lean_fvar_id": "15",
+      "statement": "∀ (i : Fin n), 0 ≤ v i"
+    },
+    {
+      "id": "m_hv_nonzero_a7d2734d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hv_nonzero",
+      "lean_fvar_id": "14",
+      "statement": "v ≠ 0"
+    },
+    {
+      "id": "m_hw_diag_0343dee8",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hW_diag",
+      "lean_fvar_id": "13",
+      "statement": "W.IsDiag"
+    },
+    {
+      "id": "m_hx_eigen_c441a661",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx_eigen",
+      "lean_fvar_id": "18",
+      "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x"
+    },
+    {
+      "id": "m_hx_nonzero_a7d7cc90",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx_nonzero",
+      "lean_fvar_id": "17",
+      "statement": "x ≠ 0"
+    },
+    {
+      "id": "m_hx_sign_c7ec9b53",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hx_sign",
+      "lean_fvar_id": "20",
+      "statement": "0 ≤ v ⬝ᵥ x"
+    },
+    {
+      "id": "m_hy_eigen_1f8195ba",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hy_eigen",
+      "lean_fvar_id": "22",
+      "statement": "(A + W).mulVec y = l • y"
+    },
+    {
+      "id": "m_hy_pos_4f4932ab",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hy_pos",
+      "lean_fvar_id": "21",
+      "statement": "∀ (i : Fin n), 0 < y i"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∀ (ε : ℝ), 0 ≤ ε → (SimpleGraph.induce {i | 0 ≤ x i + ε * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected"
+    },
+    {
+      "id": "n_hb_symm_06f8b772",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hB_symm",
+      "lean_fvar_id": "28",
+      "statement": "B.IsSymm"
+    },
+    {
+      "id": "n_hbupper_0278f328",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hBupper",
+      "lean_fvar_id": "34",
+      "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x"
+    },
+    {
+      "id": "n_hbx_fe00ef4f",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hBx",
+      "lean_fvar_id": "32",
+      "statement": "B.mulVec x = m • x + (σ * d) • v"
+    },
+    {
+      "id": "n_hd_277e67bf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hd",
+      "lean_fvar_id": "27",
+      "statement": "0 ≤ d"
+    },
+    {
+      "id": "n_hm_symm_c6ce60ae",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hM_symm",
+      "lean_fvar_id": "29",
+      "statement": "M.IsSymm"
+    },
+    {
+      "id": "n_hml_5cdfd0d5",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hml",
+      "lean_fvar_id": "35",
+      "statement": "m ≤ l"
+    },
+    {
+      "id": "n_hmx_8d74d7d9",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hMx",
+      "lean_fvar_id": "31",
+      "statement": "M.mulVec x = B.mulVec x - (σ * d) • v"
+    },
+    {
+      "id": "n_hnormx_2ebcff28",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnormx",
+      "lean_fvar_id": "30",
+      "statement": "0 < x ⬝ᵥ x"
+    },
+    {
+      "id": "n_hqbx_7d0e5160",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hqBx",
+      "lean_fvar_id": "33",
+      "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hd",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "m_hx_sign_c7ec9b53"
+      ],
+      "conclusion": "n_hd_277e67bf",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_27",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hd : 0 ≤ d := hx_sign",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "20",
+              "name": "hx_sign",
+              "statement": "0 ≤ v ⬝ᵥ x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "27",
+            "name": "hd",
+            "statement": "0 ≤ d"
+          }
+        },
+        "lean_dependency_sha256": "37d5e643a9f5c41cfbe3ba485a05177522988030d31a84bd40c1cfb51b1b2165",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ v ⬝ᵥ x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hb_symm",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_ha_symm_4a6bfd06",
+        "m_hw_diag_0343dee8"
+      ],
+      "conclusion": "n_hb_symm_06f8b772",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Matrix.IsDiag.isSymm + Matrix.IsSymm.add",
+        "items": [
+          "Matrix.IsDiag.isSymm",
+          "Matrix.IsSymm.add"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Matrix.IsDiag.isSymm",
+          "Matrix.IsSymm.add"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_28",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hB_symm : B.IsSymm := hA_symm.add hW_diag.isSymm",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hA_symm",
+              "statement": "A.IsSymm"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hW_diag",
+              "statement": "W.IsDiag"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "28",
+            "name": "hB_symm",
+            "statement": "B.IsSymm"
+          }
+        },
+        "lean_dependency_sha256": "aa938eecab2de79fdba2d57958e2e392a7344dfb9b8a73d4122f4ffa45560e54",
+        "kernel_witness_check": {
+          "proof_type": "(A + W).IsSymm",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Matrix.IsDiag.isSymm",
+          "Matrix.IsSymm.add"
+        ],
+        "observed_search_event_ids": [
+          "loogle:188",
+          "loogle:51"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hm_symm",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hb_symm_06f8b772"
+      ],
+      "conclusion": "n_hm_symm_c6ce60ae",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Matrix.IsSymm.smul + Matrix.IsSymm.sub + Matrix.vecMulVec_isSymm",
+        "items": [
+          "Matrix.IsSymm.smul",
+          "Matrix.IsSymm.sub",
+          "Matrix.vecMulVec_isSymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Matrix.IsSymm.smul",
+          "Matrix.IsSymm.sub",
+          "Matrix.vecMulVec_isSymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_29",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hM_symm : M.IsSymm := hB_symm.sub ((Matrix.vecMulVec_isSymm v).smul σ)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "28",
+              "name": "hB_symm",
+              "statement": "B.IsSymm"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "29",
+            "name": "hM_symm",
+            "statement": "M.IsSymm"
+          }
+        },
+        "lean_dependency_sha256": "dc3834c12e0277f8bcd57bfdde7e0f76ee227e6e7a77ac2e0a22f1c02dc6ccf6",
+        "kernel_witness_check": {
+          "proof_type": "(B - σ • Matrix.vecMulVec v v).IsSymm",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Matrix.IsSymm.smul",
+          "Matrix.IsSymm.sub"
+        ],
+        "observed_search_event_ids": [
+          "loogle:49",
+          "loogle:48",
+          "leanfinder:29"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hnormx",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hx_nonzero_a7d7cc90"
+      ],
+      "conclusion": "n_hnormx_2ebcff28",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Matrix.dotProduct_self_star_pos_iff",
+        "items": [
+          "Matrix.dotProduct_self_star_pos_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Matrix.dotProduct_self_star_pos_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_30",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnormx : 0 < dotProduct x x := by\n    have h := (Matrix.dotProduct_self_star_pos_iff (v := x)).mpr hx_nonzero\n    simpa using h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "17",
+              "name": "hx_nonzero",
+              "statement": "x ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "30",
+            "name": "hnormx",
+            "statement": "0 < x ⬝ᵥ x"
+          }
+        },
+        "lean_dependency_sha256": "05c73186e0097759f020e5578f25a11d1d0eec8e02e39d34bbdfd3537439bcb1",
+        "kernel_witness_check": {
+          "proof_type": "0 < x ⬝ᵥ x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Matrix.dotProduct_self_star_pos_iff"
+        ],
+        "observed_search_event_ids": [
+          "loogle:202",
+          "leanfinder:203"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hmx",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hmx_8d74d7d9",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Matrix.smul_mulVec + Matrix.sub_mulVec + Matrix.vecMulVec_mulVec",
+        "items": [
+          "Matrix.smul_mulVec",
+          "Matrix.sub_mulVec",
+          "Matrix.vecMulVec_mulVec",
+          "smul_smul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Matrix.smul_mulVec",
+          "Matrix.sub_mulVec",
+          "Matrix.vecMulVec_mulVec",
+          "smul_smul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_31",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hMx : M.mulVec x = B.mulVec x - (σ * d) • v := by\n    simp [M, B, d, Matrix.sub_mulVec, Matrix.smul_mulVec,\n      Matrix.vecMulVec_mulVec, smul_smul]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "31",
+            "name": "hMx",
+            "statement": "M.mulVec x = B.mulVec x - (σ * d) • v"
+          }
+        },
+        "lean_dependency_sha256": "b4804009080a0269dda64ead1d11b55db258624a0af946ecb2bd6dd338abdbc0",
+        "kernel_witness_check": {
+          "proof_type": "M.mulVec x = (A + W).mulVec x - (σ * v ⬝ᵥ x) • v",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Matrix.smul_mulVec",
+          "Matrix.sub_mulVec",
+          "Matrix.vecMulVec_mulVec"
+        ],
+        "observed_search_event_ids": [
+          "loogle:58",
+          "loogle:165",
+          "loogle:59",
+          "loogle:69"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hbx",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hx_eigen_c441a661",
+        "n_hmx_8d74d7d9"
+      ],
+      "conclusion": "n_hbx_fe00ef4f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congr_fun + funext",
+        "items": [
+          "congr_fun",
+          "funext"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congr_fun",
+          "funext"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_32",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hBx : B.mulVec x = m • x + (σ * d) • v := by\n    have h : B.mulVec x - (σ * d) • v = m • x := by\n      rw [← hMx]\n      exact hx_eigen\n    funext i\n    have hi := congr_fun h i\n    simp at hi ⊢\n    ring_nf at hi ⊢\n    linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "18",
+              "name": "hx_eigen",
+              "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x"
+            },
+            {
+              "fvar_id": "31",
+              "name": "hMx",
+              "statement": "M.mulVec x = B.mulVec x - (σ * d) • v"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "32",
+            "name": "hBx",
+            "statement": "B.mulVec x = m • x + (σ * d) • v"
+          }
+        },
+        "lean_dependency_sha256": "8e255688893fc9867a2dfd3370159c5f0f8e047e8ddf980b3af2b4ab3269f8d2",
+        "kernel_witness_check": {
+          "proof_type": "B.mulVec x = m • x + (σ * d) • v",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hqbx",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hbx_fe00ef4f"
+      ],
+      "conclusion": "n_hqbx_7d0e5160",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "dotProduct_add + dotProduct_comm + dotProduct_smul",
+        "items": [
+          "dotProduct_add",
+          "dotProduct_comm",
+          "dotProduct_smul"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "dotProduct_add",
+          "dotProduct_comm",
+          "dotProduct_smul"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_33",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hqBx : dotProduct x (B.mulVec x) =\n      m * dotProduct x x + σ * d^2 := by\n    rw [hBx]\n    simp [dotProduct_add, dotProduct_smul, dotProduct_comm x v, d]\n    ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "32",
+              "name": "hBx",
+              "statement": "B.mulVec x = m • x + (σ * d) • v"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "33",
+            "name": "hqBx",
+            "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2"
+          }
+        },
+        "lean_dependency_sha256": "94224e12a7b042d834eb6963abca95a52c3623b00c0dc868c25cd0eb0c9240d8",
+        "kernel_witness_check": {
+          "proof_type": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "dotProduct_add",
+          "dotProduct_smul"
+        ],
+        "observed_search_event_ids": [
+          "loogle:149",
+          "loogle:151"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hbupper",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hl_largest_bc3f460f",
+        "n_hb_symm_06f8b772"
+      ],
+      "conclusion": "n_hbupper_0278f328",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "quad_le_largest_of_symm",
+        "items": [
+          "quad_le_largest_of_symm"
+        ],
+        "rollout_helper_items": [
+          "quad_le_largest_of_symm"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_34",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hBupper := quad_le_largest_of_symm hB_symm hl_largest x\n  rw [hqBx] at hBupper",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "23",
+              "name": "hl_largest",
+              "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l"
+            },
+            {
+              "fvar_id": "28",
+              "name": "hB_symm",
+              "statement": "B.IsSymm"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "34",
+            "name": "hBupper",
+            "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x"
+          }
+        },
+        "lean_dependency_sha256": "109ded01cf6307cc0358ca02785aba4387970d793c644ca275dbccc05c0845c4",
+        "kernel_witness_check": {
+          "proof_type": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hml",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_h_1a588aff",
+        "n_hnormx_2ebcff28",
+        "n_hqbx_7d0e5160",
+        "n_hbupper_0278f328"
+      ],
+      "conclusion": "n_hml_5cdfd0d5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "sq_nonneg",
+        "items": [
+          "sq_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "sq_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_35",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hml : m ≤ l := by\n    nlinarith [sq_nonneg d, hσ.le, hnormx]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "16",
+              "name": "hσ",
+              "statement": "0 < σ"
+            },
+            {
+              "fvar_id": "30",
+              "name": "hnormx",
+              "statement": "0 < x ⬝ᵥ x"
+            },
+            {
+              "fvar_id": "33",
+              "name": "hqBx",
+              "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2"
+            },
+            {
+              "fvar_id": "34",
+              "name": "hBupper",
+              "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "35",
+            "name": "hml",
+            "statement": "m ≤ l"
+          }
+        },
+        "lean_dependency_sha256": "fc14daf210dfbaf83eee4b434151785ab43cc4c44330296ed8bfc0fb69843ce6",
+        "kernel_witness_check": {
+          "proof_type": "m ≤ l",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_e68719f3",
+        "m_ha_symm_4a6bfd06",
+        "m_ha_nonneg_fc49930b",
+        "m_hg_conn_1a3d4f01",
+        "m_hw_diag_0343dee8",
+        "m_hv_nonzero_a7d2734d",
+        "m_hv_nonneg_eaa460ba",
+        "m_h_1a588aff",
+        "m_hx_nonzero_a7d7cc90",
+        "m_hx_eigen_c441a661",
+        "m_hm_largest_264e2495",
+        "m_hx_sign_c7ec9b53",
+        "m_hy_pos_4f4932ab",
+        "m_hy_eigen_1f8195ba",
+        "m_hl_largest_bc3f460f",
+        "n_hb_symm_06f8b772",
+        "n_hbx_fe00ef4f",
+        "n_hqbx_7d0e5160",
+        "n_hbupper_0278f328",
+        "n_hml_5cdfd0d5"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Not.intro + Pi.exists_forall_pos_add_lt + Set.ext",
+        "items": [
+          "Not.intro",
+          "Pi.exists_forall_pos_add_lt",
+          "Set.ext",
+          "SimpleGraph.Iso.connected_iff",
+          "add_nonneg",
+          "connected_nodal_positive_epsilon",
+          "lt_of_not_ge",
+          "mul_nonneg"
+        ],
+        "rollout_helper_items": [
+          "connected_nodal_positive_epsilon"
+        ],
+        "mathlib_items": [
+          "Not.intro",
+          "Pi.exists_forall_pos_add_lt",
+          "Set.ext",
+          "SimpleGraph.Iso.connected_iff",
+          "add_nonneg",
+          "lt_of_not_ge",
+          "mul_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "          simpa using hmul\n        have hconnη := connected_nodal_positive_epsilon n hn A W v x y σ m l η\n          hA_symm hA_nonneg hG_conn hW_diag hv_nonzero hv_nonneg hσ\n          hx_nonzero hx_eigen hm_largest hx_sign hy_pos hy_eigen hl_largest\n          hml_lt hηpos\n        have hSetEq : {i : Fin n | 0 ≤ x i + (0 : ℝ) * y i} =\n            {i : Fin n | 0 ≤ x i + η * y i} := by\n          ext i\n          constructor\n          · intro hi\n            have hxi : 0 ≤ x i := by simpa using hi\n            exact add_nonneg hxi (mul_nonneg hηpos.le (hy_pos i).le)\n          · intro hi\n            by_contra hnot\n            have hxi : x i < 0 := lt_of_not_ge (by\n              intro hxnonneg\n              exact hnot (by simpa using hxnonneg))\n            exact (hη i hxi).not_ge hi\n        rw [hεzero, hSetEq]\n        exact hconnη",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hn",
+              "statement": "1 ≤ n"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hA_symm",
+              "statement": "A.IsSymm"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hA_nonneg",
+              "statement": "∀ (i j : Fin n), 0 ≤ A i j"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hG_conn",
+              "statement": "(SimpleGraph.fromRel fun i j => 0 < A i j).Connected"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hW_diag",
+              "statement": "W.IsDiag"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hv_nonzero",
+              "statement": "v ≠ 0"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hv_nonneg",
+              "statement": "∀ (i : Fin n), 0 ≤ v i"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hσ",
+              "statement": "0 < σ"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hx_nonzero",
+              "statement": "x ≠ 0"
+            },
+            {
+              "fvar_id": "18",
+              "name": "hx_eigen",
+              "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x"
+            },
+            {
+              "fvar_id": "19",
+              "name": "hm_largest",
+              "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m"
+            },
+            {
+              "fvar_id": "20",
+              "name": "hx_sign",
+              "statement": "0 ≤ v ⬝ᵥ x"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hy_pos",
+              "statement": "∀ (i : Fin n), 0 < y i"
+            },
+            {
+              "fvar_id": "22",
+              "name": "hy_eigen",
+              "statement": "(A + W).mulVec y = l • y"
+            },
+            {
+              "fvar_id": "23",
+              "name": "hl_largest",
+              "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l"
+            },
+            {
+              "fvar_id": "28",
+              "name": "hB_symm",
+              "statement": "B.IsSymm"
+            },
+            {
+              "fvar_id": "32",
+              "name": "hBx",
+              "statement": "B.mulVec x = m • x + (σ * d) • v"
+            },
+            {
+              "fvar_id": "33",
+              "name": "hqBx",
+              "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2"
+            },
+            {
+              "fvar_id": "34",
+              "name": "hBupper",
+              "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x"
+            },
+            {
+              "fvar_id": "35",
+              "name": "hml",
+              "statement": "m ≤ l"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∀ (ε : ℝ), 0 ≤ ε → (SimpleGraph.induce {i | 0 ≤ x i + ε * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected"
+          }
+        },
+        "lean_dependency_sha256": "beb91d3c6c350628fc54d7245f86d04f3a2e475b354274e6f6ea077dc012f15a",
+        "kernel_witness_check": {
+          "proof_type": "∀ (ε : ℝ), 0 ≤ ε → (SimpleGraph.induce {i | 0 ≤ x i + ε * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Pi.exists_forall_pos_add_lt",
+          "SimpleGraph.Iso.connected_iff"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:107",
+          "leanfinder:73",
+          "loogle:36"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "SimpleGraph.induce",
+      "declarations": [
+        "SimpleGraph.induce",
+        "SimpleGraph.induceUnivIso",
+        "SimpleGraph.Embedding.induce",
+        "SimpleGraph.induce_top",
+        "SimpleGraph.spanningCoe_induce_le",
+        "SimpleGraph.induce_spanningCoe",
+        "SimpleGraph.induceHomOfLE",
+        "SimpleGraph.induceHom_id",
+        "SimpleGraph.induce_adj",
+        "SimpleGraph.induceHom"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "SimpleGraph.Connected.induce",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "Perron Frobenius theorem positive eigenvector nonnegative matrix connected support graph",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "SimpleGraph.Walk.connected_induce_support",
+        "SimpleGraph.Walk.support",
+        "Matrix.frobenius_norm_transpose",
+        "Matrix.isIrreducible_iff",
+        "Matrix.frobenius_norm_mul",
+        "Matrix.posDef_sum",
+        "Matrix.nonneg_of_mem_rowStochastic",
+        "Matrix.IsHermitian.eigenvectorBasis",
+        "Matrix.IsHermitian.eigenvectorUnitary"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "nodal domain leading eigenvector connected components quadratic form",
+      "declarations": [
+        "Lean.Meta.Grind.SolverExtension.getTerm",
+        "ConnectedComponents.coe_eq_coe",
+        "QuadraticForm",
+        "ConnectedComponents",
+        "ConnectedComponents.subsingleton",
+        "SimpleGraph.lapMatrix_ker_basis_aux",
+        "Lagrange.nodal",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor",
+        "SimpleGraph.mem_ker_toLin'_lapMatrix_of_connectedComponent",
+        "ConnectedComponents.t2"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "Perron eigenvector irreducible nonnegative matrix largest eigenvalue",
+      "declarations": [
+        "Module.End.hasEigenvalue_of_hasEigenvector",
+        "Module.End.HasEigenvalue.exists_hasEigenvector",
+        "Module.End.HasUnifEigenvector.hasUnifEigenvalue",
+        "Matrix.isIrreducible_iff_exists_pow_pos",
+        "Matrix.IsIrreducible",
+        "Matrix.IsPrimitive.isIrreducible",
+        "Module.End.HasUnifEigenvalue.exists_hasUnifEigenvector",
+        "Matrix.IsIrreducible.exists_pos",
+        "Irreducible",
+        "Matrix.parabolicEigenvalue"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Perron",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Matrix.IsIrreducible",
+      "declarations": [
+        "Matrix.IsIrreducible",
+        "Matrix.IsIrreducible.connected",
+        "Matrix.IsIrreducible.transpose",
+        "Matrix.isIrreducible_transpose_iff",
+        "Matrix.IsIrreducible.nonneg",
+        "Matrix.IsIrreducible.exists_pos",
+        "Matrix.IsIrreducible.mk",
+        "Matrix.isIrreducible_iff",
+        "Matrix.IsPrimitive.isIrreducible",
+        "Matrix.isIrreducible_iff_exists_pow_pos"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "connected components finite simple graph induce complement no edges quadratic form indicator",
+      "declarations": [
+        "SimpleGraph.induce",
+        "SimpleGraph.Walk.connected_induce_support",
+        "SimpleGraph.induce_union_connected",
+        "SimpleGraph.Connected",
+        "SimpleGraph.ComponentCompl.hom_infinite",
+        "SimpleGraph.componentComplFunctor_finite",
+        "SimpleGraph.connected_induce_union",
+        "SimpleGraph.connected_induce_iff",
+        "SimpleGraph.componentComplFunctor_nonempty_of_infinite",
+        "SimpleGraph.ComponentCompl.infinite_iff_in_all_ranges"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "irreducible nonnegative matrix positive eigenvector eigenvalue simple unique eigenvector",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "Module.End.hasEigenvalue_of_hasEigenvector",
+        "Module.End.HasEigenvalue.exists_hasEigenvector",
+        "SimpleGraph.adjMatrix",
+        "Matrix.isIrreducible_iff_exists_pow_pos",
+        "Module.End.HasUnifEigenvalue.exists_hasUnifEigenvector",
+        "Module.End.HasUnifEigenvector.hasUnifEigenvalue",
+        "Matrix.PosSemidef.eigenvalues_nonneg",
+        "Irreducible",
+        "Matrix.IsHermitian.eigenvectorUnitary"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "positive eigenvector irreducible matrix eigenvalue maximal",
+      "declarations": [
+        "Module.End.HasEigenvalue.exists_hasEigenvector",
+        "Module.End.hasEigenvalue_of_hasEigenvector",
+        "Module.End.HasUnifEigenvector.hasUnifEigenvalue",
+        "Matrix.IsIrreducible",
+        "Matrix.IsIrreducible.exists_pos",
+        "Matrix.isIrreducible_iff",
+        "Matrix.IsPrimitive.isIrreducible",
+        "Matrix.parabolicEigenvalue",
+        "Matrix.IsIrreducible.transpose",
+        "Irreducible"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "eigenvector IsIrreducible",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "IsSymm.exists_eigenvector",
+      "declarations": [],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "symmetric matrix Rayleigh quotient less than greatest eigenvalue real finite dimensional",
+      "declarations": [
+        "LinearMap.IsSymmetric.hasEigenvalue_iInf_of_finiteDimensional",
+        "LinearMap.IsSymmetric.sort_roots_charpoly_eq_eigenvalues",
+        "LinearMap.IsSymmetric.subsingleton_of_no_eigenvalue_finiteDimensional",
+        "FiniteDimensional.finiteDimensional_quotient",
+        "Matrix.lt_two_mul_of_mul_diagonal_posDef_of_for_le_of_hasEigen",
+        "ContinuousLinearMap.iInf_rayleigh_eq_iInf_rayleigh_sphere",
+        "LinearMap.IsSymmetric.hasEigenvalue_iSup_of_finiteDimensional",
+        "Matrix.finiteDimensional",
+        "eigenvalue_mem_ball",
+        "FiniteDimensional"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:13",
+      "tool": "leanfinder",
+      "query": "Matrix IsHermitian eigenvalues quadratic form spectral theorem dotProduct mulVec",
+      "declarations": [
+        "Matrix.vec_dotProduct_vec",
+        "dotProduct",
+        "Matrix.IsHermitian.eigenvalues",
+        "Matrix.IsHermitian.im_star_dotProduct_mulVec_self",
+        "Matrix.dotProduct_transpose_mulVec",
+        "Matrix.IsHermitian.spectral_theorem",
+        "Matrix.IsHermitian.eigenvalues_eq",
+        "Matrix.dotProduct_vecMul_hadamard",
+        "Matrix.dotProduct_mulVec",
+        "BilinForm.dotProduct_toMatrix_mulVec"
+      ],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "IsHermitian.eigenvalues",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "dotProduct (_ ⬝ᵥ _) ≤ _",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "Hermitian matrix all eigenvalues nonpositive iff negative semidefinite",
+      "declarations": [
+        "Matrix.eigenvalues_self_mul_conjTranspose_nonneg",
+        "Matrix.IsHermitian.eigenvalues_eq_zero_iff",
+        "Matrix.eigenvalues_conjTranspose_mul_self_nonneg",
+        "Matrix.IsHermitian.eigenvalues_eq",
+        "Matrix.PosSemidef.eigenvalues_nonneg",
+        "Matrix.IsHermitian.eigenvalues_eq_eigenvalues_iff",
+        "Matrix.IsHermitian.eigenvalues",
+        "Matrix.IsHermitian.posSemidef_iff_eigenvalues_nonneg",
+        "Matrix.IsHermitian.posDef_iff_eigenvalues_pos",
+        "Matrix.IsHermitian"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "positive semidefinite matrix eigenvalue characterization quadratic form",
+      "declarations": [
+        "Matrix.PosSemidef",
+        "Matrix.PosSemidef.dotProduct_mulVec_nonneg",
+        "Matrix.toQuadraticForm'",
+        "Matrix.PosSemidef.eigenvalues_nonneg",
+        "Matrix.PosDef.re_dotProduct_pos",
+        "QuadraticForm.toMatrix",
+        "Matrix.PosDef.toQuadraticForm'",
+        "QuadraticForm.toMatrix'",
+        "QuadraticForm.toMatrix'_comp",
+        "QuadraticForm.toMatrix_smul"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "PosSemidef.sub",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "PosSemidef.dotProduct_mulVec",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:23",
+      "tool": "leanfinder",
+      "query": "Matrix eigenvectorBasis mulVec eigenvalues eigenvector",
+      "declarations": [
+        "Lean.Meta.Grind.Arith.Linear.isHSMulNatInst",
+        "Matrix.mulVec",
+        "LinearMap.IsSymmetric.toMatrix_eigenvectorBasis",
+        "Matrix.IsHermitian.mulVec_eigenvectorBasis",
+        "Matrix.IsHermitian.eigenvectorUnitary_mulVec",
+        "Matrix.IsHermitian.eigenvectorBasis",
+        "Matrix.IsHermitian.star_eigenvectorUnitary_mulVec",
+        "Lean.Meta.getFunInfo",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Meta.Simp.simpConst"
+      ],
+      "call_turn": 33,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "eigenvectorBasis",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "eigenvalues _ ≠ 0 basis",
+      "declarations": [],
+      "call_turn": 33,
+      "result_turn": 36
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "Hermitian matrix eigenvalues scalar identity subtraction eigenvalues sub",
+      "declarations": [
+        "Matrix.IsHermitian.eigenvalues_eq_zero_iff",
+        "Matrix.IsHermitian.eigenvalues",
+        "Matrix.IsHermitian.det_eq_prod_eigenvalues",
+        "Matrix.IsHermitian.eigenvalues_eq_eigenvalues_iff",
+        "Matrix.IsHermitian.eigenvalues_eq",
+        "Matrix.IsHermitian.sub",
+        "Matrix.sub_scalar_sq_eq_discr",
+        "Matrix.IsHermitian.trace_eq_sum_eigenvalues",
+        "Matrix.IsHermitian.sort_roots_charpoly_eq_eigenvalues",
+        "Matrix.IsHermitian"
+      ],
+      "call_turn": 43,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "IsHermitian.eigenvalues_sub",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "eigenvalues (_ - _)",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "PosSemidef (_ • 1 - _)",
+      "declarations": [],
+      "call_turn": 43,
+      "result_turn": 47
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "connected simple graph proper nonempty subset boundary edge complement",
+      "declarations": [
+        "SimpleGraph.edgeSet",
+        "SimpleGraph.edgeFinset_nonempty",
+        "SimpleGraph.ComponentCompl.disjoint_right",
+        "SimpleGraph.connected_or_connected_compl",
+        "SimpleGraph.edgeSet_nonempty",
+        "SimpleGraph.instCompl",
+        "SimpleGraph.IsEdgeConnected.connected",
+        "SimpleGraph.IsEdgeConnected",
+        "SimpleGraph.Subgraph.Connected.nonempty",
+        "SimpleGraph.ComponentCompl.exists_adj_boundary_pair"
+      ],
+      "call_turn": 52,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "SimpleGraph.Connected (Set _)",
+      "declarations": [
+        "SimpleGraph.connected_top",
+        "SimpleGraph.connected_top_iff",
+        "SimpleGraph.Connected.nonempty",
+        "SimpleGraph.Connected.preconnected",
+        "SimpleGraph.Connected.of_subsingleton",
+        "SimpleGraph.Connected.mk",
+        "SimpleGraph.connected_iff",
+        "SimpleGraph.connected_or_preconnected_compl",
+        "SimpleGraph.connected_iff_exists_forall_reachable",
+        "SimpleGraph.connected_or_connected_compl"
+      ],
+      "call_turn": 52,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "SimpleGraph.Connected.exists_adj",
+      "declarations": [],
+      "call_turn": 52,
+      "result_turn": 55
+    },
+    {
+      "event_id": "leanfinder:38",
+      "tool": "leanfinder",
+      "query": "simple graph connected exists adjacent vertex subset complement",
+      "declarations": [
+        "SimpleGraph.componentComplMk",
+        "SimpleGraph.ComponentCompl.mem_of_adj",
+        "SimpleGraph.instCompl",
+        "SimpleGraph.ComponentCompl.disjoint_right",
+        "SimpleGraph.Connected",
+        "SimpleGraph.IsVertexCover.subset",
+        "SimpleGraph.connected_or_connected_compl",
+        "SimpleGraph.vertexCoverNum_exists",
+        "SimpleGraph.exists_minimal_degree_vertex",
+        "SimpleGraph.exists_maximal_degree_vertex"
+      ],
+      "call_turn": 52,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Matrix.IsSymm.sub",
+      "declarations": [
+        "Matrix.IsSymm.sub"
+      ],
+      "call_turn": 75,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "Matrix.IsSymm.smul",
+      "declarations": [
+        "Matrix.IsSymm.smul"
+      ],
+      "call_turn": 77,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "Matrix.isSymm_one",
+      "declarations": [
+        "Matrix.isSymm_one"
+      ],
+      "call_turn": 77,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Matrix.IsSymm.add",
+      "declarations": [
+        "Matrix.IsSymm.add"
+      ],
+      "call_turn": 77,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Matrix.IsSymm.vecMulVec",
+      "declarations": [],
+      "call_turn": 77,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Matrix.one_mulVec",
+      "declarations": [
+        "Matrix.one_mulVec"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Matrix.smul_mulVec",
+      "declarations": [
+        "Matrix.smul_mulVec"
+      ],
+      "call_turn": 90,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Matrix.sub_mulVec",
+      "declarations": [
+        "Matrix.sub_mulVec"
+      ],
+      "call_turn": 90,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Matrix.mulVec_sub",
+      "declarations": [
+        "Matrix.mulVec_sub"
+      ],
+      "call_turn": 90,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "Matrix.vecMulVec_mulVec",
+      "declarations": [
+        "Matrix.vecMulVec_mulVec"
+      ],
+      "call_turn": 111,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "Matrix.mulVec_vecMulVec",
+      "declarations": [],
+      "call_turn": 111,
+      "result_turn": 113
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "dotProduct vecMulVec",
+      "declarations": [],
+      "call_turn": 111,
+      "result_turn": 114
+    },
+    {
+      "event_id": "leanfinder:72",
+      "tool": "leanfinder",
+      "query": "vecMulVec matrix vector multiplication dot product",
+      "declarations": [
+        "Matrix.mulVec_fin_two",
+        "Matrix.mulVec",
+        "Matrix.vec_dotProduct_vec",
+        "Matrix.dotProduct_mulVec",
+        "Matrix.dotProduct_vecMul_transpose",
+        "Matrix.dotProduct",
+        "Matrix.dotProduct_vecMul_hadamard",
+        "Matrix.dotProduct_transpose_mulVec",
+        "Matrix.star_vec_dotProduct_vec"
+      ],
+      "call_turn": 111,
+      "result_turn": 115
+    },
+    {
+      "event_id": "leanfinder:73",
+      "tool": "leanfinder",
+      "query": "graph isomorphism connected iff SimpleGraph Iso Connected",
+      "declarations": [
+        "SimpleGraph.Iso.connectedComponentEquiv_symm_apply",
+        "SimpleGraph.ConnectedComponent.iso_image_comp_eq_map_iff_eq_comp",
+        "SimpleGraph.Connected",
+        "SimpleGraph.Iso.connected_iff",
+        "SimpleGraph.Iso.preconnected_iff",
+        "SimpleGraph.Subgraph.connected_iff",
+        "SimpleGraph",
+        "SimpleGraph.connected_iff",
+        "SimpleGraph.Subgraph.connected_iff'",
+        "SimpleGraph.Iso.card_edgeFinset_eq"
+      ],
+      "call_turn": 116,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "SimpleGraph.Iso.connected",
+      "declarations": [],
+      "call_turn": 116,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "Connected induceUnivIso",
+      "declarations": [],
+      "call_turn": 116,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "SimpleGraph.induceUnivIso",
+      "declarations": [
+        "SimpleGraph.induceUnivIso",
+        "SimpleGraph.induceUnivIso_apply",
+        "SimpleGraph.induceUnivIso_symm_apply_coe"
+      ],
+      "call_turn": 116,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "Finset.union_compl",
+      "declarations": [
+        "Finset.union_compl"
+      ],
+      "call_turn": 123,
+      "result_turn": 124
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "Finset.sum_compl",
+      "declarations": [],
+      "call_turn": 123,
+      "result_turn": 125
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "Finset.sum_union (_ᶜ)",
+      "declarations": [],
+      "call_turn": 123,
+      "result_turn": 126
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Finset.disjoint_compl_right",
+      "declarations": [],
+      "call_turn": 123,
+      "result_turn": 127
+    },
+    {
+      "event_id": "leanfinder:82",
+      "tool": "leanfinder",
+      "query": "Finset sum over univ equals sum over s plus sum over complement",
+      "declarations": [
+        "Finset.noncommSum",
+        "Finset.sum_add_sum_compl",
+        "Finset.sum",
+        "Fintype.sum_eq_sum_compl_add",
+        "tsum",
+        "Finset.sum_union_eq_right",
+        "Polynomial.sum_over_range",
+        "Polynomial.sum_over_range'",
+        "CategoryTheory.Over",
+        "primesOverFinset"
+      ],
+      "call_turn": 128,
+      "result_turn": 129
+    },
+    {
+      "event_id": "leanfinder:98",
+      "tool": "leanfinder",
+      "query": "positive semidefinite matrix quadratic form zero iff vector in kernel",
+      "declarations": [
+        "Matrix.PosSemidef.dotProduct_mulVec_zero_iff",
+        "Matrix.PosSemidef",
+        "LinearMap.BilinForm.apply_apply_same_eq_zero_iff",
+        "Matrix.PosSemidef.toLinearMap",
+        "QuadraticForm.toMatrix'_comp",
+        "Matrix.toQuadraticForm'",
+        "QuadraticForm.toMatrix'_smul",
+        "QuadraticForm.QuadraticMap.toMatrix'",
+        "QuadraticForm.toMatrix'",
+        "QuadraticForm.toMatrix"
+      ],
+      "call_turn": 160,
+      "result_turn": 161
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "PosSemidef.dotProduct_mulVec_eq_zero",
+      "declarations": [],
+      "call_turn": 160,
+      "result_turn": 162
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "PosSemidef.mulVec_eq_zero",
+      "declarations": [],
+      "call_turn": 160,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "dotProduct_mulVec_nonneg PosSemidef",
+      "declarations": [],
+      "call_turn": 160,
+      "result_turn": 164
+    },
+    {
+      "event_id": "leanfinder:102",
+      "tool": "leanfinder",
+      "query": "Fiedler nodal domain theorem eigenvector graph connected",
+      "declarations": [
+        "Lean.Meta.Grind.SolverExtension.getTerm",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "SimpleGraph.Connected",
+        "Lean.Meta.Grind.EMatchTheorems.getKindsFor",
+        "Lagrange.nodal",
+        "Lagrange.eval_nodal",
+        "SimpleGraph.mem_ker_toLin'_lapMatrix_of_connectedComponent",
+        "Lagrange.degree_nodal",
+        "Lagrange.nodalWeight",
+        "Lagrange.derivative_nodal"
+      ],
+      "call_turn": 165,
+      "result_turn": 166
+    },
+    {
+      "event_id": "leanfinder:103",
+      "tool": "leanfinder",
+      "query": "sign pattern eigenvector support induces connected graph matrix",
+      "declarations": [
+        "SimpleGraph.Walk.support",
+        "SimpleGraph.lapMatrix_ker_basis_aux",
+        "SimpleGraph.Walk.connected_induce_support",
+        "SimpleGraph.Connected",
+        "Mathlib.Tactic.Order.Graph.findSCCs",
+        "Lean.SCC.scc",
+        "Matrix.IsHermitian.eigenvectorBasis",
+        "SimpleGraph.mem_ker_toLin'_lapMatrix_of_connectedComponent",
+        "Matrix.IsHermitian.eigenvectorUnitary",
+        "SimpleGraph.linearIndependent_lapMatrix_ker_basis_aux"
+      ],
+      "call_turn": 165,
+      "result_turn": 167
+    },
+    {
+      "event_id": "leanfinder:104",
+      "tool": "leanfinder",
+      "query": "Courant nodal domain theorem graph eigenvector",
+      "declarations": [
+        "Lean.Meta.Grind.SolverExtension.getTerm",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "Lagrange.nodal",
+        "eigenvalue_mem_ball",
+        "Lagrange.nodal_monic",
+        "Lagrange.eval_nodal",
+        "Lagrange.degree_nodal",
+        "Lagrange.nodal_eq",
+        "Lagrange.nodalWeight",
+        "Lagrange.derivative_nodal"
+      ],
+      "call_turn": 165,
+      "result_turn": 168
+    },
+    {
+      "event_id": "leanfinder:105",
+      "tool": "leanfinder",
+      "query": "largest eigenvector rank one perturbation positive eigenvector connected superlevel set",
+      "declarations": [
+        "Module.End.HasEigenvector",
+        "inner_product_apply_eigenvector",
+        "Lean.Omega.positivize",
+        "Set.OrdConnected",
+        "hasEigenvector_toLin_diagonal",
+        "Module.End.HasGenEigenvector",
+        "Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.norm",
+        "Matrix.IsHermitian.eigenvectorBasis",
+        "eigenvalue_mem_ball",
+        "Matrix.IsHermitian.eigenvectorUnitary"
+      ],
+      "call_turn": 165,
+      "result_turn": 169
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "Finset.sum_eq_sum_iff_of_le",
+      "declarations": [
+        "Finset.sum_eq_sum_iff_of_le"
+      ],
+      "call_turn": 170,
+      "result_turn": 171
+    },
+    {
+      "event_id": "leanfinder:107",
+      "tool": "leanfinder",
+      "query": "Finset sum equality and pointwise inequalities implies pointwise equality",
+      "declarations": [
+        "Lean.Elab.Tactic.Omega.Problem.selectEquality",
+        "Lean.Elab.Tactic.Omega.Problem.solveEquality",
+        "ENat.exists_le_of_sum_le",
+        "le_of_strongLT",
+        "Lean.Elab.Tactic.Omega.Problem.addEquality",
+        "Lean.Omega.Constraint.addEquality_sat",
+        "Pi.exists_forall_pos_add_lt",
+        "PointwiseConvergenceCLM",
+        "ContDiffPointwiseHolderAt",
+        "Finset.exists_le_of_sum_le"
+      ],
+      "call_turn": 170,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "sum_eq_sum_iff_of_le",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 173
+    },
+    {
+      "event_id": "loogle:109",
+      "tool": "loogle",
+      "query": "Finset.sum_le_sum eq",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 174
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "pos_of_mul_pos_left",
+      "declarations": [
+        "pos_of_mul_pos_left"
+      ],
+      "call_turn": 215,
+      "result_turn": 216
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "mul_pos_iff_of_pos_left",
+      "declarations": [
+        "mul_pos_iff_of_pos_left"
+      ],
+      "call_turn": 215,
+      "result_turn": 217
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "(0 < _ * _ → 0 < _)",
+      "declarations": [
+        "Int.pos_of_mul_pos_left",
+        "Int.pos_of_mul_pos_right",
+        "Nat.pos_of_mul_pos_left",
+        "Nat.pos_of_mul_pos_right",
+        "pos_of_mul_pos_left",
+        "pos_of_mul_pos_right"
+      ],
+      "call_turn": 215,
+      "result_turn": 218
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "mul_pos_iff",
+      "declarations": [
+        "mul_pos_iff"
+      ],
+      "call_turn": 215,
+      "result_turn": 219
+    },
+    {
+      "event_id": "loogle:149",
+      "tool": "loogle",
+      "query": "dotProduct_add",
+      "declarations": [
+        "dotProduct_add"
+      ],
+      "call_turn": 250,
+      "result_turn": 251
+    },
+    {
+      "event_id": "loogle:150",
+      "tool": "loogle",
+      "query": "add_dotProduct",
+      "declarations": [
+        "add_dotProduct"
+      ],
+      "call_turn": 250,
+      "result_turn": 252
+    },
+    {
+      "event_id": "loogle:151",
+      "tool": "loogle",
+      "query": "dotProduct_smul",
+      "declarations": [
+        "dotProduct_smul"
+      ],
+      "call_turn": 250,
+      "result_turn": 253
+    },
+    {
+      "event_id": "loogle:152",
+      "tool": "loogle",
+      "query": "smul_dotProduct",
+      "declarations": [
+        "smul_dotProduct"
+      ],
+      "call_turn": 250,
+      "result_turn": 254
+    },
+    {
+      "event_id": "loogle:154",
+      "tool": "loogle",
+      "query": "dotProduct_transpose_mulVec",
+      "declarations": [],
+      "call_turn": 257,
+      "result_turn": 258
+    },
+    {
+      "event_id": "leanfinder:155",
+      "tool": "leanfinder",
+      "query": "dot product transpose matrix vector identity",
+      "declarations": [
+        "Matrix.dotProduct_vecMul_transpose",
+        "Matrix.vec_dotProduct_vec",
+        "Matrix.vecMul_transpose",
+        "Matrix.dotProduct_mulVec",
+        "Matrix.transpose",
+        "Matrix.dotProduct_transpose_mulVec",
+        "Matrix.vec3_dotProduct",
+        "Matrix.vec2_dotProduct",
+        "Matrix.vecMul_mulVec",
+        "Matrix.star_vec_dotProduct_vec"
+      ],
+      "call_turn": 259,
+      "result_turn": 260
+    },
+    {
+      "event_id": "loogle:157",
+      "tool": "loogle",
+      "query": "(_ ⬝ᵥ _.mulVec _ = _ ⬝ᵥ _.mulVec _)",
+      "declarations": [],
+      "call_turn": 263,
+      "result_turn": 264
+    },
+    {
+      "event_id": "loogle:162",
+      "tool": "loogle",
+      "query": "Matrix.mulVec_add",
+      "declarations": [
+        "Matrix.mulVec_add"
+      ],
+      "call_turn": 273,
+      "result_turn": 274
+    },
+    {
+      "event_id": "loogle:163",
+      "tool": "loogle",
+      "query": "Matrix.mulVec_smul",
+      "declarations": [
+        "Matrix.mulVec_smul"
+      ],
+      "call_turn": 273,
+      "result_turn": 275
+    },
+    {
+      "event_id": "loogle:164",
+      "tool": "loogle",
+      "query": "Matrix.add_mulVec",
+      "declarations": [
+        "Matrix.add_mulVec"
+      ],
+      "call_turn": 273,
+      "result_turn": 276
+    },
+    {
+      "event_id": "loogle:165",
+      "tool": "loogle",
+      "query": "Matrix.smul_mulVec",
+      "declarations": [
+        "Matrix.smul_mulVec"
+      ],
+      "call_turn": 273,
+      "result_turn": 277
+    },
+    {
+      "event_id": "loogle:181",
+      "tool": "loogle",
+      "query": "Finset.exists_pos_of_sum_pos",
+      "declarations": [],
+      "call_turn": 308,
+      "result_turn": 309
+    },
+    {
+      "event_id": "leanfinder:182",
+      "tool": "leanfinder",
+      "query": "finite sum positive exists positive term",
+      "declarations": [
+        "LSeries.positive",
+        "IsStrictlyPositive",
+        "Summable.tsum_pos",
+        "Positive.coe_zpow",
+        "LinearMap.isPositive_sum",
+        "LinearMap.IsPositive",
+        "ENNReal.ne_top_of_tsum_ne_top",
+        "exists_positiveCompacts_subset",
+        "ENNReal.tsum_le_of_sum_range_le",
+        "NNReal.tsum_pos"
+      ],
+      "call_turn": 308,
+      "result_turn": 310
+    },
+    {
+      "event_id": "loogle:183",
+      "tool": "loogle",
+      "query": "Finset.exists_lt_of_sum_lt",
+      "declarations": [
+        "Finset.exists_lt_of_sum_lt"
+      ],
+      "call_turn": 308,
+      "result_turn": 311
+    },
+    {
+      "event_id": "loogle:184",
+      "tool": "loogle",
+      "query": "Finset.exists_pos",
+      "declarations": [],
+      "call_turn": 308,
+      "result_turn": 312
+    },
+    {
+      "event_id": "loogle:188",
+      "tool": "loogle",
+      "query": "Matrix.IsDiag.isSymm",
+      "declarations": [
+        "Matrix.IsDiag.isSymm"
+      ],
+      "call_turn": 319,
+      "result_turn": 320
+    },
+    {
+      "event_id": "loogle:201",
+      "tool": "loogle",
+      "query": "dotProduct_self_pos",
+      "declarations": [],
+      "call_turn": 345,
+      "result_turn": 346
+    },
+    {
+      "event_id": "loogle:202",
+      "tool": "loogle",
+      "query": "(0 < _ ⬝ᵥ _)",
+      "declarations": [
+        "Matrix.dotProduct_self_star_pos_iff",
+        "Matrix.dotProduct_star_self_pos_iff",
+        "Matrix.PosDef.dotProduct_mulVec_pos",
+        "Matrix.PosDef.of_dotProduct_mulVec_pos",
+        "Matrix.posDef_iff_dotProduct_mulVec"
+      ],
+      "call_turn": 345,
+      "result_turn": 347
+    },
+    {
+      "event_id": "leanfinder:203",
+      "tool": "leanfinder",
+      "query": "dot product vector with itself positive iff nonzero",
+      "declarations": [
+        "Mathlib.Meta.Positivity.smul_ne_zero_of_ne_zero_of_pos",
+        "dotProduct_self_eq_zero",
+        "dotProduct_zero",
+        "dotProduct_nonneg_of_nonneg",
+        "dotProduct",
+        "Matrix.dotProduct_self_star_pos_iff",
+        "Matrix.dotProduct_star_self_pos_iff",
+        "dotProduct_eq_iff",
+        "dotProduct_eq_zero_iff",
+        "dotProductEquiv"
+      ],
+      "call_turn": 345,
+      "result_turn": 348
+    },
+    {
+      "event_id": "loogle:206",
+      "tool": "loogle",
+      "query": "nonpos_of_mul_nonpos_left",
+      "declarations": [
+        "nonpos_of_mul_nonpos_left"
+      ],
+      "call_turn": 353,
+      "result_turn": 354
+    },
+    {
+      "event_id": "loogle:207",
+      "tool": "loogle",
+      "query": "le_of_mul_le_mul_left",
+      "declarations": [
+        "le_of_mul_le_mul_left"
+      ],
+      "call_turn": 353,
+      "result_turn": 355
+    },
+    {
+      "event_id": "loogle:208",
+      "tool": "loogle",
+      "query": "mul_nonpos_iff_of_pos_left",
+      "declarations": [],
+      "call_turn": 353,
+      "result_turn": 356
+    },
+    {
+      "event_id": "loogle:209",
+      "tool": "loogle",
+      "query": "(_ * _ ≤ 0 → 0 < _ → _ ≤ 0)",
+      "declarations": [
+        "Int.nonpos_of_mul_nonpos_left",
+        "Int.nonpos_of_mul_nonpos_right",
+        "nonpos_of_mul_nonpos_left",
+        "nonpos_of_mul_nonpos_right"
+      ],
+      "call_turn": 353,
+      "result_turn": 357
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 23,
+    "selected_hyperedge_count": 8,
+    "main_hyperedge_count": 8,
+    "side_hyperedge_count": 0,
+    "selected_depth": 5,
+    "max_fan_in_all": 20,
+    "max_fan_in_main": 20,
+    "manifest_fact_count": 15,
+    "retrieved_rule_item_count": 10,
+    "retrieval_query_count": 92,
+    "useful_retrieval_event_count": 13,
+    "unused_retrieval_event_count": 79,
+    "accepted_helper_count": 18,
+    "rollout_tool_call_count": 240,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

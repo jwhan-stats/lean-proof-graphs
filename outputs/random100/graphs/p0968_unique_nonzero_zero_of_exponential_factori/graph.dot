@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hk_17c45368" [shape=box, color="#178F82", label="hk₂\nk ≤ n - 1"];
+  "m_hk_c25e1a3a" [shape=box, color="#178F82", label="hk₁\n1 ≤ k"];
+  "m_hn_824a8db5" [shape=box, color="#178F82", label="hn\n2 ≤ n"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet h := fun x => Real.exp (2 * ↑k * x) * ∑ j ∈ Finset.range (n + 1), (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n + ↑k) ^ (↑j - 1) * (↑n + ↑k - ↑j) * x ^ j - ∑ j ∈ Finset.range (n + 1), (-1) ^ (n - j) * (↑n.factorial / ↑j.factorial) * (↑n - ↑k) ^ (↑j - 1) * (↑n - ↑k - ↑j) * x ^ j; ∃ c, -1 < c ∧ c < 0 ∧ h c = 0 ∧ ∀ (x : ℝ), h x = 0 ↔ x = 0 ∨ x = c"];
+  "r_h_goal" [shape=diamond, label="Real.exp_pos + Real.exp_zero + Hformal_eq_factor", color="#D97706"];
+  "m_hn_824a8db5" -> "r_h_goal";
+  "m_hk_c25e1a3a" -> "r_h_goal";
+  "m_hk_17c45368" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

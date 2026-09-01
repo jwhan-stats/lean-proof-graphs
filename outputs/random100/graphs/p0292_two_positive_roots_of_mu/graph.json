@@ -1,0 +1,1379 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0292_two_positive_roots_of_mu",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 292,
+    "source": "1502.03179",
+    "theorem_name": "two_positive_roots_of_mu",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/292",
+    "reconstructed_proof": "../../candidates/p0292_two_positive_roots_of_mu/proof.lean",
+    "raw_elaboration": "../../candidates/p0292_two_positive_roots_of_mu/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0292_two_positive_roots_of_mu.two_positive_roots_of_mu",
+    "verification_call_id": "verify_submission:62",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "50cc4749c4529bb764e87d2981f6c706ea22d32a28e9d891791887fe92f80b47",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "626f12d66f656396fdfb2df5a36c1abb77c94e673ad4fa36532ff8fc8fa85a6c",
+    "concrete_semantic_topology_sha256": "50cc4749c4529bb764e87d2981f6c706ea22d32a28e9d891791887fe92f80b47"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 16,
+      "reason_counts": {
+        "unresolved_metavariables_in_candidate_type": 16
+      },
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_a6eabb2c",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hΛ",
+      "lean_fvar_id": "5",
+      "statement": "0 < Λ"
+    },
+    {
+      "id": "m_hm_5bfd0ba0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hM",
+      "lean_fvar_id": "4",
+      "statement": "0 < M"
+    },
+    {
+      "id": "m_hn_9e59fb4b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "4 ≤ n"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let lam := 2 * Λ / ((↑n - 2) * (↑n - 1)); let mu := fun r => 1 - 2 * M / r ^ (n - 3) - lam * r ^ 2; M ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1) → ∃ r_minus r_plus, 0 < r_minus ∧ r_minus < r_plus ∧ mu r_minus = 0 ∧ mu r_plus = 0 ∧ ∀ (r : ℝ), 0 < r → mu r = 0 → r = r_minus ∨ r = r_plus"
+    },
+    {
+      "id": "n_h_d5678174",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hΛ",
+      "lean_fvar_id": "_uniq.745020",
+      "statement": "0 < Λ"
+    },
+    {
+      "id": "n_hcond_58c08b79",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcond",
+      "lean_fvar_id": "_uniq.746348",
+      "statement": "M ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1)"
+    },
+    {
+      "id": "n_hcond_nat_ec0f9210",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcond_nat",
+      "lean_fvar_id": "_uniq.768505",
+      "statement": "M ^ 2 * lam ^ k < ↑k ^ k / (↑k + 2) ^ (k + 2)"
+    },
+    {
+      "id": "n_hden_9720b34f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hden",
+      "lean_fvar_id": "_uniq.759143",
+      "statement": "0 < (↑n - 2) * (↑n - 1)"
+    },
+    {
+      "id": "n_hk2_int_15c47c48",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hk2_int",
+      "lean_fvar_id": "_uniq.749542",
+      "statement": "↑(k + 2) = n - 1"
+    },
+    {
+      "id": "n_hk2r_a381f344",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hk2R",
+      "lean_fvar_id": "_uniq.749937",
+      "statement": "↑k + 2 = ↑n - 1"
+    },
+    {
+      "id": "n_hk_e2f247e7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hk",
+      "lean_fvar_id": "_uniq.746888",
+      "statement": "0 < k"
+    },
+    {
+      "id": "n_hk_int_5bb25517",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hk_int",
+      "lean_fvar_id": "_uniq.746634",
+      "statement": "↑k = n - 3"
+    },
+    {
+      "id": "n_hk_nonneg_850bca87",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hk_nonneg",
+      "lean_fvar_id": "_uniq.746456",
+      "statement": "0 ≤ n - 3"
+    },
+    {
+      "id": "n_hkr_19febbb9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hkR",
+      "lean_fvar_id": "_uniq.747124",
+      "statement": "↑k = ↑n - 3"
+    },
+    {
+      "id": "n_hlam_c0e19bdd",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlam",
+      "lean_fvar_id": "_uniq.754439",
+      "statement": "0 < lam"
+    },
+    {
+      "id": "n_hn1_9c8ee1df",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn1",
+      "lean_fvar_id": "_uniq.756922",
+      "statement": "0 < ↑n - 1"
+    },
+    {
+      "id": "n_hn2_1d5b01db",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hn2",
+      "lean_fvar_id": "_uniq.755097",
+      "statement": "0 < ↑n - 2"
+    },
+    {
+      "id": "n_hn_6c687190",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.745016",
+      "statement": "4 ≤ n"
+    },
+    {
+      "id": "n_hnr_b2f33e3e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnR",
+      "lean_fvar_id": "_uniq.754555",
+      "statement": "4 ≤ ↑n"
+    },
+    {
+      "id": "n_hpowcast_79e0f612",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpowcast",
+      "lean_fvar_id": "_uniq.771206",
+      "statement": "∀ (r : ℝ), r ^ (n - 3) = r ^ k"
+    },
+    {
+      "id": "n_this_113c8b7b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.745398",
+      "statement": "2 * Λ / ((↑n - 2) * (↑n - 1)) = lam"
+    },
+    {
+      "id": "n_this_dc474895",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.749982",
+      "statement": "(fun z => ↑z) ↑(k + 2) = (fun z => ↑z) (n - 1)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_this",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_this_113c8b7b",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_120",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.745398",
+            "name": "this",
+            "statement": "2 * Λ / ((↑n - 2) * (↑n - 1)) = lam"
+          }
+        },
+        "lean_dependency_sha256": "d5f65e587d3702487b289a4aa0b7fc313b34969890aad5a9ff3f61ab843ad8f3",
+        "kernel_witness_check": {
+          "proof_type": "2 * Λ / ((↑n - 2) * (↑n - 1)) = 2 * Λ / ((↑n - 2) * (↑n - 1))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk2_int_15c47c48"
+      ],
+      "conclusion": "n_this_dc474895",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_137",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.749542",
+              "name": "hk2_int",
+              "statement": "↑(k + 2) = n - 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.749982",
+            "name": "this",
+            "statement": "(fun z => ↑z) ↑(k + 2) = (fun z => ↑z) (n - 1)"
+          }
+        },
+        "lean_dependency_sha256": "0e6182bacfe9c4f403dfc3a3056dadc6e13f7a27f4afbc04653f1e7180da6638",
+        "kernel_witness_check": {
+          "proof_type": "↑↑(k + 2) = ↑(n - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hnr",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_6c687190"
+      ],
+      "conclusion": "n_hnr_b2f33e3e",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_138",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hnR : (4 : ℝ) ≤ n := by exact_mod_cast hn",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.745016",
+              "name": "hn",
+              "statement": "4 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.754555",
+            "name": "hnR",
+            "statement": "4 ≤ ↑n"
+          }
+        },
+        "lean_dependency_sha256": "71cbb57af3fc0a53f5c089e34b88a2e777ca88a584ff9190cc2b68fa8295e80c",
+        "kernel_witness_check": {
+          "proof_type": "4 ≤ ↑n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hn2",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnr_b2f33e3e"
+      ],
+      "conclusion": "n_hn2_1d5b01db",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "linarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_139",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hn2 : 0 < (n : ℝ) - 2 := by linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.754555",
+              "name": "hnR",
+              "statement": "4 ≤ ↑n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.755097",
+            "name": "hn2",
+            "statement": "0 < ↑n - 2"
+          }
+        },
+        "lean_dependency_sha256": "09855cf3d63f4706c4f117bc48e497e6995d90d9b0bd0dc64a97b5101e629ac7",
+        "kernel_witness_check": {
+          "proof_type": "0 < ↑n - 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hn1",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnr_b2f33e3e"
+      ],
+      "conclusion": "n_hn1_9c8ee1df",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "linarith",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_140",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hn1 : 0 < (n : ℝ) - 1 := by linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.754555",
+              "name": "hnR",
+              "statement": "4 ≤ ↑n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.756922",
+            "name": "hn1",
+            "statement": "0 < ↑n - 1"
+          }
+        },
+        "lean_dependency_sha256": "af19eca8245a46cd15031f53ac90c366ddc35af867d04d66fe61092a856ea10a",
+        "kernel_witness_check": {
+          "proof_type": "0 < ↑n - 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hden",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn2_1d5b01db",
+        "n_hn1_9c8ee1df"
+      ],
+      "conclusion": "n_hden_9720b34f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_pos",
+        "items": [
+          "mul_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_141",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hden : 0 < ((n : ℝ) - 2) * ((n : ℝ) - 1) := mul_pos hn2 hn1\n    positivity",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.755097",
+              "name": "hn2",
+              "statement": "0 < ↑n - 2"
+            },
+            {
+              "fvar_id": "_uniq.756922",
+              "name": "hn1",
+              "statement": "0 < ↑n - 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.759143",
+            "name": "hden",
+            "statement": "0 < (↑n - 2) * (↑n - 1)"
+          }
+        },
+        "lean_dependency_sha256": "490c9d91f2fc0fee6010a4336fd2026e8147df43e83a839d5a61feb79546fbbf",
+        "kernel_witness_check": {
+          "proof_type": "0 < (↑n - 2) * (↑n - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hk_nonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_6c687190"
+      ],
+      "conclusion": "n_hk_nonneg_850bca87",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_145",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hk_nonneg : (0 : ℤ) ≤ n - 3 := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.745016",
+              "name": "hn",
+              "statement": "4 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.746456",
+            "name": "hk_nonneg",
+            "statement": "0 ≤ n - 3"
+          }
+        },
+        "lean_dependency_sha256": "65ad09db3deed1a612a4bcf0a6f91053e17e10d57af8d34f7a56b43aa06ef1d3",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ n - 3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hk_int",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_nonneg_850bca87"
+      ],
+      "conclusion": "n_hk_int_5bb25517",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Int.toNat_of_nonneg",
+        "items": [
+          "Int.toNat_of_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Int.toNat_of_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_146",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hk_int : (k : ℤ) = n - 3 := by\n    dsimp [k]\n    exact Int.toNat_of_nonneg hk_nonneg",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.746456",
+              "name": "hk_nonneg",
+              "statement": "0 ≤ n - 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.746634",
+            "name": "hk_int",
+            "statement": "↑k = n - 3"
+          }
+        },
+        "lean_dependency_sha256": "472efda9c990176ee18643ec660e2566e2b7e80f09b81309c5d7f3335de366a9",
+        "kernel_witness_check": {
+          "proof_type": "↑k = n - 3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hk",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_6c687190",
+        "n_hk_int_5bb25517"
+      ],
+      "conclusion": "n_hk_e2f247e7",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_147",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hk : 0 < k := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.745016",
+              "name": "hn",
+              "statement": "4 ≤ n"
+            },
+            {
+              "fvar_id": "_uniq.746634",
+              "name": "hk_int",
+              "statement": "↑k = n - 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.746888",
+            "name": "hk",
+            "statement": "0 < k"
+          }
+        },
+        "lean_dependency_sha256": "2561208524b8be00a285d8c71a50f296dc821e7edc028c7ac231309fae410541",
+        "kernel_witness_check": {
+          "proof_type": "0 < k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hkr",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_int_5bb25517"
+      ],
+      "conclusion": "n_hkr_19febbb9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_148",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hkR : (k : ℝ) = (n : ℝ) - 3 := by exact_mod_cast hk_int",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.746634",
+              "name": "hk_int",
+              "statement": "↑k = n - 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.747124",
+            "name": "hkR",
+            "statement": "↑k = ↑n - 3"
+          }
+        },
+        "lean_dependency_sha256": "31b8f427c7552f2f71737ed48e06b6b031dc0ff935017dbc7cc63732bc759b7c",
+        "kernel_witness_check": {
+          "proof_type": "↑k = ↑n - ↑3",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hk2_int",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_int_5bb25517"
+      ],
+      "conclusion": "n_hk2_int_15c47c48",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_149",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hk2_int : ((k + 2 : ℕ) : ℤ) = n - 1 := by omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.746634",
+              "name": "hk_int",
+              "statement": "↑k = n - 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.749542",
+            "name": "hk2_int",
+            "statement": "↑(k + 2) = n - 1"
+          }
+        },
+        "lean_dependency_sha256": "18dc5412455dd4fa8fea56ac471d4db6e0c9f73aa7b8317ad7f32b38b83c94b8",
+        "kernel_witness_check": {
+          "proof_type": "↑(k + 2) = n - 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hk2r",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hkr_19febbb9",
+        "n_hk2_int_15c47c48"
+      ],
+      "conclusion": "n_hk2r_a381f344",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrArg",
+        "items": [
+          "congrArg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrArg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_150",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hk2R : ((k : ℝ) + 2) = (n : ℝ) - 1 := by\n    have := congrArg (fun z : ℤ => (z : ℝ)) hk2_int\n    norm_num at this\n    linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.747124",
+              "name": "hkR",
+              "statement": "↑k = ↑n - 3"
+            },
+            {
+              "fvar_id": "_uniq.749542",
+              "name": "hk2_int",
+              "statement": "↑(k + 2) = n - 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.749937",
+            "name": "hk2R",
+            "statement": "↑k + 2 = ↑n - 1"
+          }
+        },
+        "lean_dependency_sha256": "45e67cf1d20a5c968c4606a7ae823d55c1dfb6ad8ca10f0a53e51725ff854b5f",
+        "kernel_witness_check": {
+          "proof_type": "↑k + 2 = ↑n - 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hlam",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_6c687190",
+        "n_h_d5678174"
+      ],
+      "conclusion": "n_hlam_c0e19bdd",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_pos",
+        "items": [
+          "mul_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_151",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hlam : 0 < lam := by\n    dsimp [lam]\n    have hnR : (4 : ℝ) ≤ n := by exact_mod_cast hn\n    have hn2 : 0 < (n : ℝ) - 2 := by linarith\n    have hn1 : 0 < (n : ℝ) - 1 := by linarith\n    have hden : 0 < ((n : ℝ) - 2) * ((n : ℝ) - 1) := mul_pos hn2 hn1\n    positivity",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.745016",
+              "name": "hn",
+              "statement": "4 ≤ n"
+            },
+            {
+              "fvar_id": "_uniq.745020",
+              "name": "hΛ",
+              "statement": "0 < Λ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.754439",
+            "name": "hlam",
+            "statement": "0 < lam"
+          }
+        },
+        "lean_dependency_sha256": "906b0ef274f0149ed44909c950cce3b6ba8fb4d2f2fe3e18c0a5b1726d66006c",
+        "kernel_witness_check": {
+          "proof_type": "0 < lam",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hcond_nat",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcond_58c08b79",
+        "n_hk_int_5bb25517",
+        "n_hkr_19febbb9",
+        "n_hk2_int_15c47c48",
+        "n_hk2r_a381f344"
+      ],
+      "conclusion": "n_hcond_nat_ec0f9210",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "zpow_natCast",
+        "items": [
+          "zpow_natCast"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "zpow_natCast"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_152",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcond_nat : M ^ 2 * lam ^ k <\n      (k : ℝ) ^ k / ((k : ℝ) + 2) ^ (k + 2) := by\n    convert hcond using 2\n    · rw [← hk_int, zpow_natCast]\n    · rw [← hkR, ← hk_int, zpow_natCast]\n    · rw [← hk2R, ← hk2_int, zpow_natCast]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.746348",
+              "name": "hcond",
+              "statement": "M ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1)"
+            },
+            {
+              "fvar_id": "_uniq.746634",
+              "name": "hk_int",
+              "statement": "↑k = n - 3"
+            },
+            {
+              "fvar_id": "_uniq.747124",
+              "name": "hkR",
+              "statement": "↑k = ↑n - 3"
+            },
+            {
+              "fvar_id": "_uniq.749542",
+              "name": "hk2_int",
+              "statement": "↑(k + 2) = n - 1"
+            },
+            {
+              "fvar_id": "_uniq.749937",
+              "name": "hk2R",
+              "statement": "↑k + 2 = ↑n - 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.768505",
+            "name": "hcond_nat",
+            "statement": "M ^ 2 * lam ^ k < ↑k ^ k / (↑k + 2) ^ (k + 2)"
+          }
+        },
+        "lean_dependency_sha256": "970246a955447368593fdc62581c3502f339ae8192d723c7eb89a32391b02fa4",
+        "kernel_witness_check": {
+          "proof_type": "M ^ 2 * lam ^ k < ↑k ^ k / (↑k + 2) ^ (k + 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hpowcast",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hk_int_5bb25517"
+      ],
+      "conclusion": "n_hpowcast_79e0f612",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "zpow_natCast",
+        "items": [
+          "zpow_natCast"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "zpow_natCast"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_153",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hpowcast : ∀ r : ℝ, r ^ (n - 3) = r ^ k := by\n    intro r\n    rw [← hk_int, zpow_natCast]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.746634",
+              "name": "hk_int",
+              "statement": "↑k = n - 3"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.771206",
+            "name": "hpowcast",
+            "statement": "∀ (r : ℝ), r ^ (n - 3) = r ^ k"
+          }
+        },
+        "lean_dependency_sha256": "162096aca9f1d65f2370e4b1faf3669f946dc691502f84ca177736bf9ab6e3b8",
+        "kernel_witness_check": {
+          "proof_type": "∀ (r : ℝ), r ^ (n - 3) = r ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_9e59fb4b",
+        "m_hm_5bfd0ba0",
+        "m_h_a6eabb2c"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Not.intro + hump_to_mu_nat + mu_to_hump_nat",
+        "items": [
+          "Not.intro",
+          "Rollout_p0292_two_positive_roots_of_mu.hump_to_mu_nat",
+          "Rollout_p0292_two_positive_roots_of_mu.mu_to_hump_nat",
+          "lt_trans"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0292_two_positive_roots_of_mu.hump_to_mu_nat",
+          "Rollout_p0292_two_positive_roots_of_mu.mu_to_hump_nat"
+        ],
+        "mathlib_items": [
+          "Not.intro",
+          "lt_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨r_minus, r_plus, hrminus_pos, hr_lt, ?_, ?_, ?_⟩\n  · rw [hpowcast]\n    exact hump_to_mu_nat k hrminus_pos hminus_hump\n  · rw [hpowcast]\n    exact hump_to_mu_nat k (lt_trans hrminus_pos hr_lt) hplus_hump\n  · intro r hr hmu\n    rw [hpowcast] at hmu\n    exact huniq r hr (mu_to_hump_nat k hr hmu)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hn",
+              "statement": "4 ≤ n"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hM",
+              "statement": "0 < M"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hΛ",
+              "statement": "0 < Λ"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let lam := 2 * Λ / ((↑n - 2) * (↑n - 1)); let mu := fun r => 1 - 2 * M / r ^ (n - 3) - lam * r ^ 2; M ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1) → ∃ r_minus r_plus, 0 < r_minus ∧ r_minus < r_plus ∧ mu r_minus = 0 ∧ mu r_plus = 0 ∧ ∀ (r : ℝ), 0 < r → mu r = 0 → r = r_minus ∨ r = r_plus"
+          }
+        },
+        "lean_dependency_sha256": "4105922e3cc778b48392c34dfd5ecc97bb5d41838159f069bc43890d67985b3e",
+        "kernel_witness_check": {
+          "proof_type": "let lam := 2 * Λ / ((↑n - 2) * (↑n - 1));\nlet mu := fun r => 1 - 2 * M / r ^ (n - 3) - lam * r ^ 2;\nM ^ 2 * lam ^ (n - 3) < (↑n - 3) ^ (n - 3) / (↑n - 1) ^ (n - 1) →\n  ∃ r_minus r_plus,\n    0 < r_minus ∧\n      r_minus < r_plus ∧ mu r_minus = 0 ∧ mu r_plus = 0 ∧ ∀ (r : ℝ), 0 < r → mu r = 0 → r = r_minus ∨ r = r_plus",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "intermediate value theorem continuous real interval exists f x equals",
+      "declarations": [
+        "intermediate_value_Ioo'",
+        "intermediate_value_Ioo",
+        "intermediate_value_Icc'",
+        "intermediate_value_Icc",
+        "intermediate_value_uIcc",
+        "intermediate_value_Ico'",
+        "intermediate_value_Ioc'",
+        "intermediate_value_Ico",
+        "AbsolutelyContinuousOnInterval",
+        "intermediate_value_Ioc"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "strict monotone on interval injective on set real",
+      "declarations": [
+        "MonotoneOn.intervalIntegrable",
+        "StrictMonoOn.monotoneOn",
+        "MonotoneOn.intervalIntegrable_slope",
+        "StrictMonoOn",
+        "ContinuousOn.strictMonoOn_of_injOn_Icc'",
+        "StrictMono.injective",
+        "Monotone.strictMono_of_injective",
+        "Continuous.strictMonoOn_of_inj_rigidity",
+        "ContinuousOn.strictMonoOn_of_injOn_Ioo",
+        "Real.monotoneOn_sin"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "derivative positive strict monotone on interval real",
+      "declarations": [
+        "MonotoneOn.intervalIntegrable",
+        "StrictConvexOn.strictMonoOn_derivWithin",
+        "StrictMonoOn.monotoneOn",
+        "MonotoneOn.intervalIntegrable_slope",
+        "MonotoneOn.intervalIntegrable_deriv",
+        "strictMonoOn_of_deriv_pos",
+        "StrictMonoOn",
+        "strictMonoOn_of_hasDerivWithinAt_pos",
+        "strictMono_of_deriv_pos",
+        "strictAntiOn_of_deriv_neg"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "(ContinuousOn _ _ → _ → ∃ _ ∈ _, _ = _)",
+      "declarations": [
+        "IsPreconnected.intermediate_value",
+        "IsCompact.exists_sInf_image_eq",
+        "IsCompact.exists_sSup_image_eq",
+        "exists_deriv_eq_zero",
+        "exists_hasDerivAt_eq_zero",
+        "exists_deriv_eq_slope",
+        "exists_deriv_eq_slope'",
+        "exists_hasDerivAt_eq_slope"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "StrictMonoOn.injOn",
+      "declarations": [
+        "StrictMonoOn.injOn"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "(0 ≤ _ → 0 ≤ _ → _ ^ 2 < _ ^ 2 → _ < _)",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "sq_lt_sq",
+      "declarations": [
+        "sq_lt_sq"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "(_ * _ < _ * _ → _ < _)",
+      "declarations": [
+        "Nat.lt_of_mul_lt_mul_left",
+        "Nat.lt_of_mul_lt_mul_right",
+        "Int.lt_of_mul_lt_mul_left",
+        "Int.lt_of_mul_lt_mul_right",
+        "Rat.lt_of_mul_lt_mul_left",
+        "Rat.lt_of_mul_lt_mul_right",
+        "lt_of_mul_lt_mul_left'",
+        "lt_of_mul_lt_mul_right'",
+        "min_lt_max_of_mul_lt_mul",
+        "OrderedCommGroup.lt_of_mul_lt_mul_left"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "positive real compare by squares square less square implies less",
+      "declarations": [
+        "compareOfLessAndEq_eq_swap",
+        "NNReal.sqrt_le_iff_le_sq",
+        "NNReal.le_sqrt_iff_sq_le",
+        "compareOfLessAndEq",
+        "Dyadic.blt",
+        "Real.lt_sqrt",
+        "compareOfLessAndBEq",
+        "compareOfLessAndEq_eq_eq",
+        "IsSquare",
+        "NNReal.sqrt_le_one"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "(0 < _ * _ → 0 < _ → 0 < _)",
+      "declarations": [
+        "Int.pos_of_mul_pos_left",
+        "Int.pos_of_mul_pos_right"
+      ],
+      "call_turn": 61,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "pos_of_mul_pos",
+      "declarations": [],
+      "call_turn": 61,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "mul_pos_iff",
+      "declarations": [
+        "mul_pos_iff"
+      ],
+      "call_turn": 61,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "StrictAntiOn.injOn",
+      "declarations": [
+        "StrictAntiOn.injOn"
+      ],
+      "call_turn": 65,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "(_ * _ < _ * _ ↔ _ < _)",
+      "declarations": [
+        "Nat.mul_lt_mul_left",
+        "Nat.mul_lt_mul_right",
+        "Nat.mul_self_lt_mul_self_iff",
+        "Int.mul_lt_mul_left",
+        "Int.mul_lt_mul_left_of_neg",
+        "Int.mul_lt_mul_right",
+        "Int.mul_lt_mul_right_of_neg",
+        "Rat.mul_lt_mul_left",
+        "Rat.mul_lt_mul_right",
+        "Lean.Grind.Field.IsOrdered.mul_lt_mul_iff_of_neg_left"
+      ],
+      "call_turn": 75,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "mul_lt_mul_left₀",
+      "declarations": [],
+      "call_turn": 77,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "mul_lt_mul_iff_left",
+      "declarations": [
+        "mul_lt_mul_iff_left"
+      ],
+      "call_turn": 77,
+      "result_turn": 79
+    },
+    {
+      "event_id": "leanfinder:44",
+      "tool": "leanfinder",
+      "query": "ordered field multiply both sides inequality by positive cancel left iff",
+      "declarations": [
+        "Lean.Expr.sides",
+        "le_of_mul_le_mul_left",
+        "Lean.Grind.Field.IsOrdered.le_mul_inv_iff_mul_le",
+        "le_of_mul_le_mul_right",
+        "Positive.isOrderedMonoid",
+        "IsOrderedCancelAddMonoid",
+        "Rat.le_of_mul_le_mul_left",
+        "Positive.isOrderedCancelMonoid",
+        "Rat.le_of_mul_le_mul_right",
+        "Positive.addLeftCancelSemigroup"
+      ],
+      "call_turn": 77,
+      "result_turn": 80
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 17,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 17,
+    "accepted_helper_count": 4,
+    "rollout_tool_call_count": 63,
+    "excluded_info_tree_binding_count": 16
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "16_audited_and_excluded",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

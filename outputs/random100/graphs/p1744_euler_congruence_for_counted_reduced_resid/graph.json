@@ -1,0 +1,745 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1744_euler_congruence_for_counted_reduced_resid",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1744,
+    "source": "1203.1993",
+    "theorem_name": "euler_congruence_for_counted_reduced_residues",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1744",
+    "reconstructed_proof": "../../candidates/p1744_euler_congruence_for_counted_reduced_resid/proof.lean",
+    "raw_elaboration": "../../candidates/p1744_euler_congruence_for_counted_reduced_resid/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1744_euler_congruence_for_counted_reduced_resid.euler_congruence_for_counted_reduced_residues",
+    "verification_call_id": "verify_submission:15",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "28dc7b12bcf67d899a4a1555e8b39cf898bb49fb686730674b97db4492424394",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "f40691184832ba008cc44044cf4697c2e2db68ab1c562378f7eb8739034d4500",
+    "concrete_semantic_topology_sha256": "28dc7b12bcf67d899a4a1555e8b39cf898bb49fb686730674b97db4492424394"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hcoprime_f6e0631b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hcoprime",
+      "lean_fvar_id": "5",
+      "statement": "x.Coprime N"
+    },
+    {
+      "id": "m_hn_7b58ef1d",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "6",
+      "statement": "n = {a ∈ Finset.Ico 1 N | a.Coprime N}.card"
+    },
+    {
+      "id": "m_hn_c4d5b37f",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hN",
+      "lean_fvar_id": "3",
+      "statement": "0 < N"
+    },
+    {
+      "id": "m_hx_39103e7a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "4",
+      "statement": "0 < x"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "x ^ n ≡ 1 [MOD N]"
+    },
+    {
+      "id": "n_ha_bf21995b",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.7392272",
+      "statement": "(1 ≤ a ∧ a < 1 + N) ∧ N.Coprime a"
+    },
+    {
+      "id": "n_ha_e38689e4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.7392297",
+      "statement": "(1 ≤ N ∧ N < 1 + N) ∧ N.Coprime N"
+    },
+    {
+      "id": "n_ha_ne_n_9a328dba",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "ha_ne_N",
+      "lean_fvar_id": "_uniq.7392280",
+      "statement": "a ≠ N"
+    },
+    {
+      "id": "n_hcard_6e98c352",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcard",
+      "lean_fvar_id": "_uniq.7392659",
+      "statement": "{a ∈ Finset.Ico 1 N | a.Coprime N}.card = N.totient"
+    },
+    {
+      "id": "n_hn1_c67fe038",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hN1",
+      "lean_fvar_id": "_uniq.7391217",
+      "statement": "¬N = 1"
+    },
+    {
+      "id": "n_hn_2a5e5a1e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hN",
+      "lean_fvar_id": "_uniq.7391146",
+      "statement": "0 < N"
+    },
+    {
+      "id": "n_hngt_b1972537",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hNgt",
+      "lean_fvar_id": "_uniq.7391299",
+      "statement": "1 < N"
+    },
+    {
+      "id": "n_hsets_ee54120c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsets",
+      "lean_fvar_id": "_uniq.7391843",
+      "statement": "{a ∈ Finset.Ico 1 N | a.Coprime N} = {a ∈ Finset.Ico 1 (1 + N) | N.Coprime a}"
+    },
+    {
+      "id": "n_this_191880d1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.7392344",
+      "statement": "N = 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_e38689e4"
+      ],
+      "conclusion": "n_this_191880d1",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.coprime_self",
+        "items": [
+          "Nat.coprime_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.coprime_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1343",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7392297",
+              "name": "ha",
+              "statement": "(1 ≤ N ∧ N < 1 + N) ∧ N.Coprime N"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7392344",
+            "name": "this",
+            "statement": "N = 1"
+          }
+        },
+        "lean_dependency_sha256": "ec97e1fa90311449cf776cd0cc1212c536674ce2a42413e1e7698fa51ced2487",
+        "kernel_witness_check": {
+          "proof_type": "N = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.coprime_self"
+        ],
+        "observed_search_event_ids": [
+          "loogle:8",
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_ha_ne_n",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hngt_b1972537",
+        "n_ha_bf21995b"
+      ],
+      "conclusion": "n_ha_ne_n_9a328dba",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.coprime_self",
+        "items": [
+          "Nat.coprime_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.coprime_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1344",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have ha_ne_N : a ≠ N := by\n          intro h\n          subst a\n          have : N = 1 := (Nat.coprime_self N).mp ha.2\n          omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7391299",
+              "name": "hNgt",
+              "statement": "1 < N"
+            },
+            {
+              "fvar_id": "_uniq.7392272",
+              "name": "ha",
+              "statement": "(1 ≤ a ∧ a < 1 + N) ∧ N.Coprime a"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7392280",
+            "name": "ha_ne_N",
+            "statement": "a ≠ N"
+          }
+        },
+        "lean_dependency_sha256": "d1317191f1a2fa9f5a18c541c43c99bd8c1c6a27a1008905d1861ff0bdc1f7b4",
+        "kernel_witness_check": {
+          "proof_type": "a = N → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.coprime_self"
+        ],
+        "observed_search_event_ids": [
+          "loogle:8",
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hngt",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_2a5e5a1e",
+        "n_hn1_c67fe038"
+      ],
+      "conclusion": "n_hngt_b1972537",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1345",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7391146",
+              "name": "hN",
+              "statement": "0 < N"
+            },
+            {
+              "fvar_id": "_uniq.7391217",
+              "name": "hN1",
+              "statement": "¬N = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7391299",
+            "name": "hNgt",
+            "statement": "1 < N"
+          }
+        },
+        "lean_dependency_sha256": "6627655b25deac23291656a0095e7106a49eaa2247c0d1f1ea2c7f6a15d418ca",
+        "kernel_witness_check": {
+          "proof_type": "1 < N",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hsets",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hngt_b1972537"
+      ],
+      "conclusion": "n_hsets_ee54120c",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.ext + Nat.coprime_self",
+        "items": [
+          "Finset.ext",
+          "Nat.coprime_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.ext",
+          "Nat.coprime_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1346",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsets :\n        ((Finset.Ico 1 N).filter fun a => Nat.Coprime a N) =\n          {a ∈ Finset.Ico 1 (1 + N) | N.Coprime a} := by\n      ext a\n      constructor\n      · intro ha\n        simp only [Finset.mem_filter, Finset.mem_Ico] at ha ⊢\n        exact ⟨⟨ha.1.1, by omega⟩, ha.2.symm⟩\n      · intro ha\n        simp only [Finset.mem_filter, Finset.mem_Ico] at ha ⊢\n        have ha_ne_N : a ≠ N := by\n          intro h\n          subst a\n          have : N = 1 := (Nat.coprime_self N).mp ha.2\n          omega\n        exact ⟨⟨ha.1.1, by omega⟩, ha.2.symm⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7391299",
+              "name": "hNgt",
+              "statement": "1 < N"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7391843",
+            "name": "hsets",
+            "statement": "{a ∈ Finset.Ico 1 N | a.Coprime N} = {a ∈ Finset.Ico 1 (1 + N) | N.Coprime a}"
+          }
+        },
+        "lean_dependency_sha256": "96096712c86d69b58853e837240d0e6162c43331e5dcd48f37fccc73881f44a1",
+        "kernel_witness_check": {
+          "proof_type": "{a ∈ Finset.Ico 1 N | a.Coprime N} = {a ∈ Finset.Ico 1 (1 + N) | N.Coprime a}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.coprime_self"
+        ],
+        "observed_search_event_ids": [
+          "loogle:8",
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hcard",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsets_ee54120c"
+      ],
+      "conclusion": "n_hcard_6e98c352",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.filter_coprime_Ico_eq_totient",
+        "items": [
+          "Nat.filter_coprime_Ico_eq_totient"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.filter_coprime_Ico_eq_totient"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1347",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hcard :\n        ((Finset.Ico 1 N).filter fun a => Nat.Coprime a N).card = N.totient := by\n      rw [hsets]\n      exact Nat.filter_coprime_Ico_eq_totient N 1\n    rw [hn, hcard]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7391843",
+              "name": "hsets",
+              "statement": "{a ∈ Finset.Ico 1 N | a.Coprime N} = {a ∈ Finset.Ico 1 (1 + N) | N.Coprime a}"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7392659",
+            "name": "hcard",
+            "statement": "{a ∈ Finset.Ico 1 N | a.Coprime N}.card = N.totient"
+          }
+        },
+        "lean_dependency_sha256": "9f6782614679c10946b9a5fa3af5d48ae4ffe222c0456f93bc2059f9a4ee66e2",
+        "kernel_witness_check": {
+          "proof_type": "{a ∈ Finset.Ico 1 N | a.Coprime N}.card = N.totient",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.filter_coprime_Ico_eq_totient"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_c4d5b37f",
+        "m_hcoprime_f6e0631b",
+        "m_hn_7b58ef1d"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.ext + Nat.ModEq.pow_totient + Nat.coprime_self",
+        "items": [
+          "Finset.ext",
+          "Nat.ModEq.pow_totient",
+          "Nat.coprime_self",
+          "Nat.filter_coprime_Ico_eq_totient",
+          "Nat.modEq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.ext",
+          "Nat.ModEq.pow_totient",
+          "Nat.coprime_self",
+          "Nat.filter_coprime_Ico_eq_totient",
+          "Nat.modEq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "          {a ∈ Finset.Ico 1 (1 + N) | N.Coprime a} := by\n      ext a\n      constructor\n      · intro ha\n        simp only [Finset.mem_filter, Finset.mem_Ico] at ha ⊢\n        exact ⟨⟨ha.1.1, by omega⟩, ha.2.symm⟩\n      · intro ha\n        simp only [Finset.mem_filter, Finset.mem_Ico] at ha ⊢\n        have ha_ne_N : a ≠ N := by\n          intro h\n          subst a\n          have : N = 1 := (Nat.coprime_self N).mp ha.2\n          omega\n        exact ⟨⟨ha.1.1, by omega⟩, ha.2.symm⟩\n    have hcard :\n        ((Finset.Ico 1 N).filter fun a => Nat.Coprime a N).card = N.totient := by\n      rw [hsets]\n      exact Nat.filter_coprime_Ico_eq_totient N 1\n    rw [hn, hcard]\n    exact Nat.ModEq.pow_totient hcoprime",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "3",
+              "name": "hN",
+              "statement": "0 < N"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hcoprime",
+              "statement": "x.Coprime N"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hn",
+              "statement": "n = {a ∈ Finset.Ico 1 N | a.Coprime N}.card"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "x ^ n ≡ 1 [MOD N]"
+          }
+        },
+        "lean_dependency_sha256": "e001ad5735572b3066cc36cfb6ed5aabfb2925934213e58d60359c67f55a70c6",
+        "kernel_witness_check": {
+          "proof_type": "x ^ n ≡ 1 [MOD N]",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.ModEq.pow_totient",
+          "Nat.coprime_self",
+          "Nat.filter_coprime_Ico_eq_totient",
+          "Nat.modEq_one"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "leanfinder:2",
+          "loogle:8",
+          "loogle:9",
+          "leanfinder:3",
+          "loogle:11",
+          "loogle:12"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Nat.totient",
+      "declarations": [
+        "Nat.totient",
+        "Nat.totient_le",
+        "Nat.sum_totient",
+        "Nat.totient_one",
+        "Nat.totient_two",
+        "Nat.totient_zero",
+        "Nat.neZero_totient",
+        "Nat.totient_dvd_of_dvd",
+        "Nat.totient_even",
+        "Nat.odd_totient_iff_eq_one"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Nat.ModEq _ (_ ^ Nat.totient _) 1",
+      "declarations": [
+        "Nat.ModEq.pow_totient"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "Euler totient theorem Nat.ModEq power totient coprime",
+      "declarations": [
+        "Nat.pow_totient_mod_eq_one",
+        "Nat.totient_eq_card_coprime",
+        "Nat.totient",
+        "Nat.ModEq.pow_totient",
+        "Nat.ModEq",
+        "Nat.pow_totient_mod",
+        "Nat.totient_coprime_totient_iff",
+        "Nat.pow_add_totient_mod_eq",
+        "Lean.Omega.Coeffs.get",
+        "Mathlib.Meta.NormNum.jacobiSymNat"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "cardinality Ico 1 N filter coprime equals totient",
+      "declarations": [
+        "Nat.filter_coprime_Ico_eq_totient",
+        "GroupFilterBasis.N",
+        "Lean.Omega.Coeffs.get",
+        "Nat.totient_eq_card_lt_and_coprime",
+        "Nat.totient",
+        "Nat.totient_mul_prod_primeFactors",
+        "Nat.totient_coprime_totient_iff",
+        "Nat.totient_eq_card_coprime",
+        "Mathlib.Meta.NormNum.jacobiSymNat",
+        "Nat.Ico_filter_coprime_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Nat.Coprime _ _ -> _ = 1",
+      "declarations": [
+        "Nat.Coprime.gcd_eq_one",
+        "Nat.Coprime.eq_one_of_dvd",
+        "Nat.eq_one_of_dvd_coprimes",
+        "powCoprime_one",
+        "ZMod.coe_mul_inv_eq_one",
+        "ZMod.mul_val_inv",
+        "ZMod.val_inv_mul",
+        "Subgroup.eq_one_of_smul_eq_one",
+        "Nat.pow_totient_mod_eq_one"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Nat.Coprime.self",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Nat.coprime_self",
+      "declarations": [
+        "Nat.coprime_self"
+      ],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Nat.Coprime _ _ ↔ _ = 1",
+      "declarations": [
+        "Nat.coprime_self",
+        "Nat.coprime_iff_gcd_eq_one",
+        "Nat.coprime_zero_left",
+        "Nat.coprime_zero_right"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Nat.ModEq 1 _ _",
+      "declarations": [
+        "Nat.modEq_one"
+      ],
+      "call_turn": 18,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "_ ≡ _ [MOD 1]",
+      "declarations": [
+        "Nat.modEq_one"
+      ],
+      "call_turn": 18,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Nat.ModEq.refl",
+      "declarations": [
+        "Nat.ModEq.refl"
+      ],
+      "call_turn": 18,
+      "result_turn": 21
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 4,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 4,
+    "retrieval_query_count": 11,
+    "useful_retrieval_event_count": 7,
+    "unused_retrieval_event_count": 4,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 16,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

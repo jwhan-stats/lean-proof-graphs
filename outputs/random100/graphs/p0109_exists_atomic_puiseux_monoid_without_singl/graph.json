@@ -1,0 +1,259 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0109_exists_atomic_puiseux_monoid_without_singl",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 109,
+    "source": "1711.06961",
+    "theorem_name": "exists_atomic_puiseux_monoid_without_singleton_two_lengths",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/109",
+    "reconstructed_proof": "../../candidates/p0109_exists_atomic_puiseux_monoid_without_singl/proof.lean",
+    "raw_elaboration": "../../candidates/p0109_exists_atomic_puiseux_monoid_without_singl/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0109_exists_atomic_puiseux_monoid_without_singl.exists_atomic_puiseux_monoid_without_singleton_two_lengths",
+    "verification_call_id": "verify_submission:8",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "1f8eb1a2dee6809ed1a7bee3e31417e9eae1d070ed67756f049a7393ee1739f4",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "ca489fe5741962c08d72c14a2a2610f6209c62a4fa2d221789084775318fa308",
+    "concrete_semantic_topology_sha256": "1f8eb1a2dee6809ed1a7bee3e31417e9eae1d070ed67756f049a7393ee1739f4"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ M, (∀ (x : ↥M), ∃ l, (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x) ∧ ∀ (x : ↥M), {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} ≠ {2}"
+    },
+    {
+      "id": "n_h0_b1883f03",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h0",
+      "lean_fvar_id": "_uniq.1345490",
+      "statement": "0 ∈ {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x}"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_h0",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_h0_b1883f03",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Subtype.ext",
+        "items": [
+          "Subtype.ext"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Subtype.ext"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_384",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have h0 : 0 ∈ {n : ℕ | ∃ l : List (⊥ : AddSubmonoid ℚ≥0),\n        l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} := by\n      refine ⟨[], rfl, ?_, ?_⟩\n      · intro a ha\n        cases ha\n      · change (0 : (⊥ : AddSubmonoid ℚ≥0)) = x\n        apply Subtype.ext\n        exact (x.property).symm\n    rw [h] at h0\n    norm_num at h0",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1345490",
+            "name": "h0",
+            "statement": "0 ∈ {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x}"
+          }
+        },
+        "lean_dependency_sha256": "e781f31530100e24e497c915849fd16a95c779c7b2eb56ecccd2354fef77c3b1",
+        "kernel_witness_check": {
+          "proof_type": "∃ l, l.length = 0 ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Subtype.ext",
+        "items": [
+          "Subtype.ext"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Subtype.ext"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨⊥, ?_, ?_⟩\n  · intro x\n    refine ⟨[], ?_, ?_⟩\n    · intro a ha\n      cases ha\n    · change (0 : (⊥ : AddSubmonoid ℚ≥0)) = x\n      apply Subtype.ext\n      exact (x.property).symm\n  · intro x h\n    have h0 : 0 ∈ {n : ℕ | ∃ l : List (⊥ : AddSubmonoid ℚ≥0),\n        l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} := by\n      refine ⟨[], rfl, ?_, ?_⟩\n      · intro a ha\n        cases ha\n      · change (0 : (⊥ : AddSubmonoid ℚ≥0)) = x\n        apply Subtype.ext\n        exact (x.property).symm\n    rw [h] at h0\n    norm_num at h0",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ M, (∀ (x : ↥M), ∃ l, (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x) ∧ ∀ (x : ↥M), {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} ≠ {2}"
+          }
+        },
+        "lean_dependency_sha256": "fa1045a8778c03ac769d58b649b6557e3ad37bd72fd0957b1db8973fc725b0a2",
+        "kernel_witness_check": {
+          "proof_type": "∃ M,\n  (∀ (x : ↥M), ∃ l, (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x) ∧\n    ∀ (x : ↥M), {n | ∃ l, l.length = n ∧ (∀ a ∈ l, AddIrreducible a) ∧ l.sum = x} ≠ {2}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "AddIrreducible",
+      "declarations": [
+        "AddIrreducible",
+        "AddIrreducible.not_isAddUnit",
+        "not_addIrreducible_zero",
+        "AddIrreducible.ne_zero",
+        "of_addIrreducible_add",
+        "AddIrreducible.isAddUnit_or_isAddUnit",
+        "AddIrreducible.mk",
+        "addIrreducible_iff",
+        "addIrreducible_or_factor",
+        "AddIrreducible.eq_zero_or_eq_zero"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "AddIrreducible irreducible additive monoid definition no add irreducible zero subsingleton",
+      "declarations": [
+        "AddIrreducible.eq_zero_or_eq_zero",
+        "AddSubmonoid.closure_addIrreducible",
+        "isAddIndecomposable_id_univ",
+        "AddIrreducible.ne_zero",
+        "AddIrreducible",
+        "AddIrreducible.not_even",
+        "not_addIrreducible_zero",
+        "addIrreducible_iff",
+        "AddIrreducible.map",
+        "Irreducible"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "¬ AddIrreducible _",
+      "declarations": [
+        "not_addIrreducible_zero",
+        "Even.not_addIrreducible",
+        "not_addIrreducible_nsmul"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 3,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 3,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 9,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

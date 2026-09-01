@@ -1,0 +1,942 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "manifest": [
+        {
+          "statement": "Nonempty Γ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.4179854831._hygCtx._hyg.26",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "0 < n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "14"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let e := fun k T =>\n  ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε;\ne (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤\n  (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let e := fun k T =>\n  ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε;\ne (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤\n  (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "CanonicallyOrderedAdd.toExistsAddOfLE",
+          "Classical.choose_spec",
+          "ENNReal.addLeftReflectLT",
+          "ENNReal.add_halves",
+          "ENNReal.add_lt_add",
+          "ENNReal.add_ne_top",
+          "ENNReal.coe_toNNReal",
+          "ENNReal.div_pos",
+          "ENNReal.instCanonicallyOrderedAdd",
+          "ENNReal.instDenselyOrdered",
+          "ENNReal.lt_add_right",
+          "ENNReal.ofNat_ne_top._simp_1",
+          "ENNReal.toNNReal_pos",
+          "Eq.symm",
+          "Eq.trans",
+          "Finset.card_univ",
+          "Finset.sum_le_card_nsmul",
+          "Iff.mp",
+          "Iff.mpr",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "LE.le.trans",
+          "LT.lt.le",
+          "LinearOrderedAddCommMonoidWithTop.toIsOrderedAddMonoid",
+          "Metric.IsCover.externalCoveringNumber_le_encard",
+          "Metric.mem_closedBall._simp_1",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "PseudoEMetricSpace.edist_triangle",
+          "Rollout_p1136_entropy_number_approximation.card_mul_two_pow_pred_le_pow",
+          "Rollout_p1136_entropy_number_approximation.exists_covering_radius_lt_of_iInf_lt'",
+          "Rollout_p1136_entropy_number_approximation.exists_isCover_encard_le_of_externalCoveringNumber_le",
+          "Rollout_p1136_entropy_number_approximation.iInf_covering_radius_le",
+          "Set.encard_iUnion_le_of_fintype",
+          "Set.mem_iUnion",
+          "Unique.instSubsingleton",
+          "add_assoc",
+          "add_comm",
+          "add_eq_zero",
+          "add_top",
+          "congrArg",
+          "congrFun'",
+          "dist_eq_norm",
+          "edist_dist",
+          "eq_false",
+          "eq_self",
+          "eq_true",
+          "iInf_lt_iff",
+          "le_iSup",
+          "le_of_forall_pos_le_add",
+          "le_top",
+          "le_top._simp_2",
+          "lt_of_le_of_lt",
+          "ne_of_gt",
+          "not_false",
+          "not_false_eq_true",
+          "nsmul_eq_mul",
+          "of_eq_true",
+          "sub_zero",
+          "top_add"
+        ],
+        "premises": [
+          {
+            "statement": "0 < n",
+            "origin": "local_assumption",
+            "name": "hn",
+            "fvar_id": "14"
+          }
+        ],
+        "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let e := fun k T =>\n  ⨅ ε, ⨅ (_ : 0 < ε), ⨅ (_ : Metric.externalCoveringNumber ε (⇑T '' Metric.closedBall 0 1) ≤ 2 ^ (k - 1)), ↑ε;\ne (n + Nat.log 2 (Fintype.card Γ) + 1) V ≤\n  (⨆ γ, e n (Vγ γ)) + ⨆ x, ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "e n (Vγ γ) ≤ ⨆ γ, e n (Vγ γ)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_iSup"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_169",
+      "conclusion": {
+        "statement": "e n (Vγ γ) ≤ A",
+        "origin": "derived",
+        "name": "hle",
+        "fvar_id": "_uniq.3648471"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (γ : Γ), ∃ ε, 0 < ε ∧ Metric.externalCoveringNumber ε (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1)) ∧ ↑ε < A + η",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.lt_add_right",
+        "Rollout_p1136_entropy_number_approximation.exists_covering_radius_lt_of_iInf_lt'",
+        "le_iSup",
+        "lt_of_le_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "A ≠ ⊤",
+          "origin": "derived",
+          "name": "hA",
+          "fvar_id": "_uniq.3645404"
+        },
+        {
+          "statement": "η ≠ 0",
+          "origin": "derived",
+          "name": "hηne",
+          "fvar_id": "_uniq.3646690"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_170",
+      "conclusion": {
+        "statement": "∀ (γ : Γ), ∃ r, 0 < r ∧ Metric.externalCoveringNumber r (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1)) ∧ ↑r < A + η",
+        "origin": "derived",
+        "name": "hrad",
+        "fvar_id": "_uniq.3648421"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (γ : Γ), ∃ C, Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) C ∧ C.encard ≤ ↑(2 ^ (n - 1))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1136_entropy_number_approximation.exists_isCover_encard_le_of_externalCoveringNumber_le"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (γ : Γ), Metric.externalCoveringNumber (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) ≤ ↑(2 ^ (n - 1))",
+          "origin": "local_assumption",
+          "name": "hrcov",
+          "fvar_id": "_uniq.3648663"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_171",
+      "conclusion": {
+        "statement": "∀ (γ : Γ), ∃ C, Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) C ∧ C.encard ≤ ↑(2 ^ (n - 1))",
+        "origin": "derived",
+        "name": "hcover",
+        "fvar_id": "_uniq.3649679"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ε = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Iff.mp",
+        "Unique.instSubsingleton",
+        "add_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "A + B + ε = 0",
+          "origin": "local_assumption",
+          "name": "h",
+          "fvar_id": "_uniq.3650678"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_172",
+      "conclusion": {
+        "statement": "ε = 0",
+        "origin": "derived",
+        "name": "hεzero",
+        "fvar_id": "_uniq.3651035"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_iSup"
+      ],
+      "premises": [
+        {
+          "statement": "‖x‖ ≤ 1",
+          "origin": "derived",
+          "name": "hxnorm",
+          "fvar_id": "_uniq.3651758"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_173",
+      "conclusion": {
+        "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ ⨆ (_ : ‖x‖ ≤ 1), ⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖",
+        "origin": "derived",
+        "name": "hinner",
+        "fvar_id": "_uniq.3662256"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖x‖ ≤ 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Metric.mem_closedBall._simp_1",
+        "congrArg",
+        "congrFun'",
+        "dist_eq_norm",
+        "sub_zero"
+      ],
+      "premises": [
+        {
+          "statement": "x ∈ Metric.closedBall 0 1",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.3651589"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_174",
+      "conclusion": {
+        "statement": "‖x‖ ≤ 1",
+        "origin": "derived",
+        "name": "hxnorm",
+        "fvar_id": "_uniq.3651758"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "LE.le.trans",
+        "le_iSup"
+      ],
+      "premises": [
+        {
+          "statement": "‖x‖ ≤ 1",
+          "origin": "derived",
+          "name": "hxnorm",
+          "fvar_id": "_uniq.3651758"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_175",
+      "conclusion": {
+        "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B",
+        "origin": "derived",
+        "name": "hb_le",
+        "fvar_id": "_uniq.3661697"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.lt_add_right",
+        "lt_of_le_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "B ≠ ⊤",
+          "origin": "derived",
+          "name": "hB",
+          "fvar_id": "_uniq.3645708"
+        },
+        {
+          "statement": "η ≠ 0",
+          "origin": "derived",
+          "name": "hηne",
+          "fvar_id": "_uniq.3646690"
+        },
+        {
+          "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ ≤ B",
+          "origin": "derived",
+          "name": "hb_le",
+          "fvar_id": "_uniq.3661697"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_176",
+      "conclusion": {
+        "statement": "⨅ γ, ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η",
+        "origin": "derived",
+        "name": "hb_lt",
+        "fvar_id": "_uniq.3663752"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ a ∈ Metric.closedBall 0 1, (Vγ γ) a = (Vγ γ) x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "x ∈ Metric.closedBall 0 1",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.3651589"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_177",
+      "conclusion": {
+        "statement": "(Vγ γ) x ∈ ⇑(Vγ γ) '' Metric.closedBall 0 1",
+        "origin": "derived",
+        "name": "hyγ",
+        "fvar_id": "_uniq.3664603"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "edist (V x) ((Vγ γ) x) < B + η",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg",
+        "dist_eq_norm",
+        "edist_dist"
+      ],
+      "premises": [
+        {
+          "statement": "ENNReal.ofReal ‖V x - (Vγ γ) x‖ < B + η",
+          "origin": "local_assumption",
+          "name": "hγ",
+          "fvar_id": "_uniq.3663833"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_178",
+      "conclusion": {
+        "statement": "edist (V x) ((Vγ γ) x) < B + η",
+        "origin": "derived",
+        "name": "happrox",
+        "fvar_id": "_uniq.3664796"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B + η + (A + η) = A + B + ε",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.add_halves",
+        "Eq.symm",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "add_assoc",
+        "add_comm",
+        "congrArg"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_179",
+      "conclusion": {
+        "statement": "B + η + (A + η) = A + B + ε",
+        "origin": "derived",
+        "name": "hsum",
+        "fvar_id": "_uniq.3665435"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "edist (V x) z < ↑R",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.add_lt_add",
+        "Eq.symm",
+        "PseudoEMetricSpace.edist_triangle",
+        "lt_of_le_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (γ : Γ), ↑(r γ) < A + η",
+          "origin": "local_assumption",
+          "name": "hrlt",
+          "fvar_id": "_uniq.3648668"
+        },
+        {
+          "statement": "↑R = A + B + ε",
+          "origin": "derived",
+          "name": "hR_coe",
+          "fvar_id": "_uniq.3651391"
+        },
+        {
+          "statement": "((Vγ γ) x, z) ∈ {(x, y) | edist x y ≤ ↑(r γ)}",
+          "origin": "local_assumption",
+          "name": "hz",
+          "fvar_id": "_uniq.3664661"
+        },
+        {
+          "statement": "edist (V x) ((Vγ γ) x) < B + η",
+          "origin": "derived",
+          "name": "happrox",
+          "fvar_id": "_uniq.3664796"
+        },
+        {
+          "statement": "B + η + (A + η) = A + B + ε",
+          "origin": "derived",
+          "name": "hsum",
+          "fvar_id": "_uniq.3665435"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_180",
+      "conclusion": {
+        "statement": "edist (V x) z < ↑R",
+        "origin": "derived",
+        "name": "hzlt",
+        "fvar_id": "_uniq.3668249"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A = ⊤ → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true",
+        "top_add"
+      ],
+      "premises": [
+        {
+          "statement": "¬A + B = ⊤",
+          "origin": "local_assumption",
+          "name": "htop",
+          "fvar_id": "_uniq.3641757"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_184",
+      "conclusion": {
+        "statement": "A ≠ ⊤",
+        "origin": "derived",
+        "name": "hA",
+        "fvar_id": "_uniq.3645404"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B = ⊤ → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "add_top",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "¬A + B = ⊤",
+          "origin": "local_assumption",
+          "name": "htop",
+          "fvar_id": "_uniq.3641757"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_185",
+      "conclusion": {
+        "statement": "B ≠ ⊤",
+        "origin": "derived",
+        "name": "hB",
+        "fvar_id": "_uniq.3645708"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ε / 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.div_pos",
+        "ENNReal.ofNat_ne_top._simp_1",
+        "Eq.trans",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "congrArg",
+        "eq_false",
+        "eq_true",
+        "ne_of_gt",
+        "not_false",
+        "not_false_eq_true",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "0 < ε",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.3642890"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_187",
+      "conclusion": {
+        "statement": "0 < η",
+        "origin": "derived",
+        "name": "hηpos",
+        "fvar_id": "_uniq.3646201"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "η ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < η",
+          "origin": "derived",
+          "name": "hηpos",
+          "fvar_id": "_uniq.3646201"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_188",
+      "conclusion": {
+        "statement": "η ≠ 0",
+        "origin": "derived",
+        "name": "hηne",
+        "fvar_id": "_uniq.3646690"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A + B + ε ≠ ⊤",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.add_ne_top",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "¬A + B = ⊤",
+          "origin": "local_assumption",
+          "name": "htop",
+          "fvar_id": "_uniq.3641757"
+        },
+        {
+          "statement": "¬ε = ⊤",
+          "origin": "local_assumption",
+          "name": "hεtop",
+          "fvar_id": "_uniq.3643172"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_189",
+      "conclusion": {
+        "statement": "A + B + ε ≠ ⊤",
+        "origin": "derived",
+        "name": "htarget_top",
+        "fvar_id": "_uniq.3650570"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "A + B + ε = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Iff.mp",
+        "Unique.instSubsingleton",
+        "add_eq_zero",
+        "ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < ε",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.3642890"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_190",
+      "conclusion": {
+        "statement": "A + B + ε ≠ 0",
+        "origin": "derived",
+        "name": "htarget_zero",
+        "fvar_id": "_uniq.3650674"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < (A + B + ε).toNNReal",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.toNNReal_pos"
+      ],
+      "premises": [
+        {
+          "statement": "A + B + ε ≠ ⊤",
+          "origin": "derived",
+          "name": "htarget_top",
+          "fvar_id": "_uniq.3650570"
+        },
+        {
+          "statement": "A + B + ε ≠ 0",
+          "origin": "derived",
+          "name": "htarget_zero",
+          "fvar_id": "_uniq.3650674"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_192",
+      "conclusion": {
+        "statement": "0 < R",
+        "origin": "derived",
+        "name": "hRpos",
+        "fvar_id": "_uniq.3651299"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑(A + B + ε).toNNReal = A + B + ε",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.coe_toNNReal"
+      ],
+      "premises": [
+        {
+          "statement": "A + B + ε ≠ ⊤",
+          "origin": "derived",
+          "name": "htarget_top",
+          "fvar_id": "_uniq.3650570"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_193",
+      "conclusion": {
+        "statement": "↑R = A + B + ε",
+        "origin": "derived",
+        "name": "hR_coe",
+        "fvar_id": "_uniq.3651391"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃y : Y⦄, y ∈ ⇑V '' Metric.closedBall 0 1 → ∃ y_1 ∈ ⋃ γ, C γ, (y, y_1) ∈ {(x, y) | edist x y ≤ ↑R}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.add_halves",
+        "ENNReal.add_lt_add",
+        "ENNReal.lt_add_right",
+        "Eq.symm",
+        "Eq.trans",
+        "Iff.mp",
+        "Iff.mpr",
+        "LE.le.trans",
+        "LT.lt.le",
+        "Metric.mem_closedBall._simp_1",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PseudoEMetricSpace.edist_triangle",
+        "Set.mem_iUnion",
+        "add_assoc",
+        "add_comm",
+        "congrArg",
+        "congrFun'",
+        "dist_eq_norm",
+        "edist_dist",
+        "iInf_lt_iff",
+        "le_iSup",
+        "lt_of_le_of_lt",
+        "sub_zero"
+      ],
+      "premises": [
+        {
+          "statement": "B ≠ ⊤",
+          "origin": "derived",
+          "name": "hB",
+          "fvar_id": "_uniq.3645708"
+        },
+        {
+          "statement": "η ≠ 0",
+          "origin": "derived",
+          "name": "hηne",
+          "fvar_id": "_uniq.3646690"
+        },
+        {
+          "statement": "∀ (γ : Γ), ↑(r γ) < A + η",
+          "origin": "local_assumption",
+          "name": "hrlt",
+          "fvar_id": "_uniq.3648668"
+        },
+        {
+          "statement": "∀ (γ : Γ), Metric.IsCover (r γ) (⇑(Vγ γ) '' Metric.closedBall 0 1) (C γ)",
+          "origin": "local_assumption",
+          "name": "hCcover",
+          "fvar_id": "_uniq.3649744"
+        },
+        {
+          "statement": "↑R = A + B + ε",
+          "origin": "derived",
+          "name": "hR_coe",
+          "fvar_id": "_uniq.3651391"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_194",
+      "conclusion": {
+        "statement": "Metric.IsCover R (⇑V '' Metric.closedBall 0 1) (⋃ γ, C γ)",
+        "origin": "derived",
+        "name": "hVcover",
+        "fvar_id": "_uniq.3651534"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finset.card_univ",
+        "Finset.sum_le_card_nsmul",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "LinearOrderedAddCommMonoidWithTop.toIsOrderedAddMonoid",
+        "Rollout_p1136_entropy_number_approximation.card_mul_two_pow_pred_le_pow",
+        "Set.encard_iUnion_le_of_fintype",
+        "congrArg",
+        "nsmul_eq_mul"
+      ],
+      "premises": [
+        {
+          "statement": "0 < n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.3636443"
+        },
+        {
+          "statement": "∀ (γ : Γ), (C γ).encard ≤ ↑(2 ^ (n - 1))",
+          "origin": "local_assumption",
+          "name": "hCcard",
+          "fvar_id": "_uniq.3649749"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_195",
+      "conclusion": {
+        "statement": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))",
+        "origin": "derived",
+        "name": "hCunion",
+        "fvar_id": "_uniq.3669706"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Metric.externalCoveringNumber R (⇑V '' Metric.closedBall 0 1) ≤ 2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Metric.IsCover.externalCoveringNumber_le_encard",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [
+        {
+          "statement": "Metric.IsCover R (⇑V '' Metric.closedBall 0 1) (⋃ γ, C γ)",
+          "origin": "derived",
+          "name": "hVcover",
+          "fvar_id": "_uniq.3651534"
+        },
+        {
+          "statement": "(⋃ γ, C γ).encard ≤ ↑(2 ^ (n + Nat.log 2 (Fintype.card Γ)))",
+          "origin": "derived",
+          "name": "hCunion",
+          "fvar_id": "_uniq.3669706"
+        }
+      ],
+      "parent": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+      "id": "local_196",
+      "conclusion": {
+        "statement": "Metric.externalCoveringNumber R (⇑V '' Metric.closedBall 0 1) ≤ 2 ^ (n + Nat.log 2 (Fintype.card Γ) + 1 - 1)",
+        "origin": "derived",
+        "name": "hnum",
+        "fvar_id": "_uniq.3679607"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p1136_entropy_number_approximation",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1136_entropy_number_approximation.entropy_number_approximation",
+    "proof_sha256": "65dcbe87a8510bbfca50e611c2cc13a0477e85843aad392e6bca057408ee4ba1"
+  }
+}

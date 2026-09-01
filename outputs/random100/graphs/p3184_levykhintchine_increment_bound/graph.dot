@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h_2_fc7a30eb" [shape=box, color="#178F82", label="hσ2\n0 ≤ σ2"];
+  "m_h_bf17926f" [shape=box, color="#178F82", label="hΔ\n0 ≤ Δ"];
+  "m_hn2_5eb50068" [shape=box, color="#178F82", label="hn2\nMeasureTheory.Integrable (fun x => x ^ 2 * ↑(n x)) MeasureTheory.volume"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∀ (u : ℝ), ‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((fun u => |b| + ∫ (v : ℝ) in Set.Icc (min 0 u) (max 0 u), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) u + σ2 * |u|)) ∧ (MeasureTheory.Integrable (fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) MeasureTheory.volume → ∀ (u : ℝ), ‖(fun u => Complex.exp (↑Δ * (Complex.I * ↑u * ↑b - ↑σ2 * ↑u ^ 2 / 2 + ∫ (x : ℝ), (Complex.exp (Complex.I * ↑u * ↑x) - 1 - Complex.I * ↑u * ↑x) * ↑↑(n x)))) u - 1‖ ≤ Δ * |u| * ((|b| + ∫ (v : ℝ), ‖(fun v => ∫ (x : ℝ), Complex.exp (Complex.I * ↑v * ↑x) * (fun x => ↑(x ^ 2 * ↑(n x))) x) v‖) + σ2 * |u|))"];
+  "r_h_goal" [shape=diamond, label="MeasureTheory.Integrable.norm + MeasureTheory.setIntegral_le_integral + mul_le_mul_of_nonneg_left", color="#D97706"];
+  "m_h_2_fc7a30eb" -> "r_h_goal";
+  "m_h_bf17926f" -> "r_h_goal";
+  "m_hn2_5eb50068" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

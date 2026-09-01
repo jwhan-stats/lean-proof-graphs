@@ -1,0 +1,862 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2049_scaling_implies_a_cone_distance",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2049,
+    "source": "1712.01888",
+    "theorem_name": "scaling_implies_a_cone_distance",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2049",
+    "reconstructed_proof": "../../candidates/p2049_scaling_implies_a_cone_distance/proof.lean",
+    "raw_elaboration": "../../candidates/p2049_scaling_implies_a_cone_distance/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2049_scaling_implies_a_cone_distance.scaling_implies_a_cone_distance",
+    "verification_call_id": "verify_submission:59",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "5e7d1222eab3158d1cbc4ea284d43f37ff4452b5d3b0f9afe6796516f43e5058",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "6d1524440ec91646831a7fac8e369c025d743da9ca22dfd9e83ca61d1d1a722e",
+    "concrete_semantic_topology_sha256": "5e7d1222eab3158d1cbc4ea284d43f37ff4452b5d3b0f9afe6796516f43e5058"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hbound_5dfbc4ea",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hbound",
+      "lean_fvar_id": "6",
+      "statement": "∀ (x₀ x₁ : X), x₀ ≠ x₁ → 0 < dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ∧ dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ≤ 4"
+    },
+    {
+      "id": "m_hq_79e24244",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hq",
+      "lean_fvar_id": "4",
+      "statement": "Function.Surjective q"
+    },
+    {
+      "id": "m_hscale_26e16b31",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hscale",
+      "lean_fvar_id": "5",
+      "statement": "∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ * ↑r₁ * dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 + (↑r₀ - ↑r₁) ^ 2"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let d_X := fun p => Real.arccos (1 - dist (q (p.1, 1)) (q (p.2, 1)) ^ 2 / 2); (∀ (x₀ x₁ : X), d_X (x₀, x₁) ∈ Set.Icc 0 Real.pi) ∧ (∃ m, ∀ (x₀ x₁ : X), dist x₀ x₁ = d_X (x₀, x₁)) ∧ ∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ ^ 2 + ↑r₁ ^ 2 - 2 * ↑r₀ * ↑r₁ * Real.cos (d_X (x₀, x₁))"
+    },
+    {
+      "id": "n_hbound_7ceabed4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hbound",
+      "lean_fvar_id": "_uniq.1179737",
+      "statement": "∀ (x₀ x₁ : X), x₀ ≠ x₁ → 0 < dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ∧ dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ≤ 4"
+    },
+    {
+      "id": "n_hcomm_ec9a7513",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcomm",
+      "lean_fvar_id": "_uniq.1182021",
+      "statement": "∀ (x y : X), θ x y = θ y x"
+    },
+    {
+      "id": "n_hscale_27f619d5",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hscale",
+      "lean_fvar_id": "_uniq.1179736",
+      "statement": "∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ * ↑r₁ * dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 + (↑r₀ - ↑r₁) ^ 2"
+    },
+    {
+      "id": "n_hself_f4fcaac5",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hself",
+      "lean_fvar_id": "_uniq.1181976",
+      "statement": "∀ (x : X), θ x x = 0"
+    },
+    {
+      "id": "n_htriangle_3a0daa41",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htriangle",
+      "lean_fvar_id": "_uniq.1182091",
+      "statement": "∀ (x y z : X), θ x z ≤ θ x y + θ y z"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hself",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hself_f4fcaac5",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "cone_angle_self",
+        "items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_self"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_self"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_154",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hself : ∀ x : X, θ x x = 0 := by\n    intro x\n    exact cone_angle_self (C:=C) q x",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1181976",
+            "name": "hself",
+            "statement": "∀ (x : X), θ x x = 0"
+          }
+        },
+        "lean_dependency_sha256": "7dc8384aa79a1821e5bdc7892887d47af5a9b66fd5e024506cdd8020ccf352c2",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : X), Real.arccos (1 - dist (q (x, 1)) (q (x, 1)) ^ 2 / 2) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hcomm",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hcomm_ec9a7513",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "cone_angle_comm",
+        "items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_comm"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_comm"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_155",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcomm : ∀ x y : X, θ x y = θ y x := by\n    intro x y\n    exact cone_angle_comm (C:=C) q x y",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1182021",
+            "name": "hcomm",
+            "statement": "∀ (x y : X), θ x y = θ y x"
+          }
+        },
+        "lean_dependency_sha256": "c26298ea553715c4451b3b9fb64d555645c49b3db3986fbd58bc657dca296628",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x y : X), Real.arccos (1 - dist (q (x, 1)) (q (y, 1)) ^ 2 / 2) = Real.arccos (1 - dist (q (y, 1)) (q (x, 1)) ^ 2 / 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_htriangle",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hscale_27f619d5",
+        "n_hbound_7ceabed4"
+      ],
+      "conclusion": "n_htriangle_3a0daa41",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "cone_angle_triangle",
+        "items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_triangle"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_triangle"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_156",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htriangle : ∀ x y z : X, θ x z ≤ θ x y + θ y z := by\n    intro x y z\n    exact cone_angle_triangle (C:=C) q hscale hbound x y z\n  letI dinst : Dist X := ⟨θ⟩\n  letI pms : PseudoMetricSpace X := {\n    dist_self := hself\n    dist_comm := hcomm\n    dist_triangle := htriangle\n  }\n  let ms : MetricSpace X := MetricSpace.mk (by\n    intro x y hxy\n    exact (cone_angle_eq_zero_iff (C:=C) q hbound x y).mp hxy)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.1179736",
+              "name": "hscale",
+              "statement": "∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ * ↑r₁ * dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 + (↑r₀ - ↑r₁) ^ 2"
+            },
+            {
+              "fvar_id": "_uniq.1179737",
+              "name": "hbound",
+              "statement": "∀ (x₀ x₁ : X), x₀ ≠ x₁ → 0 < dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ∧ dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ≤ 4"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.1182091",
+            "name": "htriangle",
+            "statement": "∀ (x y z : X), θ x z ≤ θ x y + θ y z"
+          }
+        },
+        "lean_dependency_sha256": "802dbb77b23d34f2240c569702535ca29f90c7eeb6b42c0bacd39ed31594468d",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x y z : X),\n  Real.arccos (1 - dist (q (x, 1)) (q (z, 1)) ^ 2 / 2) ≤\n    Real.arccos (1 - dist (q (x, 1)) (q (y, 1)) ^ 2 / 2) + Real.arccos (1 - dist (q (y, 1)) (q (z, 1)) ^ 2 / 2)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hscale_26e16b31",
+        "m_hbound_5dfbc4ea"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "cone_angle_mem_Icc + cone_dist_sq",
+        "items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_mem_Icc",
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_dist_sq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_angle_mem_Icc",
+          "Rollout_p2049_scaling_implies_a_cone_distance.cone_dist_sq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨?_, ?_, ?_⟩\n  · intro x y\n    exact cone_angle_mem_Icc (C:=C) q x y\n  · refine ⟨ms, ?_⟩\n    intro x y\n    rfl\n  · intro x y r s\n    exact cone_dist_sq (C:=C) q hscale hbound x y r s",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hscale",
+              "statement": "∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ * ↑r₁ * dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 + (↑r₀ - ↑r₁) ^ 2"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hbound",
+              "statement": "∀ (x₀ x₁ : X), x₀ ≠ x₁ → 0 < dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ∧ dist (q (x₀, 1)) (q (x₁, 1)) ^ 2 ≤ 4"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let d_X := fun p => Real.arccos (1 - dist (q (p.1, 1)) (q (p.2, 1)) ^ 2 / 2); (∀ (x₀ x₁ : X), d_X (x₀, x₁) ∈ Set.Icc 0 Real.pi) ∧ (∃ m, ∀ (x₀ x₁ : X), dist x₀ x₁ = d_X (x₀, x₁)) ∧ ∀ (x₀ x₁ : X) (r₀ r₁ : NNReal), dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ ^ 2 + ↑r₁ ^ 2 - 2 * ↑r₀ * ↑r₁ * Real.cos (d_X (x₀, x₁))"
+          }
+        },
+        "lean_dependency_sha256": "6a6189517e35c0e2d256ba449741730da57904b3434b1d48b705d1e9944bb881",
+        "kernel_witness_check": {
+          "proof_type": "let d_X := fun p => Real.arccos (1 - dist (q (p.1, 1)) (q (p.2, 1)) ^ 2 / 2);\n(∀ (x₀ x₁ : X), d_X (x₀, x₁) ∈ Set.Icc 0 Real.pi) ∧\n  (∃ m, ∀ (x₀ x₁ : X), dist x₀ x₁ = d_X (x₀, x₁)) ∧\n    ∀ (x₀ x₁ : X) (r₀ r₁ : NNReal),\n      dist (q (x₀, r₀)) (q (x₁, r₁)) ^ 2 = ↑r₀ ^ 2 + ↑r₁ ^ 2 - 2 * ↑r₀ * ↑r₁ * Real.cos (d_X (x₀, x₁))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "MetricSpace.ofDist",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Real.arccos",
+      "declarations": [
+        "Real.arccos",
+        "Real.antitone_arccos",
+        "Real.arccos_le_pi",
+        "Real.arccos_nonneg",
+        "Real.arccos_neg_one",
+        "Real.cosPartialEquiv_symm_apply",
+        "Real.arccos_le_arccos",
+        "Real.continuous_arccos",
+        "Real.arccos_one",
+        "Real.arccos_neg"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "arccos metric triangle chord distance",
+      "declarations": [
+        "Metric.Sigma.dist_triangle",
+        "Real.arccos",
+        "Metric.hausdorffDist_triangle",
+        "Metric.hausdorffEDist_triangle",
+        "Metric.hausdorffDist_triangle'",
+        "PseudoMetric.triangle",
+        "EuclideanGeometry.oangle_right_eq_arccos_of_oangle_eq_pi_div_two",
+        "EuclideanGeometry.angle_eq_arccos_of_angle_eq_pi_div_two",
+        "EuclideanGeometry.oangle_left_eq_arccos_of_oangle_eq_pi_div_two",
+        "Float32.acos"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "construct metric space from distance function triangle symmetry separation",
+      "declarations": [
+        "Metric.Sigma.dist_triangle",
+        "UniformSpace.ofDist",
+        "PseudoMetric.mk_apply",
+        "SeparationQuotient.instMetricSpace",
+        "MetricSpace",
+        "PseudoMetric.triangle",
+        "BoundedContinuousFunction.instMetricSpace",
+        "Metric.hausdorffDist_triangle'",
+        "Metric.PiNatEmbed.separation",
+        "Set.infsep_triple"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "(arccos _ ≤ arccos _ + arccos _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "(Real.arccos _ ≤ Real.arccos _ + Real.arccos _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Real.sin_add",
+      "declarations": [
+        "Real.sin_add"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Real.cos_arccos",
+      "declarations": [
+        "Real.cos_arccos"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "arccos x less than arccos y plus arccos z inequality",
+      "declarations": [
+        "Real.arccos",
+        "Continuous.arccos",
+        "Real.arccos_lt_pi",
+        "Real.cos_arccos",
+        "Real.arccos_lt_arccos",
+        "Real.arccos_le_pi_div_four",
+        "Real.arccos_cos",
+        "Real.antitone_arccos",
+        "Real.arcosh_lt_arcosh",
+        "Real.arcosh_le_arcosh"
+      ],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "sin superadditive interval zero pi",
+      "declarations": [
+        "intervalIntegral.integral_interval_add_Ioi",
+        "integral_log_sin_zero_pi",
+        "Real.sin",
+        "Lean.Meta.Structural.isInstAddNat",
+        "IntervalIntegrable.add",
+        "intervalIntegral.integral_add",
+        "sin_pi_mul_ne_zero",
+        "NonemptyInterval.length_add",
+        "intervalIntegrable_log_sin",
+        "intervalIntegral.intervalIntegrable_sin"
+      ],
+      "call_turn": 7,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "concave sine interval zero pi",
+      "declarations": [
+        "Real.pi",
+        "strictConcaveOn_sin_Icc",
+        "strictConcaveOn_cos_Icc",
+        "Real.sin_le_mul",
+        "Real.sin_eq_sqrt_one_sub_cos_sq",
+        "Real.sin_le_sin_of_le_of_le_pi_div_two",
+        "EulerSine.sin_pi_mul_eq",
+        "sineTerm_ne_zero",
+        "sineTerm",
+        "multipliable_sineTerm"
+      ],
+      "call_turn": 7,
+      "result_turn": 14
+    },
+    {
+      "event_id": "leanfinder:11",
+      "tool": "leanfinder",
+      "query": "arcsin concave interval",
+      "declarations": [
+        "Real.arcsin",
+        "concaveOn_of_slope_anti_adjacent",
+        "Real.cos_arcsin",
+        "Continuous.arcsin",
+        "Real.arcsin_inj",
+        "Filter.Tendsto.arcsin",
+        "Real.continuous_arcsin",
+        "strictConcaveOn_cos_Icc",
+        "strictConcaveOn_sin_Icc",
+        "Real.strictMonoOn_arcsin"
+      ],
+      "call_turn": 15,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "ConcaveOn Real.arcsin",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "strictConcaveOn _ Real.arcsin",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "sqrt concave subadditive distance transform metric",
+      "declarations": [
+        "Real.sqrt",
+        "Subadditive",
+        "NNReal.strictConcaveOn_sqrt",
+        "Lean.Parser.Command.docs_to_verso",
+        "Lean.EditDistance.levenshtein",
+        "Convexity.IsConvexDist.subtype",
+        "Convexity.IsConvexDist",
+        "Real.strictConcaveOn_sqrt",
+        "CFC.concaveOn_sqrt",
+        "Mathlib.Tactic.Conv.SelectionPanel"
+      ],
+      "call_turn": 15,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "concave function zero subadditive nonnegative",
+      "declarations": [
+        "Mathlib.Meta.Positivity.proveNonneg",
+        "Mathlib.Meta.Positivity.Strictness.nonnegative",
+        "ConcaveOn",
+        "ConvexOn.pow",
+        "Convex_subadditive_le",
+        "CompactlySupportedContinuousMap.nnrealPart_add_le_add_nnrealPart",
+        "Subadditive",
+        "Subadditive.lim",
+        "strictConcaveOn_of_deriv2_neg",
+        "StieltjesFunction.length_subadditive_Icc_Ioo"
+      ],
+      "call_turn": 15,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "(_ ( _ + _) ≤ _ _ + _ _) ConcaveOn",
+      "declarations": [],
+      "call_turn": 15,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "metric cone distance arccos",
+      "declarations": [
+        "Real.arccos",
+        "Continuous.arccos",
+        "EuclideanGeometry.dist_sq_eq_dist_sq_add_dist_sq_sub_two_mul_dist_mul_dist_mul_cos_angle",
+        "EuclideanGeometry.dist_div_cos_angle_of_angle_eq_pi_div_two",
+        "EuclideanGeometry.oangle_right_eq_arccos_of_oangle_eq_pi_div_two",
+        "EuclideanGeometry.dist_div_cos_oangle_right_of_oangle_eq_pi_div_two",
+        "EuclideanGeometry.law_cos",
+        "Real.arccos_nonneg",
+        "EuclideanGeometry.oangle_left_eq_arccos_of_oangle_eq_pi_div_two",
+        "Float32.acos"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "Euclidean cone metric space",
+      "declarations": [
+        "EuclideanHalfSpace",
+        "MeasureTheory.Measure.toSphereBallBound",
+        "finrank_euclideanSpace",
+        "Dilation.isClosedEmbedding",
+        "EuclideanSpace",
+        "Isometry.isClosedEmbedding",
+        "KuratowskiEmbedding.exists_isometric_embedding",
+        "PseudoMetricSpace.ofSeminormedSpaceCoreReplaceAll",
+        "PseudoMetricSpace",
+        "MetricSpace"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "leanfinder:19",
+      "tool": "leanfinder",
+      "query": "cone distance metric space scaling",
+      "declarations": [
+        "UniformSpace.metricSpace",
+        "Subtype.metricSpace",
+        "Real.metricSpace",
+        "Equiv.metricSpace",
+        "infEdist_smul",
+        "MetricSpace",
+        "infEDist_smul",
+        "Metric.Snowflaking.instPseudoMetricSpace",
+        "Similar.exists_dist_eq",
+        "IsUnifLocDoublingMeasure.measure_mul_le_scalingConstantOf_mul"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "MetricSpace.cone",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "arccos (_ - _ ^ 2 / _)",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "(cos (_ + _) = cos _ * cos _ - sin _ * sin _)",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "PseudoMetric.toPseudoMetricSpace",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "PseudoMetricSpace.ofPseudoMetric",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 33
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "PseudoMetric mk apply metric space instance",
+      "declarations": [
+        "PseudoMetric.coe_mk",
+        "PseudoMetric.mk_apply",
+        "instPseudoEMetricSpaceMultiplicative",
+        "MetricSpace",
+        "PseudoMetricSpace",
+        "PseudoEMetricSpace.replaceEDist",
+        "instPseudoMetricSpaceMultiplicative",
+        "UniformSpace.pseudoMetricSpace",
+        "PseudoMetricSpace.induced",
+        "Real.pseudoMetricSpace"
+      ],
+      "call_turn": 31,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "PseudoMetric.mk_apply",
+      "declarations": [
+        "PseudoMetric.mk_apply"
+      ],
+      "call_turn": 31,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "(PseudoMetric _ _ -> PseudoMetricSpace _)",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "(PseudoMetric _ ℝ)",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "(_ ^ 2 = _ ^ 2 ↔ _ = _ ∨ _ = -_)",
+      "declarations": [
+        "sq_eq_sq_iff_eq_or_eq_neg",
+        "Commute.sq_eq_sq_iff_eq_or_eq_neg",
+        "Units.sq_eq_sq_iff_eq_or_eq_neg"
+      ],
+      "call_turn": 46,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "sq_eq_sq_iff",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "sq_eq_sq",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "(0 ≤ _ -> 0 ≤ _ -> _ ^ 2 = _ ^ 2 -> _ = _)",
+      "declarations": [],
+      "call_turn": 46,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "(abs _ = abs _)",
+      "declarations": [
+        "abs_neg",
+        "abs_sub_comm",
+        "abs_eq_abs",
+        "abs_abs",
+        "abs_eq_iff_mul_self_eq",
+        "sq_eq_sq_iff_abs_eq_abs",
+        "Set.abs_indicator_symmDiff",
+        "Matrix.abs_det_submatrix_equiv_equiv",
+        "Matrix.abs_det_reindex",
+        "Real.Angle.eq_iff_abs_toReal_eq_of_sign_eq"
+      ],
+      "call_turn": 46,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "(_ ≤ _ -> _ ^ 2 ≤ _ ^ 2)",
+      "declarations": [
+        "sq_le_sq'"
+      ],
+      "call_turn": 74,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "sq_le_sq",
+      "declarations": [
+        "sq_le_sq"
+      ],
+      "call_turn": 74,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "pow_le_pow_left₀",
+      "declarations": [
+        "pow_le_pow_left"
+      ],
+      "call_turn": 74,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "(0 ≤ _ -> _ ≤ _ -> _ ^ 2 ≤ _ ^ 2)",
+      "declarations": [],
+      "call_turn": 74,
+      "result_turn": 78
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 38,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 38,
+    "accepted_helper_count": 3,
+    "rollout_tool_call_count": 60,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

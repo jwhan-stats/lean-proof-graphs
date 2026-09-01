@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hk_d44bc747" [shape=box, color="#178F82", label="hk\n2 ≤ k"];
+  "m_hp_recurrent_4b46f8a1" [shape=box, color="#178F82", label="hP_recurrent\n∀ (q : ℕ), Nat.Prime q → ∀ (N : ℕ), ∃ n, N ≤ n ∧ P n = q"];
+  "m_hz_b7052217" [shape=box, color="#178F82", label="hz\n(∀ (n : ℕ), ‖z n‖ = 1) ∧ ∀ (n : ℕ), z n = z (n + 1) ^ P n"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∃ m, 0 < m ∧ Function.IsPeriodicPt (fun w n => w n ^ k) m z) ↔ z = fun x => 1"];
+  "r_h_goal" [shape=diamond, label="Nat.exists_prime_and_dvd + Nat.le_of_dvd + Nat.le_self_pow", color="#D97706"];
+  "m_hp_recurrent_4b46f8a1" -> "r_h_goal";
+  "m_hk_d44bc747" -> "r_h_goal";
+  "m_hz_b7052217" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

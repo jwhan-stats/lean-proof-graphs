@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_htq_6be52bb5" [shape=box, color="#178F82", label="hTq\n∀ (x : X), q x = (T x) x"];
+  "m_htsymm_3b945f93" [shape=box, color="#178F82", label="hTsymm\n∀ (x y : X), (T x) y = (T y) x"];
+  "m_inst___proofs_3283946215_8818f21a" [shape=box, color="#178F82", label="inst._@.proofs.3283946215._hygCtx._hyg.12\nCompleteSpace X"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n((∃ q₁ q₂, (∃ b₁, ∀ (x : X), q₁ x = (b₁ x) x) ∧ (∃ b₂, ∀ (x : X), q₂ x = (b₂ x) x) ∧ (∀ (x : X), 0 ≤ q₁ x) ∧ (∀ (x : X), 0 ≤ q₂ x) ∧ ∀ (x : X), q x = q₁ x - q₂ x) ↔ ∃ p, (∃ bp, ∀ (x : X), p x = (bp x) x) ∧ ∀ (x : X), |q x| ≤ p x) ∧ ((∃ p, (∃ bp, ∀ (x : X), p x = (bp x) x) ∧ ∀ (x : X), |q x| ≤ p x) ↔ ∃ H x x_1, ∃ (_ : CompleteSpace H), ∃ A B, T = B.comp A)"];
+  "r_h_goal" [shape=diamond, label="dominated_implies_hilbert_factorization + hilbert_factorization_implies_dominated + abs_le", color="#D97706"];
+  "m_inst___proofs_3283946215_8818f21a" -> "r_h_goal";
+  "m_htq_6be52bb5" -> "r_h_goal";
+  "m_htsymm_3b945f93" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

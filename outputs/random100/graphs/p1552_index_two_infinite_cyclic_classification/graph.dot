@@ -1,0 +1,31 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hgen_fe8dbdfb" [shape=box, color="#178F82", label="hgen\nSubgroup.closure {v, t} = ⊤"];
+  "m_hindex_266be0ac" [shape=box, color="#178F82", label="hindex\n(Subgroup.zpowers t).index = 2"];
+  "m_htinf_7c465288" [shape=box, color="#178F82", label="htinf\nInfinite ↥(Subgroup.zpowers t)"];
+  "m_htors_0baad295" [shape=box, color="#178F82", label="htors\n∃ x, x ≠ 1 ∧ IsOfFinOrder x"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(∃ n e, e (PresentedGroup.of 0) = v ∧ e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨ ∃ e, e (PresentedGroup.of 0) = v ∧ e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))"];
+  "n_htinj_87ba5b1d" [shape=box, color="#D97706", label="htinj\nFunction.Injective fun k => t ^ k"];
+  "n_hv2mem_0de6c3d5" [shape=box, color="#D97706", label="hv2mem\nv * v ∈ Subgroup.zpowers t"];
+  "n_hvh_4c3821b7" [shape=box, color="#D97706", label="hvH\nv ∉ Subgroup.zpowers t"];
+  "r_h_001_htinj" [shape=diamond, label="zpow_injective_of_infinite_zpowers", color="#D97706"];
+  "m_htinf_7c465288" -> "r_h_001_htinj";
+  "r_h_001_htinj" -> "n_htinj_87ba5b1d";
+  "r_h_002_hvh" [shape=diamond, label="not_mem_zpowers_of_closure_eq_top_index_two", color="#D97706"];
+  "m_hgen_fe8dbdfb" -> "r_h_002_hvh";
+  "m_hindex_266be0ac" -> "r_h_002_hvh";
+  "r_h_002_hvh" -> "n_hvh_4c3821b7";
+  "r_h_003_hv2mem" [shape=diamond, label="sq_mem_zpowers_of_index_two", color="#D97706"];
+  "m_hindex_266be0ac" -> "r_h_003_hv2mem";
+  "r_h_003_hv2mem" -> "n_hv2mem_0de6c3d5";
+  "r_h_goal" [shape=diamond, label="presentedInvEquiv_apply_of_one + presentedInvEquiv_apply_of_zero + conj_zpow", color="#D97706"];
+  "m_hgen_fe8dbdfb" -> "r_h_goal";
+  "m_hindex_266be0ac" -> "r_h_goal";
+  "m_htors_0baad295" -> "r_h_goal";
+  "n_htinj_87ba5b1d" -> "r_h_goal";
+  "n_hvh_4c3821b7" -> "r_h_goal";
+  "n_hv2mem_0de6c3d5" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

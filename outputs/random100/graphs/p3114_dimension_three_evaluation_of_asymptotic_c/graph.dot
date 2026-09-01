@@ -1,0 +1,8 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet H := fun a => if a < 0 then 0 else if a = 0 then 1 / 2 else 1; let arccot := fun a => Real.pi / 2 - Real.arctan a; let κ := fun a => 1 / (4 * Real.pi) * ((-(1 / (2 * Real.pi)) * ∫ (η : ℝ) in -1..1, if a = 0 ∧ η = 0 then 0 else (1 - η ^ 2) * a / (a ^ 2 + η ^ 2)) - 1 / 4 + H a * (1 + a ^ 2)); ∀ (a : ℝ), κ a = 1 / (4 * Real.pi) * (-1 / 4 - (1 + a ^ 2) * arccot a / Real.pi + (1 + a ^ 2) + a / Real.pi)"];
+  "r_h_goal" [shape=diamond, label="Ne.symm + Real.arctan_inv_of_neg + Real.arctan_inv_of_pos", color="#D97706"];
+  "r_h_goal" -> "n_goal";
+}

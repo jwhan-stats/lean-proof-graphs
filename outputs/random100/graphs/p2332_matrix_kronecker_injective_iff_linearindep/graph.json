@@ -1,0 +1,1224 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2332_matrix_kronecker_injective_iff_linearindep",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2332,
+    "source": "0908.0742",
+    "theorem_name": "matrix_kronecker_injective_iff_linearIndependent",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2332",
+    "reconstructed_proof": "../../candidates/p2332_matrix_kronecker_injective_iff_linearindep/proof.lean",
+    "raw_elaboration": "../../candidates/p2332_matrix_kronecker_injective_iff_linearindep/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2332_matrix_kronecker_injective_iff_linearindep.matrix_kronecker_injective_iff_linearIndependent",
+    "verification_call_id": "verify_submission:13",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "812999549bfeac040effa04a22a8ad38d1e8fe269f6948bb066701c2a4298133",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "34e8f2ba85fd6e4b52ebad1d719d734dd44b87a347d83608f53f4ae9bcb7d7f5",
+    "concrete_semantic_topology_sha256": "812999549bfeac040effa04a22a8ad38d1e8fe269f6948bb066701c2a4298133"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hd_6008dc68",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hd",
+      "lean_fvar_id": "4",
+      "statement": "0 < d"
+    },
+    {
+      "id": "m_he_780be2e6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "he",
+      "lean_fvar_id": "5",
+      "statement": "0 < e"
+    },
+    {
+      "id": "m_hg_1abc1232",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hg",
+      "lean_fvar_id": "3",
+      "statement": "0 < g"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "((∀ (n : ℕ), 0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔ ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧ ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)"
+    },
+    {
+      "id": "n_h_2d988553",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h₂",
+      "lean_fvar_id": "_uniq.27351",
+      "statement": "∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0"
+    },
+    {
+      "id": "n_h_710b19cc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.80321",
+      "statement": "∀ (j : Fin g), (x - y) j = 0"
+    },
+    {
+      "id": "n_h_78df1e09",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h₃",
+      "lean_fvar_id": "_uniq.84122",
+      "statement": "Function.Injective ⇑(Fintype.linearCombination ℂ A)"
+    },
+    {
+      "id": "n_h_91fad986",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h₁",
+      "lean_fvar_id": "_uniq.2418",
+      "statement": "∀ (n : ℕ), 0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0"
+    },
+    {
+      "id": "n_h_a1570543",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "h₂",
+      "lean_fvar_id": "_uniq.50887",
+      "statement": "∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0"
+    },
+    {
+      "id": "n_hdiff_e282c5d4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdiff",
+      "lean_fvar_id": "_uniq.55155",
+      "statement": "∑ j, (x - y) j • A j = 0"
+    },
+    {
+      "id": "n_hj_923049e1",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hj",
+      "lean_fvar_id": "_uniq.80754",
+      "statement": "(x - y) j = 0"
+    },
+    {
+      "id": "n_hj_b979b1e4",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hj",
+      "lean_fvar_id": "_uniq.27132",
+      "statement": "X j 0 0 = 0 0 0"
+    },
+    {
+      "id": "n_hmap_19803ab9",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hmap",
+      "lean_fvar_id": "_uniq.55312",
+      "statement": "(Fintype.linearCombination ℂ A) (x - y) = 0"
+    },
+    {
+      "id": "n_hsum_7ca87530",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsum",
+      "lean_fvar_id": "_uniq.3815",
+      "statement": "∑ j, (A j).kronecker (X j) = 0"
+    },
+    {
+      "id": "n_hx_16ed7178",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hX",
+      "lean_fvar_id": "_uniq.27364",
+      "statement": "∑ j, (A j).kronecker (X j) = 0"
+    },
+    {
+      "id": "n_hx_5fe57d98",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hX",
+      "lean_fvar_id": "_uniq.27076",
+      "statement": "∀ (j : Fin g), X j = 0"
+    },
+    {
+      "id": "n_hx_d66a3459",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hX'",
+      "lean_fvar_id": "_uniq.29092",
+      "statement": "(∑ j, (A j).kronecker (X j)) (i, r) (k, s) = 0 (i, r) (k, s)"
+    },
+    {
+      "id": "n_hxy_a135a6c9",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.54007",
+      "statement": "(Fintype.linearCombination ℂ A) x = (Fintype.linearCombination ℂ A) y"
+    },
+    {
+      "id": "n_hz0_59f290df",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hz0",
+      "lean_fvar_id": "_uniq.106303",
+      "statement": "z = 0"
+    },
+    {
+      "id": "n_hz_35e2a5df",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.84126",
+      "statement": "∑ j, z j • A j = 0"
+    },
+    {
+      "id": "n_hz_a28c4bed",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hz'",
+      "lean_fvar_id": "_uniq.4291",
+      "statement": "(∑ j, z j • A j) i k = 0 i k"
+    },
+    {
+      "id": "n_hz_d38d9bc9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.2424",
+      "statement": "∑ j, z j • A j = 0"
+    },
+    {
+      "id": "n_hz_e445887a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hz",
+      "lean_fvar_id": "_uniq.50670",
+      "statement": "z j = 0"
+    },
+    {
+      "id": "n_hzlin_70683192",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzlin",
+      "lean_fvar_id": "_uniq.84309",
+      "statement": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0"
+    },
+    {
+      "id": "n_hzsum_95c0fd3d",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hzsum",
+      "lean_fvar_id": "_uniq.28658",
+      "statement": "∑ j, z j • A j = 0"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hz",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hz_d38d9bc9"
+      ],
+      "conclusion": "n_hz_a28c4bed",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_3",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2424",
+              "name": "hz",
+              "statement": "∑ j, z j • A j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.4291",
+            "name": "hz'",
+            "statement": "(∑ j, z j • A j) i k = 0 i k"
+          }
+        },
+        "lean_dependency_sha256": "c384f78d8d1216b1da01586580858e481378e392706097c337bef45d40f356bd",
+        "kernel_witness_check": {
+          "proof_type": "(∑ j, z j • A j) i k = 0 i k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hsum",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hz_d38d9bc9"
+      ],
+      "conclusion": "n_hsum_7ca87530",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Matrix.ext + Matrix.sum_apply + congrFun",
+        "items": [
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "congrFun",
+          "mul_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "congrFun",
+          "mul_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_5",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hsum : (∑ j, Matrix.kronecker (A j) (X j)) = 0 := by\n        ext ⟨i, a⟩ ⟨k, b⟩\n        have hz' := congrFun (congrFun hz i) k\n        simp [Matrix.sum_apply, Matrix.smul_apply, X] at hz' ⊢\n        simpa [mul_comm] using hz'",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2424",
+              "name": "hz",
+              "statement": "∑ j, z j • A j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3815",
+            "name": "hsum",
+            "statement": "∑ j, (A j).kronecker (X j) = 0"
+          }
+        },
+        "lean_dependency_sha256": "165b6111eb7422721a997f6f1ee6f056e541e78a678b414ba5b27dee0cc16973",
+        "kernel_witness_check": {
+          "proof_type": "∑ j, (A j).kronecker (X j) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Matrix.sum_apply"
+        ],
+        "observed_search_event_ids": [
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_91fad986",
+        "n_hsum_7ca87530"
+      ],
+      "conclusion": "n_hx_5fe57d98",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "zero_lt_one",
+        "items": [
+          "zero_lt_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "zero_lt_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_6",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hX := h₁ 1 zero_lt_one X hsum\n      intro j",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.2418",
+              "name": "h₁",
+              "statement": "∀ (n : ℕ), 0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0"
+            },
+            {
+              "fvar_id": "_uniq.3815",
+              "name": "hsum",
+              "statement": "∑ j, (A j).kronecker (X j) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.27076",
+            "name": "hX",
+            "statement": "∀ (j : Fin g), X j = 0"
+          }
+        },
+        "lean_dependency_sha256": "ca77493384e1233a3b9b884704a747e5036d42bf1a4dccd06a68b3b2c9ea421b",
+        "kernel_witness_check": {
+          "proof_type": "∀ (j : Fin g), X j = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_5fe57d98"
+      ],
+      "conclusion": "n_hj_b979b1e4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "congrFun",
+        "items": [
+          "congrFun"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "congrFun"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_7",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hj := congrFun (congrFun (hX j) 0) 0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.27076",
+              "name": "hX",
+              "statement": "∀ (j : Fin g), X j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.27132",
+            "name": "hj",
+            "statement": "X j 0 0 = 0 0 0"
+          }
+        },
+        "lean_dependency_sha256": "2c83e3032f59058554a0dfaf24afa006f7aea44447153c627f8be436b32ada72",
+        "kernel_witness_check": {
+          "proof_type": "X j 0 0 = 0 0 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_16ed7178"
+      ],
+      "conclusion": "n_hx_d66a3459",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_8",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.27364",
+              "name": "hX",
+              "statement": "∑ j, (A j).kronecker (X j) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.29092",
+            "name": "hX'",
+            "statement": "(∑ j, (A j).kronecker (X j)) (i, r) (k, s) = 0 (i, r) (k, s)"
+          }
+        },
+        "lean_dependency_sha256": "177ec9d60ef2bba0e6c1502005900683fca98dc6391588360ae89d130456c5b2",
+        "kernel_witness_check": {
+          "proof_type": "(∑ j, (A j).kronecker (X j)) (i, r) (k, s) = 0 (i, r) (k, s)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hzsum",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hx_16ed7178"
+      ],
+      "conclusion": "n_hzsum_95c0fd3d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Matrix.ext + Matrix.sum_apply + congrFun",
+        "items": [
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "congrFun",
+          "mul_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "congrFun",
+          "mul_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_10",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hzsum : (∑ j, z j • A j) = 0 := by\n        ext i k\n        have hX' := congrFun (congrFun hX (i, r)) (k, s)\n        simp [Matrix.sum_apply, Matrix.smul_apply, Matrix.kronecker, z] at hX' ⊢\n        simpa [mul_comm] using hX'",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.27364",
+              "name": "hX",
+              "statement": "∑ j, (A j).kronecker (X j) = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.28658",
+            "name": "hzsum",
+            "statement": "∑ j, z j • A j = 0"
+          }
+        },
+        "lean_dependency_sha256": "12e9589c132178b1f5838d50c1eaed0f999d1d5492d1bdc35c487cb7623548fb",
+        "kernel_witness_check": {
+          "proof_type": "∑ j, z j • A j = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Matrix.sum_apply"
+        ],
+        "observed_search_event_ids": [
+          "loogle:9"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hz",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_2d988553",
+        "n_hzsum_95c0fd3d"
+      ],
+      "conclusion": "n_hz_e445887a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_11",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hz' := congrFun (congrFun hz i) k\n        simp [Matrix.sum_apply, Matrix.smul_apply, X] at hz' ⊢",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.27351",
+              "name": "h₂",
+              "statement": "∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0"
+            },
+            {
+              "fvar_id": "_uniq.28658",
+              "name": "hzsum",
+              "statement": "∑ j, z j • A j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.50670",
+            "name": "hz",
+            "statement": "z j = 0"
+          }
+        },
+        "lean_dependency_sha256": "dbaef23bc0e40cba31640b1594470b1610b48e0f7fb2ffd0c0561e5a5d1088d8",
+        "kernel_witness_check": {
+          "proof_type": "z j = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hmap",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hxy_a135a6c9"
+      ],
+      "conclusion": "n_hmap_19803ab9",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "map_sub + sub_self",
+        "items": [
+          "map_sub",
+          "sub_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "map_sub",
+          "sub_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_12",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "        have hmap : Fintype.linearCombination ℂ A (x - y) = 0 := by\n          rw [map_sub, hxy, sub_self]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.54007",
+              "name": "hxy",
+              "statement": "(Fintype.linearCombination ℂ A) x = (Fintype.linearCombination ℂ A) y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.55312",
+            "name": "hmap",
+            "statement": "(Fintype.linearCombination ℂ A) (x - y) = 0"
+          }
+        },
+        "lean_dependency_sha256": "6a700d84f31707c4dcd68e759c11833f0f9da8d8385e5a2c4358331ad3077b6a",
+        "kernel_witness_check": {
+          "proof_type": "(Fintype.linearCombination ℂ A) (x - y) = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hdiff",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxy_a135a6c9"
+      ],
+      "conclusion": "n_hdiff_e282c5d4",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "map_sub + sub_self",
+        "items": [
+          "map_sub",
+          "sub_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "map_sub",
+          "sub_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_13",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hdiff : (∑ j, (x - y) j • A j) = 0 := by\n        have hmap : Fintype.linearCombination ℂ A (x - y) = 0 := by\n          rw [map_sub, hxy, sub_self]\n        simpa [Fintype.linearCombination_apply] using hmap",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.54007",
+              "name": "hxy",
+              "statement": "(Fintype.linearCombination ℂ A) x = (Fintype.linearCombination ℂ A) y"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.55155",
+            "name": "hdiff",
+            "statement": "∑ j, (x - y) j • A j = 0"
+          }
+        },
+        "lean_dependency_sha256": "b63867dafce7fc4fdf69ea4efce016aa65de4581b2a67da3a4fc3696b005502a",
+        "kernel_witness_check": {
+          "proof_type": "∑ j, (x - y) j • A j = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_a1570543",
+        "n_hdiff_e282c5d4"
+      ],
+      "conclusion": "n_h_710b19cc",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ext",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_14",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have h := h₂ (x - y) hdiff\n      ext j",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.50887",
+              "name": "h₂",
+              "statement": "∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0"
+            },
+            {
+              "fvar_id": "_uniq.55155",
+              "name": "hdiff",
+              "statement": "∑ j, (x - y) j • A j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.80321",
+            "name": "h",
+            "statement": "∀ (j : Fin g), (x - y) j = 0"
+          }
+        },
+        "lean_dependency_sha256": "249c7ef5080e3768d4c0d960e98e94009286f70806961e8bef35dc66331648c9",
+        "kernel_witness_check": {
+          "proof_type": "∀ (j : Fin g), (x - y) j = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hj",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_710b19cc"
+      ],
+      "conclusion": "n_hj_923049e1",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_15",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hj := congrFun (congrFun (hX j) 0) 0",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.80321",
+              "name": "h",
+              "statement": "∀ (j : Fin g), (x - y) j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.80754",
+            "name": "hj",
+            "statement": "(x - y) j = 0"
+          }
+        },
+        "lean_dependency_sha256": "87a254dadf136c094989771865e6de18d0cd470d6b31938d6cce9659c349c7fe",
+        "kernel_witness_check": {
+          "proof_type": "(x - y) j = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hzlin",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_hz_35e2a5df"
+      ],
+      "conclusion": "n_hzlin_70683192",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Fintype.linearCombination_apply",
+        "items": [
+          "Fintype.linearCombination_apply"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Fintype.linearCombination_apply"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_16",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hzlin : Fintype.linearCombination ℂ A z = Fintype.linearCombination ℂ A 0 := by\n        rw [Fintype.linearCombination_apply]\n        simpa using hz",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.84126",
+              "name": "hz",
+              "statement": "∑ j, z j • A j = 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.84309",
+            "name": "hzlin",
+            "statement": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0"
+          }
+        },
+        "lean_dependency_sha256": "3e056a86a9bb56d78366854d91ad16c98737845cdfb3995478318ce5844a169b",
+        "kernel_witness_check": {
+          "proof_type": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Fintype.linearCombination_apply"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:6"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_013_hz0",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_h_78df1e09",
+        "n_hzlin_70683192"
+      ],
+      "conclusion": "n_hz0_59f290df",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_17",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hz0 := h₃ hzlin\n      intro j",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.84122",
+              "name": "h₃",
+              "statement": "Function.Injective ⇑(Fintype.linearCombination ℂ A)"
+            },
+            {
+              "fvar_id": "_uniq.84309",
+              "name": "hzlin",
+              "statement": "(Fintype.linearCombination ℂ A) z = (Fintype.linearCombination ℂ A) 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.106303",
+            "name": "hz0",
+            "statement": "z = 0"
+          }
+        },
+        "lean_dependency_sha256": "faed9a57773507f594ec187d150076075ba470410d56a5bd2620e93623b93f88",
+        "kernel_witness_check": {
+          "proof_type": "z = 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Fintype.linearCombination_apply + Matrix.ext + Matrix.sum_apply",
+        "items": [
+          "Fintype.linearCombination_apply",
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "congrFun",
+          "linearIndependent_iff_injective_fintypeLinearCombination",
+          "map_sub",
+          "mul_comm",
+          "sub_eq_zero"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Fintype.linearCombination_apply",
+          "Matrix.ext",
+          "Matrix.sum_apply",
+          "congrFun",
+          "linearIndependent_iff_injective_fintypeLinearCombination",
+          "map_sub",
+          "mul_comm",
+          "sub_eq_zero"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · constructor\n    · intro h₁ z hz\n      let X : Fin g → Matrix (Fin 1) (Fin 1) ℂ :=\n        fun j => Matrix.of fun _ _ => z j\n      have hsum : (∑ j, Matrix.kronecker (A j) (X j)) = 0 := by\n        ext ⟨i, a⟩ ⟨k, b⟩\n        have hz' := congrFun (congrFun hz i) k\n        simp [Matrix.sum_apply, Matrix.smul_apply, X] at hz' ⊢\n        simpa [mul_comm] using hz'\n      have hX := h₁ 1 zero_lt_one X hsum\n      intro j\n      have hj := congrFun (congrFun (hX j) 0) 0\n      simpa [X] using hj\n    · intro h₂ n hn X hX j\n      ext r s\n      let z : Fin g → ℂ := fun j => X j r s\n      have hzsum : (∑ j, z j • A j) = 0 := by\n        ext i k\n        have hX' := congrFun (congrFun hX (i, r)) (k, s)\n        simp [Matrix.sum_apply, Matrix.smul_apply, Matrix.kronecker, z] at hX' ⊢\n        simpa [mul_comm] using hX'\n      have hz := h₂ z hzsum j\n      simpa [z] using hz\n  · constructor\n    · intro h₂\n      rw [linearIndependent_iff_injective_fintypeLinearCombination]\n      intro x y hxy\n      have hdiff : (∑ j, (x - y) j • A j) = 0 := by\n        have hmap : Fintype.linearCombination ℂ A (x - y) = 0 := by\n          rw [map_sub, hxy, sub_self]\n        simpa [Fintype.linearCombination_apply] using hmap\n      have h := h₂ (x - y) hdiff\n      ext j\n      have hj := h j\n      simpa using sub_eq_zero.mp hj\n    · intro h₃ z hz\n      rw [linearIndependent_iff_injective_fintypeLinearCombination] at h₃\n      have hzlin : Fintype.linearCombination ℂ A z = Fintype.linearCombination ℂ A 0 := by\n        rw [Fintype.linearCombination_apply]\n        simpa using hz\n      have hz0 := h₃ hzlin\n  ",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "((∀ (n : ℕ), 0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔ ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧ ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)"
+          }
+        },
+        "lean_dependency_sha256": "d958ee9adfc23ccc7137585e7e9db477669068b9c5fec5349d86618c18d4c257",
+        "kernel_witness_check": {
+          "proof_type": "((∀ (n : ℕ),\n      0 < n → ∀ (X : Fin g → Matrix (Fin n) (Fin n) ℂ), ∑ j, (A j).kronecker (X j) = 0 → ∀ (j : Fin g), X j = 0) ↔\n    ∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ∧\n  ((∀ (z : Fin g → ℂ), ∑ j, z j • A j = 0 → ∀ (j : Fin g), z j = 0) ↔ LinearIndependent ℂ A)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Fintype.linearCombination_apply",
+          "Matrix.sum_apply",
+          "linearIndependent_iff_injective_fintypeLinearCombination"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:6",
+          "loogle:9",
+          "loogle:0"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "LinearIndependent _ _ ↔ Function.Injective _",
+      "declarations": [
+        "linearIndependent_iff_injective_fintypeLinearCombination",
+        "linearIndependent_iff_injective_finsuppLinearCombination",
+        "Fintype.linearIndependent_iff'"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "LinearIndependent _ _ ↔ ∀ _, Finsupp.linearCombination _ _ _ = 0 → _ = 0",
+      "declarations": [
+        "linearIndependent_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "linearly independent family iff unique coefficients finite linear combination",
+      "declarations": [
+        "LinearIndependent.eq_coords_of_eq",
+        "LinearIndependent.linearCombination_repr",
+        "LinearIndependent",
+        "linearIndepOn_finset_iff",
+        "linearIndependent_iff_injective_finsuppLinearCombination",
+        "linearIndependent_unique_iff",
+        "not_linearIndependent_iff_linearCombination",
+        "linearIndependent_iff''",
+        "LinearIndependent.linearCombinationEquiv"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Matrix.kronecker",
+      "declarations": [
+        "Matrix.kronecker"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "Kronecker product matrix linear map entries block scalar multiplication",
+      "declarations": [
+        "Matrix.fromBlocks_smul",
+        "Matrix.kronecker",
+        "Matrix.kronecker_smul",
+        "Matrix.dotProduct_block",
+        "Matrix.ofNat_kronecker",
+        "Matrix.kroneckerMap_map",
+        "Matrix.kroneckerMap",
+        "Matrix.kroneckerMap_single_single",
+        "Matrix.natCast_kronecker",
+        "Matrix.GeneralLinearGroup.kronecker"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Fintype.linearCombination",
+      "declarations": [
+        "Fintype.linearCombination",
+        "Fintype.range_linearCombination",
+        "span_range_eq_top_iff_surjective_fintypeLinearCombination",
+        "Fintype.linearCombination_apply",
+        "Fintype.linearCombination_apply_single",
+        "Finsupp.linearCombination_eq_fintype_linearCombination",
+        "Fintype.bilinearCombination_apply",
+        "Finsupp.linearCombination_eq_fintype_linearCombination_apply",
+        "LinearIndependent.fintypeLinearCombination_injective",
+        "linearIndependent_iff_injective_fintypeLinearCombination"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Fintype.linearCombination_apply",
+      "declarations": [
+        "Fintype.linearCombination_apply"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Fintype.linearCombination_single",
+      "declarations": [],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Matrix.kronecker_apply",
+      "declarations": [
+        "Matrix.kronecker_apply"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Matrix.sum_apply",
+      "declarations": [
+        "Matrix.sum_apply"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Matrix.smul_apply",
+      "declarations": [
+        "Matrix.smul_apply"
+      ],
+      "call_turn": 8,
+      "result_turn": 14
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 11,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 7,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 14,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

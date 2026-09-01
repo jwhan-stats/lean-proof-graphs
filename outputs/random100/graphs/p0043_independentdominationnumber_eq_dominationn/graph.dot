@@ -1,0 +1,10 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hhigh_bfe9bfc9" [shape=box, color="#178F82", label="hhigh\nG.IsIndepSet {v | 2 < (G.neighborSet v).ncard}"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nsInf {n | ∃ D, D.card = n ∧ G.IsIndepSet ↑D ∧ ∀ v ∉ D, ∃ w ∈ D, G.Adj v w} = sInf {n | ∃ D, D.card = n ∧ ∀ v ∉ D, ∃ w ∈ D, G.Adj v w}"];
+  "r_h_goal" [shape=diamond, label="Nat.sInf_le + Nat.sInf_mem + le_antisymm", color="#D97706"];
+  "m_hhigh_bfe9bfc9" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

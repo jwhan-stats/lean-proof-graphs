@@ -1,0 +1,352 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1242_finite_support_derivation",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1242,
+    "source": "0811.2405",
+    "theorem_name": "finite_support_derivation",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1242",
+    "reconstructed_proof": "../../candidates/p1242_finite_support_derivation/proof.lean",
+    "raw_elaboration": "../../candidates/p1242_finite_support_derivation/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1242_finite_support_derivation.finite_support_derivation",
+    "verification_call_id": "verify_submission:14",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "bc281170dffb87d8109f2c024ade7a9d553845452e30202f67d3936dd79f381c",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "a24392049cb66e097db24f3aff21ffa5890a54684dbe18a683efa2a85a9ecbd8",
+    "concrete_semantic_topology_sha256": "bc281170dffb87d8109f2c024ade7a9d553845452e30202f67d3936dd79f381c"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hd_0a4fbf98",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hD",
+      "lean_fvar_id": "2",
+      "statement": "∀ (S : Set W) (x : W), x ∈ D S ↔ ∃ F, F.Finite ∧ F ⊆ S ∧ x ∈ D F"
+    },
+    {
+      "id": "m_hn_988a2e38",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "6",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "m_hp_af267e16",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hP",
+      "lean_fvar_id": "7",
+      "statement": "P ∈ D^[n] A"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)"
+    },
+    {
+      "id": "n_hsub_92f9646a",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsub",
+      "lean_fvar_id": "8",
+      "statement": "{P} ⊆ D^[n] A"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hsub",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_af267e16"
+      ],
+      "conclusion": "n_hsub_92f9646a",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_singleton_iff",
+        "items": [
+          "Set.mem_singleton_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_singleton_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_8",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsub : {P} ⊆ (D^[n]) A := by\n    intro x hx\n    rw [Set.mem_singleton_iff] at hx\n    subst x\n    exact hP",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hP",
+              "statement": "P ∈ D^[n] A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "8",
+            "name": "hsub",
+            "statement": "{P} ⊆ D^[n] A"
+          }
+        },
+        "lean_dependency_sha256": "8a5fab7412c23912850c2a7d99707170ba2da99559da0a78a652b33ad5931c99",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃x : W⦄, x ∈ {P} → x ∈ D^[n] A",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_hd_0a4fbf98",
+        "m_hn_988a2e38",
+        "n_hsub_92f9646a"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact ⟨S, hSfin, hSsub, hStop rfl, hSchain⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "hD",
+              "statement": "∀ (S : Set W) (x : W), x ∈ D S ↔ ∃ F, F.Finite ∧ F ⊆ S ∧ x ∈ D F"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hn",
+              "statement": "1 ≤ n"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hsub",
+              "statement": "{P} ⊆ D^[n] A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)"
+          }
+        },
+        "lean_dependency_sha256": "f09289f7e9bdbf603c950bde48b88b38aae82887af5b33f78bf750c00e838bcf",
+        "kernel_witness_check": {
+          "proof_type": "∃ S, (∀ k < n, (S k).Finite) ∧ (∀ k < n, S k ⊆ D^[k] A) ∧ P ∈ D (S (n - 1)) ∧ ∀ (k : ℕ), k + 1 < n → S (k + 1) ⊆ D (S k)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Function.iterate_succ_apply'",
+      "declarations": [
+        "Function.iterate_succ_apply'"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Function.iterate_succ_apply",
+      "declarations": [
+        "Function.iterate_succ_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Set.Finite.biUnion",
+      "declarations": [
+        "Set.Finite.biUnion"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Set.Finite.iUnion",
+      "declarations": [
+        "Set.Finite.iUnion"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "(Finite _ -> (⋃ _, _).Finite)",
+      "declarations": [
+        "Set.finite_iUnion"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Set.finite_iUnion",
+      "declarations": [
+        "Set.finite_iUnion"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Set.Finite.toFinset",
+      "declarations": [
+        "Set.Finite.toFinset",
+        "Set.Finite.toFinset_nonempty",
+        "Set.Finite.toFinset_nontrivial",
+        "Set.Finite.toFinset_univ",
+        "Finset.finite_toSet_toFinset",
+        "Finset.forall",
+        "Set.Finite.coe_toFinset",
+        "Set.Finite.toFinset_eq_toFinset",
+        "Set.Finite.card_toFinset",
+        "Set.Finite.toFinset_empty"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Set.Finite.fintype",
+      "declarations": [
+        "Set.Finite.fintype",
+        "Equiv.finsuppUnique_symm_apply_support_val",
+        "AddEquiv.finsuppUnique_symm_apply_support_val",
+        "Set.Finite.convexHull_eq_image"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 1,
+    "selected_depth": 2,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 1,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 0,
+    "retrieval_query_count": 8,
+    "useful_retrieval_event_count": 0,
+    "unused_retrieval_event_count": 8,
+    "accepted_helper_count": 2,
+    "rollout_tool_call_count": 15,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

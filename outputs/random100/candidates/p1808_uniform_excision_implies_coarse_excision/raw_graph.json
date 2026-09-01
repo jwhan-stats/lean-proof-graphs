@@ -1,0 +1,922 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "manifest": [
+        {
+          "statement": "A ∪ B = Set.univ",
+          "origin": "manifest",
+          "name": "hAB",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∃ E ∈ uniformity X, E ∈ coarse",
+          "origin": "manifest",
+          "name": "hcompat",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∃ U ∈ uniformity X,\n  ∃ κ,\n    Monotone κ ∧\n      (∀ V ∈ uniformity X, ∃ W, ↑W ∈ uniformity X ∧ OrderDual.ofDual (κ (OrderDual.toDual W)) ⊆ V) ∧\n        ∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)",
+          "origin": "manifest",
+          "name": "hex",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "V ∈ coarse",
+          "origin": "manifest",
+          "name": "hV",
+          "fvar_id": "10"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Eq.trans",
+          "Filter.inter_mem",
+          "HasSubset.Subset.trans",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.coarseGenerated_relPow_bound",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_inv_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_comp_mono",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ueSymmetrize_inv_subset",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.ue_boundary",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_comp",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_id",
+          "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset",
+          "Set.instIsTransSubset",
+          "SetRel.comp_assoc",
+          "SetRel.mem_comp._simp_1",
+          "congrArg",
+          "congrFun'",
+          "funext",
+          "refl_le_uniformity",
+          "symmetrize_mem_uniformity"
+        ],
+        "premises": [
+          {
+            "statement": "A ∪ B = Set.univ",
+            "origin": "local_assumption",
+            "name": "hAB",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∃ E ∈ uniformity X, E ∈ coarse",
+            "origin": "local_assumption",
+            "name": "hcompat",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "∃ U ∈ uniformity X,\n  ∃ κ,\n    Monotone κ ∧\n      (∀ V ∈ uniformity X, ∃ W, ↑W ∈ uniformity X ∧ OrderDual.ofDual (κ (OrderDual.toDual W)) ⊆ V) ∧\n        ∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)",
+            "origin": "local_assumption",
+            "name": "hex",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "V ∈ coarse",
+            "origin": "local_assumption",
+            "name": "hV",
+            "fvar_id": "10"
+          }
+        ],
+        "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∃ T ∈ coarse, V.image A ∩ V.image B ⊆ T.image (A ∩ B)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "W ⊆ ↑WE",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "W ⊆ ↑WE",
+          "origin": "derived",
+          "name": "hW_subset_WE",
+          "fvar_id": "_uniq.8975671"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1596",
+      "conclusion": {
+        "statement": "OrderDual.toDual WE ≤ OrderDual.toDual WU",
+        "origin": "derived",
+        "name": "hle",
+        "fvar_id": "_uniq.8977090"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "κ (OrderDual.toDual WE) ≤ κ (OrderDual.toDual WU)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "Monotone κ",
+          "origin": "local_assumption",
+          "name": "hκmono",
+          "fvar_id": "_uniq.8975021"
+        },
+        {
+          "statement": "OrderDual.toDual WE ≤ OrderDual.toDual WU",
+          "origin": "derived",
+          "name": "hle",
+          "fvar_id": "_uniq.8977090"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1597",
+      "conclusion": {
+        "statement": "K ⊆ OrderDual.ofDual (κ (OrderDual.toDual WE))",
+        "origin": "derived",
+        "name": "hKWE",
+        "fvar_id": "_uniq.8977554"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ (ueRelPow W n).image A",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset"
+      ],
+      "premises": [
+        {
+          "statement": "V ⊆ ueRelPow W n",
+          "origin": "local_assumption",
+          "name": "hVn",
+          "fvar_id": "_uniq.8978253"
+        },
+        {
+          "statement": "x ∈ V.image A ∩ V.image B",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.8979066"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1598",
+      "conclusion": {
+        "statement": "x ∈ (ueRelPow W n).image A",
+        "origin": "derived",
+        "name": "hxA",
+        "fvar_id": "_uniq.8979226"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ∈ (ueRelPow W n).image B",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRel_image_subset"
+      ],
+      "premises": [
+        {
+          "statement": "V ⊆ ueRelPow W n",
+          "origin": "local_assumption",
+          "name": "hVn",
+          "fvar_id": "_uniq.8978253"
+        },
+        {
+          "statement": "x ∈ V.image A ∩ V.image B",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.8979066"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1599",
+      "conclusion": {
+        "statement": "x ∈ (ueRelPow W n).image B",
+        "origin": "derived",
+        "name": "hxB",
+        "fvar_id": "_uniq.8979378"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ue_boundary"
+      ],
+      "premises": [
+        {
+          "statement": "A ∪ B = Set.univ",
+          "origin": "local_assumption",
+          "name": "hAB",
+          "fvar_id": "_uniq.8974658"
+        },
+        {
+          "statement": "SetRel.id ⊆ W",
+          "origin": "derived",
+          "name": "hWrefl",
+          "fvar_id": "_uniq.8975830"
+        },
+        {
+          "statement": "W.image A ∩ W.image B ⊆ K.image (A ∩ B)",
+          "origin": "derived",
+          "name": "hWexc",
+          "fvar_id": "_uniq.8978024"
+        },
+        {
+          "statement": "a ∈ A",
+          "origin": "local_assumption",
+          "name": "haA",
+          "fvar_id": "_uniq.8979415"
+        },
+        {
+          "statement": "b ∈ B",
+          "origin": "local_assumption",
+          "name": "hbB",
+          "fvar_id": "_uniq.8979452"
+        },
+        {
+          "statement": "(a, b) ∈ ueRelPow W (n + n)",
+          "origin": "derived",
+          "name": "habN",
+          "fvar_id": "_uniq.8980104"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1600",
+      "conclusion": {
+        "statement": "b ∈ (K.comp (ueRelPow W (n + n))).image (A ∩ B)",
+        "origin": "derived",
+        "name": "hb_boundary",
+        "fvar_id": "_uniq.8980363"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑WE ∩ U ∩ E ∈ uniformity X",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Filter.inter_mem"
+      ],
+      "premises": [
+        {
+          "statement": "E ∈ uniformity X",
+          "origin": "local_assumption",
+          "name": "hEuniform",
+          "fvar_id": "_uniq.8974916"
+        },
+        {
+          "statement": "U ∈ uniformity X",
+          "origin": "local_assumption",
+          "name": "hUuniform",
+          "fvar_id": "_uniq.8974984"
+        },
+        {
+          "statement": "↑WE ∈ uniformity X",
+          "origin": "local_assumption",
+          "name": "hWEuniform",
+          "fvar_id": "_uniq.8975091"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1604",
+      "conclusion": {
+        "statement": "D ∈ uniformity X",
+        "origin": "derived",
+        "name": "hDuniform",
+        "fvar_id": "_uniq.8975333"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "D.symmetrize ∈ uniformity X",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "symmetrize_mem_uniformity"
+      ],
+      "premises": [
+        {
+          "statement": "D ∈ uniformity X",
+          "origin": "derived",
+          "name": "hDuniform",
+          "fvar_id": "_uniq.8975333"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1606",
+      "conclusion": {
+        "statement": "W ∈ uniformity X",
+        "origin": "derived",
+        "name": "hWuniform",
+        "fvar_id": "_uniq.8975486"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃p : X × X⦄, p ∈ W → p ∈ U",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1607",
+      "conclusion": {
+        "statement": "W ⊆ U",
+        "origin": "derived",
+        "name": "hW_subset_U",
+        "fvar_id": "_uniq.8975601"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃p : X × X⦄, p ∈ W → p ∈ E",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1608",
+      "conclusion": {
+        "statement": "W ⊆ E",
+        "origin": "derived",
+        "name": "hW_subset_E",
+        "fvar_id": "_uniq.8975635"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃p : X × X⦄, p ∈ W → p ∈ ↑WE",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1609",
+      "conclusion": {
+        "statement": "W ⊆ ↑WE",
+        "origin": "derived",
+        "name": "hW_subset_WE",
+        "fvar_id": "_uniq.8975671"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "W ∈ Filter.principal SetRel.id",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "refl_le_uniformity"
+      ],
+      "premises": [
+        {
+          "statement": "W ∈ uniformity X",
+          "origin": "derived",
+          "name": "hWuniform",
+          "fvar_id": "_uniq.8975486"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1611",
+      "conclusion": {
+        "statement": "SetRel.id ⊆ W",
+        "origin": "derived",
+        "name": "hWrefl",
+        "fvar_id": "_uniq.8975830"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "D.symmetrize.inv ⊆ D.symmetrize",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ueSymmetrize_inv_subset"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1612",
+      "conclusion": {
+        "statement": "W.inv ⊆ W",
+        "origin": "derived",
+        "name": "hWsymm",
+        "fvar_id": "_uniq.8975859"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "W ∈ uniformCoarse X",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset"
+      ],
+      "premises": [
+        {
+          "statement": "E ∈ uniformCoarse X",
+          "origin": "local_assumption",
+          "name": "hEcoarse",
+          "fvar_id": "_uniq.8974947"
+        },
+        {
+          "statement": "W ⊆ E",
+          "origin": "derived",
+          "name": "hW_subset_E",
+          "fvar_id": "_uniq.8975635"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1613",
+      "conclusion": {
+        "statement": "W ∈ uniformCoarse X",
+        "origin": "derived",
+        "name": "hWcoarse",
+        "fvar_id": "_uniq.8976149"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "K ⊆ E",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "HasSubset.Subset.trans",
+        "Set.instIsTransSubset"
+      ],
+      "premises": [
+        {
+          "statement": "Monotone κ",
+          "origin": "local_assumption",
+          "name": "hκmono",
+          "fvar_id": "_uniq.8975021"
+        },
+        {
+          "statement": "OrderDual.ofDual (κ (OrderDual.toDual WE)) ⊆ E",
+          "origin": "local_assumption",
+          "name": "hκWE",
+          "fvar_id": "_uniq.8975092"
+        },
+        {
+          "statement": "W ⊆ ↑WE",
+          "origin": "derived",
+          "name": "hW_subset_WE",
+          "fvar_id": "_uniq.8975671"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1615",
+      "conclusion": {
+        "statement": "K ⊆ E",
+        "origin": "derived",
+        "name": "hK_subset_E",
+        "fvar_id": "_uniq.8976621"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "K ∈ uniformCoarse X",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_subset"
+      ],
+      "premises": [
+        {
+          "statement": "E ∈ uniformCoarse X",
+          "origin": "local_assumption",
+          "name": "hEcoarse",
+          "fvar_id": "_uniq.8974947"
+        },
+        {
+          "statement": "K ⊆ E",
+          "origin": "derived",
+          "name": "hK_subset_E",
+          "fvar_id": "_uniq.8976621"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1616",
+      "conclusion": {
+        "statement": "K ∈ uniformCoarse X",
+        "origin": "derived",
+        "name": "hKcoarse",
+        "fvar_id": "_uniq.8977880"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(↑WU).image A ∩ (↑WU).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual WU))).image (A ∩ B)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (W : { W // W ⊆ U }), (↑W).image A ∩ (↑W).image B ⊆ (OrderDual.ofDual (κ (OrderDual.toDual W))).image (A ∩ B)",
+          "origin": "local_assumption",
+          "name": "hκexc",
+          "fvar_id": "_uniq.8975040"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1617",
+      "conclusion": {
+        "statement": "W.image A ∩ W.image B ⊆ K.image (A ∩ B)",
+        "origin": "derived",
+        "name": "hWexc",
+        "fvar_id": "_uniq.8978024"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "V ∈ coarseGenerated W",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "V ∈ uniformCoarse X",
+          "origin": "local_assumption",
+          "name": "hV",
+          "fvar_id": "_uniq.8974712"
+        },
+        {
+          "statement": "W ∈ uniformity X",
+          "origin": "derived",
+          "name": "hWuniform",
+          "fvar_id": "_uniq.8975486"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1618",
+      "conclusion": {
+        "statement": "V ∈ coarseGenerated W",
+        "origin": "derived",
+        "name": "hV_generated_W",
+        "fvar_id": "_uniq.8978196"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (m : ℕ), ueRelPow W m ∈ uniformCoarse X",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_comp",
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.uniformCoarse_id"
+      ],
+      "premises": [
+        {
+          "statement": "W ∈ uniformCoarse X",
+          "origin": "derived",
+          "name": "hWcoarse",
+          "fvar_id": "_uniq.8976149"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1619",
+      "conclusion": {
+        "statement": "∀ (m : ℕ), ueRelPow W m ∈ uniformCoarse X",
+        "origin": "derived",
+        "name": "hPowCoarse",
+        "fvar_id": "_uniq.8978387"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(x, b) ∈ ueRelPow W n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_inv_subset"
+      ],
+      "premises": [
+        {
+          "statement": "W.inv ⊆ W",
+          "origin": "derived",
+          "name": "hWsymm",
+          "fvar_id": "_uniq.8975859"
+        },
+        {
+          "statement": "(b, x) ∈ ueRelPow W n",
+          "origin": "local_assumption",
+          "name": "hbx",
+          "fvar_id": "_uniq.8979453"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1620",
+      "conclusion": {
+        "statement": "(x, b) ∈ ueRelPow W n",
+        "origin": "derived",
+        "name": "hxb",
+        "fvar_id": "_uniq.8979701"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ b_1, (a, b_1) ∈ ueRelPow W n ∧ (b_1, b) ∈ ueRelPow W n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "(a, x) ∈ ueRelPow W n",
+          "origin": "local_assumption",
+          "name": "hax",
+          "fvar_id": "_uniq.8979416"
+        },
+        {
+          "statement": "(x, b) ∈ ueRelPow W n",
+          "origin": "derived",
+          "name": "hxb",
+          "fvar_id": "_uniq.8979701"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1621",
+      "conclusion": {
+        "statement": "(a, b) ∈ (ueRelPow W n).comp (ueRelPow W n)",
+        "origin": "derived",
+        "name": "hab₂",
+        "fvar_id": "_uniq.8979910"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(a, b) ∈ ueRelPow W (n + n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset"
+      ],
+      "premises": [
+        {
+          "statement": "(a, b) ∈ (ueRelPow W n).comp (ueRelPow W n)",
+          "origin": "derived",
+          "name": "hab₂",
+          "fvar_id": "_uniq.8979910"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1622",
+      "conclusion": {
+        "statement": "(a, b) ∈ ueRelPow W (n + n)",
+        "origin": "derived",
+        "name": "habN",
+        "fvar_id": "_uniq.8980104"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ b, (c, b) ∈ K.comp (ueRelPow W (n + n)) ∧ (b, x) ∈ ueRelPow W n",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "(b, x) ∈ ueRelPow W n",
+          "origin": "local_assumption",
+          "name": "hbx",
+          "fvar_id": "_uniq.8979453"
+        },
+        {
+          "statement": "(c, b) ∈ K.comp (ueRelPow W (n + n))",
+          "origin": "local_assumption",
+          "name": "hcb",
+          "fvar_id": "_uniq.8980401"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1623",
+      "conclusion": {
+        "statement": "(c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n)",
+        "origin": "derived",
+        "name": "hcx₁",
+        "fvar_id": "_uniq.8980640"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "SetRel.comp_assoc",
+        "SetRel.mem_comp._simp_1",
+        "congrArg",
+        "congrFun'",
+        "funext"
+      ],
+      "premises": [
+        {
+          "statement": "(c, x) ∈ (K.comp (ueRelPow W (n + n))).comp (ueRelPow W n)",
+          "origin": "derived",
+          "name": "hcx₁",
+          "fvar_id": "_uniq.8980640"
+        }
+      ],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1624",
+      "conclusion": {
+        "statement": "(c, x) ∈ K.comp ((ueRelPow W (n + n)).comp (ueRelPow W n))",
+        "origin": "derived",
+        "name": "hcx₂",
+        "fvar_id": "_uniq.8980820"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(ueRelPow W (n + n)).comp (ueRelPow W n) ⊆ ueRelPow W (n + n + n)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p1808_uniform_excision_implies_coarse_excision.ueRelPow_comp_subset"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+      "id": "local_1625",
+      "conclusion": {
+        "statement": "(ueRelPow W (n + n)).comp (ueRelPow W n) ⊆ ueRelPow W (n + n + n)",
+        "origin": "derived",
+        "name": "htail",
+        "fvar_id": "_uniq.8987165"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p1808_uniform_excision_implies_coarse_excision",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1808_uniform_excision_implies_coarse_excision.uniform_excision_implies_coarse_excision",
+    "proof_sha256": "d215f2341b37da00e5ff6c0cb09a9729d7bec00a177b96d336fa9f91c2d8c547"
+  }
+}

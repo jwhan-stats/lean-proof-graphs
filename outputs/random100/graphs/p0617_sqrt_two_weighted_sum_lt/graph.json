@@ -1,0 +1,1079 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0617_sqrt_two_weighted_sum_lt",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 617,
+    "source": "1404.7259",
+    "theorem_name": "sqrt_two_weighted_sum_lt",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/617",
+    "reconstructed_proof": "../../candidates/p0617_sqrt_two_weighted_sum_lt/proof.lean",
+    "raw_elaboration": "../../candidates/p0617_sqrt_two_weighted_sum_lt/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0617_sqrt_two_weighted_sum_lt.sqrt_two_weighted_sum_lt",
+    "verification_call_id": "verify_submission:17",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "85963c6ebe640ec9f2bbd8441d5657b918440f84f595b189f386721059f5c9f8",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "fe355ecf78c8532ed67b1d26bb3380c2a4496c9991f61a2cc3f19e6dd73019ed",
+    "concrete_semantic_topology_sha256": "85963c6ebe640ec9f2bbd8441d5657b918440f84f595b189f386721059f5c9f8"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∑ j ∈ Finset.range (i + 1), ↑(i - j) * √2 ^ j < (4 + 3 * √2) * √2 ^ i"
+    },
+    {
+      "id": "n_hb_b345b0e2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb",
+      "lean_fvar_id": "_uniq.7323474",
+      "statement": "0 < b"
+    },
+    {
+      "id": "n_hb_eq_53a122ae",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb_eq",
+      "lean_fvar_id": "_uniq.7325594",
+      "statement": "b = ↑i * (r - 1) + r"
+    },
+    {
+      "id": "n_hcube_1194e3bc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcube",
+      "lean_fvar_id": "_uniq.7318091",
+      "statement": "r ^ 3 = 2 * r"
+    },
+    {
+      "id": "n_hdiff_f654dc8f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdiff",
+      "lean_fvar_id": "_uniq.7321528",
+      "statement": "(4 + 3 * r) * r ^ i - wsum i = b * q"
+    },
+    {
+      "id": "n_hdiff_pos_19c89955",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hdiff_pos",
+      "lean_fvar_id": "_uniq.7328824",
+      "statement": "0 < (4 + 3 * r) * r ^ i - wsum i"
+    },
+    {
+      "id": "n_hnonneg_b1be1afb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hnonneg",
+      "lean_fvar_id": "_uniq.7323631",
+      "statement": "0 ≤ ↑i * (r - 1)"
+    },
+    {
+      "id": "n_hq_037696cf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq",
+      "lean_fvar_id": "_uniq.7326757",
+      "statement": "0 < q"
+    },
+    {
+      "id": "n_hr_gt_one_5b7963cd",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hr_gt_one",
+      "lean_fvar_id": "_uniq.7315964",
+      "statement": "1 < r"
+    },
+    {
+      "id": "n_hr_pos_4889cb46",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hr_pos",
+      "lean_fvar_id": "_uniq.7317359",
+      "statement": "0 < r"
+    },
+    {
+      "id": "n_hrq_e8620a89",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hrq",
+      "lean_fvar_id": "_uniq.7319123",
+      "statement": "r * q = 4 + 3 * r"
+    },
+    {
+      "id": "n_hsq_503ff617",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsq",
+      "lean_fvar_id": "_uniq.7317651",
+      "statement": "r ^ 2 = 2"
+    },
+    {
+      "id": "n_hsumpos_fd28539e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsumpos",
+      "lean_fvar_id": "_uniq.7325514",
+      "statement": "0 < ↑i * (r - 1) + r"
+    },
+    {
+      "id": "n_htarget_36497d02",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htarget",
+      "lean_fvar_id": "_uniq.7319020",
+      "statement": "(4 + 3 * r) * r ^ i = r ^ (i + 1) * q"
+    },
+    {
+      "id": "n_this_388e810a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.7318217",
+      "statement": "3 = 2 + 1"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_this",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_this_388e810a",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1802",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.7318217",
+            "name": "this",
+            "statement": "3 = 2 + 1"
+          }
+        },
+        "lean_dependency_sha256": "b70fb6f841d330ccc42ad3916af6aa12da7152ae5a39abc3c529f6e50101ce40",
+        "kernel_witness_check": {
+          "proof_type": "3 = 2 + 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hrq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsq_503ff617",
+        "n_hcube_1194e3bc"
+      ],
+      "conclusion": "n_hrq_e8620a89",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring_nf + ring + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1803",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hrq : r * q = 4 + 3 * r := by\n      dsimp [q]\n      ring_nf\n      rw [hcube, hsq]\n      ring\n    calc\n      (4 + 3 * r) * r ^ i = (r * q) * r ^ i := by rw [hrq]\n      _ = r ^ (i + 1) * q := by\n        rw [pow_succ]\n        ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7317651",
+              "name": "hsq",
+              "statement": "r ^ 2 = 2"
+            },
+            {
+              "fvar_id": "_uniq.7318091",
+              "name": "hcube",
+              "statement": "r ^ 3 = 2 * r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7319123",
+            "name": "hrq",
+            "statement": "r * q = 4 + 3 * r"
+          }
+        },
+        "lean_dependency_sha256": "92b26456e9a3ebb2c72e1726c92e04352c5d181654528b27a024fad67a8f18ed",
+        "kernel_witness_check": {
+          "proof_type": "r * q = 4 + 3 * r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hnonneg",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_gt_one_5b7963cd"
+      ],
+      "conclusion": "n_hnonneg_b1be1afb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.cast_nonneg + mul_nonneg + sub_nonneg",
+        "items": [
+          "Nat.cast_nonneg",
+          "mul_nonneg",
+          "sub_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.cast_nonneg",
+          "mul_nonneg",
+          "sub_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1804",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hnonneg : 0 ≤ (i : ℝ) * (r - 1) := by\n      exact mul_nonneg (Nat.cast_nonneg i) (sub_nonneg.mpr hr_gt_one.le)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7315964",
+              "name": "hr_gt_one",
+              "statement": "1 < r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7323631",
+            "name": "hnonneg",
+            "statement": "0 ≤ ↑i * (r - 1)"
+          }
+        },
+        "lean_dependency_sha256": "8997f15e12e7a60a01f0e2be231186bc7c7a1e12fc862808c3fcdbe5a00f6f6d",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ ↑i * (r - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hsumpos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_pos_4889cb46",
+        "n_hnonneg_b1be1afb"
+      ],
+      "conclusion": "n_hsumpos_fd28539e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_pos_of_nonneg_of_pos",
+        "items": [
+          "add_pos_of_nonneg_of_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_pos_of_nonneg_of_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1805",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hsumpos : 0 < (i : ℝ) * (r - 1) + r :=\n      add_pos_of_nonneg_of_pos hnonneg hr_pos",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7317359",
+              "name": "hr_pos",
+              "statement": "0 < r"
+            },
+            {
+              "fvar_id": "_uniq.7323631",
+              "name": "hnonneg",
+              "statement": "0 ≤ ↑i * (r - 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7325514",
+            "name": "hsumpos",
+            "statement": "0 < ↑i * (r - 1) + r"
+          }
+        },
+        "lean_dependency_sha256": "efe8b6648245763a75faa6b06c1c296b786d0e0d763ed34fec361ee8e47fc0aa",
+        "kernel_witness_check": {
+          "proof_type": "0 < ↑i * (r - 1) + r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hb_eq",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hb_eq_53a122ae",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "ring + rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1806",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hb_eq : b = (i : ℝ) * (r - 1) + r := by\n      dsimp [b]\n      push_cast\n      ring\n    rw [hb_eq]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.7325594",
+            "name": "hb_eq",
+            "statement": "b = ↑i * (r - 1) + r"
+          }
+        },
+        "lean_dependency_sha256": "d1f23cdaa0f9cd6dec5a473dbacadaffb2584cfcceac828d254db1bf6f6a3d33",
+        "kernel_witness_check": {
+          "proof_type": "b = ↑i * (r - 1) + r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_006_hr_gt_one",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hr_gt_one_5b7963cd",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.one_lt_sqrt_two",
+        "items": [
+          "Real.one_lt_sqrt_two"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.one_lt_sqrt_two"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1810",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hr_gt_one : 1 < r := by\n    dsimp [r]\n    exact Real.one_lt_sqrt_two",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.7315964",
+            "name": "hr_gt_one",
+            "statement": "1 < r"
+          }
+        },
+        "lean_dependency_sha256": "35eba4b174bd39ca416c3796216e094dd82be99dd19f4a48a2b20ab55086be58",
+        "kernel_witness_check": {
+          "proof_type": "1 < r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.one_lt_sqrt_two"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hr_pos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_gt_one_5b7963cd"
+      ],
+      "conclusion": "n_hr_pos_4889cb46",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "lt_trans + zero_lt_one",
+        "items": [
+          "lt_trans",
+          "zero_lt_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "lt_trans",
+          "zero_lt_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1811",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hr_pos : 0 < r := lt_trans zero_lt_one hr_gt_one",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7315964",
+              "name": "hr_gt_one",
+              "statement": "1 < r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7317359",
+            "name": "hr_pos",
+            "statement": "0 < r"
+          }
+        },
+        "lean_dependency_sha256": "276397a51a6da26d0b8c03292aee673a753894711397bbc147ae354ee6607dfa",
+        "kernel_witness_check": {
+          "proof_type": "0 < r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hsq",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsq_503ff617",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.sq_sqrt",
+        "items": [
+          "Real.sq_sqrt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.sq_sqrt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1812",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hsq : r ^ 2 = 2 := by\n    dsimp [r]\n    exact Real.sq_sqrt (by norm_num)",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.7317651",
+            "name": "hsq",
+            "statement": "r ^ 2 = 2"
+          }
+        },
+        "lean_dependency_sha256": "74dd86ad8fe149cc0a938cb1a04e8011ebc00cb9dc1a8036af4a65cf248ff75e",
+        "kernel_witness_check": {
+          "proof_type": "r ^ 2 = 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hcube",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsq_503ff617"
+      ],
+      "conclusion": "n_hcube_1194e3bc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "pow_succ",
+        "items": [
+          "pow_succ"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "pow_succ"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1813",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcube : r ^ 3 = 2 * r := by\n    rw [show (3 : ℕ) = 2 + 1 by norm_num, pow_succ, hsq]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7317651",
+              "name": "hsq",
+              "statement": "r ^ 2 = 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7318091",
+            "name": "hcube",
+            "statement": "r ^ 3 = 2 * r"
+          }
+        },
+        "lean_dependency_sha256": "8c5d9fd2ce781dd5dbf0d3083da6547e52de50457f850716140f1c9c914c6a56",
+        "kernel_witness_check": {
+          "proof_type": "r ^ 3 = 2 * r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_htarget",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsq_503ff617",
+        "n_hcube_1194e3bc"
+      ],
+      "conclusion": "n_htarget_36497d02",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "pow_succ",
+        "items": [
+          "pow_succ"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "pow_succ"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1814",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htarget : (4 + 3 * r) * r ^ i = r ^ (i + 1) * q := by\n    have hrq : r * q = 4 + 3 * r := by\n      dsimp [q]\n      ring_nf\n      rw [hcube, hsq]\n      ring\n    calc\n      (4 + 3 * r) * r ^ i = (r * q) * r ^ i := by rw [hrq]\n      _ = r ^ (i + 1) * q := by\n        rw [pow_succ]\n        ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7317651",
+              "name": "hsq",
+              "statement": "r ^ 2 = 2"
+            },
+            {
+              "fvar_id": "_uniq.7318091",
+              "name": "hcube",
+              "statement": "r ^ 3 = 2 * r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7319020",
+            "name": "htarget",
+            "statement": "(4 + 3 * r) * r ^ i = r ^ (i + 1) * q"
+          }
+        },
+        "lean_dependency_sha256": "bfd474a878b3081b7e3051d717cc9b8c933797156bf2913c38c3f5c8b0f5c2e6",
+        "kernel_witness_check": {
+          "proof_type": "(4 + 3 * r) * r ^ i = r ^ (i + 1) * q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hdiff",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_htarget_36497d02"
+      ],
+      "conclusion": "n_hdiff_f654dc8f",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "wsum_eq",
+        "items": [
+          "Rollout_p0617_sqrt_two_weighted_sum_lt.wsum_eq"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0617_sqrt_two_weighted_sum_lt.wsum_eq"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_1815",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hdiff : (4 + 3 * r) * r ^ i - wsum i = b * q := by\n    rw [wsum_eq i]\n    dsimp [r, q, b]\n    rw [htarget]\n    dsimp [r, q]\n    push_cast\n    ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7319020",
+              "name": "htarget",
+              "statement": "(4 + 3 * r) * r ^ i = r ^ (i + 1) * q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7321528",
+            "name": "hdiff",
+            "statement": "(4 + 3 * r) * r ^ i - wsum i = b * q"
+          }
+        },
+        "lean_dependency_sha256": "b700c1c77578df2ed2144680bae599804b50d90ef9d0914988c45ce1dca9f234",
+        "kernel_witness_check": {
+          "proof_type": "(4 + 3 * r) * r ^ i - wsum i = b * q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_gt_one_5b7963cd",
+        "n_hr_pos_4889cb46"
+      ],
+      "conclusion": "n_hb_b345b0e2",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.cast_nonneg + add_pos_of_nonneg_of_pos + mul_nonneg",
+        "items": [
+          "Nat.cast_nonneg",
+          "add_pos_of_nonneg_of_pos",
+          "mul_nonneg",
+          "sub_nonneg"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.cast_nonneg",
+          "add_pos_of_nonneg_of_pos",
+          "mul_nonneg",
+          "sub_nonneg"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1816",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hb : 0 < b := by\n    have hnonneg : 0 ≤ (i : ℝ) * (r - 1) := by\n      exact mul_nonneg (Nat.cast_nonneg i) (sub_nonneg.mpr hr_gt_one.le)\n    have hsumpos : 0 < (i : ℝ) * (r - 1) + r :=\n      add_pos_of_nonneg_of_pos hnonneg hr_pos\n    have hb_eq : b = (i : ℝ) * (r - 1) + r := by\n      dsimp [b]\n      push_cast\n      ring\n    rw [hb_eq]\n    exact hsumpos",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7315964",
+              "name": "hr_gt_one",
+              "statement": "1 < r"
+            },
+            {
+              "fvar_id": "_uniq.7317359",
+              "name": "hr_pos",
+              "statement": "0 < r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7323474",
+            "name": "hb",
+            "statement": "0 < b"
+          }
+        },
+        "lean_dependency_sha256": "9b639a181bf5c1fbea6c63588bd8f773c24ba0eaad13952ec526744a5bdea82a",
+        "kernel_witness_check": {
+          "proof_type": "0 < b",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hr_pos_4889cb46"
+      ],
+      "conclusion": "n_hq_037696cf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "add_pos + sq_pos_of_pos + zero_lt_one",
+        "items": [
+          "add_pos",
+          "sq_pos_of_pos",
+          "zero_lt_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "add_pos",
+          "sq_pos_of_pos",
+          "zero_lt_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1817",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hq : 0 < q := by\n    dsimp [q]\n    exact sq_pos_of_pos (add_pos hr_pos zero_lt_one)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7317359",
+              "name": "hr_pos",
+              "statement": "0 < r"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7326757",
+            "name": "hq",
+            "statement": "0 < q"
+          }
+        },
+        "lean_dependency_sha256": "2f057d94ddd6a593f1456a188161b6b29960334aa3d1bdf5029bd7cdf1004cce",
+        "kernel_witness_check": {
+          "proof_type": "0 < q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hdiff_pos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdiff_f654dc8f",
+        "n_hb_b345b0e2",
+        "n_hq_037696cf"
+      ],
+      "conclusion": "n_hdiff_pos_19c89955",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_pos",
+        "items": [
+          "mul_pos"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_pos"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_1818",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hdiff_pos : 0 < (4 + 3 * r) * r ^ i - wsum i := by\n    rw [hdiff]\n    exact mul_pos hb hq\n  dsimp [r] at hdiff_pos\n  linarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.7321528",
+              "name": "hdiff",
+              "statement": "(4 + 3 * r) * r ^ i - wsum i = b * q"
+            },
+            {
+              "fvar_id": "_uniq.7323474",
+              "name": "hb",
+              "statement": "0 < b"
+            },
+            {
+              "fvar_id": "_uniq.7326757",
+              "name": "hq",
+              "statement": "0 < q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.7328824",
+            "name": "hdiff_pos",
+            "statement": "0 < (4 + 3 * r) * r ^ i - wsum i"
+          }
+        },
+        "lean_dependency_sha256": "576daf8674be3dcece6dbcd5ee81d3c70ab43c6cdf897cdf2dade9c56b99e5a1",
+        "kernel_witness_check": {
+          "proof_type": "0 < (4 + 3 * r) * r ^ i - wsum i",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Real.one_lt_sqrt_two",
+        "items": [
+          "Real.one_lt_sqrt_two"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Real.one_lt_sqrt_two"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  linarith",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∑ j ∈ Finset.range (i + 1), ↑(i - j) * √2 ^ j < (4 + 3 * √2) * √2 ^ i"
+          }
+        },
+        "lean_dependency_sha256": "b279018dd4d48b8b63bfbc4fa25bdc91dec30311978873d2e9f9d3c591f52d02",
+        "kernel_witness_check": {
+          "proof_type": "∑ j ∈ Finset.range (i + 1), ↑(i - j) * √2 ^ j < (4 + 3 * √2) * √2 ^ i",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Real.one_lt_sqrt_two"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:3"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Finset.geom_sum_eq",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "finite geometric sum formula range powers division ring",
+      "declarations": [
+        "geom_sum_eq",
+        "finite_powers",
+        "ULift.divisionRing",
+        "geom_sum_Ico",
+        "geom_sum_succ",
+        "Nat.geomSum_eq",
+        "DivisionRing",
+        "geom_sum_Ico'",
+        "divisionRingOfFiniteDimensional",
+        "Finite.divisionRing_to_field"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "(∑ _ ∈ Finset.range _, _ ^ _) = (_ ^ _ - 1) / (_ - 1)",
+      "declarations": [
+        "Nat.geomSum_eq",
+        "geom_sum_eq",
+        "geom_sum_of_one_lt"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "sqrt two positive not equal one square",
+      "declarations": [
+        "Real.sqrt",
+        "Real.inv_sqrt_two_sub_one",
+        "NNReal.sqrt_eq_iff_eq_sq",
+        "Real.sqrtTwoAddSeries_one",
+        "Real.one_lt_sqrt_two",
+        "Mathlib.Meta.NormNum.not_isSquare_of_isRat_neg",
+        "IsStrictlyPositive.sqrt",
+        "Real.sqrt_eq_iff_eq_sq",
+        "Zsqrtd.not_divides_sq",
+        "Mathlib.Meta.NormNum.evalIsSquareRat"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Real.sqrt 2 ^ 2 = 2",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 7
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 5,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 4,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 18,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

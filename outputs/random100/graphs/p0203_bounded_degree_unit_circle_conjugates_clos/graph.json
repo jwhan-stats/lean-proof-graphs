@@ -1,0 +1,1214 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0203_bounded_degree_unit_circle_conjugates_clos",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 203,
+    "source": "1307.0361",
+    "theorem_name": "bounded_degree_unit_circle_conjugates_closed_discrete",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/203",
+    "reconstructed_proof": "../../candidates/p0203_bounded_degree_unit_circle_conjugates_clos/proof.lean",
+    "raw_elaboration": "../../candidates/p0203_bounded_degree_unit_circle_conjugates_clos/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.bounded_degree_unit_circle_conjugates_closed_discrete",
+    "verification_call_id": "verify_submission:114",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "0d3ed57d531cecb968ecb1c17477c7cc833bca9b3dff39bd1ddde5a273c210da",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "4d774c7668814022f3b5f959a699ceb725d63fd2a3b3817948b20555b0e46a68",
+    "concrete_semantic_topology_sha256": "0d3ed57d531cecb968ecb1c17477c7cc833bca9b3dff39bd1ddde5a273c210da"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hb_1cfdfb60",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hB",
+      "lean_fvar_id": "1",
+      "statement": "0 < B"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "let S_B := {x | 1 < x ∧ IsIntegral ℤ x ∧ ↑(minpoly ℚ x).natDegree ≤ B ∧ (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧ ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1}; IsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}"
+    },
+    {
+      "id": "n_hfin_4983028d",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hfin",
+      "lean_fvar_id": "_uniq.1134077",
+      "statement": "∀ (x : ℝ), (S_B ∩ Set.Icc (x - 1) (x + 1)).Finite"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hfin",
+      "class": "side",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hfin_4983028d",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.le_floor + finite_algebraic_integer_of_bounded_conjugates_inter_Icc",
+        "items": [
+          "Nat.le_floor",
+          "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.finite_algebraic_integer_of_bounded_conjugates_inter_Icc"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.finite_algebraic_integer_of_bounded_conjugates_inter_Icc"
+        ],
+        "mathlib_items": [
+          "Nat.le_floor"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_348",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hfin : ∀ x : ℝ, (S_B ∩ Set.Icc (x - 1) (x + 1)).Finite := by\n    intro x\n    refine (finite_algebraic_integer_of_bounded_conjugates_inter_Icc\n      ⌊B⌋₊ (x - 1) (x + 1)).subset ?_\n    intro y hy\n    rcases hy with ⟨hyS, hyIcc⟩\n    rcases hyS with ⟨hygt, hyint, hydeg, hyroots, hyunit⟩\n    constructor\n    · exact ⟨hygt, hyint, Nat.le_floor hydeg, hyroots⟩\n    · exact hyIcc",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.1134077",
+            "name": "hfin",
+            "statement": "∀ (x : ℝ), (S_B ∩ Set.Icc (x - 1) (x + 1)).Finite"
+          }
+        },
+        "lean_dependency_sha256": "aeb881f3b5e61d40591383d5739fca8b8cfaaf1286d1a8bc3a406896953a43b4",
+        "kernel_witness_check": {
+          "proof_type": "∀ (x : ℝ), (S_B ∩ Set.Icc (x - 1) (x + 1)).Finite",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.le_floor"
+        ],
+        "observed_search_event_ids": [
+          "loogle:75",
+          "loogle:76"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.le_floor + closed_and_isolated_of_finite_inter_Icc_one",
+        "items": [
+          "Nat.le_floor",
+          "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.closed_and_isolated_of_finite_inter_Icc_one"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0203_bounded_degree_unit_circle_conjugates_clos.closed_and_isolated_of_finite_inter_Icc_one"
+        ],
+        "mathlib_items": [
+          "Nat.le_floor"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact closed_and_isolated_of_finite_inter_Icc_one S_B hfin",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "let S_B := {x | 1 < x ∧ IsIntegral ℤ x ∧ ↑(minpoly ℚ x).natDegree ≤ B ∧ (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧ ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1}; IsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}"
+          }
+        },
+        "lean_dependency_sha256": "c2dd11397d7d58ce0ee4687138a3dd3f4449bf4e4c4a94c8c6c8dc316a8a756c",
+        "kernel_witness_check": {
+          "proof_type": "let S_B :=\n  {x |\n    1 < x ∧\n      IsIntegral ℤ x ∧\n        ↑(minpoly ℚ x).natDegree ≤ B ∧\n          (∀ (z : ℂ), (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z → z ≠ ↑x → ‖z‖ ≤ 1) ∧\n            ∃ z, (Polynomial.map (algebraMap ℚ ℂ) (minpoly ℚ x)).IsRoot z ∧ z ≠ ↑x ∧ ‖z‖ = 1};\nIsClosed S_B ∧ ∀ x ∈ S_B, ∃ ε > 0, S_B ∩ Set.Ioo (x - ε) (x + ε) = {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.le_floor"
+        ],
+        "observed_search_event_ids": [
+          "loogle:75",
+          "loogle:76"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "algebraic integers bounded degree bounded conjugates finite discrete closed set",
+      "declarations": [
+        "NumberField.Embeddings.finite_of_norm_le",
+        "Set.Bounded",
+        "Set.Finite.isBounded",
+        "NumberField.hermiteTheorem.natDegree_le_rankOfDiscrBdd",
+        "Metric.finite_isBounded_inter_isClosed",
+        "Liouville.exists_pos_real_of_irrational_root",
+        "NumberField.mixedEmbedding.exists_ne_zero_mem_ringOfIntegers_of_norm_le",
+        "NumberField.house.basis_repr_norm_le_const_mul_house",
+        "Set.Bounded.mono",
+        "Set.Finite.totallyBounded"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "finite set of algebraic numbers bounded degree conjugates bounded",
+      "declarations": [
+        "NumberField.Embeddings.finite_of_norm_le",
+        "Liouville.exists_pos_real_of_irrational_root",
+        "Set.Bounded",
+        "BoundedSpace.of_finite",
+        "NumberField.hermiteTheorem.natDegree_le_rankOfDiscrBdd",
+        "Set.Finite.isBounded",
+        "Set.Finite.totallyBounded",
+        "algebraicIndependent_bounded_of_finset_algebraicIndependent_bounded",
+        "Algebra.IsAlgebraic.cardinalMk_le_sigma_polynomial",
+        "IsAlgClosed.cardinal_le_max_transcendence_basis'"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "IsClosed _ ∧ ∀ x ∈ _, ∃ ε > 0, _ ∩ Set.Ioo _ _ = {_}",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Polynomial.IsRoot",
+      "declarations": [
+        "Polynomial.IsRoot",
+        "Polynomial.IsRoot.decidable",
+        "Polynomial.IsRoot.eq_zero",
+        "Polynomial.IsRoot.def",
+        "Polynomial.isRoot_comp",
+        "Polynomial.root_mul_left_of_isRoot",
+        "Polynomial.root_mul_right_of_isRoot",
+        "Polynomial.not_isRoot_C",
+        "Polynomial.isRoot_prod",
+        "Polynomial.IsRoot.dvd"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "set intersection every compact finite closed discrete real",
+      "declarations": [
+        "IsCompact.inter_iInter_nonempty",
+        "IsCompact.nonempty_inter_sInter",
+        "IsDiscrete.iUnion",
+        "IsCompact.finite_of_discrete",
+        "IsCompact.elim_finite_subfamily_closed",
+        "finite_of_compact_of_discrete",
+        "Set.Finite.isDiscrete",
+        "Metric.finite_isBounded_inter_isClosed",
+        "Set.Finite",
+        "Set.Finite.relatively_discrete"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "locally finite set closed discrete topology metric",
+      "declarations": [
+        "discreteTopology_iUnion_finite",
+        "DiscreteTopology.of_finite_of_isClosed_singleton",
+        "Set.Finite.isDiscrete_of_subset_closedPoints",
+        "discreteTopology_iff_locallyInjective",
+        "Finite.instDiscreteTopology",
+        "Set.Finite.isDiscrete",
+        "DiscreteTopology",
+        "TopologicalSpace.Closeds.instDiscreteUniformity",
+        "Metric.exists_continuous_nnreal_forall_closedEBall_subset",
+        "discreteTopology_iUnion_fintype"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "DiscreteTopology ↥_",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "IsClosed (⋃ _ : Finset _, _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "IsDiscrete",
+      "declarations": [
+        "IsDiscrete",
+        "IsDiscrete.mono",
+        "DiscreteTopology.isDiscrete",
+        "IsDiscrete.mk",
+        "IsDiscrete.to_subtype",
+        "isDiscrete_iff_discreteTopology",
+        "SetLike.isDiscrete_iff_discreteTopology",
+        "IsCompact.finite",
+        "Set.Finite.isDiscrete",
+        "nhdsWithin_of_mem_discrete"
+      ],
+      "call_turn": 12,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "IsClosed _ -> DiscreteTopology _",
+      "declarations": [
+        "discreteTopology_union"
+      ],
+      "call_turn": 12,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Set.Finite.isDiscrete",
+      "declarations": [
+        "Set.Finite.isDiscrete"
+      ],
+      "call_turn": 12,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Set.Finite.relatively_discrete",
+      "declarations": [
+        "Set.Finite.relatively_discrete"
+      ],
+      "call_turn": 12,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "polynomial coefficient elementary symmetric roots bound monic polynomial splits",
+      "declarations": [
+        "Polynomial.coeff_zero_eq_prod_roots_of_monic_of_splits",
+        "Polynomial.Splits.coeff_zero_eq_prod_roots_of_monic",
+        "Polynomial.Splits.nextCoeff_eq_neg_sum_roots_of_monic",
+        "Polynomial.eq_prod_roots_of_monic_of_splits_id",
+        "Polynomial.Splits.eq_prod_roots_of_monic",
+        "Polynomial.eval_eq_prod_roots_sub_of_monic_of_splits_id",
+        "Polynomial.Splits.scaleRoots",
+        "Polynomial.Splits.roots_map",
+        "Polynomial.Splits.eval_eq_prod_roots_of_monic",
+        "Polynomial.Splits"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "coeff _ = _ (Multiset.roots _)",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Polynomial.coeff _ _ = _ (Polynomial.roots _)",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Polynomial.splits -> Polynomial.coeff _ _ = _",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "minimal polynomial algebraic integer integer coefficients isIntegral integers rationals",
+      "declarations": [
+        "Mathlib.Tactic.Ring.RatCoeff.ofResult",
+        "Lean.Meta.Sym.getRatValue",
+        "IsPrimitiveRoot.toInteger",
+        "Valuation.integer",
+        "Valued.integer",
+        "Lean.Grind.Linarith.Expr.norm",
+        "IsLocalization.IsInteger",
+        "Mathlib.Tactic.Linarith.isNNRealtoReal",
+        "Valuation.integer.integers",
+        "Set.integer"
+      ],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "minpoly ℚ _",
+      "declarations": [
+        "Polynomial.cyclotomic_eq_minpoly_rat",
+        "NumberField.Embeddings.range_eval_eq_rootSet_minpoly",
+        "NumberField.Embeddings.coeff_bdd_of_norm_le"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "IsIntegral ℤ _ -> minpoly _ _",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "minpoly.isIntegrallyClosed",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "leanfinder:20",
+      "tool": "leanfinder",
+      "query": "minpoly is integrally closed field fractions",
+      "declarations": [
+        "minpoly.isIntegrallyClosed_eq_field_fractions'",
+        "minpoly.isIntegrallyClosed_eq_field_fractions",
+        "minpoly",
+        "minpoly.isIntegrallyClosed_dvd",
+        "minpoly.prime_of_isIntegrallyClosed",
+        "minpoly.ofSubring",
+        "integralClosure.isIntegrallyClosedOfFiniteExtension",
+        "Field.instIsIntegrallyClosed",
+        "IsIntegrallyClosed.minpoly.unique",
+        "minpoly.IsIntegrallyClosed.isIntegral_iff_leadingCoeff_dvd"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "minpoly integral closure coefficients integer",
+      "declarations": [
+        "minpoly",
+        "IsIntegralClosure.isIntegral",
+        "integralClosure",
+        "Lean.Omega.Coeffs.get",
+        "minpoly.instSMulSubtypeMemSubringSubalgebraIntegralClosure",
+        "Lean.Grind.CommRing.Poly.toIntModuleExpr",
+        "minpoly.instAlgebraSubtypeMemSubringSubalgebraIntegralClosure",
+        "Int.Linear.Poly.checkCoeffs",
+        "Lean.Grind.Linarith.Expr.norm",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith"
+      ],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "_ * minpoly _ _ = Polynomial.map _ _",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Polynomial.map _ (minpoly _ _)",
+      "declarations": [
+        "minpoly.map_ne_one",
+        "minpoly.dvd_map_of_isScalarTower",
+        "minpoly.dvd_map_of_isScalarTower'",
+        "minpoly.map_eq_of_equiv_equiv",
+        "PowerBasis.quotientEquivQuotientMinpolyMap",
+        "PowerBasis.quotientEquivQuotientMinpolyMap_apply_mk",
+        "PowerBasis.quotientEquivQuotientMinpolyMap_symm_apply_mk",
+        "PowerBasis.quotientEquivQuotientMinpolyMap_apply",
+        "PowerBasis.quotientEquivQuotientMinpolyMap_symm_apply",
+        "IsIntegral.mem_range_algHom_of_minpoly_splits"
+      ],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "leanfinder:25",
+      "tool": "leanfinder",
+      "query": "bound coefficients polynomial roots norm monic",
+      "declarations": [
+        "Polynomial.roots",
+        "Polynomial.Monic",
+        "Polynomial.Splits.eq_prod_roots_of_monic",
+        "Polynomial.coeff_le_of_roots_le",
+        "Polynomial.IsRoot.norm_lt_cauchyBound",
+        "Polynomial.coeff_bdd_of_roots_le",
+        "Polynomial.monic_of_natDegree_le_of_coeff_eq_one",
+        "Polynomial.monic_scaleRoots_iff",
+        "Polynomial.eq_one_of_roots_le",
+        "Lean.Grind.Linarith.Expr.norm"
+      ],
+      "call_turn": 34,
+      "result_turn": 35
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "coefficient bound product linear factors roots norm",
+      "declarations": [
+        "Polynomial.roots",
+        "ContinuousLinearMap.norm_extendTo",
+        "Polynomial.one_le_prod_max_one_norm_roots",
+        "Polynomial.Factors.scaleRoots",
+        "Polynomial.cauchyBound",
+        "ContinuousLinearMap.opNorm_le_bound'",
+        "Polynomial.prod_max_one_norm_roots_le_mahlerMeasure_of_one_le_leadingCoeff",
+        "Int.Linear.norm_le_coeff_tight_cert",
+        "Polynomial.IsRoot.norm_lt_cauchyBound",
+        "ZLattice.normBound"
+      ],
+      "call_turn": 34,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "‖Polynomial.coeff _ _‖ ≤ _",
+      "declarations": [
+        "Polynomial.coeff_le_of_roots_le",
+        "Polynomial.coeff_bdd_of_roots_le",
+        "spectralValue_le_one_iff",
+        "Polynomial.le_supNorm",
+        "Polynomial.norm_coeff_le_choose_mul_mahlerMeasure",
+        "NumberField.Embeddings.coeff_bdd_of_norm_le"
+      ],
+      "call_turn": 34,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Polynomial.Monic -> _ -> ‖_.coeff _‖ ≤ _",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "IsIntegral ℤ _ -> IsIntegral ℚ _",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "IsIntegral _ _ -> IsIntegral _ _",
+      "declarations": [
+        "map_isIntegral_int",
+        "IsIntegral.of_pow",
+        "IsIntegral.of_subring",
+        "IsIntegral.pair",
+        "IsIntegral.tower_top",
+        "IsIntegral.algebraMap",
+        "IsIntegral.map",
+        "IsIntegral.of_aeval_monic",
+        "IsIntegral.map_of_comp_eq",
+        "IsIntegral.neg"
+      ],
+      "call_turn": 39,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "minpoly.aeval",
+      "declarations": [
+        "minpoly.aeval"
+      ],
+      "call_turn": 39,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Polynomial.mem_roots",
+      "declarations": [
+        "Polynomial.mem_roots"
+      ],
+      "call_turn": 39,
+      "result_turn": 43
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "finite polynomials bounded degree bounded coefficients integer",
+      "declarations": [
+        "Set.Finite.isBounded",
+        "Set.Bounded",
+        "Set.Finite.totallyBounded",
+        "BoundedSpace.of_finite",
+        "Polynomial.Chebyshev.coeff_le_of_forall_abs_le_one",
+        "TotallyBounded",
+        "Polynomial.finite_abs_eval_le_of_degree_lt",
+        "Polynomial.boxPoly",
+        "Bornology.IsBounded",
+        "Valued.integer.totallyBounded_iff_finite_residueField"
+      ],
+      "call_turn": 44,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Set.Finite {p : Polynomial ℤ | _}",
+      "declarations": [
+        "Polynomial.finite_mahlerMeasure_le"
+      ],
+      "call_turn": 44,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Polynomial.ofFinsupp",
+      "declarations": [
+        "Polynomial.ofFinsupp",
+        "Polynomial.eta",
+        "Polynomial.forall_iff_forall_finsupp",
+        "Polynomial.ofFinsupp_erase",
+        "Polynomial.support_ofFinsupp",
+        "Polynomial.exists_iff_exists_finsupp",
+        "Polynomial.ofFinsupp_inj",
+        "Polynomial.erase_def",
+        "Polynomial.ofFinsupp_one",
+        "Polynomial.coeff_ofFinsupp"
+      ],
+      "call_turn": 44,
+      "result_turn": 47
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Polynomial.sum _ (fun _ _ => Polynomial.monomial _ _)",
+      "declarations": [
+        "Polynomial.sum_monomial_eq",
+        "Polynomial.mul_eq_sum_sum",
+        "PolyEquivTensor.toFunAlgHom_apply_tmul",
+        "polyEquivTensor_symm_apply_tmul",
+        "PolyEquivTensor.toFunBilinear_apply_eq_sum",
+        "Polynomial.hasseDeriv_apply"
+      ],
+      "call_turn": 44,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "Polynomial.boxPoly",
+      "declarations": [
+        "Polynomial.boxPoly",
+        "Polynomial.card_eq_of_natDegree_le_of_coeff_le",
+        "Polynomial.ncard_boxPoly"
+      ],
+      "call_turn": 51,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "_.mahlerMeasure ≤ _",
+      "declarations": [],
+      "call_turn": 55,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "(Polynomial.mahlerMeasure _ ≤ _)",
+      "declarations": [
+        "Polynomial.mahlerMeasure_le_sum_norm_coeff",
+        "Polynomial.mahlerMeasure_le_sqrt_natDegree_add_one_mul_supNorm",
+        "Polynomial.finite_mahlerMeasure_le",
+        "Polynomial.card_mahlerMeasure_le_prod"
+      ],
+      "call_turn": 57,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Polynomial.supNorm",
+      "declarations": [
+        "Polynomial.supNorm",
+        "Polynomial.supNorm_nonneg",
+        "Polynomial.le_supNorm",
+        "Polynomial.exists_eq_supNorm",
+        "Polynomial.isGreatest_supNorm",
+        "Polynomial.supNorm_X",
+        "Polynomial.supNorm_eq_iSup",
+        "Polynomial.supNorm_zero",
+        "Polynomial.supNorm_eq_zero_iff",
+        "Polynomial.supNorm_C"
+      ],
+      "call_turn": 59,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "_ ≤ Polynomial.supNorm _",
+      "declarations": [
+        "Polynomial.supNorm_nonneg",
+        "Polynomial.le_supNorm"
+      ],
+      "call_turn": 59,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Polynomial.supNorm _ ≤ _",
+      "declarations": [
+        "Polynomial.supNorm_le_choose_natDegree_div_two_mul_mahlerMeasure"
+      ],
+      "call_turn": 59,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Polynomial.sum _ (fun _ a => ‖a‖) ≤ _",
+      "declarations": [],
+      "call_turn": 59,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Set.Finite {x | Polynomial.IsRoot _ x}",
+      "declarations": [
+        "Polynomial.finite_setOf_isRoot"
+      ],
+      "call_turn": 64,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "Set.Finite (Polynomial.rootSet _ _)",
+      "declarations": [
+        "Polynomial.rootSet_finite"
+      ],
+      "call_turn": 64,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Polynomial.rootSet.finite",
+      "declarations": [],
+      "call_turn": 64,
+      "result_turn": 67
+    },
+    {
+      "event_id": "leanfinder:49",
+      "tool": "leanfinder",
+      "query": "set of roots polynomial finite rootSet finite",
+      "declarations": [
+        "Polynomial.rootSet_finite",
+        "Polynomial.rootSet",
+        "Set.Finite",
+        "Polynomial.finite_setOf_isRoot",
+        "Polynomial.roots_eq_of_degree_le_card_of_ne_zero",
+        "Polynomial.bUnion_roots_finite",
+        "Int.Linear.Poly.checkCoeffs",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Grind.Linarith.Expr.norm",
+        "Lean.Grind.CommRing.norm_int_cert"
+      ],
+      "call_turn": 64,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "Polynomial.natDegree_map",
+      "declarations": [
+        "Polynomial.natDegree_map"
+      ],
+      "call_turn": 71,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Polynomial.Monic.map",
+      "declarations": [
+        "Polynomial.Monic.map"
+      ],
+      "call_turn": 71,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "minpoly.monic",
+      "declarations": [
+        "minpoly.monic"
+      ],
+      "call_turn": 71,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "minpoly.ne_zero",
+      "declarations": [
+        "minpoly.ne_zero"
+      ],
+      "call_turn": 71,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "(Polynomial.map _ _).natDegree = _.natDegree",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 77
+    },
+    {
+      "event_id": "leanfinder:56",
+      "tool": "leanfinder",
+      "query": "natDegree polynomial map injective ring hom",
+      "declarations": [
+        "MvPolynomial.map_injective_iff",
+        "Polynomial.map_injective",
+        "Polynomial.map_injective_iff",
+        "Polynomial.natDegree",
+        "Polynomial.natDegree_map_eq_of_injective",
+        "MvPolynomial.support_map_of_injective",
+        "Polynomial.natDegree_map",
+        "RingHom.injective_nat",
+        "Polynomial.degree_map_eq_of_injective",
+        "Polynomial.natDegree_opRingEquiv"
+      ],
+      "call_turn": 78,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "‖(_ : ℂ)‖ = |(_ : ℤ)|",
+      "declarations": [],
+      "call_turn": 82,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Complex.norm_intCast",
+      "declarations": [
+        "Complex.norm_intCast"
+      ],
+      "call_turn": 82,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "‖algebraMap ℤ ℂ _‖",
+      "declarations": [],
+      "call_turn": 82,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "Int.abs_le",
+      "declarations": [],
+      "call_turn": 82,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "Nat.ceil",
+      "declarations": [
+        "Nat.ceil_nat",
+        "Nat.ceil",
+        "Nat.ceil_int",
+        "Nat.gc_ceil_coe",
+        "Nat.ceil_le",
+        "Int.ceil_toNat",
+        "Nat.lt_ceil",
+        "Nat.ceil_pos",
+        "Nat.ceil_mono",
+        "Nat.ceil_natCast"
+      ],
+      "call_turn": 82,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "_ ≤ (Nat.ceil _ : _)",
+      "declarations": [
+        "Nat.floor_le_ceil",
+        "Nat.ceil_le_ceil",
+        "Nat.one_le_ceil_iff",
+        "Nat.add_one_le_ceil_iff"
+      ],
+      "call_turn": 88,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "Polynomial.aeval _ (Polynomial.map _ _)",
+      "declarations": [
+        "Polynomial.aeval_eq_aeval_map",
+        "Polynomial.map_aeval_eq_aeval_map",
+        "Polynomial.aeval_map_algebraMap"
+      ],
+      "call_turn": 92,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Polynomial.eval (algebraMap _ _ _) (Polynomial.map _ _)",
+      "declarations": [],
+      "call_turn": 92,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "Polynomial.eval_map_algebraMap",
+      "declarations": [
+        "Polynomial.eval_map_algebraMap"
+      ],
+      "call_turn": 92,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "Polynomial.IsRoot.map",
+      "declarations": [
+        "Polynomial.IsRoot.map"
+      ],
+      "call_turn": 92,
+      "result_turn": 96
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Polynomial.aeval _ _ = Polynomial.eval _ _",
+      "declarations": [
+        "Polynomial.Chebyshev.aeval_C",
+        "Polynomial.Chebyshev.aeval_S",
+        "Polynomial.Chebyshev.aeval_T",
+        "Polynomial.Chebyshev.aeval_U",
+        "Polynomial.aeval_sumIDeriv_eq_eval"
+      ],
+      "call_turn": 101,
+      "result_turn": 102
+    },
+    {
+      "event_id": "leanfinder:72",
+      "tool": "leanfinder",
+      "query": "Polynomial eval equals aeval algebra id",
+      "declarations": [
+        "MvPolynomial.aeval_eq_eval",
+        "Polynomial.aeval",
+        "Polynomial.coe_aeval_eq_eval",
+        "Lean.Grind.CommRing.Expr.toPoly_k",
+        "Polynomial.coe_aevalAeval_eq_evalEval",
+        "Polynomial.aeval_algebraMap_apply_eq_algebraMap_eval",
+        "Mathlib.Tactic.Algebra.RingCompute.derive",
+        "Polynomial.aevalTower_id",
+        "Lean.Grind.Linarith.Poly.denote'_eq_denote",
+        "Lean.Grind.CommRing.norm_int_cert"
+      ],
+      "call_turn": 103,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "_ ≤ Nat.floor _",
+      "declarations": [
+        "Nat.le_floor",
+        "Nat.le_floor_iff",
+        "Nat.floor_le_floor",
+        "Nat.one_le_floor_iff",
+        "Nat.le_floor_iff'",
+        "RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_pow_le_of_mem_primesOver_of_mem_Icc"
+      ],
+      "call_turn": 109,
+      "result_turn": 110
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "Nat.le_floor",
+      "declarations": [
+        "Nat.le_floor"
+      ],
+      "call_turn": 109,
+      "result_turn": 111
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "(_ : ℝ) ≤ _ -> _ ≤ Nat.floor _",
+      "declarations": [],
+      "call_turn": 109,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "Nat.floor_le",
+      "declarations": [
+        "Nat.floor_le"
+      ],
+      "call_turn": 109,
+      "result_turn": 113
+    },
+    {
+      "event_id": "leanfinder:91",
+      "tool": "leanfinder",
+      "query": "finite set exists positive radius ball intersection singleton metric",
+      "declarations": [
+        "Metric.closedBall",
+        "Metric.ball_eq_singleton_of_subsingleton",
+        "Metric.exists_ball_subset_ball",
+        "Metric.exists_ball_inter_eq_singleton_of_mem_discrete",
+        "Metric.ball",
+        "exists_locallyFinite_subset_iUnion_ball_radius_lt",
+        "Metric.subsingleton_closedBall",
+        "Metric.exists_closedBall_inter_eq_singleton_of_discrete",
+        "exists_locallyFinite_iUnion_eq_ball_radius_lt",
+        "Delone.DeloneSet.eq_of_mem_ball"
+      ],
+      "call_turn": 138,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "_.Finite -> ∃ ε > 0, Metric.ball _ _ ∩ _ = {_}",
+      "declarations": [],
+      "call_turn": 138,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "nhdsWithin _ _ = pure _ -> ∃ ε > 0",
+      "declarations": [],
+      "call_turn": 138,
+      "result_turn": 141
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "eventually_nhdsWithin_iff",
+      "declarations": [
+        "eventually_nhdsWithin_iff"
+      ],
+      "call_turn": 138,
+      "result_turn": 142
+    },
+    {
+      "event_id": "leanfinder:96",
+      "tool": "leanfinder",
+      "query": "set closed if intersection every compact set finite real locally finite",
+      "declarations": [
+        "IsCompact.nonempty_inter_sInter",
+        "Set.Finite.isClosed",
+        "IsCompact.inter_iInter_nonempty",
+        "Set.Finite",
+        "Set.Finite.isCompact_closure",
+        "Set.Finite.isCompact",
+        "LocallyFinite.finite_nonempty_inter_compact",
+        "IsCompact.elim_finite_subfamily_closed",
+        "LocallyFinite.finite_of_compact",
+        "exists_subset_iUnion_compact_subset_t2space"
+      ],
+      "call_turn": 145,
+      "result_turn": 146
+    },
+    {
+      "event_id": "leanfinder:97",
+      "tool": "leanfinder",
+      "query": "closed set criterion finite intersection compact neighborhoods",
+      "declarations": [
+        "IsCompact.induction_on",
+        "Set.Finite",
+        "IsCompact.inter_iInter_nonempty",
+        "exists_subset_nhds_of_isCompact",
+        "Set.Finite.isCompact",
+        "IsCompact.elim_finite_subfamily_closed",
+        "compactSpace_of_finite_subfamily_closed",
+        "isCompact_of_finite_subfamily_closed",
+        "exists_subset_iUnion_compact_subset_t2space",
+        "isCompact_iff_finite_subfamily_closed"
+      ],
+      "call_turn": 145,
+      "result_turn": 147
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "IsClosed _ ↔ ∀ _ ∈ closure _, _ ∈ _",
+      "declarations": [],
+      "call_turn": 145,
+      "result_turn": 148
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "closure _ = _ -> IsClosed _",
+      "declarations": [],
+      "call_turn": 145,
+      "result_turn": 149
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "IsClosed.closure_eq",
+      "declarations": [
+        "IsClosed.closure_eq"
+      ],
+      "call_turn": 150,
+      "result_turn": 151
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 1,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 0,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 0,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 78,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 76,
+    "accepted_helper_count": 2,
+    "rollout_tool_call_count": 115,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

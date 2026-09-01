@@ -1,0 +1,1151 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "manifest": [
+        {
+          "statement": "0 < a",
+          "origin": "manifest",
+          "name": "ha",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "a < b",
+          "origin": "manifest",
+          "name": "hab",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "a.Coprime b",
+          "origin": "manifest",
+          "name": "hab_coprime",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "3 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "B.mulVec v = 0",
+          "origin": "manifest",
+          "name": "hv",
+          "fvar_id": "13"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "NeZero (a + b)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Nat.add_pos_left",
+            "Nat.ne_of_gt"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_7",
+          "conclusion": {
+            "statement": "NeZero (a + b)",
+            "origin": "derived",
+            "name": "hNe",
+            "fvar_id": "7"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "B.mulVec v = 0",
+              "origin": "local_assumption",
+              "name": "hv",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_16",
+          "conclusion": {
+            "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+            "origin": "derived",
+            "name": "hv'",
+            "fvar_id": "16"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Mathlib.Tactic.Abel.const_add_termg",
+            "Mathlib.Tactic.Abel.subst_into_addg",
+            "Mathlib.Tactic.Abel.term_add_constg",
+            "Mathlib.Tactic.Abel.term_atomg",
+            "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor",
+            "add_zero",
+            "congrArg",
+            "congrFun",
+            "zero_add"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "a < b",
+              "origin": "local_assumption",
+              "name": "hab",
+              "fvar_id": "4"
+            },
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "(Rollout_p3019_laurent_circulant_kernel.laurentCirculantB a b ε).mulVec v = 0",
+              "origin": "derived",
+              "name": "hv'",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+            "origin": "derived",
+            "name": "hrec",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.trans",
+            "Int.cast_neg",
+            "Int.cast_one",
+            "Int.cast_pow",
+            "RingHom.instRingHomClass",
+            "Rollout_p3019_laurent_circulant_kernel.laurent_neg_one_t_pow_ne",
+            "congrArg",
+            "congrFun'",
+            "eq_intCast"
+          ],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+            "origin": "derived",
+            "name": "ht",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), x r = 0",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "AddGroup.instFGInt",
+            "AddMonoid.fg_of_addGroup_fg",
+            "AddMonoidAlgebra.instIsDomainOfIsCancelAddOfUniqueSums",
+            "AffineAddMonoid.to_twoUniqueSums",
+            "Int.instIsAddTorsionFree",
+            "Int.instIsDomain",
+            "Int.instIsStrictOrderedRing",
+            "IsAffineAddMonoid.toFG",
+            "IsAffineAddMonoid.toIsCancelAdd",
+            "IsOrderedCancelAddMonoid.toIsCancelAdd",
+            "IsStrictOrderedRing.toIsOrderedCancelAddMonoid",
+            "Rollout_p3019_laurent_circulant_kernel.zmod_recur_eq_zero",
+            "TwoUniqueSums.toUniqueSums"
+          ],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+              "origin": "derived",
+              "name": "hrec",
+              "fvar_id": "20"
+            },
+            {
+              "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+              "origin": "derived",
+              "name": "ht",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), x r = 0",
+            "origin": "derived",
+            "name": "hx",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "a.Coprime (a + b)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "Nat.coprime_self_add_right"
+          ],
+          "premises": [
+            {
+              "statement": "a.Coprime b",
+              "origin": "local_assumption",
+              "name": "hab_coprime",
+              "fvar_id": "5"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "a.Coprime (a + b)",
+            "origin": "derived",
+            "name": "hcop",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Iff.mp",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsNat.to_eq",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_neg",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Abel.subst_into_addg",
+            "Mathlib.Tactic.Abel.subst_into_negg",
+            "Mathlib.Tactic.Abel.term_add_constg",
+            "Mathlib.Tactic.Abel.term_add_termg",
+            "Mathlib.Tactic.Abel.term_atomg",
+            "Mathlib.Tactic.Abel.term_neg",
+            "Mathlib.Tactic.Abel.unfold_sub",
+            "Mathlib.Tactic.Abel.zero_termg",
+            "congrArg",
+            "neg_zero",
+            "sub_eq_zero",
+            "zero_add"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (r : ZMod (a + b)), x r = 0",
+              "origin": "derived",
+              "name": "hx",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+            "origin": "derived",
+            "name": "hwinv",
+            "fvar_id": "24"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (i j : ZMod (a + b)), w i = w j",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+          ],
+          "premises": [
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "a.Coprime (a + b)",
+              "origin": "derived",
+              "name": "hcop",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+              "origin": "derived",
+              "name": "hwinv",
+              "fvar_id": "24"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_25",
+          "conclusion": {
+            "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+            "origin": "derived",
+            "name": "hweq",
+            "fvar_id": "25"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Iff.mp",
+            "Iff.mpr",
+            "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub",
+            "sub_eq_zero"
+          ],
+          "premises": [
+            {
+              "statement": "0 < a",
+              "origin": "local_assumption",
+              "name": "ha",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "NeZero (a + b)",
+              "origin": "derived",
+              "name": "hNe",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+              "origin": "derived",
+              "name": "hweq",
+              "fvar_id": "25"
+            }
+          ],
+          "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+          "id": "telescope_26",
+          "conclusion": {
+            "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+            "origin": "derived",
+            "name": "hvinv",
+            "fvar_id": "26"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "v i = v j",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "v i = v j",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+        ],
+        "premises": [
+          {
+            "statement": "NeZero (a + b)",
+            "origin": "derived",
+            "name": "hNe",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "a.Coprime (a + b)",
+            "origin": "derived",
+            "name": "hcop",
+            "fvar_id": "23"
+          },
+          {
+            "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+            "origin": "derived",
+            "name": "hvinv",
+            "fvar_id": "26"
+          }
+        ],
+        "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "v i = v j",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "NeZero (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.add_pos_left",
+        "Nat.ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3172689"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_698",
+      "conclusion": {
+        "statement": "NeZero (a + b)",
+        "origin": "derived",
+        "name": "x._@.proofs.59506494._hygCtx._hyg.30",
+        "fvar_id": "_uniq.3173658"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "have t := LaurentPolynomial.C ε * LaurentPolynomial.T 1;\nhave w := fun x => ∑ k ∈ Finset.Ico 1 (a + 1), v (x - ↑k);\n(laurentCirculantB a b ε).mulVec v r = w (r + ↑a) - w r + t * (w (r + ↑a + 1) - w (r + 1))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "a < b",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3178033"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_703",
+      "conclusion": {
+        "statement": "have t := LaurentPolynomial.C ε * LaurentPolynomial.T 1;\nhave w := fun x => ∑ k ∈ Finset.Ico 1 (a + 1), v (x - ↑k);\n(laurentCirculantB a b ε).mulVec v r = w (r + ↑a) - w r + t * (w (r + ↑a + 1) - w (r + 1))",
+        "origin": "derived",
+        "name": "hfac",
+        "fvar_id": "_uniq.3181626"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r + ↑a + 1 = r + 1 + ↑a",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Tactic.Abel.const_add_termg",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "add_zero",
+        "zero_add"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_704",
+      "conclusion": {
+        "statement": "r + ↑a + 1 = r + 1 + ↑a",
+        "origin": "derived",
+        "name": "hidx",
+        "fvar_id": "_uniq.3181839"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w (r - ↑a + ↑a) = w (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "sub_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "x (r - ↑a) = 0",
+          "origin": "derived",
+          "name": "hxr",
+          "fvar_id": "_uniq.3194833"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_705",
+      "conclusion": {
+        "statement": "w (r - ↑a + ↑a) = w (r - ↑a)",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.3195130"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r - ↑a + ↑a = r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.to_eq",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_neg",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.subst_into_negg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_add_termg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Mathlib.Tactic.Abel.term_neg",
+        "Mathlib.Tactic.Abel.unfold_sub",
+        "Mathlib.Tactic.Abel.zero_termg",
+        "neg_zero",
+        "zero_add"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_706",
+      "conclusion": {
+        "statement": "r - ↑a + ↑a = r",
+        "origin": "derived",
+        "name": "hidx",
+        "fvar_id": "_uniq.3195587"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x (r - ↑a) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (r : ZMod (a + b)), x r = 0",
+          "origin": "derived",
+          "name": "hx",
+          "fvar_id": "_uniq.3194189"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_707",
+      "conclusion": {
+        "statement": "x (r - ↑a) = 0",
+        "origin": "derived",
+        "name": "hxr",
+        "fvar_id": "_uniq.3194833"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "w (r + 1) - w r = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "sub_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+          "origin": "derived",
+          "name": "hweq",
+          "fvar_id": "_uniq.3197026"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_708",
+      "conclusion": {
+        "statement": "w (r + 1) - w r = 0",
+        "origin": "derived",
+        "name": "hdiff",
+        "fvar_id": "_uniq.3197873"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ k ∈ Finset.Ico 1 (a + 1), v (r + 1 - ↑k) - ∑ k ∈ Finset.Ico 1 (a + 1), v (r - ↑k) = v r - v (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_709",
+      "conclusion": {
+        "statement": "∑ k ∈ Finset.Ico 1 (a + 1), v (r + 1 - ↑k) - ∑ k ∈ Finset.Ico 1 (a + 1), v (r - ↑k) = v r - v (r - ↑a)",
+        "origin": "derived",
+        "name": "htel",
+        "fvar_id": "_uniq.3197891"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "v r - v (r - ↑a) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm"
+      ],
+      "premises": [
+        {
+          "statement": "w (r + 1) - w r = 0",
+          "origin": "derived",
+          "name": "hdiff",
+          "fvar_id": "_uniq.3197873"
+        },
+        {
+          "statement": "∑ k ∈ Finset.Ico 1 (a + 1), v (r + 1 - ↑k) - ∑ k ∈ Finset.Ico 1 (a + 1), v (r - ↑k) = v r - v (r - ↑a)",
+          "origin": "derived",
+          "name": "htel",
+          "fvar_id": "_uniq.3197891"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_710",
+      "conclusion": {
+        "statement": "v r - v (r - ↑a) = 0",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3198351"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "NeZero (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.add_pos_left",
+        "Nat.ne_of_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_711",
+      "conclusion": {
+        "statement": "NeZero (a + b)",
+        "origin": "derived",
+        "name": "hNe",
+        "fvar_id": "_uniq.3178037"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(laurentCirculantB a b ε).mulVec v = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "B.mulVec v = 0",
+          "origin": "local_assumption",
+          "name": "hv",
+          "fvar_id": "_uniq.3178055"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_716",
+      "conclusion": {
+        "statement": "(laurentCirculantB a b ε).mulVec v = 0",
+        "origin": "derived",
+        "name": "hv'",
+        "fvar_id": "_uniq.3178221"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Mathlib.Tactic.Abel.const_add_termg",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Rollout_p3019_laurent_circulant_kernel.laurentCirculantB_mulVec_factor",
+        "add_zero",
+        "congrArg",
+        "congrFun",
+        "zero_add"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "a < b",
+          "origin": "local_assumption",
+          "name": "hab",
+          "fvar_id": "_uniq.3178033"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "(laurentCirculantB a b ε).mulVec v = 0",
+          "origin": "derived",
+          "name": "hv'",
+          "fvar_id": "_uniq.3178221"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_720",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+        "origin": "derived",
+        "name": "hrec",
+        "fvar_id": "_uniq.3181602"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "Int.cast_neg",
+        "Int.cast_one",
+        "Int.cast_pow",
+        "RingHom.instRingHomClass",
+        "Rollout_p3019_laurent_circulant_kernel.laurent_neg_one_t_pow_ne",
+        "congrArg",
+        "congrFun'",
+        "eq_intCast"
+      ],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_721",
+      "conclusion": {
+        "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.3185318"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), x r = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "AddGroup.instFGInt",
+        "AddMonoid.fg_of_addGroup_fg",
+        "AddMonoidAlgebra.instIsDomainOfIsCancelAddOfUniqueSums",
+        "AffineAddMonoid.to_twoUniqueSums",
+        "Int.instIsAddTorsionFree",
+        "Int.instIsDomain",
+        "Int.instIsStrictOrderedRing",
+        "IsAffineAddMonoid.toFG",
+        "IsAffineAddMonoid.toIsCancelAdd",
+        "IsOrderedCancelAddMonoid.toIsCancelAdd",
+        "IsStrictOrderedRing.toIsOrderedCancelAddMonoid",
+        "Rollout_p3019_laurent_circulant_kernel.zmod_recur_eq_zero",
+        "TwoUniqueSums.toUniqueSums"
+      ],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "∀ (r : ZMod (a + b)), x r + t * x (r + 1) = 0",
+          "origin": "derived",
+          "name": "hrec",
+          "fvar_id": "_uniq.3181602"
+        },
+        {
+          "statement": "t ^ (a + b) ≠ (-1) ^ (a + b)",
+          "origin": "derived",
+          "name": "ht",
+          "fvar_id": "_uniq.3185318"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_722",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), x r = 0",
+        "origin": "derived",
+        "name": "hx",
+        "fvar_id": "_uniq.3194189"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "a.Coprime (a + b)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Nat.coprime_self_add_right"
+      ],
+      "premises": [
+        {
+          "statement": "a.Coprime b",
+          "origin": "local_assumption",
+          "name": "hab_coprime",
+          "fvar_id": "_uniq.3178034"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_723",
+      "conclusion": {
+        "statement": "a.Coprime (a + b)",
+        "origin": "derived",
+        "name": "hcop",
+        "fvar_id": "_uniq.3194208"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Iff.mp",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.to_eq",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_neg",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Abel.subst_into_addg",
+        "Mathlib.Tactic.Abel.subst_into_negg",
+        "Mathlib.Tactic.Abel.term_add_constg",
+        "Mathlib.Tactic.Abel.term_add_termg",
+        "Mathlib.Tactic.Abel.term_atomg",
+        "Mathlib.Tactic.Abel.term_neg",
+        "Mathlib.Tactic.Abel.unfold_sub",
+        "Mathlib.Tactic.Abel.zero_termg",
+        "congrArg",
+        "neg_zero",
+        "sub_eq_zero",
+        "zero_add"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (r : ZMod (a + b)), x r = 0",
+          "origin": "derived",
+          "name": "hx",
+          "fvar_id": "_uniq.3194189"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_724",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+        "origin": "derived",
+        "name": "hwinv",
+        "fvar_id": "_uniq.3194769"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i j : ZMod (a + b)), w i = w j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3019_laurent_circulant_kernel.eq_of_forall_sub_natCast_zmod"
+      ],
+      "premises": [
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "a.Coprime (a + b)",
+          "origin": "derived",
+          "name": "hcop",
+          "fvar_id": "_uniq.3194208"
+        },
+        {
+          "statement": "∀ (r : ZMod (a + b)), w r = w (r - ↑a)",
+          "origin": "derived",
+          "name": "hwinv",
+          "fvar_id": "_uniq.3194769"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_725",
+      "conclusion": {
+        "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+        "origin": "derived",
+        "name": "hweq",
+        "fvar_id": "_uniq.3197026"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Iff.mp",
+        "Iff.mpr",
+        "Rollout_p3019_laurent_circulant_kernel.zmod_window_succ_sub",
+        "sub_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "0 < a",
+          "origin": "local_assumption",
+          "name": "ha",
+          "fvar_id": "_uniq.3178032"
+        },
+        {
+          "statement": "NeZero (a + b)",
+          "origin": "derived",
+          "name": "hNe",
+          "fvar_id": "_uniq.3178037"
+        },
+        {
+          "statement": "∀ (i j : ZMod (a + b)), w i = w j",
+          "origin": "derived",
+          "name": "hweq",
+          "fvar_id": "_uniq.3197026"
+        }
+      ],
+      "parent": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+      "id": "local_726",
+      "conclusion": {
+        "statement": "∀ (r : ZMod (a + b)), v r = v (r - ↑a)",
+        "origin": "derived",
+        "name": "hvinv",
+        "fvar_id": "_uniq.3197113"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:13:15: warning: unused variable `p₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:49:5: warning: unused variable `hp₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1290:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1312:5: warning: unused variable `hp₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1315:5: warning: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1559:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:1919:13: warning: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:15: warning: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2141:28: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2453:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:2905:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:16: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲z̵e̵r̵o̵_̵a̵d̵d̵,̵ ̵neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:26: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3250:35: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n  ̵  ̵ ̵ ̵ ̵ ̵add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:28: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3259:37: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵o̵n̵e̵_̵m̵u̵l̵]̵n̲e̲g̲_̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:30: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3268:39: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hZ, hA0, hN0, hP0, hAp0, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n            add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:32: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3273:41: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n              add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3281:80: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3282:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hAp, hA', hN', hZ', hP', if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n                add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:44: warning: This simp argument is unused:\n  if_true\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, i̵f̵_̵t̵r̵u̵e̵,̵ ̵if_false, smul_eq_mul, mul_one, mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3284:76: warning: This simp argument is unused:\n  mul_one\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, m̵u̵l̵_̵o̵n̵e̵,̵ ̵mul_zero, add_zero,\n  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲zero_add, neg_mul, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:34: warning: This simp argument is unused:\n  neg_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, n̵e̵g̵_̵m̵u̵l̵,̵ ̵one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3285:43: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  simp only [hA, hN, hZ, hP, hAp, if_true, if_false, smul_eq_mul, mul_one, mul_zero,\n               ̵ ̵add_zero, zero_add, neg_mul,̵ ̵o̵n̵e̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_19390104429fa091/proofs.lean:3651:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_19390104429fa091/proofs.lean",
+    "namespace": "Rollout_p3019_laurent_circulant_kernel",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p3019_laurent_circulant_kernel.laurent_circulant_kernel",
+    "proof_sha256": "b6a8aeb5f6cba14cd040dcebf37ed3a15e11ecc23519a9600b29aa44d45044e4"
+  }
+}

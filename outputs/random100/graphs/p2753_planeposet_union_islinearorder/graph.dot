@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hcompat_aa8529f6" [shape=box, color="#178F82", label="hcompat\n∀ {x y : P}, x ≠ y → (leH x y ∨ leH y x ↔ ¬(leR x y ∨ leR y x))"];
+  "m_hh_048a0afc" [shape=box, color="#178F82", label="hH\nIsPartialOrder P leH"];
+  "m_hr_c4b02e18" [shape=box, color="#178F82", label="hR\nIsPartialOrder P leR"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nIsLinearOrder P fun x y => leH x y ∨ leR x y"];
+  "r_h_goal" [shape=diamond, label="IsTrans.trans + Std.Antisymm.antisymm + Std.Refl.refl", color="#D97706"];
+  "m_hh_048a0afc" -> "r_h_goal";
+  "m_hr_c4b02e18" -> "r_h_goal";
+  "m_hcompat_aa8529f6" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

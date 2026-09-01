@@ -1,0 +1,10 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hb_4390093d" [shape=box, color="#178F82", label="hB\nB.Nonempty"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet Q := { x // x ∉ B } ⊕ Unit; let r := fun x y => match x, y with | Sum.inr val, Sum.inr val_1 => True | Sum.inr val, Sum.inl y => ∃ b ∈ B, b ≤ ↑y | Sum.inl x, Sum.inr val => ∃ b ∈ B, ↑x ≤ b | Sum.inl x, Sum.inl y => ↑x ≤ ↑y ∨ ∃ b ∈ B, ∃ b' ∈ B, ↑x ≤ b ∧ b' ≤ ↑y; IsPartialOrder Q r ↔ B.OrdConnected"];
+  "r_h_goal" [shape=diamond, label="IsPartialOrder.toAntisymm + Set.OrdConnected.out' + Set.mem_Icc", color="#D97706"];
+  "m_hb_4390093d" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

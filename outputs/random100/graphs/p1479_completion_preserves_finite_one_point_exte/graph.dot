@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hdiam_5fffba26" [shape=box, color="#178F82", label="hdiam\nMetric.diam Set.univ = 1"];
+  "m_hext_688f23a4" [shape=box, color="#178F82", label="hext\n∀ (F : Set A), F.Finite → ∀ (f : ↑F → ↑(Set.Icc 0 1)), (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) → ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nMetric.diam Set.univ = 1 ∧ ∀ (F : Set (UniformSpace.Completion A)), F.Finite → ∀ (f : ↑F → ↑(Set.Icc 0 1)), (∀ (x y : ↑F), |↑(f x) - ↑(f y)| ≤ dist ↑x ↑y ∧ dist ↑x ↑y ≤ ↑(f x) + ↑(f y)) → ∃ z, ∀ (x : ↑F), dist z ↑x = ↑(f x)"];
+  "n_hdiamx_5d5e1a93" [shape=box, color="#D97706", label="hdiamX\nMetric.diam Set.univ = 1"];
+  "r_h_001_hdiamx" [shape=diamond, label="completion_diam_eq", color="#D97706"];
+  "m_hdiam_5fffba26" -> "r_h_001_hdiamx";
+  "r_h_001_hdiamx" -> "n_hdiamx_5d5e1a93";
+  "r_h_goal" [shape=diamond, label="Finite.exists_equiv_fin", color="#D97706"];
+  "m_hext_688f23a4" -> "r_h_goal";
+  "n_hdiamx_5d5e1a93" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

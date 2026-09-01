@@ -1,0 +1,2718 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0246_formalpowerseries_automorphism_exact_seque",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 246,
+    "source": "math_0112211",
+    "theorem_name": "formalPowerSeries_automorphism_exact_sequence",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/246",
+    "reconstructed_proof": "../../candidates/p0246_formalpowerseries_automorphism_exact_seque/proof.lean",
+    "raw_elaboration": "../../candidates/p0246_formalpowerseries_automorphism_exact_seque/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0246_formalpowerseries_automorphism_exact_seque.formalPowerSeries_automorphism_exact_sequence",
+    "verification_call_id": "verify_submission:366",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "8fca2d9d47864411a13fe5cf51fc66dc9cb51f610c367e248277ea0507cb00dc",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "4e4dbafae4bc57e0701a27de5eb39add92846a2bcfe7e3bc23c9943c6decae3a",
+    "concrete_semantic_topology_sha256": "8fca2d9d47864411a13fe5cf51fc66dc9cb51f610c367e248277ea0507cb00dc"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hn_bb6a88ff",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hN",
+      "lean_fvar_id": "1",
+      "statement": "2 ≤ N"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∃ Aut AutN, (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧ (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ AutN ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧ ∃ ι μ, (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧ (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧ (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧ Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN"
+    },
+    {
+      "id": "n_hnpos_a2ed0faf",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hNpos",
+      "lean_fvar_id": "2",
+      "statement": "0 < N"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hnpos",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_bb6a88ff"
+      ],
+      "conclusion": "n_hnpos_a2ed0faf",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "proof_term_composition",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_2",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hN",
+              "statement": "2 ≤ N"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "2",
+            "name": "hNpos",
+            "statement": "0 < N"
+          }
+        },
+        "lean_dependency_sha256": "48ded010c915227b36ebc1998f304876937861e3f0a29c99d912e68a6450ea79",
+        "kernel_witness_check": {
+          "proof_type": "0 < N",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_bb6a88ff",
+        "n_hnpos_a2ed0faf"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.ne_of_gt + PowerSeries.expand_X + algEquiv_continuous",
+        "items": [
+          "Nat.ne_of_gt",
+          "PowerSeries.expand_X",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.algEquiv_continuous",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.exists_lift_algEquiv_expand",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.image_range_expand_eq_of_lift",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.restrictExpandEquiv_spec",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.restrictExpandMonoidHom_lift",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.rootScaleAlgEquiv_X"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.algEquiv_continuous",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.exists_lift_algEquiv_expand",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.image_range_expand_eq_of_lift",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.restrictExpandEquiv_spec",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.restrictExpandMonoidHom_lift",
+          "Rollout_p0246_formalpowerseries_automorphism_exact_seque.FPSAut.rootScaleAlgEquiv_X"
+        ],
+        "mathlib_items": [
+          "Nat.ne_of_gt",
+          "PowerSeries.expand_X"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨Aut, AutN, ?_, ?_, ?_⟩\n  · intro ρ\n    constructor\n    · intro _\n      exact algEquiv_continuous ρ\n    · intro _\n      trivial\n  · intro ρ\n    constructor\n    · intro hρ\n      have hc := algEquiv_continuous ρ\n      exact ⟨hc.1, hc.2, hρ⟩\n    · intro hρ\n      exact hρ.2.2\n  · let ι : rootsOfUnity N ℂ →* AutN := rootScaleMonoidHom hNpos\n    let μ : AutN →* Aut := restrictExpandMonoidHom (Nat.ne_of_gt hNpos)\n    refine ⟨ι, μ, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩\n    · intro ρ f\n      exact restrictExpandEquiv_spec (Nat.ne_of_gt hNpos) ρ.1 ρ.2 f\n    · intro ρ\n      calc\n        e ((μ ρ : G) PowerSeries.X) = (ρ : G) (e PowerSeries.X) :=\n          restrictExpandEquiv_spec (Nat.ne_of_gt hNpos) ρ.1 ρ.2 PowerSeries.X\n        _ = ((ρ : G) PowerSeries.X) ^ N := by\n          rw [show e PowerSeries.X = (PowerSeries.X : A) ^ N by\n            dsimp [e]\n            exact PowerSeries.expand_X N (Nat.ne_of_gt hNpos)]\n          simp\n    · intro ε\n      exact rootScaleAlgEquiv_X ε\n    · exact rootScaleMonoidHom_injective hNpos\n    · intro y\n      obtain ⟨σ, hcomm⟩ := exists_lift_algEquiv_expand hNpos (y.1 : G)\n      let hmem : (σ : G) '' S = S :=\n        image_range_expand_eq_of_lift hNpos σ y.1 hcomm\n      refine ⟨⟨σ, hmem⟩, ?_⟩\n      apply Subtype.ext\n      exact restrictExpandMonoidHom_lift hNpos σ y.1 hcomm\n    · exact rootScaleMonoidHom_range_eq_restrictExpandMonoidHom_ker hNpos\n    · exact rootScaleMonoidHom_range_le_center hNpos",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hN",
+              "statement": "2 ≤ N"
+            },
+            {
+              "fvar_id": "2",
+              "name": "hNpos",
+              "statement": "0 < N"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∃ Aut AutN, (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧ (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ AutN ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧ ∃ ι μ, (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧ (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧ (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧ Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN"
+          }
+        },
+        "lean_dependency_sha256": "eeeeecc684561992addae40f3f005151263c427d71a672364f3be1f6c86df156",
+        "kernel_witness_check": {
+          "proof_type": "∃ Aut AutN,\n  (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ), ρ ∈ Aut ↔ Continuous ⇑ρ ∧ Continuous ⇑ρ.symm) ∧\n    (∀ (ρ : PowerSeries ℂ ≃ₐ[ℂ] PowerSeries ℂ),\n        ρ ∈ AutN ↔\n          Continuous ⇑ρ ∧\n            Continuous ⇑ρ.symm ∧ ⇑ρ '' Set.range ⇑(PowerSeries.expand N ⋯) = Set.range ⇑(PowerSeries.expand N ⋯)) ∧\n      ∃ ι μ,\n        (∀ (ρ : ↥AutN) (f : PowerSeries ℂ), (PowerSeries.expand N ⋯) (↑(μ ρ) f) = ↑ρ ((PowerSeries.expand N ⋯) f)) ∧\n          (∀ (ρ : ↥AutN), (PowerSeries.expand N ⋯) (↑(μ ρ) PowerSeries.X) = ↑ρ PowerSeries.X ^ N) ∧\n            (∀ (ε : ↥(rootsOfUnity N ℂ)), ↑(ι ε) PowerSeries.X = (algebraMap ℂ (PowerSeries ℂ)) ↑↑ε * PowerSeries.X) ∧\n              Function.Injective ⇑ι ∧ Function.Surjective ⇑μ ∧ ι.range = μ.ker ∧ ι.range ≤ Subgroup.center ↥AutN",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "PowerSeries.expand_X"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "formal power series continuous algebra automorphism topology X determines automorphism",
+      "declarations": [
+        "ContinuousLinearEquiv.automorphismGroup",
+        "MvPowerSeries.WithPiTopology.instContinuousSMul",
+        "PowerSeries.X",
+        "PowerSeries.WithPiTopology.continuous_coeff",
+        "MvPowerSeries.aeval_unique",
+        "PowerSeries.WithPiTopology.continuous_constantCoeff",
+        "LinearEquiv.automorphismGroup.toLinearMapMonoidHom",
+        "PowerSeries.continuous_aeval",
+        "LinearEquiv.automorphismGroup",
+        "LinearEquiv.automorphismGroup.toLinearMapMonoidHom_apply"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "leanfinder:1",
+      "tool": "leanfinder",
+      "query": "PowerSeries expand algebra map nth roots automorphisms formal power series",
+      "declarations": [
+        "PowerSeries.expand",
+        "PowerSeries.support_expand",
+        "PowerSeries.coeff_expand",
+        "PowerSeries",
+        "MvPowerSeries.map_iterateFrobenius_expand",
+        "PowerSeries.order_expand",
+        "MvPowerSeries.expand",
+        "PowerSeries.expand_one",
+        "MvPowerSeries.map_expand",
+        "PowerSeries.map_expand"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "PowerSeries.expand",
+      "declarations": [
+        "PowerSeries.expand",
+        "PowerSeries.expand_one",
+        "PowerSeries.expand_one_apply",
+        "PowerSeries.order_expand",
+        "PowerSeries.expand_X",
+        "PowerSeries.expand_mul_eq_comp",
+        "PowerSeries.expand_apply",
+        "PowerSeries.support_expand",
+        "PowerSeries.support_expand_subset",
+        "PowerSeries.expand_C"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "PowerSeries.WithPiTopology",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "rootsOfUnity",
+      "declarations": [
+        "rootsOfUnity",
+        "rootsOfUnity_one",
+        "rootsOfUnity_zero",
+        "rootsOfUnity_inf_rootsOfUnity",
+        "rootsOfUnity_eq_ker",
+        "ker_zpowGroupHom_eq_rootsOfUnity",
+        "rootsOfUnity_le_of_dvd",
+        "instSubsingletonSubtypeUnitsMemSubgroupRootsOfUnityOfNatNat",
+        "Units.val_set_image_rootsOfUnity_one",
+        "Units.val_set_image_rootsOfUnity"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "AlgEquiv Continuous",
+      "declarations": [
+        "AlgEquiv.refl",
+        "AlgEquiv.aut",
+        "AlgEquiv.instInhabited",
+        "ULift.algEquiv",
+        "AlgEquiv.Simps.apply",
+        "AlgEquiv.Simps.symm_apply",
+        "AlgEquiv.instEquivLike",
+        "AlgEquiv.instFunLike",
+        "AlgEquiv.toEquiv",
+        "AlgEquiv.Simps.toEquiv"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "PowerSeries WithPiTopology uniform space complete linear topology instances",
+      "declarations": [
+        "MvPowerSeries.WithPiTopology.instUniformSpace",
+        "PowerSeries.WithPiTopology.instUniformSpace",
+        "MvPowerSeries.WithPiTopology.instCompleteSpace",
+        "Lean.Nat.mkInstNatPow",
+        "PowerSeries.WithPiTopology.instCompleteSpace",
+        "Mathlib.Meta.FunProp.",
+        "MvPowerSeries.WithPiTopology.instT0Space",
+        "PowerSeries.WithPiTopology.instT0Space",
+        "PowerSeries.WithPiTopology.instT2Space",
+        "WithTopology"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "leanfinder:8",
+      "tool": "leanfinder",
+      "query": "continuous algebra homomorphism formal power series determined X substitution",
+      "declarations": [
+        "PowerSeries.coe_substAlgHom",
+        "PowerSeries.substAlgHom",
+        "MvPowerSeries.comp_substAlgHom",
+        "MvPowerSeries.substAlgHom_eq_aeval",
+        "MvPowerSeries.substAlgHom",
+        "PowerSeries.X",
+        "PowerSeries.X_apply",
+        "PowerSeries.X_inv",
+        "PowerSeries.X_eq",
+        "Stream'.homomorphism"
+      ],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "PowerSeries aeval AlgEquiv substitution inverse condition coefficient degree one",
+      "declarations": [
+        "PowerSeries.substAlgHom_eq_aeval",
+        "PowerSeries.aeval",
+        "PowerSeries",
+        "PowerSeries.continuous_aeval",
+        "Lean.Grind.CommRing.Expr.toPoly_k",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith",
+        "PowerSeries.coe_aeval",
+        "MvPowerSeries.aeval",
+        "Lean.Meta.Simp.simpConst",
+        "Lean.Grind.CommRing.norm_int_cert"
+      ],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "PowerSeries.HasEval",
+      "declarations": [
+        "PowerSeries.HasEval",
+        "PowerSeries.hasEval",
+        "PowerSeries.hasEval_iff",
+        "PowerSeries.HasEval.X",
+        "PowerSeries.hasEval_def",
+        "PowerSeries.HasEval.zero",
+        "PowerSeries.HasEval.mono",
+        "PowerSeries.HasEval.mul_left",
+        "PowerSeries.HasEval.mul_right",
+        "PowerSeries.HasEval.add"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "PowerSeries.aeval_X",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "PowerSeries.aeval_apply",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "PowerSeries.subst_X",
+      "declarations": [
+        "PowerSeries.subst_X"
+      ],
+      "call_turn": 11,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "PowerSeries.subst_const",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 19
+    },
+    {
+      "event_id": "leanfinder:15",
+      "tool": "leanfinder",
+      "query": "power series topologically nilpotent constant coefficient zero product topology",
+      "declarations": [
+        "MvPowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_zero",
+        "MvPowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_isNilpotent",
+        "PowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_zero",
+        "PowerSeries",
+        "PowerSeries.constantCoeff",
+        "MvPowerSeries.LinearTopology.isTopologicallyNilpotent_of_constantCoeff",
+        "MvPowerSeries.WithPiTopology.isTopologicallyNilpotent_iff_constantCoeff_isNilpotent",
+        "MvPowerSeries.LinearTopology.isTopologicallyNilpotent_iff_constantCoeff",
+        "PowerSeries.WithPiTopology.isTopologicallyNilpotent_iff_constantCoeff_isNilpotent",
+        "PowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_isNilpotent"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "PowerSeries HasEval constant coefficient zero",
+      "declarations": [
+        "PowerSeries.constantCoeff_zero",
+        "MvPowerSeries.constantCoeff_zero",
+        "PowerSeries.HasEval.zero",
+        "Lean.Nat.mkInstNatPow",
+        "MvPowerSeries.HasEval.zero",
+        "Int.Linear.Poly.checkCoeffs",
+        "PowerSeries.hasEval",
+        "PowerSeries.HasEval",
+        "PowerSeries.coeff",
+        "Lean.Omega.Coeffs.get"
+      ],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "PowerSeries.HasEval (_ : PowerSeries _)",
+      "declarations": [
+        "PowerSeries.HasEval.X"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "IsTopologicallyNilpotent (PowerSeries.X : PowerSeries _)",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "IsTopologicallyNilpotent (_ * PowerSeries.X)",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "PowerSeries.constantCoeff (_ - PowerSeries.C _)",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "IsLinearTopology (PowerSeries _) (PowerSeries _)",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "leanfinder:24",
+      "tool": "leanfinder",
+      "query": "PowerSeries WithPiTopology linear topology",
+      "declarations": [
+        "PowerSeries.WithPiTopology.continuous_C",
+        "PowerSeries.WithPiTopology.continuous_coeff",
+        "PowerSeries.WithPiTopology.instT0Space",
+        "PowerSeries.WithPiTopology.instT2Space",
+        "Lean.Meta.Match.Overlaps.overlapping",
+        "WithTopology",
+        "PowerSeries.WithPiTopology.summable_iff_summable_coeff",
+        "Lean.Omega.Coeffs.get",
+        "Lean.Meta.Grind.Theorems.getOrigins",
+        "Nat.Partition.multipliable_powerSeriesMk_card_restricted"
+      ],
+      "call_turn": 31,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "MvPowerSeries.WithPiTopology.inst",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "IsLinearTopology (MvPowerSeries _ _)",
+      "declarations": [
+        "MvPowerSeries.LinearTopology.instIsLinearTopologyOfMulOpposite"
+      ],
+      "call_turn": 31,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "ContinuousSMul _ (PowerSeries _)",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "IsLinearTopology ℂ ℂ",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "IsLinearTopology _ _",
+      "declarations": [
+        "IsLinearTopology.instOfDiscreteTopology",
+        "IsLinearTopology.instMulOpposite",
+        "IsLinearTopology.tendsto_mul_zero_of_right",
+        "IsLinearTopology.tendsto_mul_zero_of_left",
+        "isLinearTopology_iff_hasBasis_open_ideal",
+        "IsLinearTopology.hasBasis_open_ideal",
+        "IsLinearTopology.hasBasis_open_twoSidedIdeal",
+        "isLinearTopology_iff_hasBasis_open_twoSidedIdeal",
+        "IsLinearTopology.hasBasis_ideal",
+        "IsLinearTopology.hasBasis_open_submodule"
+      ],
+      "call_turn": 39,
+      "result_turn": 41
+    },
+    {
+      "event_id": "leanfinder:31",
+      "tool": "leanfinder",
+      "query": "field topology linear topology instance",
+      "declarations": [
+        "IsLinearTopology",
+        "WithTopology.instLinearOrder",
+        "Lean.Meta.Grind.Arith.Linear.getLawfulOrderLTInst",
+        "IsModuleTopology",
+        "Ideal.isLinearTopology",
+        "Topology.WithLawson.instTopologicalSpace",
+        "DiscreteTopology",
+        "WithTopology.delabToTopology",
+        "NormedField.discreteTopology_or_nontriviallyNormedField",
+        "Topology."
+      ],
+      "call_turn": 39,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "instIsLinearTopology",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "IsLinearTopology.of_subsingleton",
+      "declarations": [],
+      "call_turn": 39,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "PowerSeries LinearTopology",
+      "declarations": [],
+      "call_turn": 45,
+      "result_turn": 46
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "univariate formal power series product topology is linear topology ideals X powers",
+      "declarations": [
+        "PowerSeries.WithPiTopology.instUniformSpace",
+        "MvPowerSeries.LinearTopology.basis",
+        "MvPowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_isNilpotent",
+        "PowerSeries.X",
+        "MvPowerSeries.WithPiTopology.instT0Space",
+        "MvPowerSeries.WithPiTopology.instT2Space",
+        "MvPowerSeries.LinearTopology.basis_le_iff",
+        "MvPowerSeries.LinearTopology.instIsLinearTopologyMulOpposite",
+        "MvPowerSeries.WithPiTopology.isTopologicallyNilpotent_iff_constantCoeff_isNilpotent",
+        "MvPowerSeries.LinearTopology.basis_le"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "leanfinder:36",
+      "tool": "leanfinder",
+      "query": "substitution power series continuous product topology constant coefficient zero",
+      "declarations": [
+        "PowerSeries.constantCoeff_zero",
+        "MvPowerSeries.WithPiTopology.continuous_C",
+        "MvPowerSeries.WithPiTopology.continuous_constantCoeff",
+        "PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "PowerSeries.WithPiTopology.continuous_constantCoeff",
+        "PowerSeries.constantCoeff",
+        "MvPowerSeries.continuous_subst",
+        "PowerSeries.WithPiTopology.isTopologicallyNilpotent_of_constantCoeff_zero",
+        "PowerSeries.coeff_zero_eq_constantCoeff",
+        "PowerSeries"
+      ],
+      "call_turn": 49,
+      "result_turn": 50
+    },
+    {
+      "event_id": "leanfinder:37",
+      "tool": "leanfinder",
+      "query": "continuous map power series iff coefficients continuous product topology",
+      "declarations": [
+        "PowerSeries.WithPiTopology.continuous_C",
+        "MvPowerSeries.WithPiTopology.continuous_C",
+        "MvPowerSeries.WithPiTopology.continuous_coeff",
+        "PowerSeries.WithPiTopology.continuous_coeff",
+        "PowerSeries.WithPiTopology.continuous_constantCoeff",
+        "PowerSeries",
+        "PowerSeries.continuous_eval",
+        "MvPowerSeries.WithPiTopology.continuous_constantCoeff",
+        "PowerSeries.WithPiTopology.uniformContinuous_coeff",
+        "PowerSeries.continuous_aeval"
+      ],
+      "call_turn": 49,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "Continuous (PowerSeries.subst _)",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "PowerSeries.continuous_subst",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "continuous_substAlgHom",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "continuous_iff_coeff",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "MvPowerSeries continuous substAlgHom",
+      "declarations": [],
+      "call_turn": 49,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "PowerSeries.C_eq_algebraMap",
+      "declarations": [
+        "PowerSeries.C_eq_algebraMap"
+      ],
+      "call_turn": 63,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "_ (PowerSeries.C _) = PowerSeries.C _",
+      "declarations": [],
+      "call_turn": 63,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "AlgHom PowerSeries.C",
+      "declarations": [
+        "AlgHom.id",
+        "AlgHom.End",
+        "Algebra.ofId",
+        "Algebra.subsingleton_id",
+        "RingHom.toNatAlgHom",
+        "AlgHom.Simps.apply",
+        "uniqueOfRight",
+        "AlgHom.funLike",
+        "RingHom.toIntAlgHom",
+        "AlgHom.toRingHom"
+      ],
+      "call_turn": 63,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "PowerSeries.constantCoeff_C",
+      "declarations": [
+        "PowerSeries.constantCoeff_C"
+      ],
+      "call_turn": 63,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "PowerSeries.eval₂",
+      "declarations": [
+        "PowerSeries.eval",
+        "PowerSeries.uniformContinuous_eval",
+        "PowerSeries.continuous_eval",
+        "PowerSeries.coe_eval",
+        "PowerSeries.coe_aeval",
+        "PowerSeries.comp_eval"
+      ],
+      "call_turn": 74,
+      "result_turn": 75
+    },
+    {
+      "event_id": "leanfinder:54",
+      "tool": "leanfinder",
+      "query": "PowerSeries product topology continuous map iff every coefficient continuous",
+      "declarations": [
+        "PowerSeries.WithPiTopology.continuous_C",
+        "MvPowerSeries.WithPiTopology.continuous_C",
+        "PowerSeries",
+        "PowerSeries.WithPiTopology.continuous_constantCoeff",
+        "MvPowerSeries.WithPiTopology.continuous_coeff",
+        "MvPowerSeries.WithPiTopology.continuous_constantCoeff",
+        "PowerSeries.WithPiTopology.uniformContinuous_coeff",
+        "PowerSeries.continuous_eval",
+        "PowerSeries.WithPiTopology.continuous_coeff",
+        "PowerSeries.continuous_aeval"
+      ],
+      "call_turn": 76,
+      "result_turn": 77
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "Continuous _ (PowerSeries.coeff _)",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "continuous_pi_iff",
+      "declarations": [
+        "continuous_pi_iff"
+      ],
+      "call_turn": 76,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "PowerSeries topology induced coeff",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "PowerSeries.instTopologicalSpace induced",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "PowerSeries.WithPiTopology.instTopologicalSpace = induced",
+      "declarations": [],
+      "call_turn": 76,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "PowerSeries.trunc",
+      "declarations": [
+        "PowerSeries.trunc",
+        "PowerSeries.trunc_X_of",
+        "PowerSeries.degree_trunc_lt",
+        "PowerSeries.trunc_X",
+        "PowerSeries.trunc_one_X",
+        "PowerSeries.trunc_zero'",
+        "PowerSeries.natDegree_trunc_lt",
+        "PowerSeries.trunc_one",
+        "PowerSeries.trunc_X_pow_self_mul",
+        "PowerSeries.trunc_coe_eq_self"
+      ],
+      "call_turn": 83,
+      "result_turn": 84
+    },
+    {
+      "event_id": "leanfinder:61",
+      "tool": "leanfinder",
+      "query": "PowerSeries truncation polynomial coefficient less degree",
+      "declarations": [
+        "PowerSeries.degree_trunc_lt",
+        "PowerSeries.trunc_coe_eq_self",
+        "PowerSeries",
+        "Polynomial.toPowerSeries",
+        "PowerSeries.coeff",
+        "PowerSeries.trunc_one",
+        "PowerSeries.trunc_apply",
+        "MvPowerSeries.coeff_truncTotal_pow",
+        "PowerSeries.algebraPolynomial'",
+        "PowerSeries.algebraPolynomial"
+      ],
+      "call_turn": 83,
+      "result_turn": 85
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_trunc",
+      "declarations": [
+        "PowerSeries.coeff_trunc"
+      ],
+      "call_turn": 83,
+      "result_turn": 86
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "PowerSeries.trunc_X_pow",
+      "declarations": [],
+      "call_turn": 83,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff (_ % PowerSeries.X ^ _)",
+      "declarations": [],
+      "call_turn": 83,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "PowerSeries.exists_eq_add_X_pow_mul",
+      "declarations": [],
+      "call_turn": 83,
+      "result_turn": 89
+    },
+    {
+      "event_id": "leanfinder:66",
+      "tool": "leanfinder",
+      "query": "PowerSeries equals truncation plus X power times remainder",
+      "declarations": [
+        "Lean.Nat.mkInstNatPow",
+        "PowerSeries.trunc_X_pow_self_mul",
+        "Nat.mod_pow_succ",
+        "PowerSeries.idealX",
+        "PowerSeries.X",
+        "PowerSeries.coeff_X",
+        "PowerSeries.rescale_X",
+        "Lean.mkIntPowNat",
+        "PowerSeries.X_mul",
+        "Mathlib.Tactic.Ring.Common.evalPow"
+      ],
+      "call_turn": 90,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "_ = ↑(PowerSeries.trunc _ _) + PowerSeries.X ^ _ * _",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "PowerSeries.X ^ _ * _ + ↑(PowerSeries.trunc _ _) = _",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 93
+    },
+    {
+      "event_id": "loogle:69",
+      "tool": "loogle",
+      "query": "PowerSeries.trunc (_ + _)",
+      "declarations": [
+        "PowerSeries.trunc_X",
+        "PowerSeries.natDegree_trunc_lt",
+        "PowerSeries.trunc_one",
+        "PowerSeries.trunc_C",
+        "PowerSeries.trunc_derivativeFun",
+        "PowerSeries.trunc_derivative"
+      ],
+      "call_turn": 90,
+      "result_turn": 94
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff (_ + PowerSeries.X ^ _ * _)",
+      "declarations": [],
+      "call_turn": 90,
+      "result_turn": 95
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_X_pow_mul",
+      "declarations": [
+        "PowerSeries.coeff_X_pow_mul"
+      ],
+      "call_turn": 96,
+      "result_turn": 97
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_mul_X_pow",
+      "declarations": [
+        "PowerSeries.coeff_mul_X_pow"
+      ],
+      "call_turn": 96,
+      "result_turn": 98
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_X_pow",
+      "declarations": [
+        "PowerSeries.coeff_X_pow"
+      ],
+      "call_turn": 96,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff (PowerSeries.X ^ _ * _) _",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "PowerSeries.order (PowerSeries.X ^ _ * _)",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_eq_zero_of_lt_order",
+      "declarations": [],
+      "call_turn": 96,
+      "result_turn": 102
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "PowerSeries.X ^ _ ∣ _",
+      "declarations": [
+        "PowerSeries.X_pow_dvd_iff",
+        "PowerSeries.X_pow_order_dvd"
+      ],
+      "call_turn": 103,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "PowerSeries.dvd_iff",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 105
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_eq_zero",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 106
+    },
+    {
+      "event_id": "leanfinder:80",
+      "tool": "leanfinder",
+      "query": "power series divisible by X^n iff coefficients below n zero",
+      "declarations": [
+        "PowerSeries.X_dvd_iff",
+        "PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+        "PowerSeries.divXPowOrder_zero",
+        "PowerSeries.X_pow_order_dvd",
+        "ModN",
+        "PowerSeries.X_pow_dvd_iff",
+        "PowerSeries.X",
+        "PowerSeries.constantCoeff_divXPowOrder_eq_zero_iff",
+        "MvPowerSeries.X_pow_dvd_iff",
+        "SSet.N"
+      ],
+      "call_turn": 103,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "PowerSeries.eq_trunc_iff",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "PowerSeries.trunc_sub_self",
+      "declarations": [],
+      "call_turn": 103,
+      "result_turn": 109
+    },
+    {
+      "event_id": "leanfinder:83",
+      "tool": "leanfinder",
+      "query": "coefficient algebra homomorphism power series truncation constant coefficient X zero",
+      "declarations": [
+        "PowerSeries.constantCoeff_zero",
+        "MvPowerSeries.constantCoeff",
+        "PowerSeries.mapAlgHom",
+        "PowerSeries.constantCoeff",
+        "PowerSeries.constantCoeff_X",
+        "MvPowerSeries.constantCoeff_map",
+        "PowerSeries.coeff_zero_eq_constantCoeff",
+        "ordinaryHypergeometricCoefficient",
+        "PowerSeries.X",
+        "MvPowerSeries.constantCoeff_X"
+      ],
+      "call_turn": 110,
+      "result_turn": 111
+    },
+    {
+      "event_id": "leanfinder:84",
+      "tool": "leanfinder",
+      "query": "PowerSeries algebra endomorphism equals polynomial evaluation truncation coefficients",
+      "declarations": [
+        "Polynomial.coeToPowerSeries.algHom_apply",
+        "PowerSeries.aeval_coe",
+        "PowerSeries",
+        "MvPowerSeries.truncTotalAlgHom",
+        "Polynomial.aeval_endomorphism",
+        "PowerSeries.algebraMap_apply'",
+        "MvPowerSeries.algebraMvPolynomial",
+        "PowerSeries.algebraPolynomial'",
+        "PowerSeries.algebraPolynomial",
+        "PowerSeries.algebraPowerSeries"
+      ],
+      "call_turn": 110,
+      "result_turn": 112
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "PowerSeries.trunc (⇑_ _)",
+      "declarations": [],
+      "call_turn": 110,
+      "result_turn": 113
+    },
+    {
+      "event_id": "loogle:86",
+      "tool": "loogle",
+      "query": "PowerSeries.map_trunc",
+      "declarations": [],
+      "call_turn": 110,
+      "result_turn": 114
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_map",
+      "declarations": [
+        "PowerSeries.coeff_map"
+      ],
+      "call_turn": 110,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Polynomial.eval₂ _ _ (PowerSeries.trunc _ _)",
+      "declarations": [
+        "PowerSeries.eval"
+      ],
+      "call_turn": 110,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "AlgHom Polynomial.coeToPowerSeries",
+      "declarations": [],
+      "call_turn": 117,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "_ (↑_ : PowerSeries _) = Polynomial.eval₂ _ _ _",
+      "declarations": [],
+      "call_turn": 117,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "Polynomial.coeToPowerSeries.algHom",
+      "declarations": [
+        "Polynomial.coeToPowerSeries.algHom",
+        "Polynomial.coeToPowerSeries.algHom_apply",
+        "Polynomial.IsDistinguishedAt.algEquivQuotient_apply",
+        "PowerSeries.IsWeierstrassFactorizationAt.algEquivQuotient_apply"
+      ],
+      "call_turn": 117,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:92",
+      "tool": "loogle",
+      "query": "Polynomial.aeval Tower PowerSeries",
+      "declarations": [],
+      "call_turn": 117,
+      "result_turn": 121
+    },
+    {
+      "event_id": "loogle:93",
+      "tool": "loogle",
+      "query": "map_aeval",
+      "declarations": [],
+      "call_turn": 117,
+      "result_turn": 122
+    },
+    {
+      "event_id": "loogle:94",
+      "tool": "loogle",
+      "query": "AlgHom.comp Polynomial.coeToPowerSeries",
+      "declarations": [
+        "AlgHom.comp_id",
+        "AlgHom.id_comp",
+        "Algebra.comp_ofId",
+        "AlgHom.instRingHomCompTripleComp",
+        "AlgHom.End_toSemigroup_toMul_mul",
+        "AlgHom.comp_assoc",
+        "AlgHom.cancel_left",
+        "AlgHom.cancel_right",
+        "AlgHom.comp_apply",
+        "AlgHom.coe_comp"
+      ],
+      "call_turn": 117,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:97",
+      "tool": "loogle",
+      "query": "Polynomial.aeval_def",
+      "declarations": [
+        "Polynomial.aeval_def"
+      ],
+      "call_turn": 128,
+      "result_turn": 129
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "Polynomial.aeval _ _ = Polynomial.eval₂",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "Polynomial.aeval_X",
+      "declarations": [
+        "Polynomial.aeval_X"
+      ],
+      "call_turn": 128,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:100",
+      "tool": "loogle",
+      "query": "Polynomial.aeval X _ = PowerSeries",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "Polynomial.coeToPowerSeries.algHom = Polynomial.aeval",
+      "declarations": [],
+      "call_turn": 128,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "Polynomial.aeval _ _ = ↑_",
+      "declarations": [
+        "Polynomial.aeval_X",
+        "Polynomial.aeval_def",
+        "Polynomial.aeval_natCast",
+        "Polynomial.aeval_one",
+        "Polynomial.aeval_zero",
+        "Polynomial.aeval_X_left_apply",
+        "Polynomial.aeval_X_pow",
+        "Polynomial.aeval_eq_sum_range'",
+        "Polynomial.isRoot_of_aeval_algebraMap_eq_zero",
+        "Polynomial.aeval_eq_sum_range"
+      ],
+      "call_turn": 134,
+      "result_turn": 135
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "Polynomial.aeval (PowerSeries.X : PowerSeries _)",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:104",
+      "tool": "loogle",
+      "query": "Polynomial.eval₂ (algebraMap _ _) PowerSeries.X",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 137
+    },
+    {
+      "event_id": "leanfinder:105",
+      "tool": "leanfinder",
+      "query": "polynomial aeval at power series X equals coercion power series",
+      "declarations": [
+        "PowerSeries.aeval",
+        "Lean.Grind.CommRing.Expr.toPoly_k",
+        "PowerSeries.aeval_coe",
+        "PowerSeries.coe_aeval",
+        "MvPowerSeries.aeval_coe",
+        "Polynomial.smeval_mul_X_pow",
+        "PowerSeries.comp_aeval",
+        "PowerSeries.aeval_unique",
+        "PowerSeries.X",
+        "Mathlib.Tactic.Ring.Common.evalPow"
+      ],
+      "call_turn": 134,
+      "result_turn": 138
+    },
+    {
+      "event_id": "loogle:106",
+      "tool": "loogle",
+      "query": "Polynomial.coeToPowerSeries",
+      "declarations": [
+        "Polynomial.coeToPowerSeries"
+      ],
+      "call_turn": 134,
+      "result_turn": 139
+    },
+    {
+      "event_id": "loogle:107",
+      "tool": "loogle",
+      "query": "PowerSeries.coeToPowerSeries",
+      "declarations": [],
+      "call_turn": 134,
+      "result_turn": 140
+    },
+    {
+      "event_id": "loogle:108",
+      "tool": "loogle",
+      "query": "Polynomial.algHom_ext",
+      "declarations": [
+        "Polynomial.algHom_ext"
+      ],
+      "call_turn": 141,
+      "result_turn": 142
+    },
+    {
+      "event_id": "leanfinder:116",
+      "tool": "leanfinder",
+      "query": "MvPowerSeries WithPiTopology continuous iff coefficient",
+      "declarations": [
+        "MvPowerSeries.WithPiTopology.continuous_C",
+        "MvPowerSeries.WithPiTopology.continuous_coeff",
+        "MvPowerSeries.WithPiTopology.continuous_constantCoeff",
+        "MvPowerSeries.WithPiTopology.instContinuousSMul",
+        "PowerSeries.WithPiTopology.continuous_coeff",
+        "MvPowerSeries.WithPiTopology.uniformContinuous_coeff",
+        "MvPowerSeries.WithPiTopology.hasSum_iff_hasSum_coeff",
+        "MvPowerSeries",
+        "MvPowerSeries.coeff",
+        "Nat.Partition.multipliable_powerSeriesMk_card_restricted"
+      ],
+      "call_turn": 157,
+      "result_turn": 158
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "Equiv.image_symm_eq_preimage",
+      "declarations": [
+        "Equiv.image_symm_eq_preimage"
+      ],
+      "call_turn": 175,
+      "result_turn": 176
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "_ ⁻¹' (_ '' _) = _",
+      "declarations": [
+        "Set.preimage_image_univ",
+        "Set.preimage_image_eq",
+        "Function.Injective.preimage_image",
+        "Set.preimage_image_preimage",
+        "Set.preimage_inl_image_inr",
+        "Set.preimage_inr_image_inl",
+        "sigma_mk_preimage_image_eq_self",
+        "sigma_mk_preimage_image'",
+        "Equiv.preimage_image",
+        "OrderIso.preimage_image"
+      ],
+      "call_turn": 175,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:127",
+      "tool": "loogle",
+      "query": "Set.preimage_image_eq",
+      "declarations": [
+        "Set.preimage_image_eq"
+      ],
+      "call_turn": 175,
+      "result_turn": 178
+    },
+    {
+      "event_id": "loogle:128",
+      "tool": "loogle",
+      "query": "Function.Injective.preimage_image",
+      "declarations": [
+        "Function.Injective.preimage_image"
+      ],
+      "call_turn": 175,
+      "result_turn": 179
+    },
+    {
+      "event_id": "loogle:129",
+      "tool": "loogle",
+      "query": "AlgEquiv.mul_apply",
+      "declarations": [
+        "AlgEquiv.mul_apply"
+      ],
+      "call_turn": 175,
+      "result_turn": 180
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "AlgEquiv.one_apply",
+      "declarations": [
+        "AlgEquiv.one_apply"
+      ],
+      "call_turn": 175,
+      "result_turn": 181
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "AlgEquiv.inv_apply",
+      "declarations": [],
+      "call_turn": 175,
+      "result_turn": 182
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "Function.Injective (PowerSeries.expand _ _)",
+      "declarations": [],
+      "call_turn": 191,
+      "result_turn": 192
+    },
+    {
+      "event_id": "loogle:137",
+      "tool": "loogle",
+      "query": "PowerSeries.expand_injective",
+      "declarations": [],
+      "call_turn": 191,
+      "result_turn": 193
+    },
+    {
+      "event_id": "leanfinder:138",
+      "tool": "leanfinder",
+      "query": "PowerSeries expand injective algebra hom",
+      "declarations": [
+        "PowerSeries.map_injective",
+        "MvPowerSeries.expand_comp_substAlgHom",
+        "Mathlib.Tactic.tacticAlgebraize__",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "PowerSeries.expand",
+        "PowerSeries",
+        "PowerSeries.expand_one",
+        "MvPowerSeries.mapAlgHom_apply",
+        "PowerSeries.expand_monomial",
+        "PowerSeries.expand_mul"
+      ],
+      "call_turn": 191,
+      "result_turn": 194
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_expand",
+      "declarations": [
+        "PowerSeries.coeff_expand"
+      ],
+      "call_turn": 191,
+      "result_turn": 195
+    },
+    {
+      "event_id": "loogle:140",
+      "tool": "loogle",
+      "query": "PowerSeries.expand_eq_zero",
+      "declarations": [],
+      "call_turn": 191,
+      "result_turn": 196
+    },
+    {
+      "event_id": "leanfinder:158",
+      "tool": "leanfinder",
+      "query": "formal power series nth root unit algebraically closed field",
+      "declarations": [
+        "PowerSeries.instNormalizationMonoid",
+        "PowerSeries",
+        "FormalGroup.",
+        "FormalGroup.map_toPowerSeries",
+        "FormalGroup.coeToPowerSeries",
+        "IsAlgClosed.card_roots_map_eq_natDegree_of_isUnit_leadingCoeff",
+        "IsAlgClosed.card_aroots_eq_natDegree_of_isUnit_leadingCoeff",
+        "AlgebraicClosure.hasEnoughRootsOfUnity_pow",
+        "PowerSeries.weierstrassUnit",
+        "PowerSeries.heval_unit"
+      ],
+      "call_turn": 231,
+      "result_turn": 232
+    },
+    {
+      "event_id": "leanfinder:159",
+      "tool": "leanfinder",
+      "query": "PowerSeries exists pow equal unit constant coefficient nth power",
+      "declarations": [
+        "PowerSeries.constantCoeff_invOfUnit",
+        "Lean.Nat.mkInstNatPow",
+        "PowerSeries",
+        "PowerSeries.constantCoeff",
+        "PowerSeries.isUnit_constantCoeff",
+        "PowerSeries.constantCoeff_subst_X_pow",
+        "PowerSeries.coeff",
+        "Lean.mkIntPowNat",
+        "Lean.mkNatPow",
+        "Lean.Omega.Coeffs.get"
+      ],
+      "call_turn": 231,
+      "result_turn": 233
+    },
+    {
+      "event_id": "loogle:160",
+      "tool": "loogle",
+      "query": "PowerSeries _ ^ _ = _",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 234
+    },
+    {
+      "event_id": "loogle:161",
+      "tool": "loogle",
+      "query": "PowerSeries.exists_pow",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 235
+    },
+    {
+      "event_id": "loogle:162",
+      "tool": "loogle",
+      "query": "IsUnit (PowerSeries _ ) -> _ ^ _",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 236
+    },
+    {
+      "event_id": "loogle:163",
+      "tool": "loogle",
+      "query": "PowerSeries.sqrt",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 237
+    },
+    {
+      "event_id": "loogle:164",
+      "tool": "loogle",
+      "query": "PowerSeries.IsUnit.pow",
+      "declarations": [],
+      "call_turn": 231,
+      "result_turn": 238
+    },
+    {
+      "event_id": "leanfinder:165",
+      "tool": "leanfinder",
+      "query": "power series algebraically closed field unit nth power divisible group",
+      "declarations": [
+        "PowerSeries",
+        "NNRat.cast_zpow",
+        "PowerSeries.weierstrassUnit",
+        "DividedPowers.RatAlgebra.dpow_eq_inv_fact_smul",
+        "PowerSeries.normUnit_X",
+        "PowerSeries.instUniqueFactorizationMonoidOfIsPrincipalIdealRingOfIsDomain",
+        "PowerSeries.heval_unit",
+        "PowerSeries.weierstrassUnit_mul",
+        "DividedPowerAlgebra",
+        "PowerSeries.divXPowOrder_prod"
+      ],
+      "call_turn": 239,
+      "result_turn": 240
+    },
+    {
+      "event_id": "leanfinder:166",
+      "tool": "leanfinder",
+      "query": "root of unity formal power series unit polynomial X^n",
+      "declarations": [
+        "PowerSeries.instNormalizationMonoid",
+        "PowerSeries.mk_one_mul_one_sub_eq_one",
+        "Polynomial.X_pow_sub_one_eq_prod",
+        "IsPrimitiveRoot.minpoly_dvd_expand",
+        "PowerSeries.Unit_of_divided_by_X_pow_order",
+        "Polynomial.isRoot_of_unity_of_root_cyclotomic",
+        "PowerSeries.trunc_X_of",
+        "HahnSeries.ofPowerSeries_X",
+        "PowerSeries.X",
+        "PowerSeries.normUnit_X"
+      ],
+      "call_turn": 239,
+      "result_turn": 241
+    },
+    {
+      "event_id": "leanfinder:167",
+      "tool": "leanfinder",
+      "query": "Hensel lemma power series root polynomial unit",
+      "declarations": [
+        "Mathlib.Tactic.ComputeDegree.dispatchLemma",
+        "hensels_lemma",
+        "PowerSeries",
+        "PowerSeries.weierstrassUnit",
+        "PowerSeries.heval_unit",
+        "Polynomial.toPowerSeries",
+        "PowerSeries.algebraPolynomial",
+        "PowerSeries.algebraPolynomial'",
+        "Polynomial.roots_C_mul_X_sub_C_of_IsUnit",
+        "IsAlgClosed.card_roots_map_eq_natDegree_of_isUnit_leadingCoeff"
+      ],
+      "call_turn": 239,
+      "result_turn": 242
+    },
+    {
+      "event_id": "leanfinder:168",
+      "tool": "leanfinder",
+      "query": "PowerSeries Henselian algebraically closed",
+      "declarations": [
+        "HenselianLocalRing",
+        "IsAlgClosed.perfectRing",
+        "Field.henselian",
+        "FirstOrder.Field.ACF_categorical",
+        "PowerSeries",
+        "PowerSeries.algebraPowerSeries",
+        "HenselianRing",
+        "bernoulliPowerSeries",
+        "Finite.divisionRing_to_field",
+        "HahnSeries.powerSeriesAlgebra"
+      ],
+      "call_turn": 239,
+      "result_turn": 243
+    },
+    {
+      "event_id": "loogle:169",
+      "tool": "loogle",
+      "query": "Henselian (PowerSeries _)",
+      "declarations": [],
+      "call_turn": 239,
+      "result_turn": 244
+    },
+    {
+      "event_id": "loogle:170",
+      "tool": "loogle",
+      "query": "PowerSeries.instHenselian",
+      "declarations": [],
+      "call_turn": 239,
+      "result_turn": 245
+    },
+    {
+      "event_id": "leanfinder:172",
+      "tool": "leanfinder",
+      "query": "formal power series binomial series one plus X rational exponent power",
+      "declarations": [
+        "HahnSeries.binomial_power",
+        "PowerSeries.binomialSeries_nat",
+        "PowerSeries.binomialSeries_coeff",
+        "PowerSeries.binomialSeries",
+        "PowerSeries.binomialSeries_zero",
+        "PowerSeries.X",
+        "one_add_rpow_hasFPowerSeriesOnBall_zero",
+        "PowerSeries.mk_one_pow_eq_mk_choose_add",
+        "PowerSeries.binomialSeries_add",
+        "Lean.mkIntPowNat"
+      ],
+      "call_turn": 248,
+      "result_turn": 249
+    },
+    {
+      "event_id": "leanfinder:173",
+      "tool": "leanfinder",
+      "query": "PowerSeries binomial coefficients (1+X)^r",
+      "declarations": [
+        "PowerSeries.binomialSeries_coeff",
+        "PowerSeries.binomialSeries_nat",
+        "PowerSeries.binomialSeries",
+        "PowerSeries.binomialSeries_add",
+        "PowerSeries.binomialSeries_constantCoeff",
+        "Nat.choose_succ_succ",
+        "PowerSeries.mk_one_pow_eq_mk_choose_add",
+        "Nat.choose",
+        "PowerSeries.X",
+        "Lean.Omega.Coeffs.get"
+      ],
+      "call_turn": 248,
+      "result_turn": 250
+    },
+    {
+      "event_id": "loogle:174",
+      "tool": "loogle",
+      "query": "PowerSeries.binomial",
+      "declarations": [],
+      "call_turn": 248,
+      "result_turn": 251
+    },
+    {
+      "event_id": "loogle:175",
+      "tool": "loogle",
+      "query": "PowerSeries.invOneSub",
+      "declarations": [],
+      "call_turn": 248,
+      "result_turn": 252
+    },
+    {
+      "event_id": "loogle:176",
+      "tool": "loogle",
+      "query": "PowerSeries.one_add",
+      "declarations": [],
+      "call_turn": 248,
+      "result_turn": 253
+    },
+    {
+      "event_id": "loogle:177",
+      "tool": "loogle",
+      "query": "PowerSeries.exp",
+      "declarations": [
+        "PowerSeries.exp",
+        "PowerSeries.isUnit_exp",
+        "PowerSeries.order_exp",
+        "PowerSeries.constantCoeff_exp",
+        "PowerSeries.map_exp",
+        "PowerSeries.exp_mul_exp_neg_eq_one",
+        "PowerSeries.exp_pow_eq_rescale_exp",
+        "PowerSeries.exp_pow_sum",
+        "PowerSeries.derivative_exp",
+        "PowerSeries.coeff_exp"
+      ],
+      "call_turn": 248,
+      "result_turn": 254
+    },
+    {
+      "event_id": "loogle:178",
+      "tool": "loogle",
+      "query": "PowerSeries.log",
+      "declarations": [],
+      "call_turn": 248,
+      "result_turn": 255
+    },
+    {
+      "event_id": "leanfinder:189",
+      "tool": "leanfinder",
+      "query": "PowerSeries substitution algebra equivalence coefficient one nonzero",
+      "declarations": [
+        "PowerSeries",
+        "PowerSeries.HasSubst.exp_sub_one",
+        "MvPowerSeries.constantCoeff_subst_eq_zero",
+        "PowerSeries.coeff",
+        "PowerSeries.algebraPowerSeries",
+        "MvPowerSeries.monomial_mem_nonzeroDivisors",
+        "PowerSeries.coeff_subst_finite",
+        "MvPowerSeries.X_mem_nonzeroDivisors",
+        "MvPowerSeries.HasSubst.X_pow",
+        "HahnSeries.powerSeriesAlgebra"
+      ],
+      "call_turn": 276,
+      "result_turn": 277
+    },
+    {
+      "event_id": "leanfinder:190",
+      "tool": "leanfinder",
+      "query": "PowerSeries substAlgEquiv",
+      "declarations": [
+        "PowerSeries.coe_substAlgHom",
+        "PowerSeries.subst",
+        "PowerSeries.substAlgHom",
+        "MvPowerSeries.subst",
+        "MvPowerSeries.substAlgHom",
+        "PowerSeries",
+        "Lean.Meta.Simp.Arith.Nat.simpExpr",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith",
+        "Lean.Meta.Simp.simpConst",
+        "Lean.Grind.CommRing.norm_int_cert"
+      ],
+      "call_turn": 276,
+      "result_turn": 278
+    },
+    {
+      "event_id": "loogle:191",
+      "tool": "loogle",
+      "query": "substAlgEquiv",
+      "declarations": [],
+      "call_turn": 276,
+      "result_turn": 279
+    },
+    {
+      "event_id": "loogle:192",
+      "tool": "loogle",
+      "query": "PowerSeries.substAlgHom AlgEquiv",
+      "declarations": [],
+      "call_turn": 276,
+      "result_turn": 280
+    },
+    {
+      "event_id": "loogle:193",
+      "tool": "loogle",
+      "query": "PowerSeries AlgEquiv subst",
+      "declarations": [],
+      "call_turn": 276,
+      "result_turn": 281
+    },
+    {
+      "event_id": "loogle:194",
+      "tool": "loogle",
+      "query": "PowerSeries.compEquiv",
+      "declarations": [],
+      "call_turn": 276,
+      "result_turn": 282
+    },
+    {
+      "event_id": "loogle:195",
+      "tool": "loogle",
+      "query": "PowerSeries.substEquiv",
+      "declarations": [],
+      "call_turn": 276,
+      "result_turn": 283
+    },
+    {
+      "event_id": "leanfinder:196",
+      "tool": "leanfinder",
+      "query": "formal power series compositional inverse coefficient one nonzero",
+      "declarations": [
+        "FormalGroup.",
+        "PowerSeries.substInv",
+        "FormalGroup.map_toPowerSeries",
+        "PowerSeries.subst_substInvOfIsUnit_right",
+        "PowerSeries",
+        "PowerSeries.coeff",
+        "PowerSeries.constantCoeff_substInvOfIsUnit",
+        "PowerSeries.X",
+        "constFormalMultilinearSeries_apply_of_nonzero"
+      ],
+      "call_turn": 284,
+      "result_turn": 285
+    },
+    {
+      "event_id": "leanfinder:197",
+      "tool": "leanfinder",
+      "query": "PowerSeries composition inverse substitution automorphism",
+      "declarations": [
+        "PowerSeries.HasSubst.substInv",
+        "PowerSeries.subst_substInv_right",
+        "MvPowerSeries.comp_subst",
+        "PowerSeries.subst_substInv_left",
+        "PowerSeries.HasSubst.substInvOfIsUnit",
+        "PowerSeries",
+        "CompositionSeries.total",
+        "CompositionSeries",
+        "CompositionSeries.injective",
+        "CompositionSeries.inj"
+      ],
+      "call_turn": 284,
+      "result_turn": 286
+    },
+    {
+      "event_id": "loogle:198",
+      "tool": "loogle",
+      "query": "PowerSeries.invSubst",
+      "declarations": [],
+      "call_turn": 284,
+      "result_turn": 287
+    },
+    {
+      "event_id": "loogle:199",
+      "tool": "loogle",
+      "query": "PowerSeries.compInv",
+      "declarations": [],
+      "call_turn": 284,
+      "result_turn": 288
+    },
+    {
+      "event_id": "loogle:200",
+      "tool": "loogle",
+      "query": "PowerSeries.inverse composition",
+      "declarations": [],
+      "call_turn": 284,
+      "result_turn": 289
+    },
+    {
+      "event_id": "loogle:201",
+      "tool": "loogle",
+      "query": "PowerSeries.subst _ _ = PowerSeries.X",
+      "declarations": [],
+      "call_turn": 284,
+      "result_turn": 290
+    },
+    {
+      "event_id": "loogle:202",
+      "tool": "loogle",
+      "query": "PowerSeries.IsUnit coeff 1",
+      "declarations": [],
+      "call_turn": 284,
+      "result_turn": 291
+    },
+    {
+      "event_id": "loogle:208",
+      "tool": "loogle",
+      "query": "substInv",
+      "declarations": [],
+      "call_turn": 302,
+      "result_turn": 303
+    },
+    {
+      "event_id": "loogle:209",
+      "tool": "loogle",
+      "query": "PowerSeries.subst",
+      "declarations": [
+        "PowerSeries.subst",
+        "PowerSeries.subst_X",
+        "PowerSeries.subst_def",
+        "PowerSeries.le_order_subst",
+        "PowerSeries.le_weightedOrder_subst",
+        "PowerSeries.subst_mul",
+        "PowerSeries.subst_pow",
+        "PowerSeries.le_order_subst_left'",
+        "PowerSeries.subst_sub",
+        "PowerSeries.map_algebraMap_eq_subst_X"
+      ],
+      "call_turn": 304,
+      "result_turn": 305
+    },
+    {
+      "event_id": "loogle:210",
+      "tool": "loogle",
+      "query": "PowerSeries.order_subst",
+      "declarations": [],
+      "call_turn": 306,
+      "result_turn": 307
+    },
+    {
+      "event_id": "loogle:211",
+      "tool": "loogle",
+      "query": "PowerSeries.order (PowerSeries.subst _ _)",
+      "declarations": [
+        "PowerSeries.le_order_subst_left'",
+        "PowerSeries.le_order_subst_right'"
+      ],
+      "call_turn": 306,
+      "result_turn": 308
+    },
+    {
+      "event_id": "leanfinder:212",
+      "tool": "leanfinder",
+      "query": "order of substituted formal power series order one substitution",
+      "declarations": [
+        "PowerSeries.order_one",
+        "PowerSeries.subst",
+        "MvPowerSeries.subst",
+        "MvPowerSeries.le_order_subst",
+        "PowerSeries.le_order_subst",
+        "FormalMultilinearSeries.order",
+        "PowerSeries.subst_pow",
+        "PowerSeries.order",
+        "PowerSeries.le_order_subst_left",
+        "PowerSeries.divXPowOrder_one"
+      ],
+      "call_turn": 306,
+      "result_turn": 309
+    },
+    {
+      "event_id": "loogle:213",
+      "tool": "loogle",
+      "query": "PowerSeries.order_eq_one",
+      "declarations": [],
+      "call_turn": 306,
+      "result_turn": 310
+    },
+    {
+      "event_id": "loogle:214",
+      "tool": "loogle",
+      "query": "PowerSeries.order_eq_natCast",
+      "declarations": [],
+      "call_turn": 306,
+      "result_turn": 311
+    },
+    {
+      "event_id": "loogle:215",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_eq_zero_order",
+      "declarations": [],
+      "call_turn": 306,
+      "result_turn": 312
+    },
+    {
+      "event_id": "loogle:216",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff (_ ^ _) _",
+      "declarations": [],
+      "call_turn": 313,
+      "result_turn": 314
+    },
+    {
+      "event_id": "loogle:217",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_pow",
+      "declarations": [
+        "PowerSeries.coeff_pow"
+      ],
+      "call_turn": 313,
+      "result_turn": 315
+    },
+    {
+      "event_id": "loogle:218",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_order",
+      "declarations": [
+        "PowerSeries.coeff_order"
+      ],
+      "call_turn": 313,
+      "result_turn": 316
+    },
+    {
+      "event_id": "leanfinder:219",
+      "tool": "leanfinder",
+      "query": "coefficient m of m-th power formal power series constant coefficient zero linear coefficient",
+      "declarations": [
+        "PowerSeries.constantCoeff_zero",
+        "PowerSeries.constantCoeff_mk",
+        "MvPowerSeries.constantCoeff_zero",
+        "PowerSeries.coeff",
+        "PowerSeries.coeff_expand_of_not_dvd",
+        "PowerSeries.constantCoeff_X",
+        "PowerSeries.coeff_X_pow",
+        "PowerSeries.coeff_zero_eq_constantCoeff_apply",
+        "ordinaryHypergeometricCoefficient",
+        "Polynomial.constantCoeff_coe"
+      ],
+      "call_turn": 313,
+      "result_turn": 317
+    },
+    {
+      "event_id": "loogle:220",
+      "tool": "loogle",
+      "query": "PowerSeries.leadingCoeff",
+      "declarations": [],
+      "call_turn": 313,
+      "result_turn": 318
+    },
+    {
+      "event_id": "loogle:221",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_X_pow_order",
+      "declarations": [],
+      "call_turn": 313,
+      "result_turn": 319
+    },
+    {
+      "event_id": "leanfinder:222",
+      "tool": "leanfinder",
+      "query": "complete local noetherian ring Henselian formal power series",
+      "declarations": [
+        "IsAdicComplete.henselianRing",
+        "HenselianLocalRing",
+        "MvPowerSeries.instIsLocalRing",
+        "PowerSeries",
+        "PowerSeries.instIsNoetherianRing",
+        "PowerSeries.instNoZeroDivisors",
+        "PowerSeries.map.isLocalHom",
+        "HenselianRing",
+        "HenselianLocalRing.TFAE",
+        "PowerSeries.exists_isWeierstrassDivision"
+      ],
+      "call_turn": 320,
+      "result_turn": 321
+    },
+    {
+      "event_id": "leanfinder:223",
+      "tool": "leanfinder",
+      "query": "IsAdicComplete implies Henselian local ring",
+      "declarations": [
+        "IsAdicComplete.henselianRing",
+        "HenselianLocalRing",
+        "AdicCompletion.isLocalRing_of_fg",
+        "isLocalRing_of_isAdicComplete_maximal",
+        "IsLocalRing.maximalIdeal",
+        "IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+        "HenselianRing",
+        "HenselianLocalRing.TFAE",
+        "instIsAdicCompleteMaximalIdealOfIsArtinianRing",
+        "IsDedekindDomain.HeightOneSpectrum.instFaithfulSMulSubtypeAdicCompletionMemValuationSubringAdicCompletionIntegers"
+      ],
+      "call_turn": 320,
+      "result_turn": 322
+    },
+    {
+      "event_id": "loogle:224",
+      "tool": "loogle",
+      "query": "HenselianLocalRing _",
+      "declarations": [
+        "Field.henselian",
+        "HenselianLocalRing.toIsLocalRing",
+        "instHenselianRingMaximalIdeal",
+        "HenselianLocalRing.is_henselian",
+        "HenselianLocalRing.mk",
+        "HenselianLocalRing.TFAE"
+      ],
+      "call_turn": 320,
+      "result_turn": 323
+    },
+    {
+      "event_id": "loogle:225",
+      "tool": "loogle",
+      "query": "IsAdicComplete Henselian",
+      "declarations": [],
+      "call_turn": 320,
+      "result_turn": 324
+    },
+    {
+      "event_id": "loogle:226",
+      "tool": "loogle",
+      "query": "instHenselianLocalRing",
+      "declarations": [],
+      "call_turn": 320,
+      "result_turn": 325
+    },
+    {
+      "event_id": "loogle:227",
+      "tool": "loogle",
+      "query": "PowerSeries IsLocalRing",
+      "declarations": [],
+      "call_turn": 320,
+      "result_turn": 326
+    },
+    {
+      "event_id": "leanfinder:228",
+      "tool": "leanfinder",
+      "query": "PowerSeries IsAdicComplete X ideal formal power series",
+      "declarations": [
+        "PowerSeries.idealX",
+        "PowerSeries.instIsAdicCompleteSpanSingletonSetX",
+        "PowerSeries.subst_X",
+        "PowerSeries.X",
+        "PowerSeries.commute_X",
+        "Lean.Meta.Grind.Arith.CommRing.PolyDerivation.simplifyWith",
+        "PowerSeries.",
+        "Lean.Grind.CommRing.norm_int_cert",
+        "Lean.Meta.Simp.simpConst",
+        "Lean.Omega.Coeffs.get"
+      ],
+      "call_turn": 327,
+      "result_turn": 328
+    },
+    {
+      "event_id": "loogle:229",
+      "tool": "loogle",
+      "query": "IsAdicComplete _ (PowerSeries _)",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 329
+    },
+    {
+      "event_id": "loogle:230",
+      "tool": "loogle",
+      "query": "PowerSeries.instIsAdicComplete",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 330
+    },
+    {
+      "event_id": "loogle:231",
+      "tool": "loogle",
+      "query": "IsAdicComplete PowerSeries.X",
+      "declarations": [
+        "IsAdicComplete.of_subsingleton",
+        "IsAdicComplete.toIsHausdorff",
+        "IsAdicComplete.toIsPrecomplete",
+        "IsAdicComplete.mk",
+        "isAdicComplete_iff",
+        "IsAdicComplete.bot",
+        "IsAdicComplete.subsingleton",
+        "IsAdicComplete.le_jacobson_bot",
+        "AdicCompletion.ofLinearEquiv",
+        "IsAdicComplete.map_algebraMap_iff"
+      ],
+      "call_turn": 327,
+      "result_turn": 331
+    },
+    {
+      "event_id": "loogle:232",
+      "tool": "loogle",
+      "query": "PowerSeries adic complete",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 332
+    },
+    {
+      "event_id": "loogle:233",
+      "tool": "loogle",
+      "query": "isAdicComplete_maximal PowerSeries",
+      "declarations": [],
+      "call_turn": 327,
+      "result_turn": 333
+    },
+    {
+      "event_id": "loogle:235",
+      "tool": "loogle",
+      "query": "SpanSingletonSetX",
+      "declarations": [],
+      "call_turn": 336,
+      "result_turn": 337
+    },
+    {
+      "event_id": "loogle:237",
+      "tool": "loogle",
+      "query": "(_ ≃ₐ[_] PowerSeries _)",
+      "declarations": [
+        "HahnSeries.toPowerSeriesAlg",
+        "HahnSeries.toPowerSeriesAlg_apply"
+      ],
+      "call_turn": 340,
+      "result_turn": 341
+    },
+    {
+      "event_id": "loogle:238",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_subst",
+      "declarations": [
+        "PowerSeries.coeff_subst"
+      ],
+      "call_turn": 342,
+      "result_turn": 343
+    },
+    {
+      "event_id": "loogle:239",
+      "tool": "loogle",
+      "query": "MvPowerSeries.coeff_subst",
+      "declarations": [
+        "MvPowerSeries.coeff_subst"
+      ],
+      "call_turn": 342,
+      "result_turn": 344
+    },
+    {
+      "event_id": "loogle:240",
+      "tool": "loogle",
+      "query": "PowerSeries.subst_eq_sum",
+      "declarations": [],
+      "call_turn": 342,
+      "result_turn": 345
+    },
+    {
+      "event_id": "loogle:241",
+      "tool": "loogle",
+      "query": "PowerSeries.subst_apply",
+      "declarations": [],
+      "call_turn": 342,
+      "result_turn": 346
+    },
+    {
+      "event_id": "loogle:242",
+      "tool": "loogle",
+      "query": "PowerSeries.subst_eq",
+      "declarations": [],
+      "call_turn": 342,
+      "result_turn": 347
+    },
+    {
+      "event_id": "loogle:243",
+      "tool": "loogle",
+      "query": "PowerSeries.subst_trunc",
+      "declarations": [],
+      "call_turn": 342,
+      "result_turn": 348
+    },
+    {
+      "event_id": "loogle:244",
+      "tool": "loogle",
+      "query": "Nat.strongRec",
+      "declarations": [
+        "Nat.strongRec",
+        "Nat.strongRec_eq"
+      ],
+      "call_turn": 349,
+      "result_turn": 350
+    },
+    {
+      "event_id": "loogle:245",
+      "tool": "loogle",
+      "query": "Nat.strongRec_eq",
+      "declarations": [
+        "Nat.strongRec_eq"
+      ],
+      "call_turn": 349,
+      "result_turn": 351
+    },
+    {
+      "event_id": "loogle:246",
+      "tool": "loogle",
+      "query": "Nat.strongRec_beta",
+      "declarations": [],
+      "call_turn": 349,
+      "result_turn": 352
+    },
+    {
+      "event_id": "loogle:247",
+      "tool": "loogle",
+      "query": "Nat.strong_induction_on",
+      "declarations": [
+        "Nat.strong_induction_on"
+      ],
+      "call_turn": 349,
+      "result_turn": 353
+    },
+    {
+      "event_id": "leanfinder:248",
+      "tool": "leanfinder",
+      "query": "Nat strongRec equation recursive definition",
+      "declarations": [
+        "Lean.Meta.mkSimpleEqThm",
+        "Lean.Meta.isRecursiveDefinition",
+        "Primrec.nat_strong_rec",
+        "Nat.strongRecOn'_beta",
+        "Computable.nat_strong_rec",
+        "Nat.evenOddStrongRec",
+        "RecursiveIn",
+        "Nat.strongRec'_spec",
+        "Nat.strongRec'",
+        "Nat.RecursiveIn"
+      ],
+      "call_turn": 349,
+      "result_turn": 354
+    },
+    {
+      "event_id": "loogle:249",
+      "tool": "loogle",
+      "query": "PowerSeries.coeff_mul",
+      "declarations": [
+        "PowerSeries.coeff_mul"
+      ],
+      "call_turn": 355,
+      "result_turn": 356
+    },
+    {
+      "event_id": "loogle:250",
+      "tool": "loogle",
+      "query": "PowerSeries.divXPowOrder",
+      "declarations": [
+        "PowerSeries.divXPowOrder",
+        "PowerSeries.divXPowOrder_X",
+        "PowerSeries.divXPowOrder_one",
+        "PowerSeries.divXPowOrder_zero",
+        "PowerSeries.X_pow_order_mul_divXPowOrder",
+        "PowerSeries.divXPowOrder_mul",
+        "PowerSeries.divXPowOrder_mul_divXPowOrder",
+        "PowerSeries.divXPowOrder_prod",
+        "PowerSeries.constantCoeff_divXPowOrder_eq_zero_iff",
+        "PowerSeries.divXPowOrder_pow"
+      ],
+      "call_turn": 357,
+      "result_turn": 358
+    },
+    {
+      "event_id": "loogle:251",
+      "tool": "loogle",
+      "query": "PowerSeries.order_eq",
+      "declarations": [
+        "PowerSeries.order_eq"
+      ],
+      "call_turn": 359,
+      "result_turn": 360
+    },
+    {
+      "event_id": "loogle:252",
+      "tool": "loogle",
+      "query": "PowerSeries.order.toNat = _",
+      "declarations": [],
+      "call_turn": 359,
+      "result_turn": 361
+    },
+    {
+      "event_id": "loogle:253",
+      "tool": "loogle",
+      "query": "PowerSeries.order X",
+      "declarations": [],
+      "call_turn": 359,
+      "result_turn": 362
+    },
+    {
+      "event_id": "loogle:254",
+      "tool": "loogle",
+      "query": "PowerSeries.order_eq_iff",
+      "declarations": [],
+      "call_turn": 359,
+      "result_turn": 363
+    },
+    {
+      "event_id": "loogle:255",
+      "tool": "loogle",
+      "query": "PowerSeries.order_eq_nat",
+      "declarations": [
+        "PowerSeries.order_eq_nat"
+      ],
+      "call_turn": 359,
+      "result_turn": 364
+    },
+    {
+      "event_id": "loogle:256",
+      "tool": "loogle",
+      "query": "PowerSeries.order_ne_top_iff",
+      "declarations": [],
+      "call_turn": 359,
+      "result_turn": 365
+    },
+    {
+      "event_id": "loogle:257",
+      "tool": "loogle",
+      "query": "PowerSeries.order_pow",
+      "declarations": [
+        "PowerSeries.order_pow"
+      ],
+      "call_turn": 366,
+      "result_turn": 367
+    },
+    {
+      "event_id": "loogle:258",
+      "tool": "loogle",
+      "query": "PowerSeries.order (_ ^ _)",
+      "declarations": [
+        "PowerSeries.order_X_pow",
+        "PowerSeries.le_order_pow",
+        "PowerSeries.order_pow",
+        "PowerSeries.le_order_pow_of_constantCoeff_eq_zero"
+      ],
+      "call_turn": 366,
+      "result_turn": 368
+    },
+    {
+      "event_id": "loogle:259",
+      "tool": "loogle",
+      "query": "PowerSeries.order_mul",
+      "declarations": [
+        "PowerSeries.order_mul"
+      ],
+      "call_turn": 366,
+      "result_turn": 369
+    },
+    {
+      "event_id": "loogle:260",
+      "tool": "loogle",
+      "query": "PowerSeries.order_mul_of_nonzero",
+      "declarations": [],
+      "call_turn": 366,
+      "result_turn": 370
+    },
+    {
+      "event_id": "loogle:289",
+      "tool": "loogle",
+      "query": "PowerSeries.rescale",
+      "declarations": [
+        "PowerSeries.rescale",
+        "PowerSeries.rescale_one",
+        "PowerSeries.rescale_zero",
+        "PowerSeries.rescale_mul",
+        "PowerSeries.rescale_mk",
+        "PowerSeries.rescale_neg_one_X",
+        "PowerSeries.rescale_X",
+        "PowerSeries.rescale_zero_apply",
+        "PowerSeries.rescale_rescale",
+        "PowerSeries.rescale_map"
+      ],
+      "call_turn": 427,
+      "result_turn": 428
+    },
+    {
+      "event_id": "leanfinder:290",
+      "tool": "leanfinder",
+      "query": "PowerSeries rescale algebra equivalence unit",
+      "declarations": [
+        "PowerSeries.rescale_algebraMap_map",
+        "PowerSeries.exp_mul_exp_eq_exp_add",
+        "MvPowerSeries.rescaleUnit",
+        "PowerSeries",
+        "PowerSeries.rescale_eq_subst",
+        "Lean.Meta.Grind.Arith.Linear.isHSMulNatInst",
+        "PowerSeries.rescale_rescale",
+        "PowerSeries.rescale_mk",
+        "MvPowerSeries.rescale_rescale",
+        "PowerSeries.rescale"
+      ],
+      "call_turn": 427,
+      "result_turn": 429
+    },
+    {
+      "event_id": "loogle:291",
+      "tool": "loogle",
+      "query": "rescaleAlgEquiv",
+      "declarations": [],
+      "call_turn": 427,
+      "result_turn": 430
+    },
+    {
+      "event_id": "loogle:292",
+      "tool": "loogle",
+      "query": "PowerSeries.rescaleAlgHom",
+      "declarations": [
+        "PowerSeries.rescaleAlgHom",
+        "PowerSeries.coe_rescaleAlgHom"
+      ],
+      "call_turn": 427,
+      "result_turn": 431
+    },
+    {
+      "event_id": "loogle:293",
+      "tool": "loogle",
+      "query": "PowerSeries.rescale_X",
+      "declarations": [
+        "PowerSeries.rescale_X"
+      ],
+      "call_turn": 427,
+      "result_turn": 432
+    },
+    {
+      "event_id": "loogle:294",
+      "tool": "loogle",
+      "query": "PowerSeries.rescale_inv",
+      "declarations": [],
+      "call_turn": 427,
+      "result_turn": 433
+    },
+    {
+      "event_id": "leanfinder:295",
+      "tool": "leanfinder",
+      "query": "power series unit nth power one constant one equals one char zero",
+      "declarations": [
+        "PowerSeries.rescale_one",
+        "PowerSeries.constantCoeff_one",
+        "PowerSeries.coeff_zero_one",
+        "Lean.Nat.mkInstNatPow",
+        "MvPowerSeries.constantCoeff_one",
+        "PowerSeries.constantCoeff",
+        "PowerSeries.order_one",
+        "Lean.Grind.CommRing.Power.denoteExpr",
+        "Lean.mkNatPow",
+        "Lean.mkIntPowNat"
+      ],
+      "call_turn": 434,
+      "result_turn": 435
+    },
+    {
+      "event_id": "leanfinder:296",
+      "tool": "leanfinder",
+      "query": "x^n=y^n coefficient one formal power series equal root unity",
+      "declarations": [
+        "PowerSeries.mk_one_mul_one_sub_eq_one",
+        "PowerSeries.coeff_X",
+        "PowerSeries.coeff_zero_one",
+        "PowerSeries.coeff_X_pow_self",
+        "PowerSeries.constantCoeff_invUnitsSub",
+        "PowerSeries.coeff_invUnitsSub",
+        "PowerSeries.WithPiTopology.multipliable_one_sub_X_pow",
+        "ModN",
+        "PowerSeries.X",
+        "SSet.N"
+      ],
+      "call_turn": 434,
+      "result_turn": 436
+    },
+    {
+      "event_id": "loogle:297",
+      "tool": "loogle",
+      "query": "PowerSeries _ ^ _ = 1",
+      "declarations": [],
+      "call_turn": 434,
+      "result_turn": 437
+    },
+    {
+      "event_id": "loogle:298",
+      "tool": "loogle",
+      "query": "_ ^ _ = 1 -> _ = 1 PowerSeries",
+      "declarations": [
+        "pow_eq_pow_mod",
+        "zpow_eq_zpow_emod",
+        "zpow_eq_zpow_emod'",
+        "Units.val_ofPowEqOne",
+        "Units.val_inv_ofPowEqOne",
+        "Units.pow_ofPowEqOne",
+        "orderOf_eq_prime",
+        "pow_eq_pow_of_modEq",
+        "orderOf_eq_of_pow_and_pow_div_prime",
+        "orderOf_eq_prime_pow"
+      ],
+      "call_turn": 434,
+      "result_turn": 438
+    },
+    {
+      "event_id": "loogle:299",
+      "tool": "loogle",
+      "query": "pow_eq_one_iff",
+      "declarations": [
+        "pow_eq_one_iff"
+      ],
+      "call_turn": 434,
+      "result_turn": 439
+    },
+    {
+      "event_id": "loogle:300",
+      "tool": "loogle",
+      "query": "IsUnit.pow_eq_one",
+      "declarations": [],
+      "call_turn": 434,
+      "result_turn": 440
+    },
+    {
+      "event_id": "loogle:301",
+      "tool": "loogle",
+      "query": "_ ^ _ - 1 = (_ - 1) * ∑ _ ∈ Finset.range _",
+      "declarations": [],
+      "call_turn": 441,
+      "result_turn": 442
+    },
+    {
+      "event_id": "loogle:302",
+      "tool": "loogle",
+      "query": "geom_sum_mul",
+      "declarations": [
+        "geom_sum_mul"
+      ],
+      "call_turn": 441,
+      "result_turn": 443
+    },
+    {
+      "event_id": "loogle:303",
+      "tool": "loogle",
+      "query": "mul_geom_sum",
+      "declarations": [
+        "mul_geom_sum"
+      ],
+      "call_turn": 441,
+      "result_turn": 444
+    },
+    {
+      "event_id": "loogle:304",
+      "tool": "loogle",
+      "query": "pow_sub_pow_factor",
+      "declarations": [],
+      "call_turn": 441,
+      "result_turn": 445
+    },
+    {
+      "event_id": "loogle:305",
+      "tool": "loogle",
+      "query": "sub_pow_eq_mul_geom_sum",
+      "declarations": [],
+      "call_turn": 441,
+      "result_turn": 446
+    },
+    {
+      "event_id": "loogle:306",
+      "tool": "loogle",
+      "query": "Commute.geom_sum₂_mul",
+      "declarations": [
+        "Commute.geom_sum"
+      ],
+      "call_turn": 441,
+      "result_turn": 447
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 2,
+    "main_hyperedge_count": 2,
+    "side_hyperedge_count": 0,
+    "selected_depth": 2,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 1,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 213,
+    "useful_retrieval_event_count": 1,
+    "unused_retrieval_event_count": 212,
+    "accepted_helper_count": 34,
+    "rollout_tool_call_count": 367,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

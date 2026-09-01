@@ -1,0 +1,16 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hp_0e5f8a5f" [shape=box, color="#178F82", label="hp₀\np₀ ∈ Set.Ioo 0 1"];
+  "m_hp_67a38812" [shape=box, color="#178F82", label="hp₁\np₁ ∈ Set.Ioo 0 1"];
+  "m_hp_97dd7d3d" [shape=box, color="#178F82", label="hp₂\np₂ ∈ Set.Ioo 0 1"];
+  "m_hsum_44f1792b" [shape=box, color="#178F82", label="hsum\np₀ + p₁ + p₂ = 1"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet p := ![p₀, p₁, p₂]; let β := ![0, p₀, p₀ + p₁]; let E := fun i => ∑' (k : ℕ), β (i k) * ∏ r ∈ Finset.range k, p (i r); let canonical := fun x => Classical.epsilon fun i => E i = x ∧ ((∃ j, E j = x ∧ j ≠ i) → ∃ N, ∀ (k : ℕ), N ≤ k → i k = 0); let θ := ![0, 2, 1]; let f := fun x => E fun k => θ (canonical x k); MeasureTheory.IntegrableOn f (Set.Icc 0 1) MeasureTheory.volume ∧ ∫ (x : ℝ) in 0..1, f x = (p₁ ^ 2 + p₀ * p₁ + p₀ * p₂) / (1 - p₀ ^ 2 - 2 * p₁ * p₂)"];
+  "r_h_goal" [shape=diamond, label="Eq.trans + Filter.Eventually.of_forall + MeasureTheory.IntegrableOn.congr_fun", color="#D97706"];
+  "m_hp_0e5f8a5f" -> "r_h_goal";
+  "m_hp_67a38812" -> "r_h_goal";
+  "m_hp_97dd7d3d" -> "r_h_goal";
+  "m_hsum_44f1792b" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

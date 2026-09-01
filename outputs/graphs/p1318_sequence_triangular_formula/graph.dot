@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hc_2d68e52f" [shape=box, color="#178F82", label="hc₁\nc 1 = 2"];
+  "m_hc_dce79cfb" [shape=box, color="#178F82", label="hc\n∀ (k : ℕ), 0 < k → c (2 * k) = 2 * (k + 1) ^ 2 ∧ c (2 * k + 1) = 2 * (k + 1) ^ 2"];
+  "m_hn_8ab5a2fb" [shape=box, color="#178F82", label="hn\n0 < n"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet m := (n + 2) / 2; let t := fun r => r * (r + 1) / 2; c n = 2 * m ^ 2 ∧ 2 * m ^ 2 = 2 * (t (m - 1) + t m)"];
+  "r_h_goal" [shape=diamond, label="triangular_pair", color="#D97706"];
+  "m_hc_2d68e52f" -> "r_h_goal";
+  "m_hc_dce79cfb" -> "r_h_goal";
+  "m_hn_8ab5a2fb" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

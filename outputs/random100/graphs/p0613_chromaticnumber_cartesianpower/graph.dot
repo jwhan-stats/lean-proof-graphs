@@ -1,0 +1,35 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hk_ccc56dce" [shape=box, color="#178F82", label="hk\n1 ≤ k"];
+  "m_hn_6705fb17" [shape=box, color="#178F82", label="hn\n0 < n"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber = G.chromaticNumber"];
+  "n_hcg_ece408c2" [shape=box, color="#D97706", label="hcG\nG.Colorable q"];
+  "n_hcolor_a960497e" [shape=box, color="#D97706", label="hcolor\n(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).Colorable q"];
+  "n_hq_bf8c7e91" [shape=box, color="#D97706", label="hq\nq ≠ 0"];
+  "n_htop_6a334dcc" [shape=box, color="#D97706", label="htop\nG.chromaticNumber ≠ ⊤"];
+  "n_upper_3bdb5fa4" [shape=box, color="#D97706", label="upper\n(SimpleGraph.fromRel fun x y => ∃ i, G.Adj (x i) (y i) ∧ ∀ (j : Fin k), j ≠ i → x j = y j).chromaticNumber ≤ G.chromaticNumber"];
+  "r_h_001_hcg" [shape=diamond, label="SimpleGraph.colorable_chromaticNumber_of_fintype", color="#D97706"];
+  "r_h_001_hcg" -> "n_hcg_ece408c2";
+  "r_h_002_hq" [shape=diamond, label="SimpleGraph.isEmpty_of_colorable_zero", color="#D97706"];
+  "m_hn_6705fb17" -> "r_h_002_hq";
+  "n_hcg_ece408c2" -> "r_h_002_hq";
+  "r_h_002_hq" -> "n_hq_bf8c7e91";
+  "r_h_003_hcolor" [shape=diamond, label="Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_colorable_of_coloring", color="#D97706"];
+  "n_hcg_ece408c2" -> "r_h_003_hcolor";
+  "n_hq_bf8c7e91" -> "r_h_003_hcolor";
+  "r_h_003_hcolor" -> "n_hcolor_a960497e";
+  "r_h_004_htop" [shape=diamond, label="SimpleGraph.chromaticNumber_ne_top_iff_exists", color="#D97706"];
+  "n_hcg_ece408c2" -> "r_h_004_htop";
+  "r_h_004_htop" -> "n_htop_6a334dcc";
+  "r_h_005_upper" [shape=diamond, label="ENat.coe_toNat + SimpleGraph.Colorable.chromaticNumber_le", color="#D97706"];
+  "n_hcolor_a960497e" -> "r_h_005_upper";
+  "n_htop_6a334dcc" -> "r_h_005_upper";
+  "r_h_005_upper" -> "n_upper_3bdb5fa4";
+  "r_h_goal" [shape=diamond, label="Rollout_p0613_chromaticnumber_cartesianpower.cartesianPower_chromaticNumber_lower + le_antisymm", color="#D97706"];
+  "m_hn_6705fb17" -> "r_h_goal";
+  "m_hk_ccc56dce" -> "r_h_goal";
+  "n_upper_3bdb5fa4" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

@@ -1,0 +1,1374 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1639_relative_commuting_probability_le",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1639,
+    "source": "2102.06983",
+    "theorem_name": "relative_commuting_probability_le",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1639",
+    "reconstructed_proof": "../../candidates/p1639_relative_commuting_probability_le/proof.lean",
+    "raw_elaboration": "../../candidates/p1639_relative_commuting_probability_le/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1639_relative_commuting_probability_le.relative_commuting_probability_le",
+    "verification_call_id": "verify_submission:95",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "238ee4d8a7cc5f36548c7db5590c508e76736bd9d1fa902a5b8e58d80fd2b1f5",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "560b57c33d673952de7aecbe5a0e4eae6b9dda4ea089a585117ffaf16da9849a",
+    "concrete_semantic_topology_sha256": "238ee4d8a7cc5f36548c7db5590c508e76736bd9d1fa902a5b8e58d80fd2b1f5"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_inst___proofs_3607020331_574bd3cc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.3607020331._hygCtx._hyg.13",
+      "lean_fvar_id": "5",
+      "statement": "N.Normal"
+    },
+    {
+      "id": "m_inst___proofs_3607020331_b4da8efc",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.3607020331._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "Finite G"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "↑A / (↑(Nat.card ↥K) * ↑(Nat.card G)) ≤ ↑(Nat.card { p // Commute (↑p.1) p.2 }) / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) * (↑(Nat.card { p // Commute (↑p.1) p.2 }) / (↑(Nat.card ↥(Subgroup.comap N.subtype K)) * ↑(Nat.card ↥N)))"
+    },
+    {
+      "id": "n_hden_14470dac",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hden",
+      "lean_fvar_id": "15",
+      "statement": "↑(Nat.card ↥K) * ↑(Nat.card G) = ↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N)) * (↑(Nat.card ↥I) * ↑(Nat.card ↥N))"
+    },
+    {
+      "id": "n_hfactor_2c279042",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hfactor",
+      "lean_fvar_id": "18",
+      "statement": "↑B / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) * (↑C / (↑(Nat.card ↥I) * ↑(Nat.card ↥N))) = ↑(B * C) / (↑(Nat.card ↥K) * ↑(Nat.card G))"
+    },
+    {
+      "id": "n_hg_7d19fe94",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hG",
+      "lean_fvar_id": "14",
+      "statement": "Nat.card (G ⧸ N) * Nat.card ↥N = Nat.card G"
+    },
+    {
+      "id": "n_hk_b3c16ae8",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hK",
+      "lean_fvar_id": "13",
+      "statement": "Nat.card ↥I * Nat.card ↥Kbar = Nat.card ↥K"
+    },
+    {
+      "id": "n_hnat_80429b26",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnat",
+      "lean_fvar_id": "12",
+      "statement": "A ≤ B * C"
+    },
+    {
+      "id": "n_hnonneg_f9fa39ed",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnonneg",
+      "lean_fvar_id": "17",
+      "statement": "0 ≤ ↑(Nat.card ↥K) * ↑(Nat.card G)"
+    },
+    {
+      "id": "n_hnum_ef68a830",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hnum",
+      "lean_fvar_id": "16",
+      "statement": "↑A ≤ ↑(B * C)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hnat",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_3607020331_b4da8efc",
+        "m_inst___proofs_3607020331_574bd3cc"
+      ],
+      "conclusion": "n_hnat_80429b26",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.card_eq_fintype_card + commute_pairs_card_le_quotient_mul_comap",
+        "items": [
+          "Nat.card_eq_fintype_card",
+          "Rollout_p1639_relative_commuting_probability_le.commute_pairs_card_le_quotient_mul_comap"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1639_relative_commuting_probability_le.commute_pairs_card_le_quotient_mul_comap"
+        ],
+        "mathlib_items": [
+          "Nat.card_eq_fintype_card"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_12",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnat : A ≤ B * C := by\n    simpa [A, B, C, π, Kbar, I] using\n      commute_pairs_card_le_quotient_mul_comap N K",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.6",
+              "statement": "Finite G"
+            },
+            {
+              "fvar_id": "5",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.13",
+              "statement": "N.Normal"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "12",
+            "name": "hnat",
+            "statement": "A ≤ B * C"
+          }
+        },
+        "lean_dependency_sha256": "1aac704a18fd50b5c600935012dcacad337cd8099482e60918187adbce1a3b6a",
+        "kernel_witness_check": {
+          "proof_type": "A ≤ B * C",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.card_eq_fintype_card"
+        ],
+        "observed_search_event_ids": [
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_002_hk",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_3607020331_b4da8efc",
+        "m_inst___proofs_3607020331_574bd3cc"
+      ],
+      "conclusion": "n_hk_b3c16ae8",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "Nat.card_eq_fintype_card + card_comap_mul_card_map_quotient",
+        "items": [
+          "Nat.card_eq_fintype_card",
+          "Rollout_p1639_relative_commuting_probability_le.card_comap_mul_card_map_quotient"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1639_relative_commuting_probability_le.card_comap_mul_card_map_quotient"
+        ],
+        "mathlib_items": [
+          "Nat.card_eq_fintype_card"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hK : Nat.card I * Nat.card Kbar = Nat.card K := by\n    simpa [I, Kbar, π] using card_comap_mul_card_map_quotient N K",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.6",
+              "statement": "Finite G"
+            },
+            {
+              "fvar_id": "5",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.13",
+              "statement": "N.Normal"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "hK",
+            "statement": "Nat.card ↥I * Nat.card ↥Kbar = Nat.card ↥K"
+          }
+        },
+        "lean_dependency_sha256": "a334dcc1688cd0170eb439ac6abd91d7aebb0be3284c5ec287d4e88933aca698",
+        "kernel_witness_check": {
+          "proof_type": "Nat.card ↥I * Nat.card ↥Kbar = Nat.card ↥K",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.card_eq_fintype_card"
+        ],
+        "observed_search_event_ids": [
+          "loogle:4"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hg",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hg_7d19fe94",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + Subgroup.card_eq_card_quotient_mul_card_subgroup",
+        "items": [
+          "Eq.symm",
+          "Subgroup.card_eq_card_quotient_mul_card_subgroup"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "Subgroup.card_eq_card_quotient_mul_card_subgroup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_14",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hG : Nat.card (G ⧸ N) * Nat.card N = Nat.card G :=\n    (Subgroup.card_eq_card_quotient_mul_card_subgroup N).symm",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "14",
+            "name": "hG",
+            "statement": "Nat.card (G ⧸ N) * Nat.card ↥N = Nat.card G"
+          }
+        },
+        "lean_dependency_sha256": "48b05f826d8af6f94aeefb328fadbd7762bfc65ce755fb2aa6ee7b00cade5aec",
+        "kernel_witness_check": {
+          "proof_type": "Nat.card (G ⧸ N) * Nat.card ↥N = Nat.card G",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "Subgroup.card_eq_card_quotient_mul_card_subgroup"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1",
+          "leanfinder:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hden",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_3607020331_574bd3cc",
+        "n_hk_b3c16ae8",
+        "n_hg_7d19fe94"
+      ],
+      "conclusion": "n_hden_14470dac",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm",
+        "items": [
+          "Eq.symm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_15",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hden : (Nat.card K : ℚ) * (Nat.card G : ℚ) =\n      ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ)) *\n        ((Nat.card I : ℚ) * (Nat.card N : ℚ)) := by\n    have hdenNat : Nat.card K * Nat.card G =\n        (Nat.card Kbar * Nat.card (G ⧸ N)) * (Nat.card I * Nat.card N) := by\n      rw [← hK, ← hG]\n      ring\n    exact_mod_cast hdenNat",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.13",
+              "statement": "N.Normal"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hK",
+              "statement": "Nat.card ↥I * Nat.card ↥Kbar = Nat.card ↥K"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hG",
+              "statement": "Nat.card (G ⧸ N) * Nat.card ↥N = Nat.card G"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "15",
+            "name": "hden",
+            "statement": "↑(Nat.card ↥K) * ↑(Nat.card G) = ↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N)) * (↑(Nat.card ↥I) * ↑(Nat.card ↥N))"
+          }
+        },
+        "lean_dependency_sha256": "aab917876c095d7b3be872cf9c5abd30a4f23882538d685252556682532943a9",
+        "kernel_witness_check": {
+          "proof_type": "↑(Nat.card ↥K) * ↑(Nat.card G) = ↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N)) * (↑(Nat.card ↥I) * ↑(Nat.card ↥N))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_005_hnum",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hnat_80429b26"
+      ],
+      "conclusion": "n_hnum_ef68a830",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm",
+        "items": [
+          "Eq.symm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_16",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnum : (A : ℚ) ≤ ((B * C : ℕ) : ℚ) := by\n    exact_mod_cast hnat",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "12",
+              "name": "hnat",
+              "statement": "A ≤ B * C"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "16",
+            "name": "hnum",
+            "statement": "↑A ≤ ↑(B * C)"
+          }
+        },
+        "lean_dependency_sha256": "886dd5dcafe3b2a7c6dc07118aa6b1524e660c0be575041f3baf6bd4af2dce7f",
+        "kernel_witness_check": {
+          "proof_type": "↑A ≤ ↑(B * C)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hnonneg",
+      "class": "main",
+      "selected": true,
+      "premises": [],
+      "conclusion": "n_hnonneg_f9fa39ed",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "positivity",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_17",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hnonneg : 0 ≤ (Nat.card K : ℚ) * (Nat.card G : ℚ) := by\n    positivity",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "17",
+            "name": "hnonneg",
+            "statement": "0 ≤ ↑(Nat.card ↥K) * ↑(Nat.card G)"
+          }
+        },
+        "lean_dependency_sha256": "321cdcd6653e7874716f80b634c0b040cc0a5f924a9ab2a3f33caea64ca26a4a",
+        "kernel_witness_check": {
+          "proof_type": "0 ≤ ↑(Nat.card ↥K) * ↑(Nat.card G)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hfactor",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_3607020331_574bd3cc",
+        "n_hden_14470dac"
+      ],
+      "conclusion": "n_hfactor_2c279042",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + div_mul_div_comm",
+        "items": [
+          "Eq.symm",
+          "div_mul_div_comm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "div_mul_div_comm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_18",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hfactor : ((B : ℚ) /\n        ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ))) *\n      ((C : ℚ) / ((Nat.card I : ℚ) * (Nat.card N : ℚ))) =\n      ((B * C : ℕ) : ℚ) / ((Nat.card K : ℚ) * (Nat.card G : ℚ)) := by\n    rw [div_mul_div_comm]\n    have hnumcast : (B : ℚ) * (C : ℚ) = ((B * C : ℕ) : ℚ) := by\n      norm_num\n    have hdencast : ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ)) *\n        ((Nat.card I : ℚ) * (Nat.card N : ℚ)) =\n        (Nat.card K : ℚ) * (Nat.card G : ℚ) := hden.symm\n    rw [hnumcast, hdencast]\n  calc\n    (A : ℚ) / ((Nat.card K : ℚ) * (Nat.card G : ℚ)) ≤\n        ((B * C : ℕ) : ℚ) / ((Nat.card K : ℚ) * (Nat.card G : ℚ)) :=\n      div_le_div_of_nonneg_right hnum hnonneg\n    _ = ((B : ℚ) /\n          ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ))) *\n        ((C : ℚ) / ((Nat.card I : ℚ) * (Nat.card N : ℚ))) := hfactor.symm\n    _ = ((Nat.card {p : Kbar × (G ⧸ N) // Commute (p.1 : G ⧸ N) p.2} : ℚ) /\n          ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ))) *\n        ((Nat.card {p : (K.comap N.subtype) × N // Commute (p.1 : N) p.2} : ℚ) /\n          ((Nat.card (K.comap N.subtype) : ℚ) * (Nat.card N : ℚ))) := rfl",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.13",
+              "statement": "N.Normal"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hden",
+              "statement": "↑(Nat.card ↥K) * ↑(Nat.card G) = ↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N)) * (↑(Nat.card ↥I) * ↑(Nat.card ↥N))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "18",
+            "name": "hfactor",
+            "statement": "↑B / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) * (↑C / (↑(Nat.card ↥I) * ↑(Nat.card ↥N))) = ↑(B * C) / (↑(Nat.card ↥K) * ↑(Nat.card G))"
+          }
+        },
+        "lean_dependency_sha256": "aff22e137f542899c30406262a69f6400eab429ec16044785c0e25622fbd26d8",
+        "kernel_witness_check": {
+          "proof_type": "↑B / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) * (↑C / (↑(Nat.card ↥I) * ↑(Nat.card ↥N))) =\n  ↑(B * C) / (↑(Nat.card ↥K) * ↑(Nat.card G))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_3607020331_574bd3cc",
+        "n_hnum_ef68a830",
+        "n_hnonneg_f9fa39ed",
+        "n_hfactor_2c279042"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + div_le_div_of_nonneg_right",
+        "items": [
+          "Eq.symm",
+          "div_le_div_of_nonneg_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "div_le_div_of_nonneg_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "      ((C : ℚ) / ((Nat.card I : ℚ) * (Nat.card N : ℚ))) =\n      ((B * C : ℕ) : ℚ) / ((Nat.card K : ℚ) * (Nat.card G : ℚ)) := by\n    rw [div_mul_div_comm]\n    have hnumcast : (B : ℚ) * (C : ℚ) = ((B * C : ℕ) : ℚ) := by\n      norm_num\n    have hdencast : ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ)) *\n        ((Nat.card I : ℚ) * (Nat.card N : ℚ)) =\n        (Nat.card K : ℚ) * (Nat.card G : ℚ) := hden.symm\n    rw [hnumcast, hdencast]\n  calc\n    (A : ℚ) / ((Nat.card K : ℚ) * (Nat.card G : ℚ)) ≤\n        ((B * C : ℕ) : ℚ) / ((Nat.card K : ℚ) * (Nat.card G : ℚ)) :=\n      div_le_div_of_nonneg_right hnum hnonneg\n    _ = ((B : ℚ) /\n          ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ))) *\n        ((C : ℚ) / ((Nat.card I : ℚ) * (Nat.card N : ℚ))) := hfactor.symm\n    _ = ((Nat.card {p : Kbar × (G ⧸ N) // Commute (p.1 : G ⧸ N) p.2} : ℚ) /\n          ((Nat.card Kbar : ℚ) * (Nat.card (G ⧸ N) : ℚ))) *\n        ((Nat.card {p : (K.comap N.subtype) × N // Commute (p.1 : N) p.2} : ℚ) /\n          ((Nat.card (K.comap N.subtype) : ℚ) * (Nat.card N : ℚ))) := rfl",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "inst._@.proofs.3607020331._hygCtx._hyg.13",
+              "statement": "N.Normal"
+            },
+            {
+              "fvar_id": "16",
+              "name": "hnum",
+              "statement": "↑A ≤ ↑(B * C)"
+            },
+            {
+              "fvar_id": "17",
+              "name": "hnonneg",
+              "statement": "0 ≤ ↑(Nat.card ↥K) * ↑(Nat.card G)"
+            },
+            {
+              "fvar_id": "18",
+              "name": "hfactor",
+              "statement": "↑B / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) * (↑C / (↑(Nat.card ↥I) * ↑(Nat.card ↥N))) = ↑(B * C) / (↑(Nat.card ↥K) * ↑(Nat.card G))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "↑A / (↑(Nat.card ↥K) * ↑(Nat.card G)) ≤ ↑(Nat.card { p // Commute (↑p.1) p.2 }) / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) * (↑(Nat.card { p // Commute (↑p.1) p.2 }) / (↑(Nat.card ↥(Subgroup.comap N.subtype K)) * ↑(Nat.card ↥N)))"
+          }
+        },
+        "lean_dependency_sha256": "5c3c39b544f5b4b6c178a80fbaa5725a71d4560f054265326ae11f4b432e36ff",
+        "kernel_witness_check": {
+          "proof_type": "↑A / (↑(Nat.card ↥K) * ↑(Nat.card G)) ≤\n  ↑(Nat.card { p // Commute (↑p.1) p.2 }) / (↑(Nat.card ↥Kbar) * ↑(Nat.card (G ⧸ N))) *\n    (↑(Nat.card { p // Commute (↑p.1) p.2 }) / (↑(Nat.card ↥(Subgroup.comap N.subtype K)) * ↑(Nat.card ↥N)))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:1"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "commuting probability finite group quotient normal subgroup inequality",
+      "declarations": [
+        "Subgroup.commProb_subgroup_le",
+        "Subgroup.commProb_quotient_le",
+        "QuotientGroup.instNormalSubgroup",
+        "QuotientGroup.finite",
+        "commProb_def'",
+        "inv_card_commutator_le_commProb",
+        "Subgroup.Normal",
+        "QuotientGroup.map_normal",
+        "QuotientAddGroup.instNormalAddSubgroup",
+        "FiniteIndexNormalSubgroup"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Commute (_ : _) _",
+      "declarations": [
+        "Commute.refl",
+        "Commute.all",
+        "Commute.symm",
+        "Commute.semiconjBy",
+        "Commute.symm_iff",
+        "Commute.on_refl",
+        "Commute.one_left",
+        "Commute.one_right",
+        "Commute.pow_self",
+        "Commute.self_pow"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "finite group subgroup quotient commuting pairs cardinality",
+      "declarations": [
+        "Finite.of_subgroup_quotient",
+        "Subgroup.card_eq_card_quotient_mul_card_subgroup",
+        "Finset.card_pow_quotient_mul_pow_inter_subgroup_le",
+        "QuotientGroup.mk'",
+        "QuotientGroup.finite",
+        "Subgroup.IsComplement'.card_mul",
+        "Con.subgroup_quotientGroupCon",
+        "Subgroup.isComplement'_of_card_mul_and_disjoint",
+        "Subgroup.card_commutator_le_of_finite_commutatorSet",
+        "finite_iff_subgroup_quotient"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Nat.card (Subgroup.map _ _)",
+      "declarations": [
+        "Subgroup.card_map_of_injective",
+        "Subgroup.card_subtype",
+        "Subgroup.relIndex_ker",
+        "Subgroup.card_map_dvd"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Nat.card _ = Fintype.card _",
+      "declarations": [
+        "Nat.card_eq_fintype_card"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Fintype.card {x : _ // _} = _",
+      "declarations": [
+        "Fintype.card_subtype_true",
+        "Fintype.card_subtype_eq",
+        "Fintype.card_subtype_eq'",
+        "Fintype.card_subtype",
+        "Fintype.subtype_card",
+        "Fintype.card_of_subtype",
+        "Fintype.card_coe",
+        "Fintype.card_fin_lt_of_le",
+        "Fintype.card_subtype_compl",
+        "Fintype.card_compl_eq_card_compl"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Fintype.card_congr (_ ≃ _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Fintype.card_le_of_injective",
+      "declarations": [
+        "Fintype.card_le_of_injective"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Finset.sum_le_sum (_ ≤ _)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Nat.card (QuotientGroup.mk' _).ker",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Commute.map _ _",
+      "declarations": [
+        "Finset.map_noncommProd",
+        "MulHom.comp_noncommCoprod",
+        "MonoidHom.noncommCoprod_unique",
+        "MonoidHom.comp_noncommCoprod"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "map_commute",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "Commute preserved by monoid homomorphism map",
+      "declarations": [
+        "OrderMonoidHom.copy",
+        "Commute",
+        "ContinuousMonoidHom.coe_toContinuousMap",
+        "CommMonCat.hom_forget",
+        "Commute.semiconjBy",
+        "AddCommute.addSemiconjBy",
+        "Commute.map",
+        "Stream'.homomorphism",
+        "CategoryTheory.Precoverage.PullbacksPreservedBy",
+        "CategoryTheory.GrothendieckTopology.OneHypercover.IsPreservedBy"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Subgroup.mem_map_of_mem",
+      "declarations": [
+        "Subgroup.mem_map_of_mem"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Fintype.card_le_card_of_forall_exists",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Fintype.card_le_mul_card_image",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 20
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "finite type cardinal bound fibers product image maximum preimage cardinality",
+      "declarations": [
+        "Cardinal.type_cardinal",
+        "Set.Finite.of_finite_fibers",
+        "Algebra.FiniteType",
+        "Cardinal.mk_le_mk_mul_of_mk_preimage_le",
+        "List.maximum",
+        "Cardinal.lift_mk_le_lift_mk_mul_of_lift_mk_preimage_le",
+        "Finset.mul_card_image_le_card",
+        "Cardinal.exists_rel_mk_fibers_lt",
+        "Finset.card_le_mul_card_image_of_maps_to",
+        "Northcott.comp_of_finite_fibers"
+      ],
+      "call_turn": 21,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Finset.card_image_le",
+      "declarations": [
+        "Finset.card_image_le"
+      ],
+      "call_turn": 21,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Finset.card_le_card_image",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Finset.card_fiberwise",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Finset.sum_card_fiberwise",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Fintype.card_le_card_prod_of",
+      "declarations": [],
+      "call_turn": 21,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "(_ * _ = _ * _ -> _ = _)",
+      "declarations": [
+        "Nat.eq_of_mul_eq_mul_left",
+        "Nat.eq_of_mul_eq_mul_right",
+        "Int.eq_of_mul_eq_mul_left",
+        "Int.eq_of_mul_eq_mul_right",
+        "Nat.mul_left_cancel",
+        "Nat.mul_right_cancel",
+        "Nat.gcd_mul_gcd_of_coprime_of_mul_eq_mul",
+        "Int.tdiv_eq_tdiv_of_mul_eq_mul",
+        "Int.ediv_eq_ediv_of_mul_eq_mul",
+        "Std.Tactic.BVDecide.BVExpr.eval_replicate"
+      ],
+      "call_turn": 42,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "mul_left_cancel",
+      "declarations": [
+        "mul_left_cancel"
+      ],
+      "call_turn": 42,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "Function.Injective (_ * _)",
+      "declarations": [],
+      "call_turn": 42,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Subgroup.fintype",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "instFintypeSubgroup",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 50
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "Fintype subgroup of finite group instance",
+      "declarations": [
+        "Finite.of_fintype",
+        "Subgroup.fintypeBot",
+        "Fintype.instFastSubsingleton",
+        "ClassGroup.fintypeOfAdmissibleOfFinite",
+        "AddSubgroup.fintypeQuotientOfFiniteIndex",
+        "Subgroup.instFintypeSubtypeMemOfDecidablePred",
+        "Fintype.ofFinite",
+        "Fintype",
+        "AddSubgroup.fintypeOfIndexNeZero",
+        "Subgroup.fintypeQuotientOfFiniteIndex"
+      ],
+      "call_turn": 48,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Finite ↥_",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "Subgroup.finite",
+      "declarations": [],
+      "call_turn": 48,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "Commute.inv_right",
+      "declarations": [
+        "Commute.inv_right"
+      ],
+      "call_turn": 60,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Commute.mul_right",
+      "declarations": [
+        "Commute.mul_right"
+      ],
+      "call_turn": 60,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "Commute.div_right",
+      "declarations": [
+        "Commute.div_right"
+      ],
+      "call_turn": 60,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Commute _ _ -> Commute _ (_ * _)",
+      "declarations": [
+        "Commute.mul_right",
+        "Commute.natCast_mul_right",
+        "Commute.natCast_mul_natCast_mul",
+        "Commute.intCast_mul_right",
+        "Commute.intCast_mul_intCast_mul",
+        "Commute.conj"
+      ],
+      "call_turn": 60,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Commute _ _ -> Commute _ _⁻¹",
+      "declarations": [
+        "Commute.inv_right",
+        "Commute.inv_inv"
+      ],
+      "call_turn": 60,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Commute.mul_left",
+      "declarations": [
+        "Commute.mul_left"
+      ],
+      "call_turn": 66,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "(QuotientGroup.mk' _).ker = _",
+      "declarations": [
+        "QuotientGroup.ker_mk'"
+      ],
+      "call_turn": 78,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:53",
+      "tool": "loogle",
+      "query": "QuotientGroup.ker_mk'",
+      "declarations": [
+        "QuotientGroup.ker_mk'"
+      ],
+      "call_turn": 78,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "QuotientGroup.eq_one_iff",
+      "declarations": [
+        "QuotientGroup.eq_one_iff"
+      ],
+      "call_turn": 78,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "QuotientGroup.mk'_surjective",
+      "declarations": [
+        "QuotientGroup.mk'_surjective"
+      ],
+      "call_turn": 78,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Function.Surjective (QuotientGroup.mk' _)",
+      "declarations": [
+        "QuotientGroup.mk'_surjective"
+      ],
+      "call_turn": 78,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "Finset.sum_fiberwise",
+      "declarations": [
+        "Finset.sum_fiberwise"
+      ],
+      "call_turn": 86,
+      "result_turn": 87
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "Finset.sum_comp",
+      "declarations": [
+        "Finset.sum_comp"
+      ],
+      "call_turn": 86,
+      "result_turn": 88
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Finset.sum_image'",
+      "declarations": [
+        "Finset.sum_image'"
+      ],
+      "call_turn": 86,
+      "result_turn": 89
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "Fintype.sum_fiberwise",
+      "declarations": [
+        "Fintype.sum_fiberwise"
+      ],
+      "call_turn": 86,
+      "result_turn": 90
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "sum over fibers of a function Finset",
+      "declarations": [
+        "Fintype.sum_fiberwise",
+        "Function.Bijective.finset_sum",
+        "Function.Bijective.finsetSum",
+        "Set.Finite.of_finite_fibers",
+        "Finset.sum",
+        "Finset.sum_fiberwise_eq_sum_filter'",
+        "Finset.sum_fiberwise_of_maps_to'",
+        "HasFibers",
+        "Fintype.sum_fiberwise'",
+        "Function.updateFinset"
+      ],
+      "call_turn": 86,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "Finset.sum_bij",
+      "declarations": [
+        "Finset.sum_bij"
+      ],
+      "call_turn": 86,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:70",
+      "tool": "loogle",
+      "query": "relIndex _ * Nat.card _ = Nat.card _",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 106
+    },
+    {
+      "event_id": "loogle:71",
+      "tool": "loogle",
+      "query": "Subgroup.relIndex_mul_card",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 107
+    },
+    {
+      "event_id": "loogle:72",
+      "tool": "loogle",
+      "query": "Subgroup.card_mul_relIndex",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 108
+    },
+    {
+      "event_id": "loogle:73",
+      "tool": "loogle",
+      "query": "Subgroup.relIndex_eq",
+      "declarations": [],
+      "call_turn": 105,
+      "result_turn": 109
+    },
+    {
+      "event_id": "leanfinder:74",
+      "tool": "leanfinder",
+      "query": "Subgroup relIndex cardinal product intersection",
+      "declarations": [
+        "AddSubgroup.relIndex",
+        "Subgroup.relIndex",
+        "Subgroup.index",
+        "Subgroup.relIndex_inf_le",
+        "AddSubgroup.index_mul_card",
+        "Subgroup.relIndex_ker",
+        "AddSubgroup.relIndex_inf_le",
+        "Subgroup.relIndex_inf_mul_relIndex",
+        "Subgroup.relIndex_mul_relIndex",
+        "Subgroup.relIndex_map_map"
+      ],
+      "call_turn": 105,
+      "result_turn": 110
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "Subgroup.map_subgroupOf_eq_of_le",
+      "declarations": [
+        "Subgroup.map_subgroupOf_eq_of_le"
+      ],
+      "call_turn": 105,
+      "result_turn": 111
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "Subgroup.map _ (Subgroup.subgroupOf _ _) = _",
+      "declarations": [
+        "Subgroup.subgroupOf_map_subtype",
+        "Subgroup.map_subgroupOf_eq_of_le"
+      ],
+      "call_turn": 114,
+      "result_turn": 115
+    },
+    {
+      "event_id": "loogle:78",
+      "tool": "loogle",
+      "query": "map_subgroupOf",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 116
+    },
+    {
+      "event_id": "loogle:79",
+      "tool": "loogle",
+      "query": "subgroupOf_inf",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 117
+    },
+    {
+      "event_id": "loogle:80",
+      "tool": "loogle",
+      "query": "Subgroup.inf_subgroupOf",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 118
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Subgroup.map_subgroupOf",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:82",
+      "tool": "loogle",
+      "query": "Subgroup.subtype_subgroupOf",
+      "declarations": [],
+      "call_turn": 114,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "0 < Nat.card _",
+      "declarations": [
+        "Nat.card_pos",
+        "Nat.card_pos_iff",
+        "Set.Nonempty.natCard_pos",
+        "Set.natCard_pos",
+        "Finite.card_pos",
+        "Finite.card_pos_iff",
+        "AlgHom.IsArithFrobAt.card_pos"
+      ],
+      "call_turn": 129,
+      "result_turn": 130
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Nat.card_pos",
+      "declarations": [
+        "Nat.card_pos"
+      ],
+      "call_turn": 129,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:89",
+      "tool": "loogle",
+      "query": "Nat.card_ne_zero",
+      "declarations": [
+        "Nat.card_ne_zero"
+      ],
+      "call_turn": 129,
+      "result_turn": 132
+    },
+    {
+      "event_id": "loogle:90",
+      "tool": "loogle",
+      "query": "Nat.card_eq_zero",
+      "declarations": [
+        "Nat.card_eq_zero"
+      ],
+      "call_turn": 129,
+      "result_turn": 133
+    },
+    {
+      "event_id": "loogle:91",
+      "tool": "loogle",
+      "query": "Fintype.card_pos",
+      "declarations": [
+        "Fintype.card_pos"
+      ],
+      "call_turn": 129,
+      "result_turn": 134
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 10,
+    "selected_hyperedge_count": 8,
+    "main_hyperedge_count": 8,
+    "side_hyperedge_count": 0,
+    "selected_depth": 4,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 64,
+    "useful_retrieval_event_count": 3,
+    "unused_retrieval_event_count": 61,
+    "accepted_helper_count": 4,
+    "rollout_tool_call_count": 96,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

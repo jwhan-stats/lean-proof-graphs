@@ -1,0 +1,14 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hbad_76927288" [shape=box, color="#178F82", label="hbad\nb * a * d = d"];
+  "m_hbd_aa72fb5e" [shape=box, color="#178F82", label="hbd\n∃ x y, b = d * x ∧ b = y * d"];
+  "m_hdab_a028c4c6" [shape=box, color="#178F82", label="hdab\nd * a * b = d"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∀ (c : S), c * a = a * c → c * d = d * c → c * b = b * c"];
+  "r_h_goal" [shape=diamond, label="mul_assoc", color="#D97706"];
+  "m_hbad_76927288" -> "r_h_goal";
+  "m_hdab_a028c4c6" -> "r_h_goal";
+  "m_hbd_aa72fb5e" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

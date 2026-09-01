@@ -1,0 +1,888 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p3094_finite_multiplicative_ratio_sums",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 3094,
+    "source": "1305.2486",
+    "theorem_name": "finite_multiplicative_ratio_sums",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/3094",
+    "reconstructed_proof": "../../candidates/p3094_finite_multiplicative_ratio_sums/proof.lean",
+    "raw_elaboration": "../../candidates/p3094_finite_multiplicative_ratio_sums/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p3094_finite_multiplicative_ratio_sums.finite_multiplicative_ratio_sums",
+    "verification_call_id": "verify_submission:19",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "0f727dd412e7486054192c1914622fb71cd63ecb637578f20f992a8d2ee24e80",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "26c44ca255f212609aa99307a7c2ed3878f636007e2531f5d3584422abb2023b",
+    "concrete_semantic_topology_sha256": "0f727dd412e7486054192c1914622fb71cd63ecb637578f20f992a8d2ee24e80"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hr_mul_b4aff056",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hr_mul",
+      "lean_fvar_id": "5",
+      "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)"
+    },
+    {
+      "id": "m_hr_pos_35f09789",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hr_pos",
+      "lean_fvar_id": "4",
+      "statement": "∀ (e d : I), 0 < r (e, d)"
+    },
+    {
+      "id": "m_inst___proofs_1328577087_62e23136",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+      "lean_fvar_id": "2",
+      "statement": "Nonempty I"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "∑ e, (∑ d, r (d, e))⁻¹ = (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ ∧ (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = (∑ e, r (e, b)) / ∑ d, r (d, b) ∧ (∑ e, r (e, b)) / ∑ d, r (d, b) = 1"
+    },
+    {
+      "id": "n_ha_a1e54297",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hA",
+      "lean_fvar_id": "11",
+      "statement": "∑ e, (∑ d, r (d, e))⁻¹ = 1"
+    },
+    {
+      "id": "n_hb_04d018da",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hB",
+      "lean_fvar_id": "12",
+      "statement": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1"
+    },
+    {
+      "id": "n_hc_c52bea47",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hC",
+      "lean_fvar_id": "13",
+      "statement": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1"
+    },
+    {
+      "id": "n_hdiag_3e39bc9d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hdiag",
+      "lean_fvar_id": "7",
+      "statement": "∀ (e : I), r (e, e) = 1"
+    },
+    {
+      "id": "n_hinv_9049f408",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hinv",
+      "lean_fvar_id": "8",
+      "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)"
+    },
+    {
+      "id": "n_hsum_ne_7a5044d5",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsum_ne",
+      "lean_fvar_id": "10",
+      "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0"
+    },
+    {
+      "id": "n_hsum_pos_25aa3ae8",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hsum_pos",
+      "lean_fvar_id": "9",
+      "statement": "∀ (e : I), 0 < ∑ d, r (d, e)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hdiag",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hr_pos_35f09789",
+        "m_hr_mul_b4aff056"
+      ],
+      "conclusion": "n_hdiag_3e39bc9d",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "mul_left_cancel₀ + mul_one + ne_of_gt",
+        "items": [
+          "mul_left_cancel₀",
+          "mul_one",
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "mul_left_cancel₀",
+          "mul_one",
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_7",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hdiag : ∀ e : I, r (e, e) = 1 := by\n    intro e\n    have hz : r (e, e) ≠ 0 := ne_of_gt (hr_pos e e)\n    have h : r (e, e) * r (e, e) = r (e, e) * 1 := by\n      rw [mul_one]\n      exact (hr_mul e e e).symm\n    exact mul_left_cancel₀ hz h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hr_pos",
+              "statement": "∀ (e d : I), 0 < r (e, d)"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hr_mul",
+              "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "7",
+            "name": "hdiag",
+            "statement": "∀ (e : I), r (e, e) = 1"
+          }
+        },
+        "lean_dependency_sha256": "788f01aa6b873a96acac81a7fadbf07977aa7f98fa773006742559a828a031d0",
+        "kernel_witness_check": {
+          "proof_type": "∀ (e : I), r (e, e) = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hinv",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hr_mul_b4aff056",
+        "n_hdiag_3e39bc9d"
+      ],
+      "conclusion": "n_hinv_9049f408",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "inv_eq_of_mul_eq_one_right",
+        "items": [
+          "inv_eq_of_mul_eq_one_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "inv_eq_of_mul_eq_one_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_8",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hinv : ∀ e d : I, (r (e, d))⁻¹ = r (d, e) := by\n    intro e d\n    have hone : r (e, d) * r (d, e) = 1 := by\n      rw [← hdiag e]\n      exact (hr_mul e e d).symm\n    exact inv_eq_of_mul_eq_one_right hone",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hr_mul",
+              "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hdiag",
+              "statement": "∀ (e : I), r (e, e) = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "8",
+            "name": "hinv",
+            "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)"
+          }
+        },
+        "lean_dependency_sha256": "ebf9771b5064ff2b5e667273433704bef188c5c3fe5c6392eac659e7a2c3a973",
+        "kernel_witness_check": {
+          "proof_type": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "inv_eq_of_mul_eq_one_right"
+        ],
+        "observed_search_event_ids": [
+          "loogle:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_hsum_pos",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1328577087_62e23136",
+        "m_hr_pos_35f09789"
+      ],
+      "conclusion": "n_hsum_pos_25aa3ae8",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_pos + Finset.univ_nonempty",
+        "items": [
+          "Finset.sum_pos",
+          "Finset.univ_nonempty"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_pos",
+          "Finset.univ_nonempty"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_9",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsum_pos : ∀ e : I, 0 < ∑ d : I, r (d, e) := by\n    intro e\n    exact Finset.sum_pos (fun d _ => hr_pos d e) Finset.univ_nonempty",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+              "statement": "Nonempty I"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hr_pos",
+              "statement": "∀ (e d : I), 0 < r (e, d)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "9",
+            "name": "hsum_pos",
+            "statement": "∀ (e : I), 0 < ∑ d, r (d, e)"
+          }
+        },
+        "lean_dependency_sha256": "f2b7d6129a9ef3b21cdadef22daf2d070a955d20dfb510110e32d599ecef892a",
+        "kernel_witness_check": {
+          "proof_type": "∀ (e : I), 0 < ∑ i, r (i, e)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.sum_pos"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:6"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hsum_ne",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hsum_pos_25aa3ae8"
+      ],
+      "conclusion": "n_hsum_ne_7a5044d5",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ne_of_gt",
+        "items": [
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_10",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hsum_ne : ∀ e : I, (∑ d : I, r (d, e)) ≠ 0 := by\n    intro e\n    exact ne_of_gt (hsum_pos e)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "9",
+              "name": "hsum_pos",
+              "statement": "∀ (e : I), 0 < ∑ d, r (d, e)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "10",
+            "name": "hsum_ne",
+            "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0"
+          }
+        },
+        "lean_dependency_sha256": "edadb97f6661a530c46c4a032727cdf69917ceffbb78eb5f12434abc97eb8dc0",
+        "kernel_witness_check": {
+          "proof_type": "∀ (e : I), ∑ d, r (d, e) ≠ 0",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_ha",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hr_mul_b4aff056",
+        "n_hinv_9049f408",
+        "n_hsum_ne_7a5044d5"
+      ],
+      "conclusion": "n_ha_a1e54297",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_congr + Finset.sum_div + Finset.sum_mul",
+        "items": [
+          "Finset.sum_congr",
+          "Finset.sum_div",
+          "Finset.sum_mul",
+          "div_eq_mul_inv",
+          "div_self",
+          "inv_div"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_congr",
+          "Finset.sum_div",
+          "Finset.sum_mul",
+          "div_eq_mul_inv",
+          "div_self",
+          "inv_div"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_11",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hA : (∑ e : I, (∑ d : I, r (d, e))⁻¹) = 1 := by\n    have hterm : ∀ e : I,\n        (∑ d : I, r (d, e))⁻¹ =\n          r (e, b) / (∑ d : I, r (d, b)) := by\n      intro e\n      calc\n        (∑ d : I, r (d, e))⁻¹\n            = ((∑ d : I, r (d, b)) / r (e, b))⁻¹ := by\n              congr 1\n              rw [div_eq_mul_inv, Finset.sum_mul]\n              apply Finset.sum_congr rfl\n              intro d _\n              calc\n                r (d, e) = r (d, b) * r (b, e) := hr_mul d e b\n                _ = r (d, b) * (r (e, b))⁻¹ := by rw [hinv e b]\n        _ = r (e, b) / (∑ d : I, r (d, b)) := inv_div _ _\n    calc\n      (∑ e : I, (∑ d : I, r (d, e))⁻¹)\n          = ∑ e : I, r (e, b) / (∑ d : I, r (d, b)) := by\n            apply Finset.sum_congr rfl\n            intro e _\n            exact hterm e\n      _ = (∑ e : I, r (e, b)) / (∑ d : I, r (d, b)) := by\n            rw [← Finset.sum_div]\n      _ = (∑ d : I, r (d, b)) / (∑ d : I, r (d, b)) := rfl\n      _ = 1 := div_self (hsum_ne b)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "hr_mul",
+              "statement": "∀ (e d b : I), r (e, d) = r (e, b) * r (b, d)"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hinv",
+              "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hsum_ne",
+              "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "11",
+            "name": "hA",
+            "statement": "∑ e, (∑ d, r (d, e))⁻¹ = 1"
+          }
+        },
+        "lean_dependency_sha256": "e356bac02327dc12be089fe4410066240226b1a0569a3fbe7548827a1a9458cf",
+        "kernel_witness_check": {
+          "proof_type": "∑ e, (∑ d, r (d, e))⁻¹ = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.sum_div",
+          "Finset.sum_mul",
+          "div_self",
+          "inv_div"
+        ],
+        "observed_search_event_ids": [
+          "loogle:11",
+          "loogle:7",
+          "loogle:2",
+          "loogle:10"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hb",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_inst___proofs_1328577087_62e23136",
+        "m_hr_pos_35f09789",
+        "n_hinv_9049f408"
+      ],
+      "conclusion": "n_hb_04d018da",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Finset.sum_congr + Finset.sum_pos + Finset.univ_nonempty",
+        "items": [
+          "Finset.sum_congr",
+          "Finset.sum_pos",
+          "Finset.univ_nonempty",
+          "div_self",
+          "ne_of_gt"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Finset.sum_congr",
+          "Finset.sum_pos",
+          "Finset.univ_nonempty",
+          "div_self",
+          "ne_of_gt"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_12",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hB : (∑ e : I, r (b, e)) / (∑ d : I, (r (d, b))⁻¹) = 1 := by\n    have hden : (∑ d : I, (r (d, b))⁻¹) = ∑ e : I, r (b, e) := by\n      apply Finset.sum_congr rfl\n      intro d _\n      exact hinv d b\n    have hnum_pos : 0 < ∑ e : I, r (b, e) :=\n      Finset.sum_pos (fun e _ => hr_pos b e) Finset.univ_nonempty\n    rw [hden]\n    exact div_self (ne_of_gt hnum_pos)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "2",
+              "name": "inst._@.proofs.1328577087._hygCtx._hyg.6",
+              "statement": "Nonempty I"
+            },
+            {
+              "fvar_id": "4",
+              "name": "hr_pos",
+              "statement": "∀ (e d : I), 0 < r (e, d)"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hinv",
+              "statement": "∀ (e d : I), (r (e, d))⁻¹ = r (d, e)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "12",
+            "name": "hB",
+            "statement": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1"
+          }
+        },
+        "lean_dependency_sha256": "001c9f0f1debc2707b54ae58725cbe24939108548c12d6372139dcd296071d6c",
+        "kernel_witness_check": {
+          "proof_type": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Finset.sum_pos",
+          "div_self"
+        ],
+        "observed_search_event_ids": [
+          "loogle:5",
+          "loogle:6",
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hc",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hsum_ne_7a5044d5"
+      ],
+      "conclusion": "n_hc_c52bea47",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "div_self",
+        "items": [
+          "div_self"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "div_self"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_13",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hC : (∑ e : I, r (e, b)) / (∑ d : I, r (d, b)) = 1 := by\n    have hnum : (∑ e : I, r (e, b)) = ∑ d : I, r (d, b) := rfl\n    rw [hnum]\n    exact div_self (hsum_ne b)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hsum_ne",
+              "statement": "∀ (e : I), ∑ d, r (d, e) ≠ 0"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "13",
+            "name": "hC",
+            "statement": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1"
+          }
+        },
+        "lean_dependency_sha256": "a3c72cb8799f7edda601efbf5b1d75d435c2587e8e735baf715e41b7524c185b",
+        "kernel_witness_check": {
+          "proof_type": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "div_self"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_ha_a1e54297",
+        "n_hb_04d018da",
+        "n_hc_c52bea47"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  exact ⟨hA.trans hB.symm, hB.trans hC.symm, hC⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "11",
+              "name": "hA",
+              "statement": "∑ e, (∑ d, r (d, e))⁻¹ = 1"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hB",
+              "statement": "(∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = 1"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hC",
+              "statement": "(∑ e, r (e, b)) / ∑ d, r (d, b) = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "∑ e, (∑ d, r (d, e))⁻¹ = (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ ∧ (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = (∑ e, r (e, b)) / ∑ d, r (d, b) ∧ (∑ e, r (e, b)) / ∑ d, r (d, b) = 1"
+          }
+        },
+        "lean_dependency_sha256": "52f759845266be32b96bf1db4a276003c235d52300a1ddeae3ed1763c94cee9e",
+        "kernel_witness_check": {
+          "proof_type": "∑ e, (∑ d, r (d, e))⁻¹ = (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ ∧\n  (∑ e, r (b, e)) / ∑ d, (r (d, b))⁻¹ = (∑ e, r (e, b)) / ∑ d, r (d, b) ∧ (∑ e, r (e, b)) / ∑ d, r (d, b) = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "(_ ≠ 0) -> (_ * _ = _ * _) -> _ = _",
+      "declarations": [
+        "Int.eq_of_mul_eq_mul_left",
+        "Int.eq_of_mul_eq_mul_right",
+        "Int.tdiv_eq_tdiv_of_mul_eq_mul",
+        "Int.ediv_eq_ediv_of_mul_eq_mul",
+        "Int.eq_mul_div_of_mul_eq_mul_of_dvd_left",
+        "mul_left_cancel",
+        "mul_right_cancel",
+        "nat_mul_inj'",
+        "Polynomial.natDegree_sub_eq_of_prod_eq",
+        "WeierstrassCurve.Jacobian.addX_of_X_eq"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "mul_left_cancel₀",
+      "declarations": [
+        "mul_left_cancel"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "(_ ≠ 0) -> (_ / _ = 1)",
+      "declarations": [
+        "Int.ediv_self",
+        "div_self",
+        "Ordinal.div_self",
+        "Ordinal.div_two_opow_log",
+        "EuclideanDomain.div_self",
+        "ENNReal.div_self",
+        "EReal.div_self",
+        "FractionalIdeal.spanSingleton_div_self",
+        "FractionalIdeal.coe_ideal_span_singleton_div_self",
+        "real_inner_div_norm_mul_norm_eq_one_of_ne_zero_of_pos_mul"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "(_ * _ = 1) -> _⁻¹ = _",
+      "declarations": [
+        "Rat.inv_eq_of_mul_eq_one",
+        "DivisionMonoid.inv_eq_of_mul",
+        "inv_eq_of_mul_eq_one_left",
+        "inv_eq_of_mul_eq_one_right",
+        "DivisionMonoid.mk",
+        "Units.inv_mk",
+        "ZMod.inv_eq_of_mul_eq_one",
+        "Matrix.inv_eq_left_inv",
+        "Matrix.inv_eq_right_inv"
+      ],
+      "call_turn": 6,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "eq_inv_of_mul_eq_one_left",
+      "declarations": [
+        "eq_inv_of_mul_eq_one_left"
+      ],
+      "call_turn": 6,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Finset.sum_pos",
+      "declarations": [
+        "Finset.sum_pos"
+      ],
+      "call_turn": 6,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "(∀ _ ∈ _, 0 < _) -> 0 < ∑ _ ∈ _, _",
+      "declarations": [
+        "Finset.sum_pos"
+      ],
+      "call_turn": 6,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Finset.sum_mul",
+      "declarations": [
+        "Finset.sum_mul"
+      ],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "(∑ _ ∈ _, _ * _) = (∑ _ ∈ _, _) * _",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Finset.mul_sum",
+      "declarations": [
+        "Finset.mul_sum"
+      ],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "inv_div",
+      "declarations": [
+        "inv_div"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Finset.sum_div",
+      "declarations": [
+        "Finset.sum_div"
+      ],
+      "call_turn": 16,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "(∑ _ ∈ _, _ / _) = (∑ _ ∈ _, _) / _",
+      "declarations": [],
+      "call_turn": 16,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "inv_mul_eq_div",
+      "declarations": [
+        "inv_mul_eq_div"
+      ],
+      "call_turn": 16,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "mul_inv_cancel₀",
+      "declarations": [
+        "mul_inv_cancel"
+      ],
+      "call_turn": 16,
+      "result_turn": 20
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 11,
+    "selected_hyperedge_count": 8,
+    "main_hyperedge_count": 8,
+    "side_hyperedge_count": 0,
+    "selected_depth": 4,
+    "max_fan_in_all": 3,
+    "max_fan_in_main": 3,
+    "manifest_fact_count": 3,
+    "retrieved_rule_item_count": 6,
+    "retrieval_query_count": 15,
+    "useful_retrieval_event_count": 7,
+    "unused_retrieval_event_count": 8,
+    "accepted_helper_count": 0,
+    "rollout_tool_call_count": 20,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

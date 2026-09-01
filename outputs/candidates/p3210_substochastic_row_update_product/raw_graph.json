@@ -1,0 +1,389 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+      "manifest": [
+        {
+          "statement": "1 ≤ N",
+          "origin": "manifest",
+          "name": "hN",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "∀ (i j : Fin N), 0 ≤ C i j",
+          "origin": "manifest",
+          "name": "hC_nonneg",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "∀ (i : Fin N), C i i = 0",
+          "origin": "manifest",
+          "name": "hC_diag",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "IsGreatest (Set.range fun i => ∑ j, C i j) r",
+          "origin": "manifest",
+          "name": "hr",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "r < 1",
+          "origin": "manifest",
+          "name": "hr_lt_one",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "Q = (List.ofFn fun i => Matrix.updateRow 1 i (C i)).reverse.prod",
+          "origin": "manifest",
+          "name": "hQ",
+          "fvar_id": "9"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Rollout_p3210_substochastic_row_update_product.row_update_prod_invariant"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (i j : Fin N), 0 ≤ C i j",
+              "origin": "local_assumption",
+              "name": "hC_nonneg",
+              "fvar_id": "3"
+            },
+            {
+              "statement": "IsGreatest (Set.range fun i => ∑ j, C i j) r",
+              "origin": "local_assumption",
+              "name": "hr",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "r < 1",
+              "origin": "local_assumption",
+              "name": "hr_lt_one",
+              "fvar_id": "7"
+            }
+          ],
+          "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+          "id": "telescope_12",
+          "conclusion": {
+            "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+            "origin": "derived",
+            "name": "hinvariant",
+            "fvar_id": "12"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "i ∈ idx",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "List.mem_ofFn"
+          ],
+          "premises": [],
+          "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+          "id": "telescope_13",
+          "conclusion": {
+            "statement": "i ∈ idx",
+            "origin": "derived",
+            "name": "hi_idx",
+            "fvar_id": "13"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "i ∈ idx.reverse",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "List.mem_reverse"
+          ],
+          "premises": [
+            {
+              "statement": "i ∈ idx",
+              "origin": "derived",
+              "name": "hi_idx",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+          "id": "telescope_14",
+          "conclusion": {
+            "statement": "i ∈ idx.reverse",
+            "origin": "derived",
+            "name": "hi",
+            "fvar_id": "14"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.right"
+          ],
+          "premises": [
+            {
+              "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+              "origin": "derived",
+              "name": "hinvariant",
+              "fvar_id": "12"
+            },
+            {
+              "statement": "i ∈ idx.reverse",
+              "origin": "derived",
+              "name": "hi",
+              "fvar_id": "14"
+            }
+          ],
+          "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+            "origin": "derived",
+            "name": "hbound",
+            "fvar_id": "15"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∑ j, Q i j ≤ r",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∑ j, Q i j ≤ r",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Eq.trans",
+          "Finset.sum_congr",
+          "List.map_ofFn",
+          "List.map_reverse",
+          "congrArg",
+          "congrFun'",
+          "ge_iff_le._simp_1"
+        ],
+        "premises": [
+          {
+            "statement": "Q = (List.ofFn fun i => Matrix.updateRow 1 i (C i)).reverse.prod",
+            "origin": "local_assumption",
+            "name": "hQ",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+            "origin": "derived",
+            "name": "hbound",
+            "fvar_id": "15"
+          }
+        ],
+        "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∑ j, Q i j ≤ r",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p3210_substochastic_row_update_product.row_update_prod_invariant"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i j : Fin N), 0 ≤ C i j",
+          "origin": "local_assumption",
+          "name": "hC_nonneg",
+          "fvar_id": "_uniq.1068711"
+        },
+        {
+          "statement": "IsGreatest (Set.range fun i => ∑ j, C i j) r",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.1068714"
+        },
+        {
+          "statement": "r < 1",
+          "origin": "local_assumption",
+          "name": "hr_lt_one",
+          "fvar_id": "_uniq.1068715"
+        }
+      ],
+      "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+      "id": "local_164",
+      "conclusion": {
+        "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+        "origin": "derived",
+        "name": "hinvariant",
+        "fvar_id": "_uniq.1068751"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "i ∈ idx",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "List.mem_ofFn"
+      ],
+      "premises": [],
+      "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+      "id": "local_165",
+      "conclusion": {
+        "statement": "i ∈ idx",
+        "origin": "derived",
+        "name": "hi_idx",
+        "fvar_id": "_uniq.1068882"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "i ∈ idx.reverse",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "List.mem_reverse"
+      ],
+      "premises": [
+        {
+          "statement": "i ∈ idx",
+          "origin": "derived",
+          "name": "hi_idx",
+          "fvar_id": "_uniq.1068882"
+        }
+      ],
+      "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+      "id": "local_166",
+      "conclusion": {
+        "statement": "i ∈ idx.reverse",
+        "origin": "derived",
+        "name": "hi",
+        "fvar_id": "_uniq.1069041"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "(∀ (x : Fin N), ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod x j ≤ 1) ∧\n  ∀ i ∈ idx.reverse, ∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+          "origin": "derived",
+          "name": "hinvariant",
+          "fvar_id": "_uniq.1068751"
+        },
+        {
+          "statement": "i ∈ idx.reverse",
+          "origin": "derived",
+          "name": "hi",
+          "fvar_id": "_uniq.1069041"
+        }
+      ],
+      "parent": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+      "id": "local_167",
+      "conclusion": {
+        "statement": "∑ j, (List.map (fun a => Matrix.updateRow 1 a (C a)) idx.reverse).prod i j ≤ r",
+        "origin": "derived",
+        "name": "hbound",
+        "fvar_id": "_uniq.1069058"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p3210_substochastic_row_update_product",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p3210_substochastic_row_update_product.substochastic_row_update_product",
+    "proof_sha256": "586b32f872bf55ac03d029f74b950b2711def373c5f545730f7a1858a3a88969"
+  }
+}

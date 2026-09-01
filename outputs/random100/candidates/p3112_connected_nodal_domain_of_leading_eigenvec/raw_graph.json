@@ -1,0 +1,2451 @@
+{
+  "theorems": [
+    {
+      "theorem_name": "connected_nodal_domain_of_leading_eigenvector",
+      "manifest": [
+        {
+          "statement": "1 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "A.IsSymm",
+          "origin": "manifest",
+          "name": "hA_symm",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ (i j : Fin n), 0 ≤ A i j",
+          "origin": "manifest",
+          "name": "hA_nonneg",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "(SimpleGraph.fromRel fun i j => 0 < A i j).Connected",
+          "origin": "manifest",
+          "name": "hG_conn",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "W.IsDiag",
+          "origin": "manifest",
+          "name": "hW_diag",
+          "fvar_id": "13"
+        },
+        {
+          "statement": "v ≠ 0",
+          "origin": "manifest",
+          "name": "hv_nonzero",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "∀ (i : Fin n), 0 ≤ v i",
+          "origin": "manifest",
+          "name": "hv_nonneg",
+          "fvar_id": "15"
+        },
+        {
+          "statement": "0 < σ",
+          "origin": "manifest",
+          "name": "hσ",
+          "fvar_id": "16"
+        },
+        {
+          "statement": "x ≠ 0",
+          "origin": "manifest",
+          "name": "hx_nonzero",
+          "fvar_id": "17"
+        },
+        {
+          "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+          "origin": "manifest",
+          "name": "hx_eigen",
+          "fvar_id": "18"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m",
+          "origin": "manifest",
+          "name": "hm_largest",
+          "fvar_id": "19"
+        },
+        {
+          "statement": "0 ≤ v ⬝ᵥ x",
+          "origin": "manifest",
+          "name": "hx_sign",
+          "fvar_id": "20"
+        },
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "manifest",
+          "name": "hy_pos",
+          "fvar_id": "21"
+        },
+        {
+          "statement": "(A + W).mulVec y = l • y",
+          "origin": "manifest",
+          "name": "hy_eigen",
+          "fvar_id": "22"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l",
+          "origin": "manifest",
+          "name": "hl_largest",
+          "fvar_id": "23"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "0 ≤ v ⬝ᵥ x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [],
+          "premises": [
+            {
+              "statement": "0 ≤ v ⬝ᵥ x",
+              "origin": "local_assumption",
+              "name": "hx_sign",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_27",
+          "conclusion": {
+            "statement": "0 ≤ d",
+            "origin": "derived",
+            "name": "hd",
+            "fvar_id": "27"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(A + W).IsSymm",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Matrix.IsDiag.isSymm",
+            "Matrix.IsSymm.add"
+          ],
+          "premises": [
+            {
+              "statement": "A.IsSymm",
+              "origin": "local_assumption",
+              "name": "hA_symm",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "W.IsDiag",
+              "origin": "local_assumption",
+              "name": "hW_diag",
+              "fvar_id": "13"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_28",
+          "conclusion": {
+            "statement": "B.IsSymm",
+            "origin": "derived",
+            "name": "hB_symm",
+            "fvar_id": "28"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(B - σ • Matrix.vecMulVec v v).IsSymm",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Matrix.IsSymm.smul",
+            "Matrix.IsSymm.sub",
+            "Matrix.vecMulVec_isSymm"
+          ],
+          "premises": [
+            {
+              "statement": "B.IsSymm",
+              "origin": "derived",
+              "name": "hB_symm",
+              "fvar_id": "28"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_29",
+          "conclusion": {
+            "statement": "M.IsSymm",
+            "origin": "derived",
+            "name": "hM_symm",
+            "fvar_id": "29"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < x ⬝ᵥ x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Iff.mpr",
+            "Matrix.dotProduct_self_star_pos_iff",
+            "NormMulClass.toNoZeroDivisors",
+            "NormedDivisionRing.toNormMulClass",
+            "Pi.instTrivialStarForall",
+            "Real.instStarOrderedRing",
+            "TrivialStar.star_trivial",
+            "congrArg",
+            "gt_iff_lt._simp_1",
+            "instTrivialStarReal"
+          ],
+          "premises": [
+            {
+              "statement": "x ≠ 0",
+              "origin": "local_assumption",
+              "name": "hx_nonzero",
+              "fvar_id": "17"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_30",
+          "conclusion": {
+            "statement": "0 < x ⬝ᵥ x",
+            "origin": "derived",
+            "name": "hnormx",
+            "fvar_id": "30"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "M.mulVec x = (A + W).mulVec x - (σ * v ⬝ᵥ x) • v",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "CommSemigroup.isCentralScalar",
+            "Eq.trans",
+            "IsCentralScalar.op_smul_eq_smul",
+            "IsScalarTower.right",
+            "Matrix.smul_mulVec",
+            "Matrix.sub_mulVec",
+            "Matrix.vecMulVec_mulVec",
+            "Pi.isCentralScalar",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "of_eq_true",
+            "smul_smul"
+          ],
+          "premises": [],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_31",
+          "conclusion": {
+            "statement": "M.mulVec x = B.mulVec x - (σ * d) • v",
+            "origin": "derived",
+            "name": "hMx",
+            "fvar_id": "31"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "B.mulVec x = m • x + (σ * d) • v",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Iff.mpr",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_congr",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Mathlib.Tactic.RingNF.add_assoc_rev",
+            "Mathlib.Tactic.RingNF.mul_assoc_rev",
+            "Mathlib.Tactic.RingNF.nat_rawCast_1",
+            "Nat.cast_zero",
+            "Not.intro",
+            "Real.instIsOrderedRing",
+            "add_zero",
+            "congr",
+            "congrArg",
+            "congrFun'",
+            "congr_fun",
+            "funext",
+            "mul_one",
+            "neg_eq_zero",
+            "pow_one",
+            "sub_eq_zero_of_eq"
+          ],
+          "premises": [
+            {
+              "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+              "origin": "local_assumption",
+              "name": "hx_eigen",
+              "fvar_id": "18"
+            },
+            {
+              "statement": "M.mulVec x = B.mulVec x - (σ * d) • v",
+              "origin": "derived",
+              "name": "hMx",
+              "fvar_id": "31"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_32",
+          "conclusion": {
+            "statement": "B.mulVec x = m • x + (σ * d) • v",
+            "origin": "derived",
+            "name": "hBx",
+            "fvar_id": "32"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Algebra.to_smulCommClass",
+            "Eq.trans",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.isNat_add",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Real.instIsOrderedCancelAddMonoid",
+            "add_right_inj._simp_1",
+            "congr",
+            "congrArg",
+            "congrFun'",
+            "dotProduct_add",
+            "dotProduct_comm",
+            "dotProduct_smul",
+            "instIsLeftCancelAddOfAddLeftReflectLE"
+          ],
+          "premises": [
+            {
+              "statement": "B.mulVec x = m • x + (σ * d) • v",
+              "origin": "derived",
+              "name": "hBx",
+              "fvar_id": "32"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_33",
+          "conclusion": {
+            "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+            "origin": "derived",
+            "name": "hqBx",
+            "fvar_id": "33"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "quad_le_largest_of_symm"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l",
+              "origin": "local_assumption",
+              "name": "hl_largest",
+              "fvar_id": "23"
+            },
+            {
+              "statement": "B.IsSymm",
+              "origin": "derived",
+              "name": "hB_symm",
+              "fvar_id": "28"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_34",
+          "conclusion": {
+            "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+            "origin": "derived",
+            "name": "hBupper",
+            "fvar_id": "34"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "m ≤ l",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+            "IsOrderedAddMonoid.toAddLeftMono",
+            "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+            "IsOrderedRing.toMulPosMono",
+            "IsOrderedRing.toPosMulMono",
+            "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+            "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+            "IsStrictOrderedRing.toMulPosStrictMono",
+            "Mathlib.Meta.NormNum.IsInt.of_raw",
+            "Mathlib.Meta.NormNum.IsInt.to_isNat",
+            "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+            "Mathlib.Meta.NormNum.IsNat.of_raw",
+            "Mathlib.Meta.NormNum.IsNat.to_isInt",
+            "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+            "Mathlib.Meta.NormNum.isInt_add",
+            "Mathlib.Meta.NormNum.isInt_mul",
+            "Mathlib.Meta.NormNum.isNat_ofNat",
+            "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+            "Mathlib.Tactic.Linarith.add_nonpos",
+            "Mathlib.Tactic.Linarith.lt_irrefl",
+            "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+            "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+            "Mathlib.Tactic.Ring.add_congr",
+            "Mathlib.Tactic.Ring.add_mul",
+            "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_gt",
+            "Mathlib.Tactic.Ring.add_pf_add_lt",
+            "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+            "Mathlib.Tactic.Ring.add_pf_add_zero",
+            "Mathlib.Tactic.Ring.add_pf_zero_add",
+            "Mathlib.Tactic.Ring.atom_pf",
+            "Mathlib.Tactic.Ring.cast_pos",
+            "Mathlib.Tactic.Ring.cast_zero",
+            "Mathlib.Tactic.Ring.mul_add",
+            "Mathlib.Tactic.Ring.mul_congr",
+            "Mathlib.Tactic.Ring.mul_one",
+            "Mathlib.Tactic.Ring.mul_pf_left",
+            "Mathlib.Tactic.Ring.mul_pf_right",
+            "Mathlib.Tactic.Ring.mul_pow",
+            "Mathlib.Tactic.Ring.mul_zero",
+            "Mathlib.Tactic.Ring.neg_add",
+            "Mathlib.Tactic.Ring.neg_mul",
+            "Mathlib.Tactic.Ring.neg_one_mul",
+            "Mathlib.Tactic.Ring.neg_zero",
+            "Mathlib.Tactic.Ring.of_eq",
+            "Mathlib.Tactic.Ring.one_mul",
+            "Mathlib.Tactic.Ring.one_pow",
+            "Mathlib.Tactic.Ring.pow_add",
+            "Mathlib.Tactic.Ring.pow_congr",
+            "Mathlib.Tactic.Ring.pow_zero",
+            "Mathlib.Tactic.Ring.single_pow",
+            "Mathlib.Tactic.Ring.sub_congr",
+            "Mathlib.Tactic.Ring.sub_pf",
+            "Mathlib.Tactic.Ring.zero_mul",
+            "Nat.cast_zero",
+            "Real.instIsOrderedAddMonoid",
+            "Real.instIsOrderedCancelAddMonoid",
+            "Real.instIsOrderedRing",
+            "Real.instIsStrictOrderedRing",
+            "Real.instStarOrderedRing",
+            "StarOrderedRing.toExistsAddOfLE",
+            "congrArg",
+            "contravariant_lt_of_covariant_le",
+            "contravariant_swap_add_of_contravariant_add",
+            "covariant_swap_add_of_covariant_add",
+            "instIsLeftCancelAddOfAddLeftReflectLE",
+            "instIsRightCancelAddOfAddRightReflectLE",
+            "le_of_lt",
+            "le_of_not_gt",
+            "mul_nonneg_of_nonpos_of_nonpos",
+            "mul_pos_of_neg_of_neg",
+            "sq_nonneg"
+          ],
+          "premises": [
+            {
+              "statement": "0 < σ",
+              "origin": "local_assumption",
+              "name": "hσ",
+              "fvar_id": "16"
+            },
+            {
+              "statement": "0 < x ⬝ᵥ x",
+              "origin": "derived",
+              "name": "hnormx",
+              "fvar_id": "30"
+            },
+            {
+              "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+              "origin": "derived",
+              "name": "hqBx",
+              "fvar_id": "33"
+            },
+            {
+              "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+              "origin": "derived",
+              "name": "hBupper",
+              "fvar_id": "34"
+            }
+          ],
+          "parent": "connected_nodal_domain_of_leading_eigenvector",
+          "id": "telescope_35",
+          "conclusion": {
+            "statement": "m ≤ l",
+            "origin": "derived",
+            "name": "hml",
+            "fvar_id": "35"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "∀ (ε : ℝ), 0 ≤ ε → (SimpleGraph.induce {i | 0 ≤ x i + ε * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "∀ (ε : ℝ), 0 ≤ ε → (SimpleGraph.induce {i | 0 ≤ x i + ε * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Decidable.byContradiction",
+          "Eq.symm",
+          "Eq.trans",
+          "Finite.of_fintype",
+          "GroupWithZero.toNontrivial",
+          "Iff.mpr",
+          "IsCancelMulZero.toIsLeftCancelMulZero",
+          "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+          "IsOrderedRing.toPosMulMono",
+          "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+          "IsStrictOrderedRing.toMulPosStrictMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "LT.lt.le",
+          "LT.lt.not_ge",
+          "LinearOrderedSemiField.toDenselyOrdered",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNat_add",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Tactic.FieldSimp.NF.atom_eq_eval",
+          "Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div",
+          "Mathlib.Tactic.FieldSimp.NF.div_eq_eval",
+          "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₃",
+          "Mathlib.Tactic.FieldSimp.NF.eval_cons",
+          "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval",
+          "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval_cons_neg",
+          "Mathlib.Tactic.FieldSimp.NF.eval_cons_of_pow_eq_zero",
+          "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons",
+          "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons_zero",
+          "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval",
+          "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₁",
+          "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₂",
+          "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃",
+          "Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst",
+          "Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq",
+          "Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul",
+          "Mathlib.Tactic.FieldSimp.subst_add",
+          "Mathlib.Tactic.FieldSimp.zpow'_one",
+          "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+          "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_pow",
+          "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.one_pow",
+          "Mathlib.Tactic.Ring.pow_add",
+          "Mathlib.Tactic.Ring.pow_congr",
+          "Mathlib.Tactic.Ring.pow_zero",
+          "Mathlib.Tactic.Ring.single_pow",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "MulZeroClass.mul_zero",
+          "MulZeroClass.zero_mul",
+          "Nat.cast_zero",
+          "NeZero.one",
+          "Not.intro",
+          "Pi.exists_forall_pos_add_lt",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedCancelAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instNontrivial",
+          "Real.instStarOrderedRing",
+          "Set.ext",
+          "Set.mem_univ._simp_1",
+          "SimpleGraph.Iso.connected_iff",
+          "StarOrderedRing.toExistsAddOfLE",
+          "Subtype.finite",
+          "Subtype.property",
+          "add_nonneg",
+          "add_zero",
+          "congrArg",
+          "congrFun'",
+          "congr_arg₂",
+          "connected_nodal_positive_epsilon",
+          "contravariant_lt_of_covariant_le",
+          "contravariant_swap_add_of_contravariant_add",
+          "covariant_swap_add_of_covariant_add",
+          "div_neg_of_neg_of_pos",
+          "div_one",
+          "eq_false",
+          "eq_self",
+          "funext",
+          "gt_iff_lt._simp_1",
+          "iff_true",
+          "instIsCancelMulZero",
+          "instIsLeftCancelAddOfAddLeftReflectLE",
+          "instIsRightCancelAddOfAddRightReflectLE",
+          "le_antisymm",
+          "le_of_not_gt",
+          "lt_of_le_of_ne",
+          "lt_of_not_ge",
+          "mul_neg_of_neg_of_pos",
+          "mul_nonneg",
+          "mul_one",
+          "mul_pos_of_neg_of_neg",
+          "ne_of_gt",
+          "nonpos_of_mul_nonpos_right",
+          "not_false_eq_true",
+          "of_decide_eq_true",
+          "of_eq_true",
+          "one_mul",
+          "one_ne_zero",
+          "top_eigenvector_positive_of_nonneg_connected",
+          "zero_smul"
+        ],
+        "premises": [
+          {
+            "statement": "1 ≤ n",
+            "origin": "local_assumption",
+            "name": "hn",
+            "fvar_id": "1"
+          },
+          {
+            "statement": "A.IsSymm",
+            "origin": "local_assumption",
+            "name": "hA_symm",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "∀ (i j : Fin n), 0 ≤ A i j",
+            "origin": "local_assumption",
+            "name": "hA_nonneg",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "(SimpleGraph.fromRel fun i j => 0 < A i j).Connected",
+            "origin": "local_assumption",
+            "name": "hG_conn",
+            "fvar_id": "12"
+          },
+          {
+            "statement": "W.IsDiag",
+            "origin": "local_assumption",
+            "name": "hW_diag",
+            "fvar_id": "13"
+          },
+          {
+            "statement": "v ≠ 0",
+            "origin": "local_assumption",
+            "name": "hv_nonzero",
+            "fvar_id": "14"
+          },
+          {
+            "statement": "∀ (i : Fin n), 0 ≤ v i",
+            "origin": "local_assumption",
+            "name": "hv_nonneg",
+            "fvar_id": "15"
+          },
+          {
+            "statement": "0 < σ",
+            "origin": "local_assumption",
+            "name": "hσ",
+            "fvar_id": "16"
+          },
+          {
+            "statement": "x ≠ 0",
+            "origin": "local_assumption",
+            "name": "hx_nonzero",
+            "fvar_id": "17"
+          },
+          {
+            "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+            "origin": "local_assumption",
+            "name": "hx_eigen",
+            "fvar_id": "18"
+          },
+          {
+            "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m",
+            "origin": "local_assumption",
+            "name": "hm_largest",
+            "fvar_id": "19"
+          },
+          {
+            "statement": "0 ≤ v ⬝ᵥ x",
+            "origin": "local_assumption",
+            "name": "hx_sign",
+            "fvar_id": "20"
+          },
+          {
+            "statement": "∀ (i : Fin n), 0 < y i",
+            "origin": "local_assumption",
+            "name": "hy_pos",
+            "fvar_id": "21"
+          },
+          {
+            "statement": "(A + W).mulVec y = l • y",
+            "origin": "local_assumption",
+            "name": "hy_eigen",
+            "fvar_id": "22"
+          },
+          {
+            "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l",
+            "origin": "local_assumption",
+            "name": "hl_largest",
+            "fvar_id": "23"
+          },
+          {
+            "statement": "B.IsSymm",
+            "origin": "derived",
+            "name": "hB_symm",
+            "fvar_id": "28"
+          },
+          {
+            "statement": "B.mulVec x = m • x + (σ * d) • v",
+            "origin": "derived",
+            "name": "hBx",
+            "fvar_id": "32"
+          },
+          {
+            "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+            "origin": "derived",
+            "name": "hqBx",
+            "fvar_id": "33"
+          },
+          {
+            "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+            "origin": "derived",
+            "name": "hBupper",
+            "fvar_id": "34"
+          },
+          {
+            "statement": "m ≤ l",
+            "origin": "derived",
+            "name": "hml",
+            "fvar_id": "35"
+          }
+        ],
+        "parent": "connected_nodal_domain_of_leading_eigenvector",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "∀ (ε : ℝ), 0 ≤ ε → (SimpleGraph.induce {i | 0 ≤ x i + ε * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 < x ⬝ᵥ star x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Matrix.dotProduct_self_star_pos_iff",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "Real.instStarOrderedRing"
+      ],
+      "premises": [
+        {
+          "statement": "x ≠ 0",
+          "origin": "local_assumption",
+          "name": "hx_nonzero",
+          "fvar_id": "_uniq.567207"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_259",
+      "conclusion": {
+        "statement": "0 < x ⬝ᵥ star x",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.568722"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B.mulVec x - (σ * d) • v = m • x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+          "origin": "local_assumption",
+          "name": "hx_eigen",
+          "fvar_id": "_uniq.567208"
+        },
+        {
+          "statement": "M.mulVec x = B.mulVec x - (σ * d) • v",
+          "origin": "derived",
+          "name": "hMx",
+          "fvar_id": "_uniq.579617"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_260",
+      "conclusion": {
+        "statement": "B.mulVec x - (σ * d) • v = m • x",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.587762"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(B.mulVec x - (σ * d) • v) i = (m • x) i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congr_fun"
+      ],
+      "premises": [
+        {
+          "statement": "B.mulVec x - (σ * d) • v = m • x",
+          "origin": "derived",
+          "name": "h",
+          "fvar_id": "_uniq.587762"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_261",
+      "conclusion": {
+        "statement": "B.mulVec x i - σ * d * v i = m * x i",
+        "origin": "derived",
+        "name": "hi",
+        "fvar_id": "_uniq.587842"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "quad_le_largest_of_symm"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l",
+          "origin": "local_assumption",
+          "name": "hl_largest",
+          "fvar_id": "_uniq.567213"
+        },
+        {
+          "statement": "B.IsSymm",
+          "origin": "derived",
+          "name": "hB_symm",
+          "fvar_id": "_uniq.568458"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_262",
+      "conclusion": {
+        "statement": "x ⬝ᵥ B.mulVec x ≤ l * x ⬝ᵥ x",
+        "origin": "derived",
+        "name": "hBupper",
+        "fvar_id": "_uniq.600284"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "σ * d ^ 2 ≤ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_zero",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "le_of_not_gt"
+      ],
+      "premises": [
+        {
+          "statement": "l * x ⬝ᵥ x + σ * d ^ 2 ≤ l * x ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hBupper",
+          "fvar_id": "_uniq.607532"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_263",
+      "conclusion": {
+        "statement": "σ * d ^ 2 ≤ 0",
+        "origin": "derived",
+        "name": "hsd",
+        "fvar_id": "_uniq.607950"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d ^ 2 ≤ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "nonpos_of_mul_nonpos_right"
+      ],
+      "premises": [
+        {
+          "statement": "0 < σ",
+          "origin": "local_assumption",
+          "name": "hσ",
+          "fvar_id": "_uniq.567206"
+        },
+        {
+          "statement": "σ * d ^ 2 ≤ 0",
+          "origin": "derived",
+          "name": "hsd",
+          "fvar_id": "_uniq.607950"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_264",
+      "conclusion": {
+        "statement": "d ^ 2 ≤ 0",
+        "origin": "derived",
+        "name": "hs",
+        "fvar_id": "_uniq.609896"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "d = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_zero",
+        "Not.intro",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instStarOrderedRing",
+        "StarOrderedRing.toExistsAddOfLE",
+        "congrArg",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "le_of_not_gt",
+        "mul_pos_of_neg_of_neg",
+        "nonpos_of_mul_nonpos_right"
+      ],
+      "premises": [
+        {
+          "statement": "0 < σ",
+          "origin": "local_assumption",
+          "name": "hσ",
+          "fvar_id": "_uniq.567206"
+        },
+        {
+          "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+          "origin": "local_assumption",
+          "name": "hx_eigen",
+          "fvar_id": "_uniq.567208"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m",
+          "origin": "local_assumption",
+          "name": "hm_largest",
+          "fvar_id": "_uniq.567209"
+        },
+        {
+          "statement": "0 ≤ v ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hx_sign",
+          "fvar_id": "_uniq.567210"
+        },
+        {
+          "statement": "B.mulVec x = m • x + (σ * d) • v",
+          "origin": "derived",
+          "name": "hBx",
+          "fvar_id": "_uniq.587686"
+        },
+        {
+          "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+          "origin": "derived",
+          "name": "hqBx",
+          "fvar_id": "_uniq.593354"
+        },
+        {
+          "statement": "m * x ⬝ᵥ x + σ * d ^ 2 ≤ l * x ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hBupper",
+          "fvar_id": "_uniq.600297"
+        },
+        {
+          "statement": "m ≤ l",
+          "origin": "derived",
+          "name": "hml",
+          "fvar_id": "_uniq.600315"
+        },
+        {
+          "statement": "l = m",
+          "origin": "local_assumption",
+          "name": "hEq",
+          "fvar_id": "_uniq.607444"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_265",
+      "conclusion": {
+        "statement": "d = 0",
+        "origin": "derived",
+        "name": "hdzero",
+        "fvar_id": "_uniq.607505"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B.mulVec x = l • x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "MulZeroClass.mul_zero",
+        "add_zero",
+        "congrArg",
+        "congrFun'",
+        "zero_smul"
+      ],
+      "premises": [
+        {
+          "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+          "origin": "local_assumption",
+          "name": "hx_eigen",
+          "fvar_id": "_uniq.567208"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m",
+          "origin": "local_assumption",
+          "name": "hm_largest",
+          "fvar_id": "_uniq.567209"
+        },
+        {
+          "statement": "B.mulVec x = m • x + (σ * d) • v",
+          "origin": "derived",
+          "name": "hBx",
+          "fvar_id": "_uniq.587686"
+        },
+        {
+          "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+          "origin": "derived",
+          "name": "hqBx",
+          "fvar_id": "_uniq.593354"
+        },
+        {
+          "statement": "m * x ⬝ᵥ x + σ * d ^ 2 ≤ l * x ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hBupper",
+          "fvar_id": "_uniq.600297"
+        },
+        {
+          "statement": "m ≤ l",
+          "origin": "derived",
+          "name": "hml",
+          "fvar_id": "_uniq.600315"
+        },
+        {
+          "statement": "l = m",
+          "origin": "local_assumption",
+          "name": "hEq",
+          "fvar_id": "_uniq.607444"
+        },
+        {
+          "statement": "d = 0",
+          "origin": "derived",
+          "name": "hdzero",
+          "fvar_id": "_uniq.607505"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_266",
+      "conclusion": {
+        "statement": "B.mulVec x = l • x",
+        "origin": "derived",
+        "name": "hBx_top",
+        "fvar_id": "_uniq.624848"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i j : Fin n), i ≠ j → B i j = A i j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "add_zero",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "W.IsDiag",
+          "origin": "local_assumption",
+          "name": "hW_diag",
+          "fvar_id": "_uniq.567203"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_267",
+      "conclusion": {
+        "statement": "∀ (i j : Fin n), i ≠ j → B i j = A i j",
+        "origin": "derived",
+        "name": "hoffB",
+        "fvar_id": "_uniq.625400"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (i : Fin n), 0 < x i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "top_eigenvector_positive_of_nonneg_connected"
+      ],
+      "premises": [
+        {
+          "statement": "A.IsSymm",
+          "origin": "local_assumption",
+          "name": "hA_symm",
+          "fvar_id": "_uniq.567200"
+        },
+        {
+          "statement": "∀ (i j : Fin n), 0 ≤ A i j",
+          "origin": "local_assumption",
+          "name": "hA_nonneg",
+          "fvar_id": "_uniq.567201"
+        },
+        {
+          "statement": "(SimpleGraph.fromRel fun i j => 0 < A i j).Connected",
+          "origin": "local_assumption",
+          "name": "hG_conn",
+          "fvar_id": "_uniq.567202"
+        },
+        {
+          "statement": "v ≠ 0",
+          "origin": "local_assumption",
+          "name": "hv_nonzero",
+          "fvar_id": "_uniq.567204"
+        },
+        {
+          "statement": "∀ (i : Fin n), 0 ≤ v i",
+          "origin": "local_assumption",
+          "name": "hv_nonneg",
+          "fvar_id": "_uniq.567205"
+        },
+        {
+          "statement": "x ≠ 0",
+          "origin": "local_assumption",
+          "name": "hx_nonzero",
+          "fvar_id": "_uniq.567207"
+        },
+        {
+          "statement": "0 ≤ v ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hx_sign",
+          "fvar_id": "_uniq.567210"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l",
+          "origin": "local_assumption",
+          "name": "hl_largest",
+          "fvar_id": "_uniq.567213"
+        },
+        {
+          "statement": "B.IsSymm",
+          "origin": "derived",
+          "name": "hB_symm",
+          "fvar_id": "_uniq.568458"
+        },
+        {
+          "statement": "B.mulVec x = l • x",
+          "origin": "derived",
+          "name": "hBx_top",
+          "fvar_id": "_uniq.624848"
+        },
+        {
+          "statement": "∀ (i j : Fin n), i ≠ j → B i j = A i j",
+          "origin": "derived",
+          "name": "hoffB",
+          "fvar_id": "_uniq.625400"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_268",
+      "conclusion": {
+        "statement": "∀ (i : Fin n), 0 < x i",
+        "origin": "derived",
+        "name": "hx_pos",
+        "fvar_id": "_uniq.625672"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "{i | 0 ≤ x i + ε * y i} = Set.univ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedRing.toPosMulMono",
+        "LT.lt.le",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Set.ext",
+        "Set.mem_univ._simp_1",
+        "add_nonneg",
+        "congrArg",
+        "iff_true",
+        "mul_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "local_assumption",
+          "name": "hy_pos",
+          "fvar_id": "_uniq.567211"
+        },
+        {
+          "statement": "∀ (i : Fin n), 0 < x i",
+          "origin": "derived",
+          "name": "hx_pos",
+          "fvar_id": "_uniq.625672"
+        },
+        {
+          "statement": "0 ≤ ε",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.625681"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_269",
+      "conclusion": {
+        "statement": "{i | 0 ≤ x i + ε * y i} = Set.univ",
+        "origin": "derived",
+        "name": "hS",
+        "fvar_id": "_uniq.625865"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "{i | 0 ≤ x i + ε * y i} = Set.univ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "MulZeroClass.zero_mul",
+        "add_zero",
+        "congrArg",
+        "congrFun'",
+        "funext"
+      ],
+      "premises": [
+        {
+          "statement": "ε = 0",
+          "origin": "derived",
+          "name": "hεzero",
+          "fvar_id": "_uniq.635600"
+        },
+        {
+          "statement": "S0 = Set.univ",
+          "origin": "local_assumption",
+          "name": "hS0univ",
+          "fvar_id": "_uniq.635725"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_270",
+      "conclusion": {
+        "statement": "{i | 0 ≤ x i + ε * y i} = Set.univ",
+        "origin": "derived",
+        "name": "hS",
+        "fvar_id": "_uniq.635929"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(x ↑⟨i, hi⟩ / y ↑⟨i, hi⟩ + η) * y i < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "mul_neg_of_neg_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "local_assumption",
+          "name": "hy_pos",
+          "fvar_id": "_uniq.567211"
+        },
+        {
+          "statement": "x i < 0",
+          "origin": "local_assumption",
+          "name": "hi",
+          "fvar_id": "_uniq.650312"
+        },
+        {
+          "statement": "x ↑⟨i, hi⟩ / y ↑⟨i, hi⟩ + η < 0",
+          "origin": "derived",
+          "name": "hp",
+          "fvar_id": "_uniq.650325"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_271",
+      "conclusion": {
+        "statement": "(x ↑⟨i, hi⟩ / y ↑⟨i, hi⟩ + η) * y i < 0",
+        "origin": "derived",
+        "name": "hmul",
+        "fvar_id": "_uniq.650560"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(x i / y i + η) * y i = x i + η * y i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "GroupWithZero.toNontrivial",
+        "IsCancelMulZero.toIsLeftCancelMulZero",
+        "Mathlib.Tactic.FieldSimp.NF.atom_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.cons_eq_div_of_eq_div",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.div_eq_eval₃",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_mul_eval_cons_neg",
+        "Mathlib.Tactic.FieldSimp.NF.eval_cons_of_pow_eq_zero",
+        "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons",
+        "Mathlib.Tactic.FieldSimp.NF.eval_mul_eval_cons_zero",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₁",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₂",
+        "Mathlib.Tactic.FieldSimp.NF.mul_eq_eval₃",
+        "Mathlib.Tactic.FieldSimp.eq_div_of_eq_one_of_subst",
+        "Mathlib.Tactic.FieldSimp.eq_eq_cancel_eq",
+        "Mathlib.Tactic.FieldSimp.eq_mul_of_eq_eq_eq_mul",
+        "Mathlib.Tactic.FieldSimp.subst_add",
+        "Mathlib.Tactic.FieldSimp.zpow'_one",
+        "NeZero.one",
+        "congrArg",
+        "congr_arg₂",
+        "div_one",
+        "eq_false",
+        "eq_self",
+        "instIsCancelMulZero",
+        "mul_one",
+        "ne_of_gt",
+        "not_false_eq_true",
+        "of_decide_eq_true",
+        "of_eq_true",
+        "one_mul",
+        "one_ne_zero"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "local_assumption",
+          "name": "hy_pos",
+          "fvar_id": "_uniq.567211"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_272",
+      "conclusion": {
+        "statement": "(x i / y i + η) * y i = x i + η * y i",
+        "origin": "derived",
+        "name": "heq",
+        "fvar_id": "_uniq.650697"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (p : ↑N), x ↑p / y ↑p < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsStrictOrderedRing",
+        "Subtype.property",
+        "div_neg_of_neg_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "local_assumption",
+          "name": "hy_pos",
+          "fvar_id": "_uniq.567211"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_274",
+      "conclusion": {
+        "statement": "∀ (p : ↑N), x ↑p / y ↑p < 0",
+        "origin": "derived",
+        "name": "hneg",
+        "fvar_id": "_uniq.649336"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ↑⟨i, hi⟩ / y ↑⟨i, hi⟩ + η < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (i : ↑N), x ↑i / y ↑i + η < 0",
+          "origin": "local_assumption",
+          "name": "hη",
+          "fvar_id": "_uniq.650287"
+        },
+        {
+          "statement": "x i < 0",
+          "origin": "local_assumption",
+          "name": "hi",
+          "fvar_id": "_uniq.650312"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_275",
+      "conclusion": {
+        "statement": "x ↑⟨i, hi⟩ / y ↑⟨i, hi⟩ + η < 0",
+        "origin": "derived",
+        "name": "hp",
+        "fvar_id": "_uniq.650325"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ x i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "MulZeroClass.zero_mul",
+        "add_zero",
+        "congrArg",
+        "congrFun'",
+        "funext"
+      ],
+      "premises": [
+        {
+          "statement": "i ∈ {i | 0 ≤ x i + 0 * y i}",
+          "origin": "local_assumption",
+          "name": "hi",
+          "fvar_id": "_uniq.735210"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_276",
+      "conclusion": {
+        "statement": "0 ≤ x i",
+        "origin": "derived",
+        "name": "hxi",
+        "fvar_id": "_uniq.735263"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x i < 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "MulZeroClass.zero_mul",
+        "add_zero",
+        "congrArg",
+        "congrFun'",
+        "funext",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "i ∉ {i | 0 ≤ x i + 0 * y i}",
+          "origin": "local_assumption",
+          "name": "hnot",
+          "fvar_id": "_uniq.752079"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_277",
+      "conclusion": {
+        "statement": "x i < 0",
+        "origin": "derived",
+        "name": "hxi",
+        "fvar_id": "_uniq.752222"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ v ⬝ᵥ x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "0 ≤ v ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hx_sign",
+          "fvar_id": "_uniq.567210"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_281",
+      "conclusion": {
+        "statement": "0 ≤ d",
+        "origin": "derived",
+        "name": "hd",
+        "fvar_id": "_uniq.568402"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(A + W).IsSymm",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.IsDiag.isSymm",
+        "Matrix.IsSymm.add"
+      ],
+      "premises": [
+        {
+          "statement": "A.IsSymm",
+          "origin": "local_assumption",
+          "name": "hA_symm",
+          "fvar_id": "_uniq.567200"
+        },
+        {
+          "statement": "W.IsDiag",
+          "origin": "local_assumption",
+          "name": "hW_diag",
+          "fvar_id": "_uniq.567203"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_282",
+      "conclusion": {
+        "statement": "B.IsSymm",
+        "origin": "derived",
+        "name": "hB_symm",
+        "fvar_id": "_uniq.568458"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(B - σ • Matrix.vecMulVec v v).IsSymm",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Matrix.IsSymm.smul",
+        "Matrix.IsSymm.sub",
+        "Matrix.vecMulVec_isSymm"
+      ],
+      "premises": [
+        {
+          "statement": "B.IsSymm",
+          "origin": "derived",
+          "name": "hB_symm",
+          "fvar_id": "_uniq.568458"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_283",
+      "conclusion": {
+        "statement": "M.IsSymm",
+        "origin": "derived",
+        "name": "hM_symm",
+        "fvar_id": "_uniq.568536"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < x ⬝ᵥ x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mpr",
+        "Matrix.dotProduct_self_star_pos_iff",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "Pi.instTrivialStarForall",
+        "Real.instStarOrderedRing",
+        "TrivialStar.star_trivial",
+        "congrArg",
+        "gt_iff_lt._simp_1",
+        "instTrivialStarReal"
+      ],
+      "premises": [
+        {
+          "statement": "x ≠ 0",
+          "origin": "local_assumption",
+          "name": "hx_nonzero",
+          "fvar_id": "_uniq.567207"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_284",
+      "conclusion": {
+        "statement": "0 < x ⬝ᵥ x",
+        "origin": "derived",
+        "name": "hnormx",
+        "fvar_id": "_uniq.568606"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "M.mulVec x = (A + W).mulVec x - (σ * v ⬝ᵥ x) • v",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "CommSemigroup.isCentralScalar",
+        "Eq.trans",
+        "IsCentralScalar.op_smul_eq_smul",
+        "IsScalarTower.right",
+        "Matrix.smul_mulVec",
+        "Matrix.sub_mulVec",
+        "Matrix.vecMulVec_mulVec",
+        "Pi.isCentralScalar",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "of_eq_true",
+        "smul_smul"
+      ],
+      "premises": [],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_285",
+      "conclusion": {
+        "statement": "M.mulVec x = B.mulVec x - (σ * d) • v",
+        "origin": "derived",
+        "name": "hMx",
+        "fvar_id": "_uniq.579617"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B.mulVec x = m • x + (σ * d) • v",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Iff.mpr",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.eq_of_not_lt_of_not_gt",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.lt_of_eq_of_lt",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Mathlib.Tactic.RingNF.add_assoc_rev",
+        "Mathlib.Tactic.RingNF.mul_assoc_rev",
+        "Mathlib.Tactic.RingNF.nat_rawCast_1",
+        "Nat.cast_zero",
+        "Not.intro",
+        "Real.instIsOrderedRing",
+        "add_zero",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "congr_fun",
+        "funext",
+        "mul_one",
+        "neg_eq_zero",
+        "pow_one",
+        "sub_eq_zero_of_eq"
+      ],
+      "premises": [
+        {
+          "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+          "origin": "local_assumption",
+          "name": "hx_eigen",
+          "fvar_id": "_uniq.567208"
+        },
+        {
+          "statement": "M.mulVec x = B.mulVec x - (σ * d) • v",
+          "origin": "derived",
+          "name": "hMx",
+          "fvar_id": "_uniq.579617"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_286",
+      "conclusion": {
+        "statement": "B.mulVec x = m • x + (σ * d) • v",
+        "origin": "derived",
+        "name": "hBx",
+        "fvar_id": "_uniq.587686"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Algebra.to_smulCommClass",
+        "Eq.trans",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isNat_add",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_pp_pf_overlap",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Real.instIsOrderedCancelAddMonoid",
+        "add_right_inj._simp_1",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "dotProduct_add",
+        "dotProduct_comm",
+        "dotProduct_smul",
+        "instIsLeftCancelAddOfAddLeftReflectLE"
+      ],
+      "premises": [
+        {
+          "statement": "B.mulVec x = m • x + (σ * d) • v",
+          "origin": "derived",
+          "name": "hBx",
+          "fvar_id": "_uniq.587686"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_287",
+      "conclusion": {
+        "statement": "x ⬝ᵥ B.mulVec x = m * x ⬝ᵥ x + σ * d ^ 2",
+        "origin": "derived",
+        "name": "hqBx",
+        "fvar_id": "_uniq.593354"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "m ≤ l",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+        "IsOrderedRing.toMulPosMono",
+        "IsOrderedRing.toPosMulMono",
+        "IsRightCancelAdd.addRightReflectLE_of_addRightReflectLT",
+        "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_le_of_neg",
+        "Mathlib.Tactic.Linarith.add_nonpos",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.one_pow",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_zero",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedCancelAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instStarOrderedRing",
+        "StarOrderedRing.toExistsAddOfLE",
+        "congrArg",
+        "contravariant_lt_of_covariant_le",
+        "contravariant_swap_add_of_contravariant_add",
+        "covariant_swap_add_of_covariant_add",
+        "instIsLeftCancelAddOfAddLeftReflectLE",
+        "instIsRightCancelAddOfAddRightReflectLE",
+        "le_of_lt",
+        "le_of_not_gt",
+        "mul_nonneg_of_nonpos_of_nonpos",
+        "mul_pos_of_neg_of_neg",
+        "sq_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "0 < σ",
+          "origin": "local_assumption",
+          "name": "hσ",
+          "fvar_id": "_uniq.567206"
+        },
+        {
+          "statement": "0 < x ⬝ᵥ x",
+          "origin": "derived",
+          "name": "hnormx",
+          "fvar_id": "_uniq.568606"
+        },
+        {
+          "statement": "m * x ⬝ᵥ x + σ * d ^ 2 ≤ l * x ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hBupper",
+          "fvar_id": "_uniq.600297"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_288",
+      "conclusion": {
+        "statement": "m ≤ l",
+        "origin": "derived",
+        "name": "hml",
+        "fvar_id": "_uniq.600315"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "m < l",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "lt_of_le_of_ne"
+      ],
+      "premises": [
+        {
+          "statement": "m ≤ l",
+          "origin": "derived",
+          "name": "hml",
+          "fvar_id": "_uniq.600315"
+        },
+        {
+          "statement": "¬l = m",
+          "origin": "local_assumption",
+          "name": "hEq",
+          "fvar_id": "_uniq.607451"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_289",
+      "conclusion": {
+        "statement": "m < l",
+        "origin": "derived",
+        "name": "hml_lt",
+        "fvar_id": "_uniq.634922"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "ε = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "le_antisymm",
+        "le_of_not_gt"
+      ],
+      "premises": [
+        {
+          "statement": "0 ≤ ε",
+          "origin": "local_assumption",
+          "name": "hε",
+          "fvar_id": "_uniq.634940"
+        },
+        {
+          "statement": "¬0 < ε",
+          "origin": "local_assumption",
+          "name": "hεpos",
+          "fvar_id": "_uniq.635024"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_290",
+      "conclusion": {
+        "statement": "ε = 0",
+        "origin": "derived",
+        "name": "hεzero",
+        "fvar_id": "_uniq.635600"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(SimpleGraph.induce {i | 0 ≤ x i + η * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "connected_nodal_positive_epsilon"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ n",
+          "origin": "local_assumption",
+          "name": "hn",
+          "fvar_id": "_uniq.567191"
+        },
+        {
+          "statement": "A.IsSymm",
+          "origin": "local_assumption",
+          "name": "hA_symm",
+          "fvar_id": "_uniq.567200"
+        },
+        {
+          "statement": "∀ (i j : Fin n), 0 ≤ A i j",
+          "origin": "local_assumption",
+          "name": "hA_nonneg",
+          "fvar_id": "_uniq.567201"
+        },
+        {
+          "statement": "(SimpleGraph.fromRel fun i j => 0 < A i j).Connected",
+          "origin": "local_assumption",
+          "name": "hG_conn",
+          "fvar_id": "_uniq.567202"
+        },
+        {
+          "statement": "W.IsDiag",
+          "origin": "local_assumption",
+          "name": "hW_diag",
+          "fvar_id": "_uniq.567203"
+        },
+        {
+          "statement": "v ≠ 0",
+          "origin": "local_assumption",
+          "name": "hv_nonzero",
+          "fvar_id": "_uniq.567204"
+        },
+        {
+          "statement": "∀ (i : Fin n), 0 ≤ v i",
+          "origin": "local_assumption",
+          "name": "hv_nonneg",
+          "fvar_id": "_uniq.567205"
+        },
+        {
+          "statement": "0 < σ",
+          "origin": "local_assumption",
+          "name": "hσ",
+          "fvar_id": "_uniq.567206"
+        },
+        {
+          "statement": "x ≠ 0",
+          "origin": "local_assumption",
+          "name": "hx_nonzero",
+          "fvar_id": "_uniq.567207"
+        },
+        {
+          "statement": "(A + W - σ • Matrix.vecMulVec v v).mulVec x = m • x",
+          "origin": "local_assumption",
+          "name": "hx_eigen",
+          "fvar_id": "_uniq.567208"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W - σ • Matrix.vecMulVec v v).mulVec u = μ • u) → μ ≤ m",
+          "origin": "local_assumption",
+          "name": "hm_largest",
+          "fvar_id": "_uniq.567209"
+        },
+        {
+          "statement": "0 ≤ v ⬝ᵥ x",
+          "origin": "local_assumption",
+          "name": "hx_sign",
+          "fvar_id": "_uniq.567210"
+        },
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "local_assumption",
+          "name": "hy_pos",
+          "fvar_id": "_uniq.567211"
+        },
+        {
+          "statement": "(A + W).mulVec y = l • y",
+          "origin": "local_assumption",
+          "name": "hy_eigen",
+          "fvar_id": "_uniq.567212"
+        },
+        {
+          "statement": "∀ (μ : ℝ), (∃ u, u ≠ 0 ∧ (A + W).mulVec u = μ • u) → μ ≤ l",
+          "origin": "local_assumption",
+          "name": "hl_largest",
+          "fvar_id": "_uniq.567213"
+        },
+        {
+          "statement": "m < l",
+          "origin": "derived",
+          "name": "hml_lt",
+          "fvar_id": "_uniq.634922"
+        },
+        {
+          "statement": "η > 0",
+          "origin": "local_assumption",
+          "name": "hηpos",
+          "fvar_id": "_uniq.734899"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_292",
+      "conclusion": {
+        "statement": "(SimpleGraph.induce {i | 0 ≤ x i + η * y i} (SimpleGraph.fromRel fun i j => 0 < A i j)).Connected",
+        "origin": "derived",
+        "name": "hconnη",
+        "fvar_id": "_uniq.734924"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "{i | 0 ≤ x i + 0 * y i} = {i | 0 ≤ x i + η * y i}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Eq.trans",
+        "IsOrderedAddMonoid.toAddLeftMono",
+        "IsOrderedRing.toPosMulMono",
+        "LT.lt.le",
+        "LT.lt.not_ge",
+        "MulZeroClass.zero_mul",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Set.ext",
+        "add_nonneg",
+        "add_zero",
+        "congrArg",
+        "congrFun'",
+        "funext",
+        "lt_of_not_ge",
+        "mul_nonneg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), 0 < y i",
+          "origin": "local_assumption",
+          "name": "hy_pos",
+          "fvar_id": "_uniq.567211"
+        },
+        {
+          "statement": "η > 0",
+          "origin": "local_assumption",
+          "name": "hηpos",
+          "fvar_id": "_uniq.734899"
+        },
+        {
+          "statement": "∀ (i : Fin n), x i < 0 → x i + η * y i < 0",
+          "origin": "local_assumption",
+          "name": "hη",
+          "fvar_id": "_uniq.734900"
+        }
+      ],
+      "parent": "connected_nodal_domain_of_leading_eigenvector",
+      "id": "local_293",
+      "conclusion": {
+        "statement": "{i | 0 ≤ x i + 0 * y i} = {i | 0 ≤ x i + η * y i}",
+        "origin": "derived",
+        "name": "hSetEq",
+        "fvar_id": "_uniq.735176"
+      }
+    }
+  ],
+  "lean_version": "4.29.0",
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/candidates/p3112_connected_nodal_domain_of_leading_eigenvec/proof.lean:841:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/candidates/p3112_connected_nodal_domain_of_leading_eigenvec/proof.lean:851:5: warning: unused variable `hx_nonzero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/candidates/p3112_connected_nodal_domain_of_leading_eigenvec/proof.lean:858:5: warning: unused variable `hl_largest`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/candidates/p3112_connected_nodal_domain_of_leading_eigenvec/proof.lean",
+    "namespace": null,
+    "isolation_mode": "standalone_source",
+    "export_theorem_name": "connected_nodal_domain_of_leading_eigenvector",
+    "proof_sha256": "235e94dde3532449f95ea5f6668c983cfdbcd1de853e57639b4f5cb26ffe128e"
+  }
+}

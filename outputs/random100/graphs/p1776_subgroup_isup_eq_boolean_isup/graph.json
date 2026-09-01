@@ -1,0 +1,658 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1776_subgroup_isup_eq_boolean_isup",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1776,
+    "source": "0911.3628",
+    "theorem_name": "subgroup_iSup_eq_boolean_iSup",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1776",
+    "reconstructed_proof": "../../candidates/p1776_subgroup_isup_eq_boolean_isup/proof.lean",
+    "raw_elaboration": "../../candidates/p1776_subgroup_isup_eq_boolean_isup/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1776_subgroup_isup_eq_boolean_isup.subgroup_iSup_eq_boolean_iSup",
+    "verification_call_id": "verify_submission:57",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "fb662cf9564d5c688def1900e978d2b19b77ef282febb3dedb4a33e5a1159239",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "30fb64ea72f27ebc5de7b730fe2aea92486a3909ba9fcee0936b9761c743fa4c",
+    "concrete_semantic_topology_sha256": "fb662cf9564d5c688def1900e978d2b19b77ef282febb3dedb4a33e5a1159239"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hcomm_2916fd9a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": false,
+      "binding_name": "hcomm",
+      "lean_fvar_id": "8",
+      "statement": "∀ (x : A), commutator U ≤ W x"
+    },
+    {
+      "id": "m_hgen_0cb9aaad",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hgen",
+      "lean_fvar_id": "7",
+      "statement": "AddSubgroup.closure (Set.range a) = ⊤"
+    },
+    {
+      "id": "m_hprod_fea1b2d0",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hprod",
+      "lean_fvar_id": "9",
+      "statement": "∀ (x y : A), ↑(W x) ⊆ Set.image2 (fun g h => g * h) ↑(W y) ↑(W (2 • y - x))"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "⨆ x, W x = ⨆ s, W (∑ i ∈ s, a i)"
+    },
+    {
+      "id": "n_hgen_5ed0b3c9",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hgen",
+      "lean_fvar_id": "_uniq.3698210",
+      "statement": "AddSubgroup.closure (Set.range a) = ⊤"
+    },
+    {
+      "id": "n_hx_4d4424a2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3698861",
+      "statement": "x ∈ AddSubgroup.closure (Set.range a)"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hgen_5ed0b3c9"
+      ],
+      "conclusion": "n_hx_4d4424a2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "rw",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_824",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hx : x ∈ AddSubgroup.closure (Set.range a) := by\n      rw [hgen]\n      trivial",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3698210",
+              "name": "hgen",
+              "statement": "AddSubgroup.closure (Set.range a) = ⊤"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3698861",
+            "name": "hx",
+            "statement": "x ∈ AddSubgroup.closure (Set.range a)"
+          }
+        },
+        "lean_dependency_sha256": "ec33069dbb0638f299ac5d26dece40282010beb69b4b4a690f696926df46af3f",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ AddSubgroup.closure (Set.range a)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hgen_0cb9aaad",
+        "m_hprod_fea1b2d0"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "AddSubgroup.mem_closure_range_iff + Finsupp.sum_zsmul + subgroup_le_boolean_iSup_of_int_coeffs",
+        "items": [
+          "AddSubgroup.mem_closure_range_iff",
+          "Finsupp.sum_zsmul",
+          "Rollout_p1776_subgroup_isup_eq_boolean_isup.subgroup_le_boolean_iSup_of_int_coeffs",
+          "iSup_le",
+          "le_antisymm",
+          "le_iSup"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1776_subgroup_isup_eq_boolean_isup.subgroup_le_boolean_iSup_of_int_coeffs"
+        ],
+        "mathlib_items": [
+          "AddSubgroup.mem_closure_range_iff",
+          "Finsupp.sum_zsmul",
+          "iSup_le",
+          "le_antisymm",
+          "le_iSup"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  apply le_antisymm\n  · apply iSup_le\n    intro x\n    have hx : x ∈ AddSubgroup.closure (Set.range a) := by\n      rw [hgen]\n      trivial\n    rcases AddSubgroup.mem_closure_range_iff.mp hx with ⟨c, hc⟩\n    rw [Finsupp.sum_zsmul] at hc\n    rw [hc]\n    exact subgroup_le_boolean_iSup_of_int_coeffs a W hprod c\n  · apply iSup_le\n    intro s\n    exact le_iSup (fun x : A => W x) (∑ i ∈ s, a i)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "7",
+              "name": "hgen",
+              "statement": "AddSubgroup.closure (Set.range a) = ⊤"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hprod",
+              "statement": "∀ (x y : A), ↑(W x) ⊆ Set.image2 (fun g h => g * h) ↑(W y) ↑(W (2 • y - x))"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "⨆ x, W x = ⨆ s, W (∑ i ∈ s, a i)"
+          }
+        },
+        "lean_dependency_sha256": "6bbb84e0ec2f43459d53a515b530d35f8e86f5d544461702b1d0282eeb76d6bf",
+        "kernel_witness_check": {
+          "proof_type": "⨆ x, W x = ⨆ s, W (∑ i ∈ s, a i)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "AddSubgroup.mem_closure_range_iff",
+          "Finsupp.sum_zsmul"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:2",
+          "loogle:48"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "AddSubgroup.mem_closure",
+      "declarations": [
+        "abs_add_le"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "AddSubgroup.closure_induction",
+      "declarations": [
+        "AddSubgroup.mem_closure"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "membership in additive subgroup closure finite integer linear combination",
+      "declarations": [
+        "AddSubmonoid.mem_closure_iff_of_fintype",
+        "AddSubgroup.mem_closure_range_iff",
+        "Subgroup.closure",
+        "AddSubgroup.closure",
+        "instFiniteAdditive",
+        "AddSubgroup.list_sum_mem",
+        "Finsupp.linearCombination",
+        "Finsupp.linearCombination_linearCombination",
+        "Submodule.span_int_eq_addSubgroupClosure",
+        "Fintype.linearCombination"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "(∑ _ ∈ _, _ • _) ∈ AddSubgroup.closure _",
+      "declarations": [
+        "AddSubgroup.closure_induction"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "AddSubgroup.mem_closure_range_iff",
+      "declarations": [
+        "LinearMap.pi",
+        "LinearMap.single_eq_pi_diag",
+        "LinearMap.pi_proj",
+        "LinearMap.ker_pi",
+        "LinearMap.proj_pi",
+        "LinearMap.pi_apply",
+        "LinearMap.pi_proj_comp",
+        "LinearMap.pi_zero",
+        "LinearMap.pi_comp",
+        "LinearMap.pi_eq_zero"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "SetLike.coe_subset_coe",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Subgroup.coe_subset_coe",
+      "declarations": [
+        "SetLike.coe_subset_coe",
+        "TopologicalSpace.Opens.isOpenEmbedding_of_le"
+      ],
+      "call_turn": 11,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "((_ : Subgroup _) : Set _) ⊆ _ -> _ ≤ _",
+      "declarations": [],
+      "call_turn": 11,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Set.image2_subset",
+      "declarations": [
+        "HasSubset.Subset.le",
+        "IsGLB.mono",
+        "IsGreatest.mono",
+        "IsLUB.mono",
+        "IsLeast.mono",
+        "sInf_le_sInf",
+        "sSup_le_sSup",
+        "sInf_le_sInf_of_subset_insert_top",
+        "sSup_le_sSup_of_subset_insert_bot",
+        "iInf_le_iInf_of_subset"
+      ],
+      "call_turn": 11,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Set.mem_image2",
+      "declarations": [
+        "Set.image2_subset"
+      ],
+      "call_turn": 11,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Finset.sum_lt_sum",
+      "declarations": [
+        "add_self_eq_zero"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "Finset.sum_le_sum",
+      "declarations": [
+        "Finset.sum_lt_sum"
+      ],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "(∑ _ ∈ _, _) < ∑ _ ∈ _, _",
+      "declarations": [
+        "Finset.sum_le_sum"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Int.natAbs_sub",
+      "declarations": [
+        "Finset.sum_erase_lt_of_pos",
+        "Finset.sum_lt_sum_of_nonempty",
+        "Finset.sum_sdiff_lt_sum_sdiff",
+        "Finset.sum_lt_sum",
+        "Finset.exists_lt_of_sum_lt",
+        "Finset.sum_lt_sum_of_subset",
+        "ENNReal.sum_lt_sum_of_nonempty",
+        "Antivary.sum_mul_lt_sum_comp_perm_mul_iff",
+        "Monovary.sum_comp_perm_mul_lt_sum_mul_iff",
+        "Monovary.sum_mul_comp_perm_lt_sum_mul_iff"
+      ],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Int.natAbs_of_nonneg",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Int.natAbs_eq_iff",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Int.natAbs_of_nonneg",
+      "declarations": [
+        "Int.natAbs_eq_iff"
+      ],
+      "call_turn": 25,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "Int.natAbs_neg",
+      "declarations": [
+        "Int.natAbs_of_nonneg"
+      ],
+      "call_turn": 25,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Int.natAbs_eq_natAbs",
+      "declarations": [
+        "Int.natAbs_neg"
+      ],
+      "call_turn": 25,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Int.natAbs_toNat",
+      "declarations": [],
+      "call_turn": 25,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "nsmul_sum",
+      "declarations": [
+        "BoundedContinuousFunction.dist_le"
+      ],
+      "call_turn": 35,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "sum_nsmul",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Finset.sum_nsmul",
+      "declarations": [],
+      "call_turn": 35,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "(_ • ∑ _ ∈ _, _) = ∑ _ ∈ _, _",
+      "declarations": [
+        "Finset.sum_nsmul"
+      ],
+      "call_turn": 35,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Finset.sum_sub_distrib",
+      "declarations": [
+        "Finset.smul_sum",
+        "Finset.sum_smul_sum",
+        "Fintype.sum_smul_sum",
+        "Finset.sum_smul_sum_eq_sum_perm"
+      ],
+      "call_turn": 35,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "((_ : ℕ) • _ = (_ : ℤ) • _)",
+      "declarations": [
+        "smul_zero"
+      ],
+      "call_turn": 51,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "Nat.cast_smul",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "zsmul_eq_nsmul",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "nsmul_eq_zsmul",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 55
+    },
+    {
+      "event_id": "leanfinder:38",
+      "tool": "leanfinder",
+      "query": "natural number scalar action equals cast integer scalar action additive group",
+      "declarations": [
+        "Lean.Meta.Grind.Arith.Linear.isHSMulNatInst",
+        "Lean.Meta.Grind.Arith.Linear.isSMulNatInst",
+        "Mathlib.Tactic.Abel.subst_into_smul_upcast",
+        "Mathlib.Tactic.Abel.unfold_smulg",
+        "IsGaloisGroup.isScalarTower_mulSemiringActionQuotient",
+        "SubMulAction.isCentralScalar",
+        "SubMulAction.isScalarTower'",
+        "Additive.addAction",
+        "SubMulAction.isScalarTower",
+        "IsScalarTower"
+      ],
+      "call_turn": 51,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "Finsupp.sum_fintype",
+      "declarations": [
+        "deriv_const"
+      ],
+      "call_turn": 67,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Finsupp.sum_univ",
+      "declarations": [
+        "Finsupp.sum_fintype"
+      ],
+      "call_turn": 67,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "Finsupp.sum_eq_sum",
+      "declarations": [],
+      "call_turn": 67,
+      "result_turn": 70
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "(Finsupp.sum _ _ = ∑ _, _)",
+      "declarations": [],
+      "call_turn": 67,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Finsupp.sum_support",
+      "declarations": [
+        "Finsupp.sum_fintype",
+        "Finsupp.sum_nsmul",
+        "Finsupp.sum_zsmul",
+        "Finsupp.equivFunOnFinite_symm_sum"
+      ],
+      "call_turn": 67,
+      "result_turn": 72
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 3,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 2,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 2,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 35,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 33,
+    "accepted_helper_count": 2,
+    "rollout_tool_call_count": 58,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

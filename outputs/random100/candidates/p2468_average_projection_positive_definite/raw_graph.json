@@ -1,0 +1,1577 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "manifest": [
+        {
+          "statement": "1 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "1"
+        },
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "⨆ i, C i = ⊤",
+          "origin": "manifest",
+          "name": "hC",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection",
+          "origin": "manifest",
+          "name": "hproj",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin n)), x ≠ 0 → μ {ω | x ∈ (∑ i ∈ J ω, C i)ᗮ} < 1",
+          "origin": "manifest",
+          "name": "hadm",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "x ≠ 0",
+          "origin": "manifest",
+          "name": "hx",
+          "fvar_id": "13"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "BorelSpace.opensMeasurable",
+            "ContinuousLinearMap.instBorelSpace",
+            "ContinuousLinearMap.opNorm_le_bound",
+            "Filter.univ_mem'",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Measurable.aestronglyMeasurable",
+            "MeasureTheory.Integrable.of_bound",
+            "MeasureTheory.IsZeroOrProbabilityMeasure.toIsFiniteMeasure",
+            "MeasureTheory.Measure.instOuterMeasureClass",
+            "MeasureTheory.instIsZeroOrProbabilityMeasureOfIsProbabilityMeasure",
+            "PiLp.innerProductSpace._proof_1",
+            "PiLp.secondCountableTopology",
+            "PseudoEMetricSpace.pseudoMetrizableSpace",
+            "Real.instCompleteSpace",
+            "Real.instZeroLEOneClass",
+            "RingHomIsometric.ids",
+            "SeminormedAddCommGroup.toIsTopologicalAddGroup",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "Submodule.norm_starProjection_apply_le",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "congrArg",
+            "fact_one_le_two_ennreal",
+            "instCountableFin",
+            "instSecondCountableTopologyContinuousLinearMapIdOfFiniteDimensional",
+            "instSecondCountableTopologyReal",
+            "one_mul",
+            "zero_le_one"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.IsProbabilityMeasure μ",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection",
+              "origin": "local_assumption",
+              "name": "hproj",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+            "origin": "derived",
+            "name": "hPint",
+            "fvar_id": "15"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "MeasureTheory.Integrable (fun a => (K a).starProjection x) μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "MeasureTheory.Integrable.apply_continuousLinearMap",
+            "PiLp.innerProductSpace._proof_1",
+            "RingHomIsometric.ids",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+              "origin": "derived",
+              "name": "hPint",
+              "fvar_id": "15"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_16",
+          "conclusion": {
+            "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ",
+            "origin": "derived",
+            "name": "hφint",
+            "fvar_id": "16"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "MeasureTheory.Integrable (fun x_1 => inner ℝ x ((K x_1).starProjection x)) μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "MeasureTheory.Integrable.const_inner",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ",
+              "origin": "derived",
+              "name": "hφint",
+              "fvar_id": "16"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_17",
+          "conclusion": {
+            "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ",
+            "origin": "derived",
+            "name": "hfint",
+            "fvar_id": "17"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "Measurable fun t => inner ℝ x ((K t).starProjection x)",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "BorelSpace.opensMeasurable",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Measurable.apply_continuousLinearMap",
+            "Measurable.const_inner",
+            "PiLp.borelSpace",
+            "PiLp.innerProductSpace._proof_1",
+            "PiLp.secondCountableTopology",
+            "Real.borelSpace",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "fact_one_le_two_ennreal",
+            "instCountableFin",
+            "instSecondCountableTopologyReal"
+          ],
+          "premises": [
+            {
+              "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection",
+              "origin": "local_assumption",
+              "name": "hproj",
+              "fvar_id": "10"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_18",
+          "conclusion": {
+            "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)",
+            "origin": "derived",
+            "name": "hfmeas",
+            "fvar_id": "18"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (ω : Ω), 0 ω ≤ (fun ω => inner ℝ x ((K ω).starProjection x)) ω",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "Submodule.re_inner_starProjection_nonneg",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "congrArg",
+            "eq_of_heq",
+            "fact_one_le_two_ennreal",
+            "real_inner_comm"
+          ],
+          "premises": [],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_19",
+          "conclusion": {
+            "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)",
+            "origin": "derived",
+            "name": "hnonneg",
+            "fvar_id": "19"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "Submodule.re_inner_starProjection_eq_normSq",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "congrArg",
+            "eq_of_heq",
+            "fact_one_le_two_ennreal",
+            "real_inner_comm"
+          ],
+          "premises": [],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_20",
+          "conclusion": {
+            "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+            "origin": "derived",
+            "name": "hnormsq",
+            "fvar_id": "20"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Eq.symm",
+            "Eq.trans",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Function.mem_support",
+            "Iff.mp",
+            "Iff.mpr",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "NormMulClass.toNoZeroDivisors",
+            "NormedDivisionRing.toNormMulClass",
+            "PiLp.innerProductSpace._proof_1",
+            "Set.ext",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "Submodule.orthogonalProjection_eq_zero_iff",
+            "Submodule.starProjection_apply_eq_zero_iff",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "congrArg",
+            "congrFun'",
+            "eq_self",
+            "eq_zero_of_pow_eq_zero",
+            "fact_one_le_two_ennreal",
+            "inner_zero_right",
+            "isReduced_of_noZeroDivisors",
+            "norm_eq_zero",
+            "of_eq_true"
+          ],
+          "premises": [
+            {
+              "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+              "origin": "derived",
+              "name": "hnormsq",
+              "fvar_id": "20"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_21",
+          "conclusion": {
+            "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+            "origin": "derived",
+            "name": "hsupp",
+            "fvar_id": "21"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "BorelSpace.opensMeasurable",
+            "EMetricSpace.metrizableSpace",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "MeasurableSet.compl",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "PiLp.innerProductSpace._proof_1",
+            "Real.borelSpace",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "TopologicalSpace.t2Space_of_metrizableSpace",
+            "WithLp.instModuleFinite",
+            "compl_compl",
+            "complete_of_proper",
+            "congrArg",
+            "fact_one_le_two_ennreal",
+            "instMeasurableEqOfSecondCountableTopologyOfT2Space",
+            "instMeasurableSingletonClassOfMeasurableEq",
+            "instSecondCountableTopologyReal",
+            "measurableSet_support"
+          ],
+          "premises": [
+            {
+              "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)",
+              "origin": "derived",
+              "name": "hfmeas",
+              "fvar_id": "18"
+            },
+            {
+              "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+              "origin": "derived",
+              "name": "hsupp",
+              "fvar_id": "21"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_22",
+          "conclusion": {
+            "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+            "origin": "derived",
+            "name": "hbad_meas",
+            "fvar_id": "22"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "ENNReal.instCanonicallyOrderedAdd",
+            "ENNReal.instOrderedSub",
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Iff.mpr",
+            "MeasureTheory.prob_compl_eq_one_sub",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "congrArg",
+            "fact_one_le_two_ennreal",
+            "tsub_pos_iff_lt"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.IsProbabilityMeasure μ",
+              "origin": "local_assumption",
+              "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+              "fvar_id": "6"
+            },
+            {
+              "statement": "∀ (x : EuclideanSpace ℝ (Fin n)), x ≠ 0 → μ {ω | x ∈ (∑ i ∈ J ω, C i)ᗮ} < 1",
+              "origin": "local_assumption",
+              "name": "hadm",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "x ≠ 0",
+              "origin": "local_assumption",
+              "name": "hx",
+              "fvar_id": "13"
+            },
+            {
+              "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+              "origin": "derived",
+              "name": "hsupp",
+              "fvar_id": "21"
+            },
+            {
+              "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+              "origin": "derived",
+              "name": "hbad_meas",
+              "fvar_id": "22"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_23",
+          "conclusion": {
+            "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+            "origin": "derived",
+            "name": "hsupp_pos",
+            "fvar_id": "23"
+          }
+        },
+        {
+          "witness_check": {
+            "proof_type": "0 < ∫ (x_1 : Ω), inner ℝ x ((K x_1).starProjection x) ∂μ",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "Finite.of_fintype",
+            "FiniteDimensional.RCLike.properSpace_submodule",
+            "FiniteDimensional.finiteDimensional_pi'",
+            "FiniteDimensional.finiteDimensional_submodule",
+            "FiniteDimensional.rclike_to_real",
+            "Iff.mpr",
+            "MeasureTheory.integral_pos_iff_support_of_nonneg",
+            "Nat.instAtLeastTwoHAddOfNat",
+            "Nat.instNeZeroSucc",
+            "PiLp.innerProductSpace._proof_1",
+            "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+            "WithLp.instModuleFinite",
+            "complete_of_proper",
+            "fact_one_le_two_ennreal"
+          ],
+          "premises": [
+            {
+              "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ",
+              "origin": "derived",
+              "name": "hfint",
+              "fvar_id": "17"
+            },
+            {
+              "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)",
+              "origin": "derived",
+              "name": "hnonneg",
+              "fvar_id": "19"
+            },
+            {
+              "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+              "origin": "derived",
+              "name": "hsupp_pos",
+              "fvar_id": "23"
+            }
+          ],
+          "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+          "id": "telescope_24",
+          "conclusion": {
+            "statement": "0 < ∫ (ω : Ω), inner ℝ x ((K ω).starProjection x) ∂μ",
+            "origin": "derived",
+            "name": "hintpos",
+            "fvar_id": "24"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "0 < inner ℝ x ((∫ (ω : Ω), (K ω).starProjection ∂μ) x)",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "0 < inner ℝ x ((∫ (ω : Ω), (K ω).starProjection ∂μ) x)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Algebra.to_smulCommClass",
+          "ContinuousLinearMap.integral_apply",
+          "EMetricSpace.metrizableSpace",
+          "Finite.of_fintype",
+          "FiniteDimensional.RCLike.properSpace_submodule",
+          "FiniteDimensional.finiteDimensional_pi'",
+          "FiniteDimensional.finiteDimensional_submodule",
+          "FiniteDimensional.rclike_to_real",
+          "Function.smulCommClass",
+          "IsBoundedSMul.continuousSMul",
+          "IsScalarTower.to_smulCommClass'",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "NormedSpace.toIsBoundedSMul",
+          "PiLp.completeSpace",
+          "PiLp.innerProductSpace._proof_1",
+          "Real.instCompleteSpace",
+          "Real.isScalarTower",
+          "RingHomIsometric.ids",
+          "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+          "TopologicalSpace.t2Space_of_metrizableSpace",
+          "WithLp.instModuleFinite",
+          "WithLp.instSMulCommClass",
+          "complete_of_proper",
+          "congrArg",
+          "fact_one_le_two_ennreal",
+          "integral_inner"
+        ],
+        "premises": [
+          {
+            "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+            "origin": "derived",
+            "name": "hPint",
+            "fvar_id": "15"
+          },
+          {
+            "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ",
+            "origin": "derived",
+            "name": "hφint",
+            "fvar_id": "16"
+          },
+          {
+            "statement": "0 < ∫ (ω : Ω), inner ℝ x ((K ω).starProjection x) ∂μ",
+            "origin": "derived",
+            "name": "hintpos",
+            "fvar_id": "24"
+          }
+        ],
+        "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "0 < inner ℝ x ((∫ (ω : Ω), (K ω).starProjection ∂μ) x)",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "0 ≤ RCLike.re (inner ℝ ((K ω).starProjection x) x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.re_inner_starProjection_nonneg",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1610",
+      "conclusion": {
+        "statement": "0 ≤ RCLike.re (inner ℝ ((K ω).starProjection x) x)",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.5575937"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "RCLike.re (inner ℝ ((K ω).starProjection x) x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.re_inner_starProjection_eq_normSq",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1611",
+      "conclusion": {
+        "statement": "RCLike.re (inner ℝ ((K ω).starProjection x) x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.5578824"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "inner ℝ x ((K ω).starProjection x) ≠ 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Function.mem_support",
+        "Iff.mp",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "ω ∈ Function.support fun ω => inner ℝ x ((K ω).starProjection x)",
+          "origin": "local_assumption",
+          "name": "hsupport",
+          "fvar_id": "_uniq.5588937"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1612",
+      "conclusion": {
+        "statement": "inner ℝ x ((K ω).starProjection x) ≠ 0",
+        "origin": "derived",
+        "name": "hsne",
+        "fvar_id": "_uniq.5590392"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(K ω).starProjection x = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Iff.mpr",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.starProjection_apply_eq_zero_iff",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "ω ∈ {ω | x ∈ (K ω)ᗮ}",
+          "origin": "local_assumption",
+          "name": "horth",
+          "fvar_id": "_uniq.5588940"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1613",
+      "conclusion": {
+        "statement": "(K ω).starProjection x = 0",
+        "origin": "derived",
+        "name": "hpzero",
+        "fvar_id": "_uniq.5596023"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖(K ω).orthogonalProjection x‖ = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "eq_zero_of_pow_eq_zero",
+        "fact_one_le_two_ennreal",
+        "isReduced_of_noZeroDivisors"
+      ],
+      "premises": [
+        {
+          "statement": "‖(K ω).orthogonalProjection x‖ ^ 2 = 0",
+          "origin": "derived",
+          "name": "hsquarezero",
+          "fvar_id": "_uniq.5599423"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1614",
+      "conclusion": {
+        "statement": "‖(K ω).orthogonalProjection x‖ = 0",
+        "origin": "derived",
+        "name": "hnormzero",
+        "fvar_id": "_uniq.5600283"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "‖(K ω).orthogonalProjection x‖ ^ 2 = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "congrArg",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+          "origin": "derived",
+          "name": "hnormsq",
+          "fvar_id": "_uniq.5578790"
+        },
+        {
+          "statement": "inner ℝ x ((K ω).starProjection x) = 0",
+          "origin": "local_assumption",
+          "name": "hinner",
+          "fvar_id": "_uniq.5597205"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1615",
+      "conclusion": {
+        "statement": "‖(K ω).orthogonalProjection x‖ ^ 2 = 0",
+        "origin": "derived",
+        "name": "hsquarezero",
+        "fvar_id": "_uniq.5599423"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(K ω).orthogonalProjection x = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Iff.mp",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "eq_zero_of_pow_eq_zero",
+        "fact_one_le_two_ennreal",
+        "isReduced_of_noZeroDivisors",
+        "norm_eq_zero"
+      ],
+      "premises": [
+        {
+          "statement": "‖(K ω).orthogonalProjection x‖ ^ 2 = 0",
+          "origin": "derived",
+          "name": "hsquarezero",
+          "fvar_id": "_uniq.5599423"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1616",
+      "conclusion": {
+        "statement": "(K ω).orthogonalProjection x = 0",
+        "origin": "derived",
+        "name": "hprojzero",
+        "fvar_id": "_uniq.5599564"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasurableSet (Function.support fun ω => inner ℝ x ((K ω).starProjection x))ᶜ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "EMetricSpace.metrizableSpace",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "MeasurableSet.compl",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Real.borelSpace",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal",
+        "instMeasurableEqOfSecondCountableTopologyOfT2Space",
+        "instMeasurableSingletonClassOfMeasurableEq",
+        "instSecondCountableTopologyReal",
+        "measurableSet_support"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)",
+          "origin": "derived",
+          "name": "hfmeas",
+          "fvar_id": "_uniq.5573868"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1617",
+      "conclusion": {
+        "statement": "MeasurableSet (Function.support fun ω => inner ℝ x ((K ω).starProjection x))ᶜ",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.5609870"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < μ {ω | x ∈ (K ω)ᗮ}ᶜ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.instCanonicallyOrderedAdd",
+        "ENNReal.instOrderedSub",
+        "Iff.mpr",
+        "MeasureTheory.prob_compl_eq_one_sub",
+        "PiLp.innerProductSpace._proof_1",
+        "congrArg",
+        "fact_one_le_two_ennreal",
+        "tsub_pos_iff_lt"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+          "fvar_id": "_uniq.5551990"
+        },
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin n)), x ≠ 0 → μ {ω | x ∈ (∑ i ∈ J ω, C i)ᗮ} < 1",
+          "origin": "local_assumption",
+          "name": "hadm",
+          "fvar_id": "_uniq.5551995"
+        },
+        {
+          "statement": "x ≠ 0",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.5552002"
+        },
+        {
+          "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+          "origin": "derived",
+          "name": "hbad_meas",
+          "fvar_id": "_uniq.5608897"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1618",
+      "conclusion": {
+        "statement": "0 < μ {ω | x ∈ (K ω)ᗮ}ᶜ",
+        "origin": "derived",
+        "name": "hcomp",
+        "fvar_id": "_uniq.5623053"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "ContinuousLinearMap.instBorelSpace",
+        "ContinuousLinearMap.opNorm_le_bound",
+        "Filter.univ_mem'",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Measurable.aestronglyMeasurable",
+        "MeasureTheory.Integrable.of_bound",
+        "MeasureTheory.IsZeroOrProbabilityMeasure.toIsFiniteMeasure",
+        "MeasureTheory.Measure.instOuterMeasureClass",
+        "MeasureTheory.instIsZeroOrProbabilityMeasureOfIsProbabilityMeasure",
+        "PiLp.innerProductSpace._proof_1",
+        "PiLp.secondCountableTopology",
+        "PseudoEMetricSpace.pseudoMetrizableSpace",
+        "Real.instCompleteSpace",
+        "Real.instZeroLEOneClass",
+        "RingHomIsometric.ids",
+        "SeminormedAddCommGroup.toIsTopologicalAddGroup",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.norm_starProjection_apply_le",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "congrArg",
+        "fact_one_le_two_ennreal",
+        "instCountableFin",
+        "instSecondCountableTopologyContinuousLinearMapIdOfFiniteDimensional",
+        "instSecondCountableTopologyReal",
+        "one_mul",
+        "zero_le_one"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+          "fvar_id": "_uniq.5551990"
+        },
+        {
+          "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection",
+          "origin": "local_assumption",
+          "name": "hproj",
+          "fvar_id": "_uniq.5551994"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1620",
+      "conclusion": {
+        "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+        "origin": "derived",
+        "name": "hPint",
+        "fvar_id": "_uniq.5558800"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasureTheory.Integrable (fun a => (K a).starProjection x) μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "MeasureTheory.Integrable.apply_continuousLinearMap",
+        "PiLp.innerProductSpace._proof_1",
+        "RingHomIsometric.ids",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection) μ",
+          "origin": "derived",
+          "name": "hPint",
+          "fvar_id": "_uniq.5558800"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1621",
+      "conclusion": {
+        "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ",
+        "origin": "derived",
+        "name": "hφint",
+        "fvar_id": "_uniq.5570398"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasureTheory.Integrable (fun x_1 => inner ℝ x ((K x_1).starProjection x)) μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "MeasureTheory.Integrable.const_inner",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.Integrable (fun ω => (K ω).starProjection x) μ",
+          "origin": "derived",
+          "name": "hφint",
+          "fvar_id": "_uniq.5570398"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1622",
+      "conclusion": {
+        "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ",
+        "origin": "derived",
+        "name": "hfint",
+        "fvar_id": "_uniq.5572113"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Measurable fun t => inner ℝ x ((K t).starProjection x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Measurable.apply_continuousLinearMap",
+        "Measurable.const_inner",
+        "PiLp.borelSpace",
+        "PiLp.innerProductSpace._proof_1",
+        "PiLp.secondCountableTopology",
+        "Real.borelSpace",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal",
+        "instCountableFin",
+        "instSecondCountableTopologyReal"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable fun ω => (∑ i ∈ J ω, C i).starProjection",
+          "origin": "local_assumption",
+          "name": "hproj",
+          "fvar_id": "_uniq.5551994"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1623",
+      "conclusion": {
+        "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)",
+        "origin": "derived",
+        "name": "hfmeas",
+        "fvar_id": "_uniq.5573868"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (ω : Ω), 0 ω ≤ (fun ω => inner ℝ x ((K ω).starProjection x)) ω",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.re_inner_starProjection_nonneg",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "congrArg",
+        "eq_of_heq",
+        "fact_one_le_two_ennreal",
+        "real_inner_comm"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1624",
+      "conclusion": {
+        "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)",
+        "origin": "derived",
+        "name": "hnonneg",
+        "fvar_id": "_uniq.5574973"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.re_inner_starProjection_eq_normSq",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "congrArg",
+        "eq_of_heq",
+        "fact_one_le_two_ennreal",
+        "real_inner_comm"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1625",
+      "conclusion": {
+        "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+        "origin": "derived",
+        "name": "hnormsq",
+        "fvar_id": "_uniq.5578790"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Eq.trans",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Function.mem_support",
+        "Iff.mp",
+        "Iff.mpr",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "NormMulClass.toNoZeroDivisors",
+        "NormedDivisionRing.toNormMulClass",
+        "PiLp.innerProductSpace._proof_1",
+        "Set.ext",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "Submodule.orthogonalProjection_eq_zero_iff",
+        "Submodule.starProjection_apply_eq_zero_iff",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "congrArg",
+        "congrFun'",
+        "eq_self",
+        "eq_zero_of_pow_eq_zero",
+        "fact_one_le_two_ennreal",
+        "inner_zero_right",
+        "isReduced_of_noZeroDivisors",
+        "norm_eq_zero",
+        "of_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (ω : Ω), inner ℝ x ((K ω).starProjection x) = ‖(K ω).orthogonalProjection x‖ ^ 2",
+          "origin": "derived",
+          "name": "hnormsq",
+          "fvar_id": "_uniq.5578790"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1626",
+      "conclusion": {
+        "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+        "origin": "derived",
+        "name": "hsupp",
+        "fvar_id": "_uniq.5588903"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "BorelSpace.opensMeasurable",
+        "EMetricSpace.metrizableSpace",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "MeasurableSet.compl",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Real.borelSpace",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "TopologicalSpace.t2Space_of_metrizableSpace",
+        "WithLp.instModuleFinite",
+        "compl_compl",
+        "complete_of_proper",
+        "congrArg",
+        "fact_one_le_two_ennreal",
+        "instMeasurableEqOfSecondCountableTopologyOfT2Space",
+        "instMeasurableSingletonClassOfMeasurableEq",
+        "instSecondCountableTopologyReal",
+        "measurableSet_support"
+      ],
+      "premises": [
+        {
+          "statement": "Measurable fun ω => inner ℝ x ((K ω).starProjection x)",
+          "origin": "derived",
+          "name": "hfmeas",
+          "fvar_id": "_uniq.5573868"
+        },
+        {
+          "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+          "origin": "derived",
+          "name": "hsupp",
+          "fvar_id": "_uniq.5588903"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1627",
+      "conclusion": {
+        "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+        "origin": "derived",
+        "name": "hbad_meas",
+        "fvar_id": "_uniq.5608897"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ENNReal.instCanonicallyOrderedAdd",
+        "ENNReal.instOrderedSub",
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Iff.mpr",
+        "MeasureTheory.prob_compl_eq_one_sub",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "congrArg",
+        "fact_one_le_two_ennreal",
+        "tsub_pos_iff_lt"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.IsProbabilityMeasure μ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.1509888941._hygCtx._hyg.17",
+          "fvar_id": "_uniq.5551990"
+        },
+        {
+          "statement": "∀ (x : EuclideanSpace ℝ (Fin n)), x ≠ 0 → μ {ω | x ∈ (∑ i ∈ J ω, C i)ᗮ} < 1",
+          "origin": "local_assumption",
+          "name": "hadm",
+          "fvar_id": "_uniq.5551995"
+        },
+        {
+          "statement": "x ≠ 0",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.5552002"
+        },
+        {
+          "statement": "(Function.support fun ω => inner ℝ x ((K ω).starProjection x)) = {ω | x ∈ (K ω)ᗮ}ᶜ",
+          "origin": "derived",
+          "name": "hsupp",
+          "fvar_id": "_uniq.5588903"
+        },
+        {
+          "statement": "MeasurableSet {ω | x ∈ (K ω)ᗮ}",
+          "origin": "derived",
+          "name": "hbad_meas",
+          "fvar_id": "_uniq.5608897"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1628",
+      "conclusion": {
+        "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+        "origin": "derived",
+        "name": "hsupp_pos",
+        "fvar_id": "_uniq.5611727"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < ∫ (x_1 : Ω), inner ℝ x ((K x_1).starProjection x) ∂μ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Finite.of_fintype",
+        "FiniteDimensional.RCLike.properSpace_submodule",
+        "FiniteDimensional.finiteDimensional_pi'",
+        "FiniteDimensional.finiteDimensional_submodule",
+        "FiniteDimensional.rclike_to_real",
+        "Iff.mpr",
+        "MeasureTheory.integral_pos_iff_support_of_nonneg",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PiLp.innerProductSpace._proof_1",
+        "Submodule.HasOrthogonalProjection.ofCompleteSpace",
+        "WithLp.instModuleFinite",
+        "complete_of_proper",
+        "fact_one_le_two_ennreal"
+      ],
+      "premises": [
+        {
+          "statement": "MeasureTheory.Integrable (fun ω => inner ℝ x ((K ω).starProjection x)) μ",
+          "origin": "derived",
+          "name": "hfint",
+          "fvar_id": "_uniq.5572113"
+        },
+        {
+          "statement": "0 ≤ fun ω => inner ℝ x ((K ω).starProjection x)",
+          "origin": "derived",
+          "name": "hnonneg",
+          "fvar_id": "_uniq.5574973"
+        },
+        {
+          "statement": "0 < μ (Function.support fun ω => inner ℝ x ((K ω).starProjection x))",
+          "origin": "derived",
+          "name": "hsupp_pos",
+          "fvar_id": "_uniq.5611727"
+        }
+      ],
+      "parent": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite",
+      "id": "local_1629",
+      "conclusion": {
+        "statement": "0 < ∫ (ω : Ω), inner ℝ x ((K ω).starProjection x) ∂μ",
+        "origin": "derived",
+        "name": "hintpos",
+        "fvar_id": "_uniq.5624973"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:89:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:671:60: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:683:32: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:930:40: warning: unused variable `hpt`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1324:12: warning: unused variable `S`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1355:2: warning: Try this: intro formulas Formula atom neg conj P N hPatom hNatom hPneg hNneg hPconj hNconj p q T41 T14\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1752:18: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵[̲m̲u̲l̲_̲a̲s̲s̲o̲c̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1801:10: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [̵m̵u̵l̵_̵a̵s̵s̵o̵c̵,̵ ̵m̵u̵l̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵]̵[̲m̲u̲l̲_̲l̲e̲f̲t̲_̲c̲o̲m̲m̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1829:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:16: warning: This simp argument is unused:\n  Matrix.smul_mul\n\nHint: Omit it from the simp argument list.\n  simp [̵M̵a̵t̵r̵i̵x̵.̵s̵m̵u̵l̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵[̲M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲s̲m̲u̲l̲,̲ mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1839:33: warning: This simp argument is unused:\n  Matrix.mul_smul\n\nHint: Omit it from the simp argument list.\n  simp [Matrix.smul_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵s̵m̵u̵l̵,̵ ̵mul_assoc, smul_smul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:1844:21: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  simp only [̵s̵m̵u̵l̵_̵e̵q̵_̵m̵u̵l̵,̵ ̵s̵m̵u̵l̵_̵s̵m̵u̵l̵]̵[̲s̲m̲u̲l̲_̲s̲m̲u̲l̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2088:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:58: warning: This simp argument is unused:\n  hcd\n\nHint: Omit it from the simp argument list.\n  simp [Hmat, Matrix.mulVec, w, hca, hcb,̵ ̵h̵c̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2279:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2563:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2565:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2437:30: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2658:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2662:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hix]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2664:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hb]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2672:15: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E,̵ ̵M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2676:17: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵hjx]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:2678:13: warning: This simp argument is unused:\n  Matrix.single_apply\n\nHint: Omit it from the simp argument list.\n  simp [E, M̵a̵t̵r̵i̵x̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵ha]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3108:38: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:3109:5: warning: unused variable `h2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4114:5: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4342:57: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4535:5: warning: unused variable `hmid_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4588:46: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:4887:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5091:21: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5144:5: warning: unused variable `hmono`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5381:32: warning: `mul_le_mul_right'` has been deprecated: Use `mul_le_mul_left` instead\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5314:5: warning: unused variable `hg_range`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:5317:5: warning: unused variable `hgf_inc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:6141:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7196:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last i).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵i̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7197:42: warning: This simp argument is unused:\n  (Fin.castSucc_ne_last ((finRotate n) i)).symm\n\nHint: Omit it from the simp argument list.\n  simp [flowerPairColor,̵ ̵(̵F̵i̵n̵.̵c̵a̵s̵t̵S̵u̵c̵c̵_̵n̵e̵_̵l̵a̵s̵t̵ ̵(̵(̵f̵i̵n̵R̵o̵t̵a̵t̵e̵ ̵n̵)̵ ̵i̵)̵)̵.̵s̵y̵m̵m̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7698:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:7702:5: warning: unused variable `hC`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8095:10: warning: This simp argument is unused:\n  hnp\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵h̵n̵p̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8251:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8787:5: warning: unused variable `hDpos`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8788:5: warning: unused variable `hDnsq`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8789:5: warning: unused variable `hDmod`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8790:5: warning: unused variable `hdisc`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8796:5: warning: unused variable `hlamunique`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8824:32: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:8840:31: warning: 'ring_nf' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9151:4: warning: 'change orderOf u = 2' tactic does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9203:49: warning: This simp argument is unused:\n  a\n\nHint: Omit it from the simp argument list.\n  simp [a̵,̵ ̵b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9204:52: warning: This simp argument is unused:\n  b\n\nHint: Omit it from the simp argument list.\n  simp [a,̵ ̵b̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9631:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9706:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9707:56: warning: This simp argument is unused:\n  S\n\nHint: Omit it from the simp argument list.\n  simp [S̵,̵ ̵x, b]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9815:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inl\n\nHint: Omit it from the simp argument list.\n  simp [F, a, fV, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵l̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9817:20: warning: This simp argument is unused:\n  Monoid.Coprod.lift_comp_inr\n\nHint: Omit it from the simp argument list.\n  simp [F, y, fW, M̵o̵n̵o̵i̵d̵.̵C̵o̵p̵r̵o̵d̵.̵l̵i̵f̵t̵_̵c̵o̵m̵p̵_̵i̵n̵r̵,̵ ̵zmodTwoHomOfOrderTwo_apply_one]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:9882:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:20: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10070:45: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:16: warning: This simp argument is unused:\n  hi\n\nHint: Omit it from the simp argument list.\n  simp [hi,̵ ̵h̵i̵1, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:25: warning: This simp argument is unused:\n  MvPolynomial.pderiv_mul\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_m̵u̵l̵,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X, Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10073:50: warning: This simp argument is unused:\n  MvPolynomial.pderiv_X\n\nHint: Omit it from the simp argument list.\n  simp [hi, hi1, MvPolynomial.pderiv_mul, M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵p̵d̵e̵r̵i̵v̵_̵X̵,̵ ̵Pi.single_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10473:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10519:5: warning: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10760:8: warning: This simp argument is unused:\n  hpos.ne'\n\nHint: Omit it from the simp argument list.\n  simp [h̵p̵o̵s̵.̵n̵e̵'̵,̵ ̵abs_of_pos hpos]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean:10865:2: warning: Try this: intro evalAt D P Pz A r Ω M PiecewiseC1 d hm hdeg hreal hP0 hsub hpurez hpurebar z₀ w₀ a ha hfront σ\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_04c00b6b97dbe716/proofs.lean",
+    "namespace": "Rollout_p2468_average_projection_positive_definite",
+    "proof_sha256": "c3c2ee76601932c699ac0058aeec3c0ffcfebd03cf300d82c76c78f06319c2d7",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2468_average_projection_positive_definite.average_projection_positive_definite"
+  }
+}

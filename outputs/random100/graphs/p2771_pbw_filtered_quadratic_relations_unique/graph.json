@@ -1,0 +1,1653 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p2771_pbw_filtered_quadratic_relations_unique",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 2771,
+    "source": "1209.5660",
+    "theorem_name": "pbw_filtered_quadratic_relations_unique",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/2771",
+    "reconstructed_proof": "../../candidates/p2771_pbw_filtered_quadratic_relations_unique/proof.lean",
+    "raw_elaboration": "../../candidates/p2771_pbw_filtered_quadratic_relations_unique/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p2771_pbw_filtered_quadratic_relations_unique.pbw_filtered_quadratic_relations_unique",
+    "verification_call_id": "verify_submission:146",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "777fa7833f8e565a5d771438cc1a0f128e4aa716361332d85c3e8108d8326c4c",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "751831188630435d4bcf369b0823fed24a92a8cb8591a7d6d655a001acf7e4c7",
+    "concrete_semantic_topology_sha256": "777fa7833f8e565a5d771438cc1a0f128e4aa716361332d85c3e8108d8326c4c"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hp_e32f47b8",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hP₂",
+      "lean_fvar_id": "10",
+      "statement": "P ⊆ ⨆ i, ↑(𝒯 ↑i)"
+    },
+    {
+      "id": "m_hpi_fd14f85a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hPI",
+      "lean_fvar_id": "12",
+      "statement": "TwoSidedIdeal.span P = I"
+    },
+    {
+      "id": "m_hppbw_03a85af8",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hPpbw",
+      "lean_fvar_id": "14",
+      "statement": "∀ (n : ℕ), ∀ x ∈ 𝒯 n, x ∈ TwoSidedIdeal.span (⇑(GradedAlgebra.proj 𝒯 2) '' P) ↔ ∃ y ∈ I, x - y ∈ ⨆ i, 𝒯 ↑i"
+    },
+    {
+      "id": "m_hq_24ee84af",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hQ₂",
+      "lean_fvar_id": "11",
+      "statement": "Q ⊆ ⨆ i, ↑(𝒯 ↑i)"
+    },
+    {
+      "id": "m_hqi_27bcdf33",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hQI",
+      "lean_fvar_id": "13",
+      "statement": "TwoSidedIdeal.span Q = I"
+    },
+    {
+      "id": "m_hqpbw_faa1dc56",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hQpbw",
+      "lean_fvar_id": "15",
+      "statement": "∀ (n : ℕ), ∀ x ∈ 𝒯 n, x ∈ TwoSidedIdeal.span (⇑(GradedAlgebra.proj 𝒯 2) '' Q) ↔ ∃ y ∈ I, x - y ∈ ⨆ i, 𝒯 ↑i"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "AddSubgroup.closure {x | ∃ a ∈ 𝒯 0, ∃ p ∈ P, ∃ b ∈ 𝒯 0, x = a * p * b} = AddSubgroup.closure {x | ∃ a ∈ 𝒯 0, ∃ q ∈ Q, ∃ b ∈ 𝒯 0, x = a * q * b} ∧ (((∃ M, ↑M = P ∧ (∀ (a : ↥(𝒯 0)), ∀ x ∈ M, ↑a * x ∈ M) ∧ ∀ (a : ↥(𝒯 0)), ∀ x ∈ M, x * ↑a ∈ M) ∧ ∃ N, ↑N = Q ∧ (∀ (a : ↥(𝒯 0)), ∀ x ∈ N, ↑a * x ∈ N) ∧ ∀ (a : ↥(𝒯 0)), ∀ x ∈ N, x * ↑a ∈ N) → P = Q)"
+    },
+    {
+      "id": "n_hab_22327f26",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hAB",
+      "lean_fvar_id": "22",
+      "statement": "A = B"
+    },
+    {
+      "id": "n_haleb_b4c59d88",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hAleB",
+      "lean_fvar_id": "20",
+      "statement": "A ≤ B"
+    },
+    {
+      "id": "n_hblea_2b2bb2fd",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hBleA",
+      "lean_fvar_id": "21",
+      "statement": "B ≤ A"
+    },
+    {
+      "id": "n_hpsub_184eeea1",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hPsub",
+      "lean_fvar_id": "18",
+      "statement": "P ⊆ ↑B"
+    },
+    {
+      "id": "n_hqsub_30ea3bd4",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hQsub",
+      "lean_fvar_id": "19",
+      "statement": "Q ⊆ ↑A"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hpsub",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_e32f47b8",
+        "m_hq_24ee84af",
+        "m_hpi_fd14f85a",
+        "m_hqi_27bcdf33",
+        "m_hppbw_03a85af8",
+        "m_hqpbw_faa1dc56"
+      ],
+      "conclusion": "n_hpsub_184eeea1",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "pbw_generators_subset_tzero_bimodule_closure",
+        "items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.pbw_generators_subset_tzero_bimodule_closure"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.pbw_generators_subset_tzero_bimodule_closure"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_18",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hPsub : P ⊆ B := by\n    simpa [B] using pbw_generators_subset_tzero_bimodule_closure\n      𝒯 P Q I hP₂ hQ₂ hPI hQI hPpbw hQpbw",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hP₂",
+              "statement": "P ⊆ ⨆ i, ↑(𝒯 ↑i)"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hQ₂",
+              "statement": "Q ⊆ ⨆ i, ↑(𝒯 ↑i)"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hPI",
+              "statement": "TwoSidedIdeal.span P = I"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hQI",
+              "statement": "TwoSidedIdeal.span Q = I"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hPpbw",
+              "statement": "∀ (n : ℕ), ∀ x ∈ 𝒯 n, x ∈ TwoSidedIdeal.span (⇑(GradedAlgebra.proj 𝒯 2) '' P) ↔ ∃ y ∈ I, x - y ∈ ⨆ i, 𝒯 ↑i"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hQpbw",
+              "statement": "∀ (n : ℕ), ∀ x ∈ 𝒯 n, x ∈ TwoSidedIdeal.span (⇑(GradedAlgebra.proj 𝒯 2) '' Q) ↔ ∃ y ∈ I, x - y ∈ ⨆ i, 𝒯 ↑i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "18",
+            "name": "hPsub",
+            "statement": "P ⊆ ↑B"
+          }
+        },
+        "lean_dependency_sha256": "a06119261f02269fab03fb787573933869c03810abbfa4589c28ef9aa492c1fc",
+        "kernel_witness_check": {
+          "proof_type": "P ⊆ ↑B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hqsub",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hp_e32f47b8",
+        "m_hq_24ee84af",
+        "m_hpi_fd14f85a",
+        "m_hqi_27bcdf33",
+        "m_hppbw_03a85af8",
+        "m_hqpbw_faa1dc56"
+      ],
+      "conclusion": "n_hqsub_30ea3bd4",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "pbw_generators_subset_tzero_bimodule_closure",
+        "items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.pbw_generators_subset_tzero_bimodule_closure"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.pbw_generators_subset_tzero_bimodule_closure"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_19",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hQsub : Q ⊆ A := by\n    simpa [A] using pbw_generators_subset_tzero_bimodule_closure\n      𝒯 Q P I hQ₂ hP₂ hQI hPI hQpbw hPpbw",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "10",
+              "name": "hP₂",
+              "statement": "P ⊆ ⨆ i, ↑(𝒯 ↑i)"
+            },
+            {
+              "fvar_id": "11",
+              "name": "hQ₂",
+              "statement": "Q ⊆ ⨆ i, ↑(𝒯 ↑i)"
+            },
+            {
+              "fvar_id": "12",
+              "name": "hPI",
+              "statement": "TwoSidedIdeal.span P = I"
+            },
+            {
+              "fvar_id": "13",
+              "name": "hQI",
+              "statement": "TwoSidedIdeal.span Q = I"
+            },
+            {
+              "fvar_id": "14",
+              "name": "hPpbw",
+              "statement": "∀ (n : ℕ), ∀ x ∈ 𝒯 n, x ∈ TwoSidedIdeal.span (⇑(GradedAlgebra.proj 𝒯 2) '' P) ↔ ∃ y ∈ I, x - y ∈ ⨆ i, 𝒯 ↑i"
+            },
+            {
+              "fvar_id": "15",
+              "name": "hQpbw",
+              "statement": "∀ (n : ℕ), ∀ x ∈ 𝒯 n, x ∈ TwoSidedIdeal.span (⇑(GradedAlgebra.proj 𝒯 2) '' Q) ↔ ∃ y ∈ I, x - y ∈ ⨆ i, 𝒯 ↑i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "19",
+            "name": "hQsub",
+            "statement": "Q ⊆ ↑A"
+          }
+        },
+        "lean_dependency_sha256": "445013d125e373be05c7bb9c810a345120375ad73a5a7ef05c59af8f7a49427f",
+        "kernel_witness_check": {
+          "proof_type": "Q ⊆ ↑A",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_haleb",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hpsub_184eeea1"
+      ],
+      "conclusion": "n_haleb_b4c59d88",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "tzero_bimodule_closure_le_of_generators_subset",
+        "items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.tzero_bimodule_closure_le_of_generators_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.tzero_bimodule_closure_le_of_generators_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_20",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hAleB : A ≤ B := by\n    simpa [A, B] using tzero_bimodule_closure_le_of_generators_subset 𝒯 P Q hPsub",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "18",
+              "name": "hPsub",
+              "statement": "P ⊆ ↑B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "20",
+            "name": "hAleB",
+            "statement": "A ≤ B"
+          }
+        },
+        "lean_dependency_sha256": "6e4db71dd1c00808c157d7bb54080f63dd0108b17fd421e282ee6288cebcd1e1",
+        "kernel_witness_check": {
+          "proof_type": "A ≤ B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hblea",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hqsub_30ea3bd4"
+      ],
+      "conclusion": "n_hblea_2b2bb2fd",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "tzero_bimodule_closure_le_of_generators_subset",
+        "items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.tzero_bimodule_closure_le_of_generators_subset"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p2771_pbw_filtered_quadratic_relations_unique.tzero_bimodule_closure_le_of_generators_subset"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_21",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hBleA : B ≤ A := by\n    simpa [A, B] using tzero_bimodule_closure_le_of_generators_subset 𝒯 Q P hQsub",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "19",
+              "name": "hQsub",
+              "statement": "Q ⊆ ↑A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "21",
+            "name": "hBleA",
+            "statement": "B ≤ A"
+          }
+        },
+        "lean_dependency_sha256": "4ed74892af87bb35790c615d24b352f19385d5680cd21c958a46d4636241eb0d",
+        "kernel_witness_check": {
+          "proof_type": "B ≤ A",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hab",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_haleb_b4c59d88",
+        "n_hblea_2b2bb2fd"
+      ],
+      "conclusion": "n_hab_22327f26",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_antisymm",
+        "items": [
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_22",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hAB : A = B := le_antisymm hAleB hBleA",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "20",
+              "name": "hAleB",
+              "statement": "A ≤ B"
+            },
+            {
+              "fvar_id": "21",
+              "name": "hBleA",
+              "statement": "B ≤ A"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "22",
+            "name": "hAB",
+            "statement": "A = B"
+          }
+        },
+        "lean_dependency_sha256": "5d37be1c02f64d8f4a876912ce0c8d569c3a8bd10a03e5adba449206d41c7cac",
+        "kernel_witness_check": {
+          "proof_type": "A = B",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "n_hab_22327f26"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "AddSubgroup.closure_le + AddSubgroup.subset_closure + SetLike.GradedOne.one_mem",
+        "items": [
+          "AddSubgroup.closure_le",
+          "AddSubgroup.subset_closure",
+          "SetLike.GradedOne.one_mem",
+          "le_antisymm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "AddSubgroup.closure_le",
+          "AddSubgroup.subset_closure",
+          "SetLike.GradedOne.one_mem",
+          "le_antisymm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · simpa [A, B] using hAB\n  · intro hclosed\n    rcases hclosed with ⟨hPclosed, hQclosed⟩\n    rcases hPclosed with ⟨M, hMP, hMleft, hMright⟩\n    rcases hQclosed with ⟨N, hNQ, hNleft, hNright⟩\n    have hgenP : {x : T | ∃ a ∈ 𝒯 0, ∃ p ∈ P, ∃ b ∈ 𝒯 0, x = a * p * b} ⊆\n        (M : Set T) := by\n      intro x hx\n      rcases hx with ⟨a, ha, p, hp, b, hb, rfl⟩\n      have hpM : p ∈ M := by\n        have hpMset : p ∈ (M : Set T) := by\n          rw [hMP]\n          exact hp\n        exact hpMset\n      exact hMright ⟨b, hb⟩ ((a : T) * p)\n        (hMleft ⟨a, ha⟩ p hpM)\n    have hAleM : A ≤ M := by\n      have h : AddSubgroup.closure\n          {x : T | ∃ a ∈ 𝒯 0, ∃ p ∈ P, ∃ b ∈ 𝒯 0, x = a * p * b} ≤ M :=\n        (AddSubgroup.closure_le M).2 hgenP\n      simpa [A] using h\n    have hMleA : M ≤ A := by\n      intro x hx\n      have hxP : x ∈ P := by\n        have hxset : x ∈ (M : Set T) := hx\n        rw [hMP] at hxset\n        exact hxset\n      apply AddSubgroup.subset_closure\n      exact ⟨1, SetLike.GradedOne.one_mem, x, hxP, 1,\n        SetLike.GradedOne.one_mem, by simp⟩\n    have hAM : A = M := le_antisymm hAleM hMleA\n    have hgenQ : {x : T | ∃ a ∈ 𝒯 0, ∃ q ∈ Q, ∃ b ∈ 𝒯 0, x = a * q * b} ⊆\n        (N : Set T) := by\n      intro x hx\n      rcases hx with ⟨a, ha, q, hq, b, hb, rfl⟩\n      have hqN : q ∈ N := by\n        have hqNset : q ∈ (N : Set T) := by\n          rw [hNQ]\n          exact hq\n        exact hqNset\n      exact hNright ⟨b, hb⟩ ((a : T) * q)\n        (hNleft ⟨a, ha⟩ q hqN)\n    have hBleN : B ≤ N := by\n      have h : AddSubgroup.closure\n          {x : T | ∃ a ∈ 𝒯 0, ∃ q ∈ Q,",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "22",
+              "name": "hAB",
+              "statement": "A = B"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "AddSubgroup.closure {x | ∃ a ∈ 𝒯 0, ∃ p ∈ P, ∃ b ∈ 𝒯 0, x = a * p * b} = AddSubgroup.closure {x | ∃ a ∈ 𝒯 0, ∃ q ∈ Q, ∃ b ∈ 𝒯 0, x = a * q * b} ∧ (((∃ M, ↑M = P ∧ (∀ (a : ↥(𝒯 0)), ∀ x ∈ M, ↑a * x ∈ M) ∧ ∀ (a : ↥(𝒯 0)), ∀ x ∈ M, x * ↑a ∈ M) ∧ ∃ N, ↑N = Q ∧ (∀ (a : ↥(𝒯 0)), ∀ x ∈ N, ↑a * x ∈ N) ∧ ∀ (a : ↥(𝒯 0)), ∀ x ∈ N, x * ↑a ∈ N) → P = Q)"
+          }
+        },
+        "lean_dependency_sha256": "a28ed05d5207bd7baf8084456fb687480cfd8d65f82b0f48e74742782ec6f175",
+        "kernel_witness_check": {
+          "proof_type": "AddSubgroup.closure {x | ∃ a ∈ 𝒯 0, ∃ p ∈ P, ∃ b ∈ 𝒯 0, x = a * p * b} =\n    AddSubgroup.closure {x | ∃ a ∈ 𝒯 0, ∃ q ∈ Q, ∃ b ∈ 𝒯 0, x = a * q * b} ∧\n  (((∃ M, ↑M = P ∧ (∀ (a : ↥(𝒯 0)), ∀ x ∈ M, ↑a * x ∈ M) ∧ ∀ (a : ↥(𝒯 0)), ∀ x ∈ M, x * ↑a ∈ M) ∧\n      ∃ N, ↑N = Q ∧ (∀ (a : ↥(𝒯 0)), ∀ x ∈ N, ↑a * x ∈ N) ∧ ∀ (a : ↥(𝒯 0)), ∀ x ∈ N, x * ↑a ∈ N) →\n    P = Q)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "AddSubgroup.closure_le",
+          "AddSubgroup.subset_closure",
+          "SetLike.GradedOne.one_mem"
+        ],
+        "observed_search_event_ids": [
+          "loogle:41",
+          "loogle:42",
+          "loogle:77"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.span",
+      "declarations": [
+        "TwoSidedIdeal.span",
+        "TwoSidedIdeal.subset_span",
+        "TwoSidedIdeal.span_mono",
+        "TwoSidedIdeal.span_le",
+        "TwoSidedIdeal.mem_span_iff",
+        "TwoSidedIdeal.mem_span_iff_mem_addSubgroup_closure",
+        "TwoSidedIdeal.mem_span_iff_mem_addSubgroup_closure_absorbing",
+        "TwoSidedIdeal.mem_span_iff_mem_addSubgroup_closure_nonunital",
+        "TwoSidedIdeal.mem_fromIdeal",
+        "TwoSidedIdeal.span_induction"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "GradedAlgebra.proj",
+      "declarations": [
+        "GradedAlgebra.proj",
+        "GradedAlgebra.proj_apply",
+        "GradedAlgebra.mem_support_iff",
+        "GradedAlgebra.proj_recompose"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "GradedAlgebra",
+      "declarations": [
+        "GradedAlgebra",
+        "GradedAlgebra.proj",
+        "instGradedAlgebraRestrictScalars",
+        "DirectSum.IsInternal.gradedAlgebra",
+        "DirectSum.decomposeAlgEquiv",
+        "GradedAlgebra.proj_apply",
+        "DirectSum.decomposeAlgEquiv_apply",
+        "DirectSum.decompose_algebraMap",
+        "GradedAlgebra.mem_support_iff",
+        "DirectSum.decompose_symm_algebraMap"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "iSup Fin",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "leanfinder:4",
+      "tool": "leanfinder",
+      "query": "graded algebra decomposition homogeneous components two-sided ideal generated by set filtered degree",
+      "declarations": [
+        "TwoSidedIdeal.set_mul_subset",
+        "TwoSidedIdeal.setLike",
+        "DirectSum.coe_decompose_mul_of_left_mem",
+        "Ideal.IsHomogeneous.mem_iff",
+        "AlgebraicGeometry.ProjIsoSpecTopComponent.FromSpec.mem_carrier_iff",
+        "TwoSidedIdeal",
+        "TwoSidedIdeal.instInfSet",
+        "TwoSidedIdeal.instSupSet",
+        "AlgebraicGeometry.ProjIsoSpecTopComponent.FromSpec.tacticMem_tac",
+        "Ideal.IsHomogeneous.iInf"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "leanfinder:5",
+      "tool": "leanfinder",
+      "query": "two-sided ideal span induction submodule closure multiplication left right",
+      "declarations": [
+        "TwoSidedIdeal.span",
+        "TwoSidedIdeal.span_induction",
+        "Submodule.span",
+        "Submodule.coe_span_smul",
+        "TwoSidedIdeal.span_mono",
+        "Submodule.span_smul_eq",
+        "Submodule.colon_span",
+        "Submodule.mem_smul_span_singleton",
+        "Submodule.mem_ideal_smul_span_iff_exists_sum'",
+        "Ideal.submodule_span_eq"
+      ],
+      "call_turn": 2,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.mk",
+      "declarations": [
+        "TwoSidedIdeal.mk",
+        "TwoSidedIdeal.coe_mk",
+        "TwoSidedIdeal.mem_mk",
+        "TwoSidedIdeal.orderIsoRingCon_symm_apply"
+      ],
+      "call_turn": 9,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.ofAddSubgroup",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_mul",
+      "declarations": [
+        "DirectSum.decompose_mul"
+      ],
+      "call_turn": 9,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "DirectSum.coe_decompose_mul_of_left_mem",
+      "declarations": [
+        "DirectSum.coe_decompose_mul_of_left_mem"
+      ],
+      "call_turn": 9,
+      "result_turn": 13
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_of_mem",
+      "declarations": [
+        "DirectSum.decompose_of_mem"
+      ],
+      "call_turn": 9,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "GradedAlgebra.proj_mem",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "GradedAlgebra.proj_apply_mem",
+      "declarations": [],
+      "call_turn": 9,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_sum",
+      "declarations": [
+        "DirectSum.decompose_sum"
+      ],
+      "call_turn": 17,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_apply_mul",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "DirectSum.coe_mul_apply",
+      "declarations": [
+        "DirectSum.coe_mul_apply"
+      ],
+      "call_turn": 17,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "DFinsupp.sum_mul",
+      "declarations": [],
+      "call_turn": 17,
+      "result_turn": 21
+    },
+    {
+      "event_id": "leanfinder:17",
+      "tool": "leanfinder",
+      "query": "homogeneous component of product sum over degrees direct sum decomposition",
+      "declarations": [
+        "DirectSum.component",
+        "DirectSum.component.of",
+        "MvPolynomial.decomposition.decompose'_eq",
+        "DirectSum.coe_mul_of_apply_of_not_le",
+        "MvPolynomial.weightedHomogeneousComponent_directSum",
+        "mul_apply_eq_zero",
+        "DirectSum.coe_mul_of_apply_of_mem_zero",
+        "DirectSum.coe_of_mul_apply_of_mem_zero",
+        "DirectSum",
+        "DirectSum.Decomposition"
+      ],
+      "call_turn": 17,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "graded algebra element equals sum of homogeneous projections finite support",
+      "declarations": [
+        "DirectSum.finite_support",
+        "DirectSum.hasFiniteSupport",
+        "GradedAlgebra.mem_support_iff",
+        "AlgebraicGeometry.ProjIsoSpecTopComponent.FromSpec.tacticMem_tac",
+        "GradedRing.proj_recompose",
+        "Function.HasFiniteSupport",
+        "GradedRing.mem_support_iff",
+        "Ideal.isHomogeneous_iff_subset_iInter",
+        "Ideal.mul_homogeneous_element_mem_of_mem",
+        "AlgebraicGeometry.Proj.affineOpenCoverOfIrrelevantLESpan"
+      ],
+      "call_turn": 17,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "mul_apply_eq_zero",
+      "declarations": [
+        "mul_apply_eq_zero"
+      ],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.IsHomogeneous",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 27
+    },
+    {
+      "event_id": "leanfinder:21",
+      "tool": "leanfinder",
+      "query": "two-sided homogeneous ideal generated by homogeneous elements graded algebra projections",
+      "declarations": [
+        "HomogeneousIdeal.comap",
+        "HomogeneousIdeal",
+        "Ideal.IsHomogeneous",
+        "Ideal.homogeneousHull_eq_iSup",
+        "HomogeneousIdeal.comap_comap",
+        "ProjectiveSpectrum.gc_homogeneousIdeal",
+        "HomogeneousIdeal.ext",
+        "HomogeneousIdeal.toIdeal",
+        "Ideal.isHomogeneous_iff_subset_iInter",
+        "Ideal.isHomogeneous_iff_forall_subset"
+      ],
+      "call_turn": 26,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Ideal.IsHomogeneous.span",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "isHomogeneous span homogeneous",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Ideal.IsHomogeneous.mem_iff",
+      "declarations": [
+        "Ideal.IsHomogeneous.mem_iff"
+      ],
+      "call_turn": 26,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "GradedRing.proj",
+      "declarations": [
+        "GradedRing.proj",
+        "GradedRing.mem_support_iff",
+        "GradedRing.proj_apply",
+        "GradedRing.proj_recompose",
+        "Ideal.isHomogeneous_iff_forall_subset",
+        "Ideal.isHomogeneous_iff_subset_iInter",
+        "Ideal.mul_homogeneous_element_mem_of_mem",
+        "Ideal.toIdeal_homogeneousHull_eq_iSup",
+        "HomogeneousIdeal.mem_irrelevant_iff",
+        "Ideal.homogeneousHull_eq_iSup"
+      ],
+      "call_turn": 26,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_mul_of_left_mem",
+      "declarations": [],
+      "call_turn": 26,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.toIdeal",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.equivIdeal",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal Ideal",
+      "declarations": [],
+      "call_turn": 34,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.asIdeal",
+      "declarations": [
+        "TwoSidedIdeal.asIdeal",
+        "TwoSidedIdeal.instIsTwoSidedCoeOrderHomIdealAsIdeal",
+        "Ideal.asIdeal_toTwoSided",
+        "Ideal.instCanLiftTwoSidedIdealCoeOrderHomAsIdealIsTwoSided",
+        "Ideal.toTwoSided_asIdeal",
+        "TwoSidedIdeal.bot_asIdeal",
+        "TwoSidedIdeal.top_asIdeal",
+        "TwoSidedIdeal.coe_asIdeal",
+        "TwoSidedIdeal.mem_asIdeal",
+        "TwoSidedIdeal.gc"
+      ],
+      "call_turn": 34,
+      "result_turn": 38
+    },
+    {
+      "event_id": "leanfinder:31",
+      "tool": "leanfinder",
+      "query": "convert TwoSidedIdeal to Ideal ring",
+      "declarations": [
+        "Ideal.toTwoSided",
+        "Ideal.mem_toTwoSided",
+        "Ideal.asIdeal_toTwoSided",
+        "Ideal.toTwoSided_asIdeal",
+        "TwoSidedIdeal",
+        "Ideal.coe_toTwoSided",
+        "TwoSidedIdeal.rel_iff",
+        "TwoSidedIdeal.asIdealOpposite",
+        "TwoSidedIdeal.mem_span_iff_mem_addSubgroup_closure_nonunital",
+        "TwoSidedIdeal.orderIsoIsTwoSided_symm_apply"
+      ],
+      "call_turn": 34,
+      "result_turn": 39
+    },
+    {
+      "event_id": "leanfinder:32",
+      "tool": "leanfinder",
+      "query": "Ideal span of homogeneous elements is homogeneous graded ring",
+      "declarations": [
+        "Ideal.homogeneous_span",
+        "Ideal.IsHomogeneous",
+        "HomogeneousIdeal.isHomogeneous",
+        "Ideal.IsHomogeneous.bot",
+        "Ideal.IsHomogeneous.radical",
+        "HomogeneousIdeal.irrelevant_eq_span",
+        "Ideal.mem_span_iff_exists_isHomogeneous",
+        "HomogeneousIdeal",
+        "HomogeneousIdeal.toIdeal",
+        "HomogeneousIdeal.ext'"
+      ],
+      "call_turn": 40,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:33",
+      "tool": "loogle",
+      "query": "Ideal.IsHomogeneous.span₂",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "Ideal.IsHomogeneous.iSup",
+      "declarations": [
+        "Ideal.IsHomogeneous.iSup"
+      ],
+      "call_turn": 40,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "isHomogeneous' Ideal.span",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 44
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "Ideal.homogeneousHull_span",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "SetLike.IsHomogeneousElem Ideal.span",
+      "declarations": [],
+      "call_turn": 40,
+      "result_turn": 46
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "AddSubgroup.closure_induction",
+      "declarations": [
+        "AddSubgroup.closure_induction"
+      ],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "AddSubgroup.closure_mono",
+      "declarations": [
+        "AddSubgroup.closure_mono"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "AddSubgroup.mem_closure",
+      "declarations": [
+        "AddSubgroup.mem_closure"
+      ],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "AddSubgroup.closure_le",
+      "declarations": [
+        "AddSubgroup.closure_le"
+      ],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "AddSubgroup.subset_closure",
+      "declarations": [
+        "AddSubgroup.subset_closure",
+        "AddSubgroup.closure_induction",
+        "AddSubgroup.closure_induction''",
+        "AddSubgroup.closure_induction_left",
+        "AddSubgroup.closure_induction_right"
+      ],
+      "call_turn": 47,
+      "result_turn": 52
+    },
+    {
+      "event_id": "leanfinder:43",
+      "tool": "leanfinder",
+      "query": "induction on additive subgroup closure generated set",
+      "declarations": [
+        "AddSubgroup.closure_induction_right",
+        "Subgroup.closure_induction_right",
+        "Subgroup.closure",
+        "AddSubgroup.closure",
+        "AddSubgroup.closure_induction",
+        "AddSubgroup.closure_induction''",
+        "Subgroup.closure_induction",
+        "Subgroup.closure_induction''",
+        "AddSubmonoid.closure"
+      ],
+      "call_turn": 47,
+      "result_turn": 53
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "sum_support_decompose",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 55
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "decompose_symm_sum",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 56
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "DirectSum.sum_support_of",
+      "declarations": [
+        "DirectSum.sum_support_of"
+      ],
+      "call_turn": 54,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "DirectSum.coe_decompose_sum_support",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 58
+    },
+    {
+      "event_id": "leanfinder:48",
+      "tool": "leanfinder",
+      "query": "element equals finite sum over support of direct sum decomposition components",
+      "declarations": [
+        "DirectSum.finite_support",
+        "DirectSum.support_of",
+        "DirectSum.sum_support_decompose",
+        "DirectSum.sum_support_of",
+        "DirectSum.mk_apply_of_notMem",
+        "DirectSum.support_subset",
+        "DirectSum.hasFiniteSupport",
+        "DirectSum.Decomposition.ofAddHom",
+        "DirectSum.Decomposition",
+        "DirectSum"
+      ],
+      "call_turn": 54,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "GradedAlgebra.proj_mul_of_mem",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "coe_decompose_mul_of_left_mem",
+      "declarations": [],
+      "call_turn": 54,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:51",
+      "tool": "loogle",
+      "query": "DirectSum.sum_support_decompose",
+      "declarations": [
+        "DirectSum.sum_support_decompose"
+      ],
+      "call_turn": 62,
+      "result_turn": 63
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_mem_iSup",
+      "declarations": [],
+      "call_turn": 68,
+      "result_turn": 69
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "mem_iSup decompose",
+      "declarations": [],
+      "call_turn": 68,
+      "result_turn": 70
+    },
+    {
+      "event_id": "leanfinder:56",
+      "tool": "leanfinder",
+      "query": "membership in finite supremum of graded components homogeneous decomposition",
+      "declarations": [
+        "DirectSum.decompose_of_mem_same",
+        "Membership",
+        "MeasureTheory.Measure.haveLebesgueDecomposition_of_finiteMeasure",
+        "DirectSum.coe_decompose_mul_of_left_mem_of_not_le",
+        "DirectSum.SetLike.IsHomogeneous.mem_iff",
+        "Array.instForIn'InferInstanceMembershipOfMonad",
+        "Ideal.IsHomogeneous.iSup",
+        "MvPolynomial.HomogeneousSubmodule.gradedMonoid",
+        "AlgebraicGeometry.ProjIsoSpecTopComponent.FromSpec.tacticMem_tac",
+        "Vector.instForIn'InferInstanceMembershipOfMonad"
+      ],
+      "call_turn": 68,
+      "result_turn": 71
+    },
+    {
+      "event_id": "loogle:57",
+      "tool": "loogle",
+      "query": "Submodule.mem_iSup",
+      "declarations": [
+        "Submodule.mem_iSup"
+      ],
+      "call_turn": 68,
+      "result_turn": 72
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "mem_iSup_iff_exists_sum",
+      "declarations": [],
+      "call_turn": 68,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "DirectSum.Decomposition.mem_iSup_iff",
+      "declarations": [],
+      "call_turn": 68,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "DFinsupp.mem_support_iff",
+      "declarations": [
+        "DFinsupp.mem_support_iff"
+      ],
+      "call_turn": 77,
+      "result_turn": 78
+    },
+    {
+      "event_id": "loogle:62",
+      "tool": "loogle",
+      "query": "DFinsupp.notMem_support_iff",
+      "declarations": [
+        "DFinsupp.notMem_support_iff"
+      ],
+      "call_turn": 77,
+      "result_turn": 79
+    },
+    {
+      "event_id": "loogle:63",
+      "tool": "loogle",
+      "query": "DFinsupp.mem_support_toFun",
+      "declarations": [
+        "DFinsupp.mem_support_toFun"
+      ],
+      "call_turn": 77,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:64",
+      "tool": "loogle",
+      "query": "Submodule.sum_mem",
+      "declarations": [
+        "Submodule.sum_mem"
+      ],
+      "call_turn": 77,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "le_iSup",
+      "declarations": [
+        "le_iSup",
+        "TopologicalSpace.Opens.leSupr_apply_mk",
+        "FirstOrder.Language.DirectLimit.Equiv_isup_symm_inclusion",
+        "FirstOrder.Language.DirectLimit.Equiv_isup_of_apply",
+        "FirstOrder.Language.DirectLimit.Equiv_isup_symm_inclusion_apply",
+        "FirstOrder.Language.DirectLimit.partialEquivLimit_comp_inclusion"
+      ],
+      "call_turn": 77,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "Finset.sum_mem",
+      "declarations": [],
+      "call_turn": 77,
+      "result_turn": 83
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "SetLike.GradedMonoid.mul_mem",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 99
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "GradedMonoid.mul_mem",
+      "declarations": [],
+      "call_turn": 98,
+      "result_turn": 100
+    },
+    {
+      "event_id": "loogle:76",
+      "tool": "loogle",
+      "query": "SetLike.mul_mem_graded",
+      "declarations": [
+        "SetLike.mul_mem_graded",
+        "CliffordAlgebra.odd_induction",
+        "CliffordAlgebra.evenOdd_induction",
+        "CliffordAlgebra.even_induction",
+        "HomogeneousLocalization.awayMap_mk",
+        "AlgebraicGeometry.Proj.SpecMap_awayMap_away",
+        "AlgebraicGeometry.Proj.pullbackAway"
+      ],
+      "call_turn": 98,
+      "result_turn": 101
+    },
+    {
+      "event_id": "loogle:77",
+      "tool": "loogle",
+      "query": "SetLike.GradedOne.one_mem",
+      "declarations": [
+        "SetLike.GradedOne.one_mem"
+      ],
+      "call_turn": 98,
+      "result_turn": 102
+    },
+    {
+      "event_id": "leanfinder:78",
+      "tool": "leanfinder",
+      "query": "graded submodules product membership degree sum",
+      "declarations": [
+        "Membership",
+        "GradedTensorProduct",
+        "MvPolynomial.HomogeneousSubmodule.gradedMonoid",
+        "rank_quotient_add_rank_of_divisionRing",
+        "Submodule.rank_quotient_add_rank",
+        "Submodule.finrank_sup_add_finrank_inf_eq",
+        "Submodule.rank_sup_add_rank_inf_eq",
+        "GradedTensorProduct.lift",
+        "TensorProduct.gradedComm",
+        "SubmodulesBasis"
+      ],
+      "call_turn": 98,
+      "result_turn": 103
+    },
+    {
+      "event_id": "loogle:83",
+      "tool": "loogle",
+      "query": "Finset.sum_eq_single",
+      "declarations": [
+        "Finset.sum_eq_single"
+      ],
+      "call_turn": 112,
+      "result_turn": 113
+    },
+    {
+      "event_id": "loogle:88",
+      "tool": "loogle",
+      "query": "Finset.sum_mul_sum",
+      "declarations": [
+        "Finset.sum_mul_sum"
+      ],
+      "call_turn": 122,
+      "result_turn": 123
+    },
+    {
+      "event_id": "loogle:101",
+      "tool": "loogle",
+      "query": "DirectSum.decompose_neg",
+      "declarations": [
+        "DirectSum.decompose_neg"
+      ],
+      "call_turn": 148,
+      "result_turn": 149
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "DFinsupp.neg_apply",
+      "declarations": [
+        "DFinsupp.neg_apply"
+      ],
+      "call_turn": 152,
+      "result_turn": 153
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "DirectSum.coe_of_mul_apply_of_mem_zero",
+      "declarations": [
+        "DirectSum.coe_of_mul_apply_of_mem_zero"
+      ],
+      "call_turn": 170,
+      "result_turn": 171
+    },
+    {
+      "event_id": "loogle:113",
+      "tool": "loogle",
+      "query": "DirectSum.coe_mul_of_apply_of_mem_zero",
+      "declarations": [
+        "DirectSum.coe_mul_of_apply_of_mem_zero"
+      ],
+      "call_turn": 170,
+      "result_turn": 172
+    },
+    {
+      "event_id": "loogle:114",
+      "tool": "loogle",
+      "query": "coe_decompose_mul_of_left_mem_of_mem_zero",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 173
+    },
+    {
+      "event_id": "loogle:115",
+      "tool": "loogle",
+      "query": "decompose_mul_of_mem_zero",
+      "declarations": [],
+      "call_turn": 170,
+      "result_turn": 174
+    },
+    {
+      "event_id": "leanfinder:116",
+      "tool": "leanfinder",
+      "query": "graded projection multiplication by degree zero element left right",
+      "declarations": [
+        "Submodule.projection",
+        "SemiconjBy.zero_right",
+        "GradedTensorProduct",
+        "GradedMonoid",
+        "DirectSum.coe_mul_of_apply_of_mem_zero",
+        "DirectSum.coe_decompose_mul_of_right_mem_zero",
+        "DirectSum.coe_of_mul_apply_of_mem_zero",
+        "addCommutatorElement_zero_right",
+        "addCommutatorElement_zero_left",
+        "TensorProduct.gradedMul"
+      ],
+      "call_turn": 170,
+      "result_turn": 175
+    },
+    {
+      "event_id": "loogle:117",
+      "tool": "loogle",
+      "query": "DirectSum.coe_decompose_mul_of_left_mem_zero",
+      "declarations": [
+        "DirectSum.coe_decompose_mul_of_left_mem_zero"
+      ],
+      "call_turn": 176,
+      "result_turn": 177
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.mul_mem_left",
+      "declarations": [
+        "TwoSidedIdeal.mul_mem_left",
+        "TwoSidedIdeal.span_induction"
+      ],
+      "call_turn": 186,
+      "result_turn": 187
+    },
+    {
+      "event_id": "loogle:123",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.mul_mem_right",
+      "declarations": [
+        "TwoSidedIdeal.mul_mem_right",
+        "TwoSidedIdeal.span_induction"
+      ],
+      "call_turn": 186,
+      "result_turn": 188
+    },
+    {
+      "event_id": "loogle:124",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.add_mem",
+      "declarations": [
+        "TwoSidedIdeal.add_mem",
+        "TwoSidedIdeal.span_induction"
+      ],
+      "call_turn": 186,
+      "result_turn": 189
+    },
+    {
+      "event_id": "loogle:125",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.neg_mem",
+      "declarations": [
+        "TwoSidedIdeal.neg_mem",
+        "TwoSidedIdeal.span_induction"
+      ],
+      "call_turn": 186,
+      "result_turn": 190
+    },
+    {
+      "event_id": "loogle:126",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.zero_mem",
+      "declarations": [
+        "TwoSidedIdeal.zero_mem",
+        "TwoSidedIdeal.span_induction"
+      ],
+      "call_turn": 186,
+      "result_turn": 191
+    },
+    {
+      "event_id": "loogle:130",
+      "tool": "loogle",
+      "query": "coe_iSup Submodule",
+      "declarations": [],
+      "call_turn": 198,
+      "result_turn": 199
+    },
+    {
+      "event_id": "loogle:131",
+      "tool": "loogle",
+      "query": "Submodule.coe_iSup",
+      "declarations": [],
+      "call_turn": 198,
+      "result_turn": 200
+    },
+    {
+      "event_id": "loogle:132",
+      "tool": "loogle",
+      "query": "SetLike.coe_iSup",
+      "declarations": [],
+      "call_turn": 198,
+      "result_turn": 201
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "mem_iSup set Submodule",
+      "declarations": [],
+      "call_turn": 198,
+      "result_turn": 202
+    },
+    {
+      "event_id": "leanfinder:134",
+      "tool": "leanfinder",
+      "query": "coercion of supremum of submodules to set equals supremum of coercions finite",
+      "declarations": [
+        "Set.Finite.toFinset_setOf",
+        "Submodule.iSup_map_single",
+        "Submodule.iSup_induction",
+        "Submodule.biSup_comap_subtype_eq_top",
+        "PointedCone.ofSubmodule_sSup",
+        "setOf",
+        "ContinuousLinearEquiv.ofSubmodules",
+        "LinearEquiv.ofSubmodules_symm_apply",
+        "LinearEquiv.ofSubmodules",
+        "LinearEquiv.ofSubmodules_apply"
+      ],
+      "call_turn": 198,
+      "result_turn": 203
+    },
+    {
+      "event_id": "loogle:135",
+      "tool": "loogle",
+      "query": "Set.mem_iSup",
+      "declarations": [],
+      "call_turn": 204,
+      "result_turn": 205
+    },
+    {
+      "event_id": "loogle:136",
+      "tool": "loogle",
+      "query": "Set.mem_iUnion",
+      "declarations": [
+        "Set.mem_iUnion"
+      ],
+      "call_turn": 204,
+      "result_turn": 206
+    },
+    {
+      "event_id": "loogle:137",
+      "tool": "loogle",
+      "query": "mem_iSup Set",
+      "declarations": [],
+      "call_turn": 204,
+      "result_turn": 207
+    },
+    {
+      "event_id": "loogle:138",
+      "tool": "loogle",
+      "query": "Set.iSup_eq_iUnion",
+      "declarations": [
+        "Set.iSup_eq_iUnion"
+      ],
+      "call_turn": 204,
+      "result_turn": 208
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "Set.mem_sUnion",
+      "declarations": [
+        "Set.mem_sUnion"
+      ],
+      "call_turn": 204,
+      "result_turn": 209
+    },
+    {
+      "event_id": "loogle:141",
+      "tool": "loogle",
+      "query": "TwoSidedIdeal.sub_mem",
+      "declarations": [
+        "TwoSidedIdeal.sub_mem"
+      ],
+      "call_turn": 212,
+      "result_turn": 213
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 12,
+    "selected_hyperedge_count": 6,
+    "main_hyperedge_count": 6,
+    "side_hyperedge_count": 0,
+    "selected_depth": 4,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 6,
+    "manifest_fact_count": 6,
+    "retrieved_rule_item_count": 3,
+    "retrieval_query_count": 95,
+    "useful_retrieval_event_count": 3,
+    "unused_retrieval_event_count": 92,
+    "accepted_helper_count": 15,
+    "rollout_tool_call_count": 147,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

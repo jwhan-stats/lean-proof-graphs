@@ -1,0 +1,18 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_h__lt_one_60fdf956" [shape=box, color="#178F82", label="hε₀_lt_one\nε₀ < 1"];
+  "m_h__pos_d072a831" [shape=box, color="#178F82", label="hε₀_pos\n0 < ε₀"];
+  "m_hcover_2ed57bea" [shape=box, color="#178F82", label="hcover\nK ⊆ Set.image2 (fun x1 x2 => x1 + x2) (↑L) ((fun x => ε₀ • x) '' K)"];
+  "m_hk_nhds_2ef9ec74" [shape=box, color="#178F82", label="hK_nhds\n0 ∈ interior K"];
+  "m_hk_star_21b4ec62" [shape=box, color="#178F82", label="hK_star\nStarConvex ℝ 0 K"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nlet ε₁ := ↑(⌊ε₀ / (1 - ε₀)⌋ + 1) * ε₀; Set.univ = Set.image2 (fun x1 x2 => x1 + x2) (↑L) ((fun x => ε₁ • x) '' K)"];
+  "r_h_goal" [shape=diamond, label="Int.floor_nonneg + Int.lt_floor_add_one + Int.toNat_of_nonneg", color="#D97706"];
+  "m_hk_nhds_2ef9ec74" -> "r_h_goal";
+  "m_hk_star_21b4ec62" -> "r_h_goal";
+  "m_h__pos_d072a831" -> "r_h_goal";
+  "m_h__lt_one_60fdf956" -> "r_h_goal";
+  "m_hcover_2ed57bea" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

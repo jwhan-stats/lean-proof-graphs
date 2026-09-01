@@ -1,0 +1,12 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_ha_e5ace275" [shape=box, color="#178F82", label="ha\n∀ (m : ℕ), Filter.Tendsto (a m) Filter.atTop (nhds (aInf m))"];
+  "m_hinf_5761d1ae" [shape=box, color="#178F82", label="hInf\nFilter.Tendsto aInf Filter.atTop (nhds aInfInf)"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\n∃ b, Monotone b ∧ Filter.Tendsto b Filter.atTop Filter.atTop ∧ Filter.Tendsto (fun n => a (b n) n) Filter.atTop (nhds aInfInf)"];
+  "r_h_goal" [shape=diamond, label="Filter.tendsto_atTop_atTop + Filter.tendsto_atTop_atTop_iff_of_monotone + Finset.le_sup", color="#D97706"];
+  "m_ha_e5ace275" -> "r_h_goal";
+  "m_hinf_5761d1ae" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

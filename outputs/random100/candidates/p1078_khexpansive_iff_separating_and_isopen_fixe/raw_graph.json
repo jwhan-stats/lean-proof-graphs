@@ -1,0 +1,1849 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "manifest": [
+        {
+          "statement": "CompactSpace Λ",
+          "origin": "manifest",
+          "name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+          "fvar_id": "2"
+        },
+        {
+          "statement": "Continuous φ",
+          "origin": "manifest",
+          "name": "hcont",
+          "fvar_id": "4"
+        },
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "manifest",
+          "name": "hzero",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))",
+          "origin": "manifest",
+          "name": "hadd",
+          "fvar_id": "6"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "(∃ δ,\n    0 < δ ∧\n      ∀ (x y : Λ) (s : ℝ → ℝ),\n        Continuous s →\n          s 0 = 0 →\n            ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) →\n              y ∈ Set.range fun t => φ (t, x)) ↔\n  (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧\n    IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "(∃ δ,\n    0 < δ ∧\n      ∀ (x y : Λ) (s : ℝ → ℝ),\n        Continuous s →\n          s 0 = 0 →\n            ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) →\n              y ∈ Set.range fun t => φ (t, x)) ↔\n  (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧\n    IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Classical.byContradiction",
+          "Eq.trans",
+          "IsLeftCancelAdd.addLeftReflectLE_of_addLeftReflectLT",
+          "IsLeftCancelAdd.addLeftStrictMono_of_addLeftMono",
+          "IsOrderedAddMonoid.toAddLeftMono",
+          "IsOrderedCancelAddMonoid.toAddLeftReflectLE",
+          "IsOrderedRing.toPosMulMono",
+          "IsRightCancelAdd.addRightStrictMono_of_addRightMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNNRat_div",
+          "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+          "Mathlib.Meta.NormNum.isNNRat_mul",
+          "Mathlib.Meta.NormNum.isNat_add",
+          "Mathlib.Meta.NormNum.isNat_eq_true",
+          "Mathlib.Meta.NormNum.isNat_le_true",
+          "Mathlib.Meta.NormNum.isNat_lt_true",
+          "Mathlib.Meta.NormNum.isNat_mul",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Meta.Positivity.pos_of_isNat",
+          "Mathlib.Tactic.CancelDenoms.div_subst",
+          "Mathlib.Tactic.CancelDenoms.mul_subst",
+          "Mathlib.Tactic.CancelDenoms.sub_subst",
+          "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.mul_neg",
+          "Mathlib.Tactic.Linarith.mul_nonpos",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_one",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Metric.isOpen_ball",
+          "Metric.mem_ball_self",
+          "Nat.cast_one",
+          "Nat.cast_zero",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedCancelAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instNontrivial",
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.exists_pos_fixed_nonfixed_dist",
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.exists_pos_flow_displacement_of_isOpen_fixed",
+          "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.reparam_surjective_of_nonfixed",
+          "add_lt_add",
+          "congr",
+          "congrArg",
+          "congrFun'",
+          "continuous_const",
+          "continuous_id",
+          "contravariant_lt_of_covariant_le",
+          "contravariant_swap_add_of_contravariant_add",
+          "covariant_swap_add_of_covariant_add",
+          "dist_comm",
+          "dist_self",
+          "dist_triangle",
+          "div_pos",
+          "gt_iff_lt._simp_1",
+          "instIsLeftCancelAddOfAddLeftReflectLE",
+          "instIsRightCancelAddOfAddRightReflectLE",
+          "instNeZeroNatHAdd_1",
+          "isOpen_iff_forall_mem_open",
+          "le_of_lt",
+          "le_trans",
+          "lt_min",
+          "lt_of_le_of_lt",
+          "lt_of_not_ge",
+          "lt_trans",
+          "min_le_left",
+          "min_le_right",
+          "mul_le_mul_of_nonneg_left",
+          "not_lt_of_ge"
+        ],
+        "premises": [
+          {
+            "statement": "CompactSpace Λ",
+            "origin": "local_assumption",
+            "name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+            "fvar_id": "2"
+          },
+          {
+            "statement": "Continuous φ",
+            "origin": "local_assumption",
+            "name": "hcont",
+            "fvar_id": "4"
+          },
+          {
+            "statement": "∀ (x : Λ), φ (0, x) = x",
+            "origin": "local_assumption",
+            "name": "hzero",
+            "fvar_id": "5"
+          },
+          {
+            "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))",
+            "origin": "local_assumption",
+            "name": "hadd",
+            "fvar_id": "6"
+          }
+        ],
+        "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "(∃ δ,\n    0 < δ ∧\n      ∀ (x y : Λ) (s : ℝ → ℝ),\n        Continuous s →\n          s 0 = 0 →\n            ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) →\n              y ∈ Set.range fun t => φ (t, x)) ↔\n  (∃ α, 0 < α ∧ ∀ (x y : Λ), (∀ (t : ℝ), dist (φ (t, x)) (φ (t, y)) < α) → y ∈ Set.range fun t => φ (t, x)) ∧\n    IsOpen {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "φ (t, x) = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.3206910"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_660",
+      "conclusion": {
+        "statement": "φ (t, x) = x",
+        "origin": "derived",
+        "name": "hxt",
+        "fvar_id": "_uniq.3208109"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "φ (t, x) = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.3206910"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_661",
+      "conclusion": {
+        "statement": "φ (t, x) = x",
+        "origin": "derived",
+        "name": "hxt",
+        "fvar_id": "_uniq.3213346"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y ∈ Set.range fun t => φ (t, x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "continuous_const",
+        "dist_self",
+        "gt_iff_lt._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "local_assumption",
+          "name": "hzero",
+          "fvar_id": "_uniq.3200376"
+        },
+        {
+          "statement": "0 < δ",
+          "origin": "local_assumption",
+          "name": "hδ",
+          "fvar_id": "_uniq.3200442"
+        },
+        {
+          "statement": "∀ (x y : Λ) (s : ℝ → ℝ),\n  Continuous s →\n    s 0 = 0 →\n      ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) →\n        y ∈ Set.range fun t => φ (t, x)",
+          "origin": "local_assumption",
+          "name": "hK",
+          "fvar_id": "_uniq.3200443"
+        },
+        {
+          "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.3206910"
+        },
+        {
+          "statement": "dist x y < δ",
+          "origin": "derived",
+          "name": "hy'",
+          "fvar_id": "_uniq.3207328"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_662",
+      "conclusion": {
+        "statement": "y ∈ Set.range fun t => φ (t, x)",
+        "origin": "derived",
+        "name": "horb",
+        "fvar_id": "_uniq.3207602"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist x y < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg",
+        "dist_comm"
+      ],
+      "premises": [
+        {
+          "statement": "y ∈ Metric.ball x δ",
+          "origin": "local_assumption",
+          "name": "hy",
+          "fvar_id": "_uniq.3207166"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_663",
+      "conclusion": {
+        "statement": "dist x y < δ",
+        "origin": "derived",
+        "name": "hy'",
+        "fvar_id": "_uniq.3207328"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃y : Λ⦄, y ∈ Metric.ball x δ → y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.trans",
+        "congrArg",
+        "congrFun'",
+        "continuous_const",
+        "dist_comm",
+        "dist_self",
+        "gt_iff_lt._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "local_assumption",
+          "name": "hzero",
+          "fvar_id": "_uniq.3200376"
+        },
+        {
+          "statement": "0 < δ",
+          "origin": "local_assumption",
+          "name": "hδ",
+          "fvar_id": "_uniq.3200442"
+        },
+        {
+          "statement": "∀ (x y : Λ) (s : ℝ → ℝ),\n  Continuous s →\n    s 0 = 0 →\n      ((∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ) →\n        y ∈ Set.range fun t => φ (t, x)",
+          "origin": "local_assumption",
+          "name": "hK",
+          "fvar_id": "_uniq.3200443"
+        },
+        {
+          "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.3206910"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_664",
+      "conclusion": {
+        "statement": "Metric.ball x δ ⊆ {x | ∀ (t : ℝ), φ (t, x) = x}",
+        "origin": "derived",
+        "name": "hsub",
+        "fvar_id": "_uniq.3207159"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "e / 2 < e",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ e / 2",
+          "origin": "derived",
+          "name": "hδ_le_e2",
+          "fvar_id": "_uniq.3226804"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_665",
+      "conclusion": {
+        "statement": "e / 2 < e",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3227438"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r / 2 < r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ r / 2",
+          "origin": "derived",
+          "name": "hδ_le_r2",
+          "fvar_id": "_uniq.3227203"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_666",
+      "conclusion": {
+        "statement": "r / 2 < r",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3229144"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "α / 3 < α",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ α / 3",
+          "origin": "derived",
+          "name": "hδ_le_α3",
+          "fvar_id": "_uniq.3226372"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_667",
+      "conclusion": {
+        "statement": "α / 3 < α",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3230838"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "2 * δ ≤ 2 * (α / 3)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedRing.toPosMulMono",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_le_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedRing",
+        "mul_le_mul_of_nonneg_left"
+      ],
+      "premises": [
+        {
+          "statement": "δ ≤ α / 3",
+          "origin": "derived",
+          "name": "hδ_le_α3",
+          "fvar_id": "_uniq.3226372"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_668",
+      "conclusion": {
+        "statement": "2 * δ ≤ 2 * (α / 3)",
+        "origin": "derived",
+        "name": "hle",
+        "fvar_id": "_uniq.3232756"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "2 * (α / 3) < α",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.mul_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ α / 3",
+          "origin": "derived",
+          "name": "hδ_le_α3",
+          "fvar_id": "_uniq.3226372"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_669",
+      "conclusion": {
+        "statement": "2 * (α / 3) < α",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3233822"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (φ (0, x)) (φ (s 0, y)) < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_670",
+      "conclusion": {
+        "statement": "dist (φ (0, x)) (φ (s 0, y)) < δ",
+        "origin": "derived",
+        "name": "h0",
+        "fvar_id": "_uniq.3236613"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "φ (0, x) = x",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "local_assumption",
+          "name": "hzero",
+          "fvar_id": "_uniq.3200376"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_671",
+      "conclusion": {
+        "statement": "φ (0, x) = x",
+        "origin": "derived",
+        "name": "hx0",
+        "fvar_id": "_uniq.3236627"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "φ (s 0, y) = y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "local_assumption",
+          "name": "hzero",
+          "fvar_id": "_uniq.3200376"
+        },
+        {
+          "statement": "s 0 = 0",
+          "origin": "local_assumption",
+          "name": "hs0",
+          "fvar_id": "_uniq.3235873"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_672",
+      "conclusion": {
+        "statement": "φ (s 0, y) = y",
+        "origin": "derived",
+        "name": "hsy",
+        "fvar_id": "_uniq.3236642"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "r < dist x y",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}, ∀ z ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, r < dist x z",
+          "origin": "local_assumption",
+          "name": "hrdist",
+          "fvar_id": "_uniq.3213964"
+        },
+        {
+          "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hxF",
+          "fvar_id": "_uniq.3236418"
+        },
+        {
+          "statement": "y ∉ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hyC",
+          "fvar_id": "_uniq.3239012"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_673",
+      "conclusion": {
+        "statement": "r < dist x y",
+        "origin": "derived",
+        "name": "hrlt",
+        "fvar_id": "_uniq.3239175"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist x y < r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "lt_trans"
+      ],
+      "premises": [
+        {
+          "statement": "δ < r",
+          "origin": "derived",
+          "name": "hδ_lt_r",
+          "fvar_id": "_uniq.3229045"
+        },
+        {
+          "statement": "dist x y < δ",
+          "origin": "derived",
+          "name": "hxy",
+          "fvar_id": "_uniq.3236589"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_674",
+      "conclusion": {
+        "statement": "dist x y < r",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3239285"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist x y < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "congr",
+        "congrArg",
+        "congrFun'",
+        "gt_iff_lt._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "local_assumption",
+          "name": "hzero",
+          "fvar_id": "_uniq.3200376"
+        },
+        {
+          "statement": "s 0 = 0",
+          "origin": "local_assumption",
+          "name": "hs0",
+          "fvar_id": "_uniq.3235873"
+        },
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_675",
+      "conclusion": {
+        "statement": "dist x y < δ",
+        "origin": "derived",
+        "name": "hxy",
+        "fvar_id": "_uniq.3236589"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Classical.byContradiction",
+        "le_of_lt",
+        "lt_trans",
+        "not_lt_of_ge"
+      ],
+      "premises": [
+        {
+          "statement": "∀ x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}, ∀ z ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, r < dist x z",
+          "origin": "local_assumption",
+          "name": "hrdist",
+          "fvar_id": "_uniq.3213964"
+        },
+        {
+          "statement": "δ < r",
+          "origin": "derived",
+          "name": "hδ_lt_r",
+          "fvar_id": "_uniq.3229045"
+        },
+        {
+          "statement": "x ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hxF",
+          "fvar_id": "_uniq.3236418"
+        },
+        {
+          "statement": "dist x y < δ",
+          "origin": "derived",
+          "name": "hxy",
+          "fvar_id": "_uniq.3236589"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_676",
+      "conclusion": {
+        "statement": "y ∈ {x | ∀ (t : ℝ), φ (t, x) = x}",
+        "origin": "derived",
+        "name": "hyF",
+        "fvar_id": "_uniq.3237791"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (φ (t, x)) (φ (s t, x)) < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left"
+      ],
+      "premises": [
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_677",
+      "conclusion": {
+        "statement": "dist (φ (t, x)) (φ (s t, x)) < δ",
+        "origin": "derived",
+        "name": "h0",
+        "fvar_id": "_uniq.3239817"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (φ (t, x)) (φ (s t, y)) < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right"
+      ],
+      "premises": [
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_678",
+      "conclusion": {
+        "statement": "dist (φ (t, x)) (φ (s t, y)) < δ",
+        "origin": "derived",
+        "name": "h0",
+        "fvar_id": "_uniq.3240291"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Meta.Positivity.pos_of_isNat",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instNontrivial",
+        "div_pos",
+        "lt_min"
+      ],
+      "premises": [
+        {
+          "statement": "0 < α",
+          "origin": "local_assumption",
+          "name": "hα",
+          "fvar_id": "_uniq.3213723"
+        },
+        {
+          "statement": "0 < e",
+          "origin": "local_assumption",
+          "name": "he",
+          "fvar_id": "_uniq.3213881"
+        },
+        {
+          "statement": "0 < r",
+          "origin": "local_assumption",
+          "name": "hr",
+          "fvar_id": "_uniq.3213963"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_680",
+      "conclusion": {
+        "statement": "0 < δ",
+        "origin": "derived",
+        "name": "hδ",
+        "fvar_id": "_uniq.3214567"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "δ ≤ α / 3",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "le_trans",
+        "min_le_left"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_681",
+      "conclusion": {
+        "statement": "δ ≤ α / 3",
+        "origin": "derived",
+        "name": "hδ_le_α3",
+        "fvar_id": "_uniq.3226372"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "δ ≤ e / 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "le_trans",
+        "min_le_left",
+        "min_le_right"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_682",
+      "conclusion": {
+        "statement": "δ ≤ e / 2",
+        "origin": "derived",
+        "name": "hδ_le_e2",
+        "fvar_id": "_uniq.3226804"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "δ ≤ r / 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "min_le_right"
+      ],
+      "premises": [],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_683",
+      "conclusion": {
+        "statement": "δ ≤ r / 2",
+        "origin": "derived",
+        "name": "hδ_le_r2",
+        "fvar_id": "_uniq.3227203"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "δ < e",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_le_of_lt",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ e / 2",
+          "origin": "derived",
+          "name": "hδ_le_e2",
+          "fvar_id": "_uniq.3226804"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_684",
+      "conclusion": {
+        "statement": "δ < e",
+        "origin": "derived",
+        "name": "hδ_lt_e",
+        "fvar_id": "_uniq.3227377"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "δ < r",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_le_of_lt",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ r / 2",
+          "origin": "derived",
+          "name": "hδ_le_r2",
+          "fvar_id": "_uniq.3227203"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_685",
+      "conclusion": {
+        "statement": "δ < r",
+        "origin": "derived",
+        "name": "hδ_lt_r",
+        "fvar_id": "_uniq.3229045"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "δ < α",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_le_of_lt",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ α / 3",
+          "origin": "derived",
+          "name": "hδ_le_α3",
+          "fvar_id": "_uniq.3226372"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_686",
+      "conclusion": {
+        "statement": "δ < α",
+        "origin": "derived",
+        "name": "hδ_lt_α",
+        "fvar_id": "_uniq.3230739"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "2 * δ < α",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsOrderedRing.toPosMulMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNNRat.to_isNat",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_isNNRat",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNNRat_div",
+        "Mathlib.Meta.NormNum.isNNRat_inv_pos",
+        "Mathlib.Meta.NormNum.isNNRat_mul",
+        "Mathlib.Meta.NormNum.isNat_eq_true",
+        "Mathlib.Meta.NormNum.isNat_le_true",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.CancelDenoms.div_subst",
+        "Mathlib.Tactic.CancelDenoms.mul_subst",
+        "Mathlib.Tactic.CancelDenoms.sub_subst",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.mul_nonpos",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_le_of_lt",
+        "lt_of_not_ge",
+        "mul_le_mul_of_nonneg_left"
+      ],
+      "premises": [
+        {
+          "statement": "0 < δ",
+          "origin": "derived",
+          "name": "hδ",
+          "fvar_id": "_uniq.3214567"
+        },
+        {
+          "statement": "δ ≤ α / 3",
+          "origin": "derived",
+          "name": "hδ_le_α3",
+          "fvar_id": "_uniq.3226372"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_687",
+      "conclusion": {
+        "statement": "2 * δ < α",
+        "origin": "derived",
+        "name": "h2δ_lt_α",
+        "fvar_id": "_uniq.3232572"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Function.Surjective s",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.reparam_surjective_of_nonfixed"
+      ],
+      "premises": [
+        {
+          "statement": "CompactSpace Λ",
+          "origin": "local_assumption",
+          "name": "inst._@.proofs.3640889310._hygCtx._hyg.6",
+          "fvar_id": "_uniq.3200373"
+        },
+        {
+          "statement": "∀ (x : Λ), φ (0, x) = x",
+          "origin": "local_assumption",
+          "name": "hzero",
+          "fvar_id": "_uniq.3200376"
+        },
+        {
+          "statement": "∀ (t u : ℝ) (x : Λ), φ (t + u, x) = φ (t, φ (u, x))",
+          "origin": "local_assumption",
+          "name": "hadd",
+          "fvar_id": "_uniq.3200377"
+        },
+        {
+          "statement": "0 < τ",
+          "origin": "local_assumption",
+          "name": "hτ",
+          "fvar_id": "_uniq.3213863"
+        },
+        {
+          "statement": "∀ x ∉ {x | ∀ (t : ℝ), φ (t, x) = x}, e ≤ dist (φ (τ, x)) x ∧ e ≤ dist (φ (-τ, x)) x",
+          "origin": "local_assumption",
+          "name": "hdis",
+          "fvar_id": "_uniq.3213882"
+        },
+        {
+          "statement": "δ < e",
+          "origin": "derived",
+          "name": "hδ_lt_e",
+          "fvar_id": "_uniq.3227377"
+        },
+        {
+          "statement": "Continuous s",
+          "origin": "local_assumption",
+          "name": "hs",
+          "fvar_id": "_uniq.3235870"
+        },
+        {
+          "statement": "s 0 = 0",
+          "origin": "local_assumption",
+          "name": "hs0",
+          "fvar_id": "_uniq.3235873"
+        },
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        },
+        {
+          "statement": "x ∉ {x | ∀ (t : ℝ), φ (t, x) = x}",
+          "origin": "local_assumption",
+          "name": "hxF",
+          "fvar_id": "_uniq.3236425"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_688",
+      "conclusion": {
+        "statement": "Function.Surjective s",
+        "origin": "derived",
+        "name": "hsurj",
+        "fvar_id": "_uniq.3239756"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (φ (q, x)) (φ (t, x)) < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "congrArg",
+        "dist_comm"
+      ],
+      "premises": [
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        },
+        {
+          "statement": "s t = q",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3239790"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_689",
+      "conclusion": {
+        "statement": "dist (φ (q, x)) (φ (t, x)) < δ",
+        "origin": "derived",
+        "name": "hA",
+        "fvar_id": "_uniq.3239809"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (φ (t, x)) (φ (q, y)) < δ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "(∀ (t : ℝ), dist (φ (t, x)) (φ (s t, x)) < δ) ∧ ∀ (t : ℝ), dist (φ (t, x)) (φ (s t, y)) < δ",
+          "origin": "local_assumption",
+          "name": "hcond",
+          "fvar_id": "_uniq.3235876"
+        },
+        {
+          "statement": "s t = q",
+          "origin": "local_assumption",
+          "name": "ht",
+          "fvar_id": "_uniq.3239790"
+        }
+      ],
+      "parent": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+      "id": "local_690",
+      "conclusion": {
+        "statement": "dist (φ (t, x)) (φ (q, y)) < δ",
+        "origin": "derived",
+        "name": "hB",
+        "fvar_id": "_uniq.3240283"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:106:30: warning: This simp argument is unused:\n  MvPolynomial.eval_prod\n\nHint: Omit it from the simp argument list.\n  simp [veroneseLagrangePoly,̵ ̵M̵v̵P̵o̵l̵y̵n̵o̵m̵i̵a̵l̵.̵e̵v̵a̵l̵_̵p̵r̵o̵d̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:136:41: warning: This simp argument is unused:\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [Finset.mul_sum, mul_left_comm,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:182:19: warning: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:744:15: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1114:4: warning: Try this: intro hv1 U hU\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1204:36: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1234:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1236:30: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1259:4: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1269:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1328:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1352:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1340:17: warning: unused variable `hf_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:17: warning: unused variable `hσ_lower`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1527:47: warning: unused variable `hσ_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:1589:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2155:5: warning: unused variable `hA`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2156:5: warning: unused variable `hV`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2161:5: warning: unused variable `hW`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2395:12: warning: This simp argument is unused:\n  hij\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵i̵j̵,̵ ̵h̵i̵,̵[̲h̲i̲,̲ hj]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:2768:5: warning: unused variable `hPI`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3387:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3836:31: warning: unused variable `hp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3837:5: warning: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3839:5: warning: unused variable `hf'0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:3841:5: warning: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4357:14: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4364:18: warning: `mul_le_mul_left'` has been deprecated: Use `mul_le_mul_right` instead\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4484:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4497:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:4558:5: warning: unused variable `hcomm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5067:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5062:40: warning: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5145:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.mem_piece`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5193:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_left_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5200:0: warning: automatically included section variable(s) unused in theorem `Rollout_p2075_metric_amalgamation.MetricAmalgamation.glueDist_right_congr`:\n  [MetricSpace X]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [MetricSpace X] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:9: warning: unused variable `x`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:5692:11: warning: unused variable `y`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:51: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6033:64: warning: unused variable `he`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6106:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6856:5: warning: unused variable `hD_comp`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6942:10: warning: This simp argument is unused:\n  asymptotic_integrand_integral_zero\n\nHint: Omit it from the simp argument list.\n  simp [a̵s̵y̵m̵p̵t̵o̵t̵i̵c̵_̵i̵n̵t̵e̵g̵r̵a̵n̵d̵_̵i̵n̵t̵e̵g̵r̵a̵l̵_̵z̵e̵r̵o̵,̵ ̵Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6950:12: warning: This simp argument is unused:\n  ha0\n\nHint: Omit it from the simp argument list.\n  simp [ha̵0̵,̵ ̵h̵neg, Real.pi_ne_zero]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:6968:30: warning: unused variable `hx`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7456:4: warning: Try `simp at h` instead of `simpa using h`\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:7971:6: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8432:5: warning: unused variable `h_nonneg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8592:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:8642:17: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9152:27: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean:9154:21: warning: unused variable `hOcompact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_7b3c3579ac5bc192/proofs.lean",
+    "namespace": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p1078_khexpansive_iff_separating_and_isopen_fixe.khExpansive_iff_separating_and_isOpen_fixedPoints",
+    "proof_sha256": "de379f18f56776441b114786daf0a381730e90673f496ebdb56d06e795acaa41"
+  }
+}

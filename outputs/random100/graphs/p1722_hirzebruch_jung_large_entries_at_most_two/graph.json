@@ -1,0 +1,2439 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1722_hirzebruch_jung_large_entries_at_most_two",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1722,
+    "source": "math_0405114",
+    "theorem_name": "hirzebruch_jung_large_entries_at_most_two",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1722",
+    "reconstructed_proof": "../../candidates/p1722_hirzebruch_jung_large_entries_at_most_two/proof.lean",
+    "raw_elaboration": "../../candidates/p1722_hirzebruch_jung_large_entries_at_most_two/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hirzebruch_jung_large_entries_at_most_two",
+    "verification_call_id": "verify_submission:75",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "68ed2744cdb1d7035722b828fa61040478e1c5ad3b5b31aff3bcf59ad48149a7",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "254ebcc98341f0e97fde3cae87b996b0e3aceb31df6402cc1e18fbe0d1e16b1a",
+    "concrete_semantic_topology_sha256": "68ed2744cdb1d7035722b828fa61040478e1c5ad3b5b31aff3bcf59ad48149a7"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 2,
+      "reason_counts": {
+        "unresolved_metavariables_in_candidate_witness": 2
+      },
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_ha_07dd3993",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "ha",
+      "lean_fvar_id": "3",
+      "statement": "∀ (i : Fin n), 2 ≤ a i"
+    },
+    {
+      "id": "m_hfrac_4b36d96a",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hfrac",
+      "lean_fvar_id": "9",
+      "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑p / ↑q"
+    },
+    {
+      "id": "m_hn_e68719f3",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hn",
+      "lean_fvar_id": "1",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "m_hp_cafeac24",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hp",
+      "lean_fvar_id": "6",
+      "statement": "0 < p"
+    },
+    {
+      "id": "m_hpq_314edf47",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hpq",
+      "lean_fvar_id": "8",
+      "statement": "p.Coprime q"
+    },
+    {
+      "id": "m_hq_dd009419",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hq",
+      "lean_fvar_id": "7",
+      "statement": "0 < q"
+    },
+    {
+      "id": "m_hs_a20c3200",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hS",
+      "lean_fvar_id": "10",
+      "statement": "2 * ↑p / 9 < ∑ i with 3 < a i, ↑(a i - 3)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "{i | 3 < a i}.card ≤ 2"
+    },
+    {
+      "id": "n_h_aba2fd94",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "h",
+      "lean_fvar_id": "_uniq.3177293",
+      "statement": "(↑↑p / ↑↑q).num = ↑p"
+    },
+    {
+      "id": "n_ha_233b5d05",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "ha",
+      "lean_fvar_id": "_uniq.3145694",
+      "statement": "∀ (i : Fin n), 2 ≤ a i"
+    },
+    {
+      "id": "n_hb_5a9163d3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hb",
+      "lean_fvar_id": "_uniq.3147716",
+      "statement": "0 < (hjCont L).1 ∧ 0 ≤ (hjCont L).2 ∧ (hjCont L).2 ≤ (hjCont L).1 ∧ (List.map (fun x => x - 1) L).prod ≤ (hjCont L).1"
+    },
+    {
+      "id": "n_hcard3_f38efdd9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcard3",
+      "lean_fvar_id": "_uniq.3146937",
+      "statement": "3 ≤ {i | 3 < a i}.card"
+    },
+    {
+      "id": "n_hcardle_24310929",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hcardle",
+      "lean_fvar_id": "_uniq.3146465",
+      "statement": "¬{i | 3 < a i}.card ≤ 2"
+    },
+    {
+      "id": "n_hcf_465b1e6e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcf",
+      "lean_fvar_id": "_uniq.3172929",
+      "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑(hjCont L).1 / ↑(hjCont L).2"
+    },
+    {
+      "id": "n_hco_b278e7bc",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hco",
+      "lean_fvar_id": "_uniq.3175702",
+      "statement": "(hjCont L).1.natAbs.Coprime (hjCont L).2.natAbs"
+    },
+    {
+      "id": "n_hcomb_1aa06516",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hcomb",
+      "lean_fvar_id": "_uniq.3147689",
+      "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ ∏ i, (a i - 1)"
+    },
+    {
+      "id": "n_hdpos_f355a006",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hDpos",
+      "lean_fvar_id": "_uniq.3175630",
+      "statement": "0 < (hjCont L).2"
+    },
+    {
+      "id": "n_hfrac_21346d2e",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hfrac",
+      "lean_fvar_id": "_uniq.3145700",
+      "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑p / ↑q"
+    },
+    {
+      "id": "n_hgcd_27b8bb51",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hgcd",
+      "lean_fvar_id": "_uniq.3175684",
+      "statement": "(hjCont L).1.gcd (hjCont L).2 = 1"
+    },
+    {
+      "id": "n_hl_128daa63",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hL",
+      "lean_fvar_id": "_uniq.3147219",
+      "statement": "∀ x ∈ L, 2 ≤ x"
+    },
+    {
+      "id": "n_hlen_a2fa4ec2",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlen",
+      "lean_fvar_id": "_uniq.3175335",
+      "statement": "L.length = n"
+    },
+    {
+      "id": "n_hlne_699fa457",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hLne",
+      "lean_fvar_id": "_uniq.3175320",
+      "statement": "L ≠ []"
+    },
+    {
+      "id": "n_hn_27b5a797",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hn",
+      "lean_fvar_id": "_uniq.3145692",
+      "statement": "1 ≤ n"
+    },
+    {
+      "id": "n_hnnum_ac24a712",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hNnum",
+      "lean_fvar_id": "_uniq.3176518",
+      "statement": "(↑(hjCont L).1 / ↑(hjCont L).2).num = (hjCont L).1"
+    },
+    {
+      "id": "n_hnp_3586779a",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hNp",
+      "lean_fvar_id": "_uniq.3179157",
+      "statement": "(hjCont L).1 = ↑p"
+    },
+    {
+      "id": "n_hpnum_975f8ecf",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpnum",
+      "lean_fvar_id": "_uniq.3177263",
+      "statement": "(↑p / ↑q).num = ↑p"
+    },
+    {
+      "id": "n_hpq_4e36c0da",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hpq",
+      "lean_fvar_id": "_uniq.3145699",
+      "statement": "p.Coprime q"
+    },
+    {
+      "id": "n_hpqint_5a854808",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpqInt",
+      "lean_fvar_id": "_uniq.3176586",
+      "statement": "(↑p).natAbs.Coprime (↑q).natAbs"
+    },
+    {
+      "id": "n_hprod_eq_8921300e",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hprod_eq",
+      "lean_fvar_id": "_uniq.3148554",
+      "statement": "(List.map (fun x => x - 1) L).prod = ∏ i, (a i - 1)"
+    },
+    {
+      "id": "n_hq_b165bf91",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hq",
+      "lean_fvar_id": "_uniq.3145698",
+      "statement": "0 < q"
+    },
+    {
+      "id": "n_hs_b9d4072a",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hS",
+      "lean_fvar_id": "_uniq.3145701",
+      "statement": "2 * ↑p / 9 < ∑ i with 3 < a i, ↑(a i - 3)"
+    },
+    {
+      "id": "n_hsn_12a2cf79",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSN",
+      "lean_fvar_id": "_uniq.3155394",
+      "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ (hjCont L).1"
+    },
+    {
+      "id": "n_hsn_ab5360e4",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hSN",
+      "lean_fvar_id": "_uniq.3180113",
+      "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ ↑p"
+    },
+    {
+      "id": "n_hsnp_0cc471d7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSNp",
+      "lean_fvar_id": "_uniq.3181011",
+      "statement": "5 * S ≤ ↑p"
+    },
+    {
+      "id": "n_hsnq_5b8913a9",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSNq",
+      "lean_fvar_id": "_uniq.3206045",
+      "statement": "5 * ↑S ≤ ↑p"
+    },
+    {
+      "id": "n_hsq_6acbc9fb",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hSq",
+      "lean_fvar_id": "_uniq.3217473",
+      "statement": "2 * ↑p / 9 < ↑S"
+    },
+    {
+      "id": "n_hsumq_dbad0cc6",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hsumq",
+      "lean_fvar_id": "_uniq.3208843",
+      "statement": "∑ i with 3 < a i, ↑(a i - 3) = ↑S"
+    },
+    {
+      "id": "n_this_ebe9d388",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "this",
+      "lean_fvar_id": "_uniq.3177291",
+      "statement": "0 < ↑q"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hlen",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hlen_a2fa4ec2",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_692",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have hlen : L.length = n := by simp [L]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3175335",
+            "name": "hlen",
+            "statement": "L.length = n"
+          }
+        },
+        "lean_dependency_sha256": "927c7055e43b97e7fa7db0cf4479de3396d25b9895f03b915e75a121d004b4ca",
+        "kernel_witness_check": {
+          "proof_type": "L.length = n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_this",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_b165bf91"
+      ],
+      "conclusion": "n_this_ebe9d388",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm",
+        "items": [
+          "Eq.symm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_693",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145698",
+              "name": "hq",
+              "statement": "0 < q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3177291",
+            "name": "this",
+            "statement": "0 < ↑q"
+          }
+        },
+        "lean_dependency_sha256": "388abacb12ee87aa482ee94ab3a7bf7974ea1b6568315758ae862be1a1061980",
+        "kernel_witness_check": {
+          "proof_type": "0 < ↑q",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_003_h",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_b165bf91",
+        "n_hpqint_5a854808"
+      ],
+      "conclusion": "n_h_aba2fd94",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + Rat.num_div_eq_of_coprime",
+        "items": [
+          "Eq.symm",
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "Rat.num_div_eq_of_coprime"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_694",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "    have h := Rat.num_div_eq_of_coprime (show (0 : ℤ) < (q : ℤ) by exact_mod_cast hq) hpqInt",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145698",
+              "name": "hq",
+              "statement": "0 < q"
+            },
+            {
+              "fvar_id": "_uniq.3176586",
+              "name": "hpqInt",
+              "statement": "(↑p).natAbs.Coprime (↑q).natAbs"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3177293",
+            "name": "h",
+            "statement": "(↑↑p / ↑↑q).num = ↑p"
+          }
+        },
+        "lean_dependency_sha256": "fa0910a7b3dc7fef9f1b9708d4063511c224f72aef540b5dfeaaf0dd1fea5cf0",
+        "kernel_witness_check": {
+          "proof_type": "(↑↑p / ↑↑q).num = ↑p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2",
+          "leanfinder:19",
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_004_hsn",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcomb_1aa06516",
+        "n_hb_5a9163d3",
+        "n_hprod_eq_8921300e"
+      ],
+      "conclusion": "n_hsn_12a2cf79",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "le_trans",
+        "items": [
+          "le_trans"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "le_trans"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_695",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hSN : 5 * ∑ i ∈ Finset.univ.filter (fun i => 3 < a i), (a i - 3) ≤ (hjCont L).1 := by\n    exact le_trans (by simpa [hprod_eq] using hcomb) hb.2.2.2",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3147689",
+              "name": "hcomb",
+              "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ ∏ i, (a i - 1)"
+            },
+            {
+              "fvar_id": "_uniq.3147716",
+              "name": "hb",
+              "statement": "0 < (hjCont L).1 ∧ 0 ≤ (hjCont L).2 ∧ (hjCont L).2 ≤ (hjCont L).1 ∧ (List.map (fun x => x - 1) L).prod ≤ (hjCont L).1"
+            },
+            {
+              "fvar_id": "_uniq.3148554",
+              "name": "hprod_eq",
+              "statement": "(List.map (fun x => x - 1) L).prod = ∏ i, (a i - 1)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3155394",
+            "name": "hSN",
+            "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ (hjCont L).1"
+          }
+        },
+        "lean_dependency_sha256": "f14777d6fcb639ebd8839354d680834b5e2e278c927aba0eab25bab14cfc902a",
+        "kernel_witness_check": {
+          "proof_type": "5 * ∑ i with 3 < a i, (a i - 3) ≤ (hjCont L).1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hcf",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hl_128daa63"
+      ],
+      "conclusion": "n_hcf_465b1e6e",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "List.map_ofFn + hj_fold_eq_div",
+        "items": [
+          "List.map_ofFn",
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hj_fold_eq_div"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hj_fold_eq_div"
+        ],
+        "mathlib_items": [
+          "List.map_ofFn"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_696",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcf : (List.ofFn fun i => (a i : ℚ)).foldr (fun x r => x - 1 / r) 0 =\n      ((hjCont L).1 : ℚ) / ((hjCont L).2 : ℚ) := by\n    simpa [L] using hj_fold_eq_div L hL",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3147219",
+              "name": "hL",
+              "statement": "∀ x ∈ L, 2 ≤ x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3172929",
+            "name": "hcf",
+            "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑(hjCont L).1 / ↑(hjCont L).2"
+          }
+        },
+        "lean_dependency_sha256": "e4bd2f2eff422abfc2bbeb1412614c40aca4ca8ca6d6999e94083e13f07d8501",
+        "kernel_witness_check": {
+          "proof_type": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑(hjCont L).1 / ↑(hjCont L).2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "List.map_ofFn"
+        ],
+        "observed_search_event_ids": [
+          "loogle:61"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hlne",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hn_27b5a797"
+      ],
+      "conclusion": "n_hlne_699fa457",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega + simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_697",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hLne : L ≠ [] := by\n    intro hnil\n    have hlen : L.length = n := by simp [L]\n    have hzero : L.length = 0 := by simp [hnil]\n    omega",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145692",
+              "name": "hn",
+              "statement": "1 ≤ n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3175320",
+            "name": "hLne",
+            "statement": "L ≠ []"
+          }
+        },
+        "lean_dependency_sha256": "5d0ddbb92eb6e8ab01a92f1a41d731af6a892d3d536301a9181dd95a31bf264b",
+        "kernel_witness_check": {
+          "proof_type": "L = [] → False",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_007_hdpos",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hl_128daa63",
+        "n_hlne_699fa457"
+      ],
+      "conclusion": "n_hdpos_f355a006",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "hjCont_snd_pos_of_ne_nil",
+        "items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hjCont_snd_pos_of_ne_nil"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hjCont_snd_pos_of_ne_nil"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_698",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hDpos : 0 < (hjCont L).2 := hjCont_snd_pos_of_ne_nil L hL hLne",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3147219",
+              "name": "hL",
+              "statement": "∀ x ∈ L, 2 ≤ x"
+            },
+            {
+              "fvar_id": "_uniq.3175320",
+              "name": "hLne",
+              "statement": "L ≠ []"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3175630",
+            "name": "hDpos",
+            "statement": "0 < (hjCont L).2"
+          }
+        },
+        "lean_dependency_sha256": "19097bea837e4f8e2f8f68d0d37bff6d2233bc3e636506d27c064cb52636e166",
+        "kernel_witness_check": {
+          "proof_type": "0 < (hjCont L).2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_008_hgcd",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hgcd_27b8bb51",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "hjCont_gcd",
+        "items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hjCont_gcd"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hjCont_gcd"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_699",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hgcd : (hjCont L).1.gcd (hjCont L).2 = 1 := hjCont_gcd L",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3175684",
+            "name": "hgcd",
+            "statement": "(hjCont L).1.gcd (hjCont L).2 = 1"
+          }
+        },
+        "lean_dependency_sha256": "9542b6ed3b7a319c68c4040e96ec4ceb384d094a0e9b762b2816c74920139d21",
+        "kernel_witness_check": {
+          "proof_type": "(hjCont L).1.gcd (hjCont L).2 = 1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_009_hco",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hgcd_27b8bb51"
+      ],
+      "conclusion": "n_hco_b278e7bc",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Nat.coprime_iff_gcd_eq_one",
+        "items": [
+          "Nat.coprime_iff_gcd_eq_one"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Nat.coprime_iff_gcd_eq_one"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_700",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hco : (hjCont L).1.natAbs.Coprime (hjCont L).2.natAbs := by\n    rw [Nat.coprime_iff_gcd_eq_one]\n    simpa [Int.gcd] using hgcd",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3175684",
+              "name": "hgcd",
+              "statement": "(hjCont L).1.gcd (hjCont L).2 = 1"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3175702",
+            "name": "hco",
+            "statement": "(hjCont L).1.natAbs.Coprime (hjCont L).2.natAbs"
+          }
+        },
+        "lean_dependency_sha256": "91cc0a02745c9a3996dcb2830982f4e51dca7ec26cfd3a9825883c5b99f8ad25",
+        "kernel_witness_check": {
+          "proof_type": "(hjCont L).1.natAbs.Coprime (hjCont L).2.natAbs",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Nat.coprime_iff_gcd_eq_one"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:28"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_010_hnnum",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hdpos_f355a006",
+        "n_hco_b278e7bc"
+      ],
+      "conclusion": "n_hnnum_ac24a712",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Rat.num_div_eq_of_coprime",
+        "items": [
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Rat.num_div_eq_of_coprime"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_701",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hNnum : (((hjCont L).1 : ℚ) / ((hjCont L).2 : ℚ)).num = (hjCont L).1 :=\n    Rat.num_div_eq_of_coprime hDpos hco",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3175630",
+              "name": "hDpos",
+              "statement": "0 < (hjCont L).2"
+            },
+            {
+              "fvar_id": "_uniq.3175702",
+              "name": "hco",
+              "statement": "(hjCont L).1.natAbs.Coprime (hjCont L).2.natAbs"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3176518",
+            "name": "hNnum",
+            "statement": "(↑(hjCont L).1 / ↑(hjCont L).2).num = (hjCont L).1"
+          }
+        },
+        "lean_dependency_sha256": "e32f3bda41fae11e6827214394f69d092950d8180f93a5a3d6bb1bbfa56518a6",
+        "kernel_witness_check": {
+          "proof_type": "(↑(hjCont L).1 / ↑(hjCont L).2).num = (hjCont L).1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "observed_search_event_ids": [
+          "leanfinder:19",
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_011_hpqint",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpq_4e36c0da"
+      ],
+      "conclusion": "n_hpqint_5a854808",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_702",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hpqInt : ((p : ℤ).natAbs).Coprime ((q : ℤ).natAbs) := by\n    simpa using hpq",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145699",
+              "name": "hpq",
+              "statement": "p.Coprime q"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3176586",
+            "name": "hpqInt",
+            "statement": "(↑p).natAbs.Coprime (↑q).natAbs"
+          }
+        },
+        "lean_dependency_sha256": "aaa006de6d75b228617308e26b783756a34b114579975f370fa5077cc8de4810",
+        "kernel_witness_check": {
+          "proof_type": "(↑p).natAbs.Coprime (↑q).natAbs",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hpnum",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hq_b165bf91",
+        "n_hpqint_5a854808"
+      ],
+      "conclusion": "n_hpnum_975f8ecf",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + Rat.num_div_eq_of_coprime",
+        "items": [
+          "Eq.symm",
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "Rat.num_div_eq_of_coprime"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_703",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hpnum : ((p : ℚ) / (q : ℚ)).num = (p : ℤ) := by\n    have h := Rat.num_div_eq_of_coprime (show (0 : ℤ) < (q : ℤ) by exact_mod_cast hq) hpqInt\n    simpa using h",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145698",
+              "name": "hq",
+              "statement": "0 < q"
+            },
+            {
+              "fvar_id": "_uniq.3176586",
+              "name": "hpqInt",
+              "statement": "(↑p).natAbs.Coprime (↑q).natAbs"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3177263",
+            "name": "hpnum",
+            "statement": "(↑p / ↑q).num = ↑p"
+          }
+        },
+        "lean_dependency_sha256": "51ef8ecbfb47a993803b51f226440129b86f3e414a3ccaaa0c012a9ee1150f4f",
+        "kernel_witness_check": {
+          "proof_type": "(↑p / ↑q).num = ↑p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2",
+          "leanfinder:19",
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_013_hnp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hfrac_21346d2e",
+        "n_hcf_465b1e6e",
+        "n_hnnum_ac24a712",
+        "n_hpnum_975f8ecf"
+      ],
+      "conclusion": "n_hnp_3586779a",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm",
+        "items": [
+          "Eq.symm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_704",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hNp : (hjCont L).1 = (p : ℤ) := by\n    calc\n      (hjCont L).1 = (((hjCont L).1 : ℚ) / ((hjCont L).2 : ℚ)).num := hNnum.symm\n      _ = ((p : ℚ) / (q : ℚ)).num := by\n        congr 1\n        exact hcf.symm.trans hfrac\n      _ = (p : ℤ) := hpnum\n  rw [hNp] at hSN\n  let S : ℤ := ∑ i ∈ Finset.univ.filter (fun i => 3 < a i), (a i - 3)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145700",
+              "name": "hfrac",
+              "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑p / ↑q"
+            },
+            {
+              "fvar_id": "_uniq.3172929",
+              "name": "hcf",
+              "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑(hjCont L).1 / ↑(hjCont L).2"
+            },
+            {
+              "fvar_id": "_uniq.3176518",
+              "name": "hNnum",
+              "statement": "(↑(hjCont L).1 / ↑(hjCont L).2).num = (hjCont L).1"
+            },
+            {
+              "fvar_id": "_uniq.3177263",
+              "name": "hpnum",
+              "statement": "(↑p / ↑q).num = ↑p"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3179157",
+            "name": "hNp",
+            "statement": "(hjCont L).1 = ↑p"
+          }
+        },
+        "lean_dependency_sha256": "d4a8fdf9c204d3f60428360febe4c6932da585d204cc59735aa416de6b7c08cc",
+        "kernel_witness_check": {
+          "proof_type": "(hjCont L).1 = ↑p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_014_hcard3",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hcardle_24310929"
+      ],
+      "conclusion": "n_hcard3_f38efdd9",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "omega",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_706",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcard3 : 3 ≤ (Finset.univ.filter (fun i => 3 < a i)).card := by\n    omega\n  let L : List ℤ := List.ofFn a",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3146465",
+              "name": "hcardle",
+              "statement": "¬{i | 3 < a i}.card ≤ 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3146937",
+            "name": "hcard3",
+            "statement": "3 ≤ {i | 3 < a i}.card"
+          }
+        },
+        "lean_dependency_sha256": "735cef0aae96ccbac32783235ff222a82fee808b7cc41dc95c46227c5098ab0f",
+        "kernel_witness_check": {
+          "proof_type": "3 ≤ {i | 3 < a i}.card",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_015_hl",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_233b5d05"
+      ],
+      "conclusion": "n_hl_128daa63",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "List.mem_ofFn",
+        "items": [
+          "List.mem_ofFn"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "List.mem_ofFn"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_708",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hL : ∀ x ∈ L, 2 ≤ x := by\n    intro x hx\n    rw [List.mem_ofFn] at hx\n    rcases hx with ⟨i, rfl⟩\n    exact ha i",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145694",
+              "name": "ha",
+              "statement": "∀ (i : Fin n), 2 ≤ a i"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3147219",
+            "name": "hL",
+            "statement": "∀ x ∈ L, 2 ≤ x"
+          }
+        },
+        "lean_dependency_sha256": "f89e11bc8f92a3e055c7b87fde860a819ddc629476517b770cfbc8c0b659cbdc",
+        "kernel_witness_check": {
+          "proof_type": "∀ x ∈ L, 2 ≤ x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "List.mem_ofFn"
+        ],
+        "observed_search_event_ids": [
+          "loogle:65",
+          "loogle:66"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_016_hcomb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_ha_233b5d05",
+        "n_hcard3_f38efdd9"
+      ],
+      "conclusion": "n_hcomb_1aa06516",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "finset_five_sum_excess_le_prod_sub_one",
+        "items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.finset_five_sum_excess_le_prod_sub_one"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.finset_five_sum_excess_le_prod_sub_one"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_709",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hcomb := finset_five_sum_excess_le_prod_sub_one a ha\n    (Finset.univ.filter (fun i => 3 < a i)) (fun i hi => hi) hcard3",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145694",
+              "name": "ha",
+              "statement": "∀ (i : Fin n), 2 ≤ a i"
+            },
+            {
+              "fvar_id": "_uniq.3146937",
+              "name": "hcard3",
+              "statement": "3 ≤ {i | 3 < a i}.card"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3147689",
+            "name": "hcomb",
+            "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ ∏ i, (a i - 1)"
+          }
+        },
+        "lean_dependency_sha256": "4ed5173c45ddd2c3882a6b256fb7f64f5a55620d02b845f5133973fa994c2733",
+        "kernel_witness_check": {
+          "proof_type": "5 * ∑ i with 3 < a i, (a i - 3) ≤ ∏ i, (a i - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hb",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hl_128daa63"
+      ],
+      "conclusion": "n_hb_5a9163d3",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "hjCont_bounds",
+        "items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hjCont_bounds"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1722_hirzebruch_jung_large_entries_at_most_two.hjCont_bounds"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_710",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hb := hjCont_bounds L hL",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3147219",
+              "name": "hL",
+              "statement": "∀ x ∈ L, 2 ≤ x"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3147716",
+            "name": "hb",
+            "statement": "0 < (hjCont L).1 ∧ 0 ≤ (hjCont L).2 ∧ (hjCont L).2 ≤ (hjCont L).1 ∧ (List.map (fun x => x - 1) L).prod ≤ (hjCont L).1"
+          }
+        },
+        "lean_dependency_sha256": "1d2e22da9122da970330f3b1a37728bc013e5908d181564a549665d0abc54765",
+        "kernel_witness_check": {
+          "proof_type": "0 < (hjCont L).1 ∧ 0 ≤ (hjCont L).2 ∧ (hjCont L).2 ≤ (hjCont L).1 ∧ (List.map (fun x => x - 1) L).prod ≤ (hjCont L).1",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_018_hprod_eq",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hprod_eq_8921300e",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "List.map_ofFn + List.prod_ofFn",
+        "items": [
+          "List.map_ofFn",
+          "List.prod_ofFn"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "List.map_ofFn",
+          "List.prod_ofFn"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_711",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hprod_eq : (L.map fun x : ℤ => x - 1).prod = ∏ i ∈ Finset.univ, (a i - 1) := by\n    simp [L, List.map_ofFn]\n    rw [List.prod_ofFn]\n    rfl",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3148554",
+            "name": "hprod_eq",
+            "statement": "(List.map (fun x => x - 1) L).prod = ∏ i, (a i - 1)"
+          }
+        },
+        "lean_dependency_sha256": "982871af200398c02e5d360b5e2608e15f3c4314677040508a37ad94c3b4b0d7",
+        "kernel_witness_check": {
+          "proof_type": "(List.map (fun x => x - 1) L).prod = ∏ i, (a i - 1)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "List.map_ofFn",
+          "List.prod_ofFn"
+        ],
+        "observed_search_event_ids": [
+          "loogle:61",
+          "loogle:58"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_019_hsnp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsn_ab5360e4"
+      ],
+      "conclusion": "n_hsnp_0cc471d7",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simpa",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_713",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hSNp : (5 : ℤ) * S ≤ (p : ℤ) := by\n    simpa [S] using hSN",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3180113",
+              "name": "hSN",
+              "statement": "5 * ∑ i with 3 < a i, (a i - 3) ≤ ↑p"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3181011",
+            "name": "hSNp",
+            "statement": "5 * S ≤ ↑p"
+          }
+        },
+        "lean_dependency_sha256": "ae725443b9e53d3c39581e7cf325a6f307b0913d5aa898158fce99c87498114f",
+        "kernel_witness_check": {
+          "proof_type": "5 * S ≤ ↑p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_020_hsnq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hsnp_0cc471d7"
+      ],
+      "conclusion": "n_hsnq_5b8913a9",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm",
+        "items": [
+          "Eq.symm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_714",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hSNq : (5 : ℚ) * (S : ℚ) ≤ (p : ℚ) := by\n    exact_mod_cast hSNp",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3181011",
+              "name": "hSNp",
+              "statement": "5 * S ≤ ↑p"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3206045",
+            "name": "hSNq",
+            "statement": "5 * ↑S ≤ ↑p"
+          }
+        },
+        "lean_dependency_sha256": "321d650933f2379c062783b72ff0d8af431f5e74c958abaad5a1f986cb84fcc4",
+        "kernel_witness_check": {
+          "proof_type": "↑5 * ↑S ≤ ↑p",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_021_hsumq",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hsumq_dbad0cc6",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_715",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hsumq : (∑ i ∈ Finset.univ.filter (fun i => 3 < a i), ((a i - 3 : ℤ) : ℚ)) = (S : ℚ) := by\n    simp [S]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3208843",
+            "name": "hsumq",
+            "statement": "∑ i with 3 < a i, ↑(a i - 3) = ↑S"
+          }
+        },
+        "lean_dependency_sha256": "bde0b8608c73a18667089fb84c9bcc19a0c60c4b3174454aee39e2e1969c676f",
+        "kernel_witness_check": {
+          "proof_type": "∑ i with 3 < a i, ↑(a i - 3) = ↑S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_022_hsq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hs_b9d4072a",
+        "n_hsumq_dbad0cc6"
+      ],
+      "conclusion": "n_hsq_6acbc9fb",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm",
+        "items": [
+          "Eq.symm"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_716",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have hSq : (2 * (p : ℚ)) / 9 < (S : ℚ) := by\n    rw [← hsumq]\n    exact hS",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3145701",
+              "name": "hS",
+              "statement": "2 * ↑p / 9 < ∑ i with 3 < a i, ↑(a i - 3)"
+            },
+            {
+              "fvar_id": "_uniq.3208843",
+              "name": "hsumq",
+              "statement": "∑ i with 3 < a i, ↑(a i - 3) = ↑S"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3217473",
+            "name": "hSq",
+            "statement": "2 * ↑p / 9 < ↑S"
+          }
+        },
+        "lean_dependency_sha256": "a2ffca58c39c796572161318d4c9b41943c19dd0c868164749c02f2c97d2c547",
+        "kernel_witness_check": {
+          "proof_type": "2 * ↑p / 9 < ↑S",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hn_e68719f3",
+        "m_ha_07dd3993",
+        "m_hp_cafeac24",
+        "m_hq_dd009419",
+        "m_hpq_314edf47",
+        "m_hfrac_4b36d96a",
+        "m_hs_a20c3200"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Eq.symm + List.map_ofFn + List.mem_ofFn",
+        "items": [
+          "Eq.symm",
+          "List.map_ofFn",
+          "List.mem_ofFn",
+          "List.prod_ofFn",
+          "Nat.coprime_iff_gcd_eq_one",
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Eq.symm",
+          "List.map_ofFn",
+          "List.mem_ofFn",
+          "List.prod_ofFn",
+          "Nat.coprime_iff_gcd_eq_one",
+          "Rat.num_div_eq_of_coprime"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  nlinarith",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "1",
+              "name": "hn",
+              "statement": "1 ≤ n"
+            },
+            {
+              "fvar_id": "3",
+              "name": "ha",
+              "statement": "∀ (i : Fin n), 2 ≤ a i"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hp",
+              "statement": "0 < p"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hq",
+              "statement": "0 < q"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hpq",
+              "statement": "p.Coprime q"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hfrac",
+              "statement": "List.foldr (fun x r => x - 1 / r) 0 (List.ofFn fun i => ↑(a i)) = ↑p / ↑q"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hS",
+              "statement": "2 * ↑p / 9 < ∑ i with 3 < a i, ↑(a i - 3)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "{i | 3 < a i}.card ≤ 2"
+          }
+        },
+        "lean_dependency_sha256": "433fc35312995324e6e1acf8150576661801e926cf7da8020d9c9108f9c9366e",
+        "kernel_witness_check": {
+          "proof_type": "{i | 3 < a i}.card ≤ 2",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Eq.symm",
+          "List.map_ofFn",
+          "List.mem_ofFn",
+          "List.prod_ofFn",
+          "Nat.coprime_iff_gcd_eq_one",
+          "Rat.num_div_eq_of_coprime"
+        ],
+        "observed_search_event_ids": [
+          "loogle:2",
+          "loogle:61",
+          "loogle:65",
+          "loogle:66",
+          "loogle:58",
+          "leanfinder:28",
+          "leanfinder:19",
+          "loogle:20"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "Hirzebruch Jung continued fraction large entries at most two",
+      "declarations": [
+        "GenContFract.IntFractPair.stream_eq_none_of_fr_eq_zero",
+        "Std.Time.Fraction.classify",
+        "GenContFract.of",
+        "GenContFract.compExactValue",
+        "Nat.largeSchroder_two",
+        "TwoP.largeCategory",
+        "GenContFract.IntFractPair.stream_nth_fr_num_le_fr_num_sub_n_rat",
+        "Real.exists_convs_eq_rat",
+        "Real.exists_rat_eq_convergent'",
+        "GenContFract.IntFractPair.stream_succ_nth_fr_num_lt_nth_fr_num_rat"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "List.ofFn (fun i => (_ : ℚ)).foldr",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "Nat.Coprime _ _",
+      "declarations": [
+        "Nat.instDecidableCoprime",
+        "Nat.coprime_one_left",
+        "Nat.coprime_one_right",
+        "Nat.Coprime.symm",
+        "Nat.coprime_comm",
+        "Nat.coprime_one_left_eq_true",
+        "Nat.coprime_one_right_eq_true",
+        "Nat.Coprime.gcd_left",
+        "Nat.Coprime.gcd_right",
+        "Nat.coprime_self"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "foldr continued fraction integer entries denominator numerator inequality",
+      "declarations": [
+        "GenContFract.of",
+        "OreLocalization.numeratorHom",
+        "GenContFract.compExactValue",
+        "GenContFract.of_s_succ",
+        "IsFractionRing.isInteger_of_isUnit_den",
+        "GenContFract.IntFractPair.succ_nth_stream_b_le_nth_stream_fr_inv",
+        "IsFractionRing.integerNormalization_eq_zero_iff",
+        "GenContFract.IntFractPair.stream_succ_nth_fr_num_lt_nth_fr_num_rat",
+        "ValuationRing.instIsFractionRingInteger",
+        "tsirelson_inequality"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "(_ / _ = _ / _ : ℚ)",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Rat.num_div_den",
+      "declarations": [
+        "Rat.num_div_den"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "rational equality of reduced fractions numerators equal",
+      "declarations": [
+        "Lean.Expr.equal",
+        "Rat.mk'_num_den",
+        "Rat.divInt_eq_divInt_iff",
+        "IsReduced",
+        "NNRat.ext_num_den",
+        "Tactic.NormNum.evalRatDen",
+        "instDecidableEqRat",
+        "NNRat.ext_num_den_iff",
+        "Lean.Parser.equal",
+        "Irrational.ne_rational"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Rat.div_eq_div_iff",
+      "declarations": [],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Int.gcd (_ * _ - _) _",
+      "declarations": [
+        "Int.gcd_mul_left_sub_left",
+        "Int.gcd_mul_right_sub_left"
+      ],
+      "call_turn": 7,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Rat.mk'_num",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Rat.mkRat_num",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "Rat.divInt_eq_div",
+      "declarations": [
+        "Rat.divInt_eq_div"
+      ],
+      "call_turn": 13,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "((_ : ℚ).num = _)",
+      "declarations": [
+        "Rat.ofInt_num",
+        "Rat.intCast_num",
+        "Rat.num_intCast",
+        "Rat.num_natCast",
+        "Rat.neg_num",
+        "Rat.one_num",
+        "Rat.zero_num",
+        "Rat.num_ofNat",
+        "Rat.ofNat_num",
+        "Rat.ext"
+      ],
+      "call_turn": 13,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "Rat.den_pos",
+      "declarations": [
+        "Rat.den_pos",
+        "DivisibleHull.qsmul_mk"
+      ],
+      "call_turn": 13,
+      "result_turn": 18
+    },
+    {
+      "event_id": "leanfinder:14",
+      "tool": "leanfinder",
+      "query": "Rat num denominator reduced fraction mkRat num den coprime",
+      "declarations": [
+        "Lean.Expr.rat",
+        "Rat.num_den_mk",
+        "Rat.mk'_num_den",
+        "Rat.mkRat_num_den",
+        "Rat",
+        "Rat.maybeNormalize",
+        "mkRat",
+        "Rat.normalize",
+        "Tactic.NormNum.evalRatDen",
+        "Mathlib.Meta.NormNum.IsRat"
+      ],
+      "call_turn": 13,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Rat.num_den_mk",
+      "declarations": [
+        "Rat.num_den_mk"
+      ],
+      "call_turn": 20,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "Rat.divNat",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 22
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Rat.mkRat_num_den",
+      "declarations": [
+        "Rat.mkRat_num_den"
+      ],
+      "call_turn": 20,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Rat.normalize_num",
+      "declarations": [],
+      "call_turn": 20,
+      "result_turn": 24
+    },
+    {
+      "event_id": "leanfinder:19",
+      "tool": "leanfinder",
+      "query": "Rat.num of division by coprime natural denominator",
+      "declarations": [
+        "Mathlib.Meta.NormNum.evalNNRatDivNat",
+        "Rat.num_div_eq_of_coprime",
+        "RatFunc.num",
+        "Tactic.NormNum.evalRatDen",
+        "Rat.num_ofNat",
+        "Rat",
+        "Rat.maybeNormalize",
+        "Rat.isCoprime_num_den",
+        "Mathlib.Meta.NormNum.IsRat",
+        "RatFunc.isCoprime_num_denom"
+      ],
+      "call_turn": 20,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Nat.Coprime _ _ → (Rat.num _ = _)",
+      "declarations": [
+        "Rat.num_div_eq_of_coprime"
+      ],
+      "call_turn": 20,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "Int.gcd_comm",
+      "declarations": [
+        "Int.gcd_comm"
+      ],
+      "call_turn": 27,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Int.gcd_eq_one_iff_coprime",
+      "declarations": [],
+      "call_turn": 27,
+      "result_turn": 29
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Int.natAbs _ * _",
+      "declarations": [
+        "Int.natAbs_mul",
+        "Int.natAbs_mul_self",
+        "Int.natAbs_mul_natAbs_eq",
+        "Int.gcd_dvd_natAbs_mul",
+        "Int.lcm_dvd_natAbs_mul",
+        "Int.lcm_mul_left_left",
+        "Int.lcm_mul_left_right",
+        "Int.lcm_mul_right_left",
+        "Int.lcm_mul_right_right",
+        "Int.gcd_mul_lcm"
+      ],
+      "call_turn": 27,
+      "result_turn": 30
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "Int.gcd _ _ = 1",
+      "declarations": [
+        "Int.gcd_one",
+        "Int.gcd_one_left",
+        "Int.gcd_one_right",
+        "Int.one_gcd",
+        "Int.gcd_mul_left_left_of_gcd_eq_one",
+        "Int.gcd_mul_left_right_of_gcd_eq_one",
+        "Int.gcd_mul_right_left_of_gcd_eq_one",
+        "Int.gcd_mul_right_right_of_gcd_eq_one",
+        "Int.gcd_eq_one_iff",
+        "Int.gcd_pow_left_of_gcd_eq_one"
+      ],
+      "call_turn": 27,
+      "result_turn": 31
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "_.natAbs.Coprime _.natAbs",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "Int.gcd _ _ = 1 → _.natAbs.Coprime _.natAbs",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "Nat.Coprime _ _ ↔ Int.gcd _ _ = _",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 35
+    },
+    {
+      "event_id": "leanfinder:28",
+      "tool": "leanfinder",
+      "query": "integer gcd equals one natAbs coprime",
+      "declarations": [
+        "IsCoprime.natCoprime",
+        "Tactic.NormNum.nat_gcd_helper_2'",
+        "Nat.Coprime.gcd_left",
+        "Nat.gcd",
+        "Nat.Coprime.gcd_eq_one",
+        "Nat.instDecidableCoprime",
+        "Nat.coprime_div_gcd_div_gcd",
+        "PNat.Coprime",
+        "Nat.Coprime.gcd_both",
+        "Nat.coprime_iff_gcd_eq_one"
+      ],
+      "call_turn": 32,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:34",
+      "tool": "loogle",
+      "query": "3 ≤ List.length _ → ∃ _ _ _ _, _ = _ :: _ :: _ :: _",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "leanfinder:35",
+      "tool": "leanfinder",
+      "query": "decompose list of length at least three as three cons and tail",
+      "declarations": [
+        "Lean.Expr.listLit",
+        "List.exists_cons_of_length_pos",
+        "List.tail",
+        "List.length_eq_three",
+        "Matrix.cons_val_three",
+        "List.eq_getElem_of_length_eq_three",
+        "List.cons",
+        "Mathlib.Meta.List.proveNilOrCons",
+        "List.length_tail",
+        "List.take_append_getLast"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:36",
+      "tool": "loogle",
+      "query": "List.length_cons",
+      "declarations": [
+        "List.length_cons"
+      ],
+      "call_turn": 47,
+      "result_turn": 50
+    },
+    {
+      "event_id": "loogle:37",
+      "tool": "loogle",
+      "query": "List.exists_cons_of_ne_nil",
+      "declarations": [
+        "List.exists_cons_of_ne_nil"
+      ],
+      "call_turn": 47,
+      "result_turn": 51
+    },
+    {
+      "event_id": "loogle:40",
+      "tool": "loogle",
+      "query": "Finset.prod_filter_mul_prod_filter_not",
+      "declarations": [
+        "Finset.prod_filter_mul_prod_filter_not"
+      ],
+      "call_turn": 56,
+      "result_turn": 57
+    },
+    {
+      "event_id": "loogle:41",
+      "tool": "loogle",
+      "query": "Finset.prod_le_prod",
+      "declarations": [
+        "Finset.prod_le_prod"
+      ],
+      "call_turn": 56,
+      "result_turn": 58
+    },
+    {
+      "event_id": "loogle:42",
+      "tool": "loogle",
+      "query": "Finset.one_le_prod",
+      "declarations": [
+        "Finset.one_le_prod"
+      ],
+      "call_turn": 56,
+      "result_turn": 59
+    },
+    {
+      "event_id": "loogle:43",
+      "tool": "loogle",
+      "query": "Finset.prod_pos",
+      "declarations": [
+        "Finset.prod_pos"
+      ],
+      "call_turn": 56,
+      "result_turn": 60
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "List.sum_map",
+      "declarations": [],
+      "call_turn": 56,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:45",
+      "tool": "loogle",
+      "query": "Finset.sum_toList",
+      "declarations": [
+        "Finset.sum_toList"
+      ],
+      "call_turn": 56,
+      "result_turn": 62
+    },
+    {
+      "event_id": "loogle:46",
+      "tool": "loogle",
+      "query": "le_mul_of_one_le_right",
+      "declarations": [
+        "le_mul_of_one_le_right"
+      ],
+      "call_turn": 63,
+      "result_turn": 64
+    },
+    {
+      "event_id": "loogle:47",
+      "tool": "loogle",
+      "query": "_ ≤ _ * _",
+      "declarations": [
+        "Nat.mul_le_mul_left",
+        "Nat.mul_le_mul_right",
+        "Nat.mul_le_mul",
+        "Nat.le_of_mul_le_mul_left",
+        "Nat.le_of_mul_le_mul_right",
+        "Nat.mul_le_mul_left_iff",
+        "Nat.mul_le_mul_right_iff",
+        "Nat.div_le_of_le_mul",
+        "Int.mul_nonneg",
+        "Int.mul_nonneg_of_nonpos_of_nonpos"
+      ],
+      "call_turn": 63,
+      "result_turn": 65
+    },
+    {
+      "event_id": "loogle:48",
+      "tool": "loogle",
+      "query": "Finset.filter_toList",
+      "declarations": [],
+      "call_turn": 63,
+      "result_turn": 66
+    },
+    {
+      "event_id": "loogle:49",
+      "tool": "loogle",
+      "query": "List.length_map",
+      "declarations": [
+        "List.length_map",
+        "List.getElem_map",
+        "List.getElem_map_rev"
+      ],
+      "call_turn": 63,
+      "result_turn": 67
+    },
+    {
+      "event_id": "loogle:50",
+      "tool": "loogle",
+      "query": "Finset.length_toList",
+      "declarations": [
+        "Finset.length_toList"
+      ],
+      "call_turn": 63,
+      "result_turn": 68
+    },
+    {
+      "event_id": "loogle:52",
+      "tool": "loogle",
+      "query": "Finset.prod_le_prod_of_subset",
+      "declarations": [],
+      "call_turn": 71,
+      "result_turn": 72
+    },
+    {
+      "event_id": "leanfinder:53",
+      "tool": "leanfinder",
+      "query": "Finset product monotonic subset factors at least one",
+      "declarations": [
+        "IsLeast",
+        "Finset.product_subset_product_right",
+        "Bool.atLeastTwo",
+        "Finset.one_product_one",
+        "Finset.subset_product",
+        "Finset.prod_lt_prod",
+        "Finset.product_subset_product",
+        "Finset.prod_le_univ_prod_of_one_le'",
+        "Finset.sum_anti_set_of_nonpos'",
+        "Equiv.Perm.cycleFactorsFinset"
+      ],
+      "call_turn": 71,
+      "result_turn": 73
+    },
+    {
+      "event_id": "loogle:54",
+      "tool": "loogle",
+      "query": "_ ⊆ _ → Finset.prod _ _ ≤ Finset.prod _ _",
+      "declarations": [
+        "Finset.prod_le_prod_of_subset'",
+        "Finset.prod_le_prod_of_subset_of_le_one'",
+        "Finset.prod_le_prod_of_subset_of_one_le'",
+        "Finset.prod_le_prod_of_subset_of_le_one",
+        "Finset.prod_le_prod_of_subset_of_one_le"
+      ],
+      "call_turn": 71,
+      "result_turn": 74
+    },
+    {
+      "event_id": "loogle:55",
+      "tool": "loogle",
+      "query": "Finset.prod_sdiff",
+      "declarations": [
+        "Finset.prod_sdiff"
+      ],
+      "call_turn": 71,
+      "result_turn": 75
+    },
+    {
+      "event_id": "loogle:56",
+      "tool": "loogle",
+      "query": "Finset.prod_union",
+      "declarations": [
+        "Finset.prod_union"
+      ],
+      "call_turn": 71,
+      "result_turn": 76
+    },
+    {
+      "event_id": "loogle:58",
+      "tool": "loogle",
+      "query": "List.prod_ofFn",
+      "declarations": [
+        "List.prod_ofFn"
+      ],
+      "call_turn": 79,
+      "result_turn": 80
+    },
+    {
+      "event_id": "loogle:59",
+      "tool": "loogle",
+      "query": "List.ofFn_get",
+      "declarations": [
+        "List.ofFn_get"
+      ],
+      "call_turn": 79,
+      "result_turn": 81
+    },
+    {
+      "event_id": "loogle:60",
+      "tool": "loogle",
+      "query": "Finset.prod_ofFn",
+      "declarations": [],
+      "call_turn": 79,
+      "result_turn": 82
+    },
+    {
+      "event_id": "loogle:61",
+      "tool": "loogle",
+      "query": "List.map_ofFn",
+      "declarations": [
+        "List.map_ofFn"
+      ],
+      "call_turn": 79,
+      "result_turn": 83
+    },
+    {
+      "event_id": "leanfinder:62",
+      "tool": "leanfinder",
+      "query": "product over List.ofFn equals Finset product univ",
+      "declarations": [
+        "Finset.prod_mul_prod_compl",
+        "Std.HashSet.all",
+        "BigOperators.bigOpBindersProd",
+        "Finset.product",
+        "Finset.prod_powerset_cons",
+        "List.prod_map_filter_mul_prod_map_filter_not",
+        "Finset.univ_product_univ",
+        "Finset.univ",
+        "Finset.product_eq_univ",
+        "Finset.singleton_product_singleton"
+      ],
+      "call_turn": 79,
+      "result_turn": 84
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "List.mem_ofFn",
+      "declarations": [
+        "List.mem_ofFn"
+      ],
+      "call_turn": 89,
+      "result_turn": 90
+    },
+    {
+      "event_id": "loogle:66",
+      "tool": "loogle",
+      "query": "_ ∈ List.ofFn _",
+      "declarations": [
+        "List.mem_ofFn",
+        "List.forall_mem_ofFn_iff",
+        "List.mem_ofFn'"
+      ],
+      "call_turn": 89,
+      "result_turn": 91
+    },
+    {
+      "event_id": "loogle:67",
+      "tool": "loogle",
+      "query": "List.ofFn_map",
+      "declarations": [],
+      "call_turn": 89,
+      "result_turn": 92
+    },
+    {
+      "event_id": "loogle:68",
+      "tool": "loogle",
+      "query": "List.ofFn_eq_map",
+      "declarations": [
+        "List.ofFn_eq_map"
+      ],
+      "call_turn": 89,
+      "result_turn": 93
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 8,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 7,
+    "max_fan_in_main": 7,
+    "manifest_fact_count": 7,
+    "retrieved_rule_item_count": 6,
+    "retrieval_query_count": 58,
+    "useful_retrieval_event_count": 8,
+    "unused_retrieval_event_count": 50,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 76,
+    "excluded_info_tree_binding_count": 2
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "2_audited_and_excluded",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

@@ -1,0 +1,19 @@
+digraph dependency_graph {
+  rankdir=LR;
+  graph [bgcolor=white];
+  node [fontname=Helvetica];
+  "m_hf_3c95d2a3" [shape=box, color="#178F82", label="hf\nf ≠ 0"];
+  "m_hn_3c4f2ed7" [shape=box, color="#178F82", label="hn\nPolynomial.rootMultiplicity 1 f = n"];
+  "m_hroots_cf4d74ff" [shape=box, color="#178F82", label="hroots\n∀ (z : ℂ), (Polynomial.map (algebraMap ℝ ℂ) f).IsRoot z → ‖z‖ = 1"];
+  "n_goal" [shape=doubleoctagon, color="#D97706", label="goal\nf.reverse = (-1) ^ n • f"];
+  "n_hdvd_82a3b44c" [shape=box, color="#D97706", label="hdvd\nA ^ n ∣ f"];
+  "r_h_001_hdvd" [shape=diamond, label="Polynomial.pow_rootMultiplicity_dvd", color="#D97706"];
+  "m_hn_3c4f2ed7" -> "r_h_001_hdvd";
+  "r_h_001_hdvd" -> "n_hdvd_82a3b44c";
+  "r_h_goal" [shape=diamond, label="Polynomial.map_mul + Polynomial.pow_rootMultiplicity_not_dvd + Polynomial.reverse_mul_of_domain", color="#D97706"];
+  "m_hf_3c95d2a3" -> "r_h_goal";
+  "m_hroots_cf4d74ff" -> "r_h_goal";
+  "m_hn_3c4f2ed7" -> "r_h_goal";
+  "n_hdvd_82a3b44c" -> "r_h_goal";
+  "r_h_goal" -> "n_goal";
+}

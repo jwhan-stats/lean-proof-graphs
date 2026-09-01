@@ -1,0 +1,1344 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1552_index_two_infinite_cyclic_classification",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1552,
+    "source": "1202.4148",
+    "theorem_name": "index_two_infinite_cyclic_classification",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1552",
+    "reconstructed_proof": "../../candidates/p1552_index_two_infinite_cyclic_classification/proof.lean",
+    "raw_elaboration": "../../candidates/p1552_index_two_infinite_cyclic_classification/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1552_index_two_infinite_cyclic_classification.index_two_infinite_cyclic_classification",
+    "verification_call_id": "verify_submission:192",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "b970c05a80a45b5cb42281387b00efc48d0120f20aec20b1b700ceda483f090b",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "91aff142cdfd76c7e605bd6b7bace6695ba89b0dfba9c3b344cc825f7bab2538",
+    "concrete_semantic_topology_sha256": "b970c05a80a45b5cb42281387b00efc48d0120f20aec20b1b700ceda483f090b"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hgen_fe8dbdfb",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hgen",
+      "lean_fvar_id": "4",
+      "statement": "Subgroup.closure {v, t} = ⊤"
+    },
+    {
+      "id": "m_hindex_266be0ac",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hindex",
+      "lean_fvar_id": "6",
+      "statement": "(Subgroup.zpowers t).index = 2"
+    },
+    {
+      "id": "m_htinf_7c465288",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "htinf",
+      "lean_fvar_id": "5",
+      "statement": "Infinite ↥(Subgroup.zpowers t)"
+    },
+    {
+      "id": "m_htors_0baad295",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "htors",
+      "lean_fvar_id": "7",
+      "statement": "∃ x, x ≠ 1 ∧ IsOfFinOrder x"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(∃ n e, e (PresentedGroup.of 0) = v ∧ e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨ ∃ e, e (PresentedGroup.of 0) = v ∧ e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))"
+    },
+    {
+      "id": "n_htinj_87ba5b1d",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "htinj",
+      "lean_fvar_id": "8",
+      "statement": "Function.Injective fun k => t ^ k"
+    },
+    {
+      "id": "n_hv2mem_0de6c3d5",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hv2mem",
+      "lean_fvar_id": "10",
+      "statement": "v * v ∈ Subgroup.zpowers t"
+    },
+    {
+      "id": "n_hvh_4c3821b7",
+      "class": "main",
+      "origin": "derived",
+      "selected": true,
+      "binding_name": "hvH",
+      "lean_fvar_id": "9",
+      "statement": "v ∉ Subgroup.zpowers t"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_htinj",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_htinf_7c465288"
+      ],
+      "conclusion": "n_htinj_87ba5b1d",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "zpow_injective_of_infinite_zpowers",
+        "items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.zpow_injective_of_infinite_zpowers"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.zpow_injective_of_infinite_zpowers"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_8",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have htinj : Function.Injective fun k : ℤ => t ^ k :=\n    zpow_injective_of_infinite_zpowers htinf",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "5",
+              "name": "htinf",
+              "statement": "Infinite ↥(Subgroup.zpowers t)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "8",
+            "name": "htinj",
+            "statement": "Function.Injective fun k => t ^ k"
+          }
+        },
+        "lean_dependency_sha256": "32cde73bd329b1fbcf8db6bf3a568f406ae83a79fe6a89367e6f796ddb5c7219",
+        "kernel_witness_check": {
+          "proof_type": "Function.Injective fun k => t ^ k",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hvh",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hgen_fe8dbdfb",
+        "m_hindex_266be0ac"
+      ],
+      "conclusion": "n_hvh_4c3821b7",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "not_mem_zpowers_of_closure_eq_top_index_two",
+        "items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.not_mem_zpowers_of_closure_eq_top_index_two"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.not_mem_zpowers_of_closure_eq_top_index_two"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_9",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hvH : v ∉ Subgroup.zpowers t :=\n    not_mem_zpowers_of_closure_eq_top_index_two hgen hindex",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hgen",
+              "statement": "Subgroup.closure {v, t} = ⊤"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hindex",
+              "statement": "(Subgroup.zpowers t).index = 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "9",
+            "name": "hvH",
+            "statement": "v ∉ Subgroup.zpowers t"
+          }
+        },
+        "lean_dependency_sha256": "c79a4a316e9a0b8a0522e88c841eca10548f7cf37bb9bdfb050923220e7f1c8e",
+        "kernel_witness_check": {
+          "proof_type": "v ∉ Subgroup.zpowers t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hv2mem",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hindex_266be0ac"
+      ],
+      "conclusion": "n_hv2mem_0de6c3d5",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "sq_mem_zpowers_of_index_two",
+        "items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.sq_mem_zpowers_of_index_two"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.sq_mem_zpowers_of_index_two"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "telescope_10",
+        "source": "theorem_value_telescope",
+        "proof_fragment": "  have hv2mem : v * v ∈ Subgroup.zpowers t :=\n    sq_mem_zpowers_of_index_two (v := v) (t := t) hindex\n  rw [Subgroup.mem_zpowers_iff] at hv2mem",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hindex",
+              "statement": "(Subgroup.zpowers t).index = 2"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "10",
+            "name": "hv2mem",
+            "statement": "v * v ∈ Subgroup.zpowers t"
+          }
+        },
+        "lean_dependency_sha256": "0fd697579cf5fbc467d8170a5c0ccc745818d8a630aced273f99e326b5dec4bf",
+        "kernel_witness_check": {
+          "proof_type": "v * v ∈ Subgroup.zpowers t",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_hgen_fe8dbdfb",
+        "m_hindex_266be0ac",
+        "m_htors_0baad295",
+        "n_htinj_87ba5b1d",
+        "n_hvh_4c3821b7",
+        "n_hv2mem_0de6c3d5"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "presentedInvEquiv_apply_of_one + presentedInvEquiv_apply_of_zero + conj_zpow",
+        "items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedInvEquiv_apply_of_one",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedInvEquiv_apply_of_zero",
+          "conj_zpow",
+          "inv_zpow'"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedInvEquiv_apply_of_one",
+          "Rollout_p1552_index_two_infinite_cyclic_classification.presentedInvEquiv_apply_of_zero"
+        ],
+        "mathlib_items": [
+          "conj_zpow",
+          "inv_zpow'"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "        v * v = v * (v * v) * v⁻¹ := by group\n        _ = v * t ^ r * v⁻¹ := by rw [hv2]\n        _ = (v * t * v⁻¹) ^ r := by\n          simpa using (conj_zpow (a := v) (b := t) (i := r)).symm\n        _ = (t⁻¹) ^ r := by rw [hconj]\n        _ = t ^ (-r) := by rw [inv_zpow']\n    have hrneg : r = -r := by\n      have htr : t ^ r = t ^ (-r) := by\n        rw [← hv2, hvr]\n      exact htinj htr\n    have hr0 : r = 0 := by omega\n    have hsq : v * v = 1 := by\n      rw [hv2, hr0]\n      simp\n    let e := presentedInvEquiv v t hconj hsq hgen hvH htinj\n    refine Or.inr ?_\n    refine ⟨e, ?_, ?_, ?_⟩\n    · exact presentedInvEquiv_apply_of_zero v t hconj hsq hgen hvH htinj\n    · exact presentedInvEquiv_apply_of_one v t hconj hsq hgen hvH htinj\n    · exact ⟨(infiniteDihedralEquivOfInversion v t hconj hsq hgen hvH htinj).symm⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hgen",
+              "statement": "Subgroup.closure {v, t} = ⊤"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hindex",
+              "statement": "(Subgroup.zpowers t).index = 2"
+            },
+            {
+              "fvar_id": "7",
+              "name": "htors",
+              "statement": "∃ x, x ≠ 1 ∧ IsOfFinOrder x"
+            },
+            {
+              "fvar_id": "8",
+              "name": "htinj",
+              "statement": "Function.Injective fun k => t ^ k"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hvH",
+              "statement": "v ∉ Subgroup.zpowers t"
+            },
+            {
+              "fvar_id": "10",
+              "name": "hv2mem",
+              "statement": "v * v ∈ Subgroup.zpowers t"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(∃ n e, e (PresentedGroup.of 0) = v ∧ e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨ ∃ e, e (PresentedGroup.of 0) = v ∧ e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))"
+          }
+        },
+        "lean_dependency_sha256": "6a3f40732c820b2436109f77aaa9c78af25c217277dfff6d3f688f133dc31bc5",
+        "kernel_witness_check": {
+          "proof_type": "(∃ n e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Multiplicative ℤ × Multiplicative (ZMod 2))) ∨\n  ∃ e,\n    e (PresentedGroup.of 0) = v ∧\n      e (PresentedGroup.of 1) = t ∧ Nonempty (K ≃* Monoid.Coprod (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2)))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "conj_zpow"
+        ],
+        "observed_search_event_ids": [
+          "loogle:38",
+          "leanfinder:40"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "group with infinite cyclic subgroup index two classification infinite dihedral torsion extension PresentedGroup",
+      "declarations": [
+        "DihedralGroup",
+        "DihedralGroup.instInfiniteOfNatNat",
+        "not_isCyclic_prod_of_infinite_nontrivial",
+        "NumberField.Units.finiteIndex_iff_sup_torsion_finiteIndex",
+        "IsAddCyclic.exponent_eq_zero_of_infinite",
+        "DihedralGroup.not_isCyclic",
+        "Infinite",
+        "CommGroup.isTorsion_quotient_range_powMonoidHom",
+        "DihedralGroup.isCyclic_iff",
+        "IsAddCyclic.index_nsmulAddMonoidHom_range"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Subgroup.index = 2",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "index two subgroup normal Lean Subgroup index two normal",
+      "declarations": [
+        "FiniteIndexNormalSubgroup.instMax",
+        "FiniteIndexNormalSubgroup.comap",
+        "FiniteIndexNormalSubgroup.ext",
+        "Subgroup.Normal",
+        "FiniteIndexNormalSubgroup",
+        "AddSubgroup.relIndex_sup_left",
+        "Subgroup.normal_of_index_eq_two",
+        "FiniteIndexNormalSubgroup.instFiniteIndex",
+        "AddSubgroup.relIndex_sup_right",
+        "Subgroup.IsSubnormal"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "presented group universal property isomorphism relations generators Lean",
+      "declarations": [
+        "PresentedGroup.equivPresentedGroup",
+        "PresentedGroup.of",
+        "PresentedGroup",
+        "PresentedGroup.toGroup",
+        "PresentedGroup.toGroup.of",
+        "CategoryTheory.Localization.StrictUniversalPropertyFixedTarget",
+        "Algebra.Generators",
+        "PresentedGroup.map",
+        "CategoryTheory.Mon.EquivLaxMonoidalFunctorPUnit.unitIso_hom_app_hom_app",
+        "CartanMatrix.Generators"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Subgroup.closure _ = ⊤",
+      "declarations": [
+        "Subgroup.closure_univ",
+        "Subgroup.closure_eq_top_of_mclosure_eq_top",
+        "Subgroup.closure_closure_coe_preimage",
+        "MonoidHom.eq_of_eqOn_dense",
+        "Subgroup.closure_preimage_eq_top",
+        "Subgroup.center_eq_infi'",
+        "Subgroup.center_eq_iInf",
+        "FreeGroup.closure_range_of",
+        "Group.fg_iff",
+        "Group.fg_iff'"
+      ],
+      "call_turn": 7,
+      "result_turn": 8
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "MonoidHom.range _ = ⊤",
+      "declarations": [
+        "MonoidHom.range_eq_top_of_surjective",
+        "MonoidHom.range_eq_top",
+        "MulEquiv.range_eq_top",
+        "QuotientGroup.range_mk'",
+        "GrpCat.epi_iff_range_eq_top",
+        "CommGrpCat.range_eq_top_of_epi",
+        "CommGrpCat.epi_iff_range_eq_top",
+        "MonoidHom.range_eq_top_of_cancel",
+        "Monoid.Coprod.range_swap"
+      ],
+      "call_turn": 7,
+      "result_turn": 9
+    },
+    {
+      "event_id": "leanfinder:6",
+      "tool": "leanfinder",
+      "query": "surjective monoid homomorphism if range contains generators closure top Lean",
+      "declarations": [
+        "MonoidHom.range",
+        "MonoidHom.range_eq_top_of_surjective",
+        "AddMonoidHom.range",
+        "MonoidHom.rangeRestrict_surjective",
+        "MonoidHom.subsingleton_coe_range",
+        "AddMonoidHom.range_eq_top_of_surjective",
+        "MonoidHom.liftOfSurjective",
+        "AddMonoidHom.decidableMemRange",
+        "MonoidHom.coe_ofClosureMEqTopRight",
+        "Stream'.homomorphism"
+      ],
+      "call_turn": 7,
+      "result_turn": 10
+    },
+    {
+      "event_id": "leanfinder:7",
+      "tool": "leanfinder",
+      "query": "free group map PresentedGroup toGroup injective inverse normal form Lean",
+      "declarations": [
+        "FreeGroup.map_injective",
+        "FreeGroup.toWord",
+        "FreeAddGroup.toWord",
+        "PresentedGroup",
+        "Mathlib.Tactic.Abel.abelConv",
+        "FreeAddGroup.reduce.churchRosser",
+        "FreeGroup",
+        "PresentedGroup.toGroup",
+        "PresentedGroup.toGroup.of",
+        "PresentedGroup.map"
+      ],
+      "call_turn": 7,
+      "result_turn": 11
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "infinite order zpow injective powers equal exponents group Lean",
+      "declarations": [
+        "infinite_powers",
+        "Submonoid.powers",
+        "Lean.Expr.equal",
+        "zpow_right_injective",
+        "zpow_right_inj",
+        "finEquivPowers_apply",
+        "Lean.Parser.equal",
+        "IsOfFinOrder.groupPowers",
+        "pow_injOn_Iio_orderOf",
+        "GradedMonoid.tacticApply_gmonoid_gnpowRec_zero_tac"
+      ],
+      "call_turn": 14,
+      "result_turn": 15
+    },
+    {
+      "event_id": "loogle:10",
+      "tool": "loogle",
+      "query": "Infinite (Subgroup.zpowers _)",
+      "declarations": [],
+      "call_turn": 14,
+      "result_turn": 16
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "_ ^ _ = _ ^ _ -> _ = _",
+      "declarations": [
+        "eq_of_prime_pow_eq",
+        "eq_of_prime_pow_eq'",
+        "IsMulTorsionFree.mk'",
+        "injective_pow_p",
+        "Nat.exponent_eq_exponent_mul_factorization_of_prime_pow_eq_base_pow",
+        "IsPrimitiveRoot.pow_inj"
+      ],
+      "call_turn": 14,
+      "result_turn": 17
+    },
+    {
+      "event_id": "leanfinder:12",
+      "tool": "leanfinder",
+      "query": "quotient group cardinal two unique nonidentity element order two Lean",
+      "declarations": [
+        "TwoUniqueSums",
+        "TwoUniqueProds",
+        "Cardinal.lift_two",
+        "orderOf",
+        "pow_card_eq_one",
+        "UniqueProds.toTwoUniqueProds_of_group",
+        "Cardinal.two_power_aleph0",
+        "addOrderOf_dvd_natCard",
+        "addOrderOf_dvd_card",
+        "card_orderOf_eq_totient_aux"
+      ],
+      "call_turn": 14,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:13",
+      "tool": "loogle",
+      "query": "zpow _ = zpow _",
+      "declarations": [],
+      "call_turn": 19,
+      "result_turn": 20
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Function.Injective (fun _ : ℤ => _ ^ _)",
+      "declarations": [
+        "zpow_right_injective",
+        "injective_zpow_iff_not_isOfFinOrder"
+      ],
+      "call_turn": 19,
+      "result_turn": 21
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "orderOf _ = 0",
+      "declarations": [
+        "orderOf_eq_zero",
+        "orderOf_eq_zero_iff",
+        "orderOf_zero",
+        "orderOf_eq_zero_iff_eq_zero",
+        "orderOf_eq_zero_iff'",
+        "pow_inj_iff_of_orderOf_eq_zero",
+        "RightCancelMonoid.pow_inj_iff_of_orderOf_eq_zero",
+        "orderOf_abs_ne_one",
+        "Monoid.exponent_eq_zero_of_order_zero",
+        "Monoid.exponent_eq_iSup_orderOf'"
+      ],
+      "call_turn": 19,
+      "result_turn": 22
+    },
+    {
+      "event_id": "leanfinder:16",
+      "tool": "leanfinder",
+      "query": "orderOf zero iff infinite order zpow injective Lean group",
+      "declarations": [
+        "orderOf",
+        "finEquivPowers_apply",
+        "injective_pow_iff_not_isOfFinOrder",
+        "zpow_right_injective",
+        "injective_zpow_iff_not_isOfFinOrder",
+        "zpow_pow_orderOf",
+        "not_isOfFinAddOrder_of_injective_nsmul",
+        "InfiniteDimensionalOrder",
+        "Monoid.exponent_eq_zero_iff_range_orderOf_infinite",
+        "IsOfFinOrder.zpow",
+        "addOrderOf_injective",
+        "orderOf_dvd_iff_zpow_eq_one",
+        "orderOf_dvd_sub_iff_zpow_eq_zpow",
+        "zpow_right_inj",
+        "not_isOfFinOrder_of_injective_pow",
+        "zpow_mod_orderOf",
+        "pow_injOn_Iio_orderOf",
+        "orderOf_injective",
+        "pow_inj_iff_of_orderOf_eq_zero",
+        "not_infiniteDimensionalOrder_iff"
+      ],
+      "call_turn": 19,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "Finite (Subgroup.zpowers _)",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 25
+    },
+    {
+      "event_id": "leanfinder:18",
+      "tool": "leanfinder",
+      "query": "finite zpowers iff finite order group Lean",
+      "declarations": [
+        "finite_zpowers",
+        "AddRightCancelMonoid.finite_multiples",
+        "Finite",
+        "IsOfFinOrder.zpow",
+        "IsOfFinOrder.finite_zpowers",
+        "finEquivPowers_apply",
+        "QuotientGroup.finite",
+        "IsOfFinOrder.powers_eq_zpowers",
+        "LocallyFiniteOrder",
+        "Group.ResiduallyFinite"
+      ],
+      "call_turn": 24,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:19",
+      "tool": "loogle",
+      "query": "IsOfFinOrder _ -> Finite _",
+      "declarations": [],
+      "call_turn": 24,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:20",
+      "tool": "loogle",
+      "query": "Subgroup.zpowers _ ≃ _",
+      "declarations": [
+        "zpowersEquivZPowers",
+        "pow_finEquivZPowers_symm_apply",
+        "finEquivZPowers_symm_apply",
+        "zpowersEquivZPowers_apply",
+        "Equiv.Perm.IsCycle.zpowersEquivSupport",
+        "Equiv.Perm.IsCycle.zpowersEquivSupport_apply",
+        "IsPrimitiveRoot.zmodEquivZPowers_apply_coe_int",
+        "IsPrimitiveRoot.zmodEquivZPowers_apply_coe_nat",
+        "IsPrimitiveRoot.zmodEquivZPowers_symm_apply_zpow",
+        "IsPrimitiveRoot.zmodEquivZPowers_symm_apply_pow"
+      ],
+      "call_turn": 24,
+      "result_turn": 28
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Nat.card _ ≠ 0 -> Finite _",
+      "declarations": [
+        "Nat.finite_of_card_ne_zero"
+      ],
+      "call_turn": 31,
+      "result_turn": 32
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Finite _ -> Fintype _",
+      "declarations": [
+        "Fintype.ofFinite",
+        "AddChar.instFintype"
+      ],
+      "call_turn": 31,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "_ ^ Nat.card _ = 1",
+      "declarations": [
+        "pow_card_eq_one'"
+      ],
+      "call_turn": 31,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "Nat.card _ = 2 -> ∀ _ _, _ = _",
+      "declarations": [],
+      "call_turn": 31,
+      "result_turn": 35
+    },
+    {
+      "event_id": "leanfinder:26",
+      "tool": "leanfinder",
+      "query": "Nat.card positive finite type fintype of finite Lean",
+      "declarations": [
+        "Lean.Meta.getFinValue",
+        "Fintype.finite",
+        "Finite.of_fintype",
+        "Lean.instToExprISize.mkNat",
+        "Nat.finite_of_card_ne_zero",
+        "Lean.Meta.getOfNatValue",
+        "Fintype.ofFinite",
+        "Lean.Meta.LazyDiscrTree.MatchClone.isNatType",
+        "Fintype.card",
+        "Lean.Elab.Tactic.NormCast.isNumeral"
+      ],
+      "call_turn": 31,
+      "result_turn": 36
+    },
+    {
+      "event_id": "leanfinder:27",
+      "tool": "leanfinder",
+      "query": "automorphism of infinite cyclic group equals identity or inversion Lean Multiplicative Int MulEquiv self",
+      "declarations": [
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "ContinuousLinearEquiv.automorphismGroup",
+        "intCyclicMulEquiv",
+        "zmodCyclicMulEquiv",
+        "LinearEquiv.automorphismGroup",
+        "MulAutMultiplicative",
+        "intCyclicAddEquiv",
+        "IsCyclic.val_mulAutMulEquiv_apply",
+        "MulAut.symm_inv",
+        "instInfiniteMultiplicative",
+        "isCyclic_multiplicative_iff",
+        "Multiplicative.group",
+        "Multiplicative.ofAdd",
+        "ZMod.AddAutEquivUnits",
+        "isCyclic_multiplicative",
+        "CategoryTheory.Aut.unitsEndEquivAut",
+        "ContinuousMulEquiv.symm_symm",
+        "IsCyclic.val_inv_mulAutMulEquiv_apply",
+        "Units.symm_mapContinuousMulEquiv",
+        "LinearEquiv.automorphismGroup.toLinearMapMonoidHom"
+      ],
+      "call_turn": 37,
+      "result_turn": 38
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "Multiplicative ℤ ≃* Multiplicative ℤ",
+      "declarations": [],
+      "call_turn": 37,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:29",
+      "tool": "loogle",
+      "query": "MulAut (Multiplicative ℤ)",
+      "declarations": [],
+      "call_turn": 37,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "_ * _ = 1 -> _ = 1 ∨ _ = -1",
+      "declarations": [
+        "Int.eq_one_or_neg_one_of_mul_eq_one"
+      ],
+      "call_turn": 37,
+      "result_turn": 41
+    },
+    {
+      "event_id": "loogle:31",
+      "tool": "loogle",
+      "query": "PresentedGroup.closure_range_of",
+      "declarations": [
+        "PresentedGroup.closure_range_of"
+      ],
+      "call_turn": 42,
+      "result_turn": 43
+    },
+    {
+      "event_id": "loogle:32",
+      "tool": "loogle",
+      "query": "Subgroup.closure (Set.range PresentedGroup.of)",
+      "declarations": [
+        "PresentedGroup.closure_range_of"
+      ],
+      "call_turn": 42,
+      "result_turn": 44
+    },
+    {
+      "event_id": "leanfinder:33",
+      "tool": "leanfinder",
+      "query": "PresentedGroup generators closure range of top Lean",
+      "declarations": [
+        "PresentedGroup.closure_range_of",
+        "PresentedGroup",
+        "PresentedGroup.of",
+        "Lean.Compiler.LCNF.LCtx.toLocalContext",
+        "PresentedAddMonoid.closure_range_of",
+        "PresentedMonoid.closure_range_of",
+        "Std.Roc.toList",
+        "Algebra.Generators",
+        "Std.Roi.toList",
+        "Std.Ric.toList"
+      ],
+      "call_turn": 42,
+      "result_turn": 45
+    },
+    {
+      "event_id": "loogle:35",
+      "tool": "loogle",
+      "query": "PresentedGroup _ _ = 1",
+      "declarations": [],
+      "call_turn": 47,
+      "result_turn": 48
+    },
+    {
+      "event_id": "leanfinder:36",
+      "tool": "leanfinder",
+      "query": "PresentedGroup relation maps to one of_mem Lean",
+      "declarations": [
+        "Lean.Meta.mkRel",
+        "Set.MapsTo",
+        "PresentedGroup.toGroup",
+        "PresentedGroup.to_group_eq_one_of_mem_closure",
+        "Std.Internal.UV.System.osGetGroup",
+        "Rack.PreEnvelGroupRel",
+        "PresentedGroup.toGroup.of",
+        "PresentedGroup",
+        "List.rel_mem",
+        "PresentedGroup.one_of_mem"
+      ],
+      "call_turn": 47,
+      "result_turn": 49
+    },
+    {
+      "event_id": "loogle:38",
+      "tool": "loogle",
+      "query": "(_ * _ * _) ^ _ = _ * _ ^ _ * _",
+      "declarations": [
+        "Units.conj_pow",
+        "Units.conj_pow'",
+        "conj_zpow",
+        "conj_pow",
+        "GroupWithZero.conj_pow"
+      ],
+      "call_turn": 51,
+      "result_turn": 52
+    },
+    {
+      "event_id": "loogle:39",
+      "tool": "loogle",
+      "query": "conj _ (_ ^ _)",
+      "declarations": [],
+      "call_turn": 51,
+      "result_turn": 53
+    },
+    {
+      "event_id": "leanfinder:40",
+      "tool": "leanfinder",
+      "query": "conjugate zpow group Lean a * b^k * a inverse",
+      "declarations": [
+        "Lean.Grind.CommRing.Expr.toPolyC_nc.go",
+        "WithBot.unbotA",
+        "Lean.Meta.Grind.Arith.Linear.isHomoMulInst",
+        "QuaternionGroup.a",
+        "Mathlib.Tactic.Ring.Common.evalPow",
+        "conj_zpow",
+        "QuaternionGroup.a_mul_a",
+        "CartanMatrix.A",
+        "WithTop.untopA",
+        "QuaternionGroup.a_zero"
+      ],
+      "call_turn": 51,
+      "result_turn": 54
+    },
+    {
+      "event_id": "loogle:44",
+      "tool": "loogle",
+      "query": "(_⁻¹) ^ _ = _ ^ -_",
+      "declarations": [],
+      "call_turn": 60,
+      "result_turn": 61
+    },
+    {
+      "event_id": "loogle:65",
+      "tool": "loogle",
+      "query": "_ * _ = _ * _ -> _ ^ _ * _ = _ * _ ^ _",
+      "declarations": [],
+      "call_turn": 102,
+      "result_turn": 103
+    },
+    {
+      "event_id": "leanfinder:66",
+      "tool": "leanfinder",
+      "query": "commuting elements integer powers commute Lean zpow_commute",
+      "declarations": [
+        "Lean.Nat.mkInstNatPow",
+        "Commute",
+        "Commute.zpow_right",
+        "Commute.zpow_zpow",
+        "Commute.zpow_zpow_self",
+        "Commute.zpow_self",
+        "Lean.mkIntPowNat",
+        "Commute.self_zpow",
+        "Polynomial.X_pow_mul"
+      ],
+      "call_turn": 102,
+      "result_turn": 104
+    },
+    {
+      "event_id": "loogle:74",
+      "tool": "loogle",
+      "query": "Function.Injective _ ↔ _.ker = ⊥",
+      "declarations": [],
+      "call_turn": 118,
+      "result_turn": 119
+    },
+    {
+      "event_id": "loogle:75",
+      "tool": "loogle",
+      "query": "_.ker = ⊥ -> Function.Injective _",
+      "declarations": [],
+      "call_turn": 118,
+      "result_turn": 120
+    },
+    {
+      "event_id": "loogle:81",
+      "tool": "loogle",
+      "query": "Set.Finite -> Finite _",
+      "declarations": [],
+      "call_turn": 130,
+      "result_turn": 131
+    },
+    {
+      "event_id": "loogle:84",
+      "tool": "loogle",
+      "query": "Odd _ -> ∃ _, _ = 2 * _ + 1",
+      "declarations": [
+        "Odd.exists_bit1"
+      ],
+      "call_turn": 135,
+      "result_turn": 136
+    },
+    {
+      "event_id": "loogle:85",
+      "tool": "loogle",
+      "query": "¬ Even _ -> Odd _",
+      "declarations": [],
+      "call_turn": 135,
+      "result_turn": 137
+    },
+    {
+      "event_id": "loogle:87",
+      "tool": "loogle",
+      "query": "IsOfFinOrder (_ ^ _)",
+      "declarations": [
+        "IsOfFinOrder.pow",
+        "IsOfFinOrder.of_pow",
+        "isOfFinOrder_pow",
+        "IsOfFinOrder.zpow"
+      ],
+      "call_turn": 139,
+      "result_turn": 140
+    },
+    {
+      "event_id": "leanfinder:88",
+      "tool": "leanfinder",
+      "query": "power of infinite order element finite order iff exponent zero Lean",
+      "declarations": [
+        "PowerSeries.order_finite_iff_ne_zero",
+        "finEquivPowers_apply",
+        "AddMonoid.exponent_ne_zero_iff_range_addOrderOf_finite",
+        "IsOfFinOrder.pow",
+        "Monoid.exponent_eq_zero_of_order_zero",
+        "orderOf",
+        "Monoid.exponent_ne_zero_iff_range_orderOf_finite",
+        "AddMonoid.exponent_eq_zero_iff_range_addOrderOf_infinite",
+        "pow_inj_iff_of_orderOf_eq_zero",
+        "Monoid.exponent_eq_zero_iff_range_orderOf_infinite"
+      ],
+      "call_turn": 139,
+      "result_turn": 141
+    },
+    {
+      "event_id": "leanfinder:90",
+      "tool": "leanfinder",
+      "query": "if integer power has finite order and exponent nonzero then element finite order Lean IsOfFinOrder.of_zpow",
+      "declarations": [
+        "IsOfFinOrder.finite_powers",
+        "IsOfFinOrder.zpow",
+        "finEquivPowers_apply",
+        "Lean.Grind.Fin.pow_zero",
+        "isOfFinAddOrder_of_finite",
+        "IsOfFinOrder.finite_zpowers",
+        "orderOf",
+        "Lean.Grind.Fin.instPowFinNatOfNeZero",
+        "Lean.Grind.Fin.instHPowFinNatOfNeZero",
+        "isOfFinOrder_of_finite"
+      ],
+      "call_turn": 143,
+      "result_turn": 144
+    },
+    {
+      "event_id": "leanfinder:97",
+      "tool": "leanfinder",
+      "query": "monoid homomorphism direct product pair from commuting homomorphisms Lean MonoidHom.prod coprod",
+      "declarations": [
+        "DirectSum.fromAddMonoid",
+        "MonoidHom.coprod",
+        "Monoid.Coprod.lift",
+        "AddMonoidHom.coprod",
+        "ContinuousMonoidHom.coprod",
+        "MonoidHom.noncommPiCoprod",
+        "MonoidHom.coprod_unique",
+        "Monoid.Coprod",
+        "MonoidHom",
+        "MonoidHom.coprod_apply",
+        "AddMonoidHom.coprod_unique",
+        "MulHom.prodMap",
+        "MonoidHom.noncommCoprod",
+        "Monoid.Coprod.hom_ext",
+        "Monoid.Coprod.liftEquiv",
+        "AddMonoidHom.comp_noncommPiCoprod",
+        "MonoidHom.comp_coprod",
+        "AddMonoid.Coprod.liftEquiv",
+        "Monoid.CoprodI.Word.Pair",
+        "AddMonoidHom.comp_coprod"
+      ],
+      "call_turn": 157,
+      "result_turn": 158
+    },
+    {
+      "event_id": "loogle:98",
+      "tool": "loogle",
+      "query": "_ →* _ × _",
+      "declarations": [
+        "MonoidHom.inl",
+        "MonoidHom.inr",
+        "Units.embedProduct",
+        "MonoidHom.prod",
+        "MonoidHom.prodMap",
+        "MonoidHom.inl_apply",
+        "MonoidHom.inr_apply",
+        "Units.embedProduct_injective",
+        "MonoidHom.prod_unique",
+        "Units.embedProduct_apply"
+      ],
+      "call_turn": 157,
+      "result_turn": 159
+    },
+    {
+      "event_id": "loogle:99",
+      "tool": "loogle",
+      "query": "_ × _ →* _",
+      "declarations": [
+        "MonoidHom.fst",
+        "MonoidHom.snd",
+        "mulMonoidHom",
+        "divMonoidHom",
+        "MonoidHom.prodMap",
+        "MonoidHom.coprod",
+        "MonoidHom.coe_fst",
+        "MonoidHom.coe_snd",
+        "mulMonoidHom_apply",
+        "MonoidHom.coprod_inl_inr"
+      ],
+      "call_turn": 157,
+      "result_turn": 160
+    },
+    {
+      "event_id": "leanfinder:101",
+      "tool": "leanfinder",
+      "query": "homomorphism from Multiplicative ZMod n to group sending generator element order divides n Lean zmod powers hom",
+      "declarations": [
+        "CommGroup.equiv_free_prod_prod_multiplicative_zmod",
+        "ZMod.unitsMap_self",
+        "ModN",
+        "zmodMulEquivOfGenerator",
+        "zpow_eq_zpow_emod",
+        "ZMod.val_pow",
+        "pow_zmod_val_inv_pow",
+        "ZModModule.isPGroup_multiplicative",
+        "ZMod",
+        "ZMod.orderOf_dvd_card_sub_one",
+        "ZMod.minOrder",
+        "GroupFilterBasis.N",
+        "ZMod.orderOf_units_dvd_card_sub_one",
+        "mod_card_nsmul",
+        "ZMod.ringChar_zmod_n",
+        "zmodAddEquivOfGenerator",
+        "zpow_mod_orderOf",
+        "ModN.instModuleZMod",
+        "pow_mod_orderOf",
+        "SSet.orderEmbeddingN"
+      ],
+      "call_turn": 162,
+      "result_turn": 163
+    },
+    {
+      "event_id": "loogle:102",
+      "tool": "loogle",
+      "query": "Multiplicative (ZMod _) →* _",
+      "declarations": [
+        "ZMod.exists_monoidHom_apply_ne_one"
+      ],
+      "call_turn": 162,
+      "result_turn": 164
+    },
+    {
+      "event_id": "loogle:103",
+      "tool": "loogle",
+      "query": "ZMod _ →* Multiplicative _",
+      "declarations": [],
+      "call_turn": 162,
+      "result_turn": 165
+    },
+    {
+      "event_id": "loogle:112",
+      "tool": "loogle",
+      "query": "Multiplicative.toAdd (_ * _)",
+      "declarations": [
+        "toAdd_mul"
+      ],
+      "call_turn": 181,
+      "result_turn": 182
+    },
+    {
+      "event_id": "loogle:118",
+      "tool": "loogle",
+      "query": "Nat.card (Subgroup.zpowers _) = orderOf _",
+      "declarations": [
+        "Nat.card_zpowers"
+      ],
+      "call_turn": 193,
+      "result_turn": 194
+    },
+    {
+      "event_id": "leanfinder:119",
+      "tool": "leanfinder",
+      "query": "cardinality cyclic subgroup equals orderOf Lean zpowers",
+      "declarations": [
+        "Nat.card_zpowers",
+        "Fintype.card_zpowers",
+        "Subgroup.coe_zpowers",
+        "Subgroup.zpowers",
+        "card_zpowers_le",
+        "orderOf",
+        "Subgroup.exists_zpowers",
+        "card_orderOf_eq_totient_aux",
+        "Subgroup.isCyclic_iff_exists_zpowers_eq_top",
+        "Subgroup.isCyclic_zpowers"
+      ],
+      "call_turn": 193,
+      "result_turn": 195
+    },
+    {
+      "event_id": "loogle:120",
+      "tool": "loogle",
+      "query": "orderOf _ = 2",
+      "declarations": [
+        "CharP.orderOf_eq_two_iff",
+        "Equiv.Perm.IsSwap.orderOf",
+        "inv_eq_self_of_orderOf_eq_two",
+        "orderOf_eq_two_iff",
+        "mul_notMem_of_orderOf_eq_two",
+        "DihedralGroup.orderOf_sr",
+        "NumberField.ComplexEmbedding.orderOf_isConj_two_of_ne_one",
+        "NumberField.IsCMField.orderOf_complexConj"
+      ],
+      "call_turn": 193,
+      "result_turn": 196
+    },
+    {
+      "event_id": "loogle:122",
+      "tool": "loogle",
+      "query": "_ ^ 2 = 1 -> _ ≠ 1 -> orderOf _ = 2",
+      "declarations": [],
+      "call_turn": 198,
+      "result_turn": 199
+    },
+    {
+      "event_id": "leanfinder:123",
+      "tool": "leanfinder",
+      "query": "orderOf equals two if square one nonidentity Lean",
+      "declarations": [
+        "Lean.Meta.Grind.pushEqCore",
+        "Lean.Meta.Grind.mkLawfulOrderLTInst",
+        "Std.instLawfulEqOrdOfLawfulOrderOrdOfAntisymmLe",
+        "CategoryTheory.TwoSquare",
+        "Ordering.eq",
+        "isSquare_of_charTwo'",
+        "CategoryTheory.TwoSquare.GuitartExact",
+        "Mathlib.Tactic.Order.instBEqOrderType",
+        "Lean.Meta.Sym.getOrderingEqExpr",
+        "IsSquare.one"
+      ],
+      "call_turn": 198,
+      "result_turn": 200
+    },
+    {
+      "event_id": "loogle:133",
+      "tool": "loogle",
+      "query": "Multiplicative.toAdd (_ ^ _)",
+      "declarations": [
+        "toAdd_pow",
+        "toAdd_zpow",
+        "Int.toAdd_zpow",
+        "Int.toAdd_pow",
+        "Nat.toAdd_pow"
+      ],
+      "call_turn": 218,
+      "result_turn": 219
+    },
+    {
+      "event_id": "loogle:139",
+      "tool": "loogle",
+      "query": "Monoid.Coprod closure range inl inr",
+      "declarations": [],
+      "call_turn": 230,
+      "result_turn": 231
+    },
+    {
+      "event_id": "leanfinder:140",
+      "tool": "leanfinder",
+      "query": "coproduct group generated by ranges of injections closure top Lean Monoid.Coprod",
+      "declarations": [
+        "AddMonoid.Coprod.inl",
+        "AddMonoid.Coprod.inr",
+        "Monoid.Coprod.codisjoint_mrange_inl_mrange_inr",
+        "Monoid.Coprod.inl",
+        "Monoid.Coprod.inr",
+        "Monoid.Coprod.codisjoint_range_inl_range_inr",
+        "PresentedGroup.generated_by",
+        "TopCat.generatedBy",
+        "AddMonoid.Coprod.codisjoint_range_inl_range_inr",
+        "GeneratedByTopCat.of"
+      ],
+      "call_turn": 230,
+      "result_turn": 232
+    },
+    {
+      "event_id": "loogle:141",
+      "tool": "loogle",
+      "query": "Subgroup.closure _ (Monoid.Coprod _ _) = ⊤",
+      "declarations": [],
+      "call_turn": 230,
+      "result_turn": 233
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 8,
+    "selected_hyperedge_count": 4,
+    "main_hyperedge_count": 3,
+    "side_hyperedge_count": 1,
+    "selected_depth": 2,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 2,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 1,
+    "retrieval_query_count": 64,
+    "useful_retrieval_event_count": 2,
+    "unused_retrieval_event_count": 62,
+    "accepted_helper_count": 25,
+    "rollout_tool_call_count": 193,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

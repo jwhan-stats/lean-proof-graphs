@@ -1,0 +1,922 @@
+{
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "manifest": [
+        {
+          "statement": "1 ≤ n",
+          "origin": "manifest",
+          "name": "hn",
+          "fvar_id": "3"
+        },
+        {
+          "statement": "Function.Bijective (Sum.elim x y)",
+          "origin": "manifest",
+          "name": "hxy",
+          "fvar_id": "7"
+        },
+        {
+          "statement": "∀ (v : V), ∃ w, G.Adj v w",
+          "origin": "manifest",
+          "name": "h_no_isolated",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "Minimal G.IsVertexCover (Set.range x)",
+          "origin": "manifest",
+          "name": "hX",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "Maximal G.IsIndepSet (Set.range y)",
+          "origin": "manifest",
+          "name": "hY",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+          "origin": "manifest",
+          "name": "hdiag",
+          "fvar_id": "11"
+        },
+        {
+          "statement": "∀ (C : Set V), Minimal G.IsVertexCover C → C.ncard = n",
+          "origin": "manifest",
+          "name": "hunmixed",
+          "fvar_id": "12"
+        }
+      ],
+      "local_edges": [
+        {
+          "witness_check": {
+            "proof_type": "B ↔ C",
+            "kernel_typecheck": true,
+            "contains_unresolved_metavariables": false,
+            "conclusion_defeq_proof_type": true
+          },
+          "source": "theorem_value_telescope",
+          "rule_items": [
+            "And.left",
+            "And.right",
+            "Eq.symm",
+            "Eq.trans",
+            "Fin.instNeZeroHAddNatOfNat_mathlib_1",
+            "Fintype.complete",
+            "Function.Injective.ne",
+            "Maximal.prop",
+            "Nat.find_min",
+            "Nat.find_spec",
+            "Nat.instNeZeroSucc",
+            "Nat.le_of_lt",
+            "Nat.le_refl",
+            "Nat.pos_of_ne_zero",
+            "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.HasAlternatingIndexCycle._proof_1",
+            "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_alternating_four_cycle_unordered",
+            "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_minimal_alternating_cycle_of_wellcovered",
+            "congr",
+            "congrArg",
+            "eq_of_heq",
+            "eq_self",
+            "instNeZeroNatHAdd_1",
+            "ite_cond_eq_false",
+            "ite_cond_eq_true",
+            "ne_of_lt",
+            "noConfusion_of_Nat",
+            "of_decide_eq_true",
+            "one_ne_zero._simp_1",
+            "zero_add"
+          ],
+          "premises": [
+            {
+              "statement": "Function.Bijective (Sum.elim x y)",
+              "origin": "local_assumption",
+              "name": "hxy",
+              "fvar_id": "7"
+            },
+            {
+              "statement": "Maximal G.IsIndepSet (Set.range y)",
+              "origin": "local_assumption",
+              "name": "hY",
+              "fvar_id": "10"
+            },
+            {
+              "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+              "origin": "local_assumption",
+              "name": "hdiag",
+              "fvar_id": "11"
+            },
+            {
+              "statement": "∀ (C : Set V), Minimal G.IsVertexCover C → C.ncard = n",
+              "origin": "local_assumption",
+              "name": "hunmixed",
+              "fvar_id": "12"
+            }
+          ],
+          "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+          "id": "telescope_15",
+          "conclusion": {
+            "statement": "B ↔ C",
+            "origin": "derived",
+            "name": "hBC",
+            "fvar_id": "15"
+          }
+        }
+      ],
+      "goal": {
+        "statement": "((∃ M,\n      M.IsPerfectMatching ∧\n        (∀ (u v : V), M.Adj u v ↔ ∃ i, u = x i ∧ v = y i ∨ u = y i ∧ v = x i) ∧\n          ∀ (M' : G.Subgraph), M'.IsPerfectMatching → M' = M) ↔\n    ∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ∧\n  ((∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ↔\n    ∀ (r : ℕ) (i : Fin (r + 2) → Fin n),\n      Function.Injective i → ¬∀ (s : Fin (r + 2)), G.Adj (x (i s)) (y (i s)) ∧ G.Adj (y (i s)) (x (i (s + 1))))",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "((∃ M,\n      M.IsPerfectMatching ∧\n        (∀ (u v : V), M.Adj u v ↔ ∃ i, u = x i ∧ v = y i ∨ u = y i ∧ v = x i) ∧\n          ∀ (M' : G.Subgraph), M'.IsPerfectMatching → M' = M) ↔\n    ∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ∧\n  ((∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ↔\n    ∀ (r : ℕ) (i : Fin (r + 2) → Fin n),\n      Function.Injective i → ¬∀ (s : Fin (r + 2)), G.Adj (x (i s)) (y (i s)) ∧ G.Adj (y (i s)) (x (i (s + 1))))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Eq.symm",
+          "Eq.trans",
+          "Iff.mp",
+          "Iff.rfl",
+          "Maximal.prop",
+          "Nat.instNeZeroSucc",
+          "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.diagonalGraph_toSubgraph_isPerfectMatching",
+          "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.diagonal_toSubgraph_unique_of_no_cycles",
+          "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.exists_swapped_perfect_matching",
+          "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_x_injective",
+          "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_x_ne_y",
+          "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_y_injective",
+          "SimpleGraph.Adj.symm",
+          "SimpleGraph.toSubgraph_adj",
+          "congrArg",
+          "instNeZeroNatHAdd_1",
+          "ne_of_lt"
+        ],
+        "premises": [
+          {
+            "statement": "Function.Bijective (Sum.elim x y)",
+            "origin": "local_assumption",
+            "name": "hxy",
+            "fvar_id": "7"
+          },
+          {
+            "statement": "Maximal G.IsIndepSet (Set.range y)",
+            "origin": "local_assumption",
+            "name": "hY",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+            "origin": "local_assumption",
+            "name": "hdiag",
+            "fvar_id": "11"
+          },
+          {
+            "statement": "B ↔ C",
+            "origin": "derived",
+            "name": "hBC",
+            "fvar_id": "15"
+          }
+        ],
+        "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "((∃ M,\n      M.IsPerfectMatching ∧\n        (∀ (u v : V), M.Adj u v ↔ ∃ i, u = x i ∧ v = y i ∨ u = y i ∧ v = x i) ∧\n          ∀ (M' : G.Subgraph), M'.IsPerfectMatching → M' = M) ↔\n    ∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ∧\n  ((∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))) ↔\n    ∀ (r : ℕ) (i : Fin (r + 2) → Fin n),\n      Function.Injective i → ¬∀ (s : Fin (r + 2)), G.Adj (x (i s)) (y (i s)) ∧ G.Adj (y (i s)) (x (i (s + 1))))",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "HasAlternatingIndexCycle G x y 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.find_spec",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∃ q, HasAlternatingIndexCycle G x y q",
+          "origin": "derived",
+          "name": "hex",
+          "fvar_id": "_uniq.123160"
+        },
+        {
+          "statement": "Nat.find hex = 0",
+          "origin": "local_assumption",
+          "name": "hm",
+          "fvar_id": "_uniq.123221"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_202",
+      "conclusion": {
+        "statement": "HasAlternatingIndexCycle G x y 0",
+        "origin": "derived",
+        "name": "hwit0",
+        "fvar_id": "_uniq.123239"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "j 0 ≠ j 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Function.Injective.ne",
+        "Nat.instNeZeroSucc",
+        "instNeZeroNatHAdd_1",
+        "of_decide_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Injective j",
+          "origin": "local_assumption",
+          "name": "hinjj",
+          "fvar_id": "_uniq.123300"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_203",
+      "conclusion": {
+        "statement": "j 0 ≠ j 1",
+        "origin": "derived",
+        "name": "hne",
+        "fvar_id": "_uniq.123447"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "¬(G.Adj (y (j 0)) (x (j 1)) ∧ G.Adj (y (j 1)) (x (j 0)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instNeZeroSucc",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_alternating_four_cycle_unordered",
+        "instNeZeroNatHAdd_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+          "origin": "local_assumption",
+          "name": "hdiag",
+          "fvar_id": "_uniq.122742"
+        },
+        {
+          "statement": "B",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.123088"
+        },
+        {
+          "statement": "j 0 ≠ j 1",
+          "origin": "derived",
+          "name": "hne",
+          "fvar_id": "_uniq.123447"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_204",
+      "conclusion": {
+        "statement": "¬(G.Adj (y (j 0)) (x (j 1)) ∧ G.Adj (y (j 1)) (x (j 0)))",
+        "origin": "derived",
+        "name": "hno",
+        "fvar_id": "_uniq.123531"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "G.Adj (y (j 1)) (x (j (1 + 1)))",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Nat.instNeZeroSucc",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.HasAlternatingIndexCycle._proof_1",
+        "instNeZeroNatHAdd_1"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (s : Fin (0 + 2)), G.Adj (x (j s)) (y (j s)) ∧ G.Adj (y (j s)) (x (j (s + 1)))",
+          "origin": "local_assumption",
+          "name": "hedge",
+          "fvar_id": "_uniq.123301"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_205",
+      "conclusion": {
+        "statement": "G.Adj (y (j 1)) (x (j (1 + 1)))",
+        "origin": "derived",
+        "name": "h",
+        "fvar_id": "_uniq.123620"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 + 1 = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instNeZeroSucc",
+        "of_decide_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_206",
+      "conclusion": {
+        "statement": "1 + 1 = 0",
+        "origin": "derived",
+        "name": "hwrap",
+        "fvar_id": "_uniq.123789"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "HasAlternatingIndexCycle G x y (Nat.find hex)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.find_spec"
+      ],
+      "premises": [
+        {
+          "statement": "∃ q, HasAlternatingIndexCycle G x y q",
+          "origin": "derived",
+          "name": "hex",
+          "fvar_id": "_uniq.123160"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_207",
+      "conclusion": {
+        "statement": "HasAlternatingIndexCycle G x y (Nat.find hex)",
+        "origin": "derived",
+        "name": "hmwit",
+        "fvar_id": "_uniq.124678"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ q, HasAlternatingIndexCycle G x y q",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.HasAlternatingIndexCycle._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Injective i",
+          "origin": "local_assumption",
+          "name": "hinj",
+          "fvar_id": "_uniq.123097"
+        },
+        {
+          "statement": "∀ (s : Fin (r + 2)), G.Adj (x (i s)) (y (i s)) ∧ G.Adj (y (i s)) (x (i (s + 1)))",
+          "origin": "local_assumption",
+          "name": "hcycle",
+          "fvar_id": "_uniq.123100"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_208",
+      "conclusion": {
+        "statement": "∃ q, HasAlternatingIndexCycle G x y q",
+        "origin": "derived",
+        "name": "hex",
+        "fvar_id": "_uniq.123160"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "Nat.find hex = 0 → False",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Function.Injective.ne",
+        "Nat.find_spec",
+        "Nat.instNeZeroSucc",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.HasAlternatingIndexCycle._proof_1",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_alternating_four_cycle_unordered",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "of_decide_eq_true"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+          "origin": "local_assumption",
+          "name": "hdiag",
+          "fvar_id": "_uniq.122742"
+        },
+        {
+          "statement": "B",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.123088"
+        },
+        {
+          "statement": "∃ q, HasAlternatingIndexCycle G x y q",
+          "origin": "derived",
+          "name": "hex",
+          "fvar_id": "_uniq.123160"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_209",
+      "conclusion": {
+        "statement": "Nat.find hex ≠ 0",
+        "origin": "derived",
+        "name": "hm0",
+        "fvar_id": "_uniq.123217"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < Nat.find hex",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.pos_of_ne_zero"
+      ],
+      "premises": [
+        {
+          "statement": "∃ q, HasAlternatingIndexCycle G x y q",
+          "origin": "derived",
+          "name": "hex",
+          "fvar_id": "_uniq.123160"
+        },
+        {
+          "statement": "Nat.find hex ≠ 0",
+          "origin": "derived",
+          "name": "hm0",
+          "fvar_id": "_uniq.123217"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_210",
+      "conclusion": {
+        "statement": "1 ≤ Nat.find hex",
+        "origin": "derived",
+        "name": "hm",
+        "fvar_id": "_uniq.124782"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ q < Nat.find hex, ¬HasAlternatingIndexCycle G x y q",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.find_min"
+      ],
+      "premises": [
+        {
+          "statement": "∃ q, HasAlternatingIndexCycle G x y q",
+          "origin": "derived",
+          "name": "hex",
+          "fvar_id": "_uniq.123160"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_211",
+      "conclusion": {
+        "statement": "∀ q < Nat.find hex, ¬HasAlternatingIndexCycle G x y q",
+        "origin": "derived",
+        "name": "hmin",
+        "fvar_id": "_uniq.124814"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃a b : Fin 2⦄, seq a = seq b → a = b",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "Fin.instNeZeroHAddNatOfNat_mathlib_1",
+        "Fintype.complete",
+        "Nat.instNeZeroSucc",
+        "Nat.le_of_lt",
+        "Nat.le_refl",
+        "congr",
+        "congrArg",
+        "eq_of_heq",
+        "eq_self",
+        "instNeZeroNatHAdd_1",
+        "ite_cond_eq_false",
+        "ite_cond_eq_true",
+        "ne_of_lt",
+        "noConfusion_of_Nat",
+        "one_ne_zero._simp_1"
+      ],
+      "premises": [
+        {
+          "statement": "i < j",
+          "origin": "local_assumption",
+          "name": "hij",
+          "fvar_id": "_uniq.125206"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_213",
+      "conclusion": {
+        "statement": "Function.Injective seq",
+        "origin": "derived",
+        "name": "hseqinj",
+        "fvar_id": "_uniq.125310"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "1 + 1 = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instNeZeroSucc",
+        "of_decide_eq_true"
+      ],
+      "premises": [],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_214",
+      "conclusion": {
+        "statement": "1 + 1 = 0",
+        "origin": "derived",
+        "name": "hwrap",
+        "fvar_id": "_uniq.139772"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "i ≠ j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "ne_of_lt"
+      ],
+      "premises": [
+        {
+          "statement": "i < j",
+          "origin": "local_assumption",
+          "name": "hij",
+          "fvar_id": "_uniq.139956"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_215",
+      "conclusion": {
+        "statement": "i ≠ j",
+        "origin": "derived",
+        "name": "hijne",
+        "fvar_id": "_uniq.140061"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "M₂ = M",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (M' : G.Subgraph), M'.IsPerfectMatching → M' = M",
+          "origin": "local_assumption",
+          "name": "huniq",
+          "fvar_id": "_uniq.139947"
+        },
+        {
+          "statement": "M₂.IsPerfectMatching",
+          "origin": "local_assumption",
+          "name": "hM₂",
+          "fvar_id": "_uniq.140153"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_216",
+      "conclusion": {
+        "statement": "M₂ = M",
+        "origin": "derived",
+        "name": "hM₂eq",
+        "fvar_id": "_uniq.140160"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "M.Adj (y i) (x j)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "M₂.Adj (y i) (x j)",
+          "origin": "local_assumption",
+          "name": "hcross",
+          "fvar_id": "_uniq.140154"
+        },
+        {
+          "statement": "M₂ = M",
+          "origin": "derived",
+          "name": "hM₂eq",
+          "fvar_id": "_uniq.140160"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_217",
+      "conclusion": {
+        "statement": "M.Adj (y i) (x j)",
+        "origin": "derived",
+        "name": "hMcross",
+        "fvar_id": "_uniq.140169"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "k = i",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "Eq.symm",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_y_injective"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Bijective (Sum.elim x y)",
+          "origin": "local_assumption",
+          "name": "hxy",
+          "fvar_id": "_uniq.122738"
+        },
+        {
+          "statement": "y i = y k ∧ x j = x k",
+          "origin": "local_assumption",
+          "name": "h",
+          "fvar_id": "_uniq.140227"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_218",
+      "conclusion": {
+        "statement": "k = i",
+        "origin": "derived",
+        "name": "hki",
+        "fvar_id": "_uniq.140276"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "k = j",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "Eq.symm",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_x_injective"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Bijective (Sum.elim x y)",
+          "origin": "local_assumption",
+          "name": "hxy",
+          "fvar_id": "_uniq.122738"
+        },
+        {
+          "statement": "y i = y k ∧ x j = x k",
+          "origin": "local_assumption",
+          "name": "h",
+          "fvar_id": "_uniq.140227"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_219",
+      "conclusion": {
+        "statement": "k = j",
+        "origin": "derived",
+        "name": "hkj",
+        "fvar_id": "_uniq.140306"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "C",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp"
+      ],
+      "premises": [
+        {
+          "statement": "B ↔ C",
+          "origin": "derived",
+          "name": "hBC",
+          "fvar_id": "_uniq.123076"
+        },
+        {
+          "statement": "∀ (i j : Fin n), i < j → ¬(G.Adj (x i) (y i) ∧ G.Adj (y i) (x j) ∧ G.Adj (x j) (y j) ∧ G.Adj (y j) (x i))",
+          "origin": "local_assumption",
+          "name": "hB",
+          "fvar_id": "_uniq.140329"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_220",
+      "conclusion": {
+        "statement": "C",
+        "origin": "derived",
+        "name": "hC",
+        "fvar_id": "_uniq.140356"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ ⦃u v : V⦄, D.Adj u v → G.Adj u v",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "SimpleGraph.Adj.symm",
+        "congrArg"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+          "origin": "local_assumption",
+          "name": "hdiag",
+          "fvar_id": "_uniq.122742"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_222",
+      "conclusion": {
+        "statement": "D ≤ G",
+        "origin": "derived",
+        "name": "hD",
+        "fvar_id": "_uniq.140688"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "B ↔ C",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "And.right",
+        "Eq.symm",
+        "Eq.trans",
+        "Fin.instNeZeroHAddNatOfNat_mathlib_1",
+        "Fintype.complete",
+        "Function.Injective.ne",
+        "Maximal.prop",
+        "Nat.find_min",
+        "Nat.find_spec",
+        "Nat.instNeZeroSucc",
+        "Nat.le_of_lt",
+        "Nat.le_refl",
+        "Nat.pos_of_ne_zero",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.HasAlternatingIndexCycle._proof_1",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_alternating_four_cycle_unordered",
+        "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_minimal_alternating_cycle_of_wellcovered",
+        "congr",
+        "congrArg",
+        "eq_of_heq",
+        "eq_self",
+        "instNeZeroNatHAdd_1",
+        "ite_cond_eq_false",
+        "ite_cond_eq_true",
+        "ne_of_lt",
+        "noConfusion_of_Nat",
+        "of_decide_eq_true",
+        "one_ne_zero._simp_1",
+        "zero_add"
+      ],
+      "premises": [
+        {
+          "statement": "Function.Bijective (Sum.elim x y)",
+          "origin": "local_assumption",
+          "name": "hxy",
+          "fvar_id": "_uniq.122738"
+        },
+        {
+          "statement": "Maximal G.IsIndepSet (Set.range y)",
+          "origin": "local_assumption",
+          "name": "hY",
+          "fvar_id": "_uniq.122741"
+        },
+        {
+          "statement": "∀ (i : Fin n), G.Adj (x i) (y i)",
+          "origin": "local_assumption",
+          "name": "hdiag",
+          "fvar_id": "_uniq.122742"
+        },
+        {
+          "statement": "∀ (C : Set V), Minimal G.IsVertexCover C → C.ncard = n",
+          "origin": "local_assumption",
+          "name": "hunmixed",
+          "fvar_id": "_uniq.122743"
+        }
+      ],
+      "parent": "Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.unique_diagonal_perfect_matching_iff_no_alternating_cycle",
+      "id": "local_225",
+      "conclusion": {
+        "statement": "B ↔ C",
+        "origin": "derived",
+        "name": "hBC",
+        "fvar_id": "_uniq.123076"
+      }
+    }
+  ],
+  "lean_version": "4.29.0",
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:16:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_x_injective`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:21:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_y_injective`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:26:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_x_ne_y`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:31:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.sum_elim_bijective_cases`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:163:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_alternating_four_cycle_unordered`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:198:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_chord_minimal_alternating_cycle`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:355:0: warning: automatically included section variable(s) unused in theorem `Rollout_p0019_unique_diagonal_perfect_matching_iff_no_al.no_adj_y_y_of_independent_range_y`:\n  [Fintype V]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype V] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:894:4: warning: `Set.ncard_image_of_injOn` has been deprecated: Use `Set.InjOn.ncard_image` instead\n\nNote: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.ncard_image_of_injOn` to `Set.InjOn.ncard_image x`).\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:911:37: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:914:5: warning: unused variable `h_no_isolated`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_334d04755fb96e45/proofs.lean:915:5: warning: unused variable `hX`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ]
+}

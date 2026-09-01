@@ -1,0 +1,473 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p1489_slope_composition_equivalent",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 1489,
+    "source": "math_0301015",
+    "theorem_name": "slope_composition_equivalent",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/1489",
+    "reconstructed_proof": "../../candidates/p1489_slope_composition_equivalent/proof.lean",
+    "raw_elaboration": "../../candidates/p1489_slope_composition_equivalent/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p1489_slope_composition_equivalent.slope_composition_equivalent",
+    "verification_call_id": "verify_submission:16",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "7a474cd4744979179ba1711124439a6e82dead9ccc91bf25655d868fb3d61174",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "ed0d8d983658283e9094721a719f357645d72c8e37ba38a0c6e100cd530c5492",
+    "concrete_semantic_topology_sha256": "7a474cd4744979179ba1711124439a6e82dead9ccc91bf25655d868fb3d61174"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_h_110d33e6",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hββ'",
+      "lean_fvar_id": "9",
+      "statement": "(Set.range fun n => β n - β' n).Finite"
+    },
+    {
+      "id": "m_h_4afd0072",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hα'",
+      "lean_fvar_id": "5",
+      "statement": "(Set.range fun p => α' (p.1 + p.2) - α' p.1 - α' p.2).Finite"
+    },
+    {
+      "id": "m_h_5c4da2e2",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hβ'",
+      "lean_fvar_id": "7",
+      "statement": "(Set.range fun p => β' (p.1 + p.2) - β' p.1 - β' p.2).Finite"
+    },
+    {
+      "id": "m_h_88a7815b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hα",
+      "lean_fvar_id": "4",
+      "statement": "(Set.range fun p => α (p.1 + p.2) - α p.1 - α p.2).Finite"
+    },
+    {
+      "id": "m_h_c4d93c9e",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hβ",
+      "lean_fvar_id": "6",
+      "statement": "(Set.range fun p => β (p.1 + p.2) - β p.1 - β p.2).Finite"
+    },
+    {
+      "id": "m_h_ff125729",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hαα'",
+      "lean_fvar_id": "8",
+      "statement": "(Set.range fun n => α n - α' n).Finite"
+    },
+    {
+      "id": "n_goal",
+      "class": "side",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "(Set.range fun p => α (β (p.1 + p.2)) - α (β p.1) - α (β p.2)).Finite ∧ (Set.range fun p => α' (β' (p.1 + p.2)) - α' (β' p.1) - α' (β' p.2)).Finite ∧ (Set.range fun n => α (β n) - α' (β' n)).Finite"
+    },
+    {
+      "id": "n_h_11dbf013",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hα'",
+      "lean_fvar_id": "_uniq.875694",
+      "statement": "(Set.range fun p => α' (p.1 + p.2) - α' p.1 - α' p.2).Finite"
+    },
+    {
+      "id": "n_h_50f9c4e5",
+      "class": "side",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hββ'",
+      "lean_fvar_id": "_uniq.875698",
+      "statement": "(Set.range fun n => β n - β' n).Finite"
+    },
+    {
+      "id": "n_htranslate_54a1e3fa",
+      "class": "side",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "htranslate",
+      "lean_fvar_id": "_uniq.875771",
+      "statement": "(Set.range fun n => α' (β n) - α' (β' n)).Finite"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_htranslate",
+      "class": "side",
+      "selected": false,
+      "premises": [
+        "n_h_11dbf013",
+        "n_h_50f9c4e5"
+      ],
+      "conclusion": "n_htranslate_54a1e3fa",
+      "rule": {
+        "kind": "rollout_helper_declaration",
+        "label": "finite_range_apply_eq_of_finite_defect",
+        "items": [
+          "Rollout_p1489_slope_composition_equivalent.finite_range_apply_eq_of_finite_defect"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p1489_slope_composition_equivalent.finite_range_apply_eq_of_finite_defect"
+        ],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_137",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "  have htranslate : (Set.range (fun n : ℤ =>\n      α' (β n) - α' (β' n))).Finite :=\n    finite_range_apply_eq_of_finite_defect α' β β' hα' hββ'",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.875694",
+              "name": "hα'",
+              "statement": "(Set.range fun p => α' (p.1 + p.2) - α' p.1 - α' p.2).Finite"
+            },
+            {
+              "fvar_id": "_uniq.875698",
+              "name": "hββ'",
+              "statement": "(Set.range fun n => β n - β' n).Finite"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.875771",
+            "name": "htranslate",
+            "statement": "(Set.range fun n => α' (β n) - α' (β' n)).Finite"
+          }
+        },
+        "lean_dependency_sha256": "ebfa6ad971b27c6be3b8cb18bec43d47246488baa0f59f9e3355b873dba0aee5",
+        "kernel_witness_check": {
+          "proof_type": "(Set.range fun n => α' (β n) - α' (β' n)).Finite",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "side",
+      "selected": true,
+      "premises": [
+        "m_h_88a7815b",
+        "m_h_4afd0072",
+        "m_h_c4d93c9e",
+        "m_h_5c4da2e2",
+        "m_h_ff125729",
+        "m_h_110d33e6"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.Finite.image + Set.Finite.prod + Set.Finite.subset",
+        "items": [
+          "Set.Finite.image",
+          "Set.Finite.prod",
+          "Set.Finite.subset",
+          "Set.mem_prod",
+          "Set.range_subset_iff"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.Finite.image",
+          "Set.Finite.prod",
+          "Set.Finite.subset",
+          "Set.mem_prod",
+          "Set.range_subset_iff"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  refine ⟨(α (β n) - α' (β n),\n      α' (β n) - α' (β' n)), ?_, ?_⟩\n  · rw [Set.mem_prod]\n    exact ⟨⟨β n, rfl⟩, ⟨n, rfl⟩⟩\n  · dsimp\n    ring",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "4",
+              "name": "hα",
+              "statement": "(Set.range fun p => α (p.1 + p.2) - α p.1 - α p.2).Finite"
+            },
+            {
+              "fvar_id": "5",
+              "name": "hα'",
+              "statement": "(Set.range fun p => α' (p.1 + p.2) - α' p.1 - α' p.2).Finite"
+            },
+            {
+              "fvar_id": "6",
+              "name": "hβ",
+              "statement": "(Set.range fun p => β (p.1 + p.2) - β p.1 - β p.2).Finite"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hβ'",
+              "statement": "(Set.range fun p => β' (p.1 + p.2) - β' p.1 - β' p.2).Finite"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hαα'",
+              "statement": "(Set.range fun n => α n - α' n).Finite"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hββ'",
+              "statement": "(Set.range fun n => β n - β' n).Finite"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "(Set.range fun p => α (β (p.1 + p.2)) - α (β p.1) - α (β p.2)).Finite ∧ (Set.range fun p => α' (β' (p.1 + p.2)) - α' (β' p.1) - α' (β' p.2)).Finite ∧ (Set.range fun n => α (β n) - α' (β' n)).Finite"
+          }
+        },
+        "lean_dependency_sha256": "d8f78c58305dc2c8140844ef4e5a2d3caa2f3e0a8104e9ee560b36d55861fd46",
+        "kernel_witness_check": {
+          "proof_type": "(Set.range fun p => α (β (p.1 + p.2)) - α (β p.1) - α (β p.2)).Finite ∧\n  (Set.range fun p => α' (β' (p.1 + p.2)) - α' (β' p.1) - α' (β' p.2)).Finite ∧\n    (Set.range fun n => α (β n) - α' (β' n)).Finite",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "Set.Finite.image",
+          "Set.Finite.prod",
+          "Set.Finite.subset",
+          "Set.mem_prod",
+          "Set.range_subset_iff"
+        ],
+        "observed_search_event_ids": [
+          "loogle:6",
+          "loogle:5",
+          "loogle:4",
+          "loogle:9",
+          "loogle:7"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "loogle:0",
+      "tool": "loogle",
+      "query": "Set.Finite (_ : Set _)",
+      "declarations": [
+        "Set.finite_or_infinite",
+        "Set.infinite_or_finite",
+        "Set.toFinite",
+        "Set.Finite.not_infinite",
+        "Set.Finite.to_subtype",
+        "Set.Infinite.not_finite",
+        "Set.finite_coe_iff",
+        "Set.not_finite",
+        "Set.not_infinite",
+        "Equiv.set_finite_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "Set.Finite (_ : Set _) → ∃ _ : ℕ, ∀ _ ∈ _, _ ≤ _",
+      "declarations": [],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "leanfinder:2",
+      "tool": "leanfinder",
+      "query": "finite set of integers bounded absolute value",
+      "declarations": [
+        "Std.Time.Internal.Bounded.LE.ofFin",
+        "Rat.AbsoluteValue.equiv_padic_of_bounded",
+        "Int.natAbs_sum_le",
+        "Set.Finite",
+        "AbsoluteValue",
+        "Rat.AbsoluteValue.one_lt_of_not_bounded",
+        "AbsoluteValue.comp",
+        "Int64.instRxiIsAlwaysFinite",
+        "ISize.instRxiIsAlwaysFinite",
+        "Int8.instRxiIsAlwaysFinite"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "loogle:3",
+      "tool": "loogle",
+      "query": "Set.finite_Icc",
+      "declarations": [
+        "Set.finite_Icc"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:4",
+      "tool": "loogle",
+      "query": "Set.Finite.subset",
+      "declarations": [
+        "Set.Finite.subset",
+        "Set.Finite.toFinset_insert",
+        "Set.Finite.induction_on_subset"
+      ],
+      "call_turn": 2,
+      "result_turn": 7
+    },
+    {
+      "event_id": "loogle:5",
+      "tool": "loogle",
+      "query": "Set.Finite.prod",
+      "declarations": [
+        "Set.Finite.prod",
+        "Set.Finite.toFinset_prod",
+        "HahnSeries.SummableFamily.smul_support_subset_prod"
+      ],
+      "call_turn": 8,
+      "result_turn": 9
+    },
+    {
+      "event_id": "loogle:6",
+      "tool": "loogle",
+      "query": "Set.Finite.image",
+      "declarations": [
+        "Set.Finite.image"
+      ],
+      "call_turn": 8,
+      "result_turn": 10
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "Set.range_subset_iff",
+      "declarations": [
+        "Set.range_subset_iff"
+      ],
+      "call_turn": 8,
+      "result_turn": 11
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "Set.mem_image",
+      "declarations": [
+        "Set.mem_image"
+      ],
+      "call_turn": 8,
+      "result_turn": 12
+    },
+    {
+      "event_id": "loogle:9",
+      "tool": "loogle",
+      "query": "Set.mem_prod",
+      "declarations": [
+        "Set.mem_prod"
+      ],
+      "call_turn": 8,
+      "result_turn": 13
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 7,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 0,
+    "side_hyperedge_count": 1,
+    "selected_depth": 1,
+    "max_fan_in_all": 6,
+    "max_fan_in_main": 0,
+    "manifest_fact_count": 6,
+    "retrieved_rule_item_count": 5,
+    "retrieval_query_count": 10,
+    "useful_retrieval_event_count": 5,
+    "unused_retrieval_event_count": 5,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 17,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}

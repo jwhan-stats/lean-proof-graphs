@@ -1,0 +1,442 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "manifest": [
+        {
+          "statement": "0 ≤ c",
+          "origin": "manifest",
+          "name": "hc₀",
+          "fvar_id": "5"
+        },
+        {
+          "statement": "c < 1",
+          "origin": "manifest",
+          "name": "hc₁",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀",
+          "origin": "manifest",
+          "name": "hcontractive",
+          "fvar_id": "7"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)};\n(∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)};\n(∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "And.left",
+          "And.right",
+          "Classical.byContradiction",
+          "Eq.symm",
+          "Iff.mp",
+          "IsStrictOrderedRing.toMulPosStrictMono",
+          "Real.instIsStrictOrderedRing",
+          "congr",
+          "congrArg",
+          "csInf_le",
+          "dist_comm",
+          "dist_eq_zero",
+          "dist_nonneg",
+          "le_antisymm",
+          "le_trans",
+          "lt_irrefl",
+          "lt_of_le_of_lt",
+          "lt_of_lt_of_le",
+          "mul_lt_mul_of_pos_right",
+          "not_lt",
+          "not_lt_of_ge",
+          "one_mul"
+        ],
+        "premises": [
+          {
+            "statement": "c < 1",
+            "origin": "local_assumption",
+            "name": "hc₁",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀",
+            "origin": "local_assumption",
+            "name": "hcontractive",
+            "fvar_id": "7"
+          }
+        ],
+        "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let ρ := sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)};\n(∀ (x : X), dist x x₀ ≤ ρ → x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ ρ) → ∀ (x : X), dist x x₀ ≤ ρ → T x = x",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "c * dist (T x₀) x₀ < dist (T x₀) x₀",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "mul_lt_mul_of_pos_right",
+        "one_mul"
+      ],
+      "premises": [
+        {
+          "statement": "c < 1",
+          "origin": "local_assumption",
+          "name": "hc₁",
+          "fvar_id": "_uniq.568851"
+        },
+        {
+          "statement": "0 < dist (T x₀) x₀",
+          "origin": "local_assumption",
+          "name": "hdpos",
+          "fvar_id": "_uniq.569352"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_11",
+      "conclusion": {
+        "statement": "c * dist (T x₀) x₀ < dist (T x₀) x₀",
+        "origin": "derived",
+        "name": "hlt",
+        "fvar_id": "_uniq.569573"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist (T x₀) x₀ = 0",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Iff.mp",
+        "dist_nonneg",
+        "le_antisymm",
+        "not_lt"
+      ],
+      "premises": [
+        {
+          "statement": "¬0 < dist (T x₀) x₀",
+          "origin": "local_assumption",
+          "name": "hdpos",
+          "fvar_id": "_uniq.569359"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_12",
+      "conclusion": {
+        "statement": "dist (T x₀) x₀ = 0",
+        "origin": "derived",
+        "name": "hd",
+        "fvar_id": "_uniq.576104"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ x, x ∈ lowerBounds S",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Eq.symm",
+        "dist_nonneg"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_14",
+      "conclusion": {
+        "statement": "BddBelow S",
+        "origin": "derived",
+        "name": "hSbdd",
+        "fvar_id": "_uniq.578375"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∃ y, T y ≠ y ∧ dist x (T x) = dist y (T y)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "¬T x = x",
+          "origin": "local_assumption",
+          "name": "hTx",
+          "fvar_id": "_uniq.578081"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_15",
+      "conclusion": {
+        "statement": "dist x (T x) ∈ S",
+        "origin": "derived",
+        "name": "hSmem",
+        "fvar_id": "_uniq.578979"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "sInf S ≤ dist x (T x)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "csInf_le"
+      ],
+      "premises": [
+        {
+          "statement": "BddBelow S",
+          "origin": "derived",
+          "name": "hSbdd",
+          "fvar_id": "_uniq.578375"
+        },
+        {
+          "statement": "dist x (T x) ∈ S",
+          "origin": "derived",
+          "name": "hSmem",
+          "fvar_id": "_uniq.578979"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_16",
+      "conclusion": {
+        "statement": "sInf S ≤ dist x (T x)",
+        "origin": "derived",
+        "name": "hρ_le",
+        "fvar_id": "_uniq.579033"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [
+        {
+          "statement": "∀ (x : X),\n  dist x x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)} →\n    x ≠ x₀ → 0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+          "origin": "local_assumption",
+          "name": "h",
+          "fvar_id": "_uniq.568888"
+        },
+        {
+          "statement": "dist x x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+          "origin": "local_assumption",
+          "name": "hx",
+          "fvar_id": "_uniq.568894"
+        },
+        {
+          "statement": "¬x = x₀",
+          "origin": "local_assumption",
+          "name": "hx0",
+          "fvar_id": "_uniq.569109"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_17",
+      "conclusion": {
+        "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+        "origin": "derived",
+        "name": "ha",
+        "fvar_id": "_uniq.579040"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "dist x (T x) ≤ c * dist (T x) x₀",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "congr",
+        "congrArg",
+        "dist_comm"
+      ],
+      "premises": [
+        {
+          "statement": "∀ (x : X), dist (T x) x ≤ c * dist (T x) x₀",
+          "origin": "local_assumption",
+          "name": "hcontractive",
+          "fvar_id": "_uniq.568852"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_18",
+      "conclusion": {
+        "statement": "dist x (T x) ≤ c * dist (T x) x₀",
+        "origin": "derived",
+        "name": "hcon",
+        "fvar_id": "_uniq.579102"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "c * dist (T x) x₀ < dist (T x) x₀",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.left",
+        "IsStrictOrderedRing.toMulPosStrictMono",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "mul_lt_mul_of_pos_right",
+        "one_mul"
+      ],
+      "premises": [
+        {
+          "statement": "c < 1",
+          "origin": "local_assumption",
+          "name": "hc₁",
+          "fvar_id": "_uniq.568851"
+        },
+        {
+          "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+          "origin": "derived",
+          "name": "ha",
+          "fvar_id": "_uniq.579040"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_19",
+      "conclusion": {
+        "statement": "c * dist (T x) x₀ < dist (T x) x₀",
+        "origin": "derived",
+        "name": "hlt",
+        "fvar_id": "_uniq.591329"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "sInf S < sInf S",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "And.right",
+        "le_trans",
+        "lt_of_le_of_lt",
+        "lt_of_lt_of_le"
+      ],
+      "premises": [
+        {
+          "statement": "sInf S ≤ dist x (T x)",
+          "origin": "derived",
+          "name": "hρ_le",
+          "fvar_id": "_uniq.579033"
+        },
+        {
+          "statement": "0 < dist (T x) x₀ ∧ dist (T x) x₀ ≤ sInf {r | ∃ x, T x ≠ x ∧ r = dist x (T x)}",
+          "origin": "derived",
+          "name": "ha",
+          "fvar_id": "_uniq.579040"
+        },
+        {
+          "statement": "dist x (T x) ≤ c * dist (T x) x₀",
+          "origin": "derived",
+          "name": "hcon",
+          "fvar_id": "_uniq.579102"
+        },
+        {
+          "statement": "c * dist (T x) x₀ < dist (T x) x₀",
+          "origin": "derived",
+          "name": "hlt",
+          "fvar_id": "_uniq.591329"
+        }
+      ],
+      "parent": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+      "id": "local_20",
+      "conclusion": {
+        "statement": "sInf S < sInf S",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.597808"
+      }
+    }
+  ],
+  "excluded_local_bindings": [],
+  "diagnostics": [
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:121:5: warning: unused variable `hc₀`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:227:8: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:241:5: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:287:5: warning: unused variable `hK_downward`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:288:5: warning: unused variable `hK_vertices`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:289:5: warning: unused variable `hIJ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:293:5: warning: unused variable `hunion`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:294:5: warning: unused variable `hinter`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:15: warning: unused variable `hl`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:433:28: warning: unused variable `hm`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:435:5: warning: unused variable `hσ_involutive`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:436:5: warning: unused variable `hσ_fixedPointFree`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "Try this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:16: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1049:29: warning: unused variable `hn'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1052:5: warning: unused variable `hα₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1053:5: warning: unused variable `hα₂`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1054:5: warning: unused variable `hα₃`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1055:5: warning: unused variable `hαcocycle`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1060:5: warning: unused variable `hβequiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1062:5: warning: unused variable `hβ'equiv`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1077:5: warning: unused variable `hO`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1212:13: warning: unused variable `hN`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1215:5: warning: unused variable `hC_diag`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1284:13: warning: unused variable `hk`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1563:10: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1517:5: warning: unused variable `hJ_zero`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1519:5: warning: unused variable `hp_surjective`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/batches/batch_1515ae05f47c216f/proofs.lean:1520:5: warning: unused variable `hp_fiber`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/batches/batch_1515ae05f47c216f/proofs.lean",
+    "namespace": "Rollout_p2061_fixed_disc_of_contractivity",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2061_fixed_disc_of_contractivity.fixed_disc_of_contractivity",
+    "proof_sha256": "14a2e8f7c45aef925550aa76973c623083cf4d281916d470461e3b14635aefec"
+  }
+}

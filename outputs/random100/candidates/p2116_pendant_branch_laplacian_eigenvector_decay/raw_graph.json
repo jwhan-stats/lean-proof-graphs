@@ -1,0 +1,953 @@
+{
+  "schema_version": "lean_proof_term_projection_raw_v4",
+  "lean_version": "4.29.0",
+  "theorems": [
+    {
+      "theorem_name": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "manifest": [
+        {
+          "statement": "1 ≤ k",
+          "origin": "manifest",
+          "name": "hk",
+          "fvar_id": "6"
+        },
+        {
+          "statement": "Function.Injective i",
+          "origin": "manifest",
+          "name": "hi",
+          "fvar_id": "8"
+        },
+        {
+          "statement": "∀ (a b : Fin k), G.Adj (i a) (i b) ↔ ↑a + 1 = ↑b ∨ ↑b + 1 = ↑a",
+          "origin": "manifest",
+          "name": "hbranch",
+          "fvar_id": "9"
+        },
+        {
+          "statement": "∃ x ∉ Set.range i, G.Adj (i ⟨0, hk⟩) x ∧ ∀ (a : Fin k), ∀ v ∉ Set.range i, G.Adj (i a) v → a = ⟨0, hk⟩ ∧ v = x",
+          "origin": "manifest",
+          "name": "hexternal",
+          "fvar_id": "10"
+        },
+        {
+          "statement": "4 < lam",
+          "origin": "manifest",
+          "name": "hlam",
+          "fvar_id": "12"
+        },
+        {
+          "statement": "φ ≠ 0",
+          "origin": "manifest",
+          "name": "hφ",
+          "fvar_id": "14"
+        },
+        {
+          "statement": "(SimpleGraph.lapMatrix ℝ G).mulVec φ = lam • φ",
+          "origin": "manifest",
+          "name": "heigen",
+          "fvar_id": "15"
+        }
+      ],
+      "local_edges": [],
+      "goal": {
+        "statement": "let γ := 2 / (lam - 2);\n0 < γ ∧\n  γ < 1 ∧\n    (∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ γ * |φ (i j)|) ∧\n      ∀ (j : Fin k), |φ (i j)| ≤ γ ^ ↑j * |φ (i ⟨0, hk⟩)|",
+        "origin": "goal",
+        "name": "goal"
+      },
+      "final_edge": {
+        "witness_check": {
+          "proof_type": "let γ := 2 / (lam - 2);\n0 < γ ∧\n  γ < 1 ∧\n    (∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ γ * |φ (i j)|) ∧\n      ∀ (j : Fin k), |φ (i j)| ≤ γ ^ ↑j * |φ (i ⟨0, hk⟩)|",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        },
+        "source": "elaborated_theorem_body",
+        "rule_items": [
+          "Decidable.byContradiction",
+          "Eq.trans",
+          "Fin.ext",
+          "IsOrderedRing.toPosMulMono",
+          "IsStrictOrderedRing.toPosMulStrictMono",
+          "LT.lt.le",
+          "Mathlib.Meta.NormNum.IsInt.of_raw",
+          "Mathlib.Meta.NormNum.IsInt.to_isNat",
+          "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+          "Mathlib.Meta.NormNum.IsNat.of_raw",
+          "Mathlib.Meta.NormNum.IsNat.to_isInt",
+          "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+          "Mathlib.Meta.NormNum.instAtLeastTwo",
+          "Mathlib.Meta.NormNum.isInt_add",
+          "Mathlib.Meta.NormNum.isInt_mul",
+          "Mathlib.Meta.NormNum.isNat_lt_true",
+          "Mathlib.Meta.NormNum.isNat_ofNat",
+          "Mathlib.Meta.Positivity.pos_of_isNat",
+          "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+          "Mathlib.Tactic.Linarith.add_neg",
+          "Mathlib.Tactic.Linarith.lt_irrefl",
+          "Mathlib.Tactic.Linarith.mul_neg",
+          "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+          "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+          "Mathlib.Tactic.Linarith.zero_lt_one",
+          "Mathlib.Tactic.Ring.add_congr",
+          "Mathlib.Tactic.Ring.add_mul",
+          "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_gt",
+          "Mathlib.Tactic.Ring.add_pf_add_lt",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap",
+          "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+          "Mathlib.Tactic.Ring.add_pf_add_zero",
+          "Mathlib.Tactic.Ring.add_pf_zero_add",
+          "Mathlib.Tactic.Ring.atom_pf",
+          "Mathlib.Tactic.Ring.atom_pf'",
+          "Mathlib.Tactic.Ring.cast_pos",
+          "Mathlib.Tactic.Ring.cast_zero",
+          "Mathlib.Tactic.Ring.div_congr",
+          "Mathlib.Tactic.Ring.div_pf",
+          "Mathlib.Tactic.Ring.mul_add",
+          "Mathlib.Tactic.Ring.mul_congr",
+          "Mathlib.Tactic.Ring.mul_one",
+          "Mathlib.Tactic.Ring.mul_pf_left",
+          "Mathlib.Tactic.Ring.mul_pf_right",
+          "Mathlib.Tactic.Ring.mul_pow",
+          "Mathlib.Tactic.Ring.mul_zero",
+          "Mathlib.Tactic.Ring.neg_add",
+          "Mathlib.Tactic.Ring.neg_congr",
+          "Mathlib.Tactic.Ring.neg_mul",
+          "Mathlib.Tactic.Ring.neg_one_mul",
+          "Mathlib.Tactic.Ring.neg_zero",
+          "Mathlib.Tactic.Ring.of_eq",
+          "Mathlib.Tactic.Ring.one_mul",
+          "Mathlib.Tactic.Ring.pow_add",
+          "Mathlib.Tactic.Ring.pow_congr",
+          "Mathlib.Tactic.Ring.pow_prod_atom",
+          "Mathlib.Tactic.Ring.pow_zero",
+          "Mathlib.Tactic.Ring.single_pow",
+          "Mathlib.Tactic.Ring.sub_congr",
+          "Mathlib.Tactic.Ring.sub_pf",
+          "Mathlib.Tactic.Ring.zero_mul",
+          "Nat.cast_one",
+          "Nat.cast_zero",
+          "Nat.instAtLeastTwoHAddOfNat",
+          "Nat.instNeZeroSucc",
+          "PosMulReflectLE.toPosMulReflectLT",
+          "PosMulStrictMono.toPosMulReflectLE",
+          "RCLike.charZero_rclike",
+          "Real.instIsOrderedAddMonoid",
+          "Real.instIsOrderedRing",
+          "Real.instIsStrictOrderedRing",
+          "Real.instNontrivial",
+          "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_adjacent_decay",
+          "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay._proof_1",
+          "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay._proof_2",
+          "Std.le_refl._simp_1",
+          "congrArg",
+          "congrFun'",
+          "div_lt_one",
+          "div_pos",
+          "instNeZeroNatHAdd_1",
+          "instReflLe",
+          "lt_of_not_ge",
+          "mul_le_mul_of_nonneg_left",
+          "neg_neg_of_pos",
+          "of_eq_true",
+          "one_mul",
+          "pow_succ",
+          "pow_zero"
+        ],
+        "premises": [
+          {
+            "statement": "1 ≤ k",
+            "origin": "local_assumption",
+            "name": "hk",
+            "fvar_id": "6"
+          },
+          {
+            "statement": "Function.Injective i",
+            "origin": "local_assumption",
+            "name": "hi",
+            "fvar_id": "8"
+          },
+          {
+            "statement": "∀ (a b : Fin k), G.Adj (i a) (i b) ↔ ↑a + 1 = ↑b ∨ ↑b + 1 = ↑a",
+            "origin": "local_assumption",
+            "name": "hbranch",
+            "fvar_id": "9"
+          },
+          {
+            "statement": "∃ x ∉ Set.range i, G.Adj (i ⟨0, hk⟩) x ∧ ∀ (a : Fin k), ∀ v ∉ Set.range i, G.Adj (i a) v → a = ⟨0, hk⟩ ∧ v = x",
+            "origin": "local_assumption",
+            "name": "hexternal",
+            "fvar_id": "10"
+          },
+          {
+            "statement": "4 < lam",
+            "origin": "local_assumption",
+            "name": "hlam",
+            "fvar_id": "12"
+          },
+          {
+            "statement": "(SimpleGraph.lapMatrix ℝ G).mulVec φ = lam • φ",
+            "origin": "local_assumption",
+            "name": "heigen",
+            "fvar_id": "15"
+          }
+        ],
+        "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+        "id": "goal_edge",
+        "conclusion": {
+          "statement": "let γ := 2 / (lam - 2);\n0 < γ ∧\n  γ < 1 ∧\n    (∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ γ * |φ (i j)|) ∧\n      ∀ (j : Fin k), |φ (i j)| ≤ γ ^ ↑j * |φ (i ⟨0, hk⟩)|",
+          "origin": "derived",
+          "name": "goal"
+        }
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  ],
+  "local_edges": [
+    {
+      "witness_check": {
+        "proof_type": "2 / (lam - 2) = 2 / (lam - 2)",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc"
+      ],
+      "premises": [],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_133",
+      "conclusion": {
+        "statement": "2 / (lam - 2) = γ",
+        "origin": "derived",
+        "name": "this",
+        "fvar_id": "_uniq.3603880"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "j = ⟨0, hk⟩",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fin.ext"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ k",
+          "origin": "local_assumption",
+          "name": "hk",
+          "fvar_id": "_uniq.3603639"
+        },
+        {
+          "statement": "↑j = 0",
+          "origin": "local_assumption",
+          "name": "hjval",
+          "fvar_id": "_uniq.3618293"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_151",
+      "conclusion": {
+        "statement": "j = ⟨0, hk⟩",
+        "origin": "derived",
+        "name": "hzero",
+        "fvar_id": "_uniq.3618313"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑p = ↑p",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_152",
+      "conclusion": {
+        "statement": "↑p = n",
+        "origin": "derived",
+        "name": "hpval",
+        "fvar_id": "_uniq.3619839"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "n < k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay._proof_1"
+      ],
+      "premises": [
+        {
+          "statement": "↑j = n + 1",
+          "origin": "local_assumption",
+          "name": "hjval",
+          "fvar_id": "_uniq.3618536"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_153",
+      "conclusion": {
+        "statement": "n < k",
+        "origin": "derived",
+        "name": "hnlt",
+        "fvar_id": "_uniq.3618547"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "↑p + 1 < k",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay._proof_2"
+      ],
+      "premises": [
+        {
+          "statement": "↑j = n + 1",
+          "origin": "local_assumption",
+          "name": "hjval",
+          "fvar_id": "_uniq.3618536"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_155",
+      "conclusion": {
+        "statement": "↑p + 1 < k",
+        "origin": "derived",
+        "name": "hsproof",
+        "fvar_id": "_uniq.3618763"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "j = ⟨↑p + 1, hsproof⟩",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Fin.ext"
+      ],
+      "premises": [
+        {
+          "statement": "↑j = n + 1",
+          "origin": "local_assumption",
+          "name": "hjval",
+          "fvar_id": "_uniq.3618536"
+        },
+        {
+          "statement": "↑p + 1 < k",
+          "origin": "derived",
+          "name": "hsproof",
+          "fvar_id": "_uniq.3618763"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_156",
+      "conclusion": {
+        "statement": "j = ⟨↑p + 1, hsproof⟩",
+        "origin": "derived",
+        "name": "hjp",
+        "fvar_id": "_uniq.3619013"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "γ = γ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [],
+      "premises": [],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_158",
+      "conclusion": {
+        "statement": "γ = 2 / (lam - 2)",
+        "origin": "derived",
+        "name": "hγdef",
+        "fvar_id": "_uniq.3604053"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < lam - 2",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.IsNat.to_raw_eq",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_lt_true",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.add_neg",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.mul_neg",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Linarith.zero_lt_one",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_congr",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.cast_one",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "RCLike.charZero_rclike",
+        "Real.instIsOrderedAddMonoid",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "instNeZeroNatHAdd_1",
+        "lt_of_not_ge",
+        "neg_neg_of_pos"
+      ],
+      "premises": [
+        {
+          "statement": "4 < lam",
+          "origin": "local_assumption",
+          "name": "hlam",
+          "fvar_id": "_uniq.3603645"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_159",
+      "conclusion": {
+        "statement": "0 < lam - 2",
+        "origin": "derived",
+        "name": "ht",
+        "fvar_id": "_uniq.3604203"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "0 < γ",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Meta.Positivity.pos_of_isNat",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "Real.instNontrivial",
+        "congrArg",
+        "div_pos"
+      ],
+      "premises": [
+        {
+          "statement": "γ = 2 / (lam - 2)",
+          "origin": "derived",
+          "name": "hγdef",
+          "fvar_id": "_uniq.3604053"
+        },
+        {
+          "statement": "0 < lam - 2",
+          "origin": "derived",
+          "name": "ht",
+          "fvar_id": "_uniq.3604203"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_160",
+      "conclusion": {
+        "statement": "0 < γ",
+        "origin": "derived",
+        "name": "hγpos",
+        "fvar_id": "_uniq.3608299"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "γ < 1",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "IsStrictOrderedRing.toPosMulStrictMono",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_isNat",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_add",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Linarith.add_lt_of_neg_of_le",
+        "Mathlib.Tactic.Linarith.lt_irrefl",
+        "Mathlib.Tactic.Linarith.sub_neg_of_lt",
+        "Mathlib.Tactic.Linarith.sub_nonpos_of_le",
+        "Mathlib.Tactic.Ring.add_congr",
+        "Mathlib.Tactic.Ring.add_overlap_pf_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_lt",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap",
+        "Mathlib.Tactic.Ring.add_pf_add_overlap_zero",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.add_pf_zero_add",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.cast_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_mul",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Nat.cast_zero",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "PosMulReflectLE.toPosMulReflectLT",
+        "PosMulStrictMono.toPosMulReflectLE",
+        "Real.instIsOrderedRing",
+        "Real.instIsStrictOrderedRing",
+        "congrArg",
+        "div_lt_one",
+        "lt_of_not_ge"
+      ],
+      "premises": [
+        {
+          "statement": "4 < lam",
+          "origin": "local_assumption",
+          "name": "hlam",
+          "fvar_id": "_uniq.3603645"
+        },
+        {
+          "statement": "γ = 2 / (lam - 2)",
+          "origin": "derived",
+          "name": "hγdef",
+          "fvar_id": "_uniq.3604053"
+        },
+        {
+          "statement": "0 < lam - 2",
+          "origin": "derived",
+          "name": "ht",
+          "fvar_id": "_uniq.3604203"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_161",
+      "conclusion": {
+        "statement": "γ < 1",
+        "origin": "derived",
+        "name": "hγlt",
+        "fvar_id": "_uniq.3613595"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ 2 / (lam - 2) * |φ (i j)|",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_adjacent_decay"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ k",
+          "origin": "local_assumption",
+          "name": "hk",
+          "fvar_id": "_uniq.3603639"
+        },
+        {
+          "statement": "Function.Injective i",
+          "origin": "local_assumption",
+          "name": "hi",
+          "fvar_id": "_uniq.3603641"
+        },
+        {
+          "statement": "∀ (a b : Fin k), G.Adj (i a) (i b) ↔ ↑a + 1 = ↑b ∨ ↑b + 1 = ↑a",
+          "origin": "local_assumption",
+          "name": "hbranch",
+          "fvar_id": "_uniq.3603642"
+        },
+        {
+          "statement": "∃ x ∉ Set.range i, G.Adj (i ⟨0, hk⟩) x ∧ ∀ (a : Fin k), ∀ v ∉ Set.range i, G.Adj (i a) v → a = ⟨0, hk⟩ ∧ v = x",
+          "origin": "local_assumption",
+          "name": "hexternal",
+          "fvar_id": "_uniq.3603643"
+        },
+        {
+          "statement": "4 < lam",
+          "origin": "local_assumption",
+          "name": "hlam",
+          "fvar_id": "_uniq.3603645"
+        },
+        {
+          "statement": "(SimpleGraph.lapMatrix ℝ G).mulVec φ = lam • φ",
+          "origin": "local_assumption",
+          "name": "heigen",
+          "fvar_id": "_uniq.3603648"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_162",
+      "conclusion": {
+        "statement": "∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ 2 / (lam - 2) * |φ (i j)|",
+        "origin": "derived",
+        "name": "hadj",
+        "fvar_id": "_uniq.3618082"
+      }
+    },
+    {
+      "witness_check": {
+        "proof_type": "∀ (n : ℕ) (j : Fin k), ↑j = n → |φ (i j)| ≤ γ ^ ↑j * |φ (i ⟨0, hk⟩)|",
+        "kernel_typecheck": true,
+        "contains_unresolved_metavariables": false,
+        "conclusion_defeq_proof_type": true
+      },
+      "source": "info_tree_local_binding",
+      "rule_items": [
+        "Decidable.byContradiction",
+        "Eq.trans",
+        "Fin.ext",
+        "IsOrderedRing.toPosMulMono",
+        "LT.lt.le",
+        "Mathlib.Meta.NormNum.IsInt.of_raw",
+        "Mathlib.Meta.NormNum.IsInt.to_raw_eq",
+        "Mathlib.Meta.NormNum.IsNat.of_raw",
+        "Mathlib.Meta.NormNum.IsNat.to_isInt",
+        "Mathlib.Meta.NormNum.instAtLeastTwo",
+        "Mathlib.Meta.NormNum.isInt_mul",
+        "Mathlib.Meta.NormNum.isNat_ofNat",
+        "Mathlib.Tactic.Ring.add_mul",
+        "Mathlib.Tactic.Ring.add_pf_add_gt",
+        "Mathlib.Tactic.Ring.add_pf_add_zero",
+        "Mathlib.Tactic.Ring.atom_pf",
+        "Mathlib.Tactic.Ring.atom_pf'",
+        "Mathlib.Tactic.Ring.cast_pos",
+        "Mathlib.Tactic.Ring.div_congr",
+        "Mathlib.Tactic.Ring.div_pf",
+        "Mathlib.Tactic.Ring.mul_add",
+        "Mathlib.Tactic.Ring.mul_congr",
+        "Mathlib.Tactic.Ring.mul_one",
+        "Mathlib.Tactic.Ring.mul_pf_left",
+        "Mathlib.Tactic.Ring.mul_pf_right",
+        "Mathlib.Tactic.Ring.mul_pow",
+        "Mathlib.Tactic.Ring.mul_zero",
+        "Mathlib.Tactic.Ring.neg_add",
+        "Mathlib.Tactic.Ring.neg_one_mul",
+        "Mathlib.Tactic.Ring.neg_zero",
+        "Mathlib.Tactic.Ring.of_eq",
+        "Mathlib.Tactic.Ring.one_mul",
+        "Mathlib.Tactic.Ring.pow_add",
+        "Mathlib.Tactic.Ring.pow_congr",
+        "Mathlib.Tactic.Ring.pow_prod_atom",
+        "Mathlib.Tactic.Ring.pow_zero",
+        "Mathlib.Tactic.Ring.single_pow",
+        "Mathlib.Tactic.Ring.sub_congr",
+        "Mathlib.Tactic.Ring.sub_pf",
+        "Mathlib.Tactic.Ring.zero_mul",
+        "Nat.instAtLeastTwoHAddOfNat",
+        "Nat.instNeZeroSucc",
+        "Real.instIsOrderedRing",
+        "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay._proof_1",
+        "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay._proof_2",
+        "Std.le_refl._simp_1",
+        "congrArg",
+        "congrFun'",
+        "instReflLe",
+        "mul_le_mul_of_nonneg_left",
+        "of_eq_true",
+        "one_mul",
+        "pow_succ",
+        "pow_zero"
+      ],
+      "premises": [
+        {
+          "statement": "1 ≤ k",
+          "origin": "local_assumption",
+          "name": "hk",
+          "fvar_id": "_uniq.3603639"
+        },
+        {
+          "statement": "γ = 2 / (lam - 2)",
+          "origin": "derived",
+          "name": "hγdef",
+          "fvar_id": "_uniq.3604053"
+        },
+        {
+          "statement": "0 < γ",
+          "origin": "derived",
+          "name": "hγpos",
+          "fvar_id": "_uniq.3608299"
+        },
+        {
+          "statement": "∀ (j : Fin k) (hj : ↑j + 1 < k), |φ (i ⟨↑j + 1, hj⟩)| ≤ 2 / (lam - 2) * |φ (i j)|",
+          "origin": "derived",
+          "name": "hadj",
+          "fvar_id": "_uniq.3618082"
+        }
+      ],
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_163",
+      "conclusion": {
+        "statement": "∀ (n : ℕ) (j : Fin k), ↑j = n → |φ (i j)| ≤ γ ^ ↑j * |φ (i ⟨0, hk⟩)|",
+        "origin": "derived",
+        "name": "Hpow_aux",
+        "fvar_id": "_uniq.3618260"
+      }
+    }
+  ],
+  "excluded_local_bindings": [
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_134",
+      "fvar_id": "_uniq.3603899",
+      "candidate_type": "?_mvar.3603894",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_135",
+      "fvar_id": "_uniq.3603908",
+      "candidate_type": "?_mvar.3603903",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_136",
+      "fvar_id": "_uniq.3603917",
+      "candidate_type": "?_mvar.3603912",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_137",
+      "fvar_id": "_uniq.3603926",
+      "candidate_type": "?_mvar.3603921",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_138",
+      "fvar_id": "_uniq.3603935",
+      "candidate_type": "?_mvar.3603930",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_139",
+      "fvar_id": "_uniq.3603944",
+      "candidate_type": "?_mvar.3603939",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_140",
+      "fvar_id": "_uniq.3603953",
+      "candidate_type": "?_mvar.3603948",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_141",
+      "fvar_id": "_uniq.3603962",
+      "candidate_type": "?_mvar.3603957",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_142",
+      "fvar_id": "_uniq.3603971",
+      "candidate_type": "?_mvar.3603966",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_143",
+      "fvar_id": "_uniq.3603980",
+      "candidate_type": "?_mvar.3603975",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_144",
+      "fvar_id": "_uniq.3603989",
+      "candidate_type": "?_mvar.3603984",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_145",
+      "fvar_id": "_uniq.3603998",
+      "candidate_type": "?_mvar.3603993",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_146",
+      "fvar_id": "_uniq.3604007",
+      "candidate_type": "?_mvar.3604002",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_147",
+      "fvar_id": "_uniq.3604016",
+      "candidate_type": "?_mvar.3604011",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_148",
+      "fvar_id": "_uniq.3604025",
+      "candidate_type": "?_mvar.3604020",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_149",
+      "fvar_id": "_uniq.3604034",
+      "candidate_type": "?_mvar.3604029",
+      "binding_name": "this"
+    },
+    {
+      "source": "info_tree_local_binding",
+      "reason": "unresolved_metavariables_in_candidate_type",
+      "policy": "not_emitted_as_dependency_edge",
+      "parent": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+      "id": "local_150",
+      "fvar_id": "_uniq.3604043",
+      "candidate_type": "?_mvar.3604038",
+      "binding_name": "this"
+    }
+  ],
+  "diagnostics": [
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:317:27: warning: unused variable `hq_one`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:423:45: warning: This simp argument is unused:\n  Finset.mem_insert\n\nHint: Omit it from the simp argument list.\n  simp only [SimpleGraph.mem_neighborFinset, F̵i̵n̵s̵e̵t̵.̵m̵e̵m̵_̵i̵n̵s̵e̵r̵t̵,̵ ̵Finset.mem_singleton]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:482:8: warning: This simp argument is unused:\n  hpred\n\nHint: Omit it from the simp argument list.\n  simp [̵h̵p̵r̵e̵d̵]̵ ̵at hEq\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:665:17: warning: unused variable `hφ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:740:7: warning: unused variable `W`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1902:13: warning: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:1905:5: warning: unused variable `hK_compact`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2620:5: warning: unused variable `hαbounded`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n",
+    "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean:2627:5: warning: unused variable `hφL2`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+  ],
+  "batch_provenance": {
+    "source": "outputs/random100/batches/batch_8f6a4388c48a2706/proofs.lean",
+    "namespace": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay",
+    "isolation_mode": "generated_namespace_batch",
+    "export_theorem_name": "Rollout_p2116_pendant_branch_laplacian_eigenvector_decay.pendant_branch_laplacian_eigenvector_decay",
+    "proof_sha256": "18416f0080ac0f8e9f254f03f684a1e65ca560311ab67da9cf851b467e2d56cc"
+  }
+}

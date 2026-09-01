@@ -1,0 +1,1627 @@
+{
+  "schema_version": "manifest_dependency_hypergraph_v2",
+  "graph_id": "p0367_weakhomotopyequivalence_of_iunion_open_res",
+  "task": {
+    "benchmark": "math__arxivlean_trajectories",
+    "problem_idx": 367,
+    "source": "1307.0322",
+    "theorem_name": "weakHomotopyEquivalence_of_iUnion_open_restrictions",
+    "goal_node": "n_goal"
+  },
+  "sources": {
+    "rollout_jsonl": "configs/../data/k3-fsmzb-correct.jsonl",
+    "rollout_unique_id": "arxivlean-trajectories/moonshot/k3-fsmzb/367",
+    "reconstructed_proof": "../../candidates/p0367_weakhomotopyequivalence_of_iunion_open_res/proof.lean",
+    "raw_elaboration": "../../candidates/p0367_weakhomotopyequivalence_of_iunion_open_res/raw_graph.json",
+    "batch_export_theorem_name": "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.weakHomotopyEquivalence_of_iUnion_open_restrictions",
+    "verification_call_id": "verify_submission:38",
+    "topology_certificate": "topology_certificate.lean",
+    "topology_sha256": "d8054a5027501cba618538efb0a26a4cda17a805880f39cd49477c4e14fe5b91",
+    "concrete_semantic_certificate": "semantic_graph_certificate.lean",
+    "concrete_semantic_certificate_kind": "embedded_theorem_replay",
+    "concrete_semantic_certificate_sha256": "7436eeaa133581a5a5ae6e39fa98c74ee252e51a8bc9b03e0915d1db0ec6da48",
+    "concrete_semantic_topology_sha256": "d8054a5027501cba618538efb0a26a4cda17a805880f39cd49477c4e14fe5b91"
+  },
+  "projection": {
+    "method": "automatic_from_elaborated_proposition_bindings",
+    "status": "pilot_candidate",
+    "minimality_status": "selected_derivation_only",
+    "graph_semantics": "forward_manifest_dependency_hypergraph",
+    "node_unit": "elaborated proposition binding; theorem-value telescope preferred, target InfoTree fallback",
+    "edge_unit": "metavariable-free proof value checked by Lean's kernel in its local context",
+    "excluded_info_tree_bindings": {
+      "count": 0,
+      "reason_counts": {},
+      "policy": "not_emitted_as_dependency_edge"
+    },
+    "policies": {
+      "universal_introduction": "fixed at graph boundary; not an edge",
+      "named_mathlib_declaration": "atomic",
+      "accepted_rollout_helper": "atomic and separately tagged",
+      "binding_identity": "Lean FVarId within the theorem-value telescope",
+      "duplicate_propositions": "distinct binders remain distinct even when propositions print identically",
+      "side_conditions": "retained and tagged; excluded from main-only metrics",
+      "retrieval": "declaration-name overlay; search events are not reasoning nodes",
+      "incomplete_info_tree_snapshot": "audited and excluded; never emitted as a verified edge"
+    }
+  },
+  "nodes": [
+    {
+      "id": "m_hf_3c986cc7",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hf",
+      "lean_fvar_id": "9",
+      "statement": "∀ (n : { n // 1 ≤ n }), let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ }; Function.Bijective (Quotient.map ⇑g ⋯) ∧ ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)"
+    },
+    {
+      "id": "m_hu_cover_64aa1e62",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hU_cover",
+      "lean_fvar_id": "8",
+      "statement": "⋃ n, U n = Set.univ"
+    },
+    {
+      "id": "m_hu_mono_fe4eb72b",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hU_mono",
+      "lean_fvar_id": "7",
+      "statement": "Monotone U"
+    },
+    {
+      "id": "m_hu_open_b561bbe4",
+      "class": "main",
+      "origin": "manifest",
+      "selected": true,
+      "binding_name": "hU_open",
+      "lean_fvar_id": "6",
+      "statement": "∀ (n : { n // 1 ≤ n }), IsOpen (U n)"
+    },
+    {
+      "id": "n_goal",
+      "class": "main",
+      "origin": "goal",
+      "selected": true,
+      "binding_name": "goal",
+      "lean_fvar_id": null,
+      "statement": "Function.Bijective (Quotient.map ⇑f ⋯) ∧ ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)"
+    },
+    {
+      "id": "n_hab_5c470aac",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hab",
+      "lean_fvar_id": "_uniq.3648552",
+      "statement": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧"
+    },
+    {
+      "id": "n_hab_78064ab8",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hab",
+      "lean_fvar_id": "_uniq.3569270",
+      "statement": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧"
+    },
+    {
+      "id": "n_hf_13446e44",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hf",
+      "lean_fvar_id": "_uniq.3569155",
+      "statement": "∀ (n : { n // 1 ≤ n }), let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ }; Function.Bijective (Quotient.map ⇑g ⋯) ∧ ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)"
+    },
+    {
+      "id": "n_hk_2d480ff3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hK",
+      "lean_fvar_id": "_uniq.3840410",
+      "statement": "IsCompact K"
+    },
+    {
+      "id": "n_hk_355ccf5b",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hK",
+      "lean_fvar_id": "_uniq.3650906",
+      "statement": "IsCompact K"
+    },
+    {
+      "id": "n_hk_470de2d0",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hK",
+      "lean_fvar_id": "_uniq.3569644",
+      "statement": "IsCompact K"
+    },
+    {
+      "id": "n_hlocal_10a7f443",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlocal",
+      "lean_fvar_id": "_uniq.3647232",
+      "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧"
+    },
+    {
+      "id": "n_hlocal_84e17f0c",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hlocal",
+      "lean_fvar_id": "_uniq.3838488",
+      "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧"
+    },
+    {
+      "id": "n_hnk_45fe51aa",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hnK",
+      "lean_fvar_id": "_uniq.3841944",
+      "statement": "K ⊆ U n"
+    },
+    {
+      "id": "n_hnk_9fe6c87d",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hnK",
+      "lean_fvar_id": "_uniq.3571468",
+      "statement": "K ⊆ U n"
+    },
+    {
+      "id": "n_hnk_bbea3097",
+      "class": "main",
+      "origin": "local_assumption",
+      "selected": false,
+      "binding_name": "hnK",
+      "lean_fvar_id": "_uniq.3652593",
+      "statement": "K ⊆ U n"
+    },
+    {
+      "id": "n_hp_b6aec1a7",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hp",
+      "lean_fvar_id": "_uniq.3668264",
+      "statement": "Set.range ⇑↑p ⊆ U n"
+    },
+    {
+      "id": "n_hpk_e5ad7241",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpK",
+      "lean_fvar_id": "_uniq.3649826",
+      "statement": "IsCompact (Set.range ⇑↑p)"
+    },
+    {
+      "id": "n_hpq_local_6c0652a3",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpq_local",
+      "lean_fvar_id": "_uniq.3838564",
+      "statement": "⟦pU⟧ = ⟦qU⟧"
+    },
+    {
+      "id": "n_hpqx_841b0b9f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hpqX",
+      "lean_fvar_id": "_uniq.3838812",
+      "statement": "GenLoop.Homotopic p q"
+    },
+    {
+      "id": "n_hq_ee21b233",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hq",
+      "lean_fvar_id": "_uniq.3668427",
+      "statement": "Set.range ⇑↑q ⊆ U n"
+    },
+    {
+      "id": "n_hqk_bc2ee830",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hqK",
+      "lean_fvar_id": "_uniq.3650670",
+      "statement": "IsCompact (Set.range ⇑↑q)"
+    },
+    {
+      "id": "n_hx_8ded52ed",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3652726",
+      "statement": "x ∈ U n"
+    },
+    {
+      "id": "n_hx_a077214f",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3842077",
+      "statement": "x ∈ U n"
+    },
+    {
+      "id": "n_hx_f5e16683",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hx",
+      "lean_fvar_id": "_uniq.3571601",
+      "statement": "x ∈ U n"
+    },
+    {
+      "id": "n_hxy_0ad18851",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxy",
+      "lean_fvar_id": "_uniq.3647491",
+      "statement": "Joined x y"
+    },
+    {
+      "id": "n_hxy_local_2f784988",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hxy_local",
+      "lean_fvar_id": "_uniq.3647253",
+      "statement": "⟦x'⟧ = ⟦y'⟧"
+    },
+    {
+      "id": "n_hy_e358fb05",
+      "class": "main",
+      "origin": "derived",
+      "selected": false,
+      "binding_name": "hy",
+      "lean_fvar_id": "_uniq.3571965",
+      "statement": "y ∈ U n"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "h_001_hk",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hk_470de2d0",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_816",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hK : IsCompact K := by\n        simp [K]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3569644",
+            "name": "hK",
+            "statement": "IsCompact K"
+          }
+        },
+        "lean_dependency_sha256": "a61dbf0e0c987fbeec2919506288a4a7c5827a1e173f71b1daffe1c88b5d45a9",
+        "kernel_witness_check": {
+          "proof_type": "IsCompact {x, y}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_002_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnk_9fe6c87d"
+      ],
+      "conclusion": "n_hx_f5e16683",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_817",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hx : x ∈ U n := hnK (by simp [K])",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3571468",
+              "name": "hnK",
+              "statement": "K ⊆ U n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3571601",
+            "name": "hx",
+            "statement": "x ∈ U n"
+          }
+        },
+        "lean_dependency_sha256": "7a8d0d51cf993efd9055448e0566d295e4a291fc0c5bb17d9052ec54107b9078",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ U n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_003_hy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnk_9fe6c87d"
+      ],
+      "conclusion": "n_hy_e358fb05",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_818",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hy : y ∈ U n := hnK (by simp [K])\n      let x' : U n := ⟨x, hx⟩\n      let y' : U n := ⟨y, hy⟩\n      let g : C(U n, Y) :=\n        ⟨fun z => f z.1, f.continuous.comp continuous_subtype_val⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3571468",
+              "name": "hnK",
+              "statement": "K ⊆ U n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3571965",
+            "name": "hy",
+            "statement": "y ∈ U n"
+          }
+        },
+        "lean_dependency_sha256": "351326fed9e70620c3491b850ed47c226d26fce3ba980ff3cdb72dec185d574f",
+        "kernel_witness_check": {
+          "proof_type": "y ∈ U n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_004_hlocal",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hab_78064ab8"
+      ],
+      "conclusion": "n_hlocal_10a7f443",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_822",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hlocal :\n          (Quotient.map g (by\n            intro a b h\n            exact h.map (fun p => p.map g.continuous)) :\n            ZerothHomotopy (U n) → ZerothHomotopy Y) ⟦x'⟧ =\n          (Quotient.map g (by\n            intro a b h\n            exact h.map (fun p => p.map g.continuous)) :\n            ZerothHomotopy (U n) → ZerothHomotopy Y) ⟦y'⟧ := by\n        exact hab",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3569270",
+              "name": "hab",
+              "statement": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3647232",
+            "name": "hlocal",
+            "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧"
+          }
+        },
+        "lean_dependency_sha256": "ba32f7da83995fc863de3b9fd33b164080916599baa2c433cbc613bd359e7d13",
+        "kernel_witness_check": {
+          "proof_type": "Quotient.map ⇑f ⋯ ⟦x⟧ = Quotient.map ⇑f ⋯ ⟦y⟧",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_005_hxy_local",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hf_13446e44",
+        "n_hlocal_10a7f443"
+      ],
+      "conclusion": "n_hxy_local_2f784988",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousMap.continuous + continuous_subtype_val",
+        "items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_823",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hxy_local := (hf n).1.1 hlocal",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3569155",
+              "name": "hf",
+              "statement": "∀ (n : { n // 1 ≤ n }), let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ }; Function.Bijective (Quotient.map ⇑g ⋯) ∧ ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)"
+            },
+            {
+              "fvar_id": "_uniq.3647232",
+              "name": "hlocal",
+              "statement": "Quotient.map ⇑g ⋯ ⟦x'⟧ = Quotient.map ⇑g ⋯ ⟦y'⟧"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3647253",
+            "name": "hxy_local",
+            "statement": "⟦x'⟧ = ⟦y'⟧"
+          }
+        },
+        "lean_dependency_sha256": "470067a6aba08f9c535cdfeeb79ce6bb3f079c0e5818016418a697847869c427",
+        "kernel_witness_check": {
+          "proof_type": "⟦x'⟧ = ⟦y'⟧",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ],
+        "observed_search_event_ids": [
+          "loogle:22",
+          "leanfinder:3",
+          "loogle:27",
+          "leanfinder:29"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_006_hxy",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hxy_local_2f784988"
+      ],
+      "conclusion": "n_hxy_0ad18851",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Quotient.eq + continuous_subtype_val",
+        "items": [
+          "Quotient.eq",
+          "continuous_subtype_val"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Quotient.eq",
+          "continuous_subtype_val"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_824",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hxy : Joined x y := by\n        exact (Quotient.eq.mp hxy_local).map\n          (fun p => p.map continuous_subtype_val)",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3647253",
+              "name": "hxy_local",
+              "statement": "⟦x'⟧ = ⟦y'⟧"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3647491",
+            "name": "hxy",
+            "statement": "Joined x y"
+          }
+        },
+        "lean_dependency_sha256": "ea77fb1ce8bd384a6694aaec0008bc8e7547c4d7260b76a130cda47a20fe2b5d",
+        "kernel_witness_check": {
+          "proof_type": "Nonempty (Path x y)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "continuous_subtype_val"
+        ],
+        "observed_search_event_ids": [
+          "loogle:27",
+          "leanfinder:29"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_007_hpk",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hpk_e5ad7241",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousMap.continuous + isCompact_range",
+        "items": [
+          "ContinuousMap.continuous",
+          "isCompact_range"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousMap.continuous",
+          "isCompact_range"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_827",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hpK : IsCompact (Set.range p.1) := isCompact_range p.1.continuous",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3649826",
+            "name": "hpK",
+            "statement": "IsCompact (Set.range ⇑↑p)"
+          }
+        },
+        "lean_dependency_sha256": "abc34b6100c569300a207d5b413758b63790b62e83ad3a6001caa2b4eab1289c",
+        "kernel_witness_check": {
+          "proof_type": "IsCompact (Set.range ⇑↑p)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousMap.continuous"
+        ],
+        "observed_search_event_ids": [
+          "loogle:22",
+          "leanfinder:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_008_hqk",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hqk_bc2ee830",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousMap.continuous + isCompact_range",
+        "items": [
+          "ContinuousMap.continuous",
+          "isCompact_range"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousMap.continuous",
+          "isCompact_range"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_828",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hqK : IsCompact (Set.range q.1) := isCompact_range q.1.continuous",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3650670",
+            "name": "hqK",
+            "statement": "IsCompact (Set.range ⇑↑q)"
+          }
+        },
+        "lean_dependency_sha256": "83620b7951caf034413409784ef94814f78399a38bb321fa06c8999ff3dae9ee",
+        "kernel_witness_check": {
+          "proof_type": "IsCompact (Set.range ⇑↑q)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousMap.continuous"
+        ],
+        "observed_search_event_ids": [
+          "loogle:22",
+          "leanfinder:3"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_009_hk",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpk_e5ad7241",
+        "n_hqk_bc2ee830"
+      ],
+      "conclusion": "n_hk_355ccf5b",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_829",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hK : IsCompact K := by\n        simp [K]",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3649826",
+              "name": "hpK",
+              "statement": "IsCompact (Set.range ⇑↑p)"
+            },
+            {
+              "fvar_id": "_uniq.3650670",
+              "name": "hqK",
+              "statement": "IsCompact (Set.range ⇑↑q)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3650906",
+            "name": "hK",
+            "statement": "IsCompact K"
+          }
+        },
+        "lean_dependency_sha256": "904f7730d7f87f91511f98002c35c8eacf9d1097bd63008099af13f1a345fecd",
+        "kernel_witness_check": {
+          "proof_type": "IsCompact K",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_010_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnk_bbea3097"
+      ],
+      "conclusion": "n_hx_8ded52ed",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_830",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hx : x ∈ U n := hnK (by simp [K])",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3652593",
+              "name": "hnK",
+              "statement": "K ⊆ U n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3652726",
+            "name": "hx",
+            "statement": "x ∈ U n"
+          }
+        },
+        "lean_dependency_sha256": "a3c142814212477b1e64a608f603d72fa1377ce7e79b0b29648c8749265b2c1d",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ U n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_011_hp",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnk_bbea3097"
+      ],
+      "conclusion": "n_hp_b6aec1a7",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_union_left",
+        "items": [
+          "Set.mem_union_left"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_union_left"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_831",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hp : Set.range p.1 ⊆ U n := by\n        intro z hz\n        exact hnK (Set.mem_union_left {x}\n          (Set.mem_union_left (Set.range q.1) hz))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3652593",
+              "name": "hnK",
+              "statement": "K ⊆ U n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3668264",
+            "name": "hp",
+            "statement": "Set.range ⇑↑p ⊆ U n"
+          }
+        },
+        "lean_dependency_sha256": "7c23c6c5903a0b2b7f237459b528ad5f81787270960e17f4685eb0926c658a68",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃z : X⦄, z ∈ Set.range ⇑↑p → z ∈ U n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_012_hq",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnk_bbea3097"
+      ],
+      "conclusion": "n_hq_ee21b233",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Set.mem_union_left + Set.mem_union_right",
+        "items": [
+          "Set.mem_union_left",
+          "Set.mem_union_right"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Set.mem_union_left",
+          "Set.mem_union_right"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_832",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hq : Set.range q.1 ⊆ U n := by\n        intro z hz\n        exact hnK (Set.mem_union_left {x}\n          (Set.mem_union_right (Set.range p.1) hz))\n      let x' : U n := ⟨x, hx⟩\n      let pU := genLoopRestrict (U n) hx p hp\n      let qU := genLoopRestrict (U n) hx q hq\n      let g : C(U n, Y) :=\n        ⟨fun z => f z.1, f.continuous.comp continuous_subtype_val⟩",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3652593",
+              "name": "hnK",
+              "statement": "K ⊆ U n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3668427",
+            "name": "hq",
+            "statement": "Set.range ⇑↑q ⊆ U n"
+          }
+        },
+        "lean_dependency_sha256": "b6f6a33baf8b61da0d22cd2e78cbdc2b6bf37d0b1f8361a8bb5dcd9772ef5b95",
+        "kernel_witness_check": {
+          "proof_type": "∀ ⦃z : X⦄, z ∈ Set.range ⇑↑q → z ∈ U n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_013_hlocal",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hab_5c470aac"
+      ],
+      "conclusion": "n_hlocal_84e17f0c",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "exact",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_837",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hlocal :\n          (Quotient.map g (by\n            intro a b h\n            exact h.map (fun p => p.map g.continuous)) :\n            ZerothHomotopy (U n) → ZerothHomotopy Y) ⟦x'⟧ =\n          (Quotient.map g (by\n            intro a b h\n            exact h.map (fun p => p.map g.continuous)) :\n            ZerothHomotopy (U n) → ZerothHomotopy Y) ⟦y'⟧ := by\n        exact hab",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3648552",
+              "name": "hab",
+              "statement": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3838488",
+            "name": "hlocal",
+            "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧"
+          }
+        },
+        "lean_dependency_sha256": "ee1491325f06e4f1625a22ab8922f04cfcafe498a2ce55f5f4c5368a87d628bb",
+        "kernel_witness_check": {
+          "proof_type": "Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦p⟧ = Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯ ⟦q⟧",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_014_hpq_local",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hf_13446e44",
+        "n_hlocal_84e17f0c"
+      ],
+      "conclusion": "n_hpq_local_6c0652a3",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "ContinuousMap.continuous + continuous_subtype_val",
+        "items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_838",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hpq_local := ((hf n).2 k x').1 hlocal",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3569155",
+              "name": "hf",
+              "statement": "∀ (n : { n // 1 ≤ n }), let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ }; Function.Bijective (Quotient.map ⇑g ⋯) ∧ ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)"
+            },
+            {
+              "fvar_id": "_uniq.3838488",
+              "name": "hlocal",
+              "statement": "Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦pU⟧ = Quotient.map (fun r => ⟨g.comp ↑r, ⋯⟩) ⋯ ⟦qU⟧"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3838564",
+            "name": "hpq_local",
+            "statement": "⟦pU⟧ = ⟦qU⟧"
+          }
+        },
+        "lean_dependency_sha256": "b8ee5c923fb6891e3d2296f7c649bbe16fbda77828762bcb6e686ae5c962cad4",
+        "kernel_witness_check": {
+          "proof_type": "⟦pU⟧ = ⟦qU⟧",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ],
+        "observed_search_event_ids": [
+          "loogle:22",
+          "leanfinder:3",
+          "loogle:27",
+          "leanfinder:29"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_015_hpqx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hpq_local_6c0652a3"
+      ],
+      "conclusion": "n_hpqx_841b0b9f",
+      "rule": {
+        "kind": "mathlib_declaration",
+        "label": "Quotient.eq + continuous_subtype_val",
+        "items": [
+          "Quotient.eq",
+          "continuous_subtype_val"
+        ],
+        "rollout_helper_items": [],
+        "mathlib_items": [
+          "Quotient.eq",
+          "continuous_subtype_val"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "local_839",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hpqX : GenLoop.Homotopic p q := by\n        exact (Quotient.eq.mp hpq_local).map (fun H =>\n          H.compContinuousMap\n            (⟨Subtype.val, continuous_subtype_val⟩ : C(U n, X)))",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3838564",
+              "name": "hpq_local",
+              "statement": "⟦pU⟧ = ⟦qU⟧"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3838812",
+            "name": "hpqX",
+            "statement": "GenLoop.Homotopic p q"
+          }
+        },
+        "lean_dependency_sha256": "d15228e5af2e789d4c48d7f3a24b3d80b73d74a421e0e88e38aa1916d9bcb190",
+        "kernel_witness_check": {
+          "proof_type": "Nonempty ((↑p).HomotopyRel (↑q) (Cube.boundary (Fin (k + 1))))",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "continuous_subtype_val"
+        ],
+        "observed_search_event_ids": [
+          "loogle:27",
+          "leanfinder:29"
+        ],
+        "direct_search_observed": true
+      }
+    },
+    {
+      "id": "h_016_hk",
+      "class": "main",
+      "selected": false,
+      "premises": [],
+      "conclusion": "n_hk_2d480ff3",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_841",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hK : IsCompact K := by\n        simp [K]",
+        "lean_dependency_record": {
+          "premises": [],
+          "conclusion": {
+            "fvar_id": "_uniq.3840410",
+            "name": "hK",
+            "statement": "IsCompact K"
+          }
+        },
+        "lean_dependency_sha256": "50941a022c9ab78dcd1c2aa3c6e7f24f1e46d36ea24eef4e87ab4e10d0eb7c49",
+        "kernel_witness_check": {
+          "proof_type": "IsCompact {x}",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_017_hx",
+      "class": "main",
+      "selected": false,
+      "premises": [
+        "n_hnk_45fe51aa"
+      ],
+      "conclusion": "n_hx_a077214f",
+      "rule": {
+        "kind": "tactic_or_logical_construction",
+        "label": "simp",
+        "items": [],
+        "rollout_helper_items": [],
+        "mathlib_items": []
+      },
+      "provenance": {
+        "raw_edge_id": "local_842",
+        "source": "info_tree_local_binding",
+        "proof_fragment": "      have hx : x ∈ U n := hnK (by simp [K])",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "_uniq.3841944",
+              "name": "hnK",
+              "statement": "K ⊆ U n"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "_uniq.3842077",
+            "name": "hx",
+            "statement": "x ∈ U n"
+          }
+        },
+        "lean_dependency_sha256": "25bf279206fdecbac70a8769a557e6f77e131f0f0c722a14411544fba896bda8",
+        "kernel_witness_check": {
+          "proof_type": "x ∈ U n",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [],
+        "observed_search_event_ids": [],
+        "direct_search_observed": false
+      }
+    },
+    {
+      "id": "h_goal",
+      "class": "main",
+      "selected": true,
+      "premises": [
+        "m_hu_open_b561bbe4",
+        "m_hu_mono_fe4eb72b",
+        "m_hu_cover_64aa1e62",
+        "m_hf_3c986cc7"
+      ],
+      "conclusion": "n_goal",
+      "rule": {
+        "kind": "named_declaration_composition",
+        "label": "ContinuousMap.continuous + Quotient.eq + Quotient.exists_rep",
+        "items": [
+          "ContinuousMap.continuous",
+          "Quotient.eq",
+          "Quotient.exists_rep",
+          "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.exists_cover_stage_of_isCompact",
+          "continuous_subtype_val",
+          "le_rfl"
+        ],
+        "rollout_helper_items": [
+          "Rollout_p0367_weakhomotopyequivalence_of_iunion_open_res.exists_cover_stage_of_isCompact"
+        ],
+        "mathlib_items": [
+          "ContinuousMap.continuous",
+          "Quotient.eq",
+          "Quotient.exists_rep",
+          "continuous_subtype_val",
+          "le_rfl"
+        ]
+      },
+      "provenance": {
+        "raw_edge_id": "goal_edge",
+        "source": "elaborated_theorem_body",
+        "proof_fragment": "  constructor\n  · constructor\n    · intro a b hab\n      obtain ⟨x, rfl⟩ := Quotient.exists_rep a\n      obtain ⟨y, rfl⟩ := Quotient.exists_rep b\n      let K : Set X := {x, y}\n      have hK : IsCompact K := by\n        simp [K]\n      obtain ⟨n, hnK⟩ :=\n        exists_cover_stage_of_isCompact hK U hU_open hU_mono hU_cover\n      have hx : x ∈ U n := hnK (by simp [K])\n      have hy : y ∈ U n := hnK (by simp [K])\n      let x' : U n := ⟨x, hx⟩\n      let y' : U n := ⟨y, hy⟩\n      let g : C(U n, Y) :=\n        ⟨fun z => f z.1, f.continuous.comp continuous_subtype_val⟩\n      have hlocal :\n          (Quotient.map g (by\n            intro a b h\n            exact h.map (fun p => p.map g.continuous)) :\n            ZerothHomotopy (U n) → ZerothHomotopy Y) ⟦x'⟧ =\n          (Quotient.map g (by\n            intro a b h\n            exact h.map (fun p => p.map g.continuous)) :\n            ZerothHomotopy (U n) → ZerothHomotopy Y) ⟦y'⟧ := by\n        exact hab\n      have hxy_local := (hf n).1.1 hlocal\n      have hxy : Joined x y := by\n        exact (Quotient.eq.mp hxy_local).map\n          (fun p => p.map continuous_subtype_val)\n      exact Quotient.eq.mpr hxy\n    · intro b\n      obtain ⟨y, rfl⟩ := Quotient.exists_rep b\n      let n : {n : ℕ // 1 ≤ n} := ⟨1, le_rfl⟩\n      obtain ⟨a, ha⟩ := (hf n).1.2 (⟦y⟧ : ZerothHomotopy Y)\n      obtain ⟨x, rfl⟩ := Quotient.exists_rep a\n      use (⟦x.1⟧ : ZerothHomotopy X)\n      exact ha\n  · intro k x\n    constructor\n    · intro a b hab\n      obtain ⟨p, rfl⟩ := Quotient.exists_rep a\n      obtain ⟨q, rfl⟩ := Quotient.exists_rep b\n      let K : Set X := Set.range p.1 ∪ ",
+        "lean_dependency_record": {
+          "premises": [
+            {
+              "fvar_id": "6",
+              "name": "hU_open",
+              "statement": "∀ (n : { n // 1 ≤ n }), IsOpen (U n)"
+            },
+            {
+              "fvar_id": "7",
+              "name": "hU_mono",
+              "statement": "Monotone U"
+            },
+            {
+              "fvar_id": "8",
+              "name": "hU_cover",
+              "statement": "⋃ n, U n = Set.univ"
+            },
+            {
+              "fvar_id": "9",
+              "name": "hf",
+              "statement": "∀ (n : { n // 1 ≤ n }), let g := { toFun := fun x => f ↑x, continuous_toFun := ⋯ }; Function.Bijective (Quotient.map ⇑g ⋯) ∧ ∀ (k : ℕ) (x : ↑(U n)), Function.Bijective (Quotient.map (fun p => ⟨g.comp ↑p, ⋯⟩) ⋯)"
+            }
+          ],
+          "conclusion": {
+            "fvar_id": "",
+            "name": "goal",
+            "statement": "Function.Bijective (Quotient.map ⇑f ⋯) ∧ ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)"
+          }
+        },
+        "lean_dependency_sha256": "b60d400010d288526cc0c14dac0b7a160785e6e851016186a79fd6db72de8967",
+        "kernel_witness_check": {
+          "proof_type": "Function.Bijective (Quotient.map ⇑f ⋯) ∧\n  ∀ (k : ℕ) (x : X), Function.Bijective (Quotient.map (fun p => ⟨f.comp ↑p, ⋯⟩) ⋯)",
+          "kernel_typecheck": true,
+          "contains_unresolved_metavariables": false,
+          "conclusion_defeq_proof_type": true
+        }
+      },
+      "retrieval": {
+        "matched_rule_items": [
+          "ContinuousMap.continuous",
+          "continuous_subtype_val"
+        ],
+        "observed_search_event_ids": [
+          "loogle:22",
+          "leanfinder:3",
+          "loogle:27",
+          "leanfinder:29"
+        ],
+        "direct_search_observed": true
+      }
+    }
+  ],
+  "retrieval_events": [
+    {
+      "event_id": "leanfinder:0",
+      "tool": "leanfinder",
+      "query": "weak homotopy equivalence increasing open cover restrictions",
+      "declarations": [
+        "OpenPartialHomeomorph.coe_ofContinuousOpen",
+        "OpenPartialHomeomorph.coe_ofContinuousOpenRestrict",
+        "HomotopicalAlgebra.PathObject.RightHomotopy.weakEquivalence_iff",
+        "HomotopicalAlgebra.RightHomotopyClass.precomp_bijective_of_weakEquivalence",
+        "HomotopicalAlgebra.WeakEquivalence",
+        "exists_iUnion_eq_closure_subset",
+        "Equiv.coe_toHomeomorph",
+        "HomotopicalAlgebra.LeftHomotopyClass.postcomp_bijective_of_weakEquivalence",
+        "TopologicalSpace.IsOpenCover.isHomeomorph_iff_restrictPreimage",
+        "HomotopicalAlgebra.Cylinder.LeftHomotopy.weakEquivalence_iff"
+      ],
+      "call_turn": 2,
+      "result_turn": 3
+    },
+    {
+      "event_id": "loogle:1",
+      "tool": "loogle",
+      "query": "ZerothHomotopy",
+      "declarations": [
+        "ZerothHomotopy",
+        "instTopologicalSpaceZerothHomotopy",
+        "ZerothHomotopy.inhabited",
+        "ZerothHomotopy.toConnectedComponents",
+        "instCompactSpaceZerothHomotopy",
+        "ZerothHomotopy.toConnectedComponents_surjective",
+        "pathConnectedSpace_iff_zerothHomotopy",
+        "connectedComponentsEquivZerothHomotopy",
+        "instDiscreteTopologyZerothHomotopy",
+        "instFiniteZerothHomotopyOfCompactSpace"
+      ],
+      "call_turn": 2,
+      "result_turn": 4
+    },
+    {
+      "event_id": "loogle:2",
+      "tool": "loogle",
+      "query": "HomotopyGroup.Pi",
+      "declarations": [
+        "HomotopyGroup.Pi",
+        "HomotopyGroup.pi0EquivZerothHomotopy",
+        "HomotopyGroup.pi1EquivFundamentalGroup"
+      ],
+      "call_turn": 2,
+      "result_turn": 5
+    },
+    {
+      "event_id": "leanfinder:3",
+      "tool": "leanfinder",
+      "query": "continuous map weak homotopy equivalence restriction opens union",
+      "declarations": [
+        "OpenPartialHomeomorph.coe_ofContinuousOpen",
+        "OpenPartialHomeomorph.coe_ofContinuousOpenRestrict",
+        "HomotopicalAlgebra.PathObject.RightHomotopy.weakEquivalence_iff",
+        "OpenPartialHomeomorph.IsImage.restr_symm_apply",
+        "HomotopicalAlgebra.WeakEquivalence",
+        "Topology.IsOpenMap.isStrictMap",
+        "ContinuousMap.Homotopy",
+        "HomotopicalAlgebra.Cylinder.LeftHomotopy.weakEquivalence_iff",
+        "ContinuousMap.Homotopy.continuous",
+        "closedUnderRestriction_idRestrGroupoid"
+      ],
+      "call_turn": 2,
+      "result_turn": 6
+    },
+    {
+      "event_id": "loogle:7",
+      "tool": "loogle",
+      "query": "IsCompact _ -> ⋃ _ _ = Set.univ -> ∃ _, _ ⊆ _",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 14
+    },
+    {
+      "event_id": "loogle:8",
+      "tool": "loogle",
+      "query": "IsCompact.elim_finite_subcover",
+      "declarations": [
+        "IsCompact.elim_finite_subcover"
+      ],
+      "call_turn": 13,
+      "result_turn": 15
+    },
+    {
+      "event_id": "leanfinder:9",
+      "tool": "leanfinder",
+      "query": "directed open cover compact subset contained in one open",
+      "declarations": [
+        "IsCompact.elim_directed_cover",
+        "IsCompact.exists_thickening_subset_open",
+        "IsCompact.closure_subset_of_isOpen",
+        "IsCompactOpenCovered",
+        "IsOpen",
+        "IsCountablyCompact.elim_directed_cover",
+        "IsCompact.exists_isOpen_closure_subset",
+        "compact_exists_isClopen_in_isOpen",
+        "IsCompactOpenCovered.of_biUnion_eq_of_isCompact",
+        "exists_monotone_Icc_subset_open_cover_Icc"
+      ],
+      "call_turn": 13,
+      "result_turn": 16
+    },
+    {
+      "event_id": "leanfinder:10",
+      "tool": "leanfinder",
+      "query": "monotone open cover compact set subset some stage",
+      "declarations": [
+        "compactCovering",
+        "compactCovering_subset",
+        "IsCompactOpenCovered",
+        "IsCompact.finite_compact_cover",
+        "iUnion_closure_compactCovering",
+        "Dynamics.coverMincard_monotone_subset",
+        "AlgebraicGeometry.QuasiCompactCover",
+        "exists_monotone_Icc_subset_open_cover_unitInterval_prod_self",
+        "exists_monotone_Icc_subset_open_cover_Icc",
+        "exists_monotone_Icc_subset_open_cover_unitInterval"
+      ],
+      "call_turn": 13,
+      "result_turn": 17
+    },
+    {
+      "event_id": "loogle:11",
+      "tool": "loogle",
+      "query": "IsCompact.range",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 18
+    },
+    {
+      "event_id": "loogle:12",
+      "tool": "loogle",
+      "query": "CompactSpace (Fin _ -> unitInterval)",
+      "declarations": [],
+      "call_turn": 13,
+      "result_turn": 19
+    },
+    {
+      "event_id": "loogle:14",
+      "tool": "loogle",
+      "query": "Monotone.directed",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 23
+    },
+    {
+      "event_id": "loogle:15",
+      "tool": "loogle",
+      "query": "Monotone _ -> Directed _ _",
+      "declarations": [
+        "Monotone.directed_ge",
+        "Monotone.directed_le"
+      ],
+      "call_turn": 22,
+      "result_turn": 24
+    },
+    {
+      "event_id": "loogle:16",
+      "tool": "loogle",
+      "query": "DirectedOn",
+      "declarations": [
+        "DirectedOn",
+        "directedOn_univ",
+        "directedOn_univ_iff",
+        "Std.Total.directedOn",
+        "directedOn_singleton",
+        "Directed.directedOn_range",
+        "directedOn_range",
+        "DirectedOn.mono",
+        "directedOn_image",
+        "directedOn_onFun_iff"
+      ],
+      "call_turn": 22,
+      "result_turn": 25
+    },
+    {
+      "event_id": "loogle:17",
+      "tool": "loogle",
+      "query": "directed_of_isDirected",
+      "declarations": [],
+      "call_turn": 22,
+      "result_turn": 26
+    },
+    {
+      "event_id": "loogle:18",
+      "tool": "loogle",
+      "query": "Directed (_ ⊆ _) _",
+      "declarations": [
+        "directed_id",
+        "directed_id_iff",
+        "Std.Total.directed",
+        "Directed.directedOn_range",
+        "directedOn_range",
+        "Directed.mono",
+        "directed_of_isDirected_ge",
+        "directed_of_isDirected_le",
+        "directed_comp",
+        "Antitone.directed_ge"
+      ],
+      "call_turn": 22,
+      "result_turn": 27
+    },
+    {
+      "event_id": "loogle:21",
+      "tool": "loogle",
+      "query": "continuous_subtype_mk",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 33
+    },
+    {
+      "event_id": "loogle:22",
+      "tool": "loogle",
+      "query": "Continuous (fun _ => ⟨_, _⟩)",
+      "declarations": [
+        "IsOpenQuotientMap.continuous",
+        "Continuous.isOpen_preimage",
+        "Continuous.mk",
+        "IsOpenQuotientMap.mk",
+        "isOpenQuotientMap_iff",
+        "ContinuousMap.mk",
+        "ContinuousMap.continuous_toFun",
+        "ContinuousMap.continuous",
+        "ContinuousMapClass.map_continuous",
+        "ContinuousMapClass.mk"
+      ],
+      "call_turn": 32,
+      "result_turn": 34
+    },
+    {
+      "event_id": "loogle:23",
+      "tool": "loogle",
+      "query": "Continuous.subtype_mk",
+      "declarations": [
+        "Continuous.subtype_mk"
+      ],
+      "call_turn": 32,
+      "result_turn": 35
+    },
+    {
+      "event_id": "loogle:24",
+      "tool": "loogle",
+      "query": "ContinuousMap.codRestrict",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 36
+    },
+    {
+      "event_id": "loogle:25",
+      "tool": "loogle",
+      "query": "ContinuousMap.codRestrict_apply",
+      "declarations": [],
+      "call_turn": 32,
+      "result_turn": 37
+    },
+    {
+      "event_id": "loogle:26",
+      "tool": "loogle",
+      "query": "ContinuousMap.subtypeVal",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 39
+    },
+    {
+      "event_id": "loogle:27",
+      "tool": "loogle",
+      "query": "continuous_subtype_val",
+      "declarations": [
+        "continuous_subtype_val",
+        "AlgebraicGeometry.ProjectiveSpectrum.Proj.toSpec_preimage_basicOpen"
+      ],
+      "call_turn": 38,
+      "result_turn": 40
+    },
+    {
+      "event_id": "loogle:28",
+      "tool": "loogle",
+      "query": "ContinuousMap.inclusion",
+      "declarations": [
+        "ContinuousMap.inclusion"
+      ],
+      "call_turn": 38,
+      "result_turn": 41
+    },
+    {
+      "event_id": "leanfinder:29",
+      "tool": "leanfinder",
+      "query": "continuous map subtype inclusion",
+      "declarations": [
+        "ContinuousMap.inclusion",
+        "Continuous.subtype_val",
+        "continuous_subtype_val",
+        "continuous_inclusion",
+        "Continuous.subtype_map",
+        "isometry_subtype_coe",
+        "Set.inclusion",
+        "Submodule.map_subtype_range_inclusion",
+        "Set.inclusion_eq_subtype_map",
+        "isUniformInducing_val"
+      ],
+      "call_turn": 38,
+      "result_turn": 42
+    },
+    {
+      "event_id": "loogle:30",
+      "tool": "loogle",
+      "query": "C(↥_, _)",
+      "declarations": [],
+      "call_turn": 38,
+      "result_turn": 43
+    }
+  ],
+  "axiom_audit": {
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "constructive_core_only": false,
+    "classical": [
+      "Classical.choice"
+    ],
+    "extensional_or_quotient": [
+      "Quot.sound",
+      "propext"
+    ],
+    "incomplete_or_unsafe": [],
+    "other": [],
+    "status": "passed"
+  },
+  "metrics": {
+    "selected_node_count": 5,
+    "selected_hyperedge_count": 1,
+    "main_hyperedge_count": 1,
+    "side_hyperedge_count": 0,
+    "selected_depth": 1,
+    "max_fan_in_all": 4,
+    "max_fan_in_main": 4,
+    "manifest_fact_count": 4,
+    "retrieved_rule_item_count": 2,
+    "retrieval_query_count": 25,
+    "useful_retrieval_event_count": 4,
+    "unused_retrieval_event_count": 21,
+    "accepted_helper_count": 1,
+    "rollout_tool_call_count": 39,
+    "excluded_info_tree_binding_count": 0
+  },
+  "validation": {
+    "metadata_correct": true,
+    "recorded_verify_submission": "passed",
+    "unsafe_placeholder_gate": "passed",
+    "reconstructed_lean_4_29_elaboration": "passed_in_isolated_namespace_batch",
+    "edge_witnesses_from_elaborated_terms": "kernel_typechecked_in_original_local_context",
+    "incomplete_info_tree_snapshots": "none",
+    "projection_dependency_fingerprints": "passed",
+    "lean_topology_certificate": "passed_in_fresh_lean_process",
+    "lean_concrete_semantic_certificate": "passed_in_fresh_lean_process",
+    "standalone_source_level_semantic_edge_replay": "passed_in_fresh_lean_process",
+    "axiom_audit": "passed",
+    "acyclic": true,
+    "goal_reachable": true,
+    "unresolved_selected_derived_nodes": []
+  }
+}
