@@ -8,10 +8,11 @@ hypergraph for one selected proof**.
 1. **Select first.** Declare the cohort and seed before inspecting graphs.
 2. **Reconstruct.** Keep accepted helper declarations and the verified final
    submission; reject failed verification and unsafe placeholders.
-3. **Extract.** Proposition-valued theorem inputs are manifest nodes. A
-   metavariable-free local proposition and its proof value form a derived node
-   and hyperedge; the proof's direct proposition dependencies are its joint
-   premises. Retrieval is provenance, not a reasoning node.
+3. **Extract.** Proposition-valued theorem inputs are manifest nodes. A source
+   `have` is not automatically a node: only a checked proposition binding in
+   the declared proof-term projection can form a derived node and hyperedge.
+   Its proof's direct proposition dependencies are the joint premises;
+   retrieval remains provenance rather than a reasoning node.
 4. **Select and draw.** Take the exact backward closure of the theorem goal and
    render it left-to-right by dependency depth.
 5. **Check.** Re-elaborate the proof, kernel-check every emitted edge witness,
@@ -66,6 +67,51 @@ term, the graph keeps that larger step atomic under this projection.
 Lean `FVarId`s preserve binder identity; equal-looking propositions are not
 automatically merged.
 
+### A.1. Exact `have`-to-node policy
+
+The graph is extracted from elaborated evidence, not by parsing `have` syntax.
+Consequently, neither direction is one-to-one: a source `have` may disappear,
+and a manifest or tactic-generated proposition binding may be a node without
+being an explicit source `have`.
+
+Primary local-edge evidence is selected as follows:
+
+1. Apply `lambdaLetTelescope` to the accepted theorem value.
+2. If it exposes one or more derived proposition bindings, use exactly those
+   theorem-value bindings; do not merge additional InfoTree-only bindings.
+3. Only when it exposes zero derived bindings, fall back to checked local
+   proposition bindings recovered from the target InfoTree.
+4. Append the theorem body's final edge, then compute direct dependencies from
+   proposition-valued free variables of each proof value.
+
+For either source, a local edge is admissible only when its conclusion is a
+`Prop`, its conclusion and witness contain no unresolved metavariables, Lean's
+kernel accepts the witness in that exact local context, and the inferred
+witness type is definitionally equal to the conclusion. An admissible binding
+is rendered only if it lies in the exact backward dependency closure of the
+final goal.
+
+| Source-level situation | Artifact treatment |
+|---|---|
+| Retained proposition binding on the goal dependency path | Selected node and hyperedge |
+| Retained, checked proposition binding not on that path | Stored with `selected: false`; not rendered |
+| Binding observed only in InfoTree while theorem-value bindings exist | Retained in raw InfoTree evidence; not projected |
+| InfoTree proposition with a metavariable in its type or witness | Recorded in `excluded_local_bindings`; never an edge |
+| Non-`Prop` local binding | Ignored by the semantic graph |
+| Anonymous or elaborator-inlined proof such as `(by positivity)` | Remains inside the enclosing edge; no separate node |
+
+Inlining and zeta reduction matter. If a later proof value directly contains
+the proof of an earlier `have` instead of its free-variable reference, the
+earlier `have` is not a direct dependency node on that path. Thus this is a
+proof-term dependency graph, not a source-command execution trace.
+
+In p1662, raw InfoTree evidence contains 23 local propositions, including
+`this` and `harrange`, while the accepted theorem-value telescope retains 21.
+Under the theorem-value-first policy, those 21 are selected and the final goal
+adds the 22nd hyperedge. `hlamne : lam ≠ 0` is a node because it survives as a
+checked proposition binding and later selected witnesses directly reference
+it; the same fact proved only inline would not be a separate node.
+
 ## B. Cohorts
 
 - `config.json`: shortest 20, retained only as a regression smoke test.
@@ -77,6 +123,9 @@ automatically merged.
 
 Each audit stores the eligible population, strategy, seed, hash ranks, stratum
 counts, rejection reasons, and selected rollout IDs.
+
+The source-level `have` count is used only as a sampling/filtering feature. It
+does not determine graph nodes or edges.
 
 ## C. Verification boundary
 
@@ -138,6 +187,7 @@ The pipeline does not establish:
 - task-level necessity of each theorem hypothesis;
 - absence of a different or shorter proof;
 - completeness over transient tactic/elaboration bindings;
+- a one-to-one correspondence between source `have` commands and graph nodes;
 - semantic equivalence of separately bound but similar-looking propositions;
 - causal effects of retrieval on success.
 
