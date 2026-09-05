@@ -6,6 +6,9 @@ cohort avoids shortest-proof selection bias. The graph contract, sampling
 rationale, visual grammar, and Lean guarantees are specified in
 [`METHODOLOGY.md`](METHODOLOGY.md).
 
+For worked examples showing why some source-level `have` statements become
+visible intermediate nodes while others do not, see [`example.md`](example.md).
+
 The generated 100-item cohort is at
 [`outputs/random100/cohort_report.md`](outputs/random100/cohort_report.md); the
 original pilot remains at [`outputs/index.md`](outputs/index.md). Each graph has
