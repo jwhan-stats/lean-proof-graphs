@@ -64,6 +64,55 @@ mathematical proof.
 | `p1067` | 7 outer `have`s plus nested temporary facts | 7 | 5 | A retained candidate can be unselected, and nested facts can stay inside a larger edge. |
 | `p0960` | 9 outer `have`s plus one branch-local `have` | 9 | 9 | A top-level chain can be preserved almost exactly while a branch-local fact is folded into its parent edge. |
 
+## Meeting note: sensitivity to proof-writing style
+
+The graph depends strongly on how the LLM writes the Lean proof.  It is a
+graph of one accepted proof term, not a canonical graph of the mathematical
+argument.  Two proofs can use the same mathematical idea but produce graphs
+with very different sizes and depths.
+
+For example, `p0381` puts every intermediate fact inside `by_contra`:
+
+```lean
+by_contra hSK
+have hLmin := ...
+have hwS := ...
+exact contradiction
+```
+
+Those facts are local to the contradiction subproof.  The current exporter
+folds that whole subproof into one goal edge, so none of its nine recovered
+`have`s is selected.
+
+The same argument could instead be organized schematically as outer facts:
+
+```lean
+have hbad_implies_w : S ∉ K → w ∈ S := by ...
+have hnot_bad : ¬ S ∉ K := by ...
+exact Classical.byContradiction hnot_bad
+```
+
+This version is likely to produce visible nodes such as `hbad_implies_w` and
+`hnot_bad`, even though the mathematical argument has not changed.
+
+Helper boundaries have the same effect.  In `p1242`, the main theorem graph is
+small because the finite-support construction is inside an atomic helper.  If
+the helper body were written inline, the graph would be much larger.
+
+This matters when graph size, depth, or node count is used to compare LLMs:
+a difference may reflect coding style (`by_contra`, helper extraction, or
+inlining) rather than a difference in mathematical reasoning quality.
+
+The main design question for discussion is therefore:
+
+> Should the graph represent the exact Lean proof written by the LLM, or a
+> normalized mathematical argument that is less sensitive to Lean coding
+> style?
+
+The current pipeline answers the first question.  Answering the second would
+require an additional normalization step, nested-subproof expansion, or
+paper-level semantic annotations.
+
 ---
 
 ## Example 1: `p0381_two_minimal_missing_faces_deletion`
@@ -326,6 +375,168 @@ is `hWnonneg`.  This gives a useful hierarchy:
 The accepted helper `antitone_monotone_power_sum_pair_nonneg` is also treated
 atomically.  Its own internal `have`s do not become nodes in the graph of the
 main theorem.
+
+---
+
+## Cross-check against the original arXiv proofs
+
+The preceding sections explain whether the projection is faithful to the
+*accepted Lean proof term*.  That is different from asking whether it recovers
+the mathematical milestones chosen by the paper's author.  To check the
+second question, the four examples were compared with the corresponding
+proofs in the source papers.
+
+For this comparison, an intermediate result is classified as one of:
+
+- **paper-explicit**: the paper states the result as a displayed line, lemma,
+  or explicit sentence in the proof;
+- **equivalent regrouping**: the Lean proof packages one or more paper steps
+  into a mathematically equivalent bound or identity; or
+- **Lean-only scaffolding**: the fact is useful for elaboration, finite-sum
+  manipulation, type conversion, or helper reuse, but is not a milestone in
+  the paper proof.
+
+These labels are a semantic audit of the examples, not inputs to the current
+rule-based exporter.
+
+### Overall result
+
+| Example | Source proof | Paper/graph alignment | Assessment |
+|---|---|---|---|
+| `p0381` | [Lemma 3.3 of arXiv:1701.07720](https://arxiv.org/html/1701.07720v3) | Low | The paper exposes a short contradiction chain, whereas the selected graph contracts the whole chain into one goal edge. |
+| `p1242` | [Section 2, equations (2.10)--(2.11), of arXiv:0811.2405](https://arxiv.org/pdf/0811.2405#page=4) | Low at the main-theorem boundary; high inside the helper | The only selected node is a singleton adapter.  The paper-aligned backward finite-support construction is hidden in atomic helpers. |
+| `p1067` | [Lemma 3.3, equation (3.2), of arXiv:1510.07449](https://arxiv.org/pdf/1510.07449#page=7) | High | The selected nodes preserve exponential dominance, the exponential norm identity, and the two triangle-inequality bounds. |
+| `p0960` | [Lemma 2.2, equation (2.20), of arXiv:1005.2954](https://arxiv.org/pdf/1005.2954#page=11) | Medium | Lean uses a symmetric double-sum proof instead of the paper's induction, but its pairwise nonnegativity lemma contains essentially the same factorization. |
+
+### `p0381`: the paper milestones are real, but all are contracted
+
+The source paper first says that it is enough to prove that
+`K \ w` has no missing face.  It then assumes that a face `sigma` is missing
+from `K \ w`, observes that `sigma` is also missing from `K`, and uses the fact
+that every missing face contains one of the two minimal missing faces.  This
+is impossible: `sigma` avoids `w`, while both minimal missing faces contain
+`w`.
+
+The correspondence with the Lean proof is:
+
+| Paper step | Lean realization | Current selected node? | Classification |
+|---|---|---:|---|
+| A missing face of the deletion is a missing face of the original complex. | `hSK`, together with `hSV` and the representation of `S` | No | paper-explicit |
+| The bad face contains a minimal missing face. | Construct finite `C`, choose `L`, and prove `hLmin` | No | paper-implicit justification made explicit by Lean |
+| That minimal face is `I` or `J`. | `(hmissing L).mp hLmin` | No | paper-explicit |
+| Therefore the bad face contains `w`, a contradiction. | `hwL`, `hwS`, and the final contradiction | No | paper-explicit |
+
+The finite minimization through `C` is longer than the paper because the Lean
+hypothesis classifies only *minimal* missing faces.  It supplies the omitted
+justification for the paper's assertion that an arbitrary missing face
+contains a minimal one.  Consequently, selecting none of `hLmin`, `hwL`, or
+`hwS` is correct for the current direct-`FVarId` rule, but it is too coarse for
+a paper-facing proof graph.  At minimum, the existence/classification of `L`
+and the resulting occurrence of `w` would be sensible semantic cut points.
+
+### `p1242`: the paper proof is hidden behind the helper boundary
+
+The paper starts with `P in T_n(A)` and constructs finite supports backwards.
+It first chooses a finite `F_(n-1)` that derives `P`.  For every formula in
+that finite set, it chooses another finite support one level earlier, takes
+their finite union, and repeats until reaching `S_0`.
+
+That is almost exactly the organization of the two accepted Lean helpers:
+
+| Paper operation | Lean realization | Visible in the main graph? |
+|---|---|---:|
+| Perform one finite-support pullback through `D`. | `finite_support_of_derivation` | No; helper treated atomically |
+| Repeat the pullback down the derivation levels. | induction in `finite_support_chain_forall` | No; helper treated atomically |
+| Apply the construction to the final formula `P`. | replace `P` by the finite singleton `{P}` using `hsub` | Yes |
+
+Thus `hsub : {P} ⊆ D^n(A)` is a legitimate dependency in this Lean
+implementation, but it is Lean-only scaffolding rather than the paper's main
+intermediate result.  The segmentation becomes strongly paper-aligned only
+if accepted helpers are expanded one level or represented as compound nodes
+with inspectable subgraphs.
+
+### `p1067`: the graph closely follows the displayed calculation
+
+Writing `t = -Re(z)`, the paper proves the lower bound by the chain
+
+```text
+|f(z)| >= exp(t) - 1 - |z|
+       >= exp(t) - 1 - 2t
+       >= (1/2) exp(t),
+```
+
+and proves the upper bound with the corresponding ordinary triangle
+inequality.  It uses `exp(t) / 2 >= 1 + 2t` for `t >= 3` and
+`exp(t) >= 1 + 2t` for `t >= 2`.
+
+| Lean fact | Relation to the paper | Classification |
+|---|---|---|
+| `hexp : 4*t + 2 <= exp(t)` | A single stronger scalar estimate that implies both estimates used by the paper. | equivalent regrouping |
+| `hz1 : ‖z+1‖ <= exp(t)/2` | Packages `‖z+1‖ <= ‖z‖+1 <= 2t+1` and the scalar exponential estimate. | equivalent regrouping |
+| `hnormexp : ‖exp(-z)‖ = exp(t)` | The equality used explicitly in both displayed calculations. | paper-explicit |
+| `hlower_core` | The paper's reverse-triangle lower-bound calculation. | paper-explicit |
+| `hupper_core` | The paper's triangle-inequality upper-bound calculation. | paper-explicit |
+
+The unselected `hx3` and `hnormz` merely restate the two hypotheses.  Omitting
+them as separate milestones is reasonable here.  The nested `hrev` and `htri`
+are also safely folded into `hlower_core` and `hupper_core`: their parent nodes
+still correspond directly to the two halves of the paper proof.  Of these
+four examples, this is the clearest evidence that the current projection can
+recover a useful paper-level graph when the Lean proof follows the source
+calculation and does not outsource its core argument to helpers.
+
+### `p0960`: the local algebra agrees, but the global proof architecture differs
+
+The paper proves the inequality by induction on the sequence length.  After
+assuming the result for `k = m`, it expands the difference for `m + 1`, applies
+the induction hypothesis, and factors the remaining expression into a sum of
+nonnegative terms of the form
+
+```text
+a_(m+1) * a_i
+* (b_(m+1) * a_i^(s-1) - b_i * a_(m+1)^(s-1))
+* (a_i - a_(m+1)).
+```
+
+The Lean proof instead proves every ordered-pair contribution nonnegative and
+then sums over all pairs.  The hidden helper
+`antitone_monotone_power_sum_pair_nonneg` factors a pair into the same three
+essential nonnegative pieces: two nonnegative `a` factors, a decreasing-`a`
+difference, and a weighted power difference controlled by increasing `b`.
+So `hWnonneg` captures the mathematical heart of the paper's factorization,
+even though the proof is not inductive.
+
+The remaining selected facts have a different status:
+
+| Selected facts | Role | Classification relative to the paper |
+|---|---|---|
+| `hWnonneg` | Pairwise positivity behind the inequality | mathematically aligned, but reorganized |
+| `hsumW` | Sum the pairwise inequalities | alternative-proof step |
+| `hU`, `hUs`, `hV`, `hVs`, `hsumEq` | Convert the symmetric double sum into `2 * (C*D - A*B)` | Lean/alternative-proof scaffolding; absent from the paper |
+| `hdiff`, `hle` | Turn nonnegativity of the difference into the target order | routine logical/algebraic closure |
+
+Therefore all nine selected nodes are valid nodes for the *Lean proof that was
+actually generated*, but the graph should not be described as a reconstruction
+of the paper's trajectory.  A paper-faithful graph would instead expose the
+base case, induction hypothesis, `m+1` expansion, factorization, and final
+nonnegativity argument.
+
+### Conclusion of the source audit
+
+The node distinction is mechanically sound, but it is not by itself a test of
+paper-level mathematical salience.  The examples reveal three independent
+sources of disagreement with a paper proof:
+
+1. **scope contraction** can hide a whole local contradiction (`p0381`);
+2. **atomic helper boundaries** can hide the actual argument and retain only
+   an adapter node (`p1242`); and
+3. **a different valid proof** can create a genuinely different graph
+   (`p0960`).
+
+When none of these occurs, the current rule can align well with a source proof
+(`p1067`).  If paper alignment is an evaluation goal, it should therefore be
+measured separately from proof-term faithfulness, ideally with annotations for
+paper-explicit, paper-implicit, and formalization-only steps.
 
 ---
 
